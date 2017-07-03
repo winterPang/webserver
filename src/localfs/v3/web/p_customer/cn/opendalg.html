@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<body>
+<div id="client_diag">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">客户端统计</h3>
+    </div>
+    <div class="modal-body">
+        <div id="popList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" id="closethis">关闭</a>
+    </div>
+</div>
+<div id="opendalg_rc" class="rc_define"
+     POP_HEADER="MAC地址,IP地址,终端厂商,AP,SSID"
+     VIEW_TITLE="未知">
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("p_customer.opendalg");
+</script>

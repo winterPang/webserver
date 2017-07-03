@@ -1,0 +1,68 @@
+.oasis-box {
+  border: 1px solid #e7e7e9;
+  margin-bottom: 20px;
+  background: #FFFFFF;
+  overflow-y: hidden;
+}
+.oasis-box .box-header {
+  height: 50px;
+  line-height: 50px;
+  background: #EDF9F7;
+}
+.oasis-box .box-header .title {
+  color: #343e4e;
+  font-size: 17px;
+  padding-left: 25px;
+}
+.oasis-box .box-header .tips {
+  margin-left: 2%;
+  font-size: 14px;
+}
+.oasis-box .box-header.no-background {
+  background: transparent;
+}
+.oasis-box .box-header .link-detail {
+  font-size: 17px;
+  color: #80878c;
+  cursor: pointer;
+  text-decoration: none;
+}
+.oasis-box .box-header .link-detail i {
+  margin: 17px 11px 0px 0px;
+}
+.oasis-box .box-header .link-detail:hover,
+.oasis-box .box-header .link-detail:focus,
+.oasis-box .box-header .link-detail:active {
+  color: #4ec1b2;
+}
+.oasis-box .box-body {
+  overflow: hidden;
+  height: 325px;
+  padding: 25px 30px;
+}
+.oasis-box .box-body.no-height {
+  height: auto;
+}
+.oasis-box .box-body.echart-box {
+  padding: 0px;
+}
+.oasis-box .box-body.echart-height {
+  height: 250px;
+}
+.oasis-box .box-bottom {
+  padding: 10px 15px;
+  background-color: #EDF9F7;
+  border-top: 1px solid #e7e7e9;
+  border-bottom-right-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+.oasis-col[class^="col-md-"],
+.oasis-col[class*="col-md-"],
+.oasis-col[class^="col-sm-"],
+.oasis-col[class*="col-sm-"],
+.oasis-col[class^="col-lg-"],
+.oasis-col[class*="col-lg-"],
+.oasis-col[class^="col-xs-"],
+.oasis-col[class*="col-xs-"] {
+  padding-right: 20px;
+}

@@ -1,0 +1,20 @@
+.oasis-datetime {
+  display: inline-block;
+}
+.oasis-datetime.disabled label,
+.oasis-datetime.disabled input {
+  cursor: not-allowed;
+}
+.oasis-datetime.disabled input {
+  background: #eee !important;
+}
+.oasis-datetime label {
+  font-weight: lighter;
+  text-align: right;
+}
+.oasis-datetime label::after {
+  content: ":";
+}
+.oasis-datetime .form-control[readonly] {
+  background: #fff;
+}

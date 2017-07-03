@@ -1,0 +1,213 @@
+<html>
+
+<head>
+</head>
+<style>
+    .link-container {
+        position: absolute;
+        right: 5px;
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+    .new-left-right-block {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    #box-body2015 {
+        height: auto!important;
+    }
+
+    .new_app-box {
+        outline: 1px solid #dedddd;
+        margin-bottom: 20px;
+        background: #fff;
+        overflow-y: hidden;
+        border: 0!important;
+    }
+
+    #Cocos2dGameContainer {
+        border: 1px solid #EDF9f7;
+        height: 450px;
+        width: 800px;
+    }
+
+    .period {
+        padding-left: 2px;
+    }
+
+    #studetail .stuinfo{
+        float:left;
+        margin-right: 20px;
+    }
+
+    div.smartschool .xx-link:hover, div.smartschool .xx-link:active, div.smartschool .xx-link:focus {
+        color: #4ec1b2;
+        border-bottom: 1px solid #4ec1b2;
+    }
+
+    div.smartschool .label-title {
+        color: #4ec1b2;
+        font-size: 14px;
+        border-bottom: 1px solid #4ec1b2;
+    }
+
+
+    .ant-title {
+        color: #343e4e;
+        font-size: 24px;
+    }
+
+    .trace{
+       position:absolute;
+    }
+
+    .Zhi{
+        margin: auto 16px;
+    }
+    .tracemode{
+        min-height:50px;
+        margin-left:26px;
+    }
+    .backmap{
+        background:url(../classroom/image/l_weishui.jpg) no-repeat 0px 0px;
+        position:absolute;
+        height:600px;
+        width:100%;
+    }
+
+    .trace-radio {
+        /*margin-top: 5px;*/
+    }
+    .daterangepicker .ranges .input-mini {
+        width: 125px;
+    }
+
+    select.hourselect, .daterangepicker select.minuteselect, .daterangepicker select.secondselect{
+        width: 60px;
+        margin:0;
+        /*//margin-bottom: 0;*/
+    }
+    .btn-small {
+        width: 100px;
+    }
+</style>
+
+<body>
+<div class="page-row smartschool">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box wrap_c">
+            <div class="box-footer">
+                <div class="col-xs-10">
+                    <span class="title">学生追踪</span>
+                </div>
+                <div class="col-xs-2">
+                    <span class="title">追踪模式&nbsp</span>
+                    <div class="xb-input">
+                        <input type="checkbox" class="switch input-element" id="trace" name="trace" />
+                    </div>
+                </div>
+            </div>
+            <div class="box-body no-height">
+                    <div class="tracemode">
+                        <div class="page-row detailinfo" id="studetail">
+                            <div class="stuinfo">
+                                <label>选择地图</label>
+                                <select id="MapSelect" class="singleSelect" allowClear="false" name="" style="width: 180px"></select>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="traceMode" class="tracemode hide">
+                        <div class="page-row detailinfo" id="studetail">
+                            <div class="stuinfo"><label>当前追踪:</label></div>
+                            <div id="haveStu" style="display:none;">
+                                <div class="stuinfo"><label  id="classnum">203</label><label>班</label></div>
+                            <!--<div class="stuinfo"><label class="netinfo-bad" id="stunum">12</label><label class="netinfo-bad"></label></div>-->
+                                <div class="stuinfo"><label  id="stuname">王晓芳</label></div>
+                                <div class="stuinfo" style="margin-top: 5px;"><a id="changeStu" class="xx-link label-title selectStu" flag=1 type="changeStudent">切换学生</a></div>
+                            </div>
+                            <div id="noStu" >
+                                <div class="stuinfo" style="margin-top: 5px;"><a id="selectStu" class="xx-link label-title selectStu" flag=0 type="selectStudent">请选择学生</a></div>
+                            </div>
+                        </div>
+                        <div class="page-row detailinfo">
+                            <div class="trace-radio col-xs-1">
+                                <div class="xb-input xb-radio" id = "divcurPos">
+                                    <input type="radio" id="curPos" name="Type" value="1" checked="checked" class="input-element">
+                                    <!--<span class="input-icon radio-icon"></span>-->
+                                    <label class="input-label" for="curPos"></label>
+                                </div>
+                                <label class="trace" for="curPos">实时位置</label>
+                            </div>
+                            <div class="trace-radio col-xs-6">
+                                <div class="col-xs-1">
+                                    <div class="xb-input xb-radio " id ="divtracePos">
+                                        <input type="radio" id="tracePos" name="Type" value="0"  class="input-element">
+                                        <!--<span class="input-icon radio-icon"></span>-->
+                                        <label class="input-label" for="tracePos"></label>
+                                    </div>
+                                    <label  class="trace" for="tracePos">轨迹</label>
+                                </div>
+                                <div class="timezone col-xs-6" id="timeZone">
+                                    <input type="text" id="datetimerange" class="datetimerange" yearRangeClose="false"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12" style="width: 100%;heigth: 100%;padding: 24px 0px 24px 0px; overflow:scroll;">
+                        <div id="canvasContain" style="position:relative;">
+                        <canvas id="myCanvas" class="app-colum" width="0" height="0" style="border:1px solid #d3d3d3;display:block;margin:0 auto;width:100%;">
+                            你的浏览器不支持canvas！
+                        </canvas>
+                        <!--<div class="app-colum myEchart " id="heat-map" style="position:absolute; top: 0;pointer-events: none" >
+                        </div>-->
+                    </div>
+                    </div>
+                </div>
+          </div>
+     </div>
+</div>
+<div class="hide modal fade" id="SelectDlg">
+    <form id="addStudent_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">年级</label>
+            <div class="col-sm-9">
+                <select class="singleSelect stuType required" id="grad-select" allowclear="true" errid="grad-select_error"></select>
+                <label class="error" id="grad-select_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">班级</label>
+            <div class="col-sm-9">
+                <select class="singleSelect stuType required" id="class_name" allowclear="true" errid="class_name_error"></select>
+                <label class="error" id="class_name_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">学生姓名</label>
+            <div class="col-sm-9">
+                <select class="singleSelect stuType required" id="stu_name" allowclear="true" errid="stu_name_error"></select>
+                <label class="error" id="stu_name_error"></label>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="wtrace_rc" class="rc-define"
+     EDIT_TITLE="切换学生"
+        ></div>
+    <div class="hide modal fade" id="EditClassDlg">
+        <div id="addClass_form" class="form-horizontal form edit">
+            <div id="arealist" class="simple-list"></div>
+        </div>
+    </div>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.studenttrace");
+
+</script>

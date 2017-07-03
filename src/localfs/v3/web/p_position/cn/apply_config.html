@@ -1,0 +1,81 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div class="col-xs-7 app-colum left-block">
+            <div class="app-box">
+                <div class="box-footer" id="DrsBtn">
+                    <span class="title">客流探针</span>
+                </div>
+                <div class="box-body no-height">
+                    <form class="form-horizontal form" id="DrsidForm">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">客流探针</label>
+                            <div class="col-sm-9">
+                                <div class="xb-input xb-checkbox" style="top: 0px;">
+                                    <input type="checkbox" class="switch input-element" id="Drsid" name="Drsid"  checked/>
+                                    <!--<span class="input-icon checkbox-icon switch checked"></span>-->
+                                    <label class="input-label" for="Drsid"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+     <div class="col-xs-7 app-colum left-block">
+            <div class="app-box">
+                <div class="box-footer" id="DrsBtn">
+                    <span class="title">宾客行为分析</span>
+                </div>
+                <div class="box-body no-height">
+                    <form class="form-horizontal form" id="DrsidForm">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">宾客行为分析</label>
+                            <div class="col-sm-9">
+                                <div class="xb-input xb-checkbox" style="top: 0px;">
+                                    <input type="checkbox" class="switch input-element" id="Drsid" name="Drsid"  checked/>
+                                    <!--<span class="input-icon checkbox-icon switch checked"></span>-->
+                                    <label class="input-label" for="Drsid"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    <div class="page-row">
+        <div class="col-xs-7 app-colum left-block">
+            <div class="app-box">
+                <div class="box-footer">
+                    <span class="title">无线定位</span>
+                </div>
+                <div class="box-body no-height">
+                    <form class="form-horizontal form" id="CupidForm">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">无线定位</label>
+                            <div class="col-sm-9">
+                               <div class="xb-input xb-checkbox" style="top: 0px;">
+                                   <input type="checkbox" class="switch input-element" id="Cupid" name="Cupid"  checked/>
+                                   <!--<span class="input-icon checkbox-icon switch checked"></span>-->
+                                   <label class="input-label" for="Cupid"></label>
+                               </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--yuzhiqiang 应用分析的配置开关-->
+       
+
+    </div>
+    <div id="app_config_rc" class="rc-define"
+         ERRTIP= "连接异常,设置成功！,设备异常！" ></div>
+</body>
+</html>
+<script language="JavaScript" type="text/javascript">
+    Utils.Pages.loadJS("position.apply_config");
+</script>

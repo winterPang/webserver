@@ -1,0 +1,63 @@
+<html>
+<head>
+	<!-- <link rel="stylesheet" type="text/css" href="/v3/web/h_stamgrclients/m_clients.css"> -->
+</head>
+<body>
+<!-- <dl class="headline wlan-headline">
+    <span class="headbutton">
+        <div class="btn-group shortcut">
+            <a class="btn btn-default" href="#M_WIPS?np=wips.help" title="Help"><i class="icon-book"> </i></a>
+        </div>
+    </span>
+</dl> -->
+
+<div class="dashboard" id = "city_passenger">
+    <div class="btn_h_return" id="city_return"></div>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">奥体</span>
+
+                    <div class="text-right link-container">
+                        <i class="detail-icon icon"></i>
+                        <div class="time-change" style="right: 72px;top: -1px;position: absolute;">
+                            <a id="days" class="time-link active">一天</a>
+                            <a id="weeks" class="time-link">一周</a>
+                            <a id="mounth" class="time-link">一月</a>
+                        </div>
+                    </div>
+                </div>
+                <div style="height:350px" class="box-body echart-height">
+                    <div id="passenger_bar" class="myEchart col-xs-12"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block ">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">驻留时间</span>
+                    <div class="text-right link-container">
+                        <i class="detail-icon icon"></i>
+                    </div>
+                </div>
+                <div style="height:350px" class="box-body echart-height">
+                    <div id="staytime_bar" class="myEchart col-xs-12">
+                        <div id="staytime_pie" class="myEchart col-xs-12"></div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+
+
+        
+<div id="passenger_rc" class="rc-define"></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("city_passenger.passenger");
+</script>
+

@@ -1,0 +1,10 @@
+{
+  "devMode":"H3C WX3510H",
+  "devBootWare":"5.0",
+  "devSoftVersion":"7.1.064",
+  "devHardVersion":"Release 5121P11",
+  "cpuRatio":1,
+  "memoryRatio":61,
+  "temperature":0,
+  "diskRatio":3
+}

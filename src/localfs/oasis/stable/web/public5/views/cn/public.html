@@ -1,0 +1,100 @@
+
+<!-- 栏目菜单 -->
+<div class="page-row">
+    <div class="col-xs-12 app-colum left-block">
+            <div class="app-box">
+                <div class="select-footer">
+                    <span class="float-left ml25" style="float:left;margin-left:16px;">周期 : </span>
+                    <div class="time-change ml20" style="float:left;">
+                        <div class="float-left">
+                            <a id="weeks" class="time-link" ng-class="{'active':cycle == 'weeks'}" ng-click="btnInit($event)">七天</a>
+                            <a id="mounth" class="time-link" ng-class="{'active':cycle == 'mounth'}" ng-click="btnInit($event)">一月</a>
+                            <a id="year" class="time-link" ng-class="{'active':cycle == 'year'}" ng-click="btnInit($event)">一年</a>
+                        </div>
+                        <div style="display:none;">
+                            <span>自定义：</span>
+                            <input id="daterange" class="daterange time-select" placeholder="选择日期" ctrl="daterang" ng-model="customDate">
+                        </div>
+                        <div style="color:#80878c;float:left;text-align:center;-webkit-user-select:none; -moz-user-select:none; -ms-user-select:none; user-select:none;cursor:default;padding-right:6px;"> | &nbsp;选择公众号</div>
+                        <div id="branchSelectDiv" style="float:left">
+                            <select class="singleSelect" id="branchSelect" name="branchSelect" style="margin-top:0px;margin-left:10px;vertical-align:middle;height:30px;width:150px;" ng-options="item.appId as item.name for item in list" ng-model="selectValue" ></select>
+                            <!-- <p>{{selectValue}}</p> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+<!-- 总关注人数 -->
+<div class="page-row xxb">
+    <div class="col-xs-12 app-colum left-block" debug="getAdMessage">
+        <div class="app-box">
+            <div class="box-footer">
+                <span class="title">关注人总数</span>
+            </div>
+            <div class="box-body no-height">
+                <div class="dashboard-client-header" debug="getClient">
+                    <div class="dashboard-client-block">
+                        <span class="client-title dashboard-body-font">新增关注数&nbsp;</span>
+                        <span id="Current" class="client-count dashboard-body-num">{{current}}</span>
+                        <span class="client-title dashboard-body-font">总关注人数&nbsp;</span>
+                        <span id="totalAp" class="client-count dashboard-body-num">{{totalAp}}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="box-body echart-height" style="padding-top:0">
+                <div id="public_number" class="myEchart" style="height:200px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 终端列表 -->
+<div id="ByPortal_diag" class="modal fade modal-super dashboard in hide">
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">终端列表</h3>
+    </div>
+
+    <div class="modal-body">
+        <div id="ByPortalPopList" class="simple-list"></div>
+    </div>
+
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+
+<!-- 新增关注人数--取消关注人数 -->
+<div class="page-row xxb">
+    <div class="col-xs-6 app-colum left-block" debug="getAdMessage">
+        <div class="app-box">
+            <div class="box-footer">
+                <span class="title">新增关注人数</span>
+            </div>
+            <div class="box-body echart-height">
+                <div id="public_count" class="myEchart" style="height:200px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 app-colum left-block" debug="getAdMessage">
+        <div class="app-box">
+            <div class="box-footer">
+                <span class="title">取消关注人数</span>
+            </div>
+            <div class="box-body echart-height">
+                <div id="public_list" class="myEchart" style="height:200px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="numberInfo"
+    number="关注数"
+    addNumber="新增关注人数"
+    reduceNumber="取消关注人数"
+    totalNumber="总数"
+    noPublicAccount="当前账号下无公众号信息,请进行添加"
+    ></div>

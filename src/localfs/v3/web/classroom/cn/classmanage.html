@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html  lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        div.smartschool .slist-link{
+        color:#4ec1b2;
+        margin-left:5px;
+        border-bottom: 1px solid #4ec1b2;
+        }
+        div.smartschool  .slist-link:hover, div.smartschool .slist-link:active, div.smartschool .slist-link:focus {
+        color: #4ec1b2;
+        border-bottom: 1px solid #4ec1b2;
+        }
+        .link-container {
+            position: absolute;
+            right: 5px;
+        }
+        .app-box .top-box {
+            position:absolute;
+            right:45px;
+            width:750px;
+            display:none;
+        }
+        div.time-zone {
+            height:300px;
+
+        }
+        .editGrade{
+            margin-left:20px;
+            display:none;
+        }
+        .time-zone .form-actions {
+            display: none;
+        }
+        .app-box .form-actions.bottom {
+            margin: 80px 1px 0 0;
+        }
+        .radio-name .grade-month{
+            margin:0 10px  0 20px;
+        }
+        .business-wifi-devinfo .time-zone .form-actions {
+            display: none;
+        }
+        .app-box .form-actions.bottom {
+            margin: 6px -5px 0 0;
+            float: right;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        #box-body2015 {
+            height: auto!important;
+        }
+
+        #Cocos2dGameContainer {
+            border: 1px solid grey;
+        }
+
+        .simple-list .slist-body {
+            border: 1px solid #dedddd;
+        }
+
+        .app-box .box-body {
+            padding: 25px;
+            height: auto;
+        }
+        #canvas {
+            margin-top: 10px;
+        }
+
+        .grade-config{
+            margin-top:10px;
+        }
+        .configcontent{
+            margin-left: 30px;
+        }
+        .config{
+            margin-top:30px;
+        }
+        .map-modal{
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            overflow: auto;
+        }
+        .map-modal2{
+            position: fixed;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1030;
+            opacity: 0.8;
+            background: rgba(0, 0, 0, 0.8);
+            transition: opacity .15s linear;
+            box-sizing: border-box;
+        }
+
+        div#s2id_years {
+            width: 100px;
+        }
+
+        input#months {
+            width:100px;
+        }
+        #gradetype_form span.offset{
+            padding-left:10px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="page-row smartschool">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box wrap_c">
+            <div class="box-footer">
+                <span class="title">班级管理</span>
+                <div class="text-right link-container">
+                    <a class="link-detail">
+                        当前年级类型
+                    </a>
+                    ：
+                    <a type="button" class="xb-link" id="CurType" style="font-size:15px;">请选择</a>
+                    &nbsp; &nbsp; &nbsp;
+                    <a type="button"  class="filter" id="filter">
+                        <i class="filter-icon icon"></i>
+                    </a>
+                 </div>
+           </div>
+           <div class="top-box">
+                <div class="filter-container">
+                    <!--<div class="form-actions top">-->
+                    <!--<a class="form-btn icon-ok" title="确定"></a>-->
+                    <!--<a class="form-btn icon-remove" title="取消"></a>-->
+                    <!--</div>-->
+                    <form id="gradetype_form" class="time-zone form-horizontal form edit float-left">
+                        <div class="form-group">
+                            <span class="col-xs-6 offset">请选择年级类型及升级月份：</span>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-xs-2 offset">升级月份</span>
+                            <div class="col-xs-10">
+                                <input type="radio" id="Janu" name="Month" value="1">
+                                <label for="Janu">一月</label>
+                                <input type="radio" id="Feb" name="Month" value="2">
+                                <label for="Feb">二月</label>
+                                <input type="radio" id="March" name="Month" value="3">
+                                <label for="March">三月</label>
+                                <input type="radio" id="Apr" name="Month" value="4">
+                                <label for="Apr">四月</label>
+                                <input type="radio" id="May" name="Month" value="5">
+                                <label for="May">五月</label>
+                                <input type="radio" id="June" name="Month" value="6">
+                                <label for="June">六月</label>
+                                <input type="radio" id="July" name="Month" value="7">
+                                <label for="July">七月</label>
+                                <input type="radio" id="Aug" name="Month" value="8">
+                                <label for="Aug">八月</label>
+                                <input type="radio" id="Sept" name="Month" value="9" checked>
+                                <label for="Sept">九月</label>
+                                <input type="radio" id="Oct" name="Month" value="10">
+                                <label for="Oct">十月</label>
+                                <input type="radio" id="Nove" name="Month" value="11">
+                                <label for="Nove">十一月</label>
+                                <input type="radio" id="Dec" name="Month" value="12">
+                                <label for="Dec">十二月</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-xs-2 offset">年级类型</span>
+                            <div class="col-xs-10">
+                                <div class="radio-name">
+                                    <input type="radio" id="Primary" name="SchoolType" value="1" checked>
+                                    <label for="Primary">六年制小学</label>
+                                    <span  style="color:#80878c">(<span id="primarySpan">一年级,二年级,三年级,四年级,五年级,六年级</span>)</span>
+                                </div>
+                                <div class="radio-name">
+                                    <input type="radio" id="Junior" name="SchoolType" value="2">
+                                    <label for="Junior">三年制初中</label>
+                                    <span  style="color:#80878c">(<span id="juniorSpan" >初中一年级,初中二年级,初中三年级</span>)</span>
+                                </div>
+                                <div class="radio-name">
+                                    <input type="radio" id="Senior" name="SchoolType" value="3">
+                                    <label for="Senior">三年制高中</label>
+                                    <span  style="color:#80878c">(<span id="seniorSpan">高中一年级,高中二年级,高中三年级</span>)</span>
+                                </div>
+                                <div class="radio-name">
+                                    <input type="radio" id="MidSchool" name="SchoolType" value="4">
+                                    <label for="MidSchool">综合中学</label>
+                                    <span  style="color:#80878c">(<span id="midSpan">初中一年级,初中二年级,初中三年级,高中一年级,高中二年级,高中三年级</span>)</span>
+                                </div>
+                                <div class="radio-name">
+                                    <input type="radio" id="Diy" name="SchoolType" value="5">
+                                    <label for="Diy">自定义</label>
+                                    <span  style="color:#80878c" >(<span id="gradeName">请自定义您的年级名称</span>)</span>
+                                </div>
+                                <div class="radio-name editGrade">
+                                    <div class="m-input xb-input input-string" id="diyGradeName"  maxlen="20"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <a id="filter_ok" class="form-btn icon-ok" style="float:right;padding-bottom:20px;margin-right:20px"></a>
+                            <a id="filter_Remove" class="form-btn icon-remove" style="float:right;padding-bottom:20px;margin-right:10px"></a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="box-body no-height">
+                <div id="classList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<form class="form-horizontal form hide" id="verlist" action="/v3/wloc/upload" enctype="multipart/form-data" method="post"
+      onsubmit="return false">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">查看地图</h3>
+    </div>
+    <div class="modal-body">
+        <!--
+        <input type="file" name="photo" id="upload_file"> 地图名：
+        <input type="text" name="mapName" id="mapName">
+        -->
+        <!--<button id="addApBtn">添加Ap</button>
+        <button id="addWallBtn">添加墙体</button>-->
+        <img id="createShortCutImg" src="../classroom/image/classmap.jpg">
+        <canvas id="createShortCutCanvas" width="700" height="350" style="border: 1px solid black" hidden></canvas>
+
+        <!--<div class="form-group">-->
+            <!--<div style="margin: 0px auto; width:800px;">-->
+                <!--<label class="col-xs-2 control-label required">选择教室</label>-->
+                <!--<div class="col-xs-9">-->
+                    <!--<input type="text" class="string big required" id="mapName" maxlength="32"/>-->
+                    <!--<label class="info-explain">（1-32字符）</label>-->
+                    <!--<label class="error" id="mapName_error"></label>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="form-group">
+            <div class="col-xs-12 app-colum" id="canvas">
+                <canvas id="gameCanvas" width="800" height="450"></canvas>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Save" id="saveMap">
+            <i class="icon-ok"></i> 保存
+        </a>
+        <a class="btn btn-primary" dlgtype="Close" id ="closeMap" data-dismiss="modal">
+            <i class="icon-remove"></i> 关闭
+        </a>
+    </div>
+</form>
+<div class="hide modal fade" id="EditClassDlg">
+    <form id="addClass_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required" id="year_label">入学时间</label>
+            <div class="col-sm-9">
+                <select class="singleSelect required" id="years" name="years" errid="years_error" maxlength="32" ></select>
+                <label>年</label>
+                <input type="number" class="required" id="months" name="months" min="1" max="12" errid="months_error" maxlength="2" ></input>
+                <label>月</label>
+                <label class="info-explain"></label>
+                <label class="error" id="years_error"></label>
+                <label class="error" id="months_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required" id="begin_grade_label">初始年级</label>
+            <div class="col-sm-9">
+                <select class="string singleSelect required" id="baseGrade" name="baseGrade" errid="beginGrade_error"></select>
+                <label class="info-explain"></label>
+                <label class="error" id="baseGrade_error"></label>
+            </div>
+        </div>
+        <div class="form-group hide">
+            <label class="col-sm-3 control-label required" id="classroom_label">教室</label>
+            <div class="col-sm-9">
+                <select class="singleSelect required" id="classroom"  errid="classroom_error"></select>
+                <label class="error" id="classroom_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required" id="classId_label">班号</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required " id="classId" name="classId" errid="classId_error" maxlength="32">
+                <label class="info-explain"></label>
+                <label class="error" id="classId_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">班主任</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="teacher" name="teacher" errid="teacher_error" maxlength="32">
+                <label class="info-explain"></label>
+                <label class="error" id="teacher_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">班主任联系方式</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="teacherTel" name="teacherTel" errid="teacherTel_error" maxlength="32">
+                <label class="info-explain"></label>
+                <label class="error" id="teacherTel_error"></label>
+            </div>
+        </div>
+    </form>
+</div>
+
+    <!--<div class="hide modal fade" id="EditClassDlg">-->
+        <!--<form id="editClass_form" class="form-horizontal form edit">-->
+            <!--<div class="form-group">-->
+                <!--<label class="col-sm-3 control-label required" id="edityear_label">入学时间</label>-->
+                <!--<div class="col-sm-9">-->
+                    <!--<select class="singleSelect required" id="edityears" name="edityears" errid="edityears_error" maxlength="32"></select>-->
+                    <!--<label>年</label>-->
+                    <!--<input type="number" class="required" id="editmonths" name="editmonths" min="1" max="12" errid="editmonths_error" maxlength="2"></input>-->
+                    <!--<label>月</label>-->
+                    <!--<label class="info-explain"></label>-->
+                    <!--<label class="error" id="edityears_error"></label>-->
+                    <!--<label class="error" id="editmonths_error"></label>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--<label class="col-sm-3 control-label required" id="editbegin_grade_label">初始年级</label>-->
+                <!--<div class="col-sm-9">-->
+                    <!--<select class="string singleSelect required" id="editbaseGrade" name="editbaseGrade" errid="editbeginGrade_error"></select>-->
+                    <!--<label class="info-explain"></label>-->
+                    <!--<label class="error" id="editbaseGrade_error"></label>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group hide">-->
+                <!--<label class="col-sm-3 control-label required" id="editclassroom_label">教室</label>-->
+                <!--<div class="col-sm-9">-->
+                    <!--<select class="singleSelect required" id="editclassroom" errid="editclassroom_error"></select>-->
+                    <!--<label class="error" id="editclassroom_error"></label>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--<label class="col-sm-3 control-label required" id="editclassId_label">班号</label>-->
+                <!--<div class="col-sm-9">-->
+                    <!--<input type="text" class="string big required " id="editclassId" name="editclassId" errid="editclassId_error" maxlength="32">-->
+                    <!--<label class="info-explain"></label>-->
+                    <!--<label class="error" id="editclassId_error"></label>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--<label class="col-sm-3 control-label required">班主任</label>-->
+                <!--<div class="col-sm-9">-->
+                    <!--<input type="text" class="string big required" id="editteacher" name="editteacher" errid="editteacher_error" maxlength="32">-->
+                    <!--<label class="info-explain"></label>-->
+                    <!--<label class="error" id="editteacher_error"></label>-->
+                <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+                <!--<label class="col-sm-3 control-label required">班主任联系方式</label>-->
+                <!--<div class="col-sm-9">-->
+                    <!--<input type="text" class="string big required" id="editteacherTel" name="editteacherTel" errid="editteacherTel_error" maxlength="32">-->
+                    <!--<label class="info-explain"></label>-->
+                    <!--<label class="error" id="editteacherTel_error"></label>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</form>-->
+    <!--</div>-->
+    <div class="hide modal fade" id="selectClassroom">
+        <form id="select_from" class="form-horizontal form edit">
+            <div class="tracemode">
+                <div class="page-row detailinfo" id="studetail">
+                    <div class="stuinfo">
+                        <label>选择地图</label>
+                        <select id="MapSelect" class="singleSelect" allowClear="false" name="" style="width: 180px"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12" style="width: 100%;padding: 25px;">
+                <div id="canvasContain" style="position:relative;">
+                    <canvas id="classCanvas" class="app-colum" width="0" height="0" style="border:1px solid #d3d3d3;display:block;margin:0 auto;width:100%;">
+                        你的浏览器不支持canvas！
+                    </canvas>
+                </div>
+            </div>
+            <div id='testhidediv' class="hide">
+                <input type="checkbox" class="hide" id="testhide">
+            </div>
+        </form>
+    </div>
+<!--<div class="map-modal" style="z-index:1050;">-->
+    <!--<div >-->
+    <!--</div>-->
+<!--</div>-->
+<!--<div class="map-modal2">-->
+
+<!--</div>-->
+
+<div id="device_rc" class="rc-define"
+     CLASS_LIST="年级,班号,教室,学生数,班主任,班主任联系方式"
+     EDIT_TITLE="新增,删除,导出,编辑"
+     STU_STATU="查看地图,编辑列表"
+     GRADE_TYPE1 = "一年级,二年级,三年级,四年级,五年级,六年级,七年级,八年级,九年级,十年级,十一年级,十二年级"
+     GRADE_TYPE2 = "初一,初二,初三"
+     GRADE_TYPE3 = "高一,高二,高三"
+     GRADE_TYPE4 = "初一,初二,初三,高一,高二,高三"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.classmanage");
+</script>

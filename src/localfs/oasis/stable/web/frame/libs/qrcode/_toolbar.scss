@@ -1,0 +1,248 @@
+$toolbar-size: 52px;
+
+.toolbar {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    margin-left: -$toolbar-size / 2;
+    z-index: 1;
+    transition: all 1s ease-in-out;
+}
+
+.toolbar-close {
+    display: block;
+    position: relative;
+    height: 20px;
+    width: 20px;
+    background-color: #d0d6d9;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    margin: 0 auto;
+    &:hover {
+        background-color: #4EC1B2;
+        color: white;
+    }
+    
+    &:focus {
+        color: #fff;
+    }
+    
+    i {
+        margin: 0px;
+        float: none;
+        width: 5px;
+        position: absolute;
+        line-height: 20px;
+        
+        &:hover {
+            margin: 0px;
+            float: none;
+            width: 5px;
+            position: absolute;
+            line-height: 20px;
+        }
+    }
+    
+    i:first-of-type {
+        left: 5.5px;
+    }
+    
+    i:last-of-type {
+        left: 9px;
+    }
+}
+
+.toolbar-item {
+    position: relative;
+    display: block;
+    width: $toolbar-size;
+    height: $toolbar-size;
+    margin-top: 4px;
+    transition: height 0.4s ease-in-out;
+    &:hover {
+        .toolbar-icon {
+            top: -$toolbar-size;
+            width: $toolbar-size;
+            height: $toolbar-size;
+        }
+        
+        .toolbar-text {
+            top: 0;
+            width: $toolbar-size;
+            height: $toolbar-size;
+        }
+        
+        .toolbar-layer {
+            width: 200px;
+            height: 200px;
+            background-size: 200px 200px;
+            @include opacity(1);
+            @include transform-origin(95% 95%);
+            @include scale(1)
+        }
+    }
+}
+
+.toolbar-btn {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: $toolbar-size;
+    height: $toolbar-size;
+    overflow: hidden;
+}
+
+.toolbar-icon {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    width: $toolbar-size;
+    height: $toolbar-size;
+    background-color: #d0d6d9;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    line-height: $toolbar-size;
+    @include transition(top 1s);
+    
+    margin: 0;
+    &:hover.fa{
+        width: $toolbar-size;
+        height: $toolbar-size;
+        margin: 0;
+    }
+
+}
+
+.toolbar-text {
+    position: absolute;
+    left: 0px;
+    top: $toolbar-size;
+    width: $toolbar-size;
+    height: $toolbar-size;
+    background-color: #4EC1B2;
+    padding-top: 12px;
+    font-size: 12px;
+    color: #fff;
+    text-align: center;
+    line-height: 1.2;
+    @include transition(top 1s);
+    
+    border-radius: 5px;
+}
+
+.toolbar-layer {
+    position: absolute;
+    right: 54px;
+    bottom: 0;
+    width: 0px;
+    height: 0px;
+    background-repeat: no-repeat;
+    background-size: 200px 200px;
+    background-position: 0 0;
+    border: 1px solid #d0d6d9;
+    @include opacity(0);
+    @include transform-origin(95% 95%);
+    @include scale(0.01);
+    @include transition(all 1s);
+}
+
+.toolbar-layer-weixin {
+    background-image: url(./img/weixin.jpg);  
+}
+
+.toolbar-layer-app {
+    background-image: url(./img/app.png);
+}
+
+.toolbar-close {
+    display: block;
+    position: relative;
+    height: 20px;
+    width: 20px;
+    background-color: #d0d6d9;
+    border-radius: 50%;
+    text-align: center;
+    color: white;
+    margin: 0 auto;
+    
+    &:hover {
+        background-color: #4EC1B2;
+        color: white;
+    }
+    
+    &:focus {
+        color: #fff;
+    }
+    
+    i {
+        margin: 0px;
+        float: none;
+        width: 5px;
+        position: absolute;
+        line-height: 20px;
+        
+        &:hover {
+            margin: 0px;
+            float: none;
+            width: 5px;
+            position: absolute;
+            line-height: 20px;
+        }
+    }
+    
+    i:first-of-type {
+        left: 5.5px;
+    }
+    
+    i:last-of-type {
+        left: 9px;
+    }
+}
+
+.toolbar-item:nth-of-type(1) {
+    height: 20px;
+    overflow: hidden;
+    transition: none;
+}
+
+.sweep {
+    background: url(img/sweep.png) no-repeat 5px 2px #d0d6d9;
+    display: block;
+    width: $toolbar-size;
+    height: $toolbar-size;
+    border-radius: 5px;
+    background-color: #d0d6d9;
+    position: relative;
+    display: none;
+}
+
+.toolbar-hide {
+    .toolbar-item {
+        height: 0;
+        overflow: hidden;
+        transition: height 0.4s ease-in-out;
+    }
+
+    .toolbar-item:nth-of-type(1) {
+        height: $toolbar-size;
+        transition: none;
+    }
+    
+    .toolbar-close {
+        top: -20px;
+    }
+    
+    .toolbar-close {
+        display: none;
+    }
+    
+    .sweep {
+        display: block;
+        
+        &:hover {
+            background-color: #4EC1B2;
+        }
+    }
+}

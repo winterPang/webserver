@@ -1,0 +1,120 @@
+<div id="warning_module"
+     date-picker-label="确定,取消,起始时间,结束时间"
+     date-picker-week="日,一,二,三,四,五,六"
+     date-picker-month="一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月"
+     warn-chart-count="日志条数"
+     warn-list-header="设备名称,模块,日志等级,内容,告警时间"
+     warn-config-title="设备日志配置"
+     warn-popover-info="最多可查询七天内的日志信息"
+     warn-popover-content="配置"
+     set-config-msg="配置成功！,配置失败！,无法进行配置操作，请查看设备主连接!">
+    <div class="panel panel-default">
+        <div class="panel-heading pr-0">
+            <div class="panel-title">
+                <div class="filter-bar">
+                    <label for="dateRangePicker">
+                        <span class="input-label">日期</span>
+                        <input class="form-control" id="dateRangePicker" type="text" style="width: 302px;"/>
+                    </label>
+                </div>
+                <div class="filter-bar">
+                    <label for="moduleRangePicker">
+                        <select class="form-control" id="moduleRangePicker"
+                                ng-options="item for item in filterBar.moduleList"
+                                ng-model="filterBar.module">
+                            <option value="" selected>--请选择告警模块--</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="filter-bar">
+                    <label for="levelPicker">
+                        <select class="form-control" id="levelPicker"
+                                ng-options="item for item in filterBar.levelList"
+                                ng-model="filterBar.level">
+                            <option value="" selected>--请选择日志等级--</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="filter-bar">
+                    <button class="btn btn-cus" id="searchLogBtn" type="button"
+                            ng-click="filterBar.clickSearchBtn()">搜索</button>
+                </div>
+                <div class="pull-right" style="position: relative;width: 236px;">
+                    <a class="config-btn" id="configBtn" href="javascript:void(0);">
+                    <span class="fa fa-cog"
+                          ng-click="filterBar.clickConfigBtn()"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body" style="padding-top: 50px;">
+            <div class="col-sm-6">
+                <span class="panel-title">日志等级统计</span>
+                <div id="levelPie" style="height: 300px;width: 100%;"></div>
+            </div>
+            <div class="col-sm-6">
+                <span class="panel-title">告警模块统计</span>
+                <div id="modulePie" style="height: 300px;width: 100%;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding: 20px 0 30px 0;">
+        <div class="col-sm-12">
+            <div bs-table="list.warn"></div>
+        </div>
+    </div>
+    <form class="form-horizontal" bs-modal="modal.config" novalidate>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">日志收集</label>
+            <div class="col-sm-2 pr-0" style="width: 100px;">
+                <div class="xb-input xb-checkbox">
+                    <input class="switch input-element" id="collectedSwitch" type="checkbox"
+                           ng-model="config.collected"
+                           ng-change="config.clickCollectedSwitch()"/>
+                    <span class="input-icon checkbox-icon switch"
+                          ng-class="{checked: config.collected}"></span>
+                    <label class="input-label" for="collectedSwitch"></label>
+                </div>
+            </div>
+            <label class="col-sm-8 control-label plr-0" style="color: #ff0000;"
+                   ng-show="config.collected">开启后，设备上报的日志的格式将强制设置为unicom，可能会影响其它日志服务器的使用。</label>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="levelSelector">日志等级</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="levelSelector" style="width: 165px;"
+                        ng-options="item for item in filterBar.levelList"
+                        ng-disabled="!config.collected"
+                        ng-model="config.level">
+                    <option value="" selected disabled>--请选择日志等级--</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group level-description">
+            <div class="col-sm-offset-2 col-sm-10">
+                <label ng-class="{active: config.emergency}" ng-click="config.selectLevelDes('emergency')">Emergency：表示设备不可用的信息，如系统授权已到期。</label>
+            </div>
+            <div class="col-sm-offset-2 col-sm-10">
+                <label ng-class="{active: config.alert}" ng-click="config.selectLevelDes('alert')">Alert：表示设备出现重大故障，需要立刻做出反应的信息，如流量超出接口上限。</label>
+            </div>
+            <div class="col-sm-offset-2 col-sm-10">
+                <label ng-class="{active: config.critical}" ng-click="config.selectLevelDes('critical')">Critical：表示严重信息，如设备温度已经超过预警值，设备电源、风扇出现故障等。</label>
+            </div>
+            <div class="col-sm-offset-2 col-sm-10">
+                <label ng-class="{active: config.error}" ng-click="config.selectLevelDes('error')">Error：表示错误信息，如接口链路状态变化等。</label>
+            </div>
+            <div class="col-sm-offset-2 col-sm-10">
+                <label ng-class="{active: config.warning}" ng-click="config.selectLevelDes('warning')">Warning：表示警告信息，如接口连接断开，内存耗尽警告等。</label>
+            </div>
+            <div class="col-sm-offset-2 col-sm-10">
+                <label ng-class="{active: config.notification}" ng-click="config.selectLevelDes('notification')">Notification：表示正常出现但是重要的信息，如通过终端登录设备，设备重启等。</label>
+            </div>
+            <div class="col-sm-offset-2 col-sm-10">
+                <label ng-class="{active: config.informational}" ng-click="config.selectLevelDes('informational')">Informational：表示需要记录的通知信息，如通过命令行输入命令的记录信息，执行ping命令的日志信息等。</label>
+            </div>
+            <div class="col-sm-offset-2 col-sm-10">
+                <label ng-class="{active: config.debugging}" ng-click="config.selectLevelDes('debugging')">Debugging：表示调试过程产生的信息。</label>
+            </div>
+        </div>
+    </form>
+</div>

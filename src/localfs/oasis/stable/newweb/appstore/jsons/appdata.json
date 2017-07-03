@@ -1,0 +1,50 @@
+{
+  "hotapp": [
+    {"id":"1","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"2","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"3","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"4","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"5","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"6","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"7","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"8","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"9","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"10","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"}
+  ],
+  "newapp": [
+    {"id":"1","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"2","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"3","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"4","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"5","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"6","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"7","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"8","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"9","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"10","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"}
+  ],
+  "chargeapp": [
+    {"id":"1","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"2","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"3","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"4","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"5","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"6","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"7","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"8","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"9","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"10","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"}
+  ],
+  "freeapp": [
+    {"id":"1","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"2","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"3","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"4","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"5","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"6","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"7","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"8","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"9","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"},
+    {"id":"10","name":"这个软件","logo":"http://download.easyicon.net/png/1164771/72/"}
+  ]
+}

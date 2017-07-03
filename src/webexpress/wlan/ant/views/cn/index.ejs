@@ -1,0 +1,53 @@
+<html>
+<head>
+</head>
+<body>
+<div id="dashboard_detail">
+    <dl class="headline">
+        <dt id="back_to_index"><a class="back" href="#M_Dashboard2"></a><span class="title">详细信息</span></span></dt>
+    </dl>
+    <div id="drs_monitor">
+        <ul class="nav nav-tabs">
+                <li>
+                    <a href="\urlinfo" data-toggle="tab">最受欢迎网站</a>
+                </li>
+                <li>
+                    <a href="\wecomappinfo" data-toggle="tab">最受欢迎应用</a>
+                </li>
+                <li>
+                    <a href="\interfaceinfo" data-toggle="tab">接口流量</a>
+                </li>
+                <li>
+                    <a href="\userinfo" data-toggle="tab">用户流量</a>
+                </li>
+                <li>
+                    <a href="\webinfo" data-toggle="tab">网站统计</a>
+                </li>
+                <li>
+                    <a href="\appinfo" data-toggle="tab">应用统计</a>
+                </li>
+               
+        </ul>
+        <div class="tab-content">
+            <%include urlinfo.ejs%>
+            <!--<%switch(choice){%>-->
+            <!--<%case "url":{%>-->
+                <!--<%include urlinfo.ejs%>-->
+            <!--<%}%>-->
+            <!--<%break;%>-->
+            <!--<%}%>-->
+<!--            <div class="tab-pane" id="interfaceinfo"></div>
+            <div class="tab-pane" id="userinfo"></div>
+            <div class="tab-pane" id="webinfo"></div>
+            <div class="tab-pane" id="appinfo"></div>
+            <div class="tab-pane" id="urlinfo"></div>
+            <div class="tab-pane" id="wecomappinfo"></div>-->
+
+        </div>
+    </div>
+</div>
+</body>
+<!--</html>-->
+<!--<script	language="javascript" type="text/javascript">-->
+	<!--Utils.Pages.loadJS("drs.index");-->
+<!--</script>-->

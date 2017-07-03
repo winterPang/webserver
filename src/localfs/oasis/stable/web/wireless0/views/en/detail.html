@@ -1,0 +1,219 @@
+<style>
+    .col-sm-2,.col-sm-9,.col-sm-12
+    {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+</style>
+<!--无线服务配置表格-->
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Wireless Service Configuration</h3>
+        </div>
+
+        <div class="panel-body">
+            <div class="btn btn-cus" ng-click="addSsidCfg()">
+                <i class="btn-icon icon-add"></i>Add
+            </div>
+            <button class="btn btn-cus" ng-click="synSSID()" ng-disabled = "isDisable" ng-bind="syn_ssid">Synchronize</button>
+            <div bs-Table="serverTable"></div>
+        </div>
+
+    </div>
+</div>
+<!--增加服务模态框-->
+<form novalidate role="form" name="ssidForm"  bs-modal="templateOption" style="padding-left: 20px;padding-right: 0px;">
+    <div class="form-group row">
+        <label class="col-sm-3 control-label required">SSID</label>
+        <div class="col-sm-9" >
+            <input type="text" class="string big required" id="ssid_name" name ="ssid_name" ng-minlength="1" ng-maxlength="32"
+                          ng-model="template.addSsidName" ng-pattern='/^[^&=\\?%]+$/' required/>
+            <input type="text" class="hide string big required" errid="ssid_name_error" maxlength=32 id="ssid_nameTest" style="display: none;">
+            <span ng-show="ssidForm.ssid_name.$touched || ssidForm.ssid_name.$dirty" ng-messages="ssidForm.ssid_name.$error" >
+                <span ng-message="required" class="error" style="display: inline-block">This information is required.</span>
+                <span ng-message="maxlength" class="error"  style="display: inline-block">The password must contain maxinum of 32 characters</span>
+                <span ng-message="pattern" class="error"  style="display: inline-block">The infomation is not allowed to contain special characters &=\?%</span>
+            </span>
+            <label class="info-explain">（1-32 chars）</label>
+            <label class="error" id="ssid_name_error" ng-show=""></label>
+        </div>
+    </div>
+
+    <div class="form-group row" >
+                <label class="col-sm-3 control-label required">Password</label>
+                <div class="col-sm-9">
+                    <div style="display: inline-block">
+                        <div class="xb-input xb-radio" >
+                            <input type="radio" class="input-element" id="addPwdOn"  name="addPwd" value="1"
+                             ng-model="template.addPwd" ng-click="addPwdOn()"/>
+                            <span class="input-icon radio-icon " ng-class="{'checked': template.addPwd == 1}"></span>
+                            <label for="addPwdOn" class="input-label"></label>
+                        </div>
+                        <label for="addPwdOn">Use password</label>
+
+                    </div >
+                    <div style="display: inline-block;padding-left: 82px;" >
+                        <div class="xb-input xb-radio">
+                        <input type="radio" class="input-element" id="addPwdOff"  name="addPwd" value="2"
+                               ng-model="template.addPwd" ng-click="addPwdOff()"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked': template.addPwd == 2}" ></span>
+                        <label for="addPwdOff" class="input-label"></label>
+                    </div>
+                        <label for="addPwdOff">No password</label>
+                    </div>
+                    <br/><br/>
+
+                    <div ng-if="pwd" ng-init="showPwd1=true">
+                        <input type="password" class="string big" id="addPwdValue" name="addPwdValue" ng-minlength="8" ng-maxlength="63"
+                               ng-model="template.addPwdValue" ng-show="showPwd1" ng-pattern='/^[a-zA-Z0-9]+$/' required
+                                error_id="addPwdValue_error" />
+                        <input type="text" class="string big" id="PwdValue" name="PwdValue" ng-minlength="8" ng-maxlength="63"
+                               ng-model="template.addPwdValue" ng-hide="showPwd1" ng-pattern='/^[a-zA-Z0-9]+$/' required
+                               error_id="PwdValue_error" />
+                        <span class="icon_eye" ng-class="{show_word: !showPwd1}" id="switch" ng-click="showPwd1=!showPwd1"></span>
+                        <span ng-show="ssidForm.addPwdValue.$dirty || ssidForm.addPwdValue.$touched" ng-messages="ssidForm.addPwdValue.$error" ng-messages-multiple >
+                            <span ng-message="required" class="error" style="display: inline-block">This information is required.</span>
+                            <span ng-message="minlength" class="error"  style="display: inline-block">The password must contain mininum of 8 characters</span>
+                            <span ng-message="maxlength" class="error"  style="display: inline-block">The password must contain maxinum of 63 characters</span>
+                            <span ng-message="pattern" class="error" style="display: inline-block">Valid characters include digits and letters only.</span>
+                        </span>
+                        <br/>
+                        <label class="info-explain">Note:The password is a string of 8 to 63 characters that can contain digits and letters.</label>
+                    </div>
+                </div>
+            </div>
+
+    <div class="form-group row" >
+        <label class="col-sm-3 control-label required">Hide SSID</label>
+        <div class="col-sm-9">
+            <div style="display: inline-block">
+                <div class="xb-input xb-radio" >
+                    <input type="radio" class="input-element" id="hideSsid"  name="hideSsid" value=1
+                           ng-model="template.isHideSsid" ng-click="hideSsid()"/>
+                    <span class="input-icon radio-icon " ng-class="{'checked': template.isHideSsid == 1}"></span>
+                    <label for="hideSsid" class="input-label"></label>
+                </div>
+                <label for="hideSsid">Yes</label>
+
+            </div >
+            <div style="display: inline-block;padding-left: 82px;" >
+                <div class="xb-input xb-radio">
+                    <input type="radio" class="input-element" id="showSsid"  name="showSsid" value=0
+                           ng-model="template.isHideSsid" ng-click="showSsid()"/>
+                    <span class="input-icon radio-icon" ng-class="{'checked': template.isHideSsid == 0}" ></span>
+                    <label for="showSsid" class="input-label"></label>
+                </div>
+                <label for="showSsid">No</label>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-3 control-label required">是否进行认证配置</label>
+            <div class="col-sm-9">
+                <div class="col-sm-12 control-label " style="padding-bottom: 10px;">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" class="input-element" id="continueCfg" name="continueCfg" value="2" ng-model="template.continueCfg"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':template.continueCfg == 2}" ></span>
+                        <label for="continueCfg" class="input-label"></label>
+                    </div>
+                    <label for="continueCfg">是，创建服务并继续完成认证配置</label>
+                </div>
+
+                <div class="col-sm-12 control-label " >
+                    <div class="xb-input xb-radio">
+                        <input type="radio" class="input-element" id="onlyService" name="continueCfg" value="1" ng-model="template.continueCfg"/>
+                        <span class="input-icon radio-icon " ng-class="{'checked':template.continueCfg == 1}"></span>
+                        <label for="onlyService" class="input-label"></label>
+                    </div>
+                    <label for="onlyService">否，仅创建服务</label>
+                </div>
+            </div>
+    </div>
+
+    <div align = "center" style="margin-bottom: 20px;">
+        <button class="btn btn-cus btn-sm "  ng-click="getSupportModel()" ng-disabled="ssidForm.$invalid" >
+            OK
+        </button>
+        <button class="btn btn-cus btn-sm "  ng-click="cancel()">
+            Cancel
+        </button>
+    </div>
+</form>
+
+<!--认证配置 模态框-->
+<form novalidate role="form" name="authForm" bs-modal="addAuthCfgOpt" style="padding-bottom: 15px;max-height:480px;overflow:auto;">
+    <div class="form-group row">
+        <label class="col-sm-3 control-label">Authentication method</label>
+        <div class="col-sm-9">
+            <div class="col-sm-12" style="margin-bottom: 15px;">
+                <div class="xb-input xb-radio">
+                    <input type="radio" class="input-element" value="AT1" id="addAT1" name="addAuthenType" ng-model="addAuthCfg.addAuthenType"/>
+                    <span class="input-icon radio-icon " ng-class="{'checked':addAuthCfg.addAuthenType=='AT1'}"></span>
+                    <label for="addAT1" class="input-label"></label>
+                </div>
+                <label for="addAT1">No authentication</label>
+            </div>
+
+            <div class="col-sm-12" style="margin-bottom: 10px;">
+                <div class="xb-input xb-radio">
+                    <input type="radio" class="input-element" value="AT2" id="addAT2" name="addAuthenType" ng-model="addAuthCfg.addAuthenType"/>
+                    <span class="input-icon radio-icon " ng-class="{'checked':addAuthCfg.addAuthenType =='AT2'}"></span>
+                    <label for="addAT2" class="input-label"></label>
+                </div>
+                <label for="addAT2" >authentication</label>
+            </div>
+
+            <div ng-show="addAuthCfg.addAuthenType=='AT2'" >
+                <div style="margin-bottom: 8px;">
+                    <label class="col-sm-5 control-label">Select authentication template</label>
+                    <div class="ath-type" id="addModelSelect">
+                        <select class="singleSelect" style="width: 200px;" ng-model="addAuthCfg.addAuthCfgList"
+                                ng-options="AuthCfg for AuthCfg in authTemplates">
+                        </select>
+                    </div>
+                </div>
+                <div>
+                    <label class="col-sm-5 control-label">Select page template</label>
+                    <div class="lg-page" id="addLoginPageSelect">
+                        <select class="singleSelect"  style="width: 200px;" ng-model="addAuthCfg.addLoginPageList"
+                                ng-options="LoginPage for LoginPage in pageTemplates">
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>
+
+<div id="ws_ssid_rc" class="rc-define"
+     SSID_HEADER = "SSID, Authentication Method"
+     ADD_TITLE = "Add SSID"
+     AUTH_CFG = "No authentication, WeChat authentication, Short message authentication, Anonvmous authentication, Select page template"
+     ADD_WifiSerAuth = "Wireless Service Configuration"
+     DEL_AUTH_FAIL = "Failed to delete the published template"
+     ADD_SUCCESS = "SSID successfully added"
+     ADD_FAIL = "Failed to add the SSID"
+     DEL_SUCCESS = "SSID successfully deleted"
+     DEL_FAIL = "Failed to delete the SSID"
+     AUTHEN_TYPE = "No authentication, Anonymous Authentication, Account authentication"
+     SYN = "Synchronize",
+     LINK = "Adding failed because the main connection is broken down",
+     LINK_delete = "Deleting failed because the main connection is broken down",
+     ADD_Limit = "Adding failed because the number of service templates has reached the threshold"
+     CFG_add_senting="Issuing adding configuration..."
+     CFG_dell_senting="Issuing deleting configuration..."
+     syn_suc="Starting to synchronize device information.Please view the most recent data later."
+     SYN_FAIL="Synchronization failed"
+     syn="Synchronize"
+     second="s"
+     NO_support="The version does not support obtaining supported models.Please upgrade the version."
+     del_ssid="Are you sure you want to delete the selected data?"
+     add_service="添加SSID服务成功，添加认证配置失败。"
+     operate="Operation"
+     edit="Modify"
+     remove="Remove"
+></div>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:imch="http://www.huawei-3com.com/jsf/html"
+	xmlns:imcf="http://www.huawei-3com.com/jsf/core"
+	xmlns:imcc="http://java.sun.com/jsf/composite/imcc"
+	xmlns:imce="http://www.huawei-3com.com/jsf/ext"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:uam="http://www.h3c.com/uam/core">
+<h:head>
+    <script src="resources/jquery-2.1.1.js"></script>
+	<script src="resources/iscroll-zoom.js"></script>
+	<script src="resources/hammer.js"></script>
+	<script src="resources/lrz.all.bundle.js"></script>
+	<script src="resources/jquery.photoClip.js"></script>
+    <style>
+	    #body {
+			margin: 0;
+			text-align: center;
+		}
+		#clipArea {
+			margin: 30px;
+			height: 350px;
+		}
+		#file,
+		#clipBtn {
+			margin: 20px;
+		}
+		#view {
+			margin: 0 auto;
+			width: 200px;
+			height: 200px;
+		}
+    </style>
+</h:head>
+<h:body id="body">
+<f:loadBundle basename="com.h3c.o2o.auth.LocalStrings" var="o2ouammsgs" />
+<imcf:beanMethod beanName="o2ouamThemeTempletBean" methodName="initUploadParam"/>
+      <h:panelGrid columns="1" cellspacing="0"  styleClass="dtl_bottom" align="center" width="100%" >
+      		<f:verbatim>
+      			<div id="clipArea"></div>
+      		</f:verbatim>
+	  		<f:verbatim>
+      			<button id="clipBtn">截取</button>
+      		</f:verbatim>
+	  </h:panelGrid >
+<h:form id="mainForm"  enctype="multipart/form-data">
+	  <h:panelGrid columns="1" cellspacing="0"  styleClass="dtl_bottom" align="center" width="100%" >
+	  	  <h:panelGrid columns="4" cellspacing="0"  styleClass="dtl_bottom" align="center" width="50%" 
+	  	   			columnClasses="cmn_wdper_20,cmn_wdper_30,cmn_wdper_30,cmn_wdper_20,">
+	  		  <h:inputHidden id="dataurl" value="#{o2ouamThemeTempletBean.dataUrl}" />
+			  <p:outputLabel value="#{o2ouammsgs['o2ouam.theme.draw.upload.select']}" for="fileUpload" />
+			  <p:fileUpload
+		                id="fileUpload"
+		                required="true"
+		                mode="simple"
+		                update="messages"
+		                value="#{o2ouamThemeTempletBean.uploadFile}"
+		                styleClass="text-overflow"/>
+		     <h:outputText value=""></h:outputText>
+		     <h:outputText value=""></h:outputText>
+	         <p:commandButton id="upLoadFile" 
+	                onclick="if(check()) {return false;} else {}"
+	                value="#{o2ouammsgs['button.ok']}"
+	                rendered="#{visitorBean.visitorCtrlHidden}"
+	                action="#{o2ouamThemeTempletBean.onUpload2}"
+	                ajax="false"
+	                />
+	         <p:commandButton id="cancel"
+	                 value="#{o2ouammsgs['button.cancel']}"
+	                 immediate="true"
+	                 ajax="false"
+	                 onclick="window.close();return false;"/>
+	         <h:outputText value=""></h:outputText>
+	      </h:panelGrid>
+	 </h:panelGrid>
+</h:form>
+		<h:panelGrid columns="1" cellspacing="0"  styleClass="dtl_bottom" align="center" width="50%" >
+	      	<f:verbatim>
+      			<div id="view"></div>
+      		</f:verbatim>
+	    </h:panelGrid>
+</h:body>
+<script>
+	//获取路径中的参数
+	var url=location.href; //取得整个地址栏
+	str=url.substr(url.indexOf("_")+1);
+    var arr=str.split("_")
+
+	//document.addEventListener('touchmove', function (e) { e.preventDefault(); }, false);
+	var width = arr[0].substr(arr[0].indexOf("=")+1); 
+	var height = arr[1].substr(arr[1].indexOf("=")+1);
+	var isLogo = arr[2].substr(arr[2].indexOf("=")+1);
+	var widthout = width*4;
+	var heightout = height*4;
+	//根据logo图片
+	if(isLogo == 1){
+		widthout = width;
+		heightout = height;
+	}
+	//根据home页面400*300的图片
+	if(isLogo == 2 || isLogo == 3){
+		widthout = width*2;
+		heightout = height*2;
+	}
+	var clipArea = new bjj.PhotoClip("#clipArea", {
+		size: [width,height],
+		outputSize: [widthout,heightout],
+		file: "#mainForm\\:fileUpload",
+		view: "#view",
+		ok: "#clipBtn",
+		loadStart: function() {
+			console.log("Picture In the reading");
+		},
+		loadComplete: function() {
+			console.log("Picture it reads");
+		},
+		clipFinish: function(dataURL) {
+			console.log(dataURL);
+		}
+	});
+	//clipArea.destroy();
+	$("mainForm\\:clipBtn").click(function(){
+		  alert(clipArea.dataUrl);
+	});
+	function check(flag){
+		var flag = $("#view").attr("style").indexOf("background-image"); 
+		if(flag != (-1)){
+			return false;
+		}else{
+			alert("亲,请先截取图片!");
+			return true;
+		}
+	}
+	
+</script>
+</html>

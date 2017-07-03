@@ -1,0 +1,193 @@
+<style type="text/css">
+    .ant-fixed {
+        position: fixed;
+        right: 30px;
+        top: 131px;
+        z-index: 999;
+        margin-top: -10px;
+    }
+    .page-row .button-change {
+        text-align: right;
+        /*margin: 15px 0 10px 0;*/
+    }
+    .button-change span:hover {
+        color: #4ec1b2 !important;
+    }
+    .page-row span.active{
+        color: #4ec1b2;
+    }
+    .page-row span.inactive{
+        color: #80878c;
+    }
+    .page-row span:hover{
+        cursor: pointer;
+    }
+   .page-row .probe-choice input{
+        width: 200px;
+        height: 33px;
+        padding-right: 40px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+   .page-row .probe-choice.input-height{
+        height: 45px;
+    }
+   .page-row .probe-choice input{
+        z-index: 2;
+    }
+   .page-row .probe-choice input.probe-input{
+        z-index: 2;
+    }
+  .page-row  #probe_time{
+        display: inline-block;
+    }
+   .page-row .probe-choice input.probe-input{
+        width: 183px;
+        margin: 10px;
+    }
+    #daterange {
+	    width: 180px;
+	    padding: 0 0 0 6px;
+	}
+    .choice-show .time-zone{
+        padding: 10px;
+    }
+ 
+    /*周期选择*/
+   .page-row .time-zone{
+        display: inline-block;
+    }
+   .page-row .radio-name{
+        display: inline-block;
+        margin: 0 20px 0 0;
+    }
+   .btn-small{
+        width: 100px;
+        padding: 0;
+    }
+   .page-row .choice-head{
+        width: 200px;
+        height: 33px;
+        padding-right: 0px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        border: #ccc solid 1px;
+    }
+   .page-row .choice-head:hover{
+        border-color: #4ec1b2;
+        cursor: pointer;
+    }
+   .page-row .choice-head span:first-child{
+        margin-left: 15px;
+        line-height: 33px;
+    }
+   .page-row .choice-head span:last-child{
+        height: 33px;
+        width: 30px;
+        float: right;
+    }
+    /*向下箭头*/
+   .page-row .arrow-down{
+        background: url(../frame/images/dashboard-icon.png) no-repeat -376px -94px;
+    }
+   /*.page-row .probesearch-icon{
+        background: url(../frame/images/dashboard-icon.png) no-repeat -209px -97px;
+        cursor: pointer;
+    }*/
+   .page-row .choice-show .time-zone{
+        padding: 10px;
+    }
+    .cover-body{
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+
+    .ant-wips-icon-back{
+        width: 65px;
+        height: 35px;
+        background:url(../frame/images/return.png) no-repeat -306px -87px;
+    }
+    .ant-wips-icon-back:hover{
+        width: 65px;
+        height: 35px;
+        background:url(../frame/images/return.png) no-repeat -390px -87px;
+        cursor: pointer;
+    }
+    .ant-fixed{
+        position: fixed;
+        right: 30px;
+        top: 131px;
+        z-index:999;
+    }
+</style>
+<div class="ant-wips-icon-back ant-fixed" ng-click="return()"></div>
+<div class="page-row custom">
+    <div class="col-xs-12 app-colum left-block top-block">
+        <div class="col-xs-12 app-box">
+            <div class="box-footer">
+                <div class="menu-content select-time">
+                    <span class="ml20">Period：</span>
+                    <input type="radio" name="time" class="no-display" id="aDay" ng-click="initViewsByTime('aDay')" checked />
+                    <label for="aDay" ng-class="{true:'timeActive',false:'inTimeActive'}[isDay]">Today</label>
+                    <input type="radio" name="time" class="no-display" id="aWeek" ng-click="initViewsByTime('aWeek')" /> 
+                    <label for="aWeek" ng-class="{true:'timeActive',false:'inTimeActive'}[isWeek]">One week</label>
+                    <input type="radio" name="time" class="no-display" id="aMonth" ng-click="initViewsByTime('aMonth')"/>
+                    <label for="aMonth" ng-class="{true:'timeActive',false:'inTimeActive'}[isMonth]">One month</label>
+                    <input type="radio" name="time" class="no-display" id="aYear" ng-click="initViewsByTime('aYear')" /> 
+                    <label for="aYear" ng-class="{true:'timeActive',false:'inTimeActive'}[isYear]">One year</label>
+                    <input type="radio" name="time" class="no-display" id="otherTime" disabled />
+                    <label for="otherTime" ng-class="{true:'otherTimeActive',false:'inOtherTimeActive'}[isOther]">Custom</label>
+                    <input id="daterange" class="daterange time-select" ctrl="daterang">
+                </div>
+                <div class="button-change menu-content text-right">
+                    <span ng-class="{true:'active',false:'inactive'}[attackClass]" ng-click="statisticsInfo('Attack')">Attack</span>
+                    |
+                    <span ng-class="{true:'active',false:'inactive'}[clientClass]" ng-click="statisticsInfo('Client')">Client</span>
+                    |
+                    <span ng-class="{true:'active',false:'inactive'}[apClass]" ng-click="statisticsInfo('AP')">AP</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 app-colum"> 
+            <div class="app-box" debug="byApList log"> 
+                <div class="box-footer"> 
+                    <span class="title">Details</span>
+                </div> 
+                <div class="box-body no-height" ng-show="show_attack">
+                    <div bs-table="attckOption"></div>
+                </div>
+                <div class="box-body no-height" ng-show="show_client">
+                    <div bs-table="clientOption"></div>
+                </div>
+                <div class="box-body no-height" ng-show="show_ap">
+                    <div bs-table="apOption"></div>
+                </div>
+            </div> 
+        </div>
+
+    </div>
+</div>
+
+<div id="wiresecurit_rz_rc"
+     LIST-HEADER="Sensor Name, Attacker Source MAC, Type, Details, Attacks, Report Time"
+     STATION-HEADER="MAC, Device Type, Last Detection at"
+     NOT-CLASSIFIED="Uncategorized"
+     ATTACK-TYPE="Severe attack, Flood attack, Malformed packet"
+     STATION-CLASSIFY=",Authorized AP,Misconfigured AP,Rogue AP,External AP,Ad hoc AP,Mesh AP, Potential-authorized AP,Potential-rogue AP,Potential-external AP,Uncategorized AP,Authorized client,Unauthorized client,Misassociated client,Uncategorized client"
+     ATTACK-NAME-ONE=",AP spoofing attack,,,Client spoofing,,Weak IV,Windows bridge,Clients with 40 MHz mode disabled,Soft AP,Power save attack,Omerta attack,Disassociation attack, Deauthentication attack,Prohibited channel,AP impersonation attack,Unencrypted authorized AP, Unencrypted authorized client,Hotspot attack,HT-greenfield AP,Association/reassociation DoS attack,Honeypot AP,MITM attack,Wireless bridge,AP flood attack,Channel change,"
+     ATTACK-NAME-TWO="Association request,Authentication frame,Beacon frame,Block ACK,CTS, Deauthentication frame,Disassociation frame,EAPOL-Start frame,Null-data frame,Probe request, Reassociation request,RTS,EAPOL-Logoff frame,EAP Fail frame,EAP Success frame"
+     ATTACK-NAME-THREE="Duplicate IE, FATA-Jack malformed packet, Abnormal IBSS and ESS setting, Invalid source address, Malformed association request, Malformed authentication request, Invalid deauthentication code, Invalid disassociation code, Malformed HT IE, Invalid IE length, Invalid packet length, Oversized duration, Malformed probe response, Oversized EAPOL key, Oversized SSID, Redundant IE"
+     APPLY="Apply"
+     CANCEL="Cancel"
+     WEEK="Su,Mo,Tu,We,Th,Fr,Sa"
+     MONTH="Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec"
+></div>

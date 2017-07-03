@@ -1,0 +1,164 @@
+<html>
+<head>
+</head>
+<body>
+
+	<form class="form-horizontal form-bordered form" id="user_add_form">
+		<div class="col-sm-6">
+			<div class="form-group" id="Name_block">
+				<label class="col-sm-3  control-label required">Username</label>
+				<div class="col-sm-9">
+					<input type="text" class="span4 string required big" errid="Name_error" maxlength=32 id="Name" name="Name">
+					<span class="info-explain">(1-32 chars)</span>
+					<span class="error" id="Name_error"></span>					
+				</div>
+			</div>
+
+	        <div class="form-group" id="Pword_block">
+	            <label class="col-sm-3  control-label">Password</label>
+	            <div class="col-sm-9">
+	                <table>
+	                    <tbody><tr>
+	                        <td>
+	                            <input type="password" class="string big" errid="Password_error" maxlength="63" id="Password" name="Password">
+	                            <label class="info-explain">(1-63 chars)</label>
+	                            <label class="error" id="Password_error" style="display: none; "></label>	
+	                        </td>
+	                    </tr>
+	                    <tr>
+	                        <td>
+	                            <input type="password" class="string big" errid="repeat_error" maxlength="63" id="repeat_Password" name="repeat_Password">
+	                            <label class="info-explain">Confirm password</label>
+	                            <label class="error" id="repeat_error"></label>
+	                        </td>
+	                    </tr>
+	                </tbody></table>
+	            </div>
+	        </div>
+
+	        <div class="form-group" id="Autherication_block">
+				<label class="col-sm-3  control-label">Authorization attributes</label>
+				<div class="col-sm-9">
+					<li>Authorization ACL</li>
+					<div class="indent-mini">
+					    <input type="text" class="typehead big" id="Auth_AclNumber" name="AuthorizationInfo.AclNumber" errid="AclNumber_error" min=2000 max=5999 maxlength=4/>
+						<a href="#" class="btn add-btn" id="addAcl"><i class="icon icon-plus"></i></a>
+						<span class="info-explain">(2000-5999)</span>					
+						<span class="error" id="AclNumber_error"></span>
+					</div>
+					<li>Idle timeout</li>
+					<div class="indent-mini">
+						<input type="text" class="span2 digits big" errid="IdleTimeout_error" min=1 max=120 maxlength=3 id="Auth_IdleTimeout" name="AuthorizationInfo.IdleTimeout" />
+						minutes
+						<span class="info-explain">(1-120)</span>
+						<span class="error" id="IdleTimeout_error"></span>
+					</div>
+					<li>User profile</li>
+					<div class="indent-mini">
+						<input type="text" class="span4 string big" errid="UserProfile_error" maxlength=32 id="Auth_UserProfile" name="AuthorizationInfo.UserProfile">
+						<span class="info-explain">(1-32 chars)</span>
+						<span class="error" id="UserProfile_error"></span>					
+					</div>
+					<li>Authorization VLAN</li>
+					<div class="indent-mini">
+						<input type="text" class="span2 digits big" errid="VLANID_error" min=1 max=4094 maxlength=4 id="Auth_VLANID" name="AuthorizationInfo.VLANID" />
+						<span class="info-explain">(1-4094)</span>
+						<span class="error" id="VLANID_error"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="col-sm-6">
+			<div class="form-group" id="GroupName_block">
+	            <label class="col-sm-3  control-label">User group</label>
+	            <div class="col-sm-9">
+				    <select class="span4 singleSelect big" id="GroupName" name="GroupName" maxlength=32 errid="GroupName_error"></select>
+	                <span class="info-explain">(1-32 chars)</span>
+	                <span class="error" id="GroupName_error"></span>
+	            </div>
+	        </div>
+
+
+	        <div class="form-group" id="AvailableSer_block">
+	            <label class="col-sm-3  control-label">Service types</label>
+	            <div class="col-sm-9">
+	                <table>
+	                    <tbody><tr>
+	                        <td>
+	                            <input type="checkbox" id="ADVPN" name="ADVPN">
+	                            <label for="ADVPN"> ADVPN </label>
+	                        </td>
+	                        <td>
+	                            <input type="checkbox" id="IKE" name="IKE">
+	                            <label for="IKE"> IKE </label>
+	                        </td>
+	                        <td>
+	                            <input type="checkbox" id="LanAccess" name="LanAccess">
+	                            <label for="LanAccess"> LanAccess </label>
+	                        </td>
+	                        <td>
+	                            <input type="checkbox" id="Portal" name="Portal">
+	                            <label for="Portal"> Portal </label>
+	                        </td>
+	                        <td>
+	                            <input type="checkbox" id="PPP" name="PPP">
+	                            <label for="PPP"> PPP </label>
+	                        </td>
+	                    </tr>
+					</tbody></table>
+	            </div>
+	        </div>
+
+	        <div class="form-group" id="AccessLimit_block">
+	            <label class="col-sm-3  control-label">Max concurrent logins</label>
+	            <div class="col-sm-9">
+	                <input type="text" class="span4 string big" errid="AccessLimit_error" maxlength=32 id="AccessLimit" name="AccessLimit">
+	                <span class="info-explain">(1-1024)</span>
+	                <span class="error" id="AccessLimit_error"></span>
+	            </div>
+	        </div>
+
+			<div class="form-group" id="Access_block">
+				<label class="col-sm-3  control-label">Binding attributes</label>
+				<div class="col-sm-9">
+					<li>Access interface</li>
+					<div class="indent-mini">
+					    <select class="span4 singleSelect big" id="Bind_Interface" name="BindingInfo.Interface" errid="BindingInfo_Interface_error"></select>
+						<span class="info-explain">(1-47 chars)</span>
+						<span class="error" id="BindingInfo_Interface_error"></span>
+					</div>
+					<li>User IP address</li>
+					<div class="indent-mini">
+						<input type="text" class="span2 IP big" errid="BindingInfo_Ipv4Address_error" id="Bind_Ipv4Address" name="BindingInfo.Ipv4Address" />
+						<span class="error" id="BindingInfo_Ipv4Address_error"></span>
+					</div>
+					<li>User MAC address</li>
+					<div class="indent-mini">
+						<input type="text" class="span4 string big" errid="BindingInfo_MacAddress_error" id="Bind_MacAddress" name="BindingInfo.MacAddress">
+						<span class="info-explain">(1-17 chars)</span>
+						<span class="error" id="BindingInfo_MacAddress_error"></span>
+					</div>
+					<li>VLAN through which the user accesses the device</li>
+					<div class="indent-mini">
+						<input type="text" class="span2 digits big" errid="BindingInfo_VLANID_error" min=1 max=4094 maxlength=4 id="Bind_VLANID" name="BindingInfo.VLANID" />
+						<span class="info-explain">(1-4094)</span>
+						<span class="error" id="BindingInfo_VLANID_error"></span>
+					</div>
+				</div>
+			</div>
+		</div>			
+	</form>
+
+	<div id="user_add_rc" class="rc-define" 
+		TITLE_ADD = "New User"
+		TITLE_EDIT = "Edit User"
+        SERVICE="ADVPN,IPoE,LAN access,Portal,PPP,IKE"
+		repeatError="The passwords you entered do not match. Please re-enter your passwords."
+		></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("LUser.Add_user");
+</script>

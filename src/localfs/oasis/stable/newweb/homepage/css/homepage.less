@@ -1,0 +1,477 @@
+/**
+ * Created by liuyanping lkf6877 on 2017/6/03.
+ */
+
+@import "../../frame/css/$base";
+@import "$homepage";
+
+.public{
+  width: 1000px;
+  margin: 0 auto;
+}
+.content-title-common{
+  height: 45px;
+  border-bottom: 1px solid #e7e7e9;
+  text-align: center;
+  >div{
+    width: 120px;
+    display: inline-block;
+    font-size: @oasis-fontSize-big;
+    margin-top: 28px;
+  }
+}
+.oasis-home{
+  min-width: 1000px;
+  color: @oasis-color;
+  .oasis-home-header{
+    background-color: @oasis-home-header-bgColor;
+    .oasis-header-main{
+      &:extend(.public);
+      .oasis-header-logo{
+        float: left;
+        margin-right: 30px;
+        line-height: 78px;
+      }
+      .oasis-header-nav{
+        height: @oasis-home-header-height;
+        line-height: @oasis-home-header-height;
+        font-size: 16px;
+        float: left;
+        li{
+          float: left;
+          margin: auto 15px;
+          cursor: pointer;
+          &:hover{
+            color: @oasis-hoverColor;
+          }
+          &.active{
+            color: @oasis-hoverColor;
+          }
+        }
+      }
+      .oasis-header-right{
+        float: right;
+        height: @oasis-home-header-height;
+        text-align: center;
+        line-height: @oasis-home-header-height;
+        >div{
+          display: inline-block;
+          &:nth-child(1){
+            position: relative;
+            >input{
+              width: @oasis-home-header-search-width;
+              height: @oasis-home-header-search-height;
+              color: @oasis-home-header-search-color;
+              background-color: @oasis-home-header-search-bgColor;
+              border: none;
+              &::-webkit-input-placeholder {
+                color:@oasis-home-header-search-color;
+              }
+              &:-moz-placeholder {
+                color:@oasis-home-header-search-color;
+              }
+              &::-moz-placeholder {
+                color:@oasis-home-header-search-color;
+              }
+              &:-ms-input-placeholder {
+                color:@oasis-home-header-search-color;
+              }
+            }
+            >span{
+              position: absolute;
+              top: 34px;
+              right: 10px;
+            }
+          }
+          &:nth-child(2){
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            cursor: pointer;
+          }
+          &:nth-child(3){
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            cursor: pointer;
+            background: @oasis-home-header-login-bgColor;
+          }
+        }
+      }
+    }
+  }
+  .oasis-home-banner{
+    img{
+      width: 100%;
+    }
+    .carousel-indicators li{
+      width: @oasis-home-banner-dot-width;
+      height: @oasis-home-banner-dot-height;
+      background-color: @oasis-home-banner-dot-bgColor;
+      margin: 0;
+      border: none;
+    }
+    .carousel-indicators .active{
+      background-color: @oasis-home-banner-dot-active-bgColor;
+    }
+  }
+  .oasis-home-title{
+    height: @oasis-home-title-height;
+    background-color: @oasis-home-title-bgColor;
+    .oasis-title-main{
+      &:extend(.public);
+      >div{
+        float: left;
+        width: 33.333%;
+        height: @oasis-home-title-height;
+        border-left: @oasis-home-title-border;
+        padding-left: 20px;
+        display: table;
+        &:last-child{
+          border-right: @oasis-home-title-border;
+        }
+        .oasis-title-content{
+          display: table-cell;
+          vertical-align: middle;
+          &.oasis-question-mark{
+            background: url("../img/question_mark.png") no-repeat 90%;
+          }
+          &.oasis-exclamatory-mark{
+            background: url("../img/exclamatory_mark.png") no-repeat 90%;
+          }
+          >div{
+            &:first-child{
+              font-size: @oasis-fontSize-big;
+              padding-bottom: 10px;
+            }
+            &:last-child{
+              color: @oasis-home-title-color;
+            }
+          }
+        }
+      }
+    }
+  }
+  .oasis-home-content-first{
+    height: @oasis-home-first-height;
+    background-color: @oasis-home-first-bgColor;
+    &.oasis-home-maintenance{
+      background: url("../img/maintenance.png") no-repeat bottom;
+    }
+    >div{
+      &:first-child{
+        &:extend(.content-title-common);
+        >div{
+          &:extend(.content-title-common>div);
+          color: @oasis-home-first-title-color;
+          background-color: @oasis-home-first-bgColor;
+        }
+      }
+      &:last-child{
+        text-align: center;
+        padding-top: 25px;
+        ul{
+          &:extend(.public);
+          li{
+            display: inline-block;
+            color: @oasis-home-first-title-color;
+            margin-right: 25px;
+            font-size: 16px;
+            &:before{
+              content: "";
+              display: inline-block;
+              width: 10px;
+              height: 10px;
+              background-color: @oasis-home-first-title-color;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+
+    }
+  }
+  .oasis-home-content-second{
+    height: @oasis-home-second-height;
+    //background-color: @oasis-home-second-bgColor;
+    background: url("../img/portal-bg.png") no-repeat;
+    background-size: cover;
+    >div{
+      &:first-child{
+        &:extend(.content-title-common);
+        >div{
+          &:extend(.content-title-common>div);
+          color: @oasis-home-second-title-color;
+          background-color: @oasis-home-second-bgColor;
+        }
+      }
+      &:nth-child(2){
+        text-align: center;
+        padding-top: 25px;
+        ul{
+          &:extend(.public);
+          li{
+            display: inline-block;
+            margin-right: 25px;
+            color: @oasis-home-second-title-color;
+            font-size: 16px;
+            &:before{
+              content: "";
+              display: inline-block;
+              width: 10px;
+              height: 10px;
+              background-color: @oasis-home-second-title-color;;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+      &:nth-child(3){
+        padding-top: 65px;
+        &:extend(.public);
+        >div{
+          width: 310px;
+          height: 245px;
+          background-color: #ffffff;
+          float: left;
+          text-align: center;
+          padding: 30px 25px 0 25px;
+          color: @oasis-home-second-title-color;
+          font-size: 16px;
+          &:not(:last-child){
+            margin-right: 35px;
+          }
+          >div{
+            padding-top: 30px;
+          }
+        }
+      }
+    }
+
+  }
+  .oasis-home-content-third{
+    height: 510px;
+    background-color: #384147;
+    >div{
+      &:first-child{
+        height: 78px;
+        line-height: 78px;
+        text-align: center;
+        font-size: 22px;
+      }
+      &:nth-child(3){
+        height: 360px;
+        background-color: #2f363c;
+        margin-top: 20px;
+        padding: 20px 0;
+        >div{
+          &:extend(.public);
+          >div{
+            float: left;
+            position: relative;
+            &:not(:last-child){
+              margin-right: 13px;
+            }
+            &:before{
+              content: "";
+              position: absolute;
+              top:0;
+              width: 100%;
+              height: 100%;
+              background-color: rgba(41,47,52,0.6);
+            }
+            &:hover:before{
+              display: none;
+            }
+            >div{
+              &:nth-child(2){
+                position: absolute;
+                top: 120px;
+                font-size: 24px;
+                width: 100%;
+                text-align: center;
+                text-shadow: 1px 2px 5px rgba(0,0,0,0.6);
+              }
+              &:nth-child(3){
+                position: absolute;
+                bottom: 0;
+                height: 75px;
+                width: 100%;
+                background-color: rgba(41,47,52,0.6);
+                padding: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+    >ul{
+      &:extend(.public);
+      text-align: center;
+      li{
+        display: inline-block;
+        font-size: 16px;
+        color: #e3e2de;
+        margin-right: 25px;
+        &:before{
+          content: "";
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          background-color: #fffefc;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  .oasis-home-content-fourth{
+    height: 560px;
+    background-color: #f0f2f3;
+    >div{
+      &:first-child{
+        &:extend(.content-title-common);
+        >div{
+          &:extend(.content-title-common>div);
+          color: #292f34;
+          background-color: #f0f2f3;
+        }
+      }
+      &:nth-child(2){
+        text-align: center;
+        padding-top: 25px;
+        ul{
+          &:extend(.public);
+          li{
+            display: inline-block;
+            font-size: 16px;
+            color: @oasis-home-second-title-color;
+            margin-right: 25px;
+            &:before{
+              content: "";
+              display: inline-block;
+              width: 10px;
+              height: 10px;
+              background-color: @oasis-home-second-title-color;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+      &:nth-child(3){
+        &:extend(.public);
+        padding-top: 55px;
+      }
+      &:nth-child(4){
+        &:extend(.public);
+      }
+    }
+  }
+  .oasis-home-content-fifth{
+    background-color: #fafafa;
+    padding-top: 30px;
+    >div{
+      &:extend(.public);
+      .oasis-fifth-title{
+        font-size: 22px;
+        color: #292f34;
+        text-align: center;
+      }
+      .oasis-fifth-title-small{
+        font-size: 16px;
+        color: #53575a;
+        text-align: center;
+      }
+      .row{
+        margin-top: 20px;
+        color: #737c84;
+        h3{
+          color: #737c84;
+          font-size: 30px;
+        }
+        h4{
+          color: #737c84;
+          font-size: 18px;
+        }
+      }
+      .map_side {
+        padding-top: 50px;
+        & > .row {
+          margin-bottom: 50px;
+        }
+      }
+      hr {
+        margin: 10px auto;
+        width: 80%;
+        border-color: rgba(41,47,52,0.6);;
+      }
+      >div{
+        &:nth-child(4){
+          >div{
+            float: left;
+            width: 125px;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+  .oasis-home-content-sixth{
+    height: 175px;
+    background: url("../img/register-bg.png") no-repeat;
+    background-size: cover;
+    >div{
+      &:extend(.public);
+      display: table;
+      height: 175px;
+      line-height: 175px;
+      text-align: center;
+      span{
+        font-size: 22px;
+        color: #f6f9fe;
+        &:first-child{
+          margin-right: 40px;
+        }
+        &:last-child{
+          border: 1px solid #f6f9fe;
+          padding: 10px 35px;
+          background-color: rgba(255,255,255,0.1);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .oasis-home-footer{
+    height: 410px;
+    background: url("../img/footer-bg.png") #292f34 left;
+    color: #d7d6d2;
+    .row{
+      &:extend(.public);
+      text-align: center;
+      ul{
+        //list-style: none;
+        line-height: 30px;
+        margin-top: 55px;
+        display: inline-block;
+        text-align: left;
+        padding: 0;
+        li{
+          &:first-child{
+            line-height: 55px;
+          }
+          >a{
+            color: #2381ec;
+          }
+        }
+      }
+    }
+    .oasis-footer-bottom{
+      &:extend(.public);
+      padding-top: 90px;
+      text-align: center;
+      color: #d7d6d3;
+    }
+  }
+  .mt9{
+    margin-top: 9px;
+  }
+}

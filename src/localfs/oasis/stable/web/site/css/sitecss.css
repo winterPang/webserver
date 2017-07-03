@@ -1,0 +1,41 @@
+.site .padding-left-zero {
+    padding-left: 0;
+}
+
+.site .fixed-table-body table {
+    table-layout: fixed;
+}
+
+.site .fixed-table-body table td {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.site .fixed-table-body [bs-table=irfOptions], .site .fixed-table-body [bs-table=options] {
+    table-layout: auto;
+}
+
+/*.site .fixed-table-body table th[data-field=addrShow] {*/
+/*width: 180px;*/
+/*}*/
+
+/*.site .fixed-table-body table th[data-field=manage], .site .fixed-table-body table th[data-field=dev_show] {*/
+/*width: 101px;*/
+/*}*/
+
+/*.site .fixed-table-body table th[data-field=modify], .site .fixed-table-body table th[data-field=del] {*/
+/*width: 54px;*/
+/*}*/
+
+.site #cmbProvince, .site #cmbCitys, .site #cmbArea {
+    width: 100%;
+}
+
+.tooltip {
+    word-break: break-all;
+}
+
+.site .padding-left {
+    padding-left: 10px;
+}

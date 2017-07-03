@@ -1,0 +1,192 @@
+<html>
+<head>
+</head>
+<body>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div class="app-box no-height default-bottom">
+                <div class="box-footer">
+                    <span class="title">无线服务配置</span>
+                </div>
+                <div class="box-body no-height">
+                    <div id="onlineuser_list" class="simple-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hide" id="ssidToggle">
+        <form id="toggle_form" class="form edit">
+            <!--<div class="col-sm-6 response-block">-->
+            <div class="form-group">
+                <!--<div class="form-group">-->
+                <div class="col-sm-6">
+                    <label class="col-sm-3" for="apName">无线服务名称</label>
+                    <div class="col-sm-9 string big">
+                        <!--<input  name = "apName"  id="apName" maxlength="63" readonly type="text"/>-->
+                        <span class="label" id="apName"></span>
+                    </div>
+                </div>
+
+                <!--<div class="form-group">-->
+                <div class="col-sm-6">
+                    <label class="col-sm-3">SSID</label>
+                    <div class="col-sm-9">
+                        <!--<input type="text" class="string big required" id="SSID" readonly/>-->
+                        <!--<label class="info-explain">（1-32字符）</label>-->
+                        <!--<label class="error" id="SSID_error"></label>-->
+                        <span class="label" id="SSID"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-sm-6" id="status">
+                    <label class="col-sm-3" for="apGroupName">状态</label>
+                    <div class="col-sm-9 string big">
+                        <!--<input type="radio" id="apGroupName" checked name = "apGroupName" value="开启" readonly/>-->
+                        <!--<label class=" control-label info-explain" for="apGroupName">开启</label>-->
+                        <!--&nbsp;&nbsp;&nbsp;&nbsp;-->
+                        <!--<input type="radio" id="apGroupName_go"  name = "apGroupName" value="关闭" readonly/>-->
+                        <!--<label class=" control-label info-explain" for="apGroupName_go">关闭</label>-->
+                        <span class="label" id="serviceStatus"></span>
+                    </div>
+                </div>
+
+                <div class="col-sm-6" id="cipherSuite">
+                    <label class="col-sm-3"for="cipherSuite " id="cipherSuite_right">是否加密</label>
+                    <div class="col-sm-9 string big">
+                        <!--<input type="radio" id="cipherSuite_false" checked  name = "cipherSuite" value="cipherSuite_false"/>-->
+                        <!--<label class=" control-label info-explain" for="cipherSuite_false">否</label>-->
+                        <!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+                        <!--<input type="radio" id="cipherSuite_true"  name = "cipherSuite" value="cipherSuite_true"/>-->
+                        <!--<label class=" control-label info-explain" for="cipherSuite_true">是</label>-->
+                        <span class="label" ></span>
+                    </div>
+                </div>
+
+                <!--<div class="form-group hide" id="cipherKey_out">-->
+                    <!--<label class="col-sm-3 control-label required">密钥</label>-->
+                    <!--<div class="col-md-9">-->
+                        <!--<input type="text" class="string big required" id="restByte" name ="IDLE_CUT_FLOW" error_id="restByte_error" />-->
+                        <!--<label class="error" id="restByte_error" >该参数必须配置</label>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+
+            <!--<div class="col-sm-6 response-block">-->
+            <div class="form-group col-sm-6">
+                <label class="col-sm-3">登录页面</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-12">
+                        <div class="col-sm-3">
+                            <!--<input type="radio" id="LP1" value="LP1" name="LoginPage" value="1" ctrlBlock=".lg-page" checked/>-->
+                            <!--<label for="LP1">简约</label>-->
+                            <span class="label" id="loginView"></span>
+                        </div>
+                        <!--<div class="col-sm-2">-->
+                        <!--<a class="xb-link" id ="simpledraw">预览</a>-->
+                        <!--</div>-->
+                    </div>
+
+                    <!--<div class="col-sm-12">-->
+                        <!--<input type="radio" id="LP4" value="LP4" name="LoginPage" ctrlBlock=".lg-page" content="#LoginPageSelect">-->
+                        <!--<label for="LP4">选择页面模板</label>-->
+                        <!--<div class="lg-page hide" id="LoginPageSelect">-->
+                            <!--&lt;!&ndash;allowClear="false" 属性&ndash;&gt;-->
+                            <!--<select class="singleSelect"  id="LoginPageList" name="LoginPageList">-->
+                            <!--</select>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <!--</div>-->
+
+        </form>
+    </div>
+
+    <div class="modal fade modal-super" id="TerminalInfoDlgAP" tabindex="-1" aria-hidden="true">
+       <!--  下面的表单是用来弹窗的,弹出的窗是具体的信息 -->
+        <form class="form-horizontal form" id="view_client_form">
+            <div class="box-body no-height form-group">
+                <div class="page-row">
+                    <div class="col-xs-12 app-colum">
+                        <div class="app-box no-height default-bottom">
+                            <div class="box-body no-height" id="frameList">
+                            <!-- 这个div就是和下面的div有一个间距而已 -->
+                                <div id="flowdetail_listAP" class="simple-list"></div>
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer form-actions"></div><!-- 这里是用来绑定取消按钮的 -->
+        </form>
+        <div class="editor-alert">
+        </div>
+    </div>
+    <div class="modal fade modal-super" id="TerminalInfoDlgAPGroup" tabindex="-1" aria-hidden="true" style="margin-top: -148px; display: none;">
+       <!--  下面的表单是用来弹窗的,弹出的窗是具体的信息 -->
+        <form class="form-horizontal form" id="view_client_form1">
+            <div class="box-body no-height form-group">
+                <div class="page-row">
+                    <div class="col-xs-12 app-colum">
+                        <div class="app-box no-height default-bottom">
+                            <div class="box-body no-height" id="frameList"><!-- 这个div就是和下面的div有一个间距而已 -->
+                                <div id="flowdetail_listAPGroup" class="simple-list" style=""></div><!-- 所有的弹框信息，每条数据都在这个div里呢 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer form-actions"></div><!-- 这里是用来绑定取消按钮的 -->
+        </form>
+        <div class="editor-alert">
+        </div>
+    </div>
+    <div class="hide modal fade" id="AddSsidDlg">
+        <div class="modal-body">
+            <form class="form edit" id="AddSsidForm">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label required">SSID</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="string big required" id="ssid_name" name ="ssid_name" errid="ssid_name_error" maxlength=32 />
+                        <label class="info-explain">（1-32字符）</label>
+                        <label class="error" id="ssid_name_error"></label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+<div id="h_wireless_indexConfigure" class="rc-define"
+        ALLAP_HEADER2="无线服务名称,SSID,服务类型,状态,绑定AP组"
+        STATUS=",开启,关闭"
+        TERINFO="AP列表"
+        TITLE_TERINFO="AP详情"
+        APGROUP="绑定AP组"
+        AUTHEN_TYPE="不认证,一键上网,账号认证"
+        ALLAP_HEADER3="AP名称,SN,AP型号,绑定"
+        ALLAP_HEADER4="AP组名称,描述,区域,状态"
+        FRESH="刷新"
+        DEL_SUCCESS = "删除成功"
+        LINK_delete="主连接已断开,删除失败",
+        SSID_HEADER = "SSID,认证方式"
+        ADD_TITLE = "增加服务"
+        AUTH_CFG = "不认证,微信认证,短信认证,一键上网,选择页面模板"
+        DEL_AUTH_FAIL = "删除发布模板失败"
+        DEL_PUB_SUCC = "取消发布成功"
+        PUB_SUCC = "发布成功"
+        ADD_SUCCESS = "添加成功"
+        ADD_FAIL = "添加失败"
+        ADD_NULL_SSID = "SSID不能为空"
+        DEL_FAIL = "删除失败"
+        LINK="主连接已断开,添加失败"
+        ADD_Limit="服务模版已达到上限，添加失败"
+        SYN="同步"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+	Utils.Pages.loadJS("city_wireless.index_wireless");
+</script>

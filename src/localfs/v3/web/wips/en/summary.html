@@ -1,0 +1,456 @@
+<html>
+<head>
+</head>
+<style>
+
+
+    .daterange:focus{
+        border: #4ec1b2 solid 1px;
+        outline: none;
+    }
+    .ant-time-zone{
+        position: absolute;
+        display: inline-block;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        padding-left: 10px;
+        line-height: 42px;
+    }
+    .ant-time-zone .daterange{
+        width: 180px;
+    }
+
+    .page-row .hide{
+        display: none!important;
+    }
+    
+
+    .page-row #help_detail{
+        position: absolute;
+        right: 20px;
+    }
+     .page-row #help_detail:hover{
+
+        cursor: pointer;
+        color: #4ec1b2;
+    }
+    /*帮助中的字体*/
+    #helpdetail .form-horizontal ul li span{
+        font-weight: 600;
+    }
+
+    .ant-padding-left{
+        padding-left:10px;
+    }
+
+    .ant-radio{
+        margin:0 8px 0px 8px;
+        min-width: 30px;
+        min-height: 23px;
+        position: relative;
+        display: inline-block;
+        line-height: 23px;
+        color: #343E4E;
+    }
+    .ant-radio-label{
+        min-height: 23px;
+        position: relative;
+        display: inline-block;
+        line-height: 23px;
+        color: #343E4E;
+        margin:0 0px 0px 16px;
+
+    }
+
+    .ant-radio label{
+        width: 100%;
+        height: 100%;
+        line-height: inherit;
+        text-align: center;
+    }
+    .ant-radio input:hover+label,.ant-radio label:hover:not(:last-child){
+        color: #4ec1b2;
+        cursor: pointer;
+    }
+    .ant-radio input:hover:not(:last-child){
+        cursor: pointer;
+    }
+
+    .ant-radio input{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        filter:alpha(opacity=0);  
+        -moz-opacity:0;  
+        -khtml-opacity: 0;  
+        opacity: 0; 
+        z-index: -1;
+
+    }
+    .ant-radio input:checked+label{
+        color: #4ec1b2;
+        text-decoration: underline;
+    }
+    .ant-head-pannel{
+        height: 42px;
+    }
+    .ant-head-pannel.ant-color{
+        background-color: #edf9f7;
+    }
+
+    .ant-head-pannel .ant-pannel-v-center{
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        display: table;
+    }
+
+
+    .ant-border{
+        border:#e7e7e9 solid 1px;
+    }
+    .ant-size-input-height{
+        height: 26px;
+    }
+    .ant-subtitle{
+        color: #80878c;
+        font-size: 14px;
+    }
+    .ant-title{
+        color: #343e4e;
+        font-size: 24px;
+    }
+    .ant-sm-title
+    {
+        color: #343e4e;
+        font-size: 14px;    
+    }
+    .ant-alone{
+        position: absolute;
+        z-index: 999;
+    }
+
+    table{
+        text-align: center;
+        vertical-align: middle;
+        margin: 10px;
+    }
+    .ant-tipicon-client{
+
+    }
+    .ant-pannel-element {
+        padding: 5px;
+    }
+    .ant-pannel-element:not(:last-child) .ant-pannel-box{
+        border-right: #e7e7e9 solid 1px;
+        width: 100%;
+    }
+    .ant-gap-top{
+        margin-top: 20px;
+    }
+    .ant-table-position{
+        position: absolute;
+        bottom: 30px;
+    }
+    .ant-table-position table{
+        margin: auto;
+    }
+    .default-height{
+        min-height: 270px;
+    }
+    .ant-padding-top{
+        padding-top: 20px;
+    }
+    .ant-title-left-gap{
+        padding-left: 20px;
+    }
+
+    /*图标*/
+    .ant-vertical-center{
+        position: absolute;
+        display: inline-block;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        padding-left: 10px;
+    }
+    .ant-wips-icon-detail{
+        right: 20px;
+        width: 25px;
+        height: 20px;
+        background:url(./css/image/ant-wips-icon.png) no-repeat -640px -70px;
+    }
+    .ant-wips-icon-detail:hover{
+        right: 20px;
+        width: 25px;
+        height: 20px;
+        background:url(./css/image/ant-wips-icon.png) no-repeat -585px -70px;
+    }    
+    .ant-wips-icon-client{
+        width: 60px;
+        height: 60px;
+        background:url(./css/image/ant-wips-icon.png) no-repeat -190px -150px;
+    }
+    .ant-wips-icon-unauthored-client{
+        width: 60px;
+        height: 60px;
+        background:url(./css/image/ant-wips-icon.png) no-repeat -385px -150px;
+    }
+    .ant-wips-icon-ap{
+        width: 80px;
+        height: 60px;
+        background:url(./css/image/ant-wips-icon.png) no-repeat -565px -150px;
+    }
+    .ant-wips-icon-rouge-ap{
+        width: 60px;
+        height: 60px;
+        background:url(./css/image/ant-wips-icon.png) no-repeat -760px -150px;
+    }
+    .ant-wips-icon-attack{
+        width: 70px;
+        height: 60px;
+        background:url(./css/image/ant-wips-icon.png) no-repeat -960px -150px;
+    }
+    .ant-wips-icon-reflect{
+        width: 60px;
+        height: 60px;
+        background:url(./css/image/ant-wips-icon.png) no-repeat -1165px -150px;
+    }
+
+    .page-row .text-right{
+        text-align: right;
+        padding-right: 20px;
+    }
+    .page-row .myEchart{
+        min-height: 200px;
+    }
+
+</style>
+<body>
+<div class="page-row" id="wips_monitor">
+    <div class="ant-head-pannel col-xs-12 ant-border ant-color">
+        <div class="ant-time-zone">
+            <span class="ant-radio-label">Period:</span>
+            <div class="ant-radio">
+                <input type="radio" id="WT1" name="WipsType" value="0" checked/>
+                <label for="WT1">Today</label>
+            </div>
+            <div class="ant-radio">
+                <input type="radio" id="WT2" name="WipsType" value="1"/>
+                <label for="WT2">One week</label>
+            </div>
+            <div class="ant-radio">
+                <input type="radio" id="WT3" name="WipsType" value="2"/>
+                <label for="WT3">One month</label>
+            </div>
+            <div class="ant-radio">
+                <input type="radio" id="WT4" name="WipsType" value="3"/>
+                <label for="WT4">One year</label>
+            </div>
+            <div class="ant-radio">
+                <input type="radio" id="WT5" name="WipsType" value="4" disabled/>
+                <label for="WT5">Custom</label>
+            </div>
+                <input id="daterange" class="daterange ant-border ant-size-input-height" placeholder="Select a date">
+        </div>
+        <a type="button" class="ant-wips-icon-detail ant-vertical-center" id="client_details" href="wips.detail" title="Details"></a>
+    </div>
+
+    <div class="col-xs-12 ant-border ant-gap-top">
+        <div class="ant-pannel-element col-md-2 col-sm-4">
+            <table class="ant-pannel-box" border="0">
+                <tr>
+                    <td rowspan="3" class="ant-tipicon-client ant-wips-icon-client"></td>
+                    <td id="Title_top1" class="ant-title">0</td>
+                </tr>
+                <tr>
+                    <td class="ant-subtitle">Client</td>
+                </tr>                
+            </table>
+        </div>
+        <div class="ant-pannel-element col-md-2 col-sm-4">
+            <table class="ant-pannel-box" border="0">
+                <tr>
+                    <td rowspan="3" class="ant-tipicon-client ant-wips-icon-unauthored-client"></td>
+                    <td id="Title_top2" class="ant-title">0</td>
+                </tr>
+                <tr>
+                    <td class="ant-subtitle">Unauthorized client</td>
+                </tr>                
+            </table>
+        </div>
+        <div class="ant-pannel-element col-md-2 col-sm-4">
+            <table class="ant-pannel-box" border="0">
+                <tr>
+                    <td rowspan="3" class="ant-tipicon-client ant-wips-icon-ap"></td>
+                    <td id="Title_top3" class="ant-title">0</td>
+                </tr>
+                <tr>
+                    <td class="ant-subtitle">AP</td>
+                </tr>                
+            </table>
+        </div>
+        <div class="ant-pannel-element col-md-2 col-sm-4">
+            <table class="ant-pannel-box" border="0">
+                <tr>
+                    <td rowspan="3" class="ant-tipicon-client ant-wips-icon-rouge-ap"></td>
+                    <td id="Title_top4" class="ant-title">0</td>
+                </tr>
+                <tr>
+                    <td class="ant-subtitle">Rouge AP</td>
+                </tr>                
+            </table>
+        </div>
+        <div class="ant-pannel-element col-md-2 col-sm-4">
+            <table class="ant-pannel-box" border="0">
+                <tr>
+                    <td rowspan="3" class="ant-tipicon-client ant-wips-icon-attack"></td>
+                    <td id="Title_top5" class="ant-title">0</td>
+                </tr>
+                <tr>
+                    <td class="ant-subtitle">Attacks</td>
+                </tr>                
+            </table>
+        </div>
+        <div class="ant-pannel-element col-md-2 col-sm-4">
+            <table class="ant-pannel-box" border="0">
+                <tr>
+                    <td rowspan="3" class="ant-tipicon-client ant-wips-icon-reflect"></td>
+                    <td id="Title_top6" class="ant-title">0</td>
+                </tr>
+                <tr>
+                    <td class="ant-subtitle">Countermeasures</td>
+                </tr>                
+            </table>
+        </div> 
+    </div>
+
+
+    <div class="col-xs-12 ant-border ant-gap-top ant-padding-top">
+            <div class="col-md-3 default-height">
+                <div class="ant-title-left-gap ant-sm-title"><span>Attack Information </span></div>
+                <div id="attackType_pie" class="myEchart"></div>
+            </div>
+            <div class="col-md-3 default-height ant-padding-left">
+                <div class="box-subfooter">
+                    <div class="col-xs-5">
+                        <span class="ant-sm-title">Severe attacks</span>
+                    </div>
+                    <div class="text-right">
+                        <span id="other_num">0</span>
+                        <span>(Times)</span>
+                    </div>
+                </div>
+                <div id="other_attack" class="myEchart"></div>
+            </div>
+            <div class="col-md-3 default-height ant-padding-left">
+                <div class="box-subfooter">
+                    <div class="col-xs-5">
+                        <span class="ant-sm-title">Flood attacks</span>
+                    </div>
+
+                    <div class="text-right">
+                        <span id="Flood_num">0</span>
+                        <span>(Times)</span>
+                    </div>
+                </div>
+                <div id="flood_attack" class="myEchart"></div>
+            </div>
+
+            <div class="col-md-3 default-height ant-padding-left">
+                <div class="box-subfooter">
+                    <div class="col-xs-5">
+                        <span class="ant-sm-title">Malformed packets</span>
+                    </div>
+                    <div class="text-right">
+                        <span id="Malformed_num">0</span>
+                        <span>(Times)</span>
+                    </div>
+                </div>
+                <div id="malf_attack" class="myEchart"></div>    
+            </div>
+    </div>
+    
+    <div class="col-xs-12 ant-border ant-gap-top  default-height">
+        <div class="ant-head-pannel col-xs-12 ant-sm-title ant-alone">
+            <span class="ant-pannel-v-center ant-title-left-gap">Device Information</span>
+            <span id="help_detail" class="ant-pannel-v-center">Help</span>
+        </div>
+        <div class="col-md-3 col-sm-12">
+            <div class="col-xs-12 myEchart" id="Device_block"></div>
+            <div class="col-xs-12 ant-table-position">
+                <table border="0">
+                    <tr>
+                        <td>AP：</td>
+                        <td id="Total_ap"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <div id="device_pie" class="myEchart col-xs-12"></div>
+        </div>
+        <div class="col-md-3 col-sm-12">
+            <div class="col-xs-12 myEchart" id="Device_block2"></div>
+            <div class="col-xs-12 ant-table-position">
+                <table border="0">
+                    <tr>
+                        <td>Client:</td>
+                        <td id="Total_client"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hide modal fade" id="helpdetail">
+    <form class="form-horizontal form" id="helpform">
+        <ul>
+            <li><span>Authorized APs: APs permitted in the WLAN, including APs connected to the AC and not in the prohibited device list and configured authorized APs.</li>
+            <li><span>Rogue APs: APs that cannot be used in the WLAN, including APs in the prohibited device list, APs not in the OUI configuration file, and configured rogue APs.</li>
+            <li><span>Misconfigured APs: APs that can be used in the WLAN but have incorrect configuration.</li>
+            <li><span>External APs: APs that are in an adjacent WLAN.</li>
+            <li><span>Ad hoc APs: APs in Ad hoc mode. WIPS detects Ad hoc APs by listening to beacon frames.</li>
+            <li><span>Potential-authorized APs: APs that are not in the permitted device list, the trusted OUI list, and the prohibited device list.</li>
+            <li><span>Potential-rogue APs: APs that are not in the permitted device list, the trusted OUI list, and the prohibited device list, but have incorrect configuration. The wired port of a potential-rogue AP is connected to the WLAN.</li>
+            <li><span>Potential-external APs: APs that are not in the permitted device list, the trusted OUI list, and the prohibited device list, but have incorrect configuration. The wired port of a potential-external AP is not connected to the WLAN.</li>
+            <li><span>Uncategorized APs: APs whose categories cannot be determined.</li>
+            <li><span>Authorized clients: Clients that are permitted in the WLAN, including clients in the permitted device list and associated with authorized APs and clients that have passed authentication and are associated with authorized APs.</li>
+            <li><span>Unauthorized clients: Clients that cannot be used in the WLAN, including clients in the prohibited device list, clients associated with rogue APs, and clients not in the OUI configuration file.
+            </li>
+            <li><span>Misassociated clients: Clients in the permitted device list but associated with unauthorized APs. A misassociated client might introduce security threats to the network.
+            </li>
+            <li><span>Uncategorized clients: Clients whose categories cannot be determined.</li>
+        </ul>
+    </form>
+</div>
+
+
+<div id="wips_summary_rc" class="rc-define"
+     DEVICE_TYPE="Authorized AP, Misconfigured AP, Rogue AP, External AP, Ad hoc AP, Mesh AP, Potential-authorized AP, Potential-rogue AP, Potential-external AP, Uncategorized AP, Authorized client, Misassociated client, Unauthorized client, Uncategorized client"
+     COUNTER_TYPE="Misconfigured AP, Rogue AP, External AP, Potential-authorized AP, Potential-rogue AP, Potential-external AP, Uncategorized AP, Unauthorized client, Misassociated client, Uncategorized client, Countermeasures against attackers, Manual countermeasure, Clients are affected because of countermeasures against their associated AP"
+     AP_CLIENT="AP, Client"
+     ATTACK_TYPE_LAN="Flooding attack, Malformed packet, Severe attack"
+     FLOOD_LAN="Association request, Authentication frame, Beacon frame, Block ACK, CTS, Deauthentication frame, Disassociation frame, EAPOL-Start frame, Null-data frame, Probe request, Reassociation request, RTS"
+     MALF_LAN="Duplicate IE, FATA-Jack malformed packet, Abnormal IBSS and ESS setting, Invalid source address, Malformed association request, Malformed authentication request, Invalid deauthentication code, Invalid disassociation code, Malformed HT IE, Invalid IE length, Invalid packet length, Oversized duration, Malformed probe response, Oversized EAPOL key, Oversized SSID, Redundant IE"
+     OTHERS_LAN="Frame spoofing, AP MAC address spoofing (client MAC), AP MAC address spoofing (Ad hoc AP MAC), Ad hoc AP MAC address spoofing (AP MAC), Client MAC address spoofing (AP MAC), Weak IV detection, AP entry learning rate limit, Client entry learning rate limit"
+     LIST_HEADER="Time, Detector, Attacker Source MAC, Destination MAC, Type, Quantity"
+     STATION_HEAD="MAC, Device Type, Time"
+     DATE_CYCLE="(Today), (One week), (One month), (One year)"
+     STATION-CLASSIFY="Authorized AP, Misconfigured AP, Rogue AP, External AP, Ad hoc AP, Mesh AP, Potential-authorized AP, Potential-rogue AP, Potential-external AP, Uncategorized AP, Authorized client, Unauthorized client, Misassociated client, Uncategorized client"
+     ATTACK-NAME-ONE="AP spoofing attack, Client spoofing attack, Weak IV, Windows bridge, Clients with the 40 MHz bandwidth mode disabled, Soft AP, Power save attack, Omerta attack, Disassociation attack, Deauthentication attack, Prohibited channel, AP impersonation attack, Unencrypted authorized AP, Unencrypted authorized client, Hotspot attack, HT-greenfield AP, Association/reassociation DoS attack, Honeypot AP, MITM attack, Wireless bridge, AP flood attack, Channel change"
+     ATTACK-NAME-TWO="Association request, Authentication frame, Beacon frame, Block ACK, CTS, Deauthentication frame, Disassociation frame, EAPOL-Start frame, Null-data frame, Probe request, Reassociation request, RTS, EAPOL-Logoff frame, EAP Fail frame, EAP Success frame"
+     ATTACK-NAME-THREE="Duplicate IE, FATA-Jack malformed packet, Abnormal IBSS and ESS setting, Invalid source address, Malformed association request, Malformed authentication request, Invalid deauthentication code, Invalid disassociation code, Malformed HT IE, Invalid IE length, Invalid packet length, Oversized duration, Malformed probe response, Oversized EAPOL key, Oversized SSID, Redundant IE"
+     CLIENT="Client"
+     HELP="Help"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("wips.summary");
+</script>

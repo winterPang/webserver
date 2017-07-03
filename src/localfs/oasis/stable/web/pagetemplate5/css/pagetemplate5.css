@@ -1,0 +1,20 @@
+.pagetemplate5 .nav.nav-tabs {
+  margin-bottom: 15px;
+}
+.pagetemplate5 table {
+  table-layout: fixed;
+}
+.pagetemplate5 table th:nth-child(1) {
+  width: 434px;
+}
+.pagetemplate5 table th:nth-child(2) {
+  width: 150px;
+}
+.pagetemplate5 table th:nth-child(3) {
+  width: 440px;
+}
+.pagetemplate5 table td {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

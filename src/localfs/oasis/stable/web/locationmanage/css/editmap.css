@@ -1,0 +1,450 @@
+.pull-left>p {
+    line-height:50px;
+    margin-left:10px;
+    font-size: 14px;
+}
+
+.pull-left>p>a {
+    color: #69C4C5
+}
+
+
+.closedhand{
+    cursor:url(../img/closedhand.cur) 12 12, move!important;
+}
+.openhand{
+    cursor:default!important;
+}
+.btn-lvzhou {
+    background-color: #4ec1b2;
+    border-color: #4ec1b2;
+    color: #fff;
+    border-radius: 0px;
+}
+
+.btn-lvzhou:hover {
+    background-color: #2ba4ae;
+    color: #fff;
+}
+
+.jconfirm.white .jconfirm-box .buttons button.btn-default {
+    color: #fff;
+}
+
+.jconfirm .jconfirm-box .buttons button + button {
+    width: 70px;
+    margin-left: 15px;
+}
+
+.editmap .btn-default {
+    background-color: #4ec1b2;
+    margin-top: 20px;
+}
+
+.btn-default:hover {
+    background-color: #2ba4ae;
+    color: #fff;
+}
+
+.biliChi {
+    display: inline;
+    margin-left: 14px;
+    margin-right: 14px;
+}
+
+.map {
+    position: relative;
+}
+
+.map .tip {
+    color: #333;
+    font-size: 14px;
+    padding: 6px 10px;
+    position: absolute;
+    top: 0%;
+    left: 66%;
+    z-index: 5;
+    border: 1px solid #dddddd;
+    background-color: #fff;
+    box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.6);
+    -webkit-box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.2);
+    -moz-box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.2);
+    -ms-box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.2);
+    -o-box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.2);
+}
+
+.showList {
+    position: absolute;
+    top: 8px;
+    left: 210px;
+    z-index: 999;
+    padding: 6px 3px;
+    height: 37px;
+    line-height: 26px;
+}
+
+.showList img {
+    margin-right: 6px;
+    margin-left: 10px;
+    margin-top: -3px;
+    cursor: pointer;
+}
+
+.spanList {
+    cursor: pointer;
+}
+
+#imageView_container {
+    margin: 0 auto;
+}
+
+.addapwrap .form-control-feedback {
+    color: #4ec1b2;
+    top: 4px;
+    right: -2px;
+}
+.addapwrap input[type=search]{
+    width:auto;
+}
+#quxiao {
+    padding: 1.5px 5px;
+    margin-right: -5px;
+    display: none;
+    position: fixed;
+    z-index: 99999999;
+    top: 20px;
+    right: 20px;
+}
+#mapContain {
+    border: 1px solid #ccc;
+    margin-top: 0;
+    text-align: center;
+    width: 100%;
+    background: transparent;
+    overflow: hidden;
+}
+#quanping {
+    background: transparent !important;
+    color: #666 !important;
+    border: none !important;
+    margin-top: 2px;
+    font-size: 18px;
+    padding-left:8px;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+#contextmenu {
+     border: 2px solid #aaa;
+     border-bottom: 0;
+     background: #eee;
+     position: absolute;
+     list-style: none;
+     margin: 0;
+     padding: 0;
+     display: none;
+ }
+
+#contextmenu1 {
+    border: 1px solid #ddd;
+    box-shadow: 2px 3px 10px 1px rgba(0, 0, 0, 0.15);
+    border-bottom: none;
+    background: white;
+    position: absolute;
+    list-style: none;
+    display: none;
+}
+
+#contextmenu1:hover {
+    color: #4ec1b2;
+}
+
+#contextmenu li a {
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid #aaa;
+    cursor: pointer;
+    color: #000000;
+}
+
+#contextmenu1 li a {
+    display: block;
+    padding: 10px 10px;
+    cursor: pointer;
+    color: #000000;
+}
+
+#areaNodeMenu {
+    border: 1px solid #aaa;
+    border-bottom: 0;
+    background: #eee;
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none;
+}
+
+#areaNodeMenu li a {
+    display: block;
+    padding: 10px;
+    border-bottom: 1px solid #aaa;
+    cursor: pointer;
+    color: #000000;
+
+}
+
+#contextmenu li a:hover,#contextmenu1 li a:hover,#areaNodeMenu li a:hover {
+    background: #fff;
+    color: #23527c;
+    text-decoration: underline;
+}
+
+
+
+.displayInline {
+    display: inline;
+    margin-bottom: 3%;
+}
+
+#editMapTitle {
+    padding: 0 20px;
+    height: 50px;
+    font-size: 17px;
+    margin-top: 2px;
+}
+
+#editMapDiv {
+    background: rgb(237, 249, 247);
+    height: 50px;
+    border: 1px solid #ccc;
+    border-bottom: 0;
+}
+
+#editMapTitle {
+    line-height: 50px;
+}
+
+
+.page-list {
+    display: none;
+}
+
+.clientShow {
+    text-align: center;
+    background: #fff;
+    box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.2);
+    -webkit-box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.2);
+    -moz-box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.2);
+    -ms-box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.2);
+    -o-box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.2);
+}
+
+#clientList thead {
+    display: none;
+}
+
+#clientList tbody tr:last-child td {
+    border-bottom: 1px solid #ddd
+}
+
+#clientList tbody tr:nth-child(even) {
+    background-color: #f9f8f8;
+}
+
+#clientList tbody tr:nth-child(odd) {
+    background-color: #f5f5f5;
+}
+
+.clientShow table a:hover {
+    text-decoration: none;
+}
+
+.clientShow table tbody {
+    border-top: none;
+    border-bottom: none;
+}
+
+.clientShow td.sorting {
+    background-image: url('../img/icon-d.png');
+}
+
+.canvasBox {
+    width: 100%;
+    margin-bottom: 20px;
+    margin-left: 16px;
+    text-align: center;
+    display: inline-block;
+    position: relative;
+}
+
+.input-group-addon {
+    border-radius: 0px;
+}
+
+.imgBtn {
+    margin-left: 10px;
+    height: 25px;
+    cursor: pointer;
+    box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.2);
+}
+
+.canvasBox .displayInline {
+    margin-bottom: 3%;
+}
+
+.biLiChi {
+    display: inline;
+    margin-left: 14px;
+    margin-right: 14px;
+}
+
+.glyphicon-search {
+    color: #4ec1b2;
+}
+
+.input-sm + .form-control-feedback {
+    width: 90px;
+    margin-top: 6px;
+}
+
+.pull-right.pagination {
+    margin: 0;
+}
+.pull-right .heatmap {
+    display: inline-block;
+    width:72px;
+    height: 25px;
+    line-height: 25px;
+    font-size: 12px;
+    color:#f3fcf7;
+    background-color:#4ec1b1 ;
+    box-shadow:0 0 1px 1px rgba(0,0,0,.2) ;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+}
+.pull-right .heatmap img {
+    width:16px;
+    height: 16px;
+    margin:0 6px;
+}
+.page-number, .page-last, .page-last-separator, .page-first, .page-first-separator {
+    display: none !important;
+}
+
+.canvasBox .tip {
+    color: #333;
+    font-size: 14px;
+    position: absolute;
+    top: 5px;
+    left: 150px;
+    z-index: 5;
+    border: 1px solid #dddddd;
+}
+
+.serchForm .input-group div, input {
+    background-color: #fff;
+    border: none;
+}
+
+.spanList {
+    cursor: pointer;
+}
+
+.input-group-addon {
+    padding: 0 12px;
+}
+
+#editMapDiv .right-list {
+    position: absolute;
+    top: 10px;
+    right: 160px;
+    z-index: 5;
+    width: 265px;
+}
+
+#editMapDiv .box {
+    width: 100%;
+    margin-top: -2px;
+    text-align: center;
+    background: #fff;
+    box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.3);
+    -webkit-box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.2);
+    -moz-box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.2);
+    -ms-box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.2);
+    -o-box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.2);
+}
+
+#editMapDiv .box a {
+    padding-right: 30px;
+}
+
+#editMapDiv .input-group-addon {
+    background-color: #fff;
+    border: none;
+}
+
+.toggleButton {
+    position: absolute;
+    top: 15px;
+    right: 70px;
+    background: #f2f2f3;
+    line-height: 24px;
+    border-radius: 4px;
+    box-shadow: 0 0 1px 1px rgba(0,0,0,.3);
+}
+
+.toggleButton .selected {
+    color: #dcf0ed;
+    background: #4EC1B2;
+    box-shadow: 0 0 1px 1px rgba(0,0,0,.3);
+}
+.toggleButton span{
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 2px 6px;
+    border-radius: 4px;
+}
+#spinContainer{
+    /*display: none;*/
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left:0;
+    right:0;
+    margin:auto;
+    width: 100px;
+    height: 100px;
+    z-index: -1;
+}
+
+#spinContainer.front{
+    z-index: 9999;
+}
+
+#example_paginate a{
+    margin:0;
+    padding: 4px 10px;
+    line-height: 1.428571429;
+    color: #999999 !important;
+    border:1px solid #ddd;
+}
+
+#example_paginate .paginate_button{
+    color: #157ab5;
+    background-color: #fff;
+    border-color: #ddd;
+}
+
+#example_paginate .current{
+    color: #fff !important;
+    border-color: #78cec3;
+    background: #78cec3;
+}

@@ -1,0 +1,114 @@
+<div class="networkmap0">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div style="border:1px solid #e7e7e9;margin-bottom:20px;">
+                <div class="app-box default-height" style="border:none;">
+                    <div id="detect_container7">
+                        <div class="box-footer">
+                            <div class="col-xs-12">
+                                <div class="a1">
+                                    <span>地图列表</span>
+                                </div>
+                                <div class="a2" id="refresh" ng-click="refresh()">
+                                    <img src="../networkmap0/cocos/res/icon-refresh.png" />
+                                    <span>刷新</span>
+                                </div>
+                                <div class="a3" id="addMapBtn" ng-click="addmap()">
+                                    <img src="../networkmap0/cocos/res/icon-addMap.png" />
+                                    <span>新增地图</span>
+                                </div>
+                                <!--<div class="pagination" id="pagination"></div>-->
+                            </div>
+                        </div>
+                        <div class="box-body1" id="MapList" >
+                            <div class="add" id="emptyAdd" >
+                                <div class="add_icon" data-toggle="modal" data-target="#foraddicon" ng-click="addmap()"></div>
+                                <!--<a href="#" class="add_icon" data-toggle="modal" data-target="#foraddicon" ></a>-->
+                            </div>
+                            <div id="MapList1"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div style="width:100%;height:100px;">
+                    <hr/>
+                    <div index-page="region" style="display:block;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form name="addForm" novalidate bs-modal="mapAdd.options">
+        <div class="form-group">
+            <div style="margin: 0px auto; width:800px;">
+                <label class="col-xs-2 control-label required">地图名</label>
+                <div class="col-xs-10">
+                    <!--ng-pattern="/^[\u4E00-\u9FA5]{0,10}$|^[a-zA-Z]{0,32}$/" -->
+                    <input ng-model="add.mapName" type="text" class="string " ng-pattern="/^(([^\^\.<>%&',;=?$\:#@!~\]\[{}\\/`\|])*)$/" id="mapName" name="mapName" maxlength="32" ng-maxlength="32" required/>
+                    <label class="info-explain">（1-32字符）</label>
+                    <label ng-show="addForm.mapName.$dirty" ng-messages="addForm.mapName.$error" style="display:inline-block;">
+                        <!--<label ng-message="required" class="error" style="display: inline-block;">该参数必须配置。</label>-->
+                        <!--<label ng-message="maxlength" class="error" style="display: inline-block;">请输入1-32字符。</label>-->
+                        <!--<label ng-message="pattern" class="error" style="display: inline-block;">参数不能为特殊字符</label>-->
+                    </label>
+                    <label class="error" id="mapName_error"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div style="margin: 0px auto; width:800px;">
+                <label class="col-xs-2 control-label required">比例尺</label>
+                <div class="col-xs-10">1px &nbsp; : &nbsp;
+                    <input ng-model="add.scaleValue" type="number" id="scaleValue" name="scaleValue" errid="mapScale_error"
+                           ng-pattern="/^(?!(0[0-9]{0,}$))[0-9]{1,}[.]{0,}[0-9]{0,}$/" placeholder="请输入0.001-1000间的数值" required />&nbsp; 米
+                    <label ng-show="addForm.scaleValue.$dirty" ng-messages="addForm.scaleValue.$error" style="display:inline-block;">
+                        <!--<label ng-message="required" class="error" style="display: inline-block;">该参数必须配置。</label>-->
+                        <!--<label ng-message="pattern" class="error" style="display: inline-block;">比例应大于0</label>-->
+                    </label>
+                    <label class="error" id="mapScale_error"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div style="margin: 0px auto; width: 800px;position:relative">
+                <label class="col-xs-2 control-label required" style="margin-top: 10px;">图片</label>
+                <div class="col-xs-10 file"  style="margin-top: 10px;">
+                    <a class="btn">Browse</a><br/>
+                    <label class="info-explain">（仅支持JPG/GIF/PNG/BMP模式，且不超过2M）</label>
+                    <label class="error" id="file_error"></label>
+                    <input type="file" id="upload_file" onchange ="angular.element(this).scope().uploadfile(this.file)" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <img id="picture" src="" style="text-align: center"/>
+            <!--<canvas id="gameCanvas" width="800" height="450"></canvas>-->
+        </div>
+        <input type="checkbox" class="hide" id="test">
+    </form>
+
+
+
+</div>
+
+<div id="page_rc" class="rc-define"
+     ADDMAP_TITLE = "添加地图"
+     ADD_FAILED="添加地图失败"
+     PAGE_EXIST="添加地图已存在"
+     GETMAP_FAILED="获取地图信息失败"
+     DELETE_OR_CANCEL="确认要删除选中的数据吗？"
+     DELETE_FAILED="删除地图失败"
+     DELETE_SUCCESS="删除地图成功"
+     PARAMMUST_INFO="此参数必须设置"
+     PARAMSPECIAL_INFO="地图名不能包含特殊字符"
+     PARAMSKONG_INFO="地图名不能包含空格"
+     SCALE_INFO="请输入0.001-1000间的数值"
+     UPLOADPIC_INFO="请上传图片"
+     MAPEXIT_INFO="地图名已存在"
+     PICBIG_INFO="图片大小不能超过2M"
+     PICTYPE_ERROR="图片格式不正确"
+></div>
+</div>
+
+
+

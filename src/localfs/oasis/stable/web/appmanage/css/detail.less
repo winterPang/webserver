@@ -1,0 +1,297 @@
+// detail.less
+// 字体
+.font(@color, @size, @family) {
+  font: @size @family;
+  line-height: @size;
+  color: @color;
+}
+.ellipsis(1) {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.ellipsis(2) {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+}
+// 字号
+.font(20) {
+  .font(#333, 20px, "MicrosoftYahei");
+}
+.font(14) {
+  .font(#333, 14px, "MicrosoftYahei");
+}
+.font(12, dark) {
+  .font(#333, 12px, "AdobeInvisFont");
+}
+.font(12, light) {
+  .font(#666, 12px, "AdobeInvisFont");
+}
+// 盒阴影
+.shadow (@size, @blur, @color) {
+  box-shadow: @size 0 @blur @color, -@size 0 @blur @color, 0 @size @blur @color, 0 -@size @blur @color;
+}
+/*detail.css*/
+// 公共样式
+#myApplication {
+  .ellipsis-1 {
+    .ellipsis(1);
+  }
+  .ellipsis-2 {
+    .ellipsis(2);
+  }
+  ul, .header, .body, .body-inner, .buttons, .status {
+    overflow: hidden;
+  }
+  .body {
+    margin: 0 auto;
+  }
+  h3 {
+    margin-bottom: 20px;
+    .font(20);
+  }
+  h4 {
+    .font(14);
+  }
+  ul {
+    padding: 1px;
+    margin: 0 auto;
+  }
+  li {
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    list-style: none;
+  }
+  .button {
+    float: left;
+  }
+}
+// 响应式
+.mine(@size) {
+  @width: @size*194-20+2px;
+  #myApplication {
+    .header, .body {
+      min-width: @width;
+    }
+  }
+  #myApp {
+    li:nth-child(@{size}n) {
+      margin-right: 0;
+    }
+    ul {
+      width: @width;
+    }
+  }
+  #hotApp {
+    .body-inner {
+      width: @width;
+    }
+  }
+}
+@media screen and (min-width: 1440px) {
+  .mine(6);
+}
+@media screen and (min-width: 1250px) and (max-width: 1439px) {
+  .mine(5);
+}
+@media screen and (min-width: 1059px) and (max-width: 1249px) {
+  .mine(4);
+}
+@media screen and (min-width: 993px) and (max-width: 1058px) {
+  .mine(3);
+}
+@media screen and (min-width: 982px) and (max-width: 992px) {
+  .mine(5);
+}
+@media screen and (min-width: 788px) and (max-width: 981px) {
+  .mine(4);
+}
+@media screen and (min-width: 594px) and (max-width: 787px) {
+  .mine(3);
+}
+@media screen and (max-width: 593px) {
+  .mine(2);
+}
+// 我的应用样式
+#myApp {
+  .header h3{
+    margin-bottom: 0;
+  }
+  .header-bar {
+    padding-bottom: 20px;
+  }
+  .buttons {
+    padding: 4px 0 2px;
+    .button {
+      margin-right: 10px;
+      cursor: pointer;
+      &.active {
+        color: #ed8600;
+        border-bottom: 1px solid #ed8600;
+
+      }
+    }
+  }
+  h3 {
+    margin-top: 0;
+  }
+  h4 {
+    padding-bottom: 12px;
+    margin-top: 12px;
+    margin-bottom: 0;
+  }
+  li {
+    width: 174px;
+    background-color: #f5f5f5;
+    border: 1px solid #f0f0f0;
+    &:hover {
+      .shadow(2px, 5px, rgba(0, 0, 0, 0.05));
+    }
+  }
+  .wrap {
+    padding-left: 14px;
+    padding-right: 14px;
+  }
+  .app-logo {
+    width: 130px;
+    margin: 0 auto;
+  }
+  .logo-image {
+    height: 130px;
+    background-size: 100% auto;
+    background-position: center;
+    background-color: #fff;
+    background-repeat: no-repeat;
+  }
+  hr {
+    margin: 12px 0;
+    border: 1px solid #e6e6e6;
+  }
+  .status {
+    padding-bottom: 12px;
+    .pull-left {
+       .font(12, light);
+     }
+    .pull-right {
+      .font(12, dark);
+    }
+  }
+
+}
+// 热门应用样式
+#hotApp {
+  .body-inner {
+    position: relative;
+    margin: 0 auto;
+    height: 140px;
+  }
+  .buttons {
+    padding-top: 18px;
+  }
+  .button {
+    float: left;
+    width: 31px;
+    height: 20px;
+    border: 1px solid #e7e7e7;
+    background: url("../images/icons_app.png") no-repeat #F7F7F7;
+    cursor: pointer;
+    &:active {
+      background-color: #ccc;
+    }
+  }
+  .button:first-child {
+    border-radius: 4px 0 0 4px;
+    background-position: 11px -7px;
+    &:active {
+      background-position: 11px -27px;
+    }
+  }
+  .button:last-child {
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+    background-position: 11px -49px;
+    &:active {
+      background-position: 11px -69px;
+    }
+  }
+  .body {
+    position: relative;
+    margin: 0 auto;
+    height: 140px;
+  }
+  ul {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+  li {
+    height: 98px;
+    border: 1px solid #eeeeee;
+  }
+  .wrap {
+    width: 268px;
+    height: 117px;
+    padding: 12px 11px;
+  }
+  .logo-image {
+    float: left;
+    margin: 0 12px 12px 0;
+    width: 110px;
+    height: 70px;
+    background-color: #fff;
+    background-size: 100% auto;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .description {
+    h3 {
+      margin: 0 0 8px;
+    }
+    h4 {
+      .font(12, light);
+      line-height: 23px;
+    }
+  }
+}
+// ZCY add
+.page_bar{
+  width:100%;
+  text-align: center;
+  padding: 0 0 10px 0;
+  cursor:pointer;
+}
+.turn_left{
+  float: left;
+  width: 31px;
+  height: 20px;
+  border: 1px solid #e7e7e7;
+  background: url("../images/icons_app.png") no-repeat #F7F7F7;
+  cursor: pointer;
+  border-radius: 2px;
+  background-position: 11px -7px;
+}
+.turn_right{
+  float: left;
+  width: 31px;
+  height: 20px;
+  border: 1px solid #e7e7e7;
+  border-radius: 2px;
+  background: url("../images/icons_app.png") no-repeat #F7F7F7;
+  cursor: pointer;
+  background-position: 11px -49px;
+}
+.change_color{
+  color:#3eb0a1;
+}
+.left_myapp{
+  float: left;
+}
+.right_myapp{
+  float: right;
+}
+.clear{
+  clear:both;
+}

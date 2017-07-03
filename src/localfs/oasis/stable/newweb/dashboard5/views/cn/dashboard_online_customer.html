@@ -1,0 +1,19 @@
+<div ng-init="terminalNumber='终端数'">
+    <div class="col-xs-6 app-colum left-block" debug="getUserChange">
+        <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <div class="col-xs-4">
+                    <span class="title">在线宾客变化</span>
+                </div>
+                <div class="time-change">
+                    <a id="days" class="time-link" ng-class="{active:time=='oneday'}" ng-click="initUserChange('oneday')">一天</a>
+                    <a id="weeks" class="time-link" ng-class="{active:time=='oneweek'}" ng-click="initUserChange('oneweek')">一周</a>
+                    <a id="mounth" class="time-link" ng-class="{active:time=='onemonth'}" ng-click="initUserChange('onemonth')">一月</a>
+                </div>
+            </div>
+            <div class="box-body echart-height body-nopadding">
+                <div id="userchange" class="col-xs-12 myEchart" style="height:210px;"></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,147 @@
+<html>
+<head>
+    <style>
+        .form-button{
+            text-align:center;
+            padding-top: 30px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">模块管理</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="ApInforList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+    <!--div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">教室管理</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="ClassroomMgrList" class="simple-list">
+                    <img src="../classroom/image/message.png" id="image_add" width="50" height="50" title = "添加教室">
+                    <img src="../classroom/image/message2.png" id="image_del" width="50" height="50" title = "删除教室">
+                </div>
+            </div>
+        </div>
+    </div-->
+    <div class="hide modal fade" id="StatuDlg">
+        <form id="Statu_form" class="form-horizontal form edit">
+            <div class="form-group leaving" >
+               <!-- <div class="col-xs-2"></div>-->
+               <!-- <div class="col-xs-2" style="margin-top:10px;">模块ID:</div>-->
+              <!--  <div class="col-xs-7">
+                    <p class="singleSelect stuType" id="stu_type" ></p>
+                </div>-->
+                <label class="col-sm-3 control-label required">模块ID:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="moduleid">
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="hide modal fade" id="EditDlg">
+        <form id="addStudent_form" class="form-horizontal form edit">
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">AP名字</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="subordinate_ap" name="subordinate_ap" errid="subordinate_ap_error" maxlength="32">
+                    <label class="error" id="subordinate_ap_error"></label>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label required">ap序列号</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="string big required" id="serial_id" name="serial_id" errid="serial_id_error" maxlength="32">
+                        <label class="error" id="serial_id_error"></label>
+                    </div>
+                </div>
+                <label class="col-sm-3 control-label required">模块ID</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="module_id" name="module_id" errid="module_id_error" maxlength="32">
+                    <label class="error" id="module_id_error"></label>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label required">模块序列号</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="string big required" id="rssi_threshold" name="rssi_threshold" errid="rssi_threshold_error" maxlength="32">
+                        <label class="info-explain">(1-32字符)</label>
+                        <label class="error" id="rssi_threshold_error"></label>
+                    </div>
+                </div>
+               <!-- <div class="form-group">
+                    <label class="col-sm-3 control-label required">所属位置</label>
+                    <div class="col-sm-9">
+                        <select class="big singleSelect required" id="grade_name"  errid="grade_name_error"></select>
+                        <label class="error" id="grade_name_error"></label>
+                    </div>
+                </div>-->
+            </div>
+        </form>
+    </div>
+    <div class="hide modal fade" id="Upload">
+        <form id="URL_form" class="form-horizontal form edit">
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">应用地址</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="url">
+                    <label class="error" id="url_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">绿洲用户名</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big" id="user_name">
+                    <label class="error" id="user_name_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">绿洲密码</label>
+                <div class="col-sm-9">
+                    <input type="password" class="string big" id="password">
+                    <label class="error" id="password_error"></label>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="hide modal fade" id="cancel">
+        <form id="cancel_form" class="form-horizontal form edit">
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">应用地址</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="cancel_url">
+                    <label class="error" id="cancel_url_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">绿洲用户名</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big" id="cancel_username">
+                    <label class="error" id="cancel_username_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">绿洲密码</label>
+                <div class="col-sm-9">
+                    <input type="password" class="string big" id="cancel_password">
+                    <label class="error" id="cancel_password_error"></label>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div id="c_net_infor_rc" class="rc-define"
+         INFOR_HEAD="ap名字,ap序列号,模块ID,模块序列号"
+         EDIT_TITLE="新增,删除,扫描器发布,取消发布"
+            ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.modulemanage");
+</script>

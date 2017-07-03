@@ -1,0 +1,99 @@
+<html>
+
+<head>
+    <link href="../waring/warning.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height default-bottom">
+            <div class="box-footer">
+                <span class="title">告警日志</span>
+                <div style="float: right;position: relative">
+                    <a type="button"
+                       class="filter"
+                       data-toggle="dropdown"
+                       id="filter_loglevel">
+                        <i class="filter-icon icon" style="margin-right: 4px"></i>
+                    </a>
+                    <a type="button" class="refresh" id="refresh_log">
+                        <i class="refresh-icon icon" style="margin-left: 6px"></i>
+                    </a>
+                    <div id="warn_check" class="dropdown-menu opensleft">
+                        <!--<ul style="padding-left: 20px">-->
+                        <table>
+                        <tr>
+                            <td>
+                                <span>告警级别</span>
+                            </td>
+                            <td>
+                                <input type="checkbox" id="all">
+                                <label for="all">全部</label>
+                                <input type="checkbox" id="jinji">
+                                <label for="jinji">紧急</label>
+                                <input type="checkbox" id="yanzhong">
+                                <label for="yanzhong">危险</label>
+                                <input type="checkbox" id="jinggao">
+                                <label for="jinggao">警告</label>
+                                <input type="checkbox" id="tishi">
+                                <label for="tishi">报告</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>选择日期 </span>
+                            </td>
+                            <td>
+                                <input type="text" class="daterange pull-right" style="width: 176px; float: left !important">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>关键字搜索</span>
+                            </td>
+                            <td>
+                                <input id="input_search" type="text" placeholder="告警模块、信息搜索">
+                            </td>
+                        </tr>
+                        </table>
+                        <!--</ul>-->
+                    </div>
+                </div>
+            </div>
+            <div class="box-body no-height">
+                <div id="waring_list" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<iframe id="exportFile" name="exportFile" style="display: none"></iframe>
+
+<div id="waring_rc" class="rc-define"
+     WARING_ITEM = "告警来源,告警模块,告警级别,告警信息,告警时间"
+     ONLINE = "上线"
+     OFFLINE = "下线"
+     UN_OPERATION = "未处理"
+     SYNC_NOW = "立即同步"
+     EXPORT_LOG = "导出日志"
+     LOGLEVEL = "紧急,紧急,危险,危险,警告,警告,报告,报告"
+     TRYAGAIN = "请重试"
+     TODAY = "今天"
+     UNSYNC = "尚未同步"
+     LASTSYNC = "最后一次同步时间："
+     NOLOGFILE = "当前设备没有日志文件！"
+     NOAUTHORITY = "该用户没有对此设备的操作权限!"
+     CONNFAILED = "无法连接到"
+     PLEASEWAIT = "正在同步,请稍候……"
+     DEVBUSY = "设备忙请重试"
+     NOLOGEXPORT = "没有可以导出的告警事件！"
+     GETTINGDATA = "正在获取数据,请稍候……"
+     NOWARNING = "没有找到匹配的告警信息"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("waring.index");
+</script>

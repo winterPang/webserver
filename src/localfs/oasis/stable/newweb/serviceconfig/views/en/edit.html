@@ -1,0 +1,132 @@
+<style>
+    .fl{
+        margin-left:87px !important;
+    }
+    .mp{
+        margin-top: 5px !important;
+    }
+    .lh{
+        line-height: 32px;
+    }
+</style>
+
+<div class="btn_h_return" ng-click="return()"></div> 
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Modify Wireless Service</h3>
+    </div>
+
+    <div class="panel-body">   	
+        <form role="form" name="userForm">                             
+            <div class="form-group  row">
+                <label class="col-sm-3 control-label required lh">Name</label>
+                <div>
+                    <input type="text" id="server" class="string big" disabled
+                    ng-model="userData.server">
+                    <label class="info-explain">(The service name cannot be modified)</label>
+                    <label class="error" id="server_error"></label>
+                </div>
+            </div>
+
+
+            <div class="form-group  row">
+                <label class="col-sm-3 control-label required lh">SSID</label>
+                <div>
+                    <input type="text" name="SSID" class="string big" required 
+                    ng-model="userData.SSID" ng-minlength="1" ng-maxlength="32">
+                    <label class="info-explain">(1 to 32 characters)</label>
+
+                    <label ng-if="userForm.SSID.$error.required && userForm.SSID.$touched" 
+                    style="color:red;">This information is required</label>
+                    <label ng-if="userForm.SSID.$error.maxlength && userForm.SSID.$dirty"  style="color:red">The information must contain maxinum of 32 characters</label>
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <label class="col-sm-3 control-label">Encryption</label>  
+                <div>                   
+                    <input id="pwdOn" name="pwdState" type="radio" value="pwdOn" 
+                    ng-click="pwdOn()" ng-model="userData.pwdState">
+                    <label for="pwdOn">Yes</label>
+
+                    <input id="pwdOff" class="fl" name="pwdState" type="radio" value="pwdOff"
+                    ng-click="pwdOff()" ng-model="userData.pwdState">  
+                    <label for="pwdOff">No</label>
+
+                    <div ng-if="pwd" ng-init="showPwd1=true" class="col-sm-offset-3">    
+                        <input type="password" name="password" class="string big" required
+                        ng-model="userData.pwd" ng-show="showPwd1" ng-pattern='/^[a-zA-Z0-9]{8,63}$/'>
+
+                        <input type="text" name="text" class="string big" required
+                        ng-model="userData.pwd" ng-hide="showPwd1" ng-pattern='/^[a-zA-Z0-9]{8,63}$/'>
+
+                        <span class="icon_eye" ng-class="{show_word: !showPwd1}"  
+                        ng-click="showPwd1=!showPwd1"></span>                    
+                        
+
+                        <label ng-if="(userForm.password.$error.required && userForm.text.$error.required)&&(userForm.password.$touched|| userForm.text.$touched)"  style="color:red">This information is required</label>
+
+                        <label ng-if="(userForm.password.$error.pattern && userForm.password.$dirty) ||(userForm.text.$error.pattern&&userForm.text.$dirty)"  style="color:red">Invalid password length or format</label>   
+
+                        <div>
+                           <label class="info-explain">Note: The password is a string of 8 to 63 characters that can contain digits and letters</label>
+                        </div>               
+                    </div> 
+                </div>
+            </div>
+           
+            <div class="form-group row">
+                <label class="col-sm-3 control-label">Wireless Service</label>  
+                <div>                   
+                    <input id="wireless_open" name="wirelessServer" type="radio" value="wireless_open" ng-model="userData.wirelessServer">
+                    <label for="wireless_open">Enabled</label>
+
+                    <input id="wireless_closed"  name="wirelessServer" type="radio" value="wireless_closed" ng-model="userData.wirelessServer" style="margin-left:57px">  
+                    <label for="wireless_closed">Disabled</label>                           
+                </div>
+            </div> 
+
+             <div class="form-group row">
+                <label class="col-sm-3 control-label">Authentication method</label>  
+                <div>                   
+                    <input id="auth_on" name="authType" type="radio" value="auth_on" 
+                    ng-model="userData.authType" ng-click="auth_on()">
+                    <label for="auth_on">authentication</label>
+
+                    <input id="auth_off"  name="authType" type="radio" value="auth_off" 
+                    ng-model="userData.authType" ng-click="auth_off()" style="margin-left:20px">  
+                    <label for="auth_off">No authentication</label>                           
+                </div>
+            </div> 
+
+            <div ng-show="auth">
+                <div class="form-group row">
+                    <label class="col-sm-3 control-label lh">Authentication template</label> 
+                    <select class="big"  ng-model="userData.authSelect" 
+                    ng-options="act for act in authCfgTemplates"></select>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-3 control-label lh">Page template</label> 
+                    <select class="big" ng-model="userData.pageSelect" 
+                    ng-options="act for act  in themeNames"></select>                                                
+                </div>               
+            </div>
+                   
+            <div align = "center">
+                <button class="btn btn-cus" ng-disabled="userForm.$invalid||userForm.$pristine" 
+                ng-click="submit()">submit</button>
+            </div>     
+        </form>  
+    </div>                 
+</div>
+
+<div id="serverConfig_rc" class="rc-define"       
+    EDIT_SUC="Configuration modified successfully"
+    EDIT_FAIL="Failed to modify the configuration"
+    MAIN="Main connection is not found"
+></div>
+
+
+

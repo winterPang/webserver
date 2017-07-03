@@ -1,0 +1,301 @@
+<html>
+<head>
+</head>
+<style>
+    /*.link-container{
+         position: absolute;
+         right: 5px;
+     }*/
+    .cancel-actions {
+        position: static;
+        margin: 8px 15px 0 0;
+        display: inline-block;
+        float: right;
+        background: url(css/image/xb-icons.png) no-repeat;
+        height: 16px;
+        width: 18px;
+    }
+    .cancel-actions.hover-action {
+        background-position: -663px -42px;
+        cursor: pointer;
+    }
+    .cancel-actions.hover-action:hover{
+        background-position: -594px -42px;
+        cursor: pointer;
+    }
+    .cancel-actions.hover-action_ok {
+        background-position: -628px -42px;
+        cursor: pointer;
+    }
+    .cancel-actions.hover-action_ok:hover{
+        background-position: -560px -42px;
+        cursor: pointer;
+    }
+    input.border-red{
+        border-color: red;
+    }
+    .btn-small
+    {
+        width: 99px;
+        height:42px;
+        padding-top:-5px;
+    }
+    .ranges .range_inputs .btn-success
+    {
+        margin-left: 10px;
+    }
+    .bottom-border{
+        height:106px;
+    }
+
+    a{
+        cursor: pointer;
+    }
+    .new-left-right-block{
+        padding-top:10px;
+        padding-bottom:10px;
+        padding-left:10px;
+        padding-right:10px;
+    }
+    #box-body2015{
+        height: auto!important;
+    }
+    .new_app-box{
+        outline: 1px solid #dedddd;
+        margin-bottom: 20px;
+        background: #fff;
+        overflow-y: hidden;
+        border: 0!important;
+    }
+
+    .radio-name{
+        display: inline-block;
+        margin: 0 20px 0 0;
+    }
+    .radio-name1{
+        
+        margin: 0 20px 0 0;
+    }
+
+    .set-background{
+        background: url(./css/image/calender.png) 10px 10px;
+        background-repeat: no-repeat;
+        padding-left: 21px;
+        padding-top: 1px;
+        margin-top: -2px;
+        color: #fff;
+        font-weight: bolder;
+        font-family: monospace;
+        width: 45px;
+        height: 45px;
+    }
+    .city-vertical-center
+    {
+        position: absolute;
+        display: table;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        padding-left: 10px;
+    }
+    .city-icon-detail
+    {
+        right: 20px;
+        width: 25px;
+        height: 20px;
+        background: url(../city_behavior/images/ant-wips-icon.png) no-repeat -640px -70px;
+    }
+</style>
+<body>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum app-box" style="height:42px;background-color:#edf9f7;margin-bottom:15px;">
+            <div style="margin-left:17px;line-height:42px;float:left">当前区域类型：</div>
+            <div style="line-height:42px;float:left;color:#4ec1b2">酒店</div>
+            <div>
+                <label style="line-height:42px;margin-left:50px">请选择区域类型&nbsp&nbsp</label>
+                <select id="AreaSelect" class="singleSelect" allowClear="false" name="" style="width:180px"></select>
+                <a type="button" class="city-icon-detail city-vertical-center" id="client_details" href="city_wips.info"></a>
+            </div>
+        </div>
+        <div class="col-xs-12 app-colum app-box">
+            <div id="detect_container1">
+                <div class="app-box" style="overflow-y: hidden;">
+                    <div class="col-xs-12 box-footer" style="overflow: hidden;">
+                        <!-- 高级查询-->
+                        <div class="col-xs-3 text-left" style="height:50px; width:300px"> 
+                            <div class="col-xs-4" id="senior_filter" style="cursor: pointer">
+                                <div class="set-background"></div>
+                            </div>
+                            <div class="col-xs-8" id="selectNow" style="margin-left: -60px">（今天）</div>             
+                        </div>
+                        <div class="col-xs-6"></div>
+                        <div class="col-xs-2 text-right" style="float: right">
+                            <a type="button" class="refresh"  value = "1" id="refreshPie">
+                                <i class="refresh-icon icon"></i>
+                                <a type="button" class="link-detail" id="appinfo_detail" title="更多">
+                                    <i class="icon detail-icon"/>
+                                </a>
+                            </a>
+                            &nbsp;&nbsp;&nbsp;
+                        </div>
+                    </div>
+                    <div class="hide bottom-border" id="senior_select"> 
+                        <div class="col-xs-11">
+                            <div class="col-md-5">
+                                <span class="radio-name" style="margin-left: 10px;">周期</span>
+                                <div class="radio-name" style="margin-left: 14px;">
+                                    <input type="radio" id="statisOneday" checked name="StatisCycle" value="0">
+                                    <label for="statisOneday">今天</label>
+                                </div>
+                                <div class="radio-name">
+                                   <input type="radio" id="statisAweek" name="StatisCycle" value="1">
+                                    <label for="statisAweek">七天</label>
+                                </div>
+                                <div class="radio-name">
+                                    <input type="radio" id="statisMonth" name="StatisCycle" value="2">
+                                    <label for="statisMonth">一月</label>
+                                </div>
+                                <div class="radio-name">
+                                   <input type="radio" id="statisYear" name="StatisCycle" value="3">
+                                    <label for="statisYear">一年</label>
+                                </div>
+                                <div class="radio-name">
+                                    <input type="radio" id="otherTime" name="StatisCycle" value="4">
+                                    <label for="otherTime">其它</label>
+                                </div> 
+                                <!-- <div class="hide" id="getOtherTime" style="margin-left: 400px;margin-top: -35px;">
+                                    <input type="text"  id="starttime" class="daterange" style="width:175px"/>
+                                </div> -->
+                            </div>  
+                            <div class="col-md-3 hide" id="getOtherTime">
+                                <input type="text"  id="starttime" class="daterange" style="width:175px"/>
+                            </div>  
+                        </div>
+
+                        <div class="col-xs-1">
+                            <div class="cancel-actions hover-action" id="remove" ></div>
+                        </div>
+                        <div>
+                            <div class="col-xs-12">
+                                 <span class="radio-name"style="margin-left: 10px;">方式</span>
+                                <div class="radio-name"style="margin-left: 14px;">
+                                    <input type="radio" id="statisMan" checked name="selectWayPie" value="0">
+                                    <label for="statisMan">人次</label>
+                                </div>
+                                <div class="radio-name">
+                                   <input type="radio" id="statisFlow" name="selectWayPie" value="1">
+                                    <label for="statisFlow">流量</label>
+                                </div> 
+                            </div> 
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="col-xs-12" id = "filter_UrlDate2">
+                                <div class="col-xs-12">
+                                    <span style="color: #807474">&nbsp;&nbsp;MAC地址&nbsp;&nbsp;</span>
+                                    <input id="filter_PieDateValue" type="text" onkeyup="getMACKey()" class="string big"  value="" style="width:134px" />
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12" style="height: 22px">
+                            <div class="col-xs-12" style="height: 10px"></div>
+                            <div class="col-xs-12">
+                                <HR width="100%"   style="border-top: 1px solid #C7B9B9;margin: 0 8px 0 -1px"  align="center" size="5" color=#C7B9B9 />
+                            </div>
+                            <div class="col-xs-12">
+                                <HR width="100%"   style="border-top: 2px solid #F9EBEB;margin: 0 8px 0 -1px"  align="center" size="5" color=#F9EBEB />
+                            </div>
+                        </div>
+
+                    </div>
+
+                     &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp
+                    <div class="col-xs-12">
+                        <div id="flashapp" class="col-md-6">
+                            <span class="title">&nbsp&nbsp&nbsp&nbsp最受欢迎的应用</span>
+                            <div id="App_pie" class="myEchart col-xs-12"></div>
+                            <div id="App_message" class="panel"></div>
+                        </div>
+                        <div id="flashurl" class="col-md-6">
+                            <span class="title">&nbsp&nbsp&nbsp&nbsp最受欢迎的网站</span>
+                            <div id="Url_pie" class="myEchart"></div>
+                            <div id="Url_message" class="panel leg-panel"></div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-12" style="height: 100px">
+                        <div class="col-xs-12" style="height: 90px"></div>
+                        <div class="col-xs-12">
+                            <HR width="98.5%"   style="border-top: 1px solid #C7B9B9"; align="center" size="5" color=#C7B9B9 />
+                        </div>
+                        <div class="col-xs-12">
+                            <HR width="98.5%"   style="border-top: 2px solid #F9EBEB";  align="center" size="5" color=#F9EBEB />
+                        </div>
+                    </div>
+                    <div class="col-xs-12" style="overflow:hidden;margin-top:70px;">
+                        <div id="flashflow" class="col-xs-4" style="border-right:1px solid #e5e8e8;">
+                            <div class="col-xs-12">
+                                <div style="margin-left:36%;">总传输流量</div>
+                                <div id="TotalFlow" style="margin-left:36%;margin-bottom:10px;color:black"></div>
+                                <div style="margin-left:36%;">上行流量</div>
+                                <div id="upflow"    style="margin-left:36%;margin-bottom:10px;color:black"></div>
+                                <div style="margin-left:36%;margin-top:10px">下行流量</div>
+                                <div id="downflow"  style="margin-left:36%;margin-bottom:10px;color:black"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4" style="height:154px;border-right:1px solid #e5e8e8" >
+                            <div id="UserFlow_chart" class="col-xs-12 echart-skip" style="padding-left:35%;">流量使用排名</div>
+                            <div id="Area_First"class="col-xs-12 echart-skip" style="padding-left:40%;padding-top:12px;color:black">1.昌平</div>
+                            <div id="Area_Second"class="col-xs-12 echart-skip" style="padding-left:40%;padding-top:12px;color:black">2.海淀</div>
+                            <div id="Area_Third"class="col-xs-12 echart-skip" style="padding-left:40%;padding-top:12px;color:black">3.朝阳</div>
+                        </div>
+                        <div class="col-xs-4" style="height:154px;">
+                            <div id="Flow_peak" class="col-xs-12 echart-skip" style="padding-left:37%";>流量使用高峰期</div>
+                            <div id="Flow_peak_Time01"class="col-xs-12 echart-skip" style="padding-left:40%;padding-top:12px;color:black">1.8:00--9:00</div>
+                            <div id="Flow_peak_Time02"class="col-xs-12 echart-skip" style="padding-left:40%;padding-top:12px;color:black">2.12:00--13:00</div>
+                            <div id="Flow_peak_Time03"class="col-xs-12 echart-skip" style="padding-left:40%;padding-top:12px;color:black">3.20:00--21:00</div>
+                        </div>
+                        <div class="col-xs-12" style="height: 20px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div id="dpi_monitor_rc" class="rc-define"
+         UPNAME="上行流量"
+         DOWNNAME="下行流量"
+         DROPFLOW="丢弃流量"
+         USAGENUM="使用人次"
+         REN="人"
+         SHOWTIMEHOUR="时"
+         SHOWTIMEWEEK="月份"
+         TrafficMb  = "流量（MB）"
+         TrafficGb  = "流量（GB）"
+         FLOW_HEAD="用户Mac地址,报文数目,流量,占总流量百分比"
+         SPI_HEAD="接口名称,报文数目,流量,占总流量百分比"
+         USER_SPI="用户Mac地址,接口名称,报文数目,流量"
+         USER="用户ID,MAC,用户IP"
+         SHOWINFO="总流量,上行流量,下行流量,丢弃流量"
+         URLSTATISTICS="用户Mac地址,网站名称,网站类型,在线时长（时：分：秒）"
+         APP_HEAD="用户Mac地址,应用名称,报文数目,流量"
+         URL_TITLE="网站类型统计"
+         APP_TITLE="最受欢迎的应用"
+         URLCHANGE="上网人数"
+         APPCHANGE="最受欢迎的应用"
+         USERCHANGE="用户数量"
+         FLOWPIE="使用流量"
+         APPTYPE="应用类别流量"
+         FEN="分"
+         MIAO="秒"
+         XIAOSHI="小时"
+         UPFLOW = "上行流量"
+         DOWNFLOW = "下行流量"
+         ONEDAY="（今天）"
+         AWEEK="（七天）"
+         MONTH="（一月）"
+         YEAR="（一年）"
+    ></div>
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("city_behavior.dpi_ipv4");
+</script>

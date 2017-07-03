@@ -1,0 +1,46 @@
+.ap-status-count {
+    height:300px;
+}
+.pie-height{
+    height:245px;
+}
+.app-colum .app-box .box-body.padding-top-zero {
+    padding-top: 0;
+}
+.online-echarts-height {
+    height:210px;
+}
+.right01 {
+    padding-top: 25px;
+    padding-left: 10px;
+}
+
+ul {
+    list-style: none;
+}
+
+.left {
+    float: left;
+}
+
+.health_title {
+    overflow: hidden;
+    height: 12%;
+}
+
+.health_title div.left {
+    width: 85px;
+}
+
+.health_value > li {
+    float: left;
+}
+
+a.reports {
+    position: absolute;
+    margin-top: 5px;
+    background: url(../../frame/images/internet_edit.png) no-repeat;
+    width: 17px;
+    height: 17px;
+    cursor: pointer;
+}

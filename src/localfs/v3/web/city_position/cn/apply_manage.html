@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="../position/css/position.css" rel="stylesheet" type="text/css" />
+    <!--<script type="text/javascript" src="../position/cocos/cocos2d-js-v3.9.js" charset="UTF-8"></script>-->
+    <style>
+        .link-container {
+            position: absolute;
+            right: 5px;
+        }
+        
+        a {
+            cursor: pointer;
+        }
+        
+        #box-body2015 {
+            height: auto!important;
+        }
+        
+        #Cocos2dGameContainer {
+            border: 1px solid grey;
+        }
+        
+        .simple-list .slist-body {
+            border: 1px solid #dedddd;
+        }
+        
+        .app-box .box-body {
+            padding: 15px;
+            height: auto;
+        }
+        
+        .add_icon {
+            background: url(css/image/xiaoxiaobei1.png) no-repeat -435px -476px;
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            margin-left: 40%;
+        }
+        
+        #canvas {
+            margin-top: 10px;
+        }
+        
+        .add-ap-btn {
+            /*background: url(../position/cocos/res/icon.png) no-repeat -382px -225px;*/
+            background: url(../position/cocos/res/icon.png) no-repeat -382px -299px;
+            width: 31px;
+            height: 31px;
+            position: absolute;
+            top: 11px;
+            left: 557px;
+            z-index: 100;
+        }
+        
+        .add-ap-btn:hover {
+            background: url(../position/cocos/res/icon.png) no-repeat -382px -224px;
+        }
+        
+        .add-wall-btn {
+            /*background: url(../position/cocos/res/icon.png) no-repeat -431px -225px;*/
+            background: url(../position/cocos/res/icon.png) no-repeat -431px -299px;
+            width: 31px;
+            height: 31px;
+            position: absolute;
+            top: 11px;
+            left: 596px;
+            z-index: 100;
+        }
+        
+        .add-wall-close-btn {
+            /*background: url(../position/cocos/res/icon.png) no-repeat -431px -141px;*/
+            background: url(../position/cocos/res/icon.png) no-repeat -431px -224px;
+            width: 31px;
+            height: 31px;
+            position: absolute;
+            top: 11px;
+            left: 596px;
+            z-index: 100;
+        }
+        
+        .scale-big-btn {
+            background: url(../position/cocos/res/icon.png) no-repeat -480px -299px;
+            width: 31px;
+            height: 31px;
+            position: absolute;
+            top: 11px;
+            left: 637px;
+            z-index: 100;
+        }
+        
+        .scale-big-btn:hover {
+            background: url(../position/cocos/res/icon.png) no-repeat -480px -224px;
+            
+        }
+        
+        .scale-small-btn {
+            background: url(../position/cocos/res/icon.png) no-repeat -529px -299px;
+            width: 31px;
+            height: 31px;
+            position: absolute;
+            top: 11px;
+            left: 681px;
+            z-index: 100;
+        }
+        
+        .scale-small-btn:hover {
+            background: url(../position/cocos/res/icon.png) no-repeat -529px -224px;
+        }
+        
+        .set-scale-btn {
+            background: url(../position/cocos/res/icon.png) no-repeat -581px -299px;
+            width: 31px;
+            height: 31px;
+            position: absolute;
+            top: 11px;
+            left: 723px;
+            z-index: 100;
+        }
+        
+        .set-scale-btn:hover {
+            background: url(../position/cocos/res/icon.png) no-repeat -581px -222px;
+        }
+
+        .add-ap-btn .add-wall-btn .set-scale-btn .scale-big-btn .scale-small-btn {
+            cursor:pointer;
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box default-height">
+                <div id="detect_container7">
+                    <div class="box-footer">
+                        <div class="col-xs-12">
+                            <div class="text-right">
+                                <a type="button" class="add" id="addMapBtn" value="4" style="margin-right: 6px;">
+                                    添加
+                                </a> &nbsp&nbsp&nbsp
+                            </div>
+                        </div>
+                    </div>
+                    <div class="box-body" id="MapList">
+                        <div class="add">
+                            <a href="#" class="add_icon" data-toggle="modal" data-target="#foraddicon"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form class="form-horizontal form hide" id="verlist" action="/v3/wloc/upload" enctype="multipart/form-data" method="post"
+    onsubmit="return false">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">添加地图</h3>
+        </div>
+        <div class="modal-body">
+            <!--
+            <input type="file" name="photo" id="upload_file"> 地图名：
+            <input type="text" name="mapName" id="mapName">
+            -->
+            <!--<button id="addApBtn">添加Ap</button>
+            <button id="addWallBtn">添加墙体</button>-->
+            <img id="createShortCutImg" hidden>
+            <canvas id="createShortCutCanvas" width="700" height="350" style="border: 1px solid black" hidden></canvas>
+
+            <div class="form-group">
+                <div style="margin: 0px auto; width:800px;">
+                    <label class="col-xs-2 control-label required">地图名</label>
+                    <div class="col-xs-9">
+                        <input type="text" class="string big required" id="mapName" maxlength="32"/>
+                        <label class="info-explain">（1-32字符）</label>
+                        <label class="error" id="mapName_error"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div style="margin: 0px auto; width: 800px;">
+                    <label class="col-xs-2 control-label" style="margin-top: 10px;">图片</label>
+                    <div class="col-xs-9 file"  style="margin-top: 10px;">
+                        <a class="btn" onclick="$('input[id=upload_file]').click();">Browse</a>
+                        <label class="info-explain">（建议尺寸：700像素*350像素）</label>
+                        <label class="error" id="file_error"></label>
+                        <input type="file" name="photo" id="upload_file" style="visibility: hidden;">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-12 app-colum" id="canvas">
+                    <canvas id="gameCanvas" width="800" height="450"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer form-actions">
+            <a class="btn btn-primary" dlgtype="Save" id="saveMap">
+                <i class="icon-ok"></i> 保存
+            </a>
+            <a class="btn btn-primary" dlgtype="Close" id ="closeMap" data-dismiss="modal">
+                <i class="icon-remove"></i> 关闭
+            </a>
+        </div>
+    </form>
+
+    <form class="form-horizontal form hide" id="setScaleForm">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">设置比例尺</h3>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">比例尺</label>
+                <div class="col-sm-10">
+                    1px &nbsp; : &nbsp;
+                    <input type="text" id="scaleValue">&nbsp; (米)
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer form-actions">
+            <a class="btn btn-primary" dlgtype="Save" id="setScaleOk">
+                <i class="icon-ok"></i> 保存
+            </a>
+            <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+                <i class="icon-remove"></i> 取消
+            </a>
+        </div>
+    </form>
+
+    <form class="form-horizontal form hide" id="addApForm">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">添加Ap</h3>
+        </div>
+        <div class="modal-body">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">AP</label>
+                <div class="col-sm-9">
+                    <select id="apNameList" class="singleSelect" allowClear="true" name="">
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer form-actions">
+            <a class="btn btn-primary" dlgtype="Save" id="addApOkBtn">
+                <i class="icon-ok"></i> 添加
+            </a>
+            <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+                <i class="icon-remove"></i> 取消
+            </a>
+        </div>
+    </form>
+
+    <form class="form-horizontal form hide" id="deleteMapForm">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">确认提示</h3>
+        </div>
+        <div class="modal-body">
+            确定要删除选中的数据吗？
+        </div>
+        <div class="modal-footer form-actions">
+            <a id="deleteMapOK" class="btn btn-primary" dlgtype="OK" data-dismiss="modal">是</a>
+            <a href="#" class="btn" dlgtype="Cancel" data-dismiss="modal">否</a>
+        </div>
+    </form>
+
+
+
+    <div id="apply_manage_rc" class="rc-define" title="地图详情" addMapTitle="添加地图" scaleSmallBtn="缩小"
+            scaleBigBtn="放大" addApBtn="增加AP" addWallBtn="增加墙体" setScaleBtn="设置比例尺">
+    </div>
+
+</body>
+
+</html>
+
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("city_position.apply_manage");
+
+</script>

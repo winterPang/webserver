@@ -1,0 +1,25 @@
+
+/** theme thumb **/
+.header .dropdown-menu .action-btn .icon {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #CCC;
+    margin: 5px 10px 0 0;
+}
+
+.header .dropdown-menu .action-btn .text {
+    display: none;
+}
+
+.header .dropdown-menu .action-btn .dark {
+    background: black;
+}
+
+.header .dropdown-menu .action-btn .blue {
+    background: #0096D6;
+}
+
+.header .dropdown-menu .action-btn .light {
+    background: #BAE4FF;
+}

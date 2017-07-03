@@ -1,0 +1,86 @@
+<div class="page-row custom">
+    <div class="btn_h_return" ng-click="return()"></div> 
+
+    <!-- <div class="col-xs-12 app-colum ">
+        <div class="col-xs-12 app-box">
+            <div class="box-footer">
+                <div class="ml20">
+                   <input id="apGroup" name="area" type="radio" value="apGroup" 
+                    ng-click="apGroup()" ng-checked="true">  
+                    <label for="apGroup">AP组</label>     
+                
+                    <input id="ap" name="area" type="radio" value="ap"  
+                    ng-click="ap()" style="margin-left:30px">  
+                    <label for="ap">AP</label> 
+                </div>             
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div class="col-xs-12 app-box">
+        <div ng-show="apGroupArea">
+            <div class="panel panel-default">                  
+                <div class="panel-heading">
+                    <h3 class="panel-title">已绑定AP组</h3>
+                </div>
+                           
+                <div class="panel-body">
+                    <button class="btn btn-cus" ng-click="unbindApGroup()" ng-disabled="unbindApGroupDisabled" 
+                    >解除绑定</button>               
+                    <div bs-Table="bindApGroupTable"></div>
+                </div>
+            </div>
+    
+            <div class="panel panel-default">  
+                <div class="panel-heading">
+                    <h3 class="panel-title">未绑定AP组</h3>
+                </div>
+                           
+                <div class="panel-body">
+                    <button class="btn btn-cus" ng-click="bindApGroup()" ng-disabled="bindApGroupDisabled">绑定AP组</button>               
+                    <div bs-Table="unbindApGroupTable"></div>
+                </div>
+            </div>
+        </div>   
+    </div> -->
+
+    <div class="col-xs-12 app-box">
+        <div ng-show="apArea">
+           <div class="panel panel-default">                  
+               <div class="panel-heading">
+                   <h3 class="panel-title">已绑定AP</h3>
+               </div>
+                          
+               <div class="panel-body">
+                   <button class="btn btn-cus" ng-click="unBindAp()" ng-disabled="unbindApDisabled">解除绑定</button>               
+                   <div bs-Table="bindApTable"></div>
+               </div>
+           </div>
+           
+           <div class="panel panel-default">  
+               <div class="panel-heading">
+                   <h3 class="panel-title">未绑定AP</h3>
+               </div>
+                          
+               <div class="panel-body">
+                   <button class="btn btn-cus" ng-click="bindAp()" ng-disabled="bindApDisabled">绑定AP</button>               
+                   <div bs-Table="unbindApTable"></div>
+               </div>
+           </div>
+        </div>
+    </div>
+</div>
+                   
+<div id="apinfo_aplist_rc" class="rc-define"
+    	APGROUP_HEADER="AP组名称,描述,Model数量"	
+    	AP_HEADER="AP名称,AP序列号,Model型号,radio个数,所属AP组名称"	
+      BIND_SUC="绑定成功"
+      BIND_SUC_RE="绑定成功,请手动刷新页面"
+      REBIND_SUC="解绑成功"
+      REBIND_SUC_RE="解绑成功,请手动刷新页面"
+      BIND_FAIL="绑定失败"
+      REBIND_FAIL="解绑失败"
+      APGROUP="AP组"
+      NOTICE="下Model数量为0,无法绑定无线服务"
+      MAIN="主链接断开导致操作失败,请检查设备"
+></div>

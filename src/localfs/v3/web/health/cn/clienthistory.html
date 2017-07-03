@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <!--小贝->终端信息页面->终端上下线历史模块-->
+    <!--负责人：jinfeng kf6102-->
+    <div class='app-box'>
+        <div class="box-footer">
+            <div class="title">终端上下线历史</div>
+        </div>
+        <div class="box-body no-height">
+            <div id="clientHistory_slist" class="simple-list"></div>
+        </div>
+    </div>
+<div id="terminal_rc" class="rc-define"
+     clientHistory="时间,MAC地址,IP地址,无线服务,AP,类型,原因"
+        ></div>
+</body>
+</html>
+<script>
+    Utils.Pages.loadJS("health.clienthistory");
+</script>

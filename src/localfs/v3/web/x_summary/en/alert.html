@@ -1,0 +1,29 @@
+<html>
+<head>
+</head>
+<body>
+<div class="page-row">
+    <div class="col-xs-12 app-colum"  debug="getLogInfo">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">Alerts</span>
+            </div>
+
+            <div class="box-body no-height">
+                <div id="alert_list" class="xxb-list simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<iframe id="exportFile" name="exportFile" class="hide"></iframe>
+<div id="alert_monitor_rc" class="rc-define"
+     ALERT_HEADER="Device Type,Alert Message,Alert Generated At"
+     ALERT_OFFLINE="Offline"
+     ALERT_ONLINE="Online"
+     ALERT_DOWNLOAD="Export"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("x_summary.alert");
+</script>

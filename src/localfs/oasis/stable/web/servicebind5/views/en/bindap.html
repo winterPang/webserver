@@ -1,0 +1,40 @@
+
+
+<div class="btn_h_return" ng-click ="return()"></div>
+<div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">Bound Wireless Services</span>
+            </div>
+            <div class="panel-body">
+            <div class="btn btn-cus" ng-click="unbind()" ng-disabled="bindBtnDisable">Unbind</div>
+            <div class="box-body no-height">
+                <div bs-Table="bindOptions"></div>
+            </div>
+            </div>
+        </div>
+</div>
+
+
+
+<div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">Unbound Wireless Services</span>
+            </div>
+            <div class="panel-body">
+                <div class="btn btn-cus" ng-click="bind()" ng-disabled="unbindBtnDisable">Bind</div>
+                <div class="box-body no-height">
+                    <div bs-Table="unbindOptions"></div>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+<div id="apinfo_aplist_rc" class="rc-define"
+    	Bind_HEADER="Wireless Service,SSID,Description" 	
+        BIND_SUCCESS="Binding succeeded.Data synchronization is in process.Please wait..."
+        UNBIND_SUCCESS ="Unbinding succeeded.Data synchronization is in process.Please wait..."
+        SUM_TEMPLATE="Maximum number of service template bound to the radio has reached."
+></div>

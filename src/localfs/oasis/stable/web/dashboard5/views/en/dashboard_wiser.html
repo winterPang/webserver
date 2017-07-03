@@ -1,0 +1,31 @@
+<div class="dashboard container-fluid" ng-init="
+        RC_TITLE_WISER='Wireless Services';
+
+        RC_TITLE_AUTH_TYPE_NOAUTH = 'No auth';
+        RC_TITLE_AUTH_TYPE_ONEKEY = 'Anonymous';
+        RC_TITLE_AUTH_TYPE_ACCOUNT = 'Account';
+
+        RC_TITLE_WISER_STATUS_ON = 'Enabled';
+        RC_TITLE_WISER_STATUS_OFF = 'Disabled';
+
+        RC_TABLE_COLUMN_SSID = 'SSID';
+        RC_TABLE_COLUMN_SSID_STATUS = 'SSID Status';
+        RC_TABLE_COLUMN_AUTH_TYPE = 'Auth Method';
+        RC_TABLE_COLUMN_CLIENT_COUNT = 'Clients';
+        RC_TABLE_COLUMN_AP_COUNT = 'Bound APs';
+       
+
+    ">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color no-height default-bottom">
+                <div class="box-footer ">
+                    <span class="title">{{RC_TITLE_WISER}}</span>
+                </div>
+                <div class="sysinfo-body box-body no-height">
+                    <div bs-table="option"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

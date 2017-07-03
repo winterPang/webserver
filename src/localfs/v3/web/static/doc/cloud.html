@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!-- saved from url=(0042)http://v3.bootcss.com/examples/dashboard/# -->
+<html lang="zh-CN"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>API Manager</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <link href="css/font-awesome.css" rel="stylesheet" />
+    <link href="css/cloud.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <strong class="navbar-brand">API Manager</strong>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a class="nav-item" href="home.html">首页</a></li>
+                    <li><a href="cloud.html" class="nav-item active">云端接口</a></li>
+                    <li><a href=""  class="nav-item">Netconf</a></li>
+                    <li><a href=""  class="nav-item">Help</a></li>
+                </ul>
+                <form class="navbar-form">
+                    <input type="text" class="form-control" placeholder="Search...">
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <div class="doc-list">
+                    <select id="DocList"></select>
+                    <span id="AddDoc"><i class="fa fa-angle-double-down"></i></span>
+                </div>
+                <ul class="nav nav-sidebar" id="doc_menu">
+                    <li class="active"><a href="#cloud_top">说明</a></li>
+                </ul>
+            </div>
+
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+                <div class="cloud-doc-con">
+                    <header>
+                        <h1>O2O小贝页面接口文档</h1>
+                    </header>
+                    <div class="cloud-doc-title"><strong>说明</strong><a name="cloud_top" class="doc_anchor"><span></span></a></div>
+                    <div class="cloud-doc-desc">
+                        <p>以下接口的根路径为：http://lvzhou.h3c.com/o2oportal/，接口描述中仅提供相对路径。请求结束时返回错误码、错误信息、返回数据以及数据总数（用于分页查询），格式如下：</p>
+                    </div>
+                    
+                    <div class="code">
+                        <pre>{"errorcode":"xxx","errormsg":"xxx","data":"xxx","rowCount":0}</pre>
+                    </div>
+                    <div class="cloud-doc-desc">
+                        <p>”errormsg”的第一个占位符为字段名称，前台根据此名称判断出错字段。发生异常时，"data"以及"rowCount"为空。
+                        所有的请求都会校验用户名，无法获取用户名时返回1007。
+                        批量查询接口的‘startRowIndex’和‘maxItems’允许为空，两者都为空时查询全部数据。若要分页查询，两者必须都非空。
+                        </p>
+                    </div>
+
+                    <div class="cloud-doc-explain">
+                        <div class="cloud-doc-exp-head">
+                            <span class="cloud-doc-exp-label"><strong>通用错误码</strong></span>
+                        </div>
+                        <ul class="level-1">
+                            <li><code>0</code><span>（操作成功，无消息内容）</span></li>
+                            <li><code>1</code>操作成功，但更新缓存失败。</li></li>
+                            <li><code>1001</code><span>{0}必须填写。</span></li>
+                            <li><code>1002</code><span>{0}最短长度{1}。</span></li>
+                            <li><code>1003</code><span>{0}最大长度{1}。</span></li>
+                            <li><code>1004</code><span>{0}必须为{1}-{2}之间的整数。</span></li>
+                            <li><code>1005</code><span>{0}不合法。</span></li>
+                            <li><code>1006</code><span>服务器内部错误。</span></li>
+                            <li><code>1007</code><span>请先登录。</span></li>
+                        </ul>
+                    </div>
+
+                    <div id="doc_content"></div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 添加Doc弹出框 -->
+    <div class="modal fade" id="addDocDlg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title" id="myModalLabel">创建新文档</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group" >
+                        <label class="col-sm-4 control-label required">文档名称</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="string" id="NewDocName" maxlength=255>
+                            <label class="info-explain">（1-255字符）</label>
+                            <label class="error" id="NewDocName_error"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- 添加Item弹出框 -->
+    <div class="modal fade" id="addItemDlg" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h5 class="modal-title" id="myModalLabel">创建新接口</h5>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group" >
+                        <label class="col-sm-4 control-label required">类目名</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="typeahead required" id="ItemName" maxlength=255>
+                            <label class="error" id="ItemName_error"></label>
+                        </div>
+                    </div>
+                    <div class="form-group" >
+                        <label class="col-sm-4 control-label required">接口名</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="string required" id="SubItem" maxlength=255>
+                            <label class="error" id="SubItem_error"></label>
+                        </div>
+                    </div>
+                    <div class="form-group" >
+                        <label class="col-sm-4 control-label required">Path</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="string required" id="Path" maxlength=255>
+                            <label class="error" id="Path_error"></label>
+                        </div>
+                    </div>
+                    <div class="form-group" >
+                        <label class="col-sm-4 control-label required">Method</label>
+                        <div class="col-sm-8">
+                            <select id="Method">
+                                <option value="Get">Get</option>
+                                <option value="Post">Post</option>
+                            </select> 
+                        </div>
+                    </div>
+                    <div class="form-group" >
+                        <label class="col-sm-4 control-label">Parameters</label>
+                        <div class="col-sm-8">
+                            <textarea class="json" id="Parameters"></textarea>
+                            <label class="error" id="Parameters_error"></label>
+                        </div>
+                    </div>
+                    <div class="form-group" >
+                        <label class="col-sm-4 control-label">返回数据格式</label>
+                        <div class="col-sm-8">
+                            <textarea class="json" id="Return"></textarea>
+                            <label class="error" id="Return_error"></label>
+                        </div>
+                    </div>
+                    <div class="form-group" >
+                        <label class="col-sm-4 control-label">错误码</label>
+                        <div class="col-sm-8">
+                            <textarea class="json" id="Error"></textarea>
+                            <label class="error" id="Error_error"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary">确定</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                </div>
+            </div><!-- /.modal-content -->
+        </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="libs/jquery.min.js"></script>
+    <script src="libs/bootstrap.min.js"></script> 
+    <script src="libs/bootstrap-typeahead.js"></script> 
+    <script src="js/cloud.js"></script> 
+    <script src="js/menu.js"></script> 
+
+</body></html>

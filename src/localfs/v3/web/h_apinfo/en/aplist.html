@@ -1,0 +1,108 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+<div class="page-row">
+    <div class="btn_h_return" id="return"></div>
+    <div class="col-xs-12 app-colum" debug="onlineuser_list">
+        <div class="app-box no-height default-bottom">
+            <div class="box-footer">
+                <span class="title">AP List</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="onlineuser_list" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hide modal fade" id="tableDlg">
+    <form class="form-horizontal form" id="tableForm">
+        <div class="box-body no-height">
+          <div id="detail-list" class="simple-list"></div>
+        </div>
+    </form>
+  </div>
+<div class="hide modal fade" id="TerminalInfoDlg">
+    <form class="form-horizontal form" id="view_client_form">
+        <!-- <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+              <h3 class="modal-title">Client Basic Information</h3>
+        </div> --> 
+        <div class="col-sm-12">
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">AP Name</label>
+                  <span class="label form-if-setHtml" id="apName">--</span>
+            </div>
+
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">AP Model</label>
+                  <span class="label form-if-setHtml" id="apModel">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">Serial Number</label>
+                  <span class="label form-if-setHtml" id="apSN">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">MAC Address</label>
+                  <span class="label form-if-setHtml" id="macAddr">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">AP Group Name</label>
+                  <span class="label form-if-setHtml"  id="apGroupName">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">Radio Information</label>
+                  <span class="label form-if-setHtml" id="radioList1">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">AP Status</label>
+                  <span class="label form-if-setHtml" id="status1">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">Throughput (Tx/Rx, KB)</label>
+                  <span class="label form-if-setHtml" id="transmit_receive_Traffic">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">Online Duration (dd:hh:mm:ss)</label>
+                  <span class="label form-if-setHtml" id="onlineTime1">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">Clients</label>
+                  <span class="label form-if-setHtml" id="clientCount">--</span>
+            </div>
+            <!-- <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">Sleep Times</label>
+                  <span class="label form-if-setHtml" id="PowerSaveMode">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5  control-label "><strong></strong></label>
+            </div> -->
+        </div>
+    </form>
+</div>
+
+<div id="apinfo_aplist_rc" class="rc-define"
+	TX_HEADER="AP Name, Tx Rate (Kbps)"
+  RX_HEADER="AP Name, Rx Rate (Kbps)"
+  G5_HEADER="AP Name, 5 GHz Clients"
+  G2_HEADER="AP Name, 2.4 GHz Clients"
+  GROUP_HEADER="AP Name, AP Model, Status, Serial Number, IP Address"
+  MODE=",802.11b,802.11a,802.11g,802.11n(2.4GHz),802.11n(5GHz),802.11ac(2.4GHz),802.11ac(5GHz)"
+  ALLAP_HEADER1="AP Name, Serial Number, MAC Address, IP Address, Radio Information, AP Status, Online Duration (dd:hh:,mm:ss)"
+  ALLAP_HEADER="AP Name, AP Model, Serial Number, MAC Address, AP Group Name, Radio Information, AP Status, Throughput (Tx/Rx, Kbps), Online Duration (dd:hh:,mm:ss, Clients"
+  ALLAP_HEADER2="AP Name, AP Model, Serial Number, AP Group Name, Radio Information, Online Duration (dd:hh:,mm:ss), Clients"
+  DISCONNECT="Disconnect"
+  STATUS=",Online, Offline, Downloading image file"
+  TERINFO="Details"
+  TITLE_TERINFO="AP Details"
+  DOWNLOAD="Downloading image file"
+></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+	Utils.Pages.loadJS("h_apinfo.aplist");
+</script>

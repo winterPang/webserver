@@ -1,0 +1,18 @@
+{
+    "errorcode":0,
+    "errormsg":"",
+    "data":[
+            {"userType":7,"loginTime":1469009909148,"storeName":"园区3510H","isBlackUser":false,"realName":"14-F6-5A-BB-B3-D3"},
+            {"userName":"2C-8A-72-CA-27-21","userType":1,"loginTime":1468313646006,"storeName":"园区3510H","isBlackUser":false,"realName":"2C-8A-72-CA-27-21"},
+            {"userType":7,"loginTime":1468894243320,"storeName":"园区3510H","isBlackUser":false,"realName":"2C-8A-72-CA-27-21"},
+            {"userType":7,"loginTime":1468984334844,"storeName":"园区3510H","isBlackUser":false,"realName":"78-6A-89-BD-E9-98"},
+            {"userType":7,"loginTime":1468997418840,"storeName":"园区3510H","isBlackUser":false,"realName":"E0-B5-2D-92-12-7F"},
+            {"userName":"liuchao","userType":100,"loginTime":1474874031489,"storeName":"园区3510H","isBlackUser":false,"realName":"liuchao"},
+            {"userName":"28-F0-76-2C-D2-F8","userType":7,"loginTime":1469673320890,"storeName":"园区3510H","isBlackUser":false,"realName":"oS82LwaYw7G8mGBIk8QXm3mcsk-Y"},
+            {"userName":"40-33-1A-4F-53-F4","userType":7,"loginTime":1472532054554,"storeName":"园区3510H","isBlackUser":false,"realName":"oS82LwbfYgpHcyAZroyRcQL9YLWE"},
+            {"userName":"范晓坤","userType":7,"loginTime":1468661573446,"storeName":"园区3510H","isBlackUser":false,"realName":"oS82LwcUxW-Lk48Snw0keV56Fpwo"},
+            {"userName":"linca","userType":100,"loginTime":1472532054554,"storeName":"园区3510H","isBlackUser":false,"realName":"liuchao"},
+            {"userName":"过客","userType":7,"loginTime":1468997333192,"storeName":"园区3510H","isBlackUser":false,"realName":"oS82LwdRk0lc2s8UQBV0LEqD1tKE"}
+        ],
+        "rowCount":19
+    }

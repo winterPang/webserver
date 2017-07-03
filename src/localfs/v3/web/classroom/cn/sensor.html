@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        span.property{
+            position: relative;
+            top: 4px;
+        }
+
+        label.sensor-type.info-explain {
+            position: relative;
+            top: 8px;
+            right: 28px;
+        }
+
+    </style>
+</head>
+<body>
+<!--总页面 -->
+<div class="page-row smartschool">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box wrap_c">
+            <div class="box-footer">
+                <span class="title">传感器配置</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="sensorList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--添加/编辑对话框-->
+<div class="hide modal fade" id="addSensorDlg">
+    <form id="addSensor_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">传感器Mac</label>
+            <div class="col-sm-9">
+                <!--<select class="singleSelect seterror" id="sensorId" name="sensorId" errid="sensorId_error" placeholder="请选择传感器"><select>-->
+                <input type="text" class="string big required seterror" id="sensorId" name="sensorId" placeholder="请输入" errid="sensorId_error" maxlength="32"/>
+                <label class="info-explain"></label>
+                <label class="error" id="sensorId_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required" id="sensor-name">传感器名称</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required seterror" id="sensorName" name="sensorName" errid="sensorName_error" maxlength="32"/>
+                <label class="info-explain sensorName_error">(1-32字符)</label>
+                <label class="error" id="sensorName_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">传感器类型</label>
+            <div class="col-sm-8">
+                <label class="checkbox inline col-sm-2">
+                    <input type="checkbox" id="temperature" value="option1"><span class="property"> 温度</span>
+                </label>
+                <label class="checkbox inline col-sm-2">
+                    <input type="checkbox" id="humidity" value="option2"><span class="property"> 湿度</span>
+                </label>
+                <label class="checkbox inline col-sm-2">
+                    <input type="checkbox" id="oxygen" value="option3"><span class="property"> 含氧量</span>
+                </label>
+                <label class="info-explain sensor-type">(至少选择一个属性)</label>
+                <label class="error" id="sensorType_error"></label>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+<div id="sensor_rc" class="rc-define"
+     SENSORLIST="传感器Mac,传感器名称,温度,湿度,含氧量"
+     BUTTONNAME="删除,新建"
+     CONFIRMINFO="是否确定删除选择的传感器?"
+     DLGTITLE="新建,编辑"
+        ></div>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.sensor");
+</script>

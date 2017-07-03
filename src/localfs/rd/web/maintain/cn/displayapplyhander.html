@@ -1,0 +1,145 @@
+﻿<html>
+<head>
+<style>
+</style>
+</head>
+<body>
+<div class="modal-header">
+ <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+ <h3>异常信息详情</h3>
+</div>
+<form class="form-horizontal form-bordered form edit" id="DisplayApplyRadio_form" style="height:750px;width:900px;">
+
+<div class="col-sm-12">  
+ <div class="col-sm-6">
+  <div class="form-group">
+    <label class="col-sm-3 control-label">当前处理人</label>
+    <div class="col-sm-7">
+        <input type="text" id="handler">
+    </div>
+  </div>
+  
+  <div class="form-group">
+      <label class="col-sm-3 control-label">级别</label>
+      <div class="col-sm-7">
+          <select id="level">
+		    <option value="1">致命</option>
+			<option value="2">严重</option>
+			<option value="3">一般</option>
+		  </select>
+      </div>
+  </div>
+
+  <div class="form-group">
+      <label class="col-sm-3 control-label">类型</label>
+      <div class="col-sm-7">
+          <select id="errortype">
+		    <option value="1">数组访问越界</option>
+			<option value="2">指针访问越界</option>
+			<option value="3">访问空指针</option>
+			<option value="4">访问无效指针</option>
+			<option value="5">除零错误</option>
+			<option value="6">内存未初始化</option>
+			<option value="7">数据计算溢出</option>
+            <option value="8">多线程访问资源</option>
+            <option value="9">重复释放内存</option>
+            <option value="10">堆栈写坏</option>
+		  </select>
+      </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-sm-3 control-label">处理方式</label>
+        <select id="handlemode">
+			 <option value="1">请选择</option>
+			 <option value="2">提交开发人员修改</option>
+			 <option value="3">提交服务人员部署</option>
+			 <option value="4">正常关闭</option>
+		</select> 	
+  </div>
+ </div>
+
+ <div class="col-sm-6">
+  <div class="form-group">
+      <label class="col-sm-4 control-label">租户</label>
+      <div class="col-sm-8">
+          <input type="text"  readonly="readonly" id="setpoint">
+      </div>
+  </div>
+  
+  <div class="form-group">
+    <label class="col-sm-4 control-label">模块</label>
+    <div class="col-sm-8">
+       <input type="text" readonly="readonly" id="module">
+    </div>
+  </div>
+
+  <div class="form-group">
+    <label class="col-sm-4 control-label">时间</label>
+    <div class="col-sm-8">
+        <input type="text" readonly="readonly" id="time">
+    </div>
+  </div>
+
+  <div class="form-group">
+     <label class="col-sm-4 control-label">状态</label>
+     <div class="col-sm-8">
+         <input type="text" readonly="readonly" id="status">
+      </div>
+  </div>
+
+  <div class="form-group">
+      <label class="col-sm-4 control-label">产品</label>
+      <div class="col-sm-8">
+         <input type="text" readonly="readonly" id="product">
+      </div>
+  </div>
+
+  <div class="form-group">
+      <label class="col-sm-4 control-label">版本</label>
+      <div class="col-sm-8">
+          <input type="text" readonly="readonly" id="version">
+      </div>
+  </div>
+
+  <div class="form-group">
+     <label class="col-sm-4 control-label">core文件下载</label>
+     <div class="col-sm-8">
+         <a id="core" style="cursor:pointer;color:#e6e6e6"></a>
+     </div>
+  </div>
+ </div>
+</div>
+
+<div class="form-group">
+    <label class="col-sm-12 control-label" style="margin-left:30px;">完整堆栈</label>
+</div>
+
+<div class="form-group">
+    <div class="col-sm-12">
+        <textarea  readonly="readonly" id="gbdinfo" style="width:91%;height:200px;margin-left:30px;white-space:nowrap;"></textarea>
+    </div>
+</div>
+
+<div class="form-group" style="padding-top:20px;">
+    <div class="col-sm-6">
+      <a class="btn btn-primary"  dlgtype="Close" data-dismiss="modal" style="margin-left:300px;" id="success">
+      <i class="icon-colse"></i>确定</a>
+    </div>
+
+    <div class="col-sm-6">
+      <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+	  <i class="icon-colse"></i>取消</a>
+    </div>
+</div>
+</form>
+
+   <div id="DisplayApplyRadio_rc" class="rc-define"
+        APPINFO = "BitTorrent,数组访问越界,指针访问越界,访问空指针,访问无效指针,除零错误,内存未初始化,数据计算溢出,多线程访问资源,重复释放内存,堆栈写坏"
+		>
+   </div>
+</body>
+</html>
+<script>
+   Utils.Pages.loadJS("maintain.displayapplyhander");
+</script>

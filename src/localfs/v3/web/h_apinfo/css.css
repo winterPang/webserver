@@ -1,0 +1,66 @@
+.dashboard .bg-bor{
+	border: 1px solid #e7e7e9;
+    margin-bottom: 20px;
+}
+
+.dashboard .counter_h{
+	font-size: 30px;
+	color: #333e4e;
+	margin-left: 5%;
+    line-height: 44px;
+}
+
+.dashboard .syslog-info {
+	height: 66px;
+	line-height: 30px;
+	vertical-align: middle;
+	text-align: inherit;
+	cursor: default;
+}
+
+.dashboard .bor-r{
+	border-right: 1px solid #e7e7e9;
+}
+
+.dashboard .syslog-info .ap-icon_h{
+	width: 70px;
+	height: 62px;
+	display: inline-block;
+	line-height: 62px;
+	background-image: url(../h_dashboard/image/hangyeac.png);
+	vertical-align: middle;
+	margin-left: 24%;
+}
+
+.dashboard .syslog-info .ap-icon_h.icon-online{
+	background-position: -106px -60px;
+}
+.dashboard .syslog-info .ap-icon_h.icon-offline{
+	background-position: -336px -60px;
+}
+.dashboard .syslog-info .ap-icon_h.icon-unhealth{
+	background-position: -220px -60px;
+}
+.dashboard .syslog-info .category_h{
+	text-align: left;
+	margin-left: 20px;
+	height: 22px;
+	color: #80878c;
+	font-size: 12px;
+	margin-top:3px;
+}
+
+.dashboard .chart-height,
+.dashboard .default-height {
+	height: 316px;
+}
+.col-xs-10 .title_h{
+	height: 30px;
+	line-height: 30px;
+	background: transparent;
+	width:320px;
+	font-size: 17px;
+	color: #343e4e;
+	padding-left: 8px;
+	font-family: Arial,"Microsoft YaHei",Helvetica,sans-serif;
+}

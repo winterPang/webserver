@@ -1,0 +1,453 @@
+<style>
+    input.border-red {
+        border-color: red;
+        visibility: hidden;
+    }
+
+    /*修改饼图的图例字符显示长度*/
+    .leg-title {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 300px !important;
+        color: #fff;
+    }
+
+    .btn-small {
+        width: 99px;
+        height: 42px;
+        padding-top: -5px;
+    }
+
+    .probe-choice input {
+        width: 200px;
+        height: 33px;
+        padding-right: 40px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+
+    .probe-choice.input-height {
+        height: 34px;
+    }
+
+    .probe-choice input {
+        z-index: 9999;
+    }
+
+    .probe-choice input.probe-input {
+        z-index: 9999;
+    }
+
+    .probe-choice .probe-input.choice-condition {
+        color: #80878C;
+        margin-top: 0;
+        margin-bottom: 0;
+        width: 200px;
+        margin-left: 0;
+        height: 41px;
+    }
+
+    .probe-choice .choice-show {
+        width: 200px;
+        height: 0;
+        display: none;
+        overflow: hidden;
+        position: relative;
+        background-color: #fff;
+        -webkit-box-shadow: 0 0 1px 1px #ccc;
+        -moz-box-shadow: 0 0 1px 1px;
+        z-index: 9999;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        -webkit-transition: height 0.3s;
+        -moz-transition: height 0.3s;
+        -ms-transition: height 0.3s;
+        -o-transition: height 0.3s;
+        transition: height 0.3s;
+    }
+
+    .probe-choice .choice-show li {
+        background: #fff;
+        line-height: 35px;
+        font-size: 14px;
+        padding: 0 0 0 30px;
+        list-style-type: none;
+        -webkit-transition: background 0.3s;
+        -moz-transition: background 0.3s;
+        -ms-transition: background 0.3s;
+        -o-transition: background 0.3s;
+        transition: background 0.3s;
+    }
+
+    .probe-choice .choice-show li:not(:first-child) {
+        border-top: rgba(204, 204, 204, 0.36) dashed 1px;
+    }
+
+    .probe-choice .choice-show li:first-child {
+        border-top: rgba(204, 204, 204, 0.36) solid 1px;
+    }
+
+    .probe-choice .choice-show li:hover {
+        background: #ccc;
+        cursor: pointer;
+    }
+
+    .probe-choice .search-icon {
+        position: absolute;
+        top: 10px;
+        right: 0;
+        width: 35px;
+        height: 31px;
+        border-left: #E9E9E9 solid 1px;
+        margin: 1px 6px 1px 0;
+    }
+
+    /*.probe-choice .search-icon1 {*/
+    /*position: absolute;*/
+    /*top: 10px;*/
+    /*right: 0;*/
+    /*width: 35px;*/
+    /*height: 31px;*/
+    /*border-left: #E9E9E9 solid 1px;*/
+    /*margin: 1px 6px 1px 0;*/
+    /*}*/
+
+    .probe-choice .choice-show.height-change {
+        height: auto;
+        display: block;
+    }
+
+    .probe-choice input.probe-input {
+        width: 183px;
+        margin: 10px;
+    }
+
+    /*.cover-body {*/
+    /*height: 100%;*/
+    /*width: 100%;*/
+    /*position: absolute;*/
+    /*z-index: 9998;*/
+    /*top: 0;*/
+    /*left: 0;*/
+    /*right: 0;*/
+    /*bottom: 0;*/
+    /*}*/
+
+    /*向下箭头*/
+    .arrow-down {
+        background: url(images/dashboard-icon.png) no-repeat -376px -94px;
+    }
+
+    .search-icon {
+        background: url(images/dashboard-icon.png) no-repeat -209px -97px;
+        cursor: pointer;
+    }
+
+    .choice-head {
+        width: 200px;
+        height: 33px;
+        padding-right: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        border: #ccc solid 1px;
+    }
+
+    .choice-head:hover {
+        border-color: #4ec1b2;
+        cursor: pointer;
+    }
+
+    .choice-head span:first-child {
+        margin-left: 15px;
+        line-height: 33px;
+    }
+
+    .choice-head span:last-child {
+        height: 33px;
+        width: 30px;
+        float: right;
+    }
+
+    /*<!-- daterange 调整-->*/
+    .probe-choice .daterange {
+        color: #80878C;
+        width: 190px;
+        margin-left: 4px;
+        margin-bottom: 5px;
+        margin-top: 5px;
+        border-width: 1px;
+        border-right-color: #A7A2A2;
+        border-bottom-color: #A7A2A2;
+        padding-right: 0;
+        padding-left: 15px;
+    }
+
+    .daterange button {
+        width: 100px;
+        background-color: #69C4C5;
+        padding: 0;
+    }
+
+    .daterangepicker table thead tr th {
+        background: #69C4C5;
+        color: #fff;
+    }
+
+    .daterangepicker td.active, .daterangepicker td.active:hover {
+        color: #fff;
+        background-color: #69C4C5;
+    }
+
+    .daterangepicker .ranges .range_inputs .btn-success, .daterangepicker .ranges .range_inputs .btn-success:hover {
+        margin: 10px;
+        color: #fff;
+        background-color: #69C4C5;
+        border-color: #fff;
+        min-width: 40px;
+    }
+
+    /*周期选择*/
+    .time-zone {
+        display: inline-block;
+    }
+
+    .btn-small {
+        width: 100px;
+        padding: 0;
+    }
+
+    /*slist 调整*/
+    .slist-body .slist-center .slist-row, .slist-body .slist-head {
+        border-bottom: 0;
+    }
+
+    .slist-body .slist-head, .slist-body .slist-center .slist-row.even {
+        background-color: #EDF0F2;
+        transition: background 0.5s;
+        -moz-transition: background 0.5s; /* Firefox 4 */
+        -webkit-transition: background 0.5s; /* Safari and Chrome */
+        -o-transition: background 0.5s; /* Opera */
+    }
+
+    .slist-body .slist-center .slist-row.odd {
+        background-color: #ffffff;
+        transition: background 0.5s;
+        -moz-transition: background 0.5s; /* Firefox 4 */
+        -webkit-transition: background 0.5s; /* Safari and Chrome */
+        -o-transition: background 0.5s; /* Opera */
+    }
+
+    .simple-list .slist-body {
+        border-style: solid;
+        border-color: #dedddd;
+        border-width: 0 1px 0 1px;
+    }
+
+    .slist-body .slist-center .slist-row:hover {
+        color: white;
+        background: #4ec1b2;
+    }
+
+    .slist-body .slist-center .slist-row.active {
+        background: rgba(0 0 0 0);
+    }
+
+    /*slist 调整end*/
+    /*饼图的图例style*/
+    .leg-panel .leg-row .leg-title {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 120px;
+        color: #fff;
+    }
+
+    .leg-panel .leg-row .leg-percent {
+        float: right;
+        margin-right: 8px;
+        color: #E1E8EC;
+    }
+
+    /*mystyle*/
+    .daterangepicker.dropdown-menu {
+        z-index: 9999;
+    }
+
+    .appstatistics_panel {
+        line-height: 32px;
+    }
+
+    .appstatistics_panel .title {
+        font-size: 20px;
+    }
+
+    .appstatistics_panel .choice-show {
+        box-shadow: 0 0 1px 0;
+    }
+
+    .appstatistics_panel .probe-input.border-red:hover {
+        border-color: #f00 !important;
+    }
+
+    .appstatistics_panel .probe-input.border-red:focus {
+        border-color: #78cec3 !important;
+    }
+
+    .appstatistics_content {
+        margin: 10px 0;
+        padding-top: 10px;
+        /*padding-left:30px;*/
+        height: 350px;
+        background: #415172;
+    }
+
+    .appstatistics_content .content_panel {
+        padding-left:30px;
+    }
+
+    .appstatistics_content .content_panel .option-class {
+        color: #80878C;
+        width: 90px;
+        border-radius: 3px !important;
+        margin: 3px 20px 2px 0;
+        height: 33px;
+    }
+
+    .daterangepicker.dropdown-menu .ranges button.btn-default {
+        color: #fff;
+        background-color: #78CEC3;
+    }
+
+    .daterangepicker.dropdown-menu .ranges button.btn-default:hover {
+        background-color: #4EC1B2;
+    }
+
+</style>
+<div class="container-fluid">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div class="appstatistics_panel clearfix">
+                <div class="col-xs-2">
+                    <span class="title">应用访问统计</span>
+                </div>
+                <div class="col-xs-2" style="width: 200px; float: right;">
+                    <div class="col-xs-12 input-height probe-choice">
+                        <div class="choice-head" ng-click="toggle_choice_show($event)">
+                            <span class="current-state" data-choice-condition="all">全部</span>
+                            <span class="arrow-down"></span>
+                        </div>
+                        <div class="choice-show" ng-click="hide_choice_show($event)">
+                            <div ng-click="change_value($event)">
+                                <li style="margin-left: -20px;">全部</li>
+                            </div>
+                        </div>
+                        <div class="choice-show">
+                            <input type="text" class="probe-input choice-condition" placeholder="用户MAC" ng-model="vars.user_mac">
+                            <div class="search-icon" style="margin-top: -4px;" ng-click="user_mac($event)"></div>
+                        </div>
+                        <div class="choice-show">
+                            <input type="text" class="probe-input choice-condition" placeholder="访问应用" ng-model="vars.visit_app">
+                            <div class="search-icon" style="margin-top: -4px;" ng-click="app_visit($event)"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="appstatistics_content">
+                <div class="content_panel clearfix">
+                    <div class="col-xs-8">
+                        <div class="col-xs-2" style="width: 200px;">
+                            <div class="input-height probe-choice">
+                                <div class="choice-head" ng-click="toggle_choice_show($event)"
+                                     style="width: 201px; background: #fff;margin-top: 4px;">
+                                    <span class="current-state" style="margin-left: 12px;" data-date-choice="today">今天</span>
+                                    <span class="arrow-down"></span>
+                                </div>
+                                <div class="choice-show" style="width: 201px">
+                                    <div class="time-zone">
+                                        <input class="daterange" placeholder="选择日期">
+                                    </div>
+                                    <div ng-click="change_value($event)">
+                                        <li style="padding-left: 18px;">今天</li>
+                                        <li style="padding-left: 18px;">七天</li>
+                                        <li style="padding-left: 18px;">一月</li>
+                                        <li style="padding-left: 18px;">一年</li>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="pull-left" style="margin-left: 30px;">
+                            <div class="col-xs-4" ng-show="vars.data_choice_cond!='app'">
+                                <select class="option-class" ng-model="vars.app_type" ng-init="vars.app_type='all'">
+                                    <option value="all">全部</option>
+                                    <option value="Life">生活</option>
+                                    <option value="Office">办公</option>
+                                    <option value="Communication">通讯</option>
+                                    <option value="Video">视频</option>
+                                    <option value="Game">游戏</option>
+                                    <option value="Tool">工具</option>
+                                    <option value="News">新闻</option>
+                                    <option value="Finance">金融</option>
+                                    <option value="Navigation">导航</option>
+                                    <option value="Unknown">其他</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-4" ng-show="vars.data_choice_cond=='app'">
+                                <select class="option-class">
+                                    <option value="all">全部</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-4">
+                                <select class="option-class" ng-model="vars.stat_method" ng-init="vars.stat_method='Flow'">
+                                    <option value="manNum" ng-show="vars.data_choice_cond!='mac'">人次</option>
+                                    <option value="Time" ng-show="vars.draw_type=='pie'">时长</option>
+                                    <option value="Flow">流量</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-4">
+                                <select class="option-class" ng-model="vars.draw_type" ng-init="vars.draw_type='pie'">
+                                    <option value="pie">饼图</option>
+                                    <option value="line" ng-show="vars.stat_method!='Time'">折线图</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="content_contain" ng-show="vars.draw_type=='pie'">
+                    <div class="col-xs-4" id="mypie" style="height: 300px;"></div>
+                    <div class="col-xs-4">
+                        <ul style="list-style: none;padding-top:15px;">
+                            <li style="border-bottom: 1px solid #ddd;color:#fff;line-height:30px;font-size:15px;" ng-repeat="app in detailData">
+                                <i style="display: inline-block;width:12px;height:12px;margin-right:5px;background-color:{{app.color}};border-radius: 50%;"></i>
+                                <span ng-bind="app.name"></span>
+                                <span class="pull-right" ng-bind="app.per"></span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!--<div style="height: 300px;" ng-show="vars.draw_type=='pie'" dashboard-echarts="sta_time_active_option"></div>-->
+                <div style="height: 280px;" id="myLine" ng-show="vars.draw_type=='line'"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div bs-table="app_statistics_detail_table"></div>
+        </div>
+    </div>
+</div>
+<div class="read_rc" id="appstatistics_rc"
+     table-data="应用类型,应用名称,使用人次,MAC地址,在线时长,流量（MB）,起始时间,结束时间,用户MAC"
+     date-data="今天,七天,一月,一年"
+     date-init="应用,取消,开始,结束,日,一,二,三,四,五,六,一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月"
+     pie-data="应用名称"
+     line-data="流量">
+</div>

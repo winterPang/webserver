@@ -1,0 +1,81 @@
+<div class="form-horizontal toggle-block page">
+    <!-- <div class="toggle-tool-bar" ng-if="permission.write">
+        删除图标
+        <span class="del-icon" title="删除" ng-click="del(auth.authCfgTemplateName)"></span>
+        确定与取消图标
+        <div class="form-actions top" ng-show="toggle_form.$dirty">
+            <a href="javascript:void(0)" class="form-btn icon-ok" title="确定" ng-click="modify()"></a>
+            <a href="javascript:void(0)" class="form-btn icon-remove" title="取消" ng-click="reset()"></a>
+        </div>
+    </div> -->
+    <div class="toggle-body">
+    	<form novalidate role="form" name="cycleForm">   
+    		
+	     <h4>周期设置</h4>
+        <div class="form-group row">
+            <label class="col-sm-2 control-label required">获取定位结果周期</label>
+            <div>
+                <input type="number" id="cycle" name="cycle" class="string big form-control " required 
+                ng-model="cycleInfo.cycle" ng-pattern=/^[1-9]\d?$|^[1-5]\d\d$|^600$/ >
+                <label class="info-explain">1-600(秒)</label>
+
+                <label ng-if="cycleForm.cycle.$error.required && cycleForm.cycle.$touched"  style="color:red">该参数必须配置</label>
+                <label ng-if="cycleForm.cycle.$error.pattern && cycleForm.cycle.$dirty"  style="color:red">获取周期必须在1~600秒之间</label>               
+            </div>
+        </div>
+
+			<h4>状态设置</h4>
+			<div style="width:95%;margin:0 auto">
+				<button class="btn btn-cus" ng-click="open()" ng-disabled="btndisabled">开启</button>
+		    <button class="btn btn-cus" ng-click="close()" ng-disabled="btndisabled">关闭</button>
+		    <div bs-Table="deviceTable"></div>  
+			</div>
+
+      
+        <!-- <div align = "center" style="margin-top:30px">
+              <button class="btn btn-cus" ng-disabled="cycleForm.$invalid" 
+              ng-click="ssidUpdate()">确定</button>
+        </div> -->
+	            
+  		    
+    	</form>   
+		
+
+<!-- <ul id="devsnState">
+    <li name="devsn" class="listyle" ng-repeat="x in devsnDatas" >
+        <label class="col-sm-5" style="width:350px">{{x.devsn}}</label>
+        <div class="xb-input">
+            <div class="input-icon checkbox-icon switch {{x.state}}"></div>
+        </div> 
+    </li>      
+</ul>  -->
+
+<!-- <table style="width:70%;margin:0 auto">
+	<thead>
+		<td>
+			<div class="xb-input xb-checkbox">
+                <input type="checkbox" class="input-element" id="lvzhou3" name="lvzhou3"  ng-model="info.lvzhou3"/>
+                <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.lvzhou3 == true}"></span>
+                <label for="lvzhou3" class="input-label"></label>
+            </div>
+		</td>
+		<td>设备序列号</td>
+		<td>定位状态</td>
+	</thead>
+	<tbody>
+		<td>
+			<div class="xb-input xb-checkbox">
+                <input type="checkbox" class="input-element" id="lvzhou3" name="lvzhou3"  ng-model="info.lvzhou3"/>
+                <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.lvzhou3 == true}"></span>
+                <label for="lvzhou3" class="input-label"></label>
+            </div>
+		</td>
+		<td>sdadada</td>
+		<td>开启</td>
+	</tbody>
+</table> -->
+
+
+
+    </div>
+</div>

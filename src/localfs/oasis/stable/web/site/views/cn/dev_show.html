@@ -1,0 +1,133 @@
+<div class="system_site2">
+    <div>
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3 class="panel-title">
+                <a href="#/global/content/system/site" style="color:#2fa4e7;">场所管理</a> > 设备列表</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group zeromargin">
+                    <input id="file" type="file" name="file" style="display: none">
+                    <div class="btn btn-cus" ng-click="adddev()" ng-if="showHide.devWrite">增加</div>
+                    <div class="btn btn-cus" ng-click="batchAddSite()" ng-if="showHide.devWrite">批量增加</div>
+                    <div class="btn btn-cus" ng-click="refresh()">刷新</div>
+                </div>
+
+                <ul class="nav nav-tabs" role="tablist" ng-show="isFatAp==0">
+                    <li ng-click="showIrf=false" ng-class="{active:!showIrf}"><a>独立设备</a></li>
+                    <li ng-click="showIrf=true" ng-class="{active:showIrf}"><a>IRF设备</a></li>
+                </ul>
+                <div style="margin: 10px 0" ng-hide="showIrf">
+                    <table bs-table="options"></table>
+                </div>
+                <div style="margin: 10px 0" ng-show="showIrf">
+                    <table bs-table="irfOptions"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div bs-modal="completeInfo">您的基本信息还未完善，是否跳转信息修改页面进行完善？</div>
+    <form bs-modal="modify_dev_alias_model" name="modAlias" class="form-horizontal">
+        <div class="form-group">
+            <label class="col-xs-3 control-label">设备别名 <span class="label-require">*</span></label>
+            <div class="col-xs-4">
+                <input name="aliasName" placeholder="请输入30位以下的字符" class="form-control" type="text"
+                       ng-model="dev.devAlias" required ng-maxlength="30">
+            </div>
+            <div class="col-xs-4 ng-error" ng-show="modAlias.aliasName.$dirty" ng-messages="modAlias.aliasName.$error">
+                <div ng-message="required">请输入设备别名！</div>
+                <div ng-message="maxlength">不能超过30位！</div>
+            </div>
+        </div>
+    </form>
+    <form bs-modal="add_dev_model" class="form-horizontal" name="devAddForm">
+        <div class="form-group">
+            <label class="col-xs-3 control-label">设备别名 <span class="label-require">*</span></label>
+            <div class="col-xs-4">
+                <input class="form-control" placeholder="请输入30位以下的字符" name="devAlias" type="text"
+                       ng-model="addDev.devAlias"
+                       required ng-maxlength="30">
+            </div>
+            <div class="col-xs-4 ng-error" ng-show="devAddForm.devAlias.$dirty"
+                 ng-messages="devAddForm.devAlias.$error">
+                <div ng-message="required">请输入设备别名！</div>
+                <div ng-message="maxlength">不能超过30位！</div>
+            </div>
+        </div>
+        <div class="form-group" ng-show="isFatAp==0">
+            <label class="col-xs-3 control-label">设备类型 <span class="label-require">*</span></label>
+            <div class="col-xs-2">
+                <select class="form-control" name="dev_model" ng-model="addDev.devType"
+                        ng-options="type.value as type.name for type in devtype" required>
+                </select>
+            </div>
+            <div class="col-xs-2 text-right irf-field">
+                <span><input type="checkbox" ng-model="addDev.isIRF"></span>
+                <span>IRF设备</span>
+            </div>
+            <div class="col-xs-4 ng-error" ng-show="devAddForm.dev_model.$dirty"
+                 ng-messages="devAddForm.dev_model.$error">
+                <div ng-message="required">请选择设备类型！</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label">设备序列号 <span class="label-require">*</span></label>
+            <div class="col-xs-4">
+                <input class="form-control" name="devSn" type="text" ng-model="addDev.devSn" placeholder="由9-64位字母数字组成"
+                       required ng-pattern="/^[0-9a-zA-Z]{9,64}$/" ajax-valid="validDevSn">
+            </div>
+            <div class="col-xs-4 ng-error" ng-show="devAddForm.devSn.$dirty" ng-messages="devAddForm.devSn.$error">
+                <div ng-message="required">请输入设备序列号！</div>
+                <div ng-message="pattern">包含数字或字母,长9-64位</div>
+                <div ng-message="ajaxValid-1">设备序列号已存在！</div>
+            </div>
+        </div>
+
+        <div class="form-group" ng-show="addDev.isIRF">
+            <label class="col-xs-3 control-label">分组名称 <span class="label-require">*</span></label>
+            <div class="col-xs-4">
+                <select ng-model="addDev.groupId" class="form-control">
+                    <option value="-1">新建分组</option>
+                    <option ng-repeat="g in addDev.groupTypeList" value="{{g.id}}">{{g.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group" ng-show="addDev.isIRF && addDev.groupId==-1">
+            <label class="col-xs-3 control-label">新分组名称 <span class="label-require">*</span></label>
+            <div class="col-xs-4">
+                <input class="form-control" name="groupName" type="text" ng-model="addDev.groupName"
+                       placeholder="请输入分组名称">
+            </div>
+        </div>
+    </form>
+</div>
+<div bs-modal="detailModal">
+    <div>软件版本：{{detail.softVer}}</div>
+    <div>硬件版本：{{detail.hardVer}}</div>
+    <div>设备类型：{{detail.devTypeStr || '无'}}</div>
+    <div>添加时间：{{detail.addTime || '无'}}</div>
+</div>
+<div class="read_rc" id="dev_show_rc"
+     w-device="物理设备"
+     x-device="虚拟设备"
+     error="请求出错啦~"
+     online="在线"
+     offline="离线"
+     table-title="分组名称,设备别名,设备SN,管理,设备型号,设备状态"
+     modify-alias="修改设备别名"
+     modify="修改"
+     delete="删除"
+     sure-delete="确定删除吗？"
+     delete-device="删除设备"
+     success="成功"
+     reset-alias="更改设备别名"
+     alias-success="更改设备别名成功"
+     add-device="增加设备"
+     add-success="增加设备成功"
+     dev-exist="设备序列号已经存在，请重新输入"
+     dev-detail="设备详情"
+     close-text="关闭"
+     man-text="管理"
+     maintenance-text="运维"
+     tip="提示"
+>
+</div>

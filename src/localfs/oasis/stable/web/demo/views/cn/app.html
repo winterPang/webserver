@@ -1,0 +1,29 @@
+<div class="demo_app">
+    <div class="text-center row">
+        <button class="btn">应用定制</button>
+        <button class="btn">我的应用</button>
+        <button class="btn">认证广告业务</button>
+        <button class="btn">无线业务</button>
+    </div>
+    <div class="tabs-left">
+        <ul class="nav nav-tabs" role="tablist">
+            <li ng-class="{active: vm.activeTab == 1}"><a href="javascript:;" ng-click="vm.activeTab = 1">用<br/>户<br/>管<br/>理</a></li>
+            <li ng-class="{active: vm.activeTab == 2}"><a href="javascript:;" ng-click="vm.activeTab = 2">客<br/>流<br/>统<br/>计</a></li>
+            <li ng-class="{active: vm.activeTab == 3}"><a href="javascript:;" ng-click="vm.activeTab = 3">广<br/>告<br/>统<br/>计</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content" style="position: relative">
+            <ul id="treeDemo" class="ztree" style="position: absolute;top:15px;left: 15px;width: 180px;overflow: auto"></ul>
+            <div class="tab-panel" ng-show="vm.activeTab == 1" style="padding-left: 195px">
+                用户管理
+            </div>
+            <div class="tab-panel" ng-show="vm.activeTab == 2" style="padding-left: 195px">
+                客流统计
+            </div>
+            <div class="tab-panel" ng-show="vm.activeTab == 3" style="padding-left: 195px">
+                广告统计
+            </div>
+        </div>
+    </div>
+</div>

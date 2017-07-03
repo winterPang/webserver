@@ -1,0 +1,93 @@
+/**
+ * Created by liuyanping on 2016/11/11
+ */
+/**
+ * Created by liuyanping on 2016/11/11
+ */
+/*滚动条美化css 适合WebKit引擎的浏览器如chrome、oprea、Safari等*/
+::-webkit-scrollbar {
+  width: 16px;
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  border: 5px solid transparent;
+}
+::-webkit-scrollbar-track {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2) inset;
+}
+::-webkit-scrollbar-thumb {
+  min-height: 20px;
+  background-clip: content-box;
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.2) inset;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+/*nav*/
+body {
+  background-color: #f9f9f9;
+}
+.lyp {
+  padding-bottom: 30px;
+}
+.lyp > .p-banner {
+  height: 450px;
+  margin-top: 45px;
+}
+.lyp > .p-banner .p-banner-right {
+  margin: 40px;
+  height: 100%;
+}
+.lyp > .p-banner .p-banner-right > div {
+  text-align: center;
+  height: 150px;
+  width: 300px;
+  background-color: #7ec4ff;
+  color: #000000;
+  border-radius: 3px;
+  padding: 15px 30px;
+  font-size: 17px;
+}
+.lyp > .p-banner .p-banner-right > div:last-child {
+  margin-top: 25px;
+}
+.lyp > .p-banner .p-banner-right > div .p-big {
+  font-size: 80px;
+}
+.lyp > .p-footer {
+  height: 200px;
+  width: 100%;
+}
+.lyp > .p-footer .col-md-2 {
+  width: 20%;
+}
+.lyp > .p-footer .p-enter {
+  width: 250px;
+  height: 150px;
+  background-color: #7ec4ff;
+  margin: 25px auto;
+  border-radius: 3px;
+  padding: 15px;
+  color: #000000;
+}
+.lyp > .p-footer .p-enter .p-big {
+  font-size: 60px;
+  text-align: center;
+}
+.lyp > .p-footer-enter .p-enter-box {
+  width: 65%;
+  background-color: #7ec4ff;
+  height: 150px;
+  line-height: 150px;
+  color: #000000;
+  text-align: center;
+  font-size: 48px;
+  border-radius: 3px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+.lyp > .p-new-project {
+  margin-top: 45px;
+  font-size: 24px;
+}

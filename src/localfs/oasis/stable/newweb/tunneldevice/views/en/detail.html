@@ -1,0 +1,90 @@
+<div>
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height default-bottom">
+            <div class="box-footer">
+                <span class="title">Equipment operation</span>
+            </div>
+            <div class="box-body no-height">
+                <div class="bodyContent" style="margin-top:20px;">
+                    <div class="form-group col-xs-12" id="Save">
+                        <div class="col-xs-7">
+                            <div class="col-xs-2 label_image save_config">
+                                <!--<div id="bgImgSave"></div>-->
+                            </div>
+                            <div class="col-xs-5">
+                                <div>
+                                    <h5>Save configuration and restart</h5>
+                                    <p>Save configuration and restart the device</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-5 rightContent">
+                            <div class="col-xs-1 middleLine">
+                                <span></span>
+                            </div>
+                            <div class="col-xs-4" id="btnSave">
+                                <button id="b_btnSave" class="btn" value="btnSave" ng-click="saveCfgRestart()" ng-if="permission.write">
+                                    Save configuration and restart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-xs-12" id="Reboot">
+                        <div class="col-xs-7">
+                            <div class="col-xs-2 label_image restart_device">
+                                <!--<div id="bgImgReboot"></div>-->
+                            </div>
+                            <div class="col-xs-5">
+                                <div>
+                                    <h5>shutdown -r</h5>
+                                    <p>Direct restart device</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-5 rightContent">
+                            <div class="col-xs-1 middleLine">
+                                <span></span>
+                            </div>
+                            <div class="col-xs-4" id="btnReboot">
+                                <button class="btn" value="btnReboot" ng-click="restart()" ng-if="permission.write">
+                                    shutdown -r
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-xs-12" id="Disconnect">
+                        <div class="col-xs-7">
+                            <div class="col-xs-2 label_image link_reline">
+                                <!--<div id="bgImgDisconnect"></div>-->
+                            </div>
+                            <div class="col-xs-5 ">
+                                <div id="description_cy">
+                                    <h5>Main link reconnection</h5>
+                                    <p>Force disconnect and reconnect the main link</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-5 rightContent">
+                            <div class="col-xs-1 middleLine">
+                                <span></span>
+                            </div>
+                            <div class="col-xs-4" id="btnDisconnect">
+                                <button class="btn" value="btnDisconnect" ng-click="mainLinkReconnection()" ng-if="permission.write">
+                                    Reconnect the main link
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="read_rc" id="tunneldevice_rc"
+     msgDialog-data="The main link was not found,Success,Disconnecting the master link failed,Disconnecting the master link succeeded,
+     Save configuration failed,Failed to restart,Permission denied,other errors"
+>
+</div>

@@ -1,0 +1,98 @@
+<style>
+    .form-horizontal .control-label {
+        text-align: left !important;
+        padding-top: 2px;
+    }
+    .form-group {
+        margin-bottom:0px;
+    }
+    .form-horizontal [class^="col-md-"], 
+    .form-horizontal [class*="col-md-"],
+    .form-horizontal [class^="col-xs-"],
+    .form-horizontal [class*="col-xs-"],
+    .form-horizontal [class^="col-sm-"], 
+    .form-horizontal [class*="col-sm-"] {
+        line-height: 30px;
+    }
+</style>
+<div class="col-xs-12 app-colum">
+        <div id='listView' class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">Wireless Services</span>
+            </div>
+            <div class="panel-body">
+                <div class="btn btn-cus" ng-click="refresh()">Refresh</div>
+                <div class="box-body no-height">
+                    <div bs-table="option"></div>
+                </div>
+            </div>
+        </div>
+</div>
+<form class="form-horizontal form" bs-modal="ssid.options" id="view_client_form">
+    <div class="col-sm-12">
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">Wireless service name</label>
+                <span class="label form-if-setHtml" id="stName">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">SSID</label>
+                <span class="label form-if-setHtml" id="ssidName">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">Status</label>
+                <span class="label form-if-setHtml" id="status">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">Security IE</label>
+                <span class="label form-if-setHtml" id="securityIE">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">Cipher suite</label>
+                <span class="label form-if-setHtml"  id="cipherSuite">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">Authenticator</label>
+                <span class="label form-if-setHtml" id="authLocation">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">Clients</label>
+                <span class="label form-if-setHtml" id="clinetCount">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">AKM mode</label>
+                <span class="label form-if-setHtml" id="akmMode">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">Hide SSID</label>
+                <span class="label form-if-setHtml" id="hideSSID">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">Max. online clients</label>
+                <span class="label form-if-setHtml" id="maxClients">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">Max. Rx rate(Kbps)</label>
+                <span class="label form-if-setHtml" id="maxReceiveRatio">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">Max. Tx rate(Kbps)</label>
+                <span class="label form-if-setHtml" id="maxSendRatio">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">VLAN ID</label>
+                <span class="label form-if-setHtml" id="vlanId">--</span>
+        </div>
+    </div>
+</form>
+<div id="user_rc" class="rc-define"
+    HEADER = "Service Name, SSID, Status, Security IE, Cipher Suite, Authenticator, Clients"
+    AUTHLOCATION=",Central-AC,AC,,AP,,,,Other"
+    CIPHERSUITE="Not configured,WEP40,TKIP,CCMP,TKIP/CCMP,WEP104,WEP128"
+    SECURITYIE="Not configured,WPA,RSN,OSEN"
+    STATUS = ",Enabled, Disabled"
+    HIDE_SSID = "Disabled,Enabled"
+    FWDLOCATION=",MAC,NAC,,AP,,,,Other"
+    AKMMODE="Not configured,DOT1X,PSK,FT-OVER-DOT1X,FT—USING-PSK,DOT1X-256,PSK-256, PRIVATE-PSK,DOT1X-WFA"
+    DETAIL="Details"
+        >
+</div>

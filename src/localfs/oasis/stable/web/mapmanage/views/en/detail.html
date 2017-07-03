@@ -1,0 +1,18 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 l-map">
+            <div>
+                <img ng-src="{{detail.path}}">
+            </div>
+        </div>
+        <div class="col-md-6 r-word">
+            <div>
+                <div ng-if="map.type != 'vectorgram'">
+                    <label>Longitude:{{detail.longitude}}</label>
+                    <br/>
+                    <label>Latitude:{{detail.latitude}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

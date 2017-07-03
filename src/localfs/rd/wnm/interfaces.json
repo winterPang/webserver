@@ -1,0 +1,8 @@
+{"SpiName":[
+  {
+    "InterfaceName": "M-GigabitEthernet0/0/0",
+    "PktBytes": 5.16,
+    "PktCnts": 120,
+    "Proportion": "100.00%"
+  }
+]}

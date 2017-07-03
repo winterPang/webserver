@@ -1,0 +1,417 @@
+<html>
+<head>
+
+</head>
+<body>
+
+<div class="col-xs-12">
+	
+</div>
+
+<div class="dashboard">
+	<div class="page-row">
+		<div class="col-xs-12 app-colum left-block">
+			<div class="app-box no-bk-color">
+				<div class="box-footer">
+					<div class="col-xs-10">
+						<span class="title">日志信息</span>
+					</div>
+					<div class="text-right link-container">
+						<a type="button" class="link-detail" id="logDetailBtn" href="waring.index" title="详情">
+							<i class="detail-icon icon"></i>
+						</a>
+					</div> 
+				</div>
+				<div class="col-xs-12 middle-cell">
+					<div id="emergency" value="0" class="col-xs-6 col-xs-3">
+						<div class="syslog-info bg-transparent" style="margin-left:10px;">	
+							<div class="icon-container">
+								<i class="syslog-icon emergency-icon"></i>					
+							</div>							
+							<div class="text-right syslog-value">
+								<div class="log-count number color_emergency" value="0">0</div>
+								<div class="log-title">紧急</div>
+							</div>
+							<div class="form-label hide">紧急 / 注意</div>	
+						</div>
+					</div>
+					<div id="critical" value="1" class="col-xs-6 col-xs-3">
+						<div class="syslog-info bg-transparent " style="margin-left:10px;">
+							<div class="icon-container">
+								<i class="syslog-icon critical-icon"></i>					
+							</div>								
+							<div class="text-right syslog-value">
+								<div class="log-count number color_critical" value="1">0</div>
+								<div class="log-title">危险</div>
+							</div>
+							<div class="form-label hide">危险 / 错误</div>
+						</div>									
+					</div>
+					<div id="alert" value="2" class="col-xs-6 col-xs-3">
+						<div class="syslog-info bg-transparent" style="margin-left:10px;">
+							<div class="icon-container">
+								<i class="syslog-icon warning-icon"></i>					
+							</div>								
+							<div class="text-right syslog-value">
+								<div class="log-count number color_warning"value="2">0</div>
+								<div class="log-title">警告</div>
+							</div>
+							<div class="form-label hide">警告 / 通知</div>
+						</div> 
+					</div>
+					<div id="error" value="3" class="col-xs-6 col-xs-3">
+						<div class="syslog-info last-child bg-transparent" style="margin-left:10px;">
+							<div class="icon-container">
+								<i class="syslog-icon info-icon"></i>					
+							</div>							
+							<div class="text-right syslog-value">
+								<div class="log-count number color_info" value="3">0</div>
+								<div class="log-title">报告</div>
+							</div>
+							<div class="form-label hide">报告 / 调试</div>
+						</div>
+					</div>			
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="page-row xxb">
+	    <div class="col-xs-6 app-colum left-block" debug="getClientCount initApTraffic">
+	        <div class="app-box no-bk-color">
+	            <div class="box-body midl-height">
+                <div class="index_inner_div index_inner_div_left_top">
+                    <div class="col-xs-6 index_div_wrapper_multiple"style="padding:0px;">
+                        <div id="returningCustomer" class="index_div_lu" style="color: #343e4e;margin-top:18px;">0</div>
+                        <p class="index_div_lu_desc">当前回头客</p>
+                    </div>
+                    <div class="col-xs-6 returning-customer">
+                        <div class="returning-icon returning-position"></div>
+                    </div>
+                </div>
+                <div class="index_inner_div index_inner_div_right_top">
+                    <div class="col-xs-6 index_div_wrapper_multiple"style="padding:0px;">
+                        <div id="newCustomer" class="index_div_lu" style="color: #343e4e;margin-top:18px;">0</div>
+                        <p class="index_div_lu_desc">当前新宾客</p>
+                    </div>
+                    <div class="col-xs-6 returning-customer">
+                        <div class="returning-icon new-customer"></div>
+                    </div>
+                </div>
+                <div class="index_inner_div index_inner_div_left_bottom">
+                    <div class="col-xs-6 ad_view">
+                        <div class="click-img view"></div>
+                    </div> 
+                    <div class="col-xs-6 ad_view ml7">
+                     	<div id="adViewCount" class="click-num">0</div>
+                        <p class="margin-tl">广告浏览量</p>
+                    </div>   
+                </div>
+                <div class="index_inner_div index_inner_div_right_bottom">
+                    <div class="col-xs-6 ad_view">
+                        <div class="click-img num"></div>
+                    </div> 
+                    <div class="col-xs-6 ad_view ml7">
+                        <div id="adClickCount" class="click-num">0</div>
+                        <p class="margin-tl">广告点击数</p>
+                    </div>
+                </div>
+            	</div>
+	        </div>
+	    </div>
+
+		<div class="col-xs-6 app-colum left-block">
+		    <div class="app-box  no-bk-color">
+		        <div class="box-footer">
+		            <span class="title">设备信息</span>
+		        </div>
+
+		        
+		        <div class="col-xs-12 box-body"  id="DevInfo_block" style="height:250px;padding-top:0;">
+		            <div class="form-group">
+		                <label class="col-sm-4 control-label">设备型号</label>
+		                <div class="col-sm-8">
+		                    <span class="label" id="DeviceType"></span>
+		                </div>
+		            </div>
+		            <div class="form-group">
+		                <label class="col-sm-4 control-label">序列号</label>
+		                <div class="col-sm-8">
+		                    <span class="label" id="SerialNumber"></span>
+		                </div>
+		            </div>
+					<div class="form-group">
+		                <label class="col-sm-4 control-label">基线版本</label>
+		                <div class="col-sm-8">
+		                    <span class="label" id="HardwareRev"></span>
+		                    <a class="xb-link" id="fileName" name="fileName"></a>
+		                </div>
+		            </div>		            
+		            <div class="form-group">
+		                <label class="col-sm-4 control-label">软件版本</label>
+		                <div class="col-sm-8">
+		                    <span class="label" id="SoftwareRev"></span>
+		                </div>
+		            </div>
+		            <div class="form-group">
+		                <label class="col-sm-4 control-label">IP地址</label>
+		                <div class="col-sm-8">
+		                    <span class="label" id="IPAddress"></span>
+		                    <a data-toggle="tooltip" 
+		                    		data-palcement="top" 
+		                    		title="" 
+		                    		href="javascript:void(0);"
+		                    		style="color:#4ec1b2;">&nbsp;IP归属地
+		                    </a>
+		                </div>	
+		            </div>
+		            <div class="form-group">
+		                <label class="col-sm-4 control-label">在线时长</label>
+		                <div class="col-sm-8">
+		                    <span class="label" id="onlineTime"></span>
+		                </div>
+		            </div>
+					<div class="form-group">
+		                <label class="col-sm-4 control-label">启动时长</label>
+		                <div class="col-sm-8">
+		                    <span class="label" id="startupTime"></span>
+		                    <a class="xb-link" id="fileName" name="fileName"></a>
+		                </div>
+		            </div>		            
+		        </div>
+		    </div>
+		</div>
+	</div>
+
+	<div class="page-row">
+		<div class="col-xs-6 app-colum left-block">
+			<div class="app-box no-bk-color">
+	            <div class="box-footer">
+	                <div class="col-xs-4">
+	                    <span class="title">在线宾客变化</span>
+	                </div>
+	                <div class="time-change" id="OLCustomerTimeSwitch">
+	                    <a id="curDay" class="time-link">一天</a>
+	                    <a id="oneWeek" class="time-link">一周</a>
+	                    <a id="oneMonth" class="time-link">一月</a>
+	                </div>
+	            </div>
+	            <div class="box-body echart-height form-group body-nopadding">
+	                <div id="onlineCustomerChangeLine" class="col-xs-12 myEchart"></div>
+	            </div>
+	        </div>
+		</div>
+
+		<div class="col-xs-6 app-colum left-block">
+			<div class="app-box no-bk-color" style="height:300px;">
+				<div class="box-footer">
+					<span class="title">分支列表</span>
+				</div>
+				<div class="sysinfo-body app-box-slist" >
+					<div id="branchList" class="simple-list"></div>
+				</div>
+			</div>	
+		</div>		
+	</div>
+
+	<div class="page-row">
+		<div class="col-xs-12 app-colum left-block">
+			<div class="app-box no-bk-color">
+				<div class="col-sm-4 col-xs-4">
+					<div class="box-footer align-center">
+						<span class="c-title">认证终端</span>
+					</div>
+					<div class="box-body echart-height form-group">
+						<div id="authTerminalPie" class="col-xs-12 myEchart"></div>
+					</div>
+				</div>
+				<div class="col-sm-4 col-xs-4">
+					<div class="box-footer align-center">
+						<span class="c-title">终端类型</span>
+					</div>
+					<div class="box-body echart-height form-group" style="padding-top:0px;">
+						<div id="terminalTypePie" class="col-xs-12 myEchart"></div>
+					</div>
+				</div>
+				<div class="col-sm-4 col-xs-4">
+					<div class="box-footer align-center">
+						<span class="c-title">终端厂商</span>
+					</div>
+					<div class="box-body echart-height form-group" style="padding-top:0px;">
+						<div id="terminalFirmPie" class="col-xs-12 myEchart"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="page-row">
+		<div class="col-xs-12 app-colum left-block">
+			<div class="app-box no-height no-bk-color">
+					<div class="box-footer ">
+						<span class="title">无线服务</span>
+					</div>
+					<div class="sysinfo-body app-box-slist">
+						<div id="WlServiceList" class="simple-list"></div>
+					</div>
+			</div>
+		</div>
+	</div>
+	<div class="page-row">
+		<div class="col-xs-12 app-colum left-block">
+			<div class="app-box no-bk-color">
+				<div class="index-group hide" id="charts">
+					<div class="col-sm-12">
+						<div class="box-footer ">
+							<span class="title">流量监控</span>
+							<div class="text-right link-container">
+				                <a type="button" class="refresh" id="refresh_usage"><i class="refresh-icon icon"></i></a>
+				                <a type="button" class="filter" id="filter_usage"><i class="filter-icon icon"></i></a>
+				                <div class"hide" id="usage_block">
+					            	<div class="filter-container">
+					            		<label>上行口：</label>
+					            		<select id="SetfigUpport" name="SetfigUpport" class="big singleSelect"></select>
+					            	</div>
+					            </div>
+		            		</div>
+						</div>
+						<div class="sysinfo-body" >
+							<div id="usage" name="usage" class="myEchart dashboard-usage" debug="getUsage"></div>
+			    		</div>
+			    	</div>
+			    </div>
+					<div class="index-group" id="config">
+					    <div class="box-footer" style="background:initial;">
+							<div class="col-xs-12">
+							    <span class="title">流量监控</span>
+							</div>
+					    </div>
+					    <div  class="dashboard-usage-box" >
+							<div class="col-sm-7">
+			                    <label class="col-sm-3 control-label ">请选择上行口</label>
+			                    <div class="col-sm-9">
+			                        <select id="ConfigUpport" name="ConfigUpport" class="big singleSelect"></select>
+								        <a class="dashboard-button-row btn" id="submit">
+								        <i class="icon-ok"></i>确定</a>
+			                    </div>
+			                </div>
+			                  
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div id="ByBrachAP_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">AP列表详情</h3>
+    </div>
+    <div class="modal-body">
+        <div id="ByBrachAPPopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">关闭</a>
+    </div>
+</div>
+<div id="ByPortal_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">终端列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="ByPortalPopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">关闭</a>
+    </div>
+</div>
+<div id="ByType_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">终端列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="ByTypePopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">关闭</a>
+    </div>
+</div>
+<div id="ByFirm_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">终端列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="ByFirmPopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">关闭</a>
+    </div>
+</div>
+<div id="ByWLClient_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">客户端列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="ByWLClientPopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">关闭</a>
+    </div>
+</div>
+<div id="ByWLAP_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">AP列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="ByWLAPPopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">关闭</a>
+    </div>
+</div>
+<div id="ByWLAPGroup_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">AP组列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="ByWLAPGroupPopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">关闭</a>
+    </div>
+</div>
+<div id="network_summary_rc" class="rc-define"
+
+OLCUSTOMER_LEGEND="终端数"
+OLCUSTOMER_PERSON="人"
+BRANCHLIST_HEADER="分支名称,分支类型,AP数"
+PIE_NAME="认证终端,终端类型,终端厂商"
+AUTHPIE_TEXT="认证,未认证"
+STATUS = ",开启,关闭"
+ON_OFF = "开启,关闭"
+DATETIME_UNIT = "年,月,天,时,分,秒"
+IP_LOCATION = "IP归属地"
+BRANCH_TYPE = "本地无AC,本地有AC,本地有AC且有独立无线服务"
+PORTALSTA = "认证终端,非认证终端"
+SLIST_ONE_LABELS="无线服务名称,SSID,服务状态,服务类型,认证方式,客户端数,绑定AP数,绑定AP组数"
+PORTAL_TERMINAL = "MAC地址,IP地址,终端厂商,AP,SSID"
+BRANCH_APLIST_HEADER = "AP名称,序列号,MAC,在线客户端"
+WL_APLIST_HEADER = "AP名称,所属AP组,所属分支"
+WL_APGROUPLIST_HEADER = "AP组名称,描述,所属分支"
+WL_SSID_TYPE = "内部Wi-Fi,商业Wi-Fi"
+WL_AUTH_TYPE = "不认证,一键认证,账号认证"
+
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("hq_dashboard.summary");
+</script>

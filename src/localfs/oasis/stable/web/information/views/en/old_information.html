@@ -1,0 +1,65 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Edit Basic Information</h3>
+        </div>
+        <div class="panel-body">
+            <form id="informationChange" class="form-horizontal" name="changeForm" novalidate onsubmit=" return false">
+                <fieldset disabled>
+                    <div class="form-group">
+                        <label for="userName" class="col-sm-2 control-label">Username</label>
+                        <div class="col-sm-3" style="width:30%;">
+                            <input type="text" class="col-sm-3 form-control " name="userName" id="userName" placeholder={{userName}}>
+                        </div>
+                    </div>
+                </fieldset>
+
+                <div class="form-group">
+                    <label for="telNumber" class="col-sm-2 control-label">Phone number <span style="color: red;">*</span></label>
+                    <div class="col-sm-3" style="width:30%;">
+                        <input type="tel" class="col-sm-3 form-control required" ng-model="telNumber" name="telNumber" id="telNumber" placeholder="Please enter a correct phone number for retrieving your password." required ng-pattern="/^(\+86|0086)?\s*1[34578]\d{9}$/" ajax-valid="validPhone">
+                    </div>
+                    <div class="col-sm-4 ng-error" ng-show="changeForm.telNumber.$dirty" ng-messages="changeForm.telNumber.$error">
+                        <span ng-message="required">This information is required.</span>
+                        <span ng-message="pattern">Please enter a correct phone number</span>
+                        <span ng-message="ajaxValid">The mobile phone number is already registered.</span>                       
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="emailAddr" class="col-sm-2 control-label">Email<span style="color: red;">*</span></label>
+                    <div class="col-sm-3" style="width:30%;">
+                        <input type="email" class="col-sm-3 form-control required" ng-model="emailAddr" name="emailAddr" id="emailAddr"  placeholder="Please enter a email." required ng-pattern="/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/" ajax-valid="validEmail">
+                    </div>
+                    <div class="col-sm-4 ng-error" ng-show="changeForm.emailAddr.$dirty" ng-messages="changeForm.emailAddr.$error">
+                        <span ng-message="required">This information is required.</span>
+                        <span ng-message="ajaxValid">The mailbox is already registered.</span>
+                        <span ng-message="pattern">Please enter a correct email.</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="address" class="col-sm-2 control-label">Contact address</label>
+                    <div class="col-sm-3" style="width:30%;">
+                        <input type="text" class="col-sm-3 form-control" ng-model="addr" name="addr" id="addr" maxlength="50" placeholder="The address cannot contain over 50 characters">
+                    </div>
+                    <div class="col-sm-4 ng-error" ng-show="changeForm.addr.$dirty" ng-messages="changeForm.addr.$error">
+                        <span ng-message="maxlength">The address cannot contain over 50 characters.</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="col-sm-3">&nbsp;</div>
+                    <div class="col-sm-3">
+                        <button type="submit" ng-click="formSubmit()" class="btn btn-cus" ng-disabled="changeForm.$invalid||changeForm.roleList.$pristine">OK</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<div  id="user_change_rc"
+      successMessage="User information modified successfully."
+      errorMessage="，Failed to modify user information.">
+</div>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+	<title></title>
+	<link id="favicon_link" rel="icon" href="static/image/h3clogo.png">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	<link href="static/bootstrap.css" rel="stylesheet" type="text/css"/>
+	<link href="static/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
+	<link href="static/login.css" rel="stylesheet" type="text/css"/>
+	<!--<style>
+		.arrow {
+			position: absolute;
+			margin: 10px 0 0 50px;
+			width: 0;
+			height: 0;
+			border-left: 10px solid transparent;
+			border-right: 10px solid transparent;
+			border-top: 10px solid #fff;
+		}
+		.tooltips {
+			width: 200px;
+			padding: 10px;
+			border-radius: 3px;
+			position: absolute;
+			box-shadow: 1px 1px 10px 0 #ccc;
+			margin: -30px 0 0 0;
+			left: 77px;
+			color: red;
+			background: #fff;
+			-webkit-transition: margin .5s ease-in-out;
+		}
+	</style>-->
+	<script>
+		function test(){
+			console.log(navigator.appName);
+			var b_version=navigator.appVersion.split(";"); 
+			var version=b_version[1].replace(/[ ]/g,"");
+			if(navigator.appName == "Microsoft Internet Explorer" && version=="MSIE6.0"){ 
+				document.write(
+					"<style>.login-panel,.wrapper,.loginarea,.adv{display:none !important;}.global_shade{width:100%;height:900px;background-color:#8E8B8B;opacity:0.5;text-align:center;}.tips{position:relative;top:50%;font-size:20px;color:red;margin-top:-60px;}</style><div class=\"global_shade\"><div class='tips'>浏览器版本过低，请先升级浏览器</div></div>"); 				
+			} 
+			else if(navigator.appName == "Microsoft Internet Explorer" && version=="MSIE7.0"){ 
+				document.write(
+					"<style>.login-panel,.wrapper,.loginarea,.adv{display:none !important;}.global_shade{width:100%;height:900px;background-color:#8E8B8B;opacity:0.5;text-align:center;}.tips{position:relative;top:50%;font-size:20px;color:red;margin-top:-60px;}</style><div class=\"global_shade\"><div class='tips'>浏览器版本过低，请先升级浏览器</div></div>"); 				
+			} 
+			else if(navigator.appName == "Microsoft Internet Explorer" && version=="MSIE8.0"){ 
+				
+				document.write(
+					"<style>.login-panel,.wrapper,.loginarea,.adv{display:none !important;}.global_shade{width:100%;height:900px;background-color:#8E8B8B;opacity:0.5;text-align:center;}.tips{position:relative;top:50%;font-size:20px;color:red;margin-top:-60px;}</style><div class=\"global_shade\"><div class='tips'>浏览器版本过低，请先升级浏览器</div></div>");
+			} 
+			else if(navigator.appName == "Microsoft Internet Explorer" && version=="MSIE9.0"){ 
+				document.write(
+					"<style>.login-panel,.wrapper,.loginarea,.adv{display:none !important;}.global_shade{width:100%;height:900px;background-color:#8E8B8B;opacity:0.5;text-align:center;}.tips{position:relative;top:50%;font-size:20px;color:red;margin-top:-60px;}</style><div class=\"global_shade\"><div class='tips'>浏览器版本过低，请先升级浏览器</div></div>");				
+			} 
+		}
+		test();
+	</script>
+	<style>
+		.wrapper{
+			position: absolute;
+       		overflow: hidden;
+        	width:100%;
+        	height:29px;
+        	background-color:#eaf6f4
+
+		}
+		.scroll{
+	        position: absolute;
+	        left:10%;
+	        font-size:12px;
+	        color: #666;
+	        /* height:29px; */
+	        line-height:29px;
+	        /* overflow:hidden; */
+	        max-width:600px; 
+	    }
+	    .username .tips{
+	    	position: absolute;
+	    	display: block;
+	    	max-height: 150px;
+	    	width: 223px;
+	    	margin-top: -13px;
+	    	margin-left: 22%;
+	    	overflow: auto;
+	    	background-color: #e7e7e9;
+	    	border-radius: 2px;
+	    	z-index: 1;
+
+	    }
+	    .username .tips li{
+	    	display: block;
+	    	height: 24px;
+	    	padding-left: 10px;
+	    	padding-top: 3px;
+	    }   
+	  	.username .tips li:hover{
+	    	background-color:#cccccc;
+	    }
+	</style>
+</head>
+<body>
+<!-- <div class="mask-layer">
+	<div class="box-center">当前浏览器版本过低，请升级浏览器后再试</div>
+</div> -->
+<div class="login-panel">
+</div>
+
+<!-- 系统通知开始 -->
+<div id="wrapper" class="wrapper" >
+    <div id="scrolling" class="scroll">
+       
+    </div>
+</div>
+
+<!-- 系统通知结束 -->
+<div class="loginarea">
+	<div id="logo" class="logo img-responsive logo_cn"></div>
+	<form id="login-form" action="https://oasis-rd.h3c.com/cas/login?service=https://oasisrd.h3c.com/oasis/stable/web/frame/index.html&loginUrl=https://oasisrd.h3c.com/oasis/stable/web/login.html" method="post" autocomplete="new-password">
+		<fieldset>
+			<div class="error" id="server_error"></div>
+			<div class="username">
+				<label for="name" class="label_username"></label>
+				<input type="text" id="name" name = "username"  
+					   minlength="6" maxlength="32"
+					   autocomplete="off"/>
+				<ul class="tips"></ul>
+				<div class="text_error" id="name_err"></div>
+			</div>
+			<input type="text" style="display: none">
+			<div>
+				<label for="password" class="label_password"></label>
+				<input type="text" id="password"  
+					   maxlength=32 minlength="8"
+					   autocomplete="off"/>
+				<input type="hidden" name="password" autocomplete="new-password"/>
+				<input type="text" id="text" style="display:none" 
+					   maxlength=32 minlength="8"
+					   autocomplete="new-password" />
+				<span class="icon_eye" id="switch"></span>
+				<div class="text_error" id="password_err"></div>
+			</div>
+			<a><span id="remember_me" name="remember_me" class="remember_btn"></span></a>
+			<span class="remberpassword" style="background-color:#FFFFFF!important;">记住密码</span>
+			<input type="hidden" name="lt" id="lt" value=""/>
+			<input type="hidden" name="execution" id="execution" value=""/>
+			<input type="hidden" name="_eventId" id="_eventId" value="submit"/>
+			<input type="hidden" name="_submit" id="_submit" value="LOGIN"/>
+			<input type="button" id ="loginBtn" class="button" name="commit" value=""/>
+		</fieldset>
+	</form>
+		<ul>
+			<li>
+				<div class="borderstyle">
+					<a href="static/beforeLogin/frame/index.html#/findPas" class="cancelleft" id="forgetPadBtn">
+					</a>
+				</div>
+			</li>
+			<li>
+				<div class="borderstyle">
+					<a href="static/beforeLogin/frame/index.html#/registerByPhone" class="register" id="registerBtn">
+					</a>
+				</div>
+			</li>
+			<li><a href="#" class="vistorlogin" id="visitorLoginBtn"></a></li>
+		</ul>
+		<ul class="changeLanguage" style="margin-top:0;">
+			<li id="cnBtn">
+				<div class="borderstyle">
+					<a href="#" class="languageColor" data-val="cn">中文</a>
+				</div>
+			</li>
+			<li id="enBtn">
+				<div class="borderstyle" style="border-right:none;padding-left:10px;">
+					<a href="#"  data-val="en">English</a>
+				</div>
+			</li>
+		</ul>
+</div>
+
+	<div class="adv">
+		<div class="advertisement" id="adPanel">
+			<ul>
+				<li>
+					<a href="#"></a>
+					<img id= "ad1" src="static/image/ad-1.png" class="img-responsive">
+				</li>
+				<li>
+					<a href="#"></a>
+					<img id= "ad2" src="static/image/ad-2.png"class="img-responsive">
+				</li>
+				<li>
+					<a href="#"></a>
+					<img  id= "ad3" src="static/image/ad-3.png" class="img-responsive">
+				</li>
+			</ul>
+		</div>
+		<ul class="menuposition">
+			<li><i class="menu-icon"></i></li>
+			<li><i class="menu-icon"></i></li>
+			<li><i class="menu-icon"></i></li>
+		</ul>
+		</div>
+	</div>
+</div>
+</body>
+<script src="static/jquery.js" type="text/javascript"></script>
+<!--<script src="//cdn.bootcss.com/jquery.form/3.51/jquery.form.js"></script>-->
+<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<!--<script src="static/jquery-ui.js" type="text/javascript"></script>-->
+<script src="static/bootstrap.min.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="static/excanvas.min.js"></script>
+<script src="static/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="static/login.js"></script>
+<!-- <script type="text/javascript" src="static/db.js"></script> -->
+<!--<script type="text/javascript" src="static/respond.js"></script>-->
+<script>
+	jQuery(document).ready(function() {
+		Login.init();
+	});
+</script>
+</html>
+

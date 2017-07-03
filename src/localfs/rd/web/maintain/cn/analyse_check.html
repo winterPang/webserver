@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .changeDate
+        {
+            font-size:15px;
+            cursor:pointer;
+        }
+        .changeDate.select
+        {
+            text-decoration:underline;
+            color:#4ec1b2;
+        }
+    </style>
+</head>
+<body>
+<div class="dashboard">
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">问题概览</span>
+                </div>
+                <div class="box-body" style="height:400px">
+                    <div  class="myEchart" id="problem" style="height:400px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer col-xs-12">
+                    <span class="title col-xs-2">趋势</span>
+                    <div style="float:right;">
+                        <span class="changeDate select" id="week">最近一周</span>
+                        <span>|</span>
+                        <span class="changeDate" id="month">最近一月</span>
+                        <span>|</span>
+                        <span class="changeDate" id="year">最近一年</span>
+                    </div>
+                </div>
+                <div class="box-body" style="height:300px">
+                    <div class="myEchart"  id="tendency" style="height:300px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">局点问题</span>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div class="myEchart" id="point" style="height:300px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<div class="rc-define" id="check_rc"
+        point="局点,出现次数最多,出现次数最少,时间戳"
+        ></div>
+</html>
+<script>
+    Utils.Pages.loadJS("maintain.analyse_check");
+</script>

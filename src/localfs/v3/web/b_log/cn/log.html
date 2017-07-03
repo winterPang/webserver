@@ -1,0 +1,101 @@
+<html>
+<head>
+</head>
+<body>
+<div class="page-row">
+    <div class="col-xs-12 app-colum app-box left-block">
+        <div id="detect_container1">
+            <div class="app-box" style="overflow-y: hidden">
+                <div class="box-footer">
+                    <div class="col-xs-12">
+                        <span class="title">日志信息</span>
+                        <div class="text-right">
+                            <a type="button" class="refresh" id="refreshlog">
+                                <i class="refresh-icon icon"/>
+                            </a>
+                            <a type="button" class="link-detail" id="loginfo_detail" href="log.loginfo">
+                                <i class="icon detail-icon"/>
+                            </a>
+
+                        </div>
+                    </div>
+                    <!--div class="col-xs-6">
+                        <span class="title">模块</span>
+                    </div>-->
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="col-xs-6">
+                        <span class="title">&nbsp&nbsp&nbsp&nbsp类别</span>
+                        <div id="loganalysis" class="myEchart"></div>
+                        &nbsp;
+                        <div class="col-xs-12">
+                            <div class="col-xs-1"></div>
+                            <div class="col-xs-2 text-center" style="color:gray;">总数</div>
+                            <div class="col-xs-2 text-center" style="color:gray;">严重</div>
+                            <div class="col-xs-2 text-center" style="color:gray;">错误</div>
+                            <div class="col-xs-2 text-center" style="color:gray">警告</div>
+                            <div class="col-xs-2 text-center" style="color:gray">普通</div>
+                        </div>
+                        <div style="height: 25px"></div>
+                        <div class="col-xs-12">
+                            <hr width=72.5% size=1 align="right" color=#00ffff  style="margin-left: 78px"/>
+                            <div style="height: 7px"></div>
+                        </div>
+
+                        <div class="col-xs-12">
+                            <div class="col-xs-1"></div>
+                            <div class="col-xs-2 text-center" style="color:black;">
+                                <span id="TotalNumber" style="color:black"></span>
+                            </div>
+                            <div class="col-xs-2 text-center" style="color:black;">
+                                <span id="crit" style="color:black"></span>
+                            </div>
+                            <div class="col-xs-2 text-center" style="color:black;">
+                                <span id="error" style="color:black;"></span>
+                            </div>
+                            <div class="col-xs-2 text-center" style="color:black;">
+                                <span id="warn" style="color:black;"></span>
+                            </div>
+                            <div class="col-xs-2 text-center" >
+                                <span id="info" style="color:black"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <span class="title">&nbsp&nbsp&nbsp&nbsp模块</span>
+                        <div id="logmodul" class="myEchart"></div>
+                    </div>
+                </div>
+                <div class="col-xs-12" style="height: 70px">
+                    <div class="col-xs-12" style="height: 30px"></div>
+                    <div class="col-xs-12">
+                        <HR width="98.5%" align="center" size="5" color=#987cb9/>
+                    </div>
+                </div>
+                <div class="col-xs-12 app-colum">
+                    <div class="list-height sysinfo-body">
+                        <div id="log_chart" class="myEchart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<div id="log_monitor_rc" class="rc-define"
+     Level="类别"
+     Module="模块"
+     LOG_HEAD="用户名,IP,模块名,严重级别,详细信息"
+     SHOWTIME="日"
+     NUMBER="数量"
+     CRIT="严重"
+     WARN="警告"
+     COMMON="普通"
+     ERROR="错误"
+
+></div>
+    </div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("b_log.log");
+</script>

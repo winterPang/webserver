@@ -1,0 +1,105 @@
+<html>
+<head>
+</head>
+<body>
+<div class="page-row">
+  <div class="col-xs-12 app-colum left-block">
+    <div class="app-box">
+      <div class="box-footer">
+        <span class="title">WAN信息</span>
+      </div>
+      <div class="box-body no-height">
+        <div id="wan_info_list" class="simple-list"></div> 
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="hide" id="wan_toggle">
+  <div class="col-xs-6 response-block">
+    <div class="form-group">
+      <label class="col-sm-6 control-label info-explain">类型</label>
+      <div class="col-sm-6">
+        <span class="label form-if-setHtml" id="AllocEnable" name="AllocEnable"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-6 control-label info-explain">IP地址</label>
+      <div class="col-sm-6">
+        <span class="label form-if-setHtml" id="InetAddressIPV4" name="InetAddressIPV4"></span>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-6 response-block">
+    <div class="form-group">
+      <label class="col-sm-6 control-label info-explain">网关</label>
+      <div class="col-sm-6">
+        <span class="label form-if-setHtml" id="InetAddressIPV4Mask" name="InetAddressIPV4Mask"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-6 control-label info-explain">DNS</label>
+      <div class="col-sm-6">
+        <span class="label form-if-setHtml" id="DNS" name="DNS"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-row">
+  <div class="col-xs-12 app-colum left-block">
+    <div class="app-box">
+      <div class="box-footer">
+        <span class="title">未授权AP</span>
+      </div>
+      
+      <div class="box-body no-height">
+        <div id="unanthorized_ap_list" class="simple-list"></div>  
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="page-row">
+  <div class="col-xs-12 app-colum left-block">
+    <div class="app-box">
+      <div class="box-footer">
+        <span class="title">私接代理</span>
+      </div>
+      
+      <div class="box-body no-height">
+        <div id="unanthorized_agent_list" class="simple-list"></div>  
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div id="net_info_rc" class="rc-define"
+    WAN_LABELS = "接口名称,描述,状态,上行流量（KB）,下行流量（KB）"
+    WAN_MODE="Route"
+    WAN_STSTUS = ", up, down, testing, unknown, dormant, notPresent, lowerLayerDown"
+    WAN_TYPE = "拨号上网(PPPoE),DHCP,手工配置"
+    DHCP_LABELS = "MAC地址,IP地址,设备类型,剩余续租时间"
+    DEVICE_TYPE="AP,有线终端"
+     UNAUTH_AP = "MAC地址,IP地址,AP名称,可疑行为,发现次数,最近发现时间"
+     UNAUTH_AGENT = "MAC地址,IP地址,最近发现时间"
+    DESTRIBTION_1 = "电信"
+    DESTRIBTION_2 = "联通"
+    DEVICE_TYPE_1 = "PC"
+    DEVICE_TYPE_2 = "小米"
+    DEVICE_TYPE_3 = "打印机"
+    BEFORE = "前"
+    MIN = "分钟"
+    HOUR = "小时"
+    DAY = "天"
+    ACTION_0 = "暂无"
+    ACTION_1 = "蜜罐攻击"
+    ACTION_2 = "中间人攻击"
+    KEYIXINGWEI = "热点AP,软AP,蜜罐AP"
+    >
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("dashboard.Net_info");
+</script>

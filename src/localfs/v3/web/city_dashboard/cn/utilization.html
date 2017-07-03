@@ -1,0 +1,93 @@
+<html>
+<head>
+</head>
+<body>
+    <form class="form-horizontal form edit" id="system_form">
+        <div class="row-clear padding0" debug="getGaugeCpu">
+            <div class="col-xs-6 file-container" style="margin-left: -15px;">
+                <div id="flash" class="col-xs-6">
+                   <div id="gauge_cpu" class="myEchart"></div>
+                </div>
+                <div id="cfcardA" class="col-xs-6">
+                    <div id="gauge_mem" class="myEchart"></div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="app-content"  style="color:#80878c;" id="version_block">
+                    <div class="page-row odd">
+                        <div class="utilization-height">
+                            <div class="col-xs-5">
+                                <span class="form-label">设备型号：</span>
+                            </div>
+                            <div class="col-xs-7 text-left">
+                                <span id="devMode"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-row odd">
+                        <div class="utilization-height">
+                            <div class="col-xs-5">
+                                <span class="form-label">序列号：</span>
+                            </div>
+                            <div class="col-xs-7 text-left">
+                                <span id="SerialNumber"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-row even">
+                        <div class="utilization-height">
+                            <div class="col-xs-5">
+                                <span class="form-label">基线版本：</span>
+                            </div>
+                            <div class="col-xs-7 text-left">
+                                <span id="devSoftVersion"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-row even">
+                        <div class="utilization-height">
+                            <div class="col-xs-5">
+                                <span class="form-label">软件版本：</span>
+                            </div>
+                            <div class="col-xs-7 text-left">
+                                <span id="devHardVersion"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-row odd">
+                        <div class="utilization-height">
+                            <div class="col-xs-5">
+                                <span class="form-label">Bootrom版本：</span>
+                            </div>
+                            <div class="col-xs-7 text-left">
+                                <span id="devBootWare"></span>
+                            </div>
+                        </div>
+                    </div>
+                     <div class="page-row odd">
+                        <div class="utilization-height">
+                            <div class="col-xs-5">
+                                <span class="form-label">连接状态：</span>
+                            </div>
+                            <div class="col-xs-7 text-left">
+                                <span id="devv3CloudConnectionState"></span>
+                            </div>
+                        </div>
+                    </div>               
+                </div>
+            </div>
+        </div>
+    </form>
+    <div id="app_utilization_rc" class="rc-define"
+         FORM_TITLE="系统利用率"
+         cpu="CPU"
+         memory="内存"
+         Connect_Sta="已连接,连接中断"
+         Connect_Stav3="已连接,连接中断"
+    ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("city_dashboard.utilization");
+
+</script>

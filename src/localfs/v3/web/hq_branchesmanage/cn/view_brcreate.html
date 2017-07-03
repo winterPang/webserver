@@ -1,0 +1,138 @@
+<html>
+<head>
+</head>
+<body>
+
+<!--添加分支Form-->
+<div class="app-colum">
+    <div class="app-box no-height">
+
+        <div class="box-footer">
+            <span id="F_title" class="title">添加</span>
+        </div>
+
+        <div class="box-body no-height">
+
+            <div class="col-sm-6">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label required">分支名称</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="string big required" id="br_Name" name ="br_Name" errid="ap_name_error" maxlength=64 />
+                        <label class="info-explain">（1-64字符）</label>
+                        <label class="error" id="ap_name_error"></label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label required">分支类型</label>
+
+                    <div class="col-sm-9" id="Type_Choose">
+                        <input type="radio" id="type_apgroup" name="Br_Type" value="0" checked="checked"/>                
+                        <label for="type_apgroup">本地无AC &nbsp;&nbsp;&nbsp;</label>
+                        <input type="radio" id="type_localac" name="Br_Type" value="1"/>
+                        <label for="type_localac" >本地有AC &nbsp;&nbsp;&nbsp;</label>
+                        <input type="radio" id="type_manageac" name="Br_Type" value="2"/>
+                        <label for="type_manageac" >本地有AC且有独立无线服务</label>
+                    </div>
+                </div>
+
+                <div class="form-group hide" id="form_loacl">
+                    <label class="col-sm-3 control-label">本地AC</label>
+
+                    <div class="col-sm-9">
+                        <input type="text" class="string big required" id="lac_Name" maxlength=64 disabled="disabled" />
+                        <a class="xb-link" title="选择本地ac" id="localac_btn">选择本地AC</a>
+                    </div>
+                </div>
+
+                <div class="form-group hide" id="form_MAp">
+                    <label class="col-sm-3 control-label" style="height:48px; line-height:48px">本地无线服务数量</label>
+                    <div class="col-sm-9">
+                        <select class="singleSelect" id="wlanidList" allowClear="false">
+                        </select>
+                    </div>
+                </div>
+                
+            </div>
+
+            <div class="col-sm-6">      
+                <div class="form-group" id="form_apgrp">
+                    <label class="col-sm-2 control-label">AP组列表</label>
+                    <div class="col-sm-2">
+                        <a class="xb-link" title="选择AP组" id="apgroup_btn">选择AP组</a>
+                    </div>
+                    <label class="info-explain">（如果当前AP已经依附在其他AC上，请自行将AP踢下线）</label>
+                </div>
+
+                <div class="form-group" id="apgrp_show">
+                    <div id="apgrp_ChooseList" class="xxb-list simple-list"></div>
+                </div>
+
+            </div>
+
+        </div>
+            
+        <div class="form-actions" style="margin-top:20px; margin-bottom:30px;">
+            <!--<div class="col-sm-1"></div>-->
+
+            <div class="col-sm-5"></div>
+                <a class="btn btn-apply" id="bradd_ok">确认</a>
+
+
+            <!--<div class="col-sm-3">-->
+                <a class="btn btn-cancel" id="bradd_close">取消</a>
+            <!--</div>-->
+        </div>
+    </div>
+</div>
+
+
+<!--AP组列表-->
+<div class="hide modal fade" id="ApGrpDlg">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">AP组列表</h3>
+    </div>
+
+    <div class="modal-body">
+        <div id="popApGrpChooseList" class="simple-list"></div>
+    </div>
+    
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="OK" data-dismiss="modal" id="apgroup_choosed">确认</a>
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">关闭</a>
+    </div>
+</div>
+
+<!--本地ac列表-->
+<div class="hide modal fade" id="LocalAcDlg">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">本地AC列表</h3>
+    </div>
+
+    <div class="modal-body">
+        <div id="popLocalAcChooseList" class="simple-list"></div>
+    </div>
+    
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="OK" data-dismiss="modal" id="Lac_ok">确认</a>
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">关闭</a>
+    </div>
+</div>
+
+<div id="ws_ssid_rc" class="rc-define"
+     LIST_TITLE = "名称,类型,本地管理权限"
+     APGROUP_LIST = "AP组,描述,所属分支"
+     LOCALAC_LIST = "本地AC,描述,所属分支"
+     AP_LIST = "AP,描述,所属分支,所属Ap组"
+     ADD_TITLE = "添加"
+     EDIT_TITLE = "修改"
+     ADDLMAP_TITLE = "添加本地管理AP"
+        ></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("hq_branchesmanage.view_brcreate");
+</script>

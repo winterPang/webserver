@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>绿洲聊聊</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html;utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <link rel="Shortcut Icon" href="../friendportrait/cat.jpg" />
+    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/bootstrap-modal.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/jquery-ui.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/chat_new.css" rel="stylesheet" type="text/css"/>
+    <link href="../css/chatsetting.css" rel="stylesheet" type="text/css"/>
+
+    <!--<link rel="stylesheet" type="text/css" href="../css/normalize.css" />-->
+    <link rel="stylesheet" type="text/css" href="../css/demo.css" />
+    <link rel="stylesheet" type="text/css" href="../css/component.css" />
+    <!--<script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>-->
+</head>
+<body>
+    <div id="chatTips" style="text-align: center;display: none">
+        <p style="margin-top: 10px"></p>
+    </div>
+    <div id="chatGroupLeaveConfirm" style="text-align: center;display: none">
+        <p style="margin-top: 10px"></p>
+
+        <button id="chatGroupLeaveOk" type="button" class="btn btn-danger"
+                data-dismiss="modal">退出
+        </button>
+        <button id="chatGroupLeaveCancel" type="button" class="btn btn-default"
+                data-dismiss="modal">取消
+        </button>
+    </div>
+    <div id="chatDelFriendConfirm" style="text-align: center;display: none">
+        <p style="margin-top: 10px"></p>
+
+        <button id="chatDelFriendOk" type="button" class="btn btn-danger"
+                data-dismiss="modal">删除
+        </button>
+        <button id="chatDelFriendCancel" type="button" class="btn btn-default"
+                data-dismiss="modal">取消
+        </button>
+    </div>
+    <!-- START设置模态框（Modal） -->
+    <div class="modal fade" id="chatSettingModal" aria-hidden="true" role="dialog">
+        <div id="chatSettingTitle">
+            头像上传
+            <button type="button" class="close" id="chatSettingClose"
+                    data-dismiss="modal" aria-hidden="true">
+                &times;
+            </button>
+        </div>
+        <div class="modal-body" id="chatSettingModalBody">
+            <div id="chatSettingHeadImgToolsContent" class="htmleaf-container">
+                <!--<div class="kv-main" style="width: 100%">-->
+                <!--<label id="chatSettingHeadImgToolsTip">请选择图片</label>-->
+                <a href="javascript:;" class="fileBtn">选择文件
+                    <input id="chatSettingHeadImgToolsChoise" type="file" required accept="image/*" data-min-file-count="1" name="chatHead">
+                </a>
+                <span class="showFileName">未选择任何文件</span>
+
+
+                <!--<button id="chatSettingHeadImgToolsUpload" class="btn btn-success" type="button">上传</button>-->
+                <!--</div>-->
+            </div>
+            <hr style="margin-top: 0px;margin-bottom: 5px;">
+            <div id="chatSettingPortraintContent" class="content" style="display: none" >
+                <div class="component">
+                    <div class="overlay">
+                        <div class="overlay-inner"></div>
+                    </div>
+                    <img class="resize-image" src="" alt="image for resizing" style="max-height: 1500px;max-width: 1500px" >
+                    <button class="btn-crop js-crop">截图<img class="icon-crop" src="../crop.svg"></button>
+                </div>
+                <div style="text-align:center;clear:both;">
+                </div>
+                <div class="a-tip">
+                    <p><strong>提示:</strong> 按住 <span>SHIFT</span> 调整保持原来的宽高比</p>
+                </div>
+            </div>
+            <div id="chatSettingHeadImgOKimgContent">
+                <img src="../friendportrait/defaultheadimg.png">
+            </div>
+            <!--<img class="resize-image" src="" alt="image for resizing" style="width: 200px; height: 200px;position: absolute;left: 201px;top: 124px"; visibility="unvisible"  >&lt;!&ndash; /content &ndash;&gt;-->
+            <!--<div class="container" style="position: relative;width: 100%;text-align: center"></div>-->
+        </div>
+        <div class="modal-footer" id="chatSettingFooter">
+            <button id="chatSettingBtnOk" type="button" class="btn btn-primary disabled" id="chatSettingPrimary"
+                    data-dismiss="modal">确定
+            </button>
+            <button id="chatSettingBtnCancel" type="button" class="btn btn-default"
+                    data-dismiss="modal">取消
+            </button>
+        </div>
+    </div>
+    <!-- END设置模态框（Modal） -->
+    <div class="modal fade" id="chatAddSessionModal">
+        <div id="chatAddSessionBody">
+            <div id="chatAddSessionLeftContent">
+                <div id="chatAddSessionSearchContent">
+                    <input results="s" type="search" id="chatSearchFriend" placeholder="搜索">
+                    <!--<span>&times;</span>-->
+                </div>
+                <div id="chatAddSessionWaitSelectContent">
+                    <a class="chatAddSessionWaitSelectLink list-group-item">
+                        <img class="img-circle chatAddSessionWaitSelectPortrait" src="../friendportrait/defaultheadimg.png">
+                        <pre class="chatAddSessionWaitSelectName">liuxiaolong</pre>
+                        <img class="chatAddSessionWaitSelectCircle" src="../image/check-off.png">
+                    </a>
+                    <a class="chatAddSessionWaitSelectLink list-group-item">
+                        <img class="img-circle chatAddSessionWaitSelectPortrait" src="../friendportrait/defaultheadimg.png">
+                        <pre class="chatAddSessionWaitSelectName">liuxiaolong</pre>
+                        <img class="chatAddSessionWaitSelectCircle" src="../image/check-on.png">
+                    </a>
+                </div>
+            </div>
+            <div id="chatAddSessionRightContent">
+                <span id="chatAddSessionNoteElement">请选择要添加的联系人</span>
+                <button id="chatAddSessionModelCloseBtn" type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <div id="chatAddSessionSelectedContent">
+                    <a class="chatAddSessionSelectedLink list-group-item">
+                        <img class="img-circle chatAddSessionSelectedPortrait" src="../friendportrait/defaultheadimg.png">
+                        <pre class="chatAddSessionSelectedName">liuxiaolong</pre>
+                        <img class="chatAddSessionSelectedCancel" src="../image/close.png">
+                    </a>
+                </div>
+                <div id = chatAddSessionBtnContent>
+                    <button id="chatAddSessionOkBtn"type="button" class="btn btn-primary disabled" data-dismiss="modal">
+                        确定
+                    </button>
+                    <button id="chatAddSessionCancelBtn" type="button" class="btn btn-default" data-dismiss="modal" aria-hidden="true">
+                        取消
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="chatFrame">
+    <div id="chatTitleContent">
+        <div id="chatMyPortraint" class="dropdown-toggle" data-toggle="dropdown">
+            <img id="chatLocalHeadimg" class="img-circle" src="../friendportrait/defaultheadimg.png">
+        </div>
+        <div id="chatMyBigPortraintContent" class="dropdown-menu" >
+            <img id="chatLocalBigHeadimg" class="img-circle" src="../friendportrait/defaultheadimg.png">
+            <pre id="chatMyName">liuxiaolong</pre>
+        </div>
+        <span>绿洲聊聊</span>
+    </div>
+    <div class="alert alert-danger" id="chatConnectError" style="display:none" ></div>
+    <div id="chatNavContent">
+        <a id="chatDialogSumEntryLink" class="atv">
+            <div id="chatNavDialogContent">
+                <img id="chatDialogRedPoint" src="../redpoint.png">
+                <div id="chatDialogIcon"></div>
+                <span id="chatDialogLable" style="color:white">会话</span>
+            </div>
+        </a>
+        <a id="chatFriendListEntryLink">
+            <div id="chatNavFriendContent">
+                <img id="chatFriendRedPoint" src="../redpoint.png">
+                <div id="chatFriendIcon"></div>
+                <span id="chatFriendLable" style="color:rgb(24, 146, 124);">好友</span>
+            </div>
+        </a>
+        <a id="chatNavSettingEntryLink" href="#chatSettingModal" data-toggle="modal">
+            <div id="chatNavSettingContent">
+                <img id="chatSettingRedPoint" src="../redpoint.png">
+                <div id="chatSettingIcon"></div>
+                <span id="chatSettingLable" style="color:rgb(24, 146, 124);">设置</span>
+            </div>
+        </a>
+    </div>
+    <div id="chatNavEntity">
+        <div id="chatSearchContent">
+            <div class="input-group" id="chatSearchDiv">
+                <input id=chatSearchInput type="text" class="form-control" placeholder="搜索新朋友">
+                <button class="btn btn-info" type="button" id="chatSearchBtn"></button>
+            </div>
+            <a id="chatAddDialogLink" data-target="#chatAddSessionModal" data-toggle="modal" title="点击创建群组">
+                <img id="chatAddDialogIcon" src="../chatnewdialog.png">
+            </a>
+        </div>
+        <div id="chatNavEntityDialogSumContent">
+            <div id="chatNavEntityDialogSum">
+                <!--<a class="chatDialogSumLink list-group-item" sid="123456" dialogType="couple">-->
+                    <!--<div class="chatGroupPortraitContent">-->
+                        <!--<img class="chatGroupPortrait_1  chatGroupPortraitEntity_1_1" src="../test1.jpg">-->
+                    <!--</div>-->
+                    <!--<pre class="chatDialogSumTitle" title = "anna">anna</pre>-->
+                    <!--<pre class="chatDialogSumCount">(154条)</pre>-->
+                    <!--<pre class="chatDialogSumTime">10:25</pre>-->
+                    <!--<pre class="chatDialogSumMsg">今天有空没？来我家吃饭啊！</pre>-->
+                <!--</a>-->
+                <!--<a class="chatDialogSumLink list-group-item" sid="123456" dialogType="couple">-->
+                    <!--<div class="chatGroupPortraitContent">-->
+                        <!--<img class="chatGroupPortrait_2 chatGroupPortraitEntity_2_1" src="../test1.jpg">-->
+                        <!--<img class="chatGroupPortrait_2 chatGroupPortraitEntity_2_2" src="../test2.jpg">-->
+                    <!--</div>-->
+                    <!--<pre class="chatDialogSumTitle" title = "anna">anna</pre>-->
+                    <!--<pre class="chatDialogSumCount">(154条)</pre>-->
+                    <!--<pre class="chatDialogSumTime">10:25</pre>-->
+                    <!--<pre class="chatDialogSumMsg">今天有空没？来我家吃饭啊！</pre>-->
+                <!--</a>-->
+                <!--<a class="chatDialogSumLink list-group-item" sid="123456" dialogType="couple">-->
+                    <!--<div class="chatGroupPortraitContent">-->
+                        <!--<img class="chatGroupPortrait_3 chatGroupPortraitEntity_3_1" src="../test1.jpg">-->
+                        <!--<img class="chatGroupPortrait_3 chatGroupPortraitEntity_3_2" src="../test2.jpg">-->
+                        <!--<img class="chatGroupPortrait_3 chatGroupPortraitEntity_3_3" src="../test3.jpg">-->
+                    <!--</div>-->
+                    <!--<pre class="chatDialogSumTitle" title = "anna">anna</pre>-->
+                    <!--<pre class="chatDialogSumCount">(154条)</pre>-->
+                    <!--<pre class="chatDialogSumTime">10:25</pre>-->
+                    <!--<pre class="chatDialogSumMsg">今天有空没？来我家吃饭啊！</pre>-->
+                <!--</a>-->
+                <!--<a class="chatDialogSumLink list-group-item" sid="123456" dialogType="couple">-->
+                    <!--<div class="chatGroupPortraitContent">-->
+                        <!--<img class="chatGroupPortrait_4 chatGroupPortraitEntity_4_1" src="../test1.jpg">-->
+                        <!--<img class="chatGroupPortrait_4 chatGroupPortraitEntity_4_2" src="../test2.jpg">-->
+                        <!--<img class="chatGroupPortrait_4 chatGroupPortraitEntity_4_3" src="../test3.jpg">-->
+                        <!--<img class="chatGroupPortrait_4 chatGroupPortraitEntity_4_4" src="../test4.jpg">-->
+                    <!--</div>-->
+                    <!--<pre class="chatDialogSumTitle" title = "anna">anna</pre>-->
+                    <!--<pre class="chatDialogSumCount">(154条)</pre>-->
+                    <!--<pre class="chatDialogSumTime">10:25</pre>-->
+                    <!--<pre class="chatDialogSumMsg">今天有空没？来我家吃饭啊！</pre>-->
+                <!--</a>-->
+                <!--<a class="chatDialogSumLink list-group-item" sid="123456" dialogType="couple">-->
+                    <!--<div class="chatGroupPortraitContent">-->
+                        <!--<img class="chatGroupPortrait_5 chatGroupPortraitEntity_5_1" src="../test1.jpg">-->
+                        <!--<img class="chatGroupPortrait_5 chatGroupPortraitEntity_5_2" src="../test2.jpg">-->
+                        <!--<img class="chatGroupPortrait_5 chatGroupPortraitEntity_5_3" src="../test3.jpg">-->
+                        <!--<img class="chatGroupPortrait_5 chatGroupPortraitEntity_5_4" src="../test4.jpg">-->
+                        <!--<img class="chatGroupPortrait_5 chatGroupPortraitEntity_5_5" src="../test5.jpg">-->
+                    <!--</div>-->
+                    <!--<pre class="chatDialogSumTitle" title = "anna">anna</pre>-->
+                    <!--<pre class="chatDialogSumCount">(154条)</pre>-->
+                    <!--<pre class="chatDialogSumTime">10:25</pre>-->
+                    <!--<pre class="chatDialogSumMsg">今天有空没？来我家吃饭啊！</pre>-->
+                <!--</a>-->
+
+                <!--<a class="chatDialogSumLink list-group-item" sid="123456" dialogType="couple">-->
+                <!--<img class="img-circle chatDialogSumPortrait" src="../friendportrait/defaultheadimg.png">-->
+                <!--<pre class="chatDialogSumTitle" title = "anna">anna</pre>-->
+                <!--<pre class="chatDialogSumCount">(154条)</pre>-->
+                <!--<pre class="chatDialogSumTime">10:25</pre>-->
+                <!--<pre class="chatDialogSumMsg">今天有空没？来我家吃饭啊！</pre>-->
+                <!--</a>-->
+            </div>
+        </div>
+        <div id="chatNavEntityFriendListContent" style="display:none ">
+            <div id="chatNavEntityFriendList" >
+                <label id="chatNewFriendLabel" class="list-group-item" style="display: none">新的朋友</label>
+                <a id="chatNewFriendEntryLink" class="list-group-item" style="display: none">
+                    <img id=chatNewFriendIcon class="img-circle" src="../newfriend.jpg">
+                    <img id="chatNewFriendRedPoint" src="../redpoint.png">
+                    <img id="chatNewFriendEntryIcon" src="../link.png">
+                </a>
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default" style="border: 0px;border-radius: 0px;margin-top: 0px">
+                        <div class="panel-heading" style="padding:0px">
+                            <h4 class="panel-title" style="position: relative">
+                                <a id="chatGroupListLabel" class="list-group-item" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">群组</a>
+                                <div id="chatGroupListToggleIcon"></div>
+                            </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body" style="padding: 0px;">
+                                <span  id="chatGroupListNoneLabel">点击上方"<a id="chatGroupListLableAddGroupLink" data-target="#chatAddSessionModal" data-toggle="modal">+</a>"创建群组</span>
+                                <div id="chatFriendListGroupContent" style="margin-top: -2px">
+                                    <!--<a href="#" class="chatGroupListLink list-group-item" sid="123456" dialogType="mutiple">-->
+                                        <!--<img class="img-circle chatFriendListPortrait" src="../friendportrait/defaultheadimg.png">-->
+                                        <!--<pre class="chatFriendListName">一个群会话</pre>-->
+                                    <!--</a>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default" style="border: 0px;border-radius: 0px;margin-top: 0px">
+                        <div class="panel-heading" style="padding:0px">
+                            <h4 class="panel-title" style="position: relative">
+                                <a id="chatKefuListLabel" class="list-group-item" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">客服</a>
+                                <div id="chatKefuListToggleIcon"></div>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse in">
+                            <div class="panel-body" style="padding: 0px;">
+                                <div id="chatFriendListKefuContent" style="margin-top: -2px">
+                                    <!--<a href="#" class="chatGroupListLink list-group-item" sid="123456" dialogType="xxxxxx">-->
+                                        <!--<img class="img-circle chatFriendListPortrait" src="../friendportrait/defaultheadimg.png">-->
+                                        <!--<pre class="chatFriendListName">一个群会话</pre>-->
+                                    <!--</a>-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default" style="border: 0px;border-radius: 0px; margin-top: 0px">
+                        <div class="panel-heading" style="padding:0px">
+                            <h4 class="panel-title" style="position: relative">
+                                <a id="chatFriendListLabel" class="list-group-item" data-toggle="collapse" data-parent="#accordion" href="#collapseThr">好友</a>
+                                <div id="chatFriendListToggleIcon"></div>
+                            </h4>
+                        </div>
+                        <div id="collapseThr" class="panel-collapse collapse in">
+                            <div class="panel-body" style="padding: 0px;">
+                                <div id="chatFriendListFriendContent" class="sort_box">
+                            <!--<a href="#" class="chatFriendListLink list-group-item sort_list" sid="123456" dialogType="couple" uid="xxxxxx">-->
+                                <!--<img class="img-circle chatFriendListPortrait" src="../friendportrait/defaultheadimg.png">-->
+                                <!--<pre class="chatFriendListName num_name">小龙</pre>-->
+                            <!--</a>-->
+                            <!--<a href="#" class="chatFriendListLink list-group-item sort_list" sid="123456" dialogType="couple" uid="xxxxxx">-->
+                                <!--<img class="img-circle chatFriendListPortrait" src="../friendportrait/defaultheadimg.png">-->
+                                <!--<pre class="chatFriendListName num_name">ANNA</pre>-->
+                            <!--</a>-->
+                            <!--<a href="#" class="chatFriendListLink list-group-item sort_list" sid="123456" dialogType="couple" uid="xxxxxx">-->
+                                <!--<img class="img-circle chatFriendListPortrait" src="../friendportrait/defaultheadimg.png">-->
+                                <!--<pre class="chatFriendListName num_name">bas</pre>-->
+                            <!--</a>-->
+                            <!--<a href="#" class="chatFriendListLink list-group-item sort_list" sid="123456" dialogType="couple" uid="xxxxxx">-->
+                                <!--<img class="img-circle chatFriendListPortrait" src="../friendportrait/defaultheadimg.png">-->
+                                <!--<pre class="chatFriendListName num_name">啊白病</pre>-->
+                            <!--</a>-->
+                        </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="chatNewFriendEntityContent"  style="display:none ">
+            <div id="chatNewFriendTitle">
+                <a>
+                    <img src="../back.png">
+                </a>
+                <span>新的朋友</span>
+            </div>
+
+            <div id="chatNewFriendListContent">
+                <!--<a href="#" class="chatNewFriendListLink list-group-item" uid="123456">-->
+                <!--<img class="img-circle chatNewFriendPortrait" src="../friendportrait/defaultheadimg.png">-->
+                <!--<pre class="chatNewFriendName">ANNA</pre>-->
+                <!--<button class="btn btn-info btn-small" type="button">-->
+                <!--<span>接受</span>-->
+                <!--</button>-->
+                <!--</a>-->
+            </div>
+        </div>
+        <div id="chatSearchEntityContent" style="display:none ">
+            <div id="chatSearchEntityUserList">
+                <img id="chatSearchLoadingIcon" src="../login.gif" style="display: none;">
+                <span id="chatSearchCannotFindLable" style="display: none;">查无此人。</span>
+                <!--<a href="#" class="chatSearchUserNameListLink list-group-item" uid="123456">-->
+                <!--<img class="img-circle chatSearchUserPortrait" src="../friendportrait/defaultheadimg.png">-->
+                <!--<pre class="chatSearchUserName">ANNA</pre>-->
+                <!--<button class="btn btn-info btn-sm" type="button">-->
+                <!--添加-->
+                <!--</button>-->
+                <!--</a>-->
+                <!--<a href="#" class="chatSearchUserNameListLink list-group-item" uid="123456">-->
+                <!--<img class="img-circle chatSearchUserPortrait" src="../friendportrait/defaultheadimg.png">-->
+                <!--<pre class="chatSearchUserName">ANNA</pre>-->
+                <!--<button class="btn btn-info btn-sm disabled" type="button">-->
+                <!--等待验证-->
+                <!--</button>-->
+                <!--</a>-->
+            </div>
+        </div>
+    </div>
+    <div id="chatRightCount">
+        <div id="chatDialogContent" style="display:none " dialogType="couple" sid="xxxxx">
+            <div id="chatDialogTitleContent">
+                <pre id="chatDialogTitle"> 群聊一(10人)</pre>
+                <!--<input id="chatDialogInput" type="text" style="display:none">-->
+                <!--<a id="chatEditTitleLink" >-->
+                    <!--<img src="../edit.png">-->
+                <!--</a>-->
+                <a id="chatDialogTitleLink">
+                    <img id="chatDialogTitleLinkImg" src="../user.png">
+                </a>
+            </div>
+            <div id="chatDialogEntityContent">
+                <div id="chatDialogEntityContentAuto">
+                    <!--<div id="chatDialogLoadMoreContent">-->
+                    <!--<img id="chatDialogLoadMoreJuHua" src="../login.gif">-->
+                    <!--</div>-->
+
+                    <!--<div class="chatDialogEntitySystem">-->
+                    <!--<span>...... 一小时kajdsflk..</span>-->
+                    <!--</div>-->
+                    <!--<div class="chatDialogEntityDate">-->
+                    <!--<span>15/11/02 11:02</span>-->
+                    <!--</div>-->
+                    <!--<div class="chatDialogEntity" align='left'>-->
+                    <!--<div  style= 'width: 75%'>-->
+                    <!--<img src="../friendportrait/defaultheadimg.png" class="img-circle chatDialogEntityPortraint_left">-->
+                    <!--<span class="chatDialogEntityTriangler_left"></span>-->
+                    <!--<pre class="chatDialogEntityUserName_left">混世小可爱</pre>-->
+                    <!--<div class="chatDialogEntityMsgContent_left">-->
+                    <!--<pre class="chatDialogEntityMsg_left" align='left'>大家好才是真的好。</pre>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="chatDialogEntity" align='right'>-->
+                    <!--<div  style= 'width: 75%'>-->
+                    <!--&lt;!&ndash;<pre class="chatDialogEntityUserName_right">rosi</pre>&ndash;&gt;-->
+                    <!--<img src="../friendportrait/defaultheadimg.png" class="img-circle chatDialogEntityPortraint_right">-->
+                    <!--<span class="chatDialogEntityTriangler_right"></span>-->
+                    <!--<div class="chatDialogEntityMsgContent_right">-->
+                    <!--<pre class="chatDialogEntityMsg_right" align='left'>大家好才是真的好大家好才是真的好大家好才是真的好大家好才是真的好大家好才是真的好大家好才是真的好大家好才是真的好。</pre>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="chatDialogEntity" align='left'>-->
+                    <!--<div  style= 'width: 75%'>-->
+                    <!--<img src="../friendportrait/defaultheadimg.png" class="img-circle chatDialogEntityPortraint_left">-->
+                    <!--<span class="chatDialogEntityTriangler_left"></span>-->
+                    <!--<pre class="chatDialogEntityUserName_left">混世小可爱</pre>-->
+                    <!--<div class="chatDialogEntityMsgContent_left">-->
+                    <!--<pre class="chatDialogEntityMsg_left" align='left'>大家好才是真的好大家好才是真的好大家好才是真的好大家好才是真的好大家好才是真的好大家好才是真的好大家好才是真的好。</pre>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="chatDialogEntity" align='right'>-->
+                    <!--<div  style= 'width: 75%'>-->
+                    <!--&lt;!&ndash;<pre class="chatDialogEntityUserName_right">rosi</pre>&ndash;&gt;-->
+                    <!--<img src="../friendportrait/defaultheadimg.png" class="img-circle chatDialogEntityPortraint_right">-->
+                    <!--<span class="chatDialogEntityTriangler_right"></span>-->
+                    <!--<div class="chatDialogEntityMsgContent_right">-->
+                    <!--<pre class="chatDialogEntityMsg_right" align='left'>大家好才是真的好大家好才是真的好大家好才是真的好大家好才是真的好大家好才是真的好大家好才是真的好大家好才是真的好。</pre>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="chatDialogEntity" align='left'>-->
+                    <!--<div  style= 'width: 75%'>-->
+                    <!--<img src="../friendportrait/defaultheadimg.png" class="img-circle chatDialogEntityPortraint_left">-->
+                    <!--<span class="chatDialogEntityTriangler_left"></span>-->
+                    <!--<pre class="chatDialogEntityUserName_left">混世小可爱</pre>-->
+                    <!--<div class="chatDialogEntityMsgContent_left">-->
+                    <!--<pre class="chatDialogEntityMsg_left" align='left'>大家好才是真的好大家好才是真的好大家好才是真的好大家好才是真的好大家好才是真的好大家好才是真的好大家好才是真的好。</pre>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="chatDialogEntitySystem">-->
+                    <!--<span>...... 一分钟前 ......</span>-->
+                    <!--</div>-->
+                    <!--<div class="chatDialogEntity" align='right'>-->
+                    <!--<div  style= 'width: 75%'>-->
+                    <!--&lt;!&ndash;<pre class="chatDialogEntityUserName_right">rosi</pre>&ndash;&gt;-->
+                    <!--<img src="../friendportrait/defaultheadimg.png" class="img-circle chatDialogEntityPortraint_right">-->
+                    <!--<span class="chatDialogEntityTriangler_right"></span>-->
+                    <!--<div class="chatDialogEntityMsgContent_right">-->
+                    <!--<pre class="chatDialogEntityMsg_right" align='left'>大家好才是真的好大家好才是真的好。</pre>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="chatDialogEntity" align='left'>-->
+                    <!--<div  style= 'width: 75%'>-->
+                    <!--<img src="../friendportrait/defaultheadimg.png" class="img-circle chatDialogEntityPortraint_left">-->
+                    <!--<span class="chatDialogEntityTriangler_left"></span>-->
+                    <!--<pre class="chatDialogEntityUserName_left">混世小可爱</pre>-->
+                    <!--<div class="chatDialogEntityMsgContent_left">-->
+                    <!--<pre class="chatDialogEntityMsg_left" align='left'>大家好才是真的好大家好才是真的好大家好才是真的好大家好才是真的好大家好才是真的好大家好才是真的好大家好才是真的好。</pre>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                </div>
+            </div>
+            <div id="chatDialogToolsContent">
+                <div id="chatTools">
+                    <!--<a id="chatFont" title="设置字体"></a>-->
+                    <div>
+                        <a id="chatEmotion" class="dropdown-toggle" title="表情" data-toggle="dropdown"></a>
+                        <div class="panel emotionPanel dropdown-menu">
+                            <div class="emotionBody" tabindex="-1">
+                                <div class="emotionPrimary">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <a id="chatImage" title="发送图片">
+                        <input id="chatImageInput" type="file" accept="image/*">
+                    </a>
+                    <span id="chatEnterNote" style="display:none"></span>
+                </div>
+            </div>
+            <div id="chatDialogInputContent">
+                <!--<textarea id="chatInputTextarea" class="form-control" rows="3"></textarea>-->
+                <div id="chatInputTextarea" contentEditable="true" spellcheck="false" class=""></div>
+            </div>
+        </div>
+        <div id="chatFriendInfoContent" style="display: none">
+            <img id="chatFriendInfoPortrait" src="../friendportrait/defaultheadimg.png" class="img-circle">
+            <pre id="chatFriendInfoName"></pre>
+            <!--<pre id="chatFriendInfoSum">个人信息：是一个萌妹</pre>-->
+            <button id="chatFriendInfoBtnCreateDialog" type="button" class="btn btn-default">跟他聊聊</button>
+            <button id="chatFriendInfoBtnDelFreind" type="button" class="btn btn-danger">删除好友</button>
+        </div>
+        <div id="chatGroupInfoContent" style="display: none">
+            <div id="chatGroupInfoTitleContent">
+                <pre id="chatGroupInfoTitle" class="chatChangTitleBtn">三年一班(12人)</pre>
+                <input id="chatChangeTitleInput" type="text" maxlength='15' style="display:none" >
+                <!--<a id="chatEditTitleLink" >-->
+                <!--<img src="../edit.png">-->
+                <!--</a>-->
+            </div>
+            <div id="chatGroupInfoMenbersContent">
+                <a>
+                    <div class="chatGroupInfoMenber">
+                        <img id="chatGroupOwnerFlag" src="../groupownerflag.png">
+                        <img class="img-circle chatGroupInfoMenbersPortrait" src="../friendportrait/defaultheadimg.png">
+                        <pre class="chatGroupInfoMenbersName">啦啦啦</pre>
+                    </div>
+                </a>
+                <a>
+                    <div class="chatGroupInfoMenber">
+                        <img class="img-circle chatGroupInfoMenbersPortrait" src="../friendportrait/defaultheadimg.png">
+                        <pre class="chatGroupInfoMenbersName">啦啦啦</pre>
+                    </div>
+                </a>
+
+            </div>
+            <button id="chatGroupInfoBtnCreateDialog" type="button" class="btn btn-default">进入聊天</button>
+            <button id="chatGroupInfoBtnLeaveGroup" type="button" class="btn btn-danger">退出该群</button>
+
+        </div>
+        <div id="chatWelcomeContent" style="">
+            <img id="chatWelcomeIcon" src="../lvzhoulogo.png">
+        </div>
+    </div>
+</div>
+<!--<source id="chatMsgSoundInfo" src="../chatmsg.mp3" type="audio/mpeg">-->
+<audio id="chatMsgSoundInfo" src="../chatmsg.mp3"></audio>
+
+</body>
+<!--<script src="../../frame/libs/js/jquery.js" type="text/javascript"></script>-->
+<!--<script src="../../frame/libs/js/jquery-ui.js" type="text/javascript"></script>-->
+<!--<script src="../../frame/libs/js/bootstrap.min.js" type="text/javascript"></script>-->
+<!--<script type="text/javascript" src="../../frame/libs/js/bootstrap-modal.js" ></script>-->
+<!--<script type="text/javascript" src="../../frame/libs/js/bootstrap-modalmanager.js" ></script>-->
+<!--<script type="text/javascript" src="../../frame/libs/js/bootstrap-carousel.js" ></script>-->
+<!--<script type="text/javascript" src="../../frame/libs/js/socket.io.js"></script>-->
+<!--<script type="text/javascript" src="../../chat/chatpage_new.js"></script>-->
+<!--<script type="text/javascript" src="../../chat/chataddsession.js"></script>-->
+<!--<script type="text/javascript" src="../../chat/chatemotation.js"></script>-->
+
+<script src="../js/jquery-2.1.1.min.js" type="text/javascript"></script>
+<script src="../js/jquery-ui.js" type="text/javascript"></script>
+<script src="../js/bootstrap.min.js" type="text/javascript"></script>
+<script type="text/javascript" src="../js/bootstrap-modal.js" ></script>
+<script type="text/javascript" src="../js/bootstrap-modalmanager.js" ></script>
+<script type="text/javascript" src="../js/bootstrap-carousel.js" ></script>
+<script type="text/javascript" src="../js/jquery.slimscroll.min.js" ></script>
+<script type="text/javascript" src="../js/socket.io.js"></script>
+<script type="text/javascript" src="../js/jquery.hideseek.js"></script>
+<script type="text/javascript" src="../../chat/chatpage_new.js"></script>
+<script type="text/javascript" src="../../chat/chataddsession.js"></script>
+<script type="text/javascript" src="../../chat/chatemotation.js"></script>
+<!--<script type="text/javascript" src="../js/jquery-2.1.1.min.js"></script>-->
+<script type="text/javascript" src="../js/component.js"></script>
+<script type="text/javascript" src="../../chat/chatsetting.js"></script>
+<script type="text/javascript" src="../js/jquery.charfirst.pinyin.js"></script>
+<script type="text/javascript" src="../js/sort.js"></script>
+<script type="text/javascript" src="../js/favico.min.js"></script>
+</html>

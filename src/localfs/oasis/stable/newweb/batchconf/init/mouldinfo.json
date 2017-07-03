@@ -1,0 +1,74 @@
+[
+  {
+    "mould_name": "无线设备配置",
+    "mould_brief": "适用于无线设备",
+    "is_open": true,
+    "mould_li": {
+      "count": 5,
+      "rows": [
+        {
+          "name": "无线设备配置1",
+          "creater": "xiaocai",
+          "lasttime": "2017-05-16 00:00:00",
+          "lastnum": 5
+        },
+        {
+          "name": "无线设备配置2",
+          "creater": "xiaocai",
+          "lasttime": "2017-05-22 00:00:00",
+          "lastnum": 2
+        },
+        {
+          "name": "无线设备配置3",
+          "creater": "xiaocai",
+          "lasttime": "2017-05-22 00:00:00",
+          "lastnum": 2
+        },
+        {
+          "name": "无线设备配置4",
+          "creater": "xiaocai",
+          "lasttime": "2017-05-22 00:00:00",
+          "lastnum": 2
+        },
+        {
+          "name": "无线设备配置5",
+          "creater": "xiaocai",
+          "lasttime": "2017-05-22 00:00:00",
+          "lastnum": 2
+        }
+      ]
+    }
+  },
+  {
+    "mould_name": "小小贝设备配置",
+    "mould_brief": "适用于小小贝设备",
+    "is_open": false,
+    "mould_li": {
+      "rows": ""
+    }
+  },
+  {
+    "mould_name": "路由器配置",
+    "mould_brief": "适用于路由器产品",
+    "is_open": false,
+    "mould_li": {
+      "rows": ""
+    }
+  },
+  {
+    "mould_name": "交换机配置",
+    "mould_brief": "适用于交换机产品",
+    "is_open": false,
+    "mould_li": {
+      "rows": ""
+    }
+  },
+  {
+    "mould_name": "安全配置",
+    "mould_brief": "适用于安全的配置",
+    "is_open": false,
+    "mould_li": {
+      "rows": ""
+    }
+  }
+]

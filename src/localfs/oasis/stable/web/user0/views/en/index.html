@@ -1,0 +1,90 @@
+<style>
+    .form-horizontal .control-label {
+        text-align: left !important;
+        padding-top: 2px;
+    }
+    .form-group {
+        margin-bottom:0px;
+    }
+    .form-horizontal [class^="col-md-"], 
+    .form-horizontal [class*="col-md-"],
+    .form-horizontal [class^="col-xs-"],
+    .form-horizontal [class*="col-xs-"],
+    .form-horizontal [class^="col-sm-"], 
+    .form-horizontal [class*="col-sm-"] {
+        line-height: 30px;
+    }
+    .black {
+        background: url("images/black.png") no-repeat;
+        padding-left: 20px;
+    }
+</style>
+<div class="col-xs-12 app-colum">
+    <div id='listView' class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">Visitor List</span>
+        </div>
+        <div class="panel-body"
+            <div class="box-body no-height">
+                <div bs-table="userOption"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-horizontal form" bs-modal="userDetail.options" id='view_detail_form'>
+    <div class="col-sm-12">
+        <div class="form-group">
+                <label class="col-sm-5 control-label info-explain">Photo</label>
+                <img class="label form-if-setHtml" id="headimgurl" src='' alt='-' style="display: block;"></img>
+                <span class="label form-if-setHtml" id="headimgurl1" src='' alt='-' style="display: none;">-</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-5 control-label info-explain">Phone</label>
+                <span class="label form-if-setHtml" id="phoneNum">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-5 control-label info-explain">Name</label>
+                <span class="label form-if-setHtml" id="nickname">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-5 control-label info-explain">Gender</label>
+                <span class="label form-if-setHtml" id="sex">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-5 control-label info-explain">openid</label>
+                <span class="label form-if-setHtml" id="openid">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-5 control-label info-explain">Service provider</label>
+                <span class="label form-if-setHtml" id="carrier">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-5 control-label info-explain">Region</label>
+                <span class="label form-if-setHtml"  id="phoneProvince">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-5 control-label info-explain">Country</label>
+                <span class="label form-if-setHtml" id="areaName">--</span>
+        </div>
+        <!--<div class="form-group">
+                <label class="col-sm-5 control-label info-explain">Province</label>
+                <span class="label form-if-setHtml" id="province">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-5 control-label info-explain">City</label>
+                <span class="label form-if-setHtml" id="city">--</span>
+        </div>-->
+    </div>
+</div>
+<div id="user_rc" class="rc-define"
+    USER_LIST_HEADER="MAC Address,Username,Auth Method,Online Count,Online Duration,Last Online At,Operation"
+    USER_TYPE="One-Key Authentication,SMS Authentication,WeChat Client Authentication,Ali Pay Authentication,QQ Authentication,WeChat Official Account Authentication,WeChat Wi-Fi,app Authentication,Tencent Wi-Fi,Fixed Account Authentication"
+    USER_HEADER="MAC Address,Added At"
+    Title="Add MAC Address,Details,Add to blacklist"
+    ADD_SUCCESS ="Visitor added to the blacklist successfully"
+    ADD_ERROR ="has been added to the blacklist"
+    MAC_ERROR = "Operation failed.The visitor does not have a MAC address"
+    SEX = "Not configured,Male,Female"
+    CONFIRM = "Are you sure you want to add the visitor to the blacklist?"
+>
+</div>

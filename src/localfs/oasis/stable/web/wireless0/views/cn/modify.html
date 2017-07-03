@@ -1,0 +1,188 @@
+<!--修改页面-->
+<style>
+    .col-sm-2,.col-sm-9,.col-sm-12,.col-sm-10,.col-sm-8
+    {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .btn_h_return
+    {
+        margin-top: -32px;
+        right: 47px;
+    }
+    .panel
+    {
+        width: 1080px;
+    }
+    select
+    {
+        color: #444;
+        line-height: 28px;
+        display: block;
+        padding-left: 8px;
+        padding-right: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        box-sizing: border-box;
+        text-align: left !important;
+    }
+</style>
+
+<div class="btn_h_return" ng-click="return()"></div>
+
+<div class="panel panel-default" >
+    <div class="panel-heading">
+        <h3 class="panel-title">修改配置</h3>
+    </div>
+
+    <div class="panel-body">
+        <form id="toggle_form" class="form edit" autocomplete="off" style="padding-left: 26px;" name="modifyForm">
+            <div class="response-block">
+
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label required">SSID</label>
+                    <div class="col-sm-10" >
+                        <input type="text" class="string big required" id="ssid_name" name ="ssid_name" maxlength=32 readonly
+                        value="ssid_name" ng-model="template.ssid_name"/>
+                        <label class="error" id="ssid_name_error"></label>
+                    </div>
+                </div>
+
+                <div class="form-group row" >
+                    <label class="col-sm-2 control-label required">接入密码</label>
+                    <div class="col-sm-10">
+                        <div style="display: inline-block">
+                            <div class="xb-input xb-radio" >
+                                <input type="radio" class="input-element" id="addPwdOn"  name="addPwd" value="1"
+                                       ng-model="template.addPwd" ng-click="addPwdOn()"/>
+                                <span class="input-icon radio-icon " ng-class="{'checked': template.addPwd == 1}"></span>
+                                <label for="addPwdOn" class="input-label"></label>
+                            </div>
+                            <label for="addPwdOn">使用密码</label>
+                        </div >
+                        <div style="display: inline-block;padding-left: 43px;" >
+                            <div class="xb-input xb-radio">
+                                <input type="radio" class="input-element" id="addPwdOff"  name="addPwd" value="2"
+                                       ng-model="template.addPwd" ng-click="addPwdOff()"/>
+                                <span class="input-icon radio-icon" ng-class="{'checked': template.addPwd == 2}" ></span>
+                                <label for="addPwdOff" class="input-label"></label>
+                            </div>
+                            <label for="addPwdOff">不使用密码</label>
+                        </div>
+                        <br/>
+                        <div ng-if="pwd" ng-init="showPwd1=true">
+                            <input type="password" class="string big" id="addPwdValue" name="addPwdValue" ng-minlength="8" ng-maxlength="63"
+                                   ng-model="template.addPwdValue" ng-show="showPwd1" ng-pattern='/^[a-zA-Z0-9]+$/' required
+                                   error_id="addPwdValue_error" placeholder="********"/>
+                            <input type="text" class="string big" id="PwdValue" name="PwdValue" ng-minlength="8" ng-maxlength="63"
+                                   ng-model="template.addPwdValue" ng-hide="showPwd1" ng-pattern='/^[a-zA-Z0-9]+$/' required
+                                   error_id="PwdValue_error" placeholder="********"/>
+                            <span class="icon_eye" ng-class="{show_word: !showPwd1}" id="switch" ng-click="showPwd1=!showPwd1"></span>
+                            <span ng-show="modifyForm.addPwdValue.$dirty" ng-messages="modifyForm.addPwdValue.$error" ng-messages-multiple >
+                                <span ng-message="required" class="error" style="display: inline-block">该参数必须配置。</span>
+                                <span ng-message="minlength" class="error"  style="display: inline-block">字符长度在8~63位之间</span>
+                                <span ng-message="pattern" class="error" style="display: inline-block">只能输入数字和（或）字母。</span>
+                            </span>
+                            <br/>
+                            <label class="info-explain">说明：密码由8～63位数字和（或）字母组成</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group row" >
+                    <label class="col-sm-2 control-label required">隐藏SSID</label>
+                    <div class="col-sm-10">
+                        <div style="display: inline-block">
+                            <div class="xb-input xb-radio" >
+                                <input type="radio" class="input-element" id="hideSsid"  name="hideSsid" value=1
+                                       ng-model="template.isHideSsid" ng-click="hideSsid()"/>
+                                <span class="input-icon radio-icon " ng-class="{'checked': template.isHideSsid == 1}"></span>
+                                <label for="hideSsid" class="input-label"></label>
+                            </div>
+                            <label for="hideSsid">是</label>
+
+                        </div >
+                        <div style="display: inline-block;padding-left: 82px;" >
+                            <div class="xb-input xb-radio">
+                                <input type="radio" class="input-element" id="showSsid"  name="showSsid" value=0
+                                       ng-model="template.isHideSsid" ng-click="showSsid()"/>
+                                <span class="input-icon radio-icon" ng-class="{'checked': template.isHideSsid == 0}" ></span>
+                                <label for="showSsid" class="input-label"></label>
+                            </div>
+                            <label for="showSsid">否</label>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class=" response-block">
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label">认证方式</label>
+                    <div class="col-sm-9">
+                        <div class="col-sm-12" style="margin-bottom: 15px;">
+                            <div class="xb-input xb-radio">
+                                <input type="radio" class="input-element" value="AT1" id="addAT1" name="addAuthenType" ng-model="addAuthCfg.addAuthenType" required/>
+                                <span class="input-icon radio-icon " ng-class="{'checked':addAuthCfg.addAuthenType=='AT1'}"></span>
+                                <label for="addAT1" class="input-label"></label>
+                            </div>
+                            <label for="addAT1">不认证</label>
+                        </div>
+
+                        <div class="col-sm-12" >
+                            <div class="xb-input xb-radio">
+                                <input type="radio" class="input-element" value="AT2" id="addAT2" name="addAuthenType" ng-model="addAuthCfg.addAuthenType" required/>
+                                <span class="input-icon radio-icon " ng-class="{'checked':addAuthCfg.addAuthenType =='AT2'}"></span>
+                                <label for="addAT2" class="input-label"></label>
+                            </div>
+                            <label for="addAT2" >认证</label>
+
+
+                        </div>
+                        <div ng-if="addAuthCfg.addAuthenType=='AT2'" style="padding-left: 16px;">
+                            <div style="margin-bottom: 10px;">
+                                <label class="col-sm-2 control-label">选择认证模板</label>
+                                <div class="ath-type" id="addModelSelect">
+                                    <select class="singleSelect" style="width: 200px;" ng-model="addAuthCfg.addAuthCfgList"
+                                            ng-options="AuthCfg for AuthCfg in authTemplates">
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="col-sm-2 control-label">选择页面模板</label>
+                                <div class="lg-page" id="addLoginPageSelect">
+                                    <select class="singleSelect"  style="width: 200px;" ng-model="addAuthCfg.addLoginPageList"
+                                            ng-options="LoginPage.themeName for LoginPage in pageTemplates">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <div align = "center" style="margin-bottom: 20px;">
+        <button class="btn btn-cus btn-sm " ng-disabled="modifyForm.$pristine" ng-click="updateSsidOne()" >
+            确定
+        </button>
+    </div>
+</div>
+
+<div id="ws_ssid_rc" class="rc-define"
+     LINK = "主连接已断开,修改失败",
+     ADD_Limit = "服务模版已达到上限，修改失败"
+     shared_key_ziduan="由于您的版本过低，无线服务加密密钥不允许为空，否则会配置失败，请输入加密密钥。"
+     LoseConfig="检测到此设备版本过低，继续进行修改，可能会覆盖在设备上对此SSID进行的其他配置参数设置，确定继续？"
+     modify_fail="修改配置失败。"
+     modify_success="修改配置成功。"
+     brief="(简约)"
+     sky="(天空)"
+     vitallity = "(2017活力版)"
+></div>

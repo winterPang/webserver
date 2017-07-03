@@ -1,0 +1,76 @@
+<div class="panel-body" ng-show="showTable">
+            <div bs-table="msgOptions"></div>
+</div>
+<div class="panel-body" ng-hide="showTable">
+            <form class="form-horizontal" name="serialNumberForm" novalidate>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Serial Number ：
+                        <span class="label-require">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" name="serialNumber" class="col-sm-3 form-control" ng-model="serialNumber" placeholder="Please enter the serial number." required>
+                    </div>
+                    <div class="col-sm-3 ng-error" ng-show="serialNumberForm.serialNumber.$dirty"
+                         ng-messages="serialNumberForm.serialNumber.$error">
+                        <div ng-message="required">This information is required.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Serial Number Key ：
+                        <span class="label-require">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="text" name="serialNumberKey" class="col-sm-3 form-control"
+                               ng-model="serialNumberKey" placeholder="Please enter the serial number key."
+                               required autocomplete="off">
+                    </div>
+                    <div class="col-sm-3 ng-error" ng-show="serialNumberForm.serialNumberKey.$dirty"
+                         ng-messages="serialNumberForm.serialNumberKey.$error">
+                        <div ng-message="required">This information is required.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Serial Number Code ：
+                        <span class="label-require">*</span></label>
+                    <div class="col-sm-5">
+                        <input type="password" class="hidden" title="" autocomplete="off">
+                        <input type="password" class="col-sm-3 form-control" ng-model="serialNumberCode"
+                               name="serialNumberCode" placeholder="Please enter the serial number code." required
+                               ng-hide="showPWD" autocomplete="off">
+                        <input type="text" class="col-sm-3 form-control" ng-model="serialNumberCode"
+                               name="serialNumberCode" placeholder="Please enter the serial number code." required
+                               ng-show="showPWD" autocomplete="off">
+                        <span class="icon_eye msg-eye" ng-class="{show_word:showPWD}" ng-click="showPWD=!showPWD"></span>
+                    </div>
+                    <div class="col-sm-3 ng-error" ng-show="serialNumberForm.serialNumberCode.$dirty"
+                         ng-messages="serialNumberForm.serialNumberCode.$error">
+                        <div ng-message="required">This information is required.</div>
+                        <div ng-message="minlength">The string length is 6 to 32 characters.</div>
+                        <div ng-message="maxlength">The string length is 6 to 32 characters.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Short Message Signature ：</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="col-sm-3 form-control" name="emaySigner" ng-model="emaySigner"
+                               ng-maxlength="50" placeholder="Please enter a short message sign, can be empty">
+                    </div>
+                    <div class="col-sm-3 ng-error" ng-show="serialNumberForm.emaySigner.$dirty"
+                         ng-messages="serialNumberForm.emaySigner.$error">
+                        <div ng-message="maxlength">Short message signature length can not be greater than 50</div>
+                    </div>
+                </div>
+                <div>
+                    <div class="col-lg-offset-3" style="padding-left: 5px">
+                        <button type="button" class="btn btn-cus" ng-disabled="serialNumberForm.$invalid" ng-click="onSubmit()">Register</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+<div id="sys_config_rc" class="rc-define"
+        title="Serial Number,Serial Number Key,SMS Balance,The Users,Delete,￥"
+        sure-delete="Are you sure you want to delete the selected data?"
+        success-delete="Deleted successfully."
+        success-register="Register success."
+        not-fond="No match was found for the record, please click here "
+        register="Register"
+        reg-fail="Registration failed"
+></div>

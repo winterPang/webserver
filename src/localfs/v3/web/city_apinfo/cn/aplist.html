@@ -1,0 +1,107 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+<div class="page-row">
+    <div class="btn_h_return" id="return"></div>
+    <div class="col-xs-12 app-colum" debug="onlineuser_list">
+        <div class="app-box no-height default-bottom">
+            <div class="box-footer">
+                <span class="title">AP列表</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="onlineuser_list" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hide modal fade" id="tableDlg">
+    <form class="form-horizontal form" id="tableForm">
+        <div class="box-body no-height">
+          <div id="detail-list" class="simple-list"></div>
+        </div>
+    </form>
+  </div>
+<div class="hide modal fade" id="TerminalInfoDlg">
+    <form class="form-horizontal form" id="view_client_form">
+        <!-- <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+              <h3 class="modal-title">终端基本信息</h3>
+        </div> --> 
+        <div class="col-sm-12">
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">AP名称</label>
+                  <span class="label form-if-setHtml" id="apName">--</span>
+            </div>
+
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">AP型号</label>
+                  <span class="label form-if-setHtml" id="apModel">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">序列号</label>
+                  <span class="label form-if-setHtml" id="apSN">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">MAC地址</label>
+                  <span class="label form-if-setHtml" id="macAddr">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">AP组名称</label>
+                  <span class="label form-if-setHtml"  id="apGroupName">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">射频信息</label>
+                  <span class="label form-if-setHtml" id="radioList1">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">AP状态</label>
+                  <span class="label form-if-setHtml" id="status1">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">吞吐量(发送/接收，KB)</label>
+                  <span class="label form-if-setHtml" id="transmit_receive_Traffic">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">在线时长(天:时:分:秒)</label>
+                  <span class="label form-if-setHtml" id="onlineTime1">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">客户端数量</label>
+                  <span class="label form-if-setHtml" id="clientCount">--</span>
+            </div>
+            <!-- <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">休眠次数</label>
+                  <span class="label form-if-setHtml" id="PowerSaveMode">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5  control-label "><strong></strong></label>
+            </div> -->
+        </div>
+    </form>
+</div>
+
+<div id="apinfo_aplist_rc" class="rc-define"
+    	TX_HEADER="AP名称,发送速率（Kbps）"
+        RX_HEADER="AP名称,接收速率（Kbps）"
+        G5_HEADER="AP名称,5GHz客户端数量"
+        G2_HEADER="AP名称,2.4GHz客户端数量"
+        GROUP_HEADER="AP名称,AP型号,状态,序列号,IP地址"
+        MODE=",802.11b,802.11a,802.11g,802.11n(2.4GHz),802.11n(5GHz),802.11ac(2.4GHz),802.11ac(5GHz)"
+        ALLAP_HEADER1="AP名称,序列号,MAC地址,IP地址,射频信息,AP状态,在线时长（天:时:分:秒）"
+        ALLAP_HEADER="AP名称,AP型号,序列号,MAC地址,AP组名称,射频信息,AP状态,吞吐量(发送/接收，KB),在线时长(天:时:分:秒),客户端数量"
+        ALLAP_HEADER2="AP名称,AP型号,序列号,AP组名称,射频信息,在线时长（天:时:分:秒）,客户端数量"
+        DISCONNECT="断开连接"
+        STATUS=",在线,离线,正在下载版本"
+        TERINFO="详情"
+        TITLE_TERINFO="AP详情"
+></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+	Utils.Pages.loadJS("city_apinfo.aplist");
+</script>

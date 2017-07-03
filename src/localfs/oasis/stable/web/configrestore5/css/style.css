@@ -1,0 +1,19 @@
+#configrestore5 .fc-event {
+    background: rgba(120, 206, 195, 0.6);
+    border:1px solid rgba(120, 206, 195, 0.6) !important
+}
+
+#configrestore5 .eventClickedColor {
+    background: rgba(62, 176, 161, 0.6) !important;
+    border:1px solid rgba(62, 176, 161, 0.6) !important
+}
+
+#configrestore5 tr:first-child > td > .fc-day-grid-event {
+    margin:-24px 0 -2px 0;
+    width: 60px;
+    height: 56px;
+    border-radius: 0;
+}
+#configrestore5 span.label{
+    line-height:0px;
+}

@@ -1,0 +1,27 @@
+<html>
+<head>
+</head>
+<body>
+<div class="app-colum">
+    <div class="app-box no-height">
+    <div class="box-footer">
+        <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>-->
+        <span class="title">日志详情</span>
+    </div>
+    <div class="modal-body">
+        <div id="logList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" id="log_close">关闭</a>
+    </div>
+    </div>
+</div> 
+
+<div id="view_log_rc" class="rc_define" 
+    LOG_HEADER="终端MAC,终端IP,认证类型,在线时间"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("hq_branchesinfor.view_log");
+</script>

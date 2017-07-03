@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<title></title>
+	<link id="favicon_link" rel="icon" href="../static/image/h3clogo.png">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	<link href="../../web/frame/libs/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+	<link href="../../web/frame/libs/css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
+	<link href="../../web/frame/css/other.css" rel="stylesheet" type="text/css"/>
+	<link href="../../web/frame/css/frame.css" rel="stylesheet" type="text/css"/>
+	<link href="../../web/frame/css/widget.css" rel="stylesheet" type="text/css"/>
+	<!-- <link href="../../web/frame/css/menu.css" rel="stylesheet" type="text/css"/> -->
+	<link href="../../web/frame/css/h-plugin.css" rel="stylesheet" type="text/css"/>
+	<link href="../../web/frame/css/private.css" rel="stylesheet" type="text/css"/>
+	<!-- <link href="../../web/frame/css/style-responsive.css" rel="stylesheet" type="text/css"/> -->
+	<link href="../../web/frame/libs/css/font.css" rel="stylesheet" type="text/css"/>
+	<link href="../beibei/css/beibei.css" rel="stylesheet" type="text/css"/>
+	<link href="../../web/frame/css/businessac.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript">
+	var FrameInfo = {};
+	</script>
+	<!--[if IE 8]>
+	<link rel="stylesheet" href="../../web/frame/libs/css/font-awesome-ie7.min.css">
+	<script type="text/javascript" src="../../web/frame/utils/respond.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+<div id="xiaobeiai">
+	<textarea id= "aiQuertionInput" style="display:none"></textarea>
+	<div id="msgContent">
+		<div id="message" tabindex="50000"></div>
+	</div>
+	<div id="beibei" tabindex="50001"></div>
+	<div id="beibeibackgroud"></div>
+	<div id="xiaobeiai_close"></div>
+</div>
+
+<!-- manually attach allowOverflow method to pane -->
+<div class="toppannel">
+	<div class="user-bar">
+		<a id="user_menu">
+			<i class="droplist-icon " id="drop"></i>
+            <i class="user_name" id="username"></i>
+			<img src="css/image/touxiang.jpg" id="headerimg">
+		</a>
+	    <span class="message_icon" id="chat_html"></span>
+	    <br/>
+		<ul id="drop_list" class=" hide">
+			<li index="5">
+				<span id="online_service"></span>
+			</li>
+			<li index="0">
+				<span id="password_label"></span>
+			</li>
+			<li index="3">
+				<span id="system_manage"></span>
+			</li>
+			<li index="1">
+				<span id="back_home"></span>
+			</li>
+			<li index="4">
+				<span id="lvzhou_forum"></span>
+			</li>
+			<li index="2">
+				<span id="lougout_label"></span>
+			</li>	
+		</ul>
+    </div>
+	<div id="station" class="content">
+	</div>
+	<label for="Country" class="change_station">场所切换：</label>
+	<div class="logo"></div>
+</div>
+<div class="xb-layout-north logo-panel">
+		<ul>
+			<!--<li>
+				<a href="#total" data-value="total">网络维护</a>
+			</li>
+			<li>
+				<a href="#manage" data-value="manage">应用管理</a>
+			</li>
+			<li>
+				<a href="#auth" data-value="auth">网络部署ssss</a>
+			</li>
+			<li>
+				<a href="#network" data-value="network">网络监控sss</a>
+			</li>-->
+		</ul>
+</div>
+<div class="xb-layout-west menu-panel">
+	<div class="direction" id ="dirText"></div>
+	<div id="side_menu" class="page-sidebar"></div>
+</div>
+
+<div id="layout_center" class="xb-layout-center content-panel">
+	<div class="xb-center-panel page-container">
+		<div id="tabContent" class="tab-content"></div>
+	</div>
+</div>
+	<!--<script src="../../web/frame/js/busiacall-min.js" type="text/javascript"></script>-->
+	<!-- END CONTAINER -->
+	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+	<!-- BEGIN CORE PLUGINS -->
+
+	<script src="../../web/frame/libs/js/jquery.js" type="text/javascript"></script>
+	<script src="../../web/frame/libs/js/jquery.cookie.js" type="text/javascript"></script>
+	<script src="../../web/frame/libs/js/jquery-ui.js" type="text/javascript"></script>
+	<script src="../../web/frame/libs/js/bootstrap.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="../../web/frame/libs/js/jquery.event.drag-2.2.js"></script>
+	<script src="../../web/chat/js/socket.io.js"></script>
+	<script src="../../web/chat/xiaobeichat.js"></script>
+
+	<!--[if lt IE 9]>
+	<script src="../../web/frame/libs/js/excanvas.min.js"></script>
+	<script src="../../web/frame/libs/js/respond.min.js"></script>
+	<![endif]-->
+	<!-- END CORE PLUGINS -->
+
+	<!-- BEGIN bootstrap PLUGINS -->
+	<script type="text/javascript" src="../../web/frame/libs/js/bootstrap-modal.js" ></script>
+	<script type="text/javascript" src="../../web/frame/libs/js/bootstrap-modalmanager.js" ></script>
+	<script type="text/javascript" src="../../web/frame/libs/js/bootstrap-carousel.js" ></script>
+	<!-- END bootstrap PLUGINS -->
+
+<!-- BEGIN PAGE LEVEL SCRIPTS -->
+	<script type="text/javascript" src="../../web/frame/config.js"></script>
+	<script type="text/javascript" src="../../web/frame/libs/js/mainframe.js"></script>
+	<script type="text/javascript" src="../../web/frame/js/menu.js"></script>
+	<!-- <script type="text/javascript" src="../../web/frame/widgets/echart/esl.js"></script>
+	<script type="text/javascript" src="../../web/frame/widgets/echart/echarts.js"></script> -->
+	<script type="text/javascript" src="../../web/frame/widgets/debuger.js"></script>
+	<!--<script type="text/javascript" src="../../web/chat/js/socket.io.js"></script>-->
+	<!--<script src="../../web/frame/cn/local.js"></script>-->
+	<script type="text/javascript" src="../../web/frame/widgets/frame.js"></script>
+	<script type="text/javascript" src="../../web/frame/js/mjs.js"></script>
+	<script type="text/javascript" src="../../web/frame/widgets/util.js"></script>
+	<script type="text/javascript" src="../../web/frame/widgets/dialog.js"></script>
+	<script type="text/javascript" src="../../web/frame/widgets/dbm.js"></script>
+	<script type="text/javascript" src="../../web/frame/utils/base.js"></script>
+	<script src="../beibei/js/beibei.js" type="text/javascript"></script>
+
+	<!-- xin tian jia de js wen jian -->
+	<script src="../../web/frame/libs/jquery_raty/jquery.raty.js" type="text/javascript"></script>
+	<script type="text/javascript" src="../../web/frame/libs/fullcalendar/lib/moment-min.js" ></script>
+	<script type="text/javascript" src="../../web/frame/libs/fullcalendar/lib/jquery-ui-custom-min.js" ></script>
+	<script type="text/javascript" src="../../web/frame/libs/fullcalendar/fullcalendar.js" ></script>
+
+	<!-- xin tian jia de  js wen jian -->
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <link href="../health/css/healthhistory.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+       
+    <div class="col-sm-12 calendar">
+        <div class="box-footer">
+            <div class="title">体检报告</div>
+        </div>
+        <div class="box-body echart-height" id="version_block">
+            <div class="response-block col-sm-6 ">
+                <div class="form-group top">
+                    <label>最近云巡检</label>
+                    <a  class="label" id="DeviceType" name="DeviceType"></a>
+                </div>
+                <div class="form-group position">
+                    <label >云巡检分数</label>
+                    <span class="label" id="SerialNumber" name="seriNUm"></span>
+                </div>
+                <div class="form-group position">
+                    <label>最近深度体检</label>
+                    <a id="FirmwareRev" name="boot_version"></a>
+                    <a id="HardwareRev2" name="hardware_version">开始深度体检</a>
+                    <span id="HardwareRev3" class="hide" style="font-size:13px;padding-left:25px;">正在深度体检
+                        <img  style="width:40px;height:34px;" src="../health/css/loading2.png">
+                    </span>
+                    <!-- <span id="cancelDeepCheck" class="hide" style="cursor:pointer;font-size:10px;color:#4ec1b2">取消深度体检</span>-->
+                </div>
+                <div class="form-group position">
+                    <label class="col-sm-2 control-label">分数趋势</label>
+                    <div class="col-sm-12">
+                        <div id="cj_Details">
+                            <div class="pull-right">
+                                <a id="history_week"> <span>一周</span></a>
+                                <a id="history_month"> <span>一个月</span></a>
+                                <a id="history_halfyear"> <span>半年</span></a>
+                            </div>
+                            
+                            <div id="datacontent"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="response-block col-sm-6 ">
+                <div class="form-group position">
+                    <div  class="col-sm-12">
+                        <label>健康体检历史</label>
+                    </div>
+                    <div class="fullcalendar" id='calendar'></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="fc-popover fc-more-popover hide" id="dep_jContent">
+        <div class="fc-event-userdefine">
+            <a  id="dep_report" style="cursor:pointer;font-size:14px;">体检报告</a> <br/>
+            <a  id="dep_download" style="cursor:pointer;font-size:14px;" class="gray">下载诊断信息</a> <br/>
+            <a  id="dep_delete" style="cursor:pointer;font-size:14px;">删除</a> <br/>
+        </div>
+    </div>
+
+    <div class="fc-popover fc-more-popover hide" id="jContent">
+         <div class="fc-event-userdefine">
+             <a  id="report" style="cursor:pointer;font-size:14px;">体检报告</a> <br/>
+             <a  id="delete" style="cursor:pointer;font-size:14px;">删除</a> <br/>
+         </div>
+    </div>
+    </body>
+    <div id="history_rc" class="rc-define"
+            >
+    </div>
+    <script language="javascript" type="text/javascript">
+        Utils.Pages.loadJS ("health.healthhistory");
+    </script>
+</html>

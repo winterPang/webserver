@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .mb20 {
+            margin-bottom: 20px;
+        }
+        .title {
+            color: #323232;
+            font-size: 14px;
+            font-weight: 900;
+        }
+        /* 未被访问的链接 */
+        .bac{
+            background:url(../frame/images/grid-loading.gif) no-repeat;
+            width:60px;
+            height:60px;
+            background-size:60px 60px;
+            top:50%;
+            left:50%;
+            margin-left:-30px;
+            margin-top:-30px;
+        }
+        #btNone{
+            border-top:none !important;
+        }
+        .pos-abs{
+            position:absolute;
+        }
+        .pos-rel{
+            position:relative;
+        }
+        .fullSpace{
+            width:100%;
+            height:100%;
+        }
+        .stOnline{
+            width:0;
+            height:0;
+            top:50%;
+            left:50%;
+            margin-top:-6px;
+            margin-left:-6px;
+            border:6px solid #4ec1b2;
+            border-radius:50%;
+            -webkit-border-radius:50%;
+            -ms-border-radius:50%;
+        }
+        .stOffline{
+            width:0;
+            height:0;
+            top:50%;
+            left:50%;
+            margin-top:-6px;
+            margin-left:-6px;
+            border:6px solid #ccc;
+            border-radius:50%;
+            -webkit-border-radius:50%;
+            -ms-border-radius:50%;
+        }
+        .mp{
+            margin-top:3px;
+        }
+    </style>
+<body>
+<div class="dashboard">
+    <div class="page-row custom xxb">
+        <div class="col-xs-12">
+            <ul class="nav nav-tabs">
+                <li>
+                    <a href="x_networkcfg.index" data-toggle="tab" id="wirlessLink">无线配置</a>
+                </li>
+                <li  class="active">
+                    <a href="x_networkcfg.radio" data-toggle="tab" id="radioLink">射频配置</a>
+                </li>
+                <li>
+                    <a href="x_networkcfg.probeswitch" data-toggle="tab" id="probeSwitch">探针设置</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-xs-12 app-colum top-block">
+            <div class="app-box" id="btNone" debug="byApList log">
+                <div class="box-body no-height" ng-show="show_app">
+                    <div id="radioSet" class="simple-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hide modal fade " id="failcfgDlg">
+    <div id="client_diag">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="closeX"></button>
+            <h3 class="modal-title">设备失败列表</h3>
+        </div>
+        <!-- <span id="tip" style=" color:red; display: none;">下发失败的原因是设备离线</span> -->
+        <div style="padding: 10px 20px 0px 20px;margin-bottom: -10px;color: #000">
+              <strong>Tips：您的设备版本过低不支持此配置，请先升级设备版本</strong> 
+            </div>
+        <div class="modal-body">
+            <form class="form edit" id="sign">
+                <!--<div class="form-body col-xs-4">
+                    <img id="jiankang" class="sign_img gray" src="../../web/frame/css/image/jiankang.png">
+                </div>
+                <div class="form-body col-xs-4">
+                    <img id="junheng" class="sign_img gray" src="../../web/frame/css/image/junheng.png">
+                </div>
+                <div class="form-body col-xs-4">
+                    <img id="chuanqiang" class="sign_img gray" src="../../web/frame/css/image/chuanqiang.png">
+                </div>-->
+            </form>
+            <div id="failList" class="simple-list showList"></div>
+        </div>
+        <div class="modal-footer form-actions">
+            <!-- <a class="btn btn-primary" id="failConform">确定</a> <a class="btn btn-primary" id="failClose">关闭</a> -->
+        </div>
+    </div>
+    <!--<div id="failList" class="simple-list showList"></div>-->
+    <!--<button class="btn btn-primary btn_ok hidemodify" id="signalStrength_btn" >确定</button>-->
+    <!--<button class="btn btn-primary btn_ok hidemodify" id="signalStrength_btn" >修改</button>-->
+</div>
+
+<div class="rc-define" id="radio_rc"
+     CONFIRM_TITLE = "确认提示"
+     LIST_TITLE=",设备别名,序列号,2.4G射频状态,5G射频状态,2.4G信道,5G信道"
+     RADIO_CHANGE="修改"
+     RADIO_LIST="关闭,开启"
+     RADIO_STATUES="在线,离线"
+     RADIO_NULL="配置未修改"
+     PENDING_MSG="配置下发中,配置下发成功,设备列表获取中,配置下发失败"
+     RADIO_CODE="成功,格式错误,权限问题,设备端超时,主链接问题,webserver内部逻辑错误,webserver与设备端同学异常,微服务消息处理异常"
+     RADIO_SLIST="设备序列号,状态"
+     QUE_SUCC="配置成功"
+
+></div>
+</body>
+</html>
+<script type="text/javascript">
+    Utils.Pages.loadJS("x_networkcfg.radio");
+</script>

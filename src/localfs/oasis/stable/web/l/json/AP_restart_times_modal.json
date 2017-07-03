@@ -1,0 +1,20 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 30,
+  "rows": [
+    {"AP_name":"AP1","restart_times":"10"},
+    {"AP_name":"AP2","restart_times":"9"},
+    {"AP_name":"AP3","restart_times":"8"},
+    {"AP_name":"AP4","restart_times":"7"},
+    {"AP_name":"AP5","restart_times":"6"},
+    {"AP_name":"AP6","restart_times":"5"},
+    {"AP_name":"AP7","restart_times":"4"},
+    {"AP_name":"AP8","restart_times":"3"},
+    {"AP_name":"AP9","restart_times":"3"},
+    {"AP_name":"AP10","restart_times":"2"},
+    {"AP_name":"AP11","restart_times":"2"},
+    {"AP_name":"AP12","restart_times":"1"}
+
+  ]
+}

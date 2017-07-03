@@ -1,0 +1,316 @@
+.newdevmanage ul,
+.newdevmanage li,
+.newdevmanage p {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.newdevmanage .btn-customer {
+  display: inline-block;
+  color: #fff;
+  height: 34px;
+  line-height: 34px;
+  border: none;
+  border-radius: 4px;
+  background-color: #78cec3;
+  padding: 0 14px;
+  margin-right: 12px;
+}
+.newdevmanage .btn-customer:focus {
+  outline: none;
+}
+.newdevmanage .btn-customer:hover {
+  background-color: #4ec1b2;
+}
+.newdevmanage .btn-customer[disabled=disabled] {
+  cursor: not-allowed;
+  opacity: .65;
+  background-color: #78cec3;
+}
+.newdevmanage .btn-customer[disabled=disabled]:hover {
+  background-color: #78cec3;
+}
+.newdevmanage .btn-customer.screen-more,
+.newdevmanage .btn-customer.btn-search,
+.newdevmanage .btn-customer.his-log {
+  margin-right: 0;
+}
+.newdevmanage .btn-customer.un-select-all {
+  background-color: #eff4f7;
+  color: #333;
+  margin-right: 0;
+}
+.newdevmanage .btn-customer.un-select-all:hover {
+  background-color: #fc9ea5;
+  color: #fff;
+}
+.newdevmanage .btn-customer .btn-icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  background: url('../images/icon.png') no-repeat;
+  margin: 8px 8px 0 0;
+  float: left;
+}
+.newdevmanage .btn-customer .btn-icon.icon-add {
+  background-position: -25px -19px;
+}
+.newdevmanage .operates {
+  height: 34px;
+  margin-bottom: 10px;
+  position: initial;
+}
+.newdevmanage .operates .search-box {
+  width: 173px;
+  height: 34px;
+  border-color: #e7e7e9;
+  border-right: none;
+  position: relative;
+  top: -2px;
+  left: 6px;
+}
+.newdevmanage .operates .ret-mould {
+  display: inline-block;
+  width: 60px;
+  height: 32px;
+  background: url('../../frame/images/return.png') no-repeat -306px -88px;
+}
+.newdevmanage .operates .ret-mould:hover {
+  background-position: -390px -88px;
+}
+.newdevmanage .edit-label {
+  line-height: 30px;
+  margin-bottom: 10px;
+}
+.newdevmanage .edit-label:after {
+  content: '';
+  display: table;
+  clear: both;
+}
+.newdevmanage .edit-label > span {
+  display: inline-block;
+  padding-top: 2px;
+  margin-right: 10px;
+}
+.newdevmanage .label-opt li,
+.newdevmanage .labels-list li,
+.newdevmanage .select-labels li {
+  color: #333;
+  text-align: center;
+  list-style: none;
+  padding: 2px 4px;
+}
+.newdevmanage .label-opt li.colors,
+.newdevmanage .labels-list li.colors,
+.newdevmanage .select-labels li.colors {
+  color: #fff;
+}
+.newdevmanage .label-opt li.colors.c1,
+.newdevmanage .labels-list li.colors.c1,
+.newdevmanage .select-labels li.colors.c1 {
+  background-color: #e1554c;
+}
+.newdevmanage .label-opt li.colors.c2,
+.newdevmanage .labels-list li.colors.c2,
+.newdevmanage .select-labels li.colors.c2 {
+  background-color: #4188ce;
+}
+.newdevmanage .label-opt li.colors.c3,
+.newdevmanage .labels-list li.colors.c3,
+.newdevmanage .select-labels li.colors.c3 {
+  background-color: #139e83;
+}
+.newdevmanage .label-opt li.colors.c4,
+.newdevmanage .labels-list li.colors.c4,
+.newdevmanage .select-labels li.colors.c4 {
+  background-color: #3a4f66;
+}
+.newdevmanage .label-opt li.colors.c5,
+.newdevmanage .labels-list li.colors.c5,
+.newdevmanage .select-labels li.colors.c5 {
+  background-color: #febc06;
+}
+.newdevmanage .label-opt li {
+  margin-right: 10px;
+  float: left;
+}
+.newdevmanage .add-dev-area,
+.newdevmanage .add-scene-area,
+.newdevmanage .add-simple-mould {
+  width: 100%;
+  border: 1px solid #ddd;
+  margin: 20px 0;
+  padding: 20px;
+}
+.newdevmanage .add-dev-area .control-label,
+.newdevmanage .add-scene-area .control-label,
+.newdevmanage .add-simple-mould .control-label {
+  margin-right: 10px;
+}
+.newdevmanage .add-dev-area .irf-field,
+.newdevmanage .add-scene-area .irf-field,
+.newdevmanage .add-simple-mould .irf-field {
+  padding-top: 4px;
+}
+.newdevmanage .add-dev-area .labels-list,
+.newdevmanage .add-scene-area .labels-list,
+.newdevmanage .add-simple-mould .labels-list {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.newdevmanage .add-dev-area .labels-list li,
+.newdevmanage .add-scene-area .labels-list li,
+.newdevmanage .add-simple-mould .labels-list li,
+.newdevmanage .add-dev-area .select-labels li,
+.newdevmanage .add-scene-area .select-labels li,
+.newdevmanage .add-simple-mould .select-labels li {
+  margin: 10px;
+}
+.newdevmanage .add-dev-area .select-labels,
+.newdevmanage .add-scene-area .select-labels,
+.newdevmanage .add-simple-mould .select-labels {
+  margin: 0;
+  height: 32px;
+}
+.newdevmanage .add-dev-area .select-labels li,
+.newdevmanage .add-scene-area .select-labels li,
+.newdevmanage .add-simple-mould .select-labels li {
+  float: left;
+  margin-left: 0;
+  margin-top: 8px;
+}
+.newdevmanage .order-guide label {
+  display: inline-block;
+  padding: 10px;
+  margin-right: 10px;
+  background-color: #ddd;
+}
+.newdevmanage .order-guide label.active {
+  background-color: #4ec1b4;
+  color: #fff;
+}
+.newdevmanage .scene-list ul {
+  height: 62px;
+}
+.newdevmanage .scene-list li {
+  float: left;
+  list-style: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px 10px;
+  margin-right: 20px;
+}
+.newdevmanage .scene-list li.active {
+  background-color: #4ec1b4;
+  color: #fff;
+}
+.newdevmanage li.level0 span.button.level0.root_open,
+.newdevmanage .ztree li.level0 span.button.level0.root_open,
+.newdevmanage li.level0 span.button.level0.roots_open,
+.newdevmanage .ztree li.level0 span.button.level0.roots_open {
+  background: url(../../devmanage/images/icon-hc.png) no-repeat !important;
+}
+.newdevmanage li.level0 span.button.level0.root_close,
+.newdevmanage .ztree li.level0 span.button.level0.root_close,
+.newdevmanage li.level0 span.button.level0.roots_close,
+.newdevmanage .ztree li.level0 span.button.level0.roots_close {
+  background: url(../../devmanage/images/icon-hn.png) no-repeat !important;
+}
+.newdevmanage li.level1 span.button.level1.center_open,
+.newdevmanage .ztree li.level1 span.button.level1.center_open {
+  background: url(../../devmanage/images/icon-dc.png) no-repeat !important;
+}
+.newdevmanage li.level1 span.button.level1.center_close,
+.newdevmanage .ztree li.level1 span.button.level1.center_close {
+  background: url(../../devmanage/images/icon-dn.png) no-repeat;
+}
+.newdevmanage li span.button.center_open,
+.newdevmanage .ztree li span.button.center_open,
+.newdevmanage li span.button.bottom_open,
+.newdevmanage .ztree li span.button.bottom_open {
+  background: url(../../devmanage/images/icon-dc.png) no-repeat;
+}
+.newdevmanage li span.button.center_close,
+.newdevmanage .ztree li span.button.center_close,
+.newdevmanage li span.button.bottom_close,
+.newdevmanage .ztree li span.button.bottom_close {
+  background: url(../../devmanage/images/icon-dn.png) no-repeat;
+}
+.newdevmanage form .form-group {
+  margin-left: 0;
+  margin-right: 0;
+}
+.newdevmanage hr {
+  margin: 20px 0;
+}
+.newdevmanage .conf-footer {
+  margin-top: 20px;
+}
+.newdevmanage .branch-text {
+  width: 173px;
+}
+.newdevmanage .conf-mould .common-conf {
+  width: 30%;
+  float: left;
+  margin-right: 30px;
+  margin-bottom: 30px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 20px;
+}
+.newdevmanage .conf-mould .common-conf:hover {
+  box-shadow: 1px 1px 4px rgba(90, 90, 90, 0.3);
+}
+.newdevmanage .conf-mould .common-conf.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.newdevmanage .conf-mould .common-conf.disabled:hover {
+  box-shadow: none;
+}
+.newdevmanage .conf-mould .common-conf .mould-name {
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
+}
+.newdevmanage .conf-mould .common-conf .mould-info {
+  height: 24px;
+  line-height: 24px;
+}
+.newdevmanage .conf-mould .common-conf .mould-info .badge {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  line-height: 24px;
+  padding: 0;
+  border-radius: 50%;
+  background-color: #00a1d7;
+  color: #fff;
+}
+.newdevmanage .conf-mould .common-conf .mould-info .badge.warning {
+  background-color: #e1554c;
+}
+.newdevmanage .conf-mould .common-conf .mould-info .badge.greate {
+  background-color: #139e83;
+}
+.newdevmanage .modal-content .modal-body label {
+  margin-right: 20px;
+}
+.newdevmanage .modal-content .modal-body span {
+  padding-top: 9px;
+}
+.newdevmanage .clear-both:before {
+  content: " ";
+  display: table;
+}
+.newdevmanage .clear-both:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+.newdevmanage .text-left {
+  text-align: left;
+}

@@ -1,0 +1,30 @@
+{
+  "code": 0,
+  "message": "??",
+  "data": {
+    "id": 209,
+    "shopName": "龙冠N810",
+    "shopAddr": "河北省$WSM_O2O$石家庄市$WSM_O2O$辛集市$WSM_O2O$",
+    "shopDesc": "router test",
+    "phone": "12345678",
+    "createdId": 304,
+    "createdName": "xuyian252",
+    "createdTime": 1470096000000,
+    "scenarioId": 20,
+    "version": 0,
+    "regionId": 2,
+    "province": "河北省",
+    "city": "石家庄市",
+    "district": "辛集市",
+    "addrDetail": "",
+    "sn": "",
+    "devices": [],
+    "addrShow": "河北省石家庄市辛集市",
+    "selected": true,
+    "showDetail": true,
+    "showDelete": true,
+    "otherpage": true,
+    "showEdit": true,
+    "showDevice": true
+  }
+}

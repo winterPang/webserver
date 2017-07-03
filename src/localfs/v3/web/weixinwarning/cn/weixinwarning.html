@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+			label{
+				text-align:center;				
+			}
+			.listHeight{
+				line-height:50px;
+				vertical-align:middle;
+                text-align:left;
+                left:12px;
+			}	
+			h4{
+				font-size:17px;
+				color:#343e4e;
+				margin-left:11px;
+				margin-bottom:8px;				
+			}
+			.switchMiddle{
+				margin-top:11px;
+				margin-bottom:-11px;
+
+			}
+			.checkMiddle{
+				margin-top:-3px;				
+			}
+			.bind{
+				display:inline-block;
+				position:absolute;
+				right:80px;
+				top:87px;
+				cursor: pointer;
+			}		
+            .time{
+                width:100px;
+                display:inline-block;
+                text-align:center;
+            }	
+            .time input:focus{
+                width:100px;
+                height:32px;
+            }
+            #max{
+                padding:0px;
+            }	
+            .btn-apply,.btn-cancel{
+                width:150px;
+            }      
+            .input-append span.add-on{
+                left:70px;
+            }   
+			.input-append .add-on i.icon-time{
+                 margin-top: 12px;
+            }   
+		</style>
+    </head>
+    <body>
+    	<div class="page-row">
+    		<!-- 勿扰设置 -->
+	        <div class="app-colum">
+	            <div class="app-box">
+	            	<!-- 表头 -->
+	                <div class="box-footer">
+	                    <span class="title">勿扰设置</span>
+	                </div>
+					<!-- 表框 -->
+	                <div id="noDistrub" class="box-body no-height">					
+	                    <h4>微信通知</h4>
+	                    <span class="bind" data-toggle="modal" data-target="#myModal">绑定说明</span>
+	                    <!-- 模态框 -->
+	                 	<!-- <div class="modal fade" id="myModal" >					     	
+      				        	<div class="modal-header">
+      								<h4 class="modal-title" id="myModalLabel">
+      					               微信绑定流程
+      					            </h4>
+      				       		</div>
+      
+      							<div class="modal-content">
+      						        <div class="modal-body">
+      						            1.打开微信<br/>
+      						            2.打开公众号<br/>
+      						            3.扫一扫二维码
+      						            <br/><br/><br/><br/><br/><br/><br/>
+      						        </div>
+      
+      						        <div class="modal-footer">
+      						            <button type="button" class="btn btn-default" 
+      						               data-dismiss="modal">关闭
+      						            </button>
+      						         </div>
+      					     	</div>
+      						</div>-->
+
+	                    <hr/>
+                        <div class="form-group">
+                            <label class="col-sm-1 listHeight">指定通知时间</label>
+							<!-- 开关控件 -->
+                            <div class="col-sm-10 listHeight" style="padding-left:10px">
+                                <div  class="switch switchMiddle" id="weixinSwitch">
+                                   <input type="checkbox" id="switch" />
+                                </div>
+                                <!-- 时间控件 -->
+                                <div id="timer">
+                                    <div id = "startTime1" class="timewidget time" ></div>
+                                    <span>至</span>
+                                    <div id = "endTime1" class="timewidget time" ></div>
+                                </div>                          
+                            </div>	                     
+ 						</div>
+	                        
+                        <div class="form-group listHeight">
+                            <label class="col-sm-1 listHeight">单日最大条数</label>
+
+                            <div class="col-sm-10 listHeight" style="padding-left:10px">
+                               <input id="max" type="text" placeholder="10" value="" style="width:100px;height:26px;text-align:center;">
+                            </div>
+
+                            
+                        </div>
+                        <br/><br/><br/>
+                      
+                        <h4>短信通知</h4>
+	                	<hr/>
+                        <div class="form-group">
+                            <label class="col-sm-1 listHeight">指定通知时间</label>
+                            <div class="col-sm-10 listHeight" style="padding-left:10px;">
+                                <div class="switch switchMiddle" id="mesSwitch">
+                                   <input type="checkbox"  id="switch2" />
+                                </div>	  
+                                <br/>                           
+                                <div id="timerTwo">
+                                    <div id = "startTime2" class="timewidget time" ></div>
+                                    <span>至</span>
+                                    <div id = "endTime2" class="timewidget time" ></div>
+                                </div>
+                            </div>
+                        </div>
+	                        
+                        <div class="form-group">
+                            <label class="col-sm-1 listHeight">单日最大条数</label>
+                            <div class="col-sm-10 listHeight" style="padding-left:10px">
+                               <input id="maxTwo" type="text" class="inputStyle" placeholder="10" style="width:100px;height:26px;text-align:center;">
+                            </div>
+                        </div>
+                        <br/><br/><br/>
+	                    
+						<h4>绿洲聊聊</h4>
+	                	<hr/>
+                        <div class="form-group">
+                            <label class="col-sm-1 listHeight">指定通知时间</label>
+                            <div class="col-sm-10 listHeight" style="padding-left:10px">
+                                <div class="switch switchMiddle" id="lvzhouSwitch" >
+                                   <input type="checkbox"  id="switch3" checked/>
+                                </div> 
+                                <br/>                             
+                                <div id="timerThree">
+                                    <div id = "startTime3" class="timewidget time" ></div>
+                                    <span>至</span>
+                                    <div id = "endTime3" class="timewidget time" ></div>
+                                </div>
+                            </div>
+                        </div>                    
+	                </div>
+	                <div id="resure_one" style="width:100%;" class="hide">
+	                	<p style="width:620px;margin:auto;margin-bottom:20px">
+	                		<button id="btn-apply"  type="button" class="btn btn-apply" style="margin-left:110px;">确定</button>
+					  	 	<button id="btn-cancel" type="button" class="btn btn-cancel" style="margin-right:110px;">取消</button>
+	                	</p>
+	                </div>
+	            </div>
+	        </div>
+
+			<!-- 通知设置 -->
+	        <div class="app-colum">
+	            <div class="app-box">
+	                <div class="box-footer">
+	                    <span class="title">通知设置</span>
+	                </div>
+
+	                <div id="notice" class="box-body no-height">
+	                    <h4>设备上线</h4>
+	                    <hr width:"1670px"/>
+	                	
+                        <div class="form-group">
+                            <label class="col-sm-1 listHeight">允许通知</label>							
+                            <div class="col-sm-10 listHeight">
+                                <div class="switch switchMiddle" id="equipmentOn" >
+                                   <input type="checkbox"  id="switch4" name="Switch"  checked/>
+                                </div>
+                            </div>
+ 						</div>
+	                        
+                        <div class="form-group" id="noticeThree">
+                            <label class="col-sm-1 listHeight" style="margin-top:3px">通知方式</label>
+                            <div class="col-sm-10 listHeight">
+                                <div class="btn-group checkMiddle" data-toggle="buttons">		
+                                	<div class="xb-input xb-checkbox" >
+                                		<span class="input-icon checkbox-icon checked" id="equipmentOnLvzhou"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px;">绿洲聊聊</label>
+
+								  	<div class="xb-input xb-checkbox" >
+                                		<span id="equipmentOnWei" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px">微信</label>
+
+								    <div class="xb-input xb-checkbox">
+                                		
+                                		<span  id="equipmentOnSms" class="input-icon checkbox-icon"></span>                        	
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px">短信</label>
+								</div>
+                            </div>
+                        </div>
+                        <br/><br/><br/>
+
+                        <h4>设备下线</h4>
+	                    <hr width:"1670px"/>
+	                	
+                        <div class="form-group">
+                            <label class="col-sm-1 listHeight">允许通知</label>							
+                            <div class="col-sm-10 listHeight">
+                                <div class="switch switchMiddle" id="equipmentOff">
+                                   <input type="checkbox"  id="switch4" name="Switch"  checked/>
+                                </div>
+                            </div>
+ 						</div>
+	                        
+                        <div class="form-group" id="noticeFour">
+                            <label class="col-sm-1 listHeight" style="margin-top:3px">通知方式</label>
+                            <div class="col-sm-10 listHeight">
+                                <div class="btn-group checkMiddle" data-toggle="buttons">		
+                                	<div class="xb-input xb-checkbox">
+                                	    <span id="equipmentOffLvzhou" class="input-icon checkbox-icon"></span>                  
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px;">绿洲聊聊</label>
+
+								  	<div class="xb-input xb-checkbox">
+                                		<span id="equipmentOffWei" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px">微信</label>
+
+								    <div class="xb-input xb-checkbox">
+                                		<span id="equipmentOffSms" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px">短信</label>
+								</div>
+                            </div>
+                        </div>
+                        <br/><br/><br/>
+	                    
+	                    <h4>AP上线</h4>
+	                    <hr/>	     
+
+                        <div class="form-group">
+                            <label class="col-sm-1 listHeight">允许通知</label> 
+                            <div class="col-sm-10 listHeight">
+                                <div class="switch switchMiddle" id="APOn">
+                                   <input type="checkbox"  id="switch5"  name="Switch"  checked/>
+                                </div>
+                            </div>
+                        </div>
+	                        
+                        <div class="form-group" id="noticeFive">
+                            <label class="col-sm-1 listHeight" style="margin-top:3px">通知方式</label>
+                            <div class="col-sm-10 listHeight">
+                                <div class="btn-group checkMiddle" data-toggle="buttons">
+
+                                	<div class="xb-input xb-checkbox">
+                                		<span id="APOnLvzhou" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px;">绿洲聊聊</label>
+
+								  	<div class="xb-input xb-checkbox">
+                                		<span id="APOnWei" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px">微信</label>
+
+								    <div class="xb-input xb-checkbox">
+                                		<span id="APOnSms" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px">短信</label>
+								</div>
+                            </div>
+	                    </div>
+	                    <br/><br/><br/>
+
+	                    <h4>AP下线</h4>
+	                    <hr/>	     
+
+                        <div class="form-group">
+                            <label class="col-sm-1 listHeight">允许通知</label> 
+                            <div class="col-sm-10 listHeight">
+                                <div class="switch switchMiddle" id="APOff" >
+                                   <input type="checkbox"  id="switch5"  name="Switch"  checked/>
+                                </div>
+                            </div>
+                        </div>
+	                        
+                        <div class="form-group" id="noticeSix">
+                            <label class="col-sm-1 listHeight" style="margin-top:3px">通知方式</label>
+                            <div class="col-sm-10 listHeight">
+                                <div class="btn-group checkMiddle" data-toggle="buttons">
+
+                                	<div class="xb-input xb-checkbox">
+                                		<span id="APOffLvzhou" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px;">绿洲聊聊</label>
+
+								  	<div class="xb-input xb-checkbox">
+                                		<span id="APOffWei" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px">微信</label>
+
+								    <div class="xb-input xb-checkbox">
+                                		<span id="APOffSms" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px">短信</label>
+								</div>
+                            </div>
+	                    </div>
+	                    <br/><br/><br/>
+	                    
+
+	                    <h4>设备重启</h4>
+	                	<hr/>
+
+                        <div class="form-group">
+                            <label class="col-sm-1 listHeight">允许通知</label>
+							 <div class="col-sm-10 listHeight">
+                                <div class="switch switchMiddle" id="equipmentReload">
+                                   <input type="checkbox"  id="switch6" name="Switch"  checked/>
+                                </div>
+                            </div>
+ 						</div>
+	                        
+	                    <div class="form-group" id="noticeSeven">
+	                        <label class="col-sm-1 listHeight" style="margin-top:3px">通知方式</label>
+                            <div class="col-sm-10 listHeight">
+                                <div class="btn-group checkMiddle" data-toggle="buttons">
+
+                                	<div class="xb-input xb-checkbox">
+                                		<span id="equipmentReloadLvzhou" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px;">绿洲聊聊</label>
+
+								  	<div class="xb-input xb-checkbox">
+                                		<span id="equipmentReloadWei" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px">微信</label>
+
+								    <div class="xb-input xb-checkbox">
+                                		<span id="equipmentReloadSms" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px">短信</label>
+								</div>
+                            </div>
+	                    </div>
+	                    <br/><br/><br/>	     
+
+						<h4>内存告警</h4>
+	                	<hr/>
+
+                        <div class="form-group">
+                            <label class="col-sm-1 listHeight">允许通知</label>
+							 <div class="col-sm-10 listHeight">
+                                <div class="switch switchMiddle" id="memoryAlarm">
+                                   <input type="checkbox"  id="switch7" name="Switch"  checked/>
+                                </div>
+                            </div>
+ 						</div>
+	                        
+	                    <div class="form-group" id="noticeEight">
+	                        <label class="col-sm-1 listHeight" style="margin-top:3px">通知方式</label>
+                            <div class="col-sm-10 listHeight">
+                                <div class="btn-group checkMiddle" data-toggle="buttons">
+
+                                	<div class="xb-input xb-checkbox">
+                                		<span id="memoryAlarmLvzhou" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px;">绿洲聊聊</label>
+
+								  	<div class="xb-input xb-checkbox">
+                                		<span id="memoryAlarmWei" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px">微信</label>
+
+								    <div class="xb-input xb-checkbox">
+                                		<span id="memoryAlarmSms" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px">短信</label>
+								</div>
+                            </div>	                        
+	                    </div>
+	                    <br/><br/><br/>	   
+
+	                    <h4>CPU告警</h4>
+	                	<hr/>
+
+                        <div class="form-group">
+                            <label class="col-sm-1 listHeight">允许通知</label>
+							 <div class="col-sm-10 listHeight">
+                                <div class="switch switchMiddle" id="CPUAlarm">
+                                   <input type="checkbox"  id="switch8" name="Switch"  checked/>
+                                </div>
+                            </div>
+ 						</div>
+	                        
+	                    <div class="form-group" id="noticeNine">	                    
+	                        <label class="col-sm-1 listHeight" style="margin-top:3px">通知方式</label>
+                            <div class="col-sm-10 listHeight">
+                                <div class="btn-group checkMiddle" data-toggle="buttons">
+
+                                	<div class="xb-input xb-checkbox">
+                                		<span id="CPUAlarmLvzhou" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px;">绿洲聊聊</label>
+
+								  	<div class="xb-input xb-checkbox">
+                                		<span id="CPUAlarmWei" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px">微信</label>
+
+								    <div class="xb-input xb-checkbox">
+                                		<span id="CPUAlarmSms" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px">短信</label>
+								</div>
+                            </div>								
+	                     </div>
+	                    
+	                    <br/><br/><br/>	  
+
+	                    <h4>软件升级成功</h4>
+	                	<hr/>
+
+                        <div class="form-group">
+                            <label class="col-sm-1 listHeight">允许通知</label>
+							 <div class="col-sm-10 listHeight">
+                                <div class="switch switchMiddle" id="updateSuc">
+                                   <input type="checkbox"  id="switch9" name="Switch"  checked/>
+                                </div>
+                            </div>
+ 						</div>
+	                        
+	                    <div class="form-group" id="noticeTen">
+	                        <label class="col-sm-1 listHeight" style="margin-top:3px">通知方式</label>
+                            <div class="col-sm-10 listHeight">
+                                <div class="btn-group checkMiddle" data-toggle="buttons">
+
+                                	<div class="xb-input xb-checkbox">
+                                		<span id="updateSucLvzhou" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px;">绿洲聊聊</label>
+
+								  	<div class="xb-input xb-checkbox">
+                                		<span id="updateSucWei" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px">微信</label>
+
+								    <div class="xb-input xb-checkbox">
+                                		<span id="updateSucSms" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px">短信</label>
+								</div>
+                            </div>
+	                    </div>
+	                    <br/><br/><br/>	 
+
+	                    <h4>软件升级失败</h4>
+	                	<hr/>
+
+                        <div class="form-group">
+                            <label class="col-sm-1 listHeight">允许通知</label>
+							 <div class="col-sm-10 listHeight">
+                                <div class="switch switchMiddle" id="updateFal">
+                                   <input type="checkbox"  id="switch10" name="Switch"  checked/>
+                                </div>
+                            </div>
+ 						</div>
+	                        
+	                    <div class="form-group" id="noticeEleven">
+	                        <label class="col-sm-1 listHeight" style="margin-top:3px">通知方式</label>
+                            <div class="col-sm-10 listHeight">
+                                <div class="btn-group checkMiddle" data-toggle="buttons">
+
+                                	<div class="xb-input xb-checkbox">
+                                		<span id="updateFalLvzhou" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px;">绿洲聊聊</label>
+
+								  	<div class="xb-input xb-checkbox">
+                                		<span id="updateFalWei" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px">微信</label>
+
+								    <div class="xb-input xb-checkbox">
+                                		<span id="updateFalSms" class="input-icon checkbox-icon"></span>
+                                	</div>
+                                	<label style="margin-right:15px;margin-top:6px">短信</label>
+								</div>								
+                            </div>
+	                    </div>
+	                    
+
+                        <div id="resure_two" style="width:100%;" class="hide">
+                        <p style="width:620px;margin:0px auto;margin-top:60px">
+                            <button id="btn-applyTwo"  type="button" class="btn btn-apply" style="margin-left:110px;">确定</button>
+                            <button id="btn-cancelTwo" type="button" class="btn btn-cancel" style="margin-right:110px;">取消</button>
+                        </p>
+                    </div>
+	                </div>
+	        	</div>
+	        </div>
+	  	</div> 
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("weixinwarning.weixinwarning");
+</script>

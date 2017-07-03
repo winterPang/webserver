@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        div.smartschool .slist-link{
+            color:#4ec1b2;
+            /*margin-left:5px;*/
+            border-bottom: 1px solid #4ec1b2;
+        }
+    </style>
+</head>
+<body>
+<div class="page-row smartschool">
+    <!------------------------摄像头列表------------------->
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height wrap_c">
+            <div class="box-footer">
+                <span class="title">摄像头</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="cameraList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--------------------------------新建摄像头弹窗----------------------------->
+<div class="hide modal fade" id="AddCameraDlg">
+    <form id="addCamera_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">摄像头名称</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="cameraName" name="cameraName" errid="camera_error" maxlength="64"/>
+                <label class="info-explain">(1-64字符)</label>
+                <label class="error" id="camera_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">IP地址</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="ipAddr" name="ipAddr" errid="IPaddress_error" maxlength="64"/>
+                <label class="info-explain">(1-64字符)</label>
+                <label class="error" id="IPaddress_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">端口号</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="port" name="port" errid="portnumber_error" maxlength="64"/>
+                <label class="info-explain">(1-64字符)</label>
+                <label class="error" id="portnumber_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">用户名</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="userName" name="userName" errid="username_error" maxlength="64"/>
+                <label class="info-explain">(1-64字符)</label>
+                <label class="error" id="username_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">密码</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="password" name="password" errid="password_error" maxlength="64"/>
+                <label class="info-explain">(1-64字符)</label>
+                <label class="error" id="password_error"></label>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+<div id="c_net_infor_rc" class="rc-define"
+     CAMERA_HEAD="摄像头名称,IP地址,端口号,用户名,密码"
+
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.camera");
+
+</script>

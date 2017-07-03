@@ -1,0 +1,37 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+</head>
+
+<body>
+<div class="dashboard summary-view" id="Probe_Monitor">
+
+    <div class="row">
+        <%- include 1.ejs %>
+        <%- include 2.ejs %>
+        <%- include 3.ejs %>
+        <%- include 4.ejs %>
+
+
+
+    </div>
+</div>
+
+<div id="probe_statistics_rc" class="rc-define"
+     TYPE="总计,信号强(0~39dBi),信号中(40~70dBi),信号弱(71~100dBi)"
+     NAME="关联的,活跃的"
+     INTERVAL="1小时,2小时,3小时,4小时,5小时,6小时,7小时,8小时,9小时,10小时,11小时,12小时,13小时,14小时,15小时,16小时,17小时,18小时,19小时,20小时,21小时,22小时,23小时,24小时"
+     VENDER="苹果,HTC,魅族,小米,三星,其他"
+     CLIENTTIME="<15分,15~30分,30~60分,1~2小时,>2小时"
+     AXIS="人数,时间"
+     DATA=<%=JSON.stringify(statistics)%>
+
+     LINEDATA=<%=JSON.stringify(statistics2)%>
+
+        ></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("clientprobe.statistics");
+</script>

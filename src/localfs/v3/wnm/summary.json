@@ -1,0 +1,74 @@
+{
+  "aTra_Interfaces":
+  [
+    {"IfIndex": "2", "InBits": "3367864", "InOctets": "420983", "InPkts": "3968", "Interval": "300", "Name": "GigabitEthernet1/0/1", "OutBits": "19328136", "OutOctets": "416017", "OutPkts": "1771"}
+    ,{"IfIndex": "3", "InBits": "0", "InOctets": "0", "InPkts": "0", "Interval": "300", "Name": "GigabitEthernet1/0/2", "OutBits": "0", "OutOctets": "0", "OutPkts": "0"}
+    ,{"IfIndex": "4", "InBits": "0", "InOctets": "0", "InPkts": "0", "Interval": "300", "Name": "GigabitEthernet1/0/3", "OutBits": "0", "OutOctets": "0", "OutPkts": "0"}
+    ,{"IfIndex": "5", "InBits": "0", "InOctets": "0", "InPkts": "0", "Interval": "300","Name": "GigabitEthernet1/0/4", "OutBits": "0", "OutOctets": "0", "OutPkts": "0"}
+    ,{"IfIndex": "6", "InBits": "0", "InOctets": "0", "InPkts": "0", "Interval": "300", "Name": "GigabitEthernet1/0/5", "OutBits": "0", "OutOctets": "0", "OutPkts": "0"}
+    ,{"IfIndex": "8", "InBits": "0", "InOctets": "0", "InPkts": "0","Interval": "300", "Name": "NULL0", "OutBits": "0", "OutOctets": "0","OutPkts": "0"}
+    ,{"IfIndex": "9","InBits": "0","InOctets": "0","InPkts": "0", "Interval": "300","Name": "InLoopBack0","OutBits": "0","OutOctets": "0","OutPkts": "0"}
+    ,{"IfIndex": "200","InBits": "0","InOctets": "0", "InPkts": "0", "Interval": "300","Name": "Vlan-interface1","OutBits": "0","OutOctets": "0","OutPkts": "0"}
+    ,{"fIndex": "201", "InBits": "0", "InOctets": "0", "InPkts": "0","Interval": "300", "Name": "CMTunnel4093", "OutBits": "0", "OutOctets": "0", "OutPkts": "0"}
+  ],
+  "aInterfaces":
+  [
+   {"AbbreviatedName": "GE1/0/1", "ActualBandwidth": "100000", "ActualDuplex": "1", "ActualSpeed": "100000", "AdminStatus": "1", "ConfigDuplex": "3", "ConfigSpeed": "1", "Description": "GigabitEthernet1/0/1 Interface", "IfIndex": "2", "LinkType": "1", "Loopback": "0", "MAC": "38-91-D5-2F-4D-F1", "MDI": "4", "Name": "GigabitEthernet1/0/1", "OperStatus": "1", "PVID": "1", "PortIndex": "2", "PortLayer": "2", "SubPort": "false", "ifType": "6", "ifTypeExt": "19"}
+  ,{"AbbreviatedName": "GE1/0/2", "ActualBandwidth": "0", "ActualDuplex": "3", "ActualSpeed": "0", "AdminStatus": "1", "ConfigDuplex": "3", "ConfigSpeed": "1", "Description": "GigabitEthernet1/0/2 Interface", "IfIndex": "3", "LinkType": "1", "Loopback": "0", "MAC": "38-91-D5-2F-4D-F2", "MDI": "4", "Name": "GigabitEthernet1/0/2", "OperStatus": "2", "PVID": "1", "PortIndex": "3", "PortLayer": "1", "SubPort": "false", "ifType": "6", "ifTypeExt": "19"}
+  ,{"AbbreviatedName": "GE1/0/3", "ActualBandwidth": "0", "ActualDuplex": "3", "ActualSpeed": "0", "AdminStatus": "1", "ConfigDuplex": "3", "ConfigSpeed": "1", "Description": "GigabitEthernet1/0/3 Interface", "IfIndex": "4", "LinkType": "1", "Loopback": "0", "MAC": "38-91-D5-2F-4D-F3", "MDI": "4", "Name": "GigabitEthernet1/0/3", "OperStatus": "2", "PVID": "1", "PortIndex": "4", "PortLayer": "1", "SubPort": "false", "ifType": "6", "ifTypeExt": "19"}
+  ,{"AbbreviatedName": "GE1/0/4", "ActualBandwidth": "0", "ActualDuplex": "3", "ActualSpeed": "0", "AdminStatus": "1", "ConfigDuplex": "3", "ConfigSpeed": "1", "Description": "GigabitEthernet1/0/4 Interface", "IfIndex": "5", "LinkType": "1", "Loopback": "0", "MAC": "38-91-D5-2F-4D-F4", "MDI": "4", "Name": "GigabitEthernet1/0/4", "OperStatus": "2", "PVID": "1", "PortIndex": "5", "PortLayer": "1", "SubPort": "false", "ifType": "6", "ifTypeExt": "19"}
+  ,{"AbbreviatedName": "GE1/0/5", "ActualBandwidth": "0", "ActualDuplex": "3", "ActualMTU": "1500", "ActualSpeed": "0", "AdminStatus": "1", "ConfigDuplex": "3", "ConfigMTU": "1500", "ConfigSpeed": "1", "Description": "GigabitEthernet1/0/5 Interface", "ForwardingAttributes": "17", "IfIndex": "6", "Loopback": "0", "MAC": "38-91-D5-2F-4D-F5", "Name": "GigabitEthernet1/0/5", "OperStatus": "2", "PortIndex": "6", "PortLayer": "2", "SubPort": "false", "ifType": "6", "ifTypeExt": "23"}
+  ,{"AbbreviatedName": "NULL0", "ActualBandwidth": "1000000", "ActualMTU": "1500", "AdminStatus": "1", "ConfigMTU": "1500", "Description": "NULL0 Interface", "ForwardingAttributes": "18", "IfIndex": "8", "MAC": "00-00-00-00-00-00", "Name": "NULL0", "OperStatus": "1", "PortLayer": "2", "SubPort": "false", "ifType": "1", "ifTypeExt": "30"}
+  ,{"AbbreviatedName": "InLoop0", "ActualBandwidth": "0", "ActualMTU": "1536", "AdminStatus": "1", "ConfigMTU": "1536", "Description": "InLoopBack0 Interface", "ForwardingAttributes": "20", "IfIndex": "9", "InetAddressIPV4": "127.0.0.1", "InetAddressIPV4Mask": "255.0.0.0", "MAC": "00-00-00-00-00-00", "Name": "InLoopBack0", "OperStatus": "1", "PortLayer": "2", "SubPort": "false", "ifType": "24", "ifTypeExt": "15"}
+  ,{"AbbreviatedName": "Vlan1", "ActualBandwidth": "1000000", "ActualMTU": "1500", "AdminStatus": "1", "ConfigMTU": "1500", "Description": "Vlan-interface1 Interface", "ForwardingAttributes": "17", "IfIndex": "200", "InetAddressIPV4": "192.168.0.209", "InetAddressIPV4Mask": "255.255.0.0", "MAC": "38-91-D5-2F-4D-E0", "Name": "Vlan-interface1", "OperStatus": "1", "PortLayer": "2", "SubPort": "false", "ifType": "136", "ifTypeExt": "41"}
+  ,{"AbbreviatedName": "CMTunnel4093", "ActualBandwidth": "64", "ActualMTU": "1500", "AdminStatus": "1", "ConfigMTU": "1500", "Description": "CMTunnel4093 Interface", "ForwardingAttributes": "2", "IfIndex": "201", "MAC": "00-00-00-00-00-00", "Name": "CMTunnel4093", "OperStatus": "2", "PortLayer": "2", "SubPort": "false", "ifType": "1", "ifTypeExt": "120"}
+  ]
+  ,"aHistoryStatistics":
+  [
+  {"IfIndex": "2","InOctets": "420983","InPkts": "3968","Name": "GigabitEthernet1/0/1", "OutOctets": "416017","OutPkts": "1771", "RecordTime": "Fri, 12 Sep 2015 02:41:41 GMT"}
+  ,{"IfIndex": "2", "InOctets": "320983", "InPkts": "3968", "Name": "GigabitEthernet1/0/1", "OutOctets": "216017", "OutPkts": "1771","RecordTime": "Fri, 13 Sep 2015 02:41:41 GMT"}
+  ,{"IfIndex": "2", "InOctets": "420983", "InPkts": "3968", "Name": "GigabitEthernet1/0/1", "OutOctets": "241601", "OutPkts": "1771", "RecordTime": "Fri, 14 Sep 2015 02:41:41 GMT"}
+  ,{"IfIndex": "2","InOctets": "520983","InPkts": "3968","Name": "GigabitEthernet1/0/1","OutOctets": "416017","OutPkts": "1771","RecordTime": "Fri, 15 Sep 2015 02:41:41 GMT"}
+  ,{"IfIndex": "2","InOctets": "420983","InPkts": "3968","Name": "GigabitEthernet1/0/1", "OutOctets": "246017", "OutPkts": "1771","RecordTime": "Fri, 16 Sep 2015 02:41:41 GMT"}
+  ,{"IfIndex": "2", "InOctets": "390983", "InPkts": "3968","Name": "GigabitEthernet1/0/1", "OutOctets": "241017", "OutPkts": "1771", "RecordTime": "Fri, 17 Sep 2015 02:41:41 GMT"}
+  ,{"IfIndex": "2","InOctets": "510983","InPkts": "3968","Name": "GigabitEthernet1/0/1", "OutOctets": "216017","OutPkts": "1771", "RecordTime": "Fri, 18 Sep 2015 02:41:41 GMT"}
+  ,{"IfIndex": "2", "InOctets": "420983", "InPkts": "3968", "Name": "GigabitEthernet1/0/1", "OutOctets": "241601", "OutPkts": "1771", "RecordTime": "Fri, 19 Sep 2015 02:41:41 GMT"}
+  ,{"IfIndex": "2", "InOctets": "330983", "InPkts": "3968", "Name": "GigabitEthernet1/0/1", "OutOctets": "416017", "OutPkts": "1771", "RecordTime": "Fri, 20 Sep 2015 02:41:41 GMT"}
+  ,{"IfIndex": "2", "InOctets": "420983", "InPkts": "3968", "Name": "GigabitEthernet1/0/1", "OutOctets": "2416017", "OutPkts": "1771", "RecordTime": "Fri, 21 Sep 2015 02:41:41 GMT"}
+  ]
+  ,"aUserAppDown":
+  [
+
+  ]
+  ,"aData":
+  [
+
+  ]
+  ,"aArpTable":
+  [
+
+  ]
+  ,"aInterfaces":
+  [
+    {"AbbreviatedName": "GE1/0/1", "ActualBandwidth": "100000", "ActualDuplex": "1", "ActualSpeed": "100000", "AdminStatus": "1", "ConfigDuplex": "3", "ConfigSpeed": "1", "Description": "GigabitEthernet1/0/1 Interface", "IfIndex": "2", "LinkType": "1", "Loopback": "0", "MAC": "38-91-D5-2F-4D-F1", "MDI": "4", "Name": "GigabitEthernet1/0/1", "OperStatus": "1", "PVID": "1", "PortIndex": "2", "PortLayer": "2", "SubPort": "false", "ifType": "6", "ifTypeExt": "19"}
+    ,{"AbbreviatedName": "GE1/0/2", "ActualBandwidth": "0", "ActualDuplex": "3", "ActualSpeed": "0", "AdminStatus": "1", "ConfigDuplex": "3", "ConfigSpeed": "1", "Description": "GigabitEthernet1/0/2 Interface", "IfIndex": "3", "LinkType": "1", "Loopback": "0", "MAC": "38-91-D5-2F-4D-F2", "MDI": "4", "Name": "GigabitEthernet1/0/2", "OperStatus": "2", "PVID": "1", "PortIndex": "3", "PortLayer": "1", "SubPort": "false", "ifType": "6", "ifTypeExt": "19"}
+    ,{"AbbreviatedName": "GE1/0/3", "ActualBandwidth": "0", "ActualDuplex": "3", "ActualSpeed": "0", "AdminStatus": "1", "ConfigDuplex": "3", "ConfigSpeed": "1", "Description": "GigabitEthernet1/0/3 Interface", "IfIndex": "4", "LinkType": "1", "Loopback": "0", "MAC": "38-91-D5-2F-4D-F3", "MDI": "4", "Name": "GigabitEthernet1/0/3", "OperStatus": "2", "PVID": "1", "PortIndex": "4", "PortLayer": "1", "SubPort": "false", "ifType": "6", "ifTypeExt": "19"}
+    ,{"AbbreviatedName": "GE1/0/4", "ActualBandwidth": "0", "ActualDuplex": "3", "ActualSpeed": "0", "AdminStatus": "1", "ConfigDuplex": "3", "ConfigSpeed": "1", "Description": "GigabitEthernet1/0/4 Interface", "IfIndex": "5", "LinkType": "1", "Loopback": "0", "MAC": "38-91-D5-2F-4D-F4", "MDI": "4", "Name" : "GigabitEthernet1/0/4", "OperStatus": "2", "PVID": "1", "PortIndex": "5", "PortLayer": "1", "SubPort": "false", "ifType": "6", "ifTypeExt": "19"}
+    ,{"AbbreviatedName": "GE1/0/5", "ActualBandwidth": "0", "ActualDuplex": "3", "ActualMTU": "1500", "ActualSpeed": "0", "AdminStatus": "1", "ConfigDuplex": "3", "ConfigMTU": "1500", "ConfigSpeed": "1", "Description": "GigabitEthernet1/0/5 Interface", "ForwardingAttributes": "17", "IfIndex": "6", "Loopback": "0", "MAC": "38-91-D5-2F-4D-F5","Name": "GigabitEthernet1/0/5", "OperStatus": "2", "PortIndex": "6", "PortLayer": "2", "SubPort": "false", "ifType": "6", "ifTypeExt": "23"}
+    ,{"AbbreviatedName": "NULL0", "ActualBandwidth": "1000000", "ActualMTU": "1500", "AdminStatus": "1", "ConfigMTU": "1500", "Description": "NULL0 Interface", "ForwardingAttributes": "18", "IfIndex": "8", "MAC": "00-00-00-00-00-00", "Name": "NULL0", "OperStatus": "1", "PortLayer": "2", "SubPort": "false", "ifType": "1", "ifTypeExt": "30"}
+    ,{"AbbreviatedName": "InLoop0", "ActualBandwidth": "0", "ActualMTU": "1536", "AdminStatus": "1", "ConfigMTU": "1536", "Description": "InLoopBack0 Interface", "ForwardingAttributes": "20", "IfIndex": "9", "InetAddressIPV4": "127.0.0.1", "InetAddressIPV4Mask": "255.0.0.0", "MAC": "00-00-00-00-00-00", "Name": "InLoopBack0", "OperStatus": "1", "PortLayer": "2", "SubPort": "false", "ifType": "24", "ifTypeExt": "15"}
+    ,{"AbbreviatedName": "Vlan1", "ActualBandwidth":"1000000", "ActualMTU": "1500", "AdminStatus": "1", "ConfigMTU": "1500", "Description": "Vlan-interface1 Interface", "ForwardingAttributes": "17", "IfIndex": "200", "InetAddressIPV4": "192.168.0.209", "InetAddressIPV4Mask": "255.255.0.0", "MAC": "38-91-D5-2F-4D-E0", "Name": "Vlan-interface1", "OperStatus": "1", "PortLayer": "2", "SubPort": "false", "ifType": "136", "ifTypeExt": "41"}
+    ,{"AbbreviatedName": "CMTunnel4093", "ActualBandwidth": "64", "ActualMTU": "1500", "AdminStatus": "1", "ConfigMTU": "1500", "Description": "CMTunnel4093 Interface", "ForwardingAttributes": "2", "IfIndex": "201", "MAC": "00-00-00-00-00-00", "Name": "CMTunnel4093", "OperStatus": "2", "PortLayer": "2", "SubPort": "false", "ifType": "1", "ifTypeExt": "120"}
+  ]
+  ,"aManualAP":
+  [
+
+  ]
+  ,"oDeviceType":
+[
+  {
+
+  }
+]
+
+}

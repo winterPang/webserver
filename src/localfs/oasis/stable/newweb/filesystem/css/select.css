@@ -1,0 +1,51 @@
+.oasis-select {
+  display: inline-block;
+}
+.oasis-select.disabled label,
+.oasis-select.disabled input {
+  cursor: not-allowed;
+}
+.oasis-select label {
+  font-weight: lighter;
+  text-align: right;
+}
+.oasis-select .form-control[readonly] {
+  background: #FFFFFF;
+}
+.oasis-select .form-control[disabled] {
+  background: #eee;
+}
+.oasis-select .dropdown {
+  display: inline-block;
+}
+.oasis-select .dropdown .dropdown-menu {
+  border-radius: 0;
+  padding: 0;
+  width: 100%;
+  margin-top: -1px;
+}
+.oasis-select .dropdown .dropdown-menu a {
+  padding: 3px 10px;
+}
+.oasis-select .dropdown .dropdown-menu ul {
+  overflow: auto;
+}
+.oasis-select .dropdown .list-group {
+  margin-bottom: 0;
+}
+.oasis-select .dropdown .list-group .list-group-item {
+  border-radius: 0;
+  border: 0;
+  padding: 5px 10px;
+}
+.oasis-select .dropdown .list-group .list-group-item:hover,
+.oasis-select .dropdown .list-group .list-group-item.active,
+.oasis-select .dropdown .list-group .list-group-item:active,
+.oasis-select .dropdown .list-group .list-group-item:focus {
+  color: #ffffff;
+  background-color: #07b9a2;
+}
+.oasis-select .dropdown .search-box {
+  border-bottom: 1px solid #E5E9F2;
+  padding: 5px;
+}

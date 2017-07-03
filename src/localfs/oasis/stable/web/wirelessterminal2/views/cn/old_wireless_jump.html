@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <div class="btn_h_return" ng-click="return()"></div>
+        <div class="col-xs-12 app-colum">
+            <div class="app-box no-height">
+                <div class="box-footer">
+                    <span class="title">认证用户历史上线变化明细</span>
+                </div>
+                <div class="box-body no-height" style="padding:0px 20px;">
+                    <div class="form-group col-sm-12" id="anniumen">
+                        <div class="radioAnNiu" style="margin-top:10px;">
+                            <input id="jiben" type="radio" name="sanzhong-info" checked ng-click="clickRadio('basicInfo')">
+                            <label for="jiben" style="margin-right:30px;">一天</label>
+                            <input id="shepin" type="radio" name="sanzhong-info" ng-click="clickRadio('RadioInfo')">
+                            <label for="shepin" style="margin-right:30px;">一周</label>
+                            <input id="tongji" type="radio" name="sanzhong-info" ng-click="clickRadio('StatisticsInfo')">
+                            <label for="tongji" style="margin-right:30px;">一月</label>
+                                                                        
+                        </div>
+                    </div>
+    <br /><br /><br />
+
+                    <div class="box-body no-height">
+                        <button class="btn btn-cus" ng-click="fresh()">刷新</button>
+                        <button class="btn btn-cus" ng-disabled="unexport" ng-click="export()" ng-if="permission.execute">导出</button>
+                        <div bs-Table="basicInfo"></div>
+                    </div>
+                                       
+                </div>
+            </div>
+        </div>
+</div>
+<iframe class="hide" id="exportFile" name="exportFile"></iframe>
+<div id="clients_rc" class="rc-define" 
+    LIST_HEADER="用户名,IP地址,MAC地址,认证类型,上行流量(M),下行流量(M),上线时间,在线时长"
+    SAC_WLEEOP="导出失败"   
+    >
+</div>

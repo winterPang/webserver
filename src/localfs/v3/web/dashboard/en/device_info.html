@@ -1,0 +1,248 @@
+<html>
+<head> 
+</head>
+<body>
+<div class="page-row">
+  <div class="col-xs-12 app-colum left-block">
+		<div class="app-box"> 
+			<div class="box-footer">
+				<span class="title">Wireless Service</span>
+			</div>
+			<div class="box-body no-height">
+				<div id="wirelessService" class="simple-list"></div>
+			</div>
+		</div>
+  </div>
+</div>
+
+<div class="page-row">
+  <div class="col-xs-6 app-colum left-block">
+    <div class="app-box">
+      <div class="box-footer">
+        <span class="title big">AC Information</span>
+      </div>
+      <div class="box-body echart-height" id="version_block">
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Model</label>
+          <div class="col-sm-9">
+            <span class="label" id="DeviceType" name="DeviceType"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Serial ID</label>
+          <div class="col-sm-9">
+            <span class="label" id="SerialNumber" name="seriNUm"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Boot version</label>
+          <div class="col-sm-9">
+            <span class="label" id="FirmwareRev" name="boot_version"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Software version</label>
+          <div class="col-sm-9">
+            <span class="label" id="HardwareRev" name="hardware_version"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Baseline version</label>
+          <div class="col-sm-9">
+            <span class="label" id="SoftwareRev" name="software_version"></span>
+            <!--<a class="xb-link" id="version">查看版本列表-->
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-6 app-colum left-block">
+    <div class="app-box">
+      <div class="box-footer">
+        <span class="title">Cloud Services</span>
+      </div>
+      <div class="box-body echart-height">
+        <div class="form-group">
+          <label class="col-sm-5 control-label">State</label>
+          <div class="col-sm-7">
+            <span class="label" id="CloudConnectionState" name="CloudConnectionState"></span>
+          </div>
+        </div>
+          <div class="form-group">
+              <label class="col-sm-5 control-label">V3 connection</label>
+              <div class="col-sm-7">
+                  <span class="label" id="v3CloudConnectionState" name="v3CloudConnectionState"></span>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label class="col-sm-5 control-label hide" id="v3DisconnectReason_Label">Last V3 disconnection reason</label>
+              <div class="col-sm-7">
+                  <span class="label" id="v3DisconnectReason" name="v3DisconnectReason"></span>
+              </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="hide" id="toggle_wireless">
+    <div class="form-group">
+      <div class="col-sm-4">
+        <label class="col-sm-6 control-label info-explain">State</label>
+        <div class="col-sm-6">
+          <span class="label form-if-setHtml" id="toggle_status" name="toggle_status">开启</span>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <label class="col-sm-6 control-label info-explain">Password</label>
+        <div class="col-sm-6">
+          <span class="label form-if-setHtml" id="toggle_access_pwd" name="toggle_access_pwd">Configured</span>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <label class="col-sm-6 control-label info-explain">Authentication method</label>
+        <div class="col-sm-6">
+          <span class="label form-if-setHtmlg" id="toggle_auth" name="toggle_auth">WeChat authentication</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-4">
+        <label class="col-sm-6 control-label info-explain">5GHz clients</label>
+        <div class="col-sm-6">
+          <span class="label form-if-setHtml" id="ClientNumber5G" name="ClientNumber5G">30</span>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <label class="col-sm-6 control-label info-explain">2.4GHz clients</label>
+        <div class="col-sm-6">
+          <span class="label form-if-setHtml" id="ClientNumber2G" name="ClientNumber2G">50</span>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <label class="col-sm-6 control-label info-explain">Total associated clients</label>
+        <div class="col-sm-6">
+          <span class="label form-if-setHtml" id="total" name="total">80</span>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="hide modal fade" id="ApNameDlg">
+  <form class="form-horizontal form edit hide" id="changename">
+      <div class="form-group">
+          <label class="col-sm-3 control-label">Name</label>
+          <label class="col-sm-9 control-label" id="OldName" name="OldName"></label>
+      </div>
+
+      <div class="form-group">
+          <label class="col-sm-3 control-label required">新名称</label>
+          <div class="col-sm-9">
+              <input type="text" class="string required" id="NewName" name="NewName" maxlength="64"/>
+              <label class="info-explain">(1 to 64 characters)</label>
+              <label class="error" id="NewName_error"></label>
+          </div>
+      </div>
+  </form>
+</div>
+<div class="hide modal fade" id="StatusDlg">
+  <form class="form-horizontal form" id="StatusForm">
+    <div class="form-group">
+          <label class="col-sm-3 control-label">Name</label>
+          <label class="col-sm-9 control-label" id="ApName" name="ApName"></label>
+    </div>
+    <div class="form-group">
+          <label class="col-sm-3 control-label">射频单元</label>
+          <label class="col-sm-9 control-label" id="RadioName" name="RadioName"></label>
+    </div>
+
+    <div class="form-group">
+          <label class="col-sm-3 control-label">State</label>
+          <div class="col-sm-9">
+              <input type="checkbox" class="switch" id="Status" name="Status"/>
+          </div>
+    </div>
+  </form>
+</div>
+
+<form class="form-horizontal form hide" id="verlist">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">版本信息列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="version_info_list" class="simple-list"></div>
+    </div>
+  <div class="modal-footer form-actions">
+      <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+        <i class="icon-remove"></i>
+        Close
+      </a>
+    </div>
+</form>
+
+<form class="form-horizontal form hide" id="mapInfo" action="/v3/wloc/upload" enctype="multipart/form-data" method="post"
+      onsubmit="return false">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title" name="mapName" id="mapName">&nbsp</h3>
+
+    </div>
+    <div class="modal-body">
+
+        <label style="margin-left: 577px">&nbsp Select map &nbsp&nbsp</label>
+        <select id="MapSelect" class="singleSelect" allowClear="false" name="" style="width: 180px"></select>
+        <div class="col-xs-12 app-colum" id="canvas">
+            <canvas id="gameCanvas" width="800" height="450"></canvas>
+        </div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal" id="formCloseBtn">
+            <i class="icon-remove"></i> Close
+        </a>
+    </div>
+</form>
+
+<div class="page-row">
+    <div class="col-xs-12 app-colum left-block">
+        <div class="app-box">
+            <div class="box-footer">
+                <div class="col-xs-11">
+                    <span class="title">AP Information</span>
+                </div>
+                <div class="col-xs-1" style="cursor: pointer;">
+                    <span id="mapDialog" class="r-title map_mess" >Map</span>
+                </div>
+            </div>
+            <div class="box-body no-height" id="AP-Info">
+                <div id="ap_info_list" class="simple-list"></div>
+                <div id="Opendlg"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="device_infor_rc" class="rc-define"
+  AP_LABELS="Name, MAC, IP, 5GHz, 2.4GHz, Online Duration, State"
+     Version_HEADER="存放地址,大小（Mb）,类型,版本号,描述"
+	W_DEVICE="Service Template, SSID, State"
+	 Wireless_Status = "Enabled, Disabled"
+     Connect_Sta="Connected, Disconnected"
+     Connect_Stav3="Connected, Disconnected"
+  PASSWORD_STATUS = "Static password, 802.1X, Use password, No password, Password"
+  AP_STATUS = "Online, Offline, Version downloading"
+  ENABLE = "Disabled, Enabled"
+  HISTORY_HINT = "More"
+  RENAME_TITLE="Change AP Name"
+  STATUS_TITLE="State"
+     DOWNLOAD="Version downloading"
+     VERSION_TYPE="Official version, Developer version, Patch version "
+     DOWNLOAD_ERROR="Upgrading succeeded, Upgrading failed, You can only select one version"
+     TIME="d, h, m, s"
+     V3Dis_Reason = "Device or process restarted, Socket connection error occurred, Cloud management configuration changed, Received websocket-close packet from cloud, Keepalive timer expired (for main connection only), Packet processing failed, Main connection broke down (for subconnection only), Cloud connection reset, This version does not support displaying the disconnection reason"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+Utils.Pages.loadJS("dashboard.Device_info");
+</script>

@@ -1,0 +1,12 @@
+{"statistics":[
+    {"count":10,"percent":0.1},
+    {"count":10,"percent":0.1},
+    {"count":20,"percent":0.2},
+    {"count":10,"percent":0.1},
+    {"count":20,"percent":0.2},
+    {"count":5,"percent":0.05},
+    {"count":10,"percent":0.1},
+    {"count":15,"percent":0.15}
+    ],
+    "totalCount":100
+}

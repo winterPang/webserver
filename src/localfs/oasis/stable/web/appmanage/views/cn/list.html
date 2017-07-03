@@ -1,0 +1,22 @@
+<div class="global-appstore">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">我的应用</h3>
+        </div>
+        <div class="panel-body">
+            <!--显示应用主体-->
+            <div class="app-box-body clearfix">
+                <div ng-hide="appList.length">无数据</div>
+                <!--显示单个应用-->
+                <div class="app-item col-lg-2 col-md-3 col-sm-3 col-xs-6" ng-repeat="app in appList">
+                    <!--显示应用LOGO小图标-->
+                    <div class="app-item-icon">
+                        <img ng-click="toDetail(app.id,app.typeName)" ng-src="{{app.logo || img}}">
+                    </div>
+                    <!--显示应用名称-->
+                    <div class="app-item-name">{{app.name}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+<div data-locales="请选择单个文件或压缩包上传，上传单文件在文件管理中选择文件夹" class="app-manager">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">第三方应用</h3></div>
+        <div class="panel-body">
+            <button class="btn btn-cus" ui-sref="global.content.scenes.developer_list">返回</button>
+            <button class="btn btn-cus" ng-click="uploadFile()">上传文件</button>
+            <span>{{fileName}}</span>
+            <input type="file" class="hidden" name="file" id="file">
+            <div>
+                <ul class="nav nav-tabs" role="tablist">
+                    <li ng-class="{active:showFileTab}" ng-click="showFileTab=true"><a>文件管理</a></li>
+                    <li ng-class="{active:!showFileTab}" ng-click="showFileTab=false"><a>路由管理</a></li>
+                </ul>
+            </div>
+            <div class="tabs-body">
+                <div ng-show="showFileTab">
+                    <ul class="ztree" id="ztree"></ul>
+                </div>
+                <div ng-hide="showFileTab">
+                    <table bs-table="routeList"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

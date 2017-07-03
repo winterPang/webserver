@@ -1,0 +1,16 @@
+{"oApCfg":
+  [
+    {"ApName": "AP1", "RadioId": "2.4GHz(1)","State": 0},
+    {"ApName": "AP1", "RadioId": "5.0GHz(2)","State": 1},
+    {"ApName": "AP2", "RadioId": "2.4GHz(1)","State": 1},
+    {"ApName": "AP2", "RadioId": "5.0GHz(2)","State": 0},
+    {"ApName": "AP3", "RadioId": "2.4GHz(1)","State": 1},
+    {"ApName": "AP3", "RadioId": "5.0GHz(2)","State": 1},
+    {"ApName": "AP4", "RadioId": "2.4GHz(1)","State": 1},
+    {"ApName": "AP4", "RadioId": "5.0GHz(2)","State": 0},
+    {"ApName": "AP5", "RadioId": "2.4GHz(1)","State": 1},
+    {"ApName": "AP5", "RadioId": "5.0GHz(2)","State": 1},
+    {"ApName": "AP6", "RadioId": "2.4GHz(1)","State": 1},
+    {"ApName": "AP6", "RadioId": "5.0GHz(2)","State": 0}
+  ]
+}

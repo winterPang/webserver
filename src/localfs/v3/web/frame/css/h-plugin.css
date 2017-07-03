@@ -1,0 +1,24 @@
+@import "../libs/css/jquery.easy-pie-chart.css";
+@import "../libs/css/bootstrap-modal.css";
+@import "../libs/css/font-awesome.min.css";
+
+@import "../libs/css/jquery.ui.css";
+@import "../libs/css/slick-default-theme.css";
+@import "../libs/css/slick.grid.css";
+@import "../libs/css/slick.columnpicker.css";
+@import "../libs/css/slick.pager.css";
+@import "h-mlist.css";
+
+@import "../libs/css/bootstrap-datetimepicker.css";
+
+@import "../libs/select2/select2.css";
+@import "../libs/css/jquery.tagsinput.css";
+@import "../libs/css/clockface.css";
+@import "../libs/css/bootstrap-wysihtml5.css";
+@import "../libs/css/colorpicker.css";
+@import "../libs/css/bootstrap-toggle-buttons.css";
+@import "../libs/multiselect/multiselect.css";
+@import "../libs/daterangepicker/daterangepicker-bs2.css";
+@import "../libs/jstree/theme/tree.css";
+@import "../libs/fullcalendar/lib/cupertino/jquery-ui.min.css";
+@import "../libs/fullcalendar/fullcalendar.css";

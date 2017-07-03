@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">管理应用</span>
+            </div>
+            <div class="box-body no-height">
+                <div class="btn btn-cus" ng-click="create()">创建</div>
+                <div class="btn btn-cus" ng-click="fresh()">刷新</div>
+                <div bs-Table="options"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-12 app-colum" bs-modal = "modalRelieve">
+    <div bs-Table="tableRelieve"></div>
+</div>
+
+<div class="col-xs-12 app-colum" bs-modal = "modalKey">
+    <div bs-Table="tableKey"></div>
+</div>
+
+<div id="list_rc" class="rc-define"
+     list = "应用名称,应用秘钥,应用模板,关注用户数,数据来源"
+     listClient = "数据类型,场所名称"
+     keyClient = "秘钥名称"
+     operation = "操作"
+     edit = "编辑"
+     delete = "删除"
+     successFull = "删除成功"
+     failed = "删除失败"
+     successUpdate = "更新成功"
+     failedUpdate = "更新失败"
+     update = "更新"
+
+>
+</div>

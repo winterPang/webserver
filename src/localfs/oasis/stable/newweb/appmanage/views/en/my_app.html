@@ -1,0 +1,72 @@
+<div id="myApp" ng-init="first_page = 'This is already the first page.';
+last_page = 'This is already the last page.'">
+    <header class="header">
+        <div class="header-bar">
+            <h3 ng-transclude></h3>
+        </div>
+        <div class="header-bar">
+            <div class="buttons">
+                <span class="button"
+                      ng-class="{active:curChoose==2}"
+                      ng-click="choose(2)">All</span>
+                <span class="button"
+                      ng-class="{active:curChoose==1}"
+                      ng-click="choose(1)">In use</span>
+                <span class="button"
+                      ng-class="{active:curChoose==0}"
+                      ng-click="choose(0)">Not in use</span>
+            </div>
+            <div class="page_bar clear" style="line-height: 20px;">
+                <div style=" cursor:pointer;text-align: center;clear:both;">
+                    <div class="right_myapp">
+                        <div class="left_myapp " ng-click="paging('previous')">
+                            <span class=" turn_left"></span></div>
+
+                        <div class="left_myapp" ng-repeat="x in pageNumData track by $index" style="padding:0 5px 0 5px;">
+                            <div class="left_myapp" ng-class="{change_color: x == $parent.currentPage}"
+                                 ng-click="paging(x)" ng-model="clickPage">{{x}}</div>
+                        </div>
+
+                        <div class="left_myapp "  style="margin-right: 10px;" ng-click="paging('next')">
+                            <span class=" turn_right"></span></div>
+                        <div class="left_myapp" style="margin-top:-2px;">
+
+                            <select  style="width: 50px;height:20px;padding:0 1px 0 10px;" ng-model="pageNum"
+                                     ng-options="page for page in pageArr" ng-change = "selectPage()">
+                            </select>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <section class="body">
+        <label ng-show="showData.length == 0">No data</label>
+        <ul>
+            <li ng-repeat="item in showData">
+                <a href="javascript: void(0);" ng-click="turnPage(item.id, item.operateUrl)" ng-style="item.operateUrl?null:{cursor: 'default'}">
+                    <div class="wrap">
+                        <h4 class="ellipsis-1" ng-bind="item.name" title="{{item.name}}"></h4>
+                        <div class="app-logo">
+                            <div class="logo-image" ng-style="{backgroundImage:'url('+item.logo+')'}"></div>
+                        </div>
+                        <hr/>
+                        <div class="status" ng-hide="item.id=='244'||item.id=='229'||item.id=='232'">
+                            <div class="pull-left">Status</div>
+                            <div class="pull-right">
+                                <span ng-if="item.status==1">In use</span>
+                                <span ng-if="item.status==0">Not in use</span>
+                            </div>
+                        </div>
+                        <div class="status" ng-show="item.id=='244'||item.id=='229'||item.id=='232'">
+                            <div class="pull-right">
+                                <span>Built-in</span>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </li>
+        </ul>
+    </section>
+</div>

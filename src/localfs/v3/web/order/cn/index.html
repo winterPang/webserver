@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+     <link href="../order/order.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="col-xs-12 app-colum">
+    	<div class="app-box no-height">
+	        <div class="box-footer">
+	            <span class="title">命令配置</span>
+	        </div>
+	        <div class="box-body col-sm-12 col-xs-12 no-height">
+	            <span class="word_style">命令行</span>
+	            <a href="#M_Order" class="order_style"id="order">常用命令</a>
+	            <br/>
+				<textarea rows="8" cols="60" id="order_text"style="line-height:18px;" placeholder="当前视图为用户视图"></textarea>
+				<div class="col-xs-12 col-sm-12 warning"id="warning">
+	        		<div class="warning_word">警告：命令行操作仅建议专业人士使用<span class="close_icon" id="close_btn"></span></div>
+	        	</div>
+	        </div>
+				
+	        <div class="col-xs-12" style="margin-top: -36px;">
+	        	<button class="send_btn " id="send" style="margin-left:40%;margin-top: -30px;color:#fff;">下发</button>
+	        	<button class="send_btn clear_button" id="clear">清空</button>
+	        </div>
+	        <div class="box-body col-sm-12 col-xs-12 no-height">
+	            <span class="word_style">执行结果</span>
+				<textarea rows="24" cols="60" id="order_text1" style="height:350px;" placeholder="<H3C>"></textarea>
+	        </div>
+    	</div>
+    	
+	</div>
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("order.index");
+</script>

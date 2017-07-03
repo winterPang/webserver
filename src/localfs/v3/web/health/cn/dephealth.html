@@ -1,0 +1,91 @@
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+    <link href="../health/css/dephealth.css" rel="stylesheet" type="text/css">
+<body>
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+    <h3>深度体检报告</h3>
+</div>
+
+<div class="page-row hide" id="qualityReport">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box">
+            <div class="box-footer">
+                <div class="title">空口质量报告</div>
+            </div>
+            <div class="box-body no-height">
+                <div id="qualityReport_slist"  class="simple-list" ></div>
+             </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-row hide" id="interfereReport">
+    <div class="col-sm-12 app-colum">
+        <div class="app-box">
+            <div class="box-footer">
+                <div class="title big">干扰设备报告</div>
+            </div>
+            <div class="box-body no-height">
+                <div id="interfereReport_slist" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form class="form-horizontal form-bordered form edit" id="dep_health_form">
+    <div class="form-group" id="load">
+        <div id="loading" class="loadingDiv"><img src="../health/css/loading.png">正在深度体检，请耐心等待...</div>
+    </div>
+
+    <div class="form-group hide" id="btnCancel">
+        <div class="col-sm-12">
+            <a type="button" class="btn btn-primary" dlgtype="Close" data-dismiss="modal">关闭</a>
+        </div>
+    </div>
+
+    <div class="form-group hide" id="dep_health_fail">
+        <div class="col-sm-12 checkagain">
+            <img src="../health/css/fail.png" style="width:130px;height:130px;">
+            <span class="status">深度体检失败，请检查设备与云端的连接状态，</span>
+            <span id="deepcheck">重新深度体检</span>
+        </div>
+    </div>
+
+    <div class="form-group hide" id="btnCancel_fail">
+        <div class="col-sm-12 cancel">
+            <a type="button" class="btn btn-primary" dlgtype="Close" data-dismiss="modal">取消</a>
+        </div>
+    </div>
+
+</form>
+</body>
+<div class="define_rc" id="dep_health_rc"
+     qualityReportTitle="ApName,RadioType,工作信道,平均质量,调整原因,调整建议"
+     interfereReportTitle = "干扰设备类型,信号强度,干扰信道,ApName,RadioType"
+     chl="信道调整为"
+     por="功率调整为"
+     success="深度体检成功"
+     alert="频谱分析已经结束，正在计算上报调整信道和功率，可能耗时较长，请耐心等待"
+     fail="获取调整原因，调整信道及功率失败"
+     fail2="获取空口质量报告数据失败"
+     ReasBitMap="无"
+     suggest="无需调整"
+     reason0="其他"
+     reason="802.11干扰"
+     reason1="丢包"
+     reason2="重传"
+     reason3="雷达"
+     reason4="功率调整"
+     reason5="其他"
+     null="无法获取"
+     deviceError="设备连接异常"
+     deviceNoResponse="设备未响应"
+        >
+</div>
+</html>
+<script>
+    Utils.Pages.loadJS("health.dephealth");
+</script>

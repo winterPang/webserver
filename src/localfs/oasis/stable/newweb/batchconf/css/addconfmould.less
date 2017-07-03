@@ -1,0 +1,136 @@
+html, body {
+  background-color: #efefef;
+}
+
+.addconfmould {
+  div, p, ul, li, h1, h2, h3, h4 {
+    padding: 0;
+    list-style: none;
+    box-sizing: border-box;
+  }
+  margin: 0 15%;
+  .navbar.navbar-default {
+    background: #f8faf5 none;
+    border: none;
+    box-shadow: none;
+    margin-bottom: 0;
+    padding: 0 15px;
+    width: 70%;
+    position: fixed;
+    z-index: 100;
+    .navbar-header {
+      .navbar-brand {
+        width: 220px;
+        height: 64px;
+        line-height: 64px;
+        padding-left: 30px;
+        background: url(../../frame/img/sprite.png) no-repeat #1bbc9b -220px -85px;
+      }
+      .navbar-toggle {
+        border-color: #80878c;
+        color: #80878c;
+        &:hover, &:focus {
+          background: none;
+        }
+        .icon-bar {
+          background-color: #80878c;
+        }
+      }
+    }
+    .navbar-nav {
+      margin-left: 30px;
+      & > li {
+        & > a {
+          font-size: 16px;
+          padding: 21px 20px;
+          color: #34495e;
+          float: left;
+          cursor: pointer;
+          &:hover, &:focus {
+            background-color: transparent;
+            color: #1bbc9b;
+          }
+        }
+        &.active {
+          & > a {
+            color: #1bbc9b;
+            border-bottom: 2px solid #1bbc9b;
+            background-color: transparent;
+          }
+        }
+      }
+      &.navbar-right {
+        line-height: 64px;
+      }
+    }
+  }
+  .add-conf-mould {
+    min-height: 752px;
+    padding: 84px 20px 20px;
+    background-color: #fff;
+  }
+  form {
+    .form-group {
+      margin-bottom: 5px;
+      h4 {
+        color: #80878c;
+        font-weight: 600;
+        padding-bottom: 15px;
+        border-bottom: 2px solid #AFBABF;
+      }
+      .ctrs {
+        text-align: center;
+      }
+      label {
+        font-weight: lighter;
+        text-align: right;
+        padding-top: 9px;
+        &.text-left {
+          text-align: left;
+        }
+        .label-require {
+          color: #f00;
+        }
+      }
+      .form-control {
+        border-radius: 0;
+      }
+    }
+  }
+  .clear-both {
+    &:before {
+      content: " ";
+      display: table;
+    }
+    &:after {
+      content: " ";
+      display: table;
+      clear: both;
+    }
+  }
+}
+
+/*滚动条美化css 适合WebKit引擎的浏览器如chrome、oprea、Safari等*/
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  border: 5px solid transparent;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2) inset;
+}
+
+::-webkit-scrollbar-thumb {
+  min-height: 20px;
+  background-clip: content-box;
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.2) inset;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}

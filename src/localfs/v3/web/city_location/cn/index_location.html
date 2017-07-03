@@ -1,0 +1,102 @@
+<html>
+<head>
+</head>
+<body>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div class="app-box no-height default-bottom">
+                <div class="box-footer">
+                    <span class="title">热点划分</span>
+                </div>
+                <div class="box-body no-height">
+                    <div id="location_list" class="simple-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade modal-super" id="TerminalInfoDlgAP" tabindex="-1" aria-hidden="true">
+        <!--  下面的表单是用来弹窗的,弹出的窗是具体的信息 -->
+        <form class="form-horizontal form" id="view_client_form">
+            <div class="box-body no-height form-group">
+                <div class="page-row">
+                    <div class="col-xs-12 app-colum">
+                        <div class="app-box no-height default-bottom">
+                            <div class="box-body no-height" id="frameList">
+                                <!-- 这个div就是和下面的div有一个间距而已 -->
+                                <div id="flowdetail_listAP" class="simple-list"></div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer form-actions"></div><!-- 这里是用来绑定取消按钮的 -->
+        </form>
+        <div class="editor-alert">
+        </div>
+    </div>
+    <div class="modal fade modal-super" id="TerminalInfoDlgAPGroup" tabindex="-1" aria-hidden="true" style="margin-top: -148px; display: none;">
+        <!--  下面的表单是用来弹窗的,弹出的窗是具体的信息 -->
+        <form class="form-horizontal form" id="view_client_form1">
+            <div class="box-body no-height form-group">
+                <div class="page-row">
+                    <div class="col-xs-12 app-colum">
+                        <div class="app-box no-height default-bottom">
+                            <div class="box-body no-height" id="frame"><!-- 这个div就是和下面的div有一个间距而已 -->
+                                <div id="flowdetail_listAPGroup" class="simple-list"></div><!-- 所有的弹框信息，每条数据都在这个div里呢 -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer form-actions"></div><!-- 这里是用来绑定取消按钮的 -->
+        </form>
+        <div class="editor-alert">
+        </div>
+    </div>
+    <div class="hide modal fade" id="AddLocationDlg">
+        <div class="modal-body">
+            <form class="form edit" id="AddLocationForm">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label required">区域</label>
+                    <div class="col-sm-9">
+                        <div class="m-input" id="location_name"></div>
+                        <label class="info-explain">（1-32字符）</label>
+                        <label class="error" id="location_name_error"></label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+<div id="city_location_indexConfigure" class="rc-define"
+        LOCATION_HEADER="区域名称,描述,AP组列表,无线服务列表,操作"
+        STATUS="开启,关闭"
+        TERINFO="AP列表"
+        TITLE_TERINFO="AP详情"
+        ADDLOCATION="加入城区"
+        TITLE_LOCATION="增加城市区域"
+        AUTHEN_TYPE="不认证,一键上网,账号认证"
+        SERVICE_HEADER="无线服务名称,SSID,服务类型,区域,操作"
+        APGROUP_HEADER="AP组名称,描述,区域,操作"
+        FRESH="刷新"
+        DEL_SUCCESS = "删除成功"
+        LINK_delete="主连接已断开,删除失败",
+        SSID_HEADER = "SSID,认证方式"
+        ADD_TITLE = "增加服务"
+        AUTH_CFG = "不认证,微信认证,短信认证,一键上网,选择页面模板"
+        DEL_AUTH_FAIL = "删除发布模板失败"
+        DEL_PUB_SUCC = "取消发布成功"
+        PUB_SUCC = "发布成功"
+        ADD_SUCCESS = "添加成功"
+        ADD_FAIL = "添加失败"
+        ADD_NULL_SSID = "SSID不能为空"
+        DEL_FAIL = "删除失败"
+        LINK="主连接已断开,添加失败"
+        ADD_Limit="服务模版已达到上限，添加失败"
+        SYN="同步"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+	Utils.Pages.loadJS("city_location.index_location");
+</script>

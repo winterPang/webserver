@@ -1,0 +1,93 @@
+<div class="container-fluid">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div class="app-box">
+                <div class="select-footer">
+                    <span class="float-left ml25">周期：</span>
+                    <div class="time-change ml20" style="float:left;" id="total">
+                        <a id="days" class="time-link active" value="1" ng-click="clickTest($event)">一天</a>
+                        <a id="weeks" class="time-link" value="2" ng-click="clickTest($event)">七天</a>
+                        <a id="mounth" class="time-link" value="3" ng-click="clickTest($event)">一月</a>
+                        <a id="year" class="time-link" value="4" ng-click="clickTest($event)">一年</a>
+                        <span>自定义：</span>
+                        <input id="daterange" class="daterange time-select" placeholder="选择日期" ctrl="daterang">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-row xxb">
+        <div class="col-xs-12 app-colum" debug="getAdvertBySpan">
+            <div class="app-box">
+                <div class="box-footer">
+                    <span class="title">广告展示统计</span>
+                </div>
+                <div class="box-body">
+                    <div class="form-group col-sm-12">
+                        <div class="radio_styles radio-group">
+                            <div class="col-sm-1">
+                                <input type="radio" name="advert-info" id="g_pv" checked ng-click="bindGroup($event)">
+                                <label for="g_pv">浏览量</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <input type="radio" name="advert-info" id="g_pu" ng-click="bindGroup($event)">
+                                <label for="g_pu">访客数</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <input type="radio" name="advert-info" id="g_clickCount" ng-click="bindGroup($event)">
+                                <label for="g_clickCount">点击数</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <input type="radio" name="advert-info" id="g_ctr" ng-click="bindGroup($event)">
+                                <label for="g_ctr">点击率</label>
+                            </div>
+                        </div>
+                        <div id="adShowCount" style="height:300px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-row xxb">
+        <div class="col-xs-12 app-colum" debug="getAdMessage">
+            <div class="app-box">
+                <div class="box-footer">
+                    <span class="title">概况</span>
+                </div>
+                <div class="box-body no-height">
+                    <div bs-table="alloptions"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-row xxb">
+        <div class="col-xs-12 app-colum" debug="getAdMessage">
+            <div class="app-box no-height default-bottom">
+                <div class="box-footer">
+                    <span class="title">受访页面</span>
+                </div>
+                <div class="box-body no-height">
+                    <div bs-table="singleoptions"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+<div id="total_rc" 
+    DRP_APPLYLABEL = "确定"
+    DRP_CANCELLABEL = "取消"
+    DRP_FROMLABEL = "起始时间"
+    DRP_TOLABEL = "结束时间"
+    DRP_CUSTOMRANGELABEL = "自定义"
+    DRP_DAYSOFWEEK = "日,一,二,三,四,五,六"
+    DRP_MONTHNAMES = "一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月"    
+    url="页面URL"
+    pv="浏览量"
+    people="人数"
+    pu="访客数"
+    clickCount="点击数"
+    ctr="点击率">
+</div>

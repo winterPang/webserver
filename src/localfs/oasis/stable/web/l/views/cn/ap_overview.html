@@ -1,0 +1,380 @@
+<style>
+    html .app-colum .app-box .echart-height, body .app-colum .app-box .echart-height {
+        height: 370px;
+    }
+
+    .sta_analyse .page-row > .app-colum.left-block > .app-box > .box-body .statistical_data {
+        text-align: center;
+    }
+
+    .sta_analyse .page-row > .app-colum.left-block > .app-box > .box-body .statistical_data .size_of_statistical {
+        height: 110px;
+        display: inline-block;
+        width: 100px;
+        margin-left: 7px;
+        margin-bottom: 10px;
+        padding-top: 10px;
+        text-align: center;
+        border: 1px solid #eee;
+        border-radius: 10px;
+    }
+
+    .sta_analyse .page-row > .app-colum.left-block > .app-box > .box-body .statistical_data a {
+        color: #80878c;
+    }
+
+    .sta_analyse .page-row > .app-colum.left-block > .app-box > .box-body .statistical_data span, .sta_analyse .page-row > .app-colum.left-block > .app-box > .box-body .statistical_data dt {
+        font-size: 40px;
+        font-weight: bold;
+        padding-bottom: 10px;
+        margin: 0 14px 5px;
+        border-bottom: 1px solid #eee;
+    }
+
+    .progress {
+        height: 10px;
+        margin-bottom: 15px;
+    }
+</style>
+<div class="dashboard container-fluid">
+    <div class="page-row">
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer ">
+                    <div class="col-xs-3">
+                        <span class="title">AP在线率</span>
+                    </div>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh list-link">
+                            <i class="fa fa-mydetail"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body echart-height form-group">
+                    <!--pie-->
+                    <div class="col-sm-7" dashboard-echarts="AP_onlineRate_option" style="height:100%;"></div>
+                    <!--analyse-->
+                    <div id="AP_onlineRateAnalyse" class="col-sm-4 col-sm-offset-1 panel-inner-right">
+                        <h5 class="subtitle">在线率Top5</h5>
+                        <div class="sublabel"><span name="name">WC350</span> <span name="value">(98%)</span></div>
+                        <div class="progress progress-sm">
+                            <div name="progressbar" style="width: 98%;background:#1CAF9A;" aria-valuemax="100"
+                                 aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                        </div>
+                        <div class="sublabel"><span name="name">4420</span> <span name="value">(92%)</span></div>
+                        <div class="progress progress-sm">
+                            <div name="progressbar" style="width: 92%;background:#5BC0DE;" aria-valuemax="100"
+                                 aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                        </div>
+                        <div class="sublabel"><span name="name">WAC360</span> <span name="value">(86%)</span></div>
+                        <div class="progress progress-sm">
+                            <div name="progressbar" style="width: 86%;background:#F0AD4E;" aria-valuemax="100"
+                                 aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                        </div>
+                        <div class="sublabel"><span name="name">4330</span> <span name="value">(84%)</span></div>
+                        <div class="progress progress-sm">
+                            <div name="progressbar" style="width: 84%;background:#D9534F;" aria-valuemax="100"
+                                 aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                        </div>
+                        <div class="sublabel"><span name="name">2610</span> <span name="value">(80%)</span></div>
+                        <div class="progress progress-sm">
+                            <div name="progressbar" style="width: 80%;background:#428BCA;" aria-valuemax="100"
+                                 aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                        </div>
+                        <div class="sublabel"><span name="name">2000</span> <span name="value">(76%)</span></div>
+                        <div class="progress progress-sm">
+                            <div name="progressbar" style="width: 76%;background:#1b9ba5;" aria-valuemax="100"
+                                 aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer ">
+                    <div class="col-xs-3">
+                        <span class="title">AP类型</span>
+                    </div>
+                    <!--<div class="text-right link-container">-->
+                    <!--<a type="button" class="refresh list-link">-->
+                    <!--<i class="fa fa-mydetail"></i>-->
+                    <!--</a>-->
+                    <!--</div>-->
+                </div>
+                <div class="box-body echart-height form-group col-xs-12">
+                    <div bs-table="AP_type"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer ">
+                    <div class="col-xs-3">
+                        <span class="title">AP重启比例</span>
+                    </div>
+                    <div class="text-right link-container">
+                        <a class="xb-link label list-link" ng-click="show_AP_restart_times_modal()"><i class="fa fa-mydetail"></i></a>
+                    </div>
+                    <div bs-modal="AP_restart_times_modal">
+                        <table bs-table="AP_restart_times_options"></table>
+                    </div>
+                </div>
+                <div class="box-body echart-height form-group">
+                    <!--pie-->
+                    <!--<div class="col-sm-8">-->
+                    <div class="col-sm-7" dashboard-echarts="AP_restart_ratio_option" style="height:100%"></div>
+                    <!--<div class="col-sm-12 statistical_data">-->
+                    <!--<dl class="size_of_statistical maxData">-->
+                    <!--<dt>100</dt>-->
+                    <!--<dd>最大值</dd>-->
+                    <!--</dl>-->
+                    <!--<dl class="size_of_statistical minData">-->
+                    <!--<dt>1</dt>-->
+                    <!--<dd>最小值</dd>-->
+                    <!--</dl>-->
+                    <!--<dl class="size_of_statistical averageData">-->
+                    <!--<dt>80</dt>-->
+                    <!--<dd>平均值</dd>-->
+                    <!--</dl>-->
+                    <!--</div>-->
+                    <!--</div>-->
+                    <!--analyse-->
+                    <div id="sta_analyse" class="col-sm-3 col-sm-offset-1 panel-inner-right">
+                        <h5 class="subtitle">AP重启次数Top6</h5>
+                        <div class="sublabel"><span name="name">AP1</span> <span name="value">(10次)</span></div>
+                        <div class="progress progress-xs">
+                            <div name="progressbar" style="width: 20.63%;background:#1CAF9A;" aria-valuemax="100"
+                                 aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                        </div>
+                        <div class="sublabel"><span name="name">AP2</span> <span name="value">(9次)</span></div>
+                        <div class="progress progress-xs">
+                            <div name="progressbar" style="width: 16.33%;background:#5BC0DE;" aria-valuemax="100"
+                                 aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                        </div>
+                        <div class="sublabel"><span name="name">AP3</span> <span name="value">(8次)</span></div>
+                        <div class="progress progress-xs">
+                            <div name="progressbar" style="width: 10.61%;background:#F0AD4E;" aria-valuemax="100"
+                                 aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                        </div>
+                        <div class="sublabel"><span name="name">AP4</span> <span name="value">(7次)</span></div>
+                        <div class="progress progress-xs">
+                            <div name="progressbar" style="width: 10.20%;background:#D9534F;" aria-valuemax="100"
+                                 aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                        </div>
+                        <div class="sublabel"><span name="name">AP5</span> <span name="value">(6次)</span></div>
+                        <div class="progress progress-xs">
+                            <div name="progressbar" style="width: 7.80%;background:#428BCA;" aria-valuemax="100"
+                                 aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                        </div>
+                        <div class="sublabel"><span name="name">AP6</span> <span name="value">(5次)</span></div>
+                        <div class="progress progress-xs">
+                            <div name="progressbar" style="width: 7.80%;background:#474fe5;" aria-valuemax="100"
+                                 aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer ">
+                    <div class="col-xs-3">
+                        <span class="title">AP负载率</span>
+                    </div>
+                    <div class="text-right link-container">
+                        <a class="xb-link label list-link" ng-click="show_AP_load_ratio_modal()"><i class="fa fa-mydetail"></i></a>
+                    </div>
+                    <div bs-modal="AP_load_ratio_modal">
+                        <table bs-table="AP_load_ratio_options"></table>
+                    </div>
+                </div>
+                <div class="box-body echart-height form-group">
+                    <!--pie-->
+                    <div class="col-sm-7" dashboard-echarts="AP_load_ratio_option" style="height:100%;"></div>
+                    <!--analyse-->
+                    <div id="AP_overloadRanking" class="col-sm-3 col-sm-offset-1 panel-inner-right">
+                        <h5 class="subtitle">负载率超负荷Top6</h5>
+                        <div class="sublabel"><span name="name">AP1</span> <span name="value">(10次)</span></div>
+                        <div class="progress progress-sm">
+                            <div name="progressbar" style="width: 20.63%;background:#1CAF9A;" aria-valuemax="100"
+                                 aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                        </div>
+                        <div class="sublabel"><span name="name">AP2</span> <span name="value">(9次)</span></div>
+                        <div class="progress progress-sm">
+                            <div name="progressbar" style="width: 16.33%;background:#5BC0DE;" aria-valuemax="100"
+                                 aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                        </div>
+                        <div class="sublabel"><span name="name">AP3</span> <span name="value">(8次)</span></div>
+                        <div class="progress progress-sm">
+                            <div name="progressbar" style="width: 10.61%;background:#F0AD4E;" aria-valuemax="100"
+                                 aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                        </div>
+                        <div class="sublabel"><span name="name">AP4</span> <span name="value">(7次)</span></div>
+                        <div class="progress progress-sm">
+                            <div name="progressbar" style="width: 10.20%;background:#D9534F;" aria-valuemax="100"
+                                 aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                        </div>
+                        <div class="sublabel"><span name="name">AP5</span> <span name="value">(6次)</span></div>
+                        <div class="progress progress-sm">
+                            <div name="progressbar" style="width: 7.80%;background:#428BCA;" aria-valuemax="100"
+                                 aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                        </div>
+                        <div class="sublabel"><span name="name">AP6</span> <span name="value">(5次)</span></div>
+                        <div class="progress progress-sm">
+                            <div name="progressbar" style="width: 7.80%;background:#474fe5;" aria-valuemax="100"
+                                 aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--AP_onlineTimeLength-->
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer ">
+                    <div class="col-xs-3">
+                        <span class="title">AP在线时长</span>
+                    </div>
+                    <div class="text-right link-container">
+                        <a class="xb-link label list-link" ng-click="show_AP_quarter_flow_modal()"><i class="fa fa-mydetail"></i></a>
+                    </div>
+                    <div bs-modal="AP_quarter_flow_modal">
+                        <table bs-table="AP_quarter_flow_modal_options"></table>
+                    </div>
+                </div>
+                <div class="box-body echart-height form-group">
+                    <div class="col-sm-7">
+                        <!--pie-->
+                        <div class="col-sm-7" dashboard-echarts="AP_onlineTimeLength_option" style="height:275px;"></div>
+                        <!--analyse-->
+                        <div id="sta_time_analyse" class="col-sm-5 panel-inner-right">
+                            <h5 class="subtitle">季度AP在线时长TOP5</h5>
+                            <div class="sublabel"><span name="name">AP1</span> <span name="value">(2000小时)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 20.63%;background:#1CAF9A;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">AP2</span> <span name="value">(1375小时)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 16.33%;background:#5BC0DE;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">AP3</span> <span name="value">(1000小时)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 10.61%;background:#F0AD4E;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">AP4</span> <span name="value">(700小时)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 10.20%;background:#D9534F;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">AP5</span> <span name="value">(600小时)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 7.80%;background:#428BCA;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-5">
+                        <div bs-table="AP_flow"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--AP_usageRate-->
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer ">
+                    <div class="col-xs-3">
+                        <span class="title">AP使用率</span>
+                    </div>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh list-link">
+                            <i class="fa fa-mydetail"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="box-body echart-height form-group">
+                    <div class="col-sm-5">
+                        <div bs-table="sta_time_analyse"></div>
+                    </div>
+                    <div class="col-sm-7">
+                        <!--pie-->
+                        <div class="col-sm-7" dashboard-echarts="sta_flow_active_option" style="height:275px;"></div>
+                        <!--analyse-->
+                        <div id="sta_flow_analyse" class="col-sm-5 panel-inner-right">
+                            <h5 class="subtitle">接入用户数TOP5</h5>
+                            <div class="sublabel"><span name="name">27.59%</span> <span name="value">(1999~1500人)</span>
+                            </div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 20.63%;background:#1CAF9A;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">24.14%</span> <span name="value">(2500~2000)</span>
+                            </div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 16.33%;background:#5BC0DE;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">20.69%</span> <span name="value">(1499~1000人)</span>
+                            </div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 10.61%;background:#F0AD4E;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">17.24%</span> <span name="value">(999~500人)</span>
+                            </div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 10.20%;background:#D9534F;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">10.34%</span> <span name="value">(499人以下)</span>
+                            </div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 7.80%;background:#428BCA;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--AP_channelBusy-->
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer ">
+                    <div class="col-xs-3">
+                        <span class="title">AP所处信道繁忙度</span>
+                    </div>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh list-link">
+                            <i class="fa fa-mydetail"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="box-body echart-height form-group" style="height:320px;">
+                    <div class="col-sm-6">
+                        <P style="color:black;">2.4G</P>
+                        <div class="" dashboard-echarts="AP_channelBusy1_option" style="height:275px;"></div>
+
+                    </div>
+                    <div class="col-sm-6">
+                        <P style="color:black;">5G</P>
+                        <div class="" dashboard-echarts="AP_channelBusy2_option" style="height:275px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>

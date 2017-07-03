@@ -1,0 +1,91 @@
+<div class="apinfo5 dashboard js-apinfo">
+    <oasis-row>
+        <oasis-col md=12>
+            <oasis-box>
+                <oasis-box-header bgnone ostitle='AP信息' linkdetail='^.apinfo5_ap_detail'>
+                </oasis-box-header>
+                <oasis-box-body height=120>
+                    <oasis-col xs="4">
+                        <div class="syslog-info-mine-Total">
+                            <div class="ap-icon_h icon-online"></div>
+                            <div class="right-text-info">
+                                <span class="counter" id="online" ng-bind="online_ap"></span>
+                                <br />
+                                <span class="number-title">在线AP数</span>
+                            </div>
+                        </div>
+                    </oasis-col>
+                    <oasis-col xs="4">
+                        <div class="syslog-info-mine-Total">
+                            <div class="ap-icon_h icon-offline">
+                            </div>
+                            <div class="right-text-info">
+                                <span class="counter" id="offline" ng-bind="offline_ap"></span>
+                                <br />
+                                <span class="number-title">离线AP数</span>
+                            </div>
+                        </div>
+                    </oasis-col>
+                    <oasis-col xs="4">
+                        <div class="syslog-info-mine-Total syslog-apinfo-border">
+                            <div class="ap-icon_h icon-unhealth">
+                            </div>
+                            <div class="right-text-info">
+                                <span class="counter" id="unhealthy" ng-bind="unhealth_ap"></span>
+                                <br />
+                                <span class="number-title">不健康AP数</span>
+                            </div>
+                        </div>
+                    </oasis-col>
+                </oasis-box-body>
+            </oasis-box>
+        </oasis-col>
+    </oasis-row>
+    <oasis-row>
+        <oasis-col md=6>
+            <oasis-box>
+                <oasis-box-header bgnone>
+                    <span class="title">基于终端数</span>
+                </oasis-box-header>
+                <oasis-box-body type="echart">
+                    <div id="According_client" style="width:522px;height:280px;"></div>
+                </oasis-box-body>
+            </oasis-box>
+        </oasis-col>
+        <oasis-col md=6>
+            <oasis-box>
+                <oasis-box-header bgnone>
+                    <span class="title">基于AP类型</span>
+                </oasis-box-header>
+                <oasis-box-body type="echart">
+                    <div id="ApType_pie" style="width:522px;height:280px;"></div>
+                </oasis-box-body>
+            </oasis-box>
+        </oasis-col>
+    </oasis-row>
+   <!--  <div bs-modal="apInfoByGroupOption">
+        <div bs-table="apInfoByGroupList"> </div>
+    </div> -->
+    <div bs-modal="apInfoByClientOption">
+        <oasis-col xs=12 class="info-tip">
+            <span>终端数 :</span>
+            <a ng-bind="clientNum"></a>
+            &nbsp;&nbsp;
+            <span>AP数 :</span>
+            <a ng-bind="apNum"></a>
+        </oasis-col>
+        <div bs-table="apInfoByClientList"> </div>
+    </div>
+    <div bs-modal="apInfoByTypeOption">
+        <oasis-col xs=12 class='info-tip'>
+            <span>AP类型 :</span>
+            <a ng-bind="apType"></a>
+            &nbsp;&nbsp;
+            <span>AP数量 :</span>
+            <a ng-bind="aptTypeNum"></a>
+         </oasis-col>
+        <div bs-table="apInfoByTypeList"> </div>
+    </div>
+    <div id="apinfo_rc" group_header="AP组名称,AP数目" ap_info_group="名称,型号,序列号,MAC" ap_info_type="名称,型号,终端数量" ap_info_client="名称,型号" ssid_header="SSID,AP数目（5GHz）,AP数目（2.4GHz）" ap_type="在线的手工AP,自动AP,离线的手工AP,未认证的AP" ap_diag_header="AP名称,AP型号,AP类型" endnum_diag_header="AP名称,AP型号,终端数" ALLAP_HEADER3="AP名称,型号,AP序列号,MAC地址" apType="在线的手工AP,自动AP,离线的手工AP,未认证的AP" apClientType="0,1~10,11~20,21~40,'',41~60,61~80,81~100,101以上" AP_Count="离线AP数量,在线AP数量" AP_LIST="AP列表">
+    </div>
+</div>

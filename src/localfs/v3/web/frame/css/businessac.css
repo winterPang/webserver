@@ -1,0 +1,352 @@
+
+/*****************************   h_apinfo   ************************************/
+								/* AP信息页面 显示AP数量的那个div的class*/
+							
+/*.dashboard .syslog-info {
+	height: 66px;
+	line-height: 30px;
+	vertical-align: middle;
+	text-align: inherit;
+	cursor: default;
+}*/								/* AP信息页面，AP数量DIV里面嵌套显示图像和数字的div */
+
+
+/*.dashboard .bor-r{
+	border-right: 1px solid #e7e7e9;
+}	*/							/* 给上面的信息添加了1px的油边框  */
+
+
+/*.dashboard .syslog-info-mine-Total .ap-icon_h{
+	width: 70px;
+	height: 62px;
+	display: inline-block;
+	line-height: 62px;
+	background-image: url(image/hangyeac.png);
+	vertical-align: middle;
+	margin-left: 24%;
+}								
+
+.dashboard .syslog-info-mine-Total .ap-icon_h.icon-online{
+	background-position: -106px -60px;
+}								
+.dashboard .syslog-info-mine-Total .ap-icon_h.icon-offline{
+	background-position: -336px -60px;
+}								
+.dashboard .syslog-info-mine-Total .ap-icon_h.icon-unhealth{
+	background-position: -220px -60px;
+}								
+
+.dashboard .syslog-info-mine-Total .category_h{
+	text-align: left;
+	margin-left: 20px;
+	height: 22px;
+	color: #80878c;
+	font-size: 12px;
+	margin-top:3px;
+}								
+*/
+/*.dashboard .chart-height,
+.dashboard .default-height {
+	height: 316px;
+}	*/							/* 基于AP类型的div，修改高度 */
+
+.col-xs-10 .title_h{
+	height: 30px;
+	line-height: 30px;
+	background: transparent;
+	width:320px;
+	font-size: 17px;
+	color: #343e4e;
+	padding-left: 8px;
+	font-family: Arial,"Microsoft YaHei",Helvetica,sans-serif;
+}								/* 每个div的标题样式 */
+
+/*.right-text-info{
+	display: inline-block;
+    width:90px;
+    margin-left: -16%;
+}*/
+
+
+/*******************************************  h_dashboard的样式 ************************************************/
+
+/*.dashboard .syslog-value{
+	padding-right: 28px;
+	color: #fff;
+}								/* 定义日志信息div里面，文字的padding和颜色 */
+
+/*.dashboard .log-count{
+	font-size: 30px;
+	padding-top: 28px;
+}*/								/* 定义日志信息div里面，数字的padding和字体大小 */
+
+/*.dashboard .log-title {
+    font-size: 12px;
+    margin-top: -56px;
+    color: #80878c;
+}	*/							/* 定义日志信息div里面，文字的margin、字体大小，和颜色 */
+
+
+/*.dashboard .syslog-container {
+	background-image: url(image/hangyeac.png);
+    display: inline-block;
+	margin-right: 10px;    
+	width: 18px;
+	height: 18px;
+	margin-bottom: -4px;
+}                    
+.dashboard .bg-yellow {
+    background: url(image/22.png) no-repeat;
+}
+.dashboard .bg-grey {
+    background: url(image/33.png) no-repeat;
+}
+.dashboard .bg-lightyellow {
+    background: url(image/11.png) no-repeat;
+}
+.app-colum .app-box .noborder{
+	border:none;
+}
+.height{
+	height:301px;
+}
+.app-box .background{
+	background:#fff;
+}
+                            没用到 */    
+/*.dashboard .bg-transparent {
+    background: #f9f9f9;
+    border:#e7e7e9 1px solid;
+}*/							/* 定义日志信息div以及里面几个子div的背景以及边框 */
+
+/*.color_emergency{color:#f05566;}
+.color_critical{color:#f46e7d;}
+.color_warning{color:#ffbc53;}
+.color_info{color:#4ec1b2;}*/
+							/* 日志信息div里面的子div设置不一样的颜色颜色 */
+/*.dashboard .number {
+	text-align: right;
+	cursor:default;
+	width:100%;
+}	*/						/* 定义日志信息div里面子div数字的样式 */
+
+#raty_score_1{
+	display: block;
+}
+.right_health{
+    /*margin-top:80px;*/
+    height: 177px;
+    margin-left:46px;
+}
+.right_health .health_title{
+    margin-top:9px;
+    height:12%;
+}
+
+.right_health .health_value{
+    margin-left:50%;
+    width:60%;
+    margin-top:-22px;
+}
+
+.dashboard .head-bar .box-footer {
+	background:#fff;
+	margin-bottom: 15px;
+}							/* 定义日志信息的box-footer样式 */
+
+.head-bar .box-footer .title {
+    color: #343e4e;
+    font-size: 17px;
+    /*padding-left: 25px;*/
+    float: left;
+}							/* 定义日志信息的文字样式 */
+/*
+.summary-view .sum-title {
+	color: #47495d;
+	font-size: 16px;
+	padding-left: 10px;
+	margin-bottom: 10px;
+	display: inline-block;
+}*/
+/*.dashboard-client-header {
+	height:40px;
+	position:relative;
+}*/
+/*.dashboard-client-block {
+	position: absolute;
+	right: 30px;
+	top: -10px;
+}*/
+/*.dashboard-body-font {
+	font-size: 14px;
+	color: #80878c;
+}
+.dashboard-body-num {
+	font-size: 36px;
+	color: #343e4e;
+}*/
+/*.dashboard-usage-box {
+	height: 125px;
+    padding-top: 30px;
+}*/                         /* 流量监控选择接口样式 */
+
+/*.dashboard-button-row {
+	margin:5px 25px;
+} */                        /* 流量监控选择接口确定按钮样式-横排按钮 */
+/*.dashboard-usage {
+	padding-left:17px;
+	padding-top:20px;
+}*/
+/*.utilization-height {
+	height:36px;
+}*/
+/***********************************    h_stamgrclients    ********************************************/
+/*head-bar da kuang*/
+
+/*.bg-white{
+    border: 1px solid #e7e7e9;  
+    margin-bottom: 25px;  
+}
+*/
+/*head-bar de biao ti he an niu*/
+.sysinfo-footer-title{
+	display: inline ! important;
+	
+}
+/*
+.sysinfo-footer-button{
+    width: 18px;
+    height: 16px;
+
+    float: right;
+
+    margin-left: 8px;
+    margin-right: 10px;
+    margin-top: 5px;
+
+    background-image: url("image/dashboard-icon.png");
+    background-position: -215px -58px;	
+}
+*/
+
+
+
+/*head-bar de li mian bu fen*/
+
+/*3 ge xiao kuang*/
+/*.syslog-info-mine-Total{
+    border-right: 1px solid #e7e7e9;
+    text-align: center;    	
+}*/
+
+/*.syslog-apinfo-border{
+    border-right: none;    	
+}*/
+.syslog-info-mine-Num2G{
+    border-right: 1px solid #e7e7e9;
+    text-align: center;     
+}
+
+
+.syslog-info-mine-Num5G{
+    border-right: 1px solid #e7e7e9;
+    text-align: center;     
+}
+
+
+.syslog-info-mine-NumRZ{
+	border-right: 1px solid #fff;
+    text-align: center;     
+}
+
+/*zuo you */
+/*.left-icon,.right-text{
+    display: inline-block;
+    width:90px;
+}
+*/
+
+/*zuo : tu biao*/
+/*.left-icon{
+    width: 50px;
+    height: 70px;    
+    background-image: url("image/hangyeac.png");
+ 
+}
+.Total-icon{
+    background-position: -115px -155px; 
+}  
+
+
+.Num2G-icon{
+    background-position: -235px -155px; 
+} 
+
+
+.Num5G-icon{
+    background-position: -345px -155px; 
+}
+
+.NumRZ-icon{
+    background-position: -115px -255px; 
+}*/
+/*you : wen zi*/
+/*.right-text{
+    width:90px;
+}*/
+
+/*.number-count{
+    font-size: 38px;
+    color:#333e4e;
+}
+
+.number-title{
+    font-size: 12px;
+    color:#80878c;
+}*/
+/*dizhiwei zi ding yi gao du*/
+/*.custom-height{ 
+    height:336px;
+}
+*/
+
+/*-----------------slist xiaokuang------------------  */
+/*box de title bu fen*/
+/*.box-footer{
+    background:#fff ! important;
+}*/
+
+/*box de body bu fen*/
+/*.app-box-slist{
+	padding-left:2px;
+	padding-right:2px;
+}*/
+
+/*slist de bian kuang bu fen*/
+/*.sysinfo-body .simple-list .slist-body{
+    
+    border-left:1px solid #fff ! important;
+    border-right:1px solid #fff ! important;
+    
+}*/
+
+/*slist de zhuang tai lan bu fen*/
+/*.sysinfo-body .simple-list .page-bar{
+    background: #fff;
+    border-bottom:0px ! important;
+}
+*/
+/*.row i{
+    margin-top:0px;
+}*/
+
+
+
+
+/*-----------------canvas xiaokuang------------------*/
+/*canvas zheng ti you yi*/
+/*.zr-element{    
+    margin-left: 75px;
+}*/
+
+

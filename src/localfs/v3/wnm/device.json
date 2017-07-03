@@ -1,0 +1,36 @@
+{
+  "aMaster":
+  [
+    {"DeviceNode":{"Chassis":"0","Slot":"1","CPUID":"0"}, "Role" : "2",  "Status" : "2", "PhysicalIndex":"158"}
+  ,{"DeviceNode":{"Chassis":"1","Slot":"1","CPUID":"0"}, "Role" : "3", "Status" : "2", "PhysicalIndex":"159"}
+  ,{"DeviceNode":{"Chassis":"1","Slot":"2","CPUID":"0"}, "Role" : "3", "Status" : "2", "PhysicalIndex":"160"}
+  ,{"DeviceNode":{"Chassis":"1","Slot":"3","CPUID":"0"}, "Role" : "3", "Status" : "2", "PhysicalIndex":"161"}
+  ,{"DeviceNode":{"Chassis":"1","Slot":"4","CPUID":"0"}, "Role" : "4", "Status" : "2", "PhysicalIndex":"162"}
+  ,{"DeviceNode":{"Chassis":"2","Slot":"1","CPUID":"0"}, "Role" : "3", "Status" : "2", "PhysicalIndex":"163"}
+  ,{"DeviceNode":{"Chassis":"2","Slot":"2","CPUID":"0"}, "Role" : "3", "Status" : "2", "PhysicalIndex":"164"}
+  ,{"DeviceNode":{"Chassis":"2","Slot":"3","CPUID":"0"}, "Role" : "3", "Status" : "2", "PhysicalIndex":"165"}
+  ,{"DeviceNode":{"Chassis":"2","Slot":"4","CPUID":"0"}, "Role" : "4", "Status" : "2", "PhysicalIndex":"166"}
+  ,{"DeviceNode":{"Chassis":"2","Slot":"4","CPUID":"0"}, "Role" : "1", "Status" : "2", "PhysicalIndex":"26952"}
+  ,{"DeviceNode":{"Chassis":"2","Slot":"4","CPUID":"0"}, "Role" : "2", "Status" : "2", "PhysicalIndex":"26955"}
+  ,{"DeviceNode":{"Chassis":"2","Slot":"4","CPUID":"0"}, "Role" : "3", "Status" : "1", "PhysicalIndex":"26960"}
+  ]
+  ,"aCap":
+[
+  {
+    "Uptime":"258313",
+    "MinChassisNum" : "1",
+    "MaxChassisNum" : "16",
+    "MinSlotNum" : "1",
+    "MaxSlotNum" : "256",
+    "MinCPUIDNum" : "1",
+    "MaxCPUIDNum" : "128",
+    "HostName":"H3C-Demo",
+    "Location":"Beijing",
+    "HostDescr":"Simare7 Description",
+    "Contact":"82774395",
+    "LocalTime":"2000-04-25T21:23:23",
+    "TimeZone":{"Zone":"+08:00:00", "ZoneName":"Beijing"},
+    "ClockProtocol":{"Protocol":"2","MDCID":"1"}
+  }
+]
+}

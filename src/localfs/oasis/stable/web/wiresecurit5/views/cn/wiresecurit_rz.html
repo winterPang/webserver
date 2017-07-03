@@ -1,0 +1,171 @@
+<style type="text/css">
+    .ant-fixed {
+        position: fixed;
+        right: 30px;
+        top: 131px;
+        z-index: 999;
+        margin-top: -10px;
+    }
+    .page-row .button-change {
+        text-align: right;
+        /*margin: 15px 0 10px 0;*/
+    }
+    .button-change span:hover {
+        color: #4ec1b2 !important;
+    }
+    .page-row span.active{
+        color: #4ec1b2;
+    }
+    .page-row span.inactive{
+        color: #80878c;
+    }
+    .page-row span:hover{
+        cursor: pointer;
+    }
+   .page-row .probe-choice input{
+        width: 200px;
+        height: 33px;
+        padding-right: 40px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+   .page-row .probe-choice.input-height{
+        height: 45px;
+    }
+   .page-row .probe-choice input{
+        z-index: 2;
+    }
+   .page-row .probe-choice input.probe-input{
+        z-index: 2;
+    }
+  .page-row  #probe_time{
+        display: inline-block;
+    }
+   .page-row .probe-choice input.probe-input{
+        width: 183px;
+        margin: 10px;
+    }
+    #daterange {
+	    width: 180px;
+	    padding: 0 0 0 6px;
+	}
+    .choice-show .time-zone{
+        padding: 10px;
+    }
+ 
+    /*周期选择*/
+   .page-row .time-zone{
+        display: inline-block;
+    }
+   .page-row .radio-name{
+        display: inline-block;
+        margin: 0 20px 0 0;
+    }
+   .btn-small{
+        width: 100px;
+        padding: 0;
+    }
+   .page-row .choice-head{
+        width: 200px;
+        height: 33px;
+        padding-right: 0px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        border: #ccc solid 1px;
+    }
+   .page-row .choice-head:hover{
+        border-color: #4ec1b2;
+        cursor: pointer;
+    }
+   .page-row .choice-head span:first-child{
+        margin-left: 15px;
+        line-height: 33px;
+    }
+   .page-row .choice-head span:last-child{
+        height: 33px;
+        width: 30px;
+        float: right;
+    }
+    /*向下箭头*/
+   .page-row .arrow-down{
+        background: url(../frame/images/dashboard-icon.png) no-repeat -376px -94px;
+    }
+   .page-row .choice-show .time-zone{
+        padding: 10px;
+    }
+    .cover-body{
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+</style>
+<div class="btn_h_return" ng-click="return()"></div>
+<div class="page-row custom">
+    <div class="col-xs-12 app-colum top-block">
+        <div class="col-xs-12 app-box">
+            <div class="box-footer">
+                <div class="menu-content select-time">
+                    <span class="ml20">周期：</span>
+                    <input type="radio" name="time" class="no-display" id="aDay" ng-click="initViewsByTime('aDay')" checked />
+                    <label for="aDay" ng-class="{true:'timeActive',false:'inTimeActive'}[isDay]">今天</label>
+                    <input type="radio" name="time" class="no-display" id="aWeek" ng-click="initViewsByTime('aWeek')" /> 
+                    <label for="aWeek" ng-class="{true:'timeActive',false:'inTimeActive'}[isWeek]">一周</label>
+                    <input type="radio" name="time" class="no-display" id="aMonth" ng-click="initViewsByTime('aMonth')"/>
+                    <label for="aMonth" ng-class="{true:'timeActive',false:'inTimeActive'}[isMonth]">一月</label>
+                    <input type="radio" name="time" class="no-display" id="aYear" ng-click="initViewsByTime('aYear')" /> 
+                    <label for="aYear" ng-class="{true:'timeActive',false:'inTimeActive'}[isYear]">一年</label>
+                    <input type="radio" name="time" class="no-display" id="otherTime" disabled />
+                    <label for="otherTime" ng-class="{true:'otherTimeActive',false:'inOtherTimeActive'}[isOther]">自定义</label>
+                    <input id="daterange" class="daterange time-select date_input" placeholder="选择日期" ctrl="daterang">
+                </div>
+                <div class="button-change menu-content text-right">
+                    <span ng-class="{true:'active',false:'inactive'}[attackClass]" ng-click="statisticsInfo('Attack')">攻击</span>
+                    |
+                    <span ng-class="{true:'active',false:'inactive'}[clientClass]" ng-click="statisticsInfo('Client')">客户端</span>
+                    |
+                    <span ng-class="{true:'active',false:'inactive'}[apClass]" ng-click="statisticsInfo('AP')">AP</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 app-colum"> 
+            <div class="app-box" debug="byApList log"> 
+                <div class="box-footer"> 
+                    <span class="title">详情</span>
+                </div> 
+                <div class="box-body no-height" ng-show="show_attack">
+                    <div bs-table="attckOption"></div>
+                </div>
+                <div class="box-body no-height" ng-show="show_client">
+                    <div bs-table="clientOption"></div>
+                </div>
+                <div class="box-body no-height" ng-show="show_ap">
+                    <div bs-table="apOption"></div>
+                </div>
+            </div> 
+        </div>
+
+    </div>
+</div>
+
+<div id="wiresecurit_rz_rc"
+     LIST-HEADER="Sensor名称,攻击源MAC,类型,详情,攻击次数,上报时间"
+     STATION-HEADER="MAC地址,设备类型,最后一次发现时间"
+     NOT-CLASSIFIED="未分类"
+     ATTACK-TYPE="严重攻击,泛洪攻击,畸形报文"
+     STATION-CLASSIFY=",授权AP,配置错误AP,非法AP,外部AP,ad hoc网络,mesh网络,潜在授权AP,潜在非法AP,潜在外部AP,无法确认的AP,授权客户端,未授权客户端,误关联客户端,未分类客户端"
+     ATTACK-NAME-ONE=",AP仿冒攻击,,,Client仿冒攻击,,Weak IV攻击,Windows网桥攻击,客户端开启了禁用802.11n 40MHz模式攻击,软AP攻击,客户端节电攻击,Omerta攻击,解关联攻击,解认证攻击,非法信道攻击,AP扮演者攻击,未加密授权AP攻击,未加密的信任客户端,热点攻击,绿野模式攻击,关联/重关联DoS攻击,蜜罐AP攻击,中间人攻击,无线网桥攻击,AP泛洪攻击,AP信道变化攻击,"
+     ATTACK-NAME-TWO="Association-request帧,Authentication帧,Beacon帧,Block ACK帧,CTS帧,Deauthentication帧,Disassociation帧,EAPOL-Start帧,Null-data帧,Probe-request帧,Reassociation-request帧,RTS帧,EAPOL-Logoff帧,EAP Fail帧,EAP Success帧"
+     ATTACK-NAME-THREE="IE重复的畸形报文,Fata-Jack畸形报文,IBSS和ESS置位异常的畸形报文,源地址为广播或者组播的认证和关联畸形报文,畸形Association-request报文,畸形Authentication报文,含有无效原因值的解除认证畸形报文,含有无效原因值的解除关联畸形报文,畸形HT IE报文,IE长度非法的畸形报文,报文长度非法的畸形报文,Duration字段超大的畸形报文,无效探查响应报文,key长度超长的EAPOL报文,SSID长度超长的畸形报文,多余IE畸形报文"
+     APPLY="应用"
+     CANCEL="取消"
+     WEEK="日, 一, 二, 三, 四, 五, 六"
+     MONTH="一月, 二月, 三月, 四月, 五月, 六月, 七月, 八月, 九月, 十月, 十一月, 十二月"
+></div>

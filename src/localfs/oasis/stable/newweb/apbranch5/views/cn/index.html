@@ -1,0 +1,132 @@
+<div class="apbranch5">
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">分支管理</h3>
+        </div>
+        <div class="panel-body">
+            <div ng-hide="true" class="btn btn-cus" ng-click="downloadFile()">
+                <i class="btn-icon fa fa-download"></i>下载模板
+            </div>
+            <iframe name='downloadFile' id='downloadFile' style='display:none'></iframe>
+
+            <div ng-hide="true" class="btn btn-cus" ng-click="showUploadModal()" type="file">
+                <i class="btn-icon fa fa-upload"></i>导入分支
+            </div>
+
+            <div>
+                <table class="table table-hover" style="border-bottom:1px solid #ddd;">
+                    <thead>
+                        <tr>
+                            <th>分支名称</th>
+                            <th>管理用户</th>
+                            <th>AP数量</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="branch_tbody">
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--AP adds the group-->
+<div bs-modal="addGroupBranch">
+    <!-- Nav tabs -->
+    <div class="footer">
+        <ul class="nav nav-tabs ap_list" role="tablist">
+            <li role="presentation" class="active" >
+                <a  ng-click="switchoverTab('inner');" role="tab" data-toggle="tab">已加入分支AP列表</a>
+            </li>
+            <li role="presentation">
+                <a   ng-click="switchoverTab('out');" role="tab" data-toggle="tab">未加入分支AP列表</a>
+            </li>
+        </ul>
+        <div style="margin:20px 0 10px 0;" class="tab-content">
+            <div class="btn btn-cus" ng-click="unwrapAP()" ng-disabled="isCheckAPIn" ng-show="innerInfoShow" style="margin:0 15px;">退出分支</div>
+            <div class="btn btn-cus" ng-click="bindAP()" ng-disabled="isCheckAPOut" ng-hide="innerInfoShow" style="margin:0 15px;">加入分支</div>
+        </div>
+        <!-- Tab panes -->
+        <div class="tab-content" style="margin:0 15px;">
+            <div role="tabpanel" class="tab-pane active" ng-show="innerInfoShow">
+                <div bs-table="addAPsInBranch_table"></div>
+            </div>
+            <div role="tabpanel" class="tab-pane active" ng-show="outInfoShow">
+                <div bs-table="addAPsOutBranch_table"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--user adds the group-->
+<div bs-modal="addUserInfo">
+    <div class="footer">
+        <ul class="nav nav-tabs user_list" role="tablist">
+            <li role="presentation" class="active" >
+                <a  ng-click="switchoverTab('inner');" role="tab" data-toggle="tab">已授权用户列表</a>
+            </li>
+            <li role="presentation">
+                <a   ng-click="switchoverTab('out');" role="tab" data-toggle="tab">未授权用户列表</a>
+            </li>
+        </ul>
+        <div style="margin:20px 0 10px 0;" class="tab-content">
+            <div class="btn btn-cus" ng-click="unwrapUser()" ng-disabled="isCheckUserIn" ng-show="innerInfoShow" style="margin:0 15px;">取消授权</div>
+            <div class="btn btn-cus" ng-click="setUser()" ng-disabled="isCheckUserOut" ng-hide="innerInfoShow" style="margin:0 15px;">授权</div>
+        </div>
+        <div class="tab-content" style="margin:0 15px;">
+            <div role="tabpanel" class="tab-pane active" ng-show="innerInfoShow">
+                <div bs-table="addUserInBranch_table"></div>
+            </div>
+            <div role="tabpanel" class="tab-pane active" ng-show="outInfoShow">
+                <div bs-table="addUserOutBranch_table"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-horizontal" bs-modal="uploadOptions" >
+    <form id="uploadForm" action="/v3/fs/uploadCloudapgroupFile/" enctype="multipart/form-data" method="post"
+        onsubmit="return false">
+        <div class="form-group">
+            <div class="col-xs-6" class="htmleaf-container" style="margin-left: 32%">
+                <input id="uploadFile" type="file" required data-min-file-count="1" name="sysFile">
+                <!-- <div>提示：上传过程中不能中止</div> -->
+            </div>
+        </div>
+    </form>         
+</div>
+
+<div class="read_rc" id="model_rc"
+     UPLOAD="上传文件"
+     SUCCESS="上传文件成功"
+     isDelBranch="确认要删除当前分支？"
+     apTitle="AP列表"
+     userTitle="用户列表"
+     ZONGBU="总部"
+     CANCEL="取消"
+     STATUS="在线,不在线"
+     userTableTitle="用户名,账户类型"
+     APsBranchTitle="AP名称,AP型号,序列号,MAC,状态,分支名称"
+     BINDAP_SUC="加入分支成功！"
+     BINDAP_MSG="该AP在其他分支已存在。"
+     BINDAP_FAIL="加入分支失败。"
+     BINDAP_FAILMSG1="该AP序列号为空，加入分支失败，请检查配置。"
+     BINDAP_FAILMSG2="部分AP序列号为空，加入分支失败，请检查配置。"
+     UNBINDAP_SUC="退出分支成功！"
+     UNBINDAP_FAIL="退出分支失败。"
+     BINDUSER_SUC="授权成功!"
+     BINDUSER_FAIL="授权失败。"
+     UNBINDUSER_SUC="取消授权成功!"
+     UNBINDUSER_FAIL="取消授权失败。"
+     DELETE="删除"
+     QITA="删除"
+     FAIL="分支失败。"
+     BRANCH_SUC="分支成功!"
+     AUTHORIZATION="取消授权失败，请先到父级把该管理用户取消授权。"
+     DELETE_BRANCH="删除失败，当前分支下存在子级，请先删除子级"
+     ACCOUNT_TYPE="全权账号"
+     AUTHORIZATION_FAIL="用户是超级用户，不能取消授权。"
+     ADD_BRANCH="添加二级,添加三级,添加四级,添加五级,添加六级,添加七级,添加八级"
+        >
+</div>
+</div>   

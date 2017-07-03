@@ -1,0 +1,184 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+    <![endif]-->
+    <link href="libs/css/jquery.mCustomScrollbar.css" type="text/css" rel="stylesheet" />
+    <style type="text/css">
+        .telphone_2{
+            width: 257px;
+            position:absolute;
+            top:75px;
+            left:19px;
+            height:393px;
+            background-color:#fff;
+            padding-left:0;padding-right:0;
+            border:1px solid #ddd;
+        }
+        .telphone_2_box{
+            position:relative;
+        }
+        .wechat_title{
+            background-image:url(../x_networkcfg/images/head.jpg);
+            width:252px;height:40px;
+            text-align:center;line-height:40px
+        }
+        .wechat_middle{
+            position:relative;margin:20px 0;
+        }
+        .wechat_middle>div{
+            position:absolute;
+            border:1px solid #ddd;
+            top:91px;left:104px;
+            color:#fff;
+            padding:5px;
+        }
+        .wechat_middle+div{
+            border-top:1px solid #ddd;width:260px;margin-bottom:20px;
+        }
+    </style> 
+</head>
+
+<body>
+<div class="col-xs-12 app-colum xxb" id="advertmanage" debug="getShopNameID initserver queryImgTime">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">Advertisement Editing</span>
+        </div>
+        <div class="box-body no-height">
+            <div class="col-xs-12 app-colum adver_header" id="adver_header">
+                <label class="margin_font">Ad source</label>
+                <select class="singleSelect" id="ad-type"></select>
+            </div>
+            <div class="col-xs-12 app-colum" id="content">
+                <div id="local-model" class="cont">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="active"><a href="#index" data-toggle="tab" ><span class="nav-cont">Welcome</span></a></li>
+                        <li role="presentation"><a href="#login" data-toggle="tab"><span>Login</span> </a></li>
+                        <li role="presentation"><a href="#loginsuccess" data-toggle="tab" style="padding:10px 0;">Login success</a></li>
+                        <li role="presentation"><a href="#main" data-toggle="tab">Homepage</a></li>
+                    </ul>
+
+                    <div class="tab-content tabstyle">
+
+                        <div class="tab-pane  active " id="index">
+                            <div class="adverleft col-xs-6 app-colum left-block" adver="index">
+                                <button class="btn btn_ok hidemodify" adver="index">Edit</button>
+                                <div class="tab-bgimg">
+                                    <div class="tab-img tab-img1" id="tab-img1">
+                                        <img src=""/>
+                                    </div>
+                                    <div class="tab1-bt"></div>
+                                </div>
+                            </div>
+                            <!--<span class="adverv"></span>-->
+                            <div class="adverright col-xs-6 app-colum left-block">
+                                <!--<div class="advercont">-->
+                                <!--<div class="advercont-img">-->
+                                <!--<img src="../x_networkcfg/images/tab1.png" adver="index"/>-->
+                                <!--</div>-->
+                                <!--<div class="advercont-date">-->
+                                <!--<span class="info">Time to market:</span><br/>-->
+                                <!--<span class="info">2016-1-1 to 2016-3-18 11:00 to 18:00</span>-->
+                                <!--</div>-->
+                                <!--</div>-->
+                                <!--&lt;!&ndash;margin: 30px 60px 30px 0px;&ndash;&gt;-->
+                                <!--<hr class="adverhr"/>-->
+                            </div>
+                        </div>
+                        <div class="tab-pane  " id="login">
+                            <div class="adverleft col-xs-6 app-colum left-block" adver="login">
+                                <button class="btn btn_ok hidemodify" adver="login">Edit</button>
+                                <div class="tab-bgimg">
+                                    <div class="tab-img tab-img2" id="tab-img2">
+                                        <img src=""/>
+                                        <img src="../x_networkcfg/images/adver_login.png"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<span class="adverv"></span>-->
+                            <div class="adverright col-xs-6 app-colum left-block">
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="loginsuccess">
+                            <div class="adverleft col-xs-6 app-colum left-block" adver="loginsuccess">
+                                <button class="btn btn_ok hidemodify" adver="loginsuccess">Edit</button>
+                                <div class="tab-bgimg">
+                                    <div class="tab-img tab-img3" id="tab-img3">
+                                        <p class="info">Login succeeded. You'll be redirected to the homepage in 3 seconds. If the auto redirection fails, please click <span>here</span>.</p>
+                                        <img src=""/>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<span class="adverv"></span>-->
+                            <div class="adverright col-xs-6 app-colum left-block">
+                            </div>
+                        </div>
+                        <div class="tab-pane " id="main">
+                            <div class="adverleft col-xs-6 app-colum left-block" adver="main">
+                                <button class="btn btn_ok hidemodify" adver="main">Edit</button>
+                                <div class="tab-bgimg">
+                                    <div class="tab-img tab-img4" id="tab-img4">
+                                        <img src=""/>
+                                        <span class="info">Welcome</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<span class="adverv"></span>-->
+                            <div class="adverright col-xs-6 app-colum left-block">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="weChart-homepage" class="cont" style="display: none;">
+                    <div class="adverleft col-xs-4" adver="index">
+                        <!--<button class="btn btn_ok hidemodify" style="margin-top:10px;" adver>Edit</button>-->
+                        <div class="tab-bgimg" style="text-align:center;">
+                            <div class="tab-img">
+                                <!-- <img src="../x_networkcfg/images/wechart_tab.png"/> -->
+                                <div class="wechat_title" >
+                                    Connect Successfully.
+                                </div>
+                                <div class="wechat_middle">
+                                    <img src="../x_networkcfg/images/webwxgetmsgimg.jpg" style="width:252px">
+                                    <div>Follow</div>
+                                </div>
+                                <div style=""></div>
+                                <div>
+                                    <div style="float:left">
+                                        <img src="../x_networkcfg/images/add.gif">
+                                    </div>
+                                    <div style="float:right;text-align:left">
+                                        <p style="margin-bottom:20px">Application Name</p>
+                                        <p>Application Description</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="x_advertmanage_rc" class="rc-define"
+
+     INIIADVER = 'Obtaining ad information…'
+     SRRORADVER = 'Failed to obtain ad information.'
+     SUCCESS = 'Initialization completed.'
+     DELIVERY_TIME="Time to market:"
+     ADVER_SPACE="Not configured"
+     AD_TYPE_ARR="Local Template,WeChat Homepage"
+
+        ></div>
+</body>
+<script src="./libs/jqueryscroll/jquery_mcustomscrollbar_concat_min.js"></script>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_networkcfg.advertmanage");
+
+</script>

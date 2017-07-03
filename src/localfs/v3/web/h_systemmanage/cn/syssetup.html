@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+    </style>
+</head>
+<body>
+<div class="col-xs-15 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">系统设置</span>
+        </div>
+        <div id="chatToggle">
+            <form id="chattoggle_form" class="form edit">
+                <div class="col-sm-15 response-block">
+                    <form>
+                        <fieldset style="border:1px solid #ccc;margin:20px 20px;padding:0px 0px 20px 0px;">
+                            <legend style="font-size:15px;width:120px;border:0px;cursor:pointer;"><span id="biaozhi" style="font-size:20px;font-weight:bold;">-</span>告警提醒设置</legend>
+                            <div id="toggleDisplay" style="padding:5px 0px 0px 40px;">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label">短信提醒</label>
+                                    <div class="col-sm-2">
+                                        <select id="biaozhiShiFou" style="width:80px">
+                                            <option value=1>是</option>
+                                            <option value=0>否</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-sm-2">
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <a class="btn btn-cancel ">
+                                            确定
+                                        </a>
+                                    </div>                                                
+                                </div> 
+                                <div id="shiFou">
+                                    <div class="form-group" style="height:40px;">
+                                        <div class="col-sm-2">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input type="checkbox" id="APonline" style="line-height:40px;vertical-align:-webkit-baseline-middle;" />
+											<label for="APonline"  style="line-height:40px;vertical-align:-webkit-baseline-middle;">AP上线</label>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input type="checkbox" id="NeiCunAlarm" style="line-height:40px;vertical-align:-webkit-baseline-middle;"/>
+											<label for="NeiCunAlarm"  style="line-height:40px;vertical-align:-webkit-baseline-middle;">内存告警</label>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input type="checkbox" id="SoftwareUpdateSuccess" style="line-height:40px;vertical-align:-webkit-baseline-middle;"/>
+											<label for="SoftwareUpdateSuccess"  style="line-height:40px;vertical-align:-webkit-baseline-middle;">软件升级成功</label>
+                                        </div>                                         
+                                    </div>
+                                    <div class="form-group" style="height:40px;">
+                                        <div class="col-sm-2">
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input type="checkbox" id="APoutline" style="line-height:40px;vertical-align:-webkit-baseline-middle;" />
+											<label for="APoutline"  style="line-height:40px;vertical-align:-webkit-baseline-middle;">AP下线</label>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input type="checkbox" id="CPUAlarm" style="line-height:40px;vertical-align:-webkit-baseline-middle;"/>
+											<label for="CPUAlarm"  style="line-height:40px;vertical-align:-webkit-baseline-middle;">CPU告警</label>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <input type="checkbox" id="SoftwareUpdateFail" style="line-height:40px;vertical-align:-webkit-baseline-middle;"/>
+											<label for="SoftwareUpdateFail"  style="line-height:40px;vertical-align:-webkit-baseline-middle;">软件升级失败</label>
+                                        </div>                                         
+                                    </div>
+                                </div>                   
+                                
+                            </div>                         
+                        </fieldset>
+                    </form>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div id="ws_ssid_rc" class="rc-define"
+     SSID_HEADER = "认证模板,一键登录,短信认证,微信认证,固定账号认证"
+     AUTH_Status ="关闭,开启"
+     Page_HEADER = "页面模板,描述"
+     Chat_HEADER = "公众号名称,AppID,AppSECRET,TOKEN"
+     ADD_TITLE = "增加认证模板"
+     ADDPage_TITLE = "增加页面模板"
+     ADDChat_TITLE = "增加微信公众号"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_systemmanage.syssetup");
+</script>

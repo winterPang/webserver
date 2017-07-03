@@ -1,0 +1,45 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+<div class="page-row">
+    <div class="btn_h_return" id="return"></div>
+    <div class="col-xs-12 app-colum">
+          <div class="app-box no-height default-bottom">
+              <div class="box-footer">
+                  <span class="title">已绑定无线服务</span>
+              </div>
+              <div class="box-body no-height">
+                  <div id="bindList" class="simple-list"></div>
+              </div>
+          </div>
+      </div>
+    </div>
+
+
+    <div class="col-xs-12 app-colum">
+          <div class="app-box no-height default-bottom">
+              <div class="box-footer">
+                  <span class="title">未绑定无线服务</span>
+              </div>
+              <div class="box-body no-height">
+                  <div id="unbindList" class="simple-list"></div>
+              </div>
+          </div>
+    </div>
+ 
+
+<div id="apinfo_aplist_rc" class="rc-define"
+    	Bind_HEADER="无线服务名称,SSID,描述"
+    	Unbind_HEADER="无线服务名称,SSID,描述"    	
+        
+></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+	Utils.Pages.loadJS("p_wire.aplist");
+</script>

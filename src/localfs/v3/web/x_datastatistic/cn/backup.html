@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+</head>
+
+<body>
+<div class="page-row">
+    <div class="col-xs-12 app-colum xxb" debug="getDeviceInfo GetBackupTime">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">云备份</span>
+            </div>
+            <div class="box-body no-height">
+             <div class="restore_detail">
+                <div id="cfg_restore_left">
+                    <label class="control-label">上次备份时间</label>
+                        <span class="label" id="totlefileNum"></span>
+                    <div class="form-group-backup">
+                        <button class="btn btn_ok btn_big forbid" id="backup_btn">立即备份</button>
+                        <button class="btn btn_danger btn_big forbid" id="recovery_btn">立即恢复</button>
+                    </div>
+                </div>
+            </div>
+            </div>
+            
+        </div>
+
+        <!---------------------------创建还原点-------------------->
+        <!--<div class="hide modal fade" id="backupDlg">-->
+            <!--<form class="form-horizontal form" id="backupForm">-->
+                <!--<div class="form-group">-->
+                    <!--<label class="col-sm-9 control-label"  id="dlgtext">将<span></span>所有AP配置，是否确认此操作？</label>-->
+                <!--</div>-->
+            <!--</form>-->
+        <!--</div>-->
+        <div class="hide modal fade " id="backupDlg">
+            <div id="backup_diag">
+                <div class="modal-header">
+                    <button type="button" class="close X" data-dismiss="modal" aria-hidden="true"></button>
+                    <h3 class="modal-title">备份</h3>
+                </div>
+                <div class="modal-body">
+                    将备份所有AP配置，是否确认此操作？
+                </div>
+                <div class="modal-footer form-actions">
+                    <a class="btn btn-primary" id="backupConform">确定</a>
+                    <a class="btn btn-primary" id="bclose">取消</a>
+                </div>
+            </div>
+        </div>
+        <div class="hide modal fade " id="restoreDlg">
+            <div id="restore_diag">
+                <div class="modal-header">
+                    <button type="button" class="close X" data-dismiss="modal" aria-hidden="true"></button>
+                    <h3 class="modal-title">恢复</h3>
+                </div>
+                <div class="modal-body">
+                    将还原所有AP配置，是否确认此操作？
+                </div>
+                <div class="modal-footer form-actions">
+                    <a class="btn btn-primary" id="restoreConform">确定</a>
+                    <a class="btn btn-primary" id="rclose">取消</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="hide modal fade " id="failcfgDlg">
+            <div id="client_diag">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="closeX"></button>
+                    <h3 class="modal-title">设备失败列表</h3>
+                </div>
+                <div class="modal-body">
+                    <div id="failList" class="simple-list showList"></div>
+                </div>
+                <div class="modal-footer form-actions">
+                    <a class="btn btn-primary" id="failConform">确定</a>
+                    <a class="btn btn-primary" id="failClose">关闭</a>
+                </div>
+            </div>
+        </div>
+
+        <div id="cfg_restore_rc" class="rc-define" 
+        MODE_SELECT="恢复,备份"
+        PENDING = "正在下发配置"
+        CONFIRM_TITLE="确认"
+        NEVER_BACKUP="从未备份"
+        BackupAllCfg="备份失败,备份成功"
+        RestoreCurcfg="恢复失败,恢复成功"
+        DATE="年,月,日,时,分,秒"
+        DATA_ERRORMSG="数据库获取失败,尚未备份数据"
+             FAIL_INFO ="设备端配置失败请重新配置"
+             FAIL_CFGLIST="配置失败列表"
+             DEV_LIST="设备序列号,状态"
+             STATE="在线,离线"
+        ></div>
+    </div>
+</div>
+</body>
+
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_datastatistic.backup");
+
+</script>

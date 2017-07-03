@@ -1,0 +1,64 @@
+<div class="container-fluid">
+    <div class="page-row">
+        <div class="btn_h_return" ng-click="clickReturnBtn()"></div>
+        <div class="col-xs-12 app-colum">
+            <div class="app-box no-height default-bottom">
+                <div class="box-footer">
+                    <span class="title">已绑定无线服务</span>
+                </div>
+                <div class="box-body no-height">
+                    <div class="col-xs-12">
+                        <label>
+                            <span>当前AP：</span>
+                            <a href="javascript:void(0);"
+                               class="list-link"
+                               ng-bind="curAPInfo.name"></a>
+                        </label>
+                    </div>
+                    <div class="btn-group" id="unbindBtnDiv">
+                        <button class="btn btn-cus"
+                                ng-disabled="btn.unbindDisabled"
+                                ng-click="btn.click('unbind', curAPInfo.checkBindData)">解除绑定</button>
+                    </div>
+                    <div bs-table="listOpts.WLSerByAP"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 app-colum">
+            <div class="app-box no-height default-bottom">
+                <div class="box-footer">
+                    <span class="title">其他无线服务</span>
+                </div>
+                <div class="box-body no-height">
+                    <div class="col-xs-12">
+                        <label>
+                            <span>当前AP组：</span>
+                            <a href="javascript:void(0);"
+                               class="list-link"
+                               ng-bind="curAPInfo.name"></a>
+                        </label>
+                    </div>
+                    <div class="btn-group" id="bindBtnDiv">
+                        <button class="btn btn-cus"
+                                ng-disabled="btn.bindDisabled"
+                                ng-click="btn.click('bind', curAPInfo.checkUnbindData)">绑定</button>
+                    </div>
+                    <div bs-table="listOpts.OWLSerByAP"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="RC"
+
+     WL_SSID_TYPE = "内部Wi-Fi,商业Wi-Fi"
+     WL_AUTH_TYPE = "获取失败,不认证,一键认证,账号认证"
+     WL_ST_STATUS = "开启,关闭"
+     BIND_INFO = "绑定成功!,绑定失败!"
+     UNBIND_INFO = "解除绑定成功!,解除绑定失败!"
+
+     WLSER_LIST_HEADER = "无线服务名称,SSID,服务类型,认证方式,服务状态"
+
+></div>

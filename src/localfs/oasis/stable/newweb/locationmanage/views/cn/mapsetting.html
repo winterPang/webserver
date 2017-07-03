@@ -1,0 +1,29 @@
+<div class="global-appstore">
+    <div class="btn_h_return" ng-click="return()"></div> 
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <p style="line-height:50px;
+                      margin-left:10px;
+                      font-size: 14px;"><a style="color: #69C4C5" ui-sref="global.application.locationmanage({mode: mode})">{{mode === 0 ? '云端定位' : '探针定位'}}</a> > 地图编辑</p>
+        </div>
+        <div class="panel-body">
+                <div class="form-group zeromargin">
+                    <button class="btn btn-cus" ui-sref="global.application.mapmanage_add({shopId:shopId,mode:mode})">新增地图</button>
+                </div>
+
+                <div>
+                    <table bs-table="mapManageTable"></table>
+                </div>        
+        </div>
+    </div>
+</div>
+
+<div id="mapmanage_rc" class="rc-define"
+    location_title="地图名称,描述,比例尺,地址,应用场所,新增定位地图,修改定位地图"
+    BIND_TITLE="绑定定位地图,绑定探针地图"
+    ADD_SUC="绑定地图成功"
+    ADD_FAIL="添加地图失败,错误原因：该地图已绑定"
+    BINDED="已绑定"
+    NO_PROMISSION="您的账号无权进行该操作"
+    NO_MAP_EXIST="无地图,请-增加-后进行绑定"
+></div>

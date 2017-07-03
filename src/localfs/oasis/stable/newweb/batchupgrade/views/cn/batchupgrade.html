@@ -1,0 +1,83 @@
+<div class="newdevmanage batchupgrade">
+    <div class="panel">
+        <div class="panel-body">
+            <div class="table-content">
+                <!--<div class="order-guide">-->
+                <!--<button class="btn-customer his-log pull-right" ng-click="showHisUpListModal()">历史升级记录</button>-->
+                <!--</div>-->
+                <!--<div class="operates">
+                    <button type="button" class="btn-customer" ng-click="upgradeTip()">
+                        <i class="btn-icon icon-add"></i>批量升级
+                    </button>
+                    <button type="button" class="btn-customer not-screen-more pull-right" ng-click="showScreenMore()"
+                            ng-hide="flags.simple_branch=='simple'">
+                        更多筛选
+                    </button>
+                    <div class="pull-right">
+                        <input class="search-box" type="text" placeholder="search">
+                        <button class="btn-customer not-btn-search" ng-click="search()">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                </div>-->
+                <div class="table-top-operates">
+                    <div class="pull-left">
+                        <i class="ope ope-refresh"></i>
+                        <b class="split-line"></b>
+                        <i class="ope ope-edit mar"></i>
+                        <i class="ope ope-operation mar"></i>
+                        <i class="ope ope-manage"></i>
+                        <b class="split-line"></b>
+                        <i class="ope ope-add mar"></i>
+                        <i class="ope ope-add-lot disabled"></i>
+                        <b class="split-line"></b>
+                        <i class="ope ope-del"></i>
+                    </div>
+                    <div class="pull-right" style="height:52px;">
+                        <input type="text" class="search-box">
+                        <span class="btn-search">
+                            <i class="ope ope-search"></i>
+                        </span>
+                    </div>
+                </div>
+                <div bs-table="upgradeList"></div>
+                <form class="form-horizontal" bs-modal="screenMore">
+                    <div class="form-group">
+                        <label>设备类型：</label>
+                        <select>
+                            <option value="wireless-controller">无线控制器</option>
+                            <option value="wireless-access-point">交换机</option>
+                            <option value="router">路由器</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="label-select"><input ng-model="screen_method" type="radio" value="lb"
+                                                           name="screen">按标签筛选</label>
+                        <label class="branch"><input ng-model="screen_method" type="radio" value="br"
+                                                     name="screen">按分支筛选</label>
+                    </div>
+                    <div class="form-group">
+                        <div class="label-opt" ng-show="screen_method=='lb'">
+                            <li class="c1">label1</li>
+                            <li class="c2">label2</li>
+                            <li class="c3">label3</li>
+                            <li class="c4">label4</li>
+                            <li class="c5">label5</li>
+                        </div>
+                        <div class="branch-opt" ng-show="screen_method=='br'">
+                            <ul id="branchTree" class="ztree"></ul>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="un-select-all btn-customer pull-right" ng-click="evts.unSelectAll()"
+                                ng-show="screen_method=='lb'">取消选择
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div bs-modal="hisUpListModal">
+        <div bs-table="hisUpListTable"></div>
+    </div>
+</div>

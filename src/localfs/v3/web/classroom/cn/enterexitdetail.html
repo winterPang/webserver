@@ -1,0 +1,44 @@
+<html>
+<head>
+    <style>
+    </style>
+</head>
+<body>
+<!--<div class="breadcrumbs" id="breadcrumbs">
+    <script type="text/javascript">
+        try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+    </script>
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="#C_CDashboard" id="iBack_1">物联校园</a>
+        </li>
+        <li>
+            <a  href="#C_Safe"  id="iBack_2">校园安全</a>
+        </li>
+        <li class="active">告警详情</li>
+    </ul>
+</div>-->
+<!--<div class="btn_h_return" id="iBack"></div>-->
+<div class="col-xs-12 app-colum" debug="getPlaceInfo getOnlineUser">
+    <div class="app-box no-height wrap_c">
+        <div class="box-footer">
+            <span class="title" id="title_id"></span>
+        </div>
+        <div class="box-body no-height">
+            <div id="actionList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+
+<div id="html_rc" class="rc-define"
+     TITLE = "今日进校情况详情, 今日出校情况详情"
+     LIST_TITLE = "时间,姓名,行为,表现"
+        >
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.enterexitdetail");
+</script>

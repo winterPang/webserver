@@ -1,0 +1,137 @@
+<div class="home-site-container" rc="<<,<,>,>>,Failure,Unknown,N/A" score=""
+     statefail="Fail"
+     statesuccess="Success"
+     statenodevice="No Dev"
+     stateoffline="Offline">
+    <!-- 2017.04.12 by kf6859 start - 完善信息 -->
+    <style>
+        .informational-module {
+            position: relative;
+        }
+        .informational-module > span {
+            position: absolute;top: 10px;right: 20px;
+        }
+        .informational-module a {
+            padding-left: 10px;
+            font-weight: bold;
+            color: #000;
+        }
+        .informational-module a:hover {
+            color: #4ec1b2;
+        }
+    </style>
+    <div class="row ng-hide informational-module" ng-show="unCompleted">
+        <span>
+            Complete information?
+            <a ui-sref="global.content.user.information">Go <span class="fa fa-chevron-circle-right"></span></a>
+        </span>
+    </div>
+    <!-- 2017.04.12 by kf6859 end -->
+    <div class="row">
+        <div class="text-center paging-contain">
+            <div bs-pager="pagination" ng-model="page"></div>
+            <select class="home-page-size" ng-model="pageSize" title="page" style="border-color: #ccc !important;"
+                    ng-options="p for p in [3, 6, 9, 12]" ng-show="total"></select>
+        </div>
+    </div>
+    <div class="shop-block-list row echarts_view">
+        <div ng-repeat="site in sites" class="shop-block-box col-lg-4 col-md-6 col-sm-12">
+            <div class="shop-block-item">
+                <div class="shop-block-header">
+                    <div>
+                        <span ng-bind="site.display.name" class="site-name" title="{{site.display.name}}"></span>
+                        <a class="btn btn-cus" href="javascript:void(0)" ng-click="manage(site)">Manage</a>
+                        <!--<a class="btn btn-cus" ng-show="site.showPeration"-->
+                        <!--href="{{site.perationUrl}}" style="width: 135px!important;">Maintenance(Beta)</a>-->
+                        <a class="btn btn-cus" ng-show="site.showPeration"
+                           href="{{site.perationUrl}}" style="width: 98px!important;">Maintenance</a>
+                    </div>
+                </div>
+                <div class="shop-block-charts">
+                    <div class="home-charts"></div>
+                </div>
+                <div ng-show="site.showApStatus" class="shop-block-detail-box" ng-mouseenter="toggle_show_detail($event)"
+                     ng-mouseleave="toggle_hide_detail($event)">
+                    <div class="shop-block-detail shop-block-detail-rate">
+                        <div class="col-xs-4">
+                            <p class="shop-detail-title">Online clients</p>
+                            <p class="shop-detail-value">
+                                <span ng-bind="site.display.clientnum"></span>
+                            </p>
+                        </div>
+                        <div class="col-xs-4">
+                            <p class="shop-detail-title">Online APs</p>
+                            <p class="shop-detail-value">
+                                <span ng-bind="site.display.online"></span>
+                            </p>
+                        </div>
+                        <div class="col-xs-4">
+                            <p class="shop-detail-title">Offline APs</p>
+                            <p class="shop-detail-value">
+                                <span ng-bind="site.display.offline"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="shop-block-detail shop-block-detail-hover">
+                        <div class="col-xs-6">
+                            <p class="shop-detail-title">Uplink rate</p>
+                            <p class="shop-detail-value">
+                                <span ng-bind="site.display.up"></span>
+                                <small>{{site.display.upUnit}}bps</small>
+                            </p>
+                        </div>
+                        <div class="col-xs-6">
+                            <p class="shop-detail-title">Downlink rate</p>
+                            <p class="shop-detail-value">
+                                <span ng-bind="site.display.down"></span>
+                                <small>{{site.display.downUnit}}bps</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div ng-hide="site.showApStatus===undefined||site.showApStatus" class="shop-block-detail-box" ng-mouseenter="toggle_show_detail($event)" ng-mouseleave="toggle_hide_detail($event)">
+                    <div class="shop-block-detail shop-block-detail-rate">
+                        <div class="col-xs-6">
+                            <p class="shop-detail-title">Online switches</p>
+                            <p class="shop-detail-value">
+                                <span ng-bind="site.display.online"></span>
+                            </p>
+                        </div>
+                        <div class="col-xs-6">
+                            <p class="shop-detail-title">Offline switches</p>
+                            <p class="shop-detail-value">
+                                <span ng-bind="site.display.offline"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="shop-block-detail shop-block-detail-hover">
+                        <div class="col-xs-6">
+                            <p class="shop-detail-title">Uplink rate</p>
+                            <p class="shop-detail-value">
+                                <span ng-bind="site.display.up"></span>
+                                <small>{{site.display.upUnit}}bps</small>
+                            </p>
+                        </div>
+                        <div class="col-xs-6">
+                            <p class="shop-detail-title">Downlink rate</p>
+                            <p class="shop-detail-value">
+                                <span ng-bind="site.display.down"></span>
+                                <small>{{site.display.downUnit}}bps</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shop-block-list row  table_view" style="display:none;">
+        <div bs-table="home_page_option"></div>
+    </div>
+    <div class="read_rc" id="listView_rc"
+         table-data="Scenario,Score,Online Clients,Uplink Rate,Downlink Rate,Online APs,Offline APs,Manage,score,Online Switches,Offline Switches,Maintenance"
+         tipforno-devices="There are no devices in this shop!"
+         first-complete="Your information is not complete.Complete it now?"
+    >
+    </div>
+</div>
+

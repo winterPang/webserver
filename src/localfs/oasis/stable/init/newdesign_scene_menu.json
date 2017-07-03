@@ -1,0 +1,256 @@
+{
+  "menu": [
+    {
+      "name": "网络监控",
+      "id": "monitor",
+      "sref": "newscene.content.monitor.dashboard",
+      "tabs": [
+        {
+          "name": "网络概览",
+          "id": "dashboard",
+          "sref": "newscene.content.monitor.dashboard",
+          "tabs": [],
+          "permission": [
+            "MONITOR_READ",
+            "MONITOR_WRITE",
+            "MONITOR_EXEC"
+          ]
+        },
+        {
+          "name": "关注统计",
+          "id": "public",
+          "sref": "newscene.content.monitor.public",
+          "tabs": [],
+          "permission": [
+            "MONITOR_READ",
+            "MONITOR_WRITE",
+            "MONITOR_EXEC"
+          ]
+        },
+        {
+          "name": "宾客信息",
+          "id": "customer",
+          "sref": "newscene.content.monitor.customer",
+          "tabs": [],
+          "permission": [
+            "MONITOR_READ",
+            "MONITOR_WRITE",
+            "MONITOR_EXEC"
+          ]
+        },
+        {
+          "name": "AP信息",
+          "id": "apinfo",
+          "sref": "newscene.content.monitor.apinfo",
+          "tabs": [],
+          "permission": [
+            "MONITOR_READ",
+            "MONITOR_WRITE",
+            "MONITOR_EXEC"
+          ]
+        },
+        {
+          "name": "无线安全",
+          "id": "wiresecurit",
+          "sref": "newscene.content.monitor.wiresecurit",
+          "tabs": [],
+          "permission": [
+            "MONITOR_READ",
+            "MONITOR_WRITE",
+            "MONITOR_EXEC"
+          ]
+        },
+        {
+          "name": "设备日志",
+          "id": "warning",
+          "sref": "newscene.content.monitor.warning",
+          "tabs": [],
+          "permission": [
+            "MONITOR_READ",
+            "MONITOR_WRITE",
+            "MONITOR_EXEC"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "网络部署",
+      "id": "netdeploy",
+      "sref": "newscene.content.netdeploy.apBranch",
+      "tabs": [
+        {
+          "name": "分支管理",
+          "id": "wirelessconfig",
+          "sref": "newscene.content.netdeploy.apBranch",
+          "tabs": [],
+          "permission": [
+            "CONFIG_READ",
+            "CONFIG_WRITE"
+          ]
+        },
+        {
+          "name": "无线配置",
+          "id": "",
+          "sref": "",
+          "tabs": [
+            {
+              "name": "服务配置",
+              "id": "serviceconfig",
+              "sref": "newscene.content.netdeploy.serviceconfig",
+              "permission": [
+                "CONFIG_READ",
+                "CONFIG_WRITE"
+              ]
+            },
+            {
+              "name": "服务绑定",
+              "id": "servicebind",
+              "sref": "newscene.content.netdeploy.servicebind",
+              "permission": [
+                "CONFIG_READ",
+                "CONFIG_WRITE"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "认证配置",
+          "id": "auth",
+          "sref": "",
+          "tabs": [
+            {
+              "name": "页面模板",
+              "id": "pagetemplate",
+              "sref": "newscene.content.netdeploy.pagetemplate",
+              "permission": [
+                "CONFIG_READ",
+                "CONFIG_WRITE"
+              ]
+            },
+            {
+              "name": "公众号",
+              "id": "pubmessage",
+              "sref": "newscene.content.netdeploy.pubmessage",
+              "permission": [
+                "CONFIG_READ",
+                "CONFIG_WRITE"
+              ]
+            },
+            {
+              "name": "微信门店",
+              "id": "chatstore",
+              "sref": "newscene.content.netdeploy.chatstore",
+              "permission": [
+                "CONFIG_READ",
+                "CONFIG_WRITE"
+              ]
+            },
+            {
+              "name": "固定账号",
+              "id": "fixedaccount",
+              "sref": "newscene.content.netdeploy.fixedaccount",
+              "permission": [
+                "CONFIG_READ",
+                "CONFIG_WRITE"
+              ]
+            },
+            {
+              "name": "黑名单",
+              "id": "blackname",
+              "sref": "newscene.content.netdeploy.blackname",
+              "permission": [
+                "CONFIG_READ",
+                "CONFIG_WRITE"
+              ]
+            },
+            {
+              "name": "认证模板",
+              "id": "authtemplate",
+              "sref": "newscene.content.netdeploy.auth_authtemplate",
+              "permission": [
+                "CONFIG_READ",
+                "CONFIG_WRITE"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "安全策略",
+          "id": "securitpolicy",
+          "sref": "newscene.content.netdeploy.securitpolicy",
+          "tabs": [],
+          "permission": [
+            "CONFIG_READ",
+            "CONFIG_WRITE"
+          ]
+        },
+        {
+          "name": "应用配置",
+          "id": "applyset",
+          "sref": "newscene.content.netdeploy.applyset",
+          "tabs": [],
+          "permission": [
+            "CONFIG_READ",
+            "CONFIG_WRITE"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "应用管理",
+      "id": "manage",
+      "sref": "newscene.content.manage.flowprobe",
+      "tabs": [
+        {
+          "name": "客流探针",
+          "id": "flowprobe",
+          "sref": "newscene.content.manage.flowprobe",
+          "tabs": [],
+          "permission": [
+            "CONFIG_READ",
+            "CONFIG_WRITE"
+          ]
+        },
+        {
+          "name": "行为分析",
+          "id": "behavioranalysis",
+          "sref": "newscene.content.manage.behavioranalysis",
+          "tabs": [],
+          "permission": [
+            "CONFIG_READ",
+            "CONFIG_WRITE"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "运营维护",
+      "id": "maintenance",
+      "sref": "newscene.content.maintenance.tunneldevice",
+      "tabs": [
+        {
+          "name": "设备操作",
+          "id": "tunneldevice5",
+          "sref": "newscene.content.maintenance.tunneldevice",
+          "tabs": [],
+          "permission": [
+            "MAINTENANCE_READ",
+            "MAINTENANCE_WRITE",
+            "MAINTENANCE_EXEC"
+          ]
+        },
+        {
+          "name": "维护日志",
+          "id": "maintainlog",
+          "sref": "newscene.content.maintenance.maintainlog",
+          "tabs": [],
+          "permission": [
+            "MAINTENANCE_READ",
+            "MAINTENANCE_WRITE",
+            "MAINTENANCE_EXEC"
+          ]
+        }
+      ]
+    }
+    ]
+}

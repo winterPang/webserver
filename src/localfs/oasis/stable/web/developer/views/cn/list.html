@@ -1,0 +1,30 @@
+<div data-locales="上传者#应用Id#应用名称#确认开启%s吗">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">第三方应用</h3></div>
+        <div class="panel-body">
+            <button class="btn btn-cus" ng-click="applyApp.showModal()">申请</button>
+            <button class="btn btn-cus" ng-disabled="disableBtnOpen" ng-click="openModule()">开启</button>
+            <div class="form-group pull-right">
+                <button class="btn btn-cus" ng-click="search()">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </div>
+            <div class="form-group pull-right">
+                <input type="text" ng-model="appname" class="form-control" placeholder="应用名称">
+            </div>
+            <table bs-table="options"></table>
+        </div>
+    </div>
+    <form bs-modal="applyApp.modal" class="form-horizontal" name="applyAppForm">
+        <div class="form-group">
+            <div class="col-sm-2" style="line-height: 32px;">应用名称:</div>
+            <div class="col-sm-5">
+                <input class="form-control" name="appName" ng-model="applyApp.appName" placeholder='请输入应用名称，不超过10位' required ng-maxlength="10">
+            </div>
+            <div class="col-sm-5 ng-error" ng-messages="applyAppForm.appName.$error" ng-show="applyAppForm.appName.$dirty">
+                <div ng-message="required">应用名称不能为空</div>
+                <div ng-message="maxlength">应用名称不能超过10位</div>
+            </div>
+        </div>
+    </form>
+</div>

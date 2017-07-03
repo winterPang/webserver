@@ -1,0 +1,452 @@
+<html>
+<head>
+</head>
+<style> 
+ .boxstyle{
+     margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 132px;
+ }
+ .sure{
+    margin-left: 18px;
+    display: inline-block;
+    margin-bottom: 4px;
+    margin-top: 5px;
+    font-size: 16px;
+ }
+   
+</style>
+<body> 
+<div class="page-row"> 
+    <div class="col-xs-12 app-colum">
+       <div class="col-xs-11 app-box">
+           <div class="col-xs-12" style="background: #E3F5F4;">
+              <span style="color: #352D2D; margin-left: 50px;font-size: 17px;display: inline-block;margin-top: 9px;">智能优化</span>
+              <br/>
+              <span style="margin-left: 50px;display: inline-block;margin-bottom: 10px;">说明:根据用户设定，自动收集数据，并根据数据计算优化参数，并在闲时进行优化</span>
+           </div>
+           <span style="display: inline-block; margin-left: -983px; margin-top: 70px; position: absolute;z-index: 10; color: #352D2D;">时段设置</span>
+           <div class="col-xs-11 app-box" style="margin-top: 30px;margin-left: 50px;border-radius: 14px;"> 
+              <div>
+                <span style="margin-left: 103px; margin-right: 12px;margin-top: 20px;display: inline-block; color: #352D2D;">重复</span>
+                <input type="checkbox" checked id="all">
+                <label for="all" style="color: #352D2D;">周一</label>
+
+                <input type="checkbox" id="jinji">
+                <label for="jinji" style="color: #352D2D;">周二</label>
+
+                <input type="checkbox" id="yanzhong">
+                <label for="yanzhong" style="color: #352D2D;">周三</label>
+
+                <input type="checkbox" id="jinggao">
+                <label for="jinggao" style="color: #352D2D;">周四</label>
+
+                <input type="checkbox" id="tishi">
+                <label for="tishi" style="color: #352D2D;">周五</label>
+                <input type="checkbox" id="tishi1">
+                <label for="tishi" style="color: #352D2D;">周六</label>
+                <input type="checkbox" id="tishi2">
+                <label for="tishi" style="color: #352D2D;">周日</label>
+                <br/>
+                <span style="margin-left: 143px;">说明:设置执行信息收集和优化行为的重复时间</span>
+              </div>
+              <div style="margin-left: 144px; margin-top: 23px;">
+                <input type="checkbox" checked id="tishi3">
+                <label for="tishi" style="color: #352D2D;">自动调整优化时间</label>
+                <br/>
+                <span>说明:勾选此选项，设备将会根据用户设定的时间并结合用户量，自动调整忙时和闲时，在忙时收集数据，闲时执行优化</span>
+              </div>
+              <div style="margin-top: 25px;margin-bottom: 25px;">
+                <span style="margin-left: 50px; color: #352D2D;">执行时间段:</span>
+                <span style="margin-left: 12px;margin-right: 10px;color: #352D2D;">起始时间</span>
+                <select style="width: 42px;">
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">00</option> 
+                </select>
+                <span style="margin-left: -15px;margin-right: 5px;">:</span>
+                <select style="width: 42px;">
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">00</option> 
+                </select>
+                <span style="margin-right: 10px;color: #352D2D;">结束时间</span>
+                <select style="width: 42px;">
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">00</option> 
+                </select>
+                <span style="margin-left: -15px;margin-right: 5px;">:</span>
+                <select style="width: 42px;">
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">00</option> 
+                </select>
+                <br/>
+                <span style="margin-left: 21px;display: inline-block;margin-top: 25px;color: #352D2D;">收集信息时间段:</span>
+                <span style="margin-left: 12px;margin-right: 10px;color: #352D2D;">起始时间</span>
+                <select style="width: 42px;">
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">00</option> 
+                </select>
+                <span style="margin-left: -15px; margin-right: 5px;">:</span>
+                <select style="width: 42px;">
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">00</option> 
+                </select>
+                <span style="margin-right: 10px;color: #352D2D;">结束时间</span>
+                <select style="width: 42px;">
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">00</option> 
+                </select>
+                <span style="margin-left: -15px; margin-right: 5px;">:</span>
+                <select style="width: 42px;">
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">00</option> 
+                </select>
+                <br/>
+                <span style="margin-left: 136px;margin-right: 10px;color: #352D2D;">起始时间</span>
+                <select style="width: 42px;">
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">00</option> 
+                </select>
+                <span style="margin-left: -15px;margin-right: 5px;color: #352D2D;">:</span>
+                <select style="width: 42px;">
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">00</option> 
+                </select>
+                <span style="margin-right: 10px;color: #352D2D;">结束时间</span>
+                <select style="width: 42px;">
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">00</option> 
+                </select>
+                <span style="margin-left: -15px; margin-right: 5px;">:</span>
+                <select style="width: 42px;">
+                  <option value="01">01</option>
+                  <option value="02">02</option>
+                  <option value="03">03</option>
+                  <option value="04">04</option>
+                  <option value="05">05</option>
+                  <option value="06">06</option>
+                  <option value="07">07</option>
+                  <option value="08">08</option>
+                  <option value="09">09</option>
+                  <option value="10">10</option>
+                  <option value="11">11</option>
+                  <option value="12">12</option>
+                  <option value="13">13</option>
+                  <option value="14">14</option>
+                  <option value="15">15</option>
+                  <option value="16">16</option>
+                  <option value="17">17</option>
+                  <option value="18">18</option>
+                  <option value="19">19</option>
+                  <option value="20">20</option>
+                  <option value="21">21</option>
+                  <option value="22">22</option>
+                  <option value="23">23</option>
+                  <option value="24">00</option> 
+                </select>
+              </div> 
+           </div>
+           <span style="display: inline-block; margin-left: -983px; margin-top: 444px; position: absolute;z-index: 10; color: #352D2D;">优化类别</span>
+           <div class="col-xs-11 app-box" style="margin-top: 30px;margin-left: 50px;border-radius: 14px;"> 
+              <div style="margin-bottom: 24px;">
+                <div class="boxstyle">
+                    <input type="checkbox" checked id="xindaotiaozhen">
+                    <label for="xindaotiaozhen" style="color: #352D2D;">自动信道调整</label>
+                    <br/>
+                    <span>说明:自动调整信道</span>
+                </div>
+                <div  class="boxstyle">
+                  <input type="checkbox" checked id="gonglvtiaozheng">
+                  <label for="gonglvtiaozheng" style="color: #352D2D;">动态功率调整</label>
+                  <br/>
+                  <span>说明:自动调整功率</span>
+                </div>
+                <div  class="boxstyle">
+                  <input type="checkbox" checked id="chongyongnenli">
+                  <label for="chongyongnenli" style="color: #352D2D;">信道重用能力调整</label>
+                  <br/>
+                  <span>说明:开启之后，会根据当前环境自动调整干扰阈值</span>
+                </div>
+                <div  class="boxstyle">
+                  <input type="checkbox" checked id="dongtaitiaozheng">
+                  <label for="dongtaitiaozheng" style="color: #352D2D;">空口发送速率动态调整</label>
+                  <br/>
+                  <span>说明:调整速率选择算法，避免在特定环境下速率快降而不升，造成无谓资源浪费，通过优化在符合接收灵敏度的情况下，保证发送最低速率</span>
+                </div>
+                <div  class="boxstyle">
+                  <input type="checkbox" checked id="baowenyouhua">
+                  <label for="baowenyouhua" style="color: #352D2D;">弱信号报文优化</label>
+                  <br/>
+                  <span>说明:动态调整AP感知弱信号的能力，忽略非到达本身的低强度信号，以提高AP发送报文的机会，同时会减少AP接收正常报文的干扰</span> 
+                </div> 
+                
+              </div> 
+           </div>
+           <div class="col-xs-2" style="margin-left: 428px; width: 69px;border: 1px solid #ddd; border-radius: 3px; background: #3BBDAC; margin-bottom: 20px;">
+              <a href="javascript:void(0)" id="sure" value="0">
+                <span class="sure">确定</span>
+              </a> 
+           </div>
+           <div class="col-xs-2" style="margin-left: 38px; width: 69px;border: 1px solid #ddd; border-radius: 3px;">
+              <a href="javascript:void(0)" id="concer" value="0">
+                <span class="sure">取消</span>
+              </a> 
+           </div>
+       </div>
+
+    </div>
+</div>
+<div id="User_monitor_rc" class="rc-define" 
+         Type_HEAD="访问方式,新闻,工具,游戏,下载,视频,金融,生活,办公,通讯,导航,其他"
+         Localtion="场所,场所驻留时长,样板间,驻留时长,来访次数"
+         UrlType_HEAD="应用类型,起始时间,结束时间,"
+         USER_HEADER="应用名称,应用类型,MAC地址,使用流量,在线时长"
+         LocalName="场所名称,访问次数,访问时长"
+            ></div>
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("netcollocation.collocation");
+</script>

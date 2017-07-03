@@ -1,0 +1,691 @@
+<html>
+<head>
+</head>
+<style> 
+  @import url("./libs/jquerynav/jquery-accordion-menu.css"); 
+  .topStatics
+  {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-left: 23px;
+  }
+   .pieMsg.leg-panel .leg-row
+  { 
+    color: #617085;
+    font-size: 12px;
+    border-bottom: 1px solid #D6DCE3;
+    padding-bottom: 0px;
+    line-height: 12px;
+    margin-bottom: 5px;
+  }
+  .pieMsgPoint.leg-panel .leg-row .leg-icon {
+    display: block;
+    height: 9px;
+    width: 9px;
+    float: left;
+    border-radius: 6px;
+    margin: 1px 10px 0 4px;
+  }
+  .dateSelectstyle
+ {
+      margin-left: 10px;
+ }
+ .ClickbuttonBackgroud{
+    background: #4EC1B2;
+ }
+.NoClickbuttonBackgroud{
+    background: #ddd;
+ }
+ .UserDpiList{ 
+  position:absolute;
+  z-index: 9999;
+  top: 37px;
+  left: 558px;
+  background: #F5F0F0;
+ }
+ /*统计信息图标*/
+ .background-User{ 
+    position: relative;
+    width: 57px;
+    height: 53px;
+    display: block;
+    left: 20px;
+    top: 2px;
+  }
+  .background-User.accessCount{
+      background: url(./css/image//pic/userpic.jpg) no-repeat -791px -532px;
+  }
+  .background-User.netpalyTime{
+      background: url(./css/image//pic/userpic.jpg) no-repeat -252px -530px;
+  }
+  .background-User.useFlow{
+      background: url(./css/image//pic/userpic.jpg) no-repeat -161px -531px;
+  }
+  .background-User.accessHouse{
+      background: url(./css/image//pic/userpic.jpg) no-repeat -432px -353px;
+  }
+  .background-User.usuallyHouse{
+      background: url(./css/image//pic/userpic.jpg) no-repeat -702px -261px;
+  }
+   .background-User.accessRoom{
+      background: url(./css/image//pic/userpic.jpg) no-repeat -432px -439px;
+  }
+  /*单选框style*/
+  .radioStyle{
+    margin-left: 10px;
+  }
+  /*点击后时间变色加下划线*/
+   .SelectTime{
+        color: #4ec1b2!important;
+        text-decoration: underline!important;
+    }
+
+    
+    .daterangepicker.dropdown-menu {
+    max-width: none;
+    z-index: 3000;
+    left: 888.81px!important;
+  }
+</style>
+<body> 
+<div class="page-row"> 
+    <div class="col-xs-12 app-colum"> 
+        <div class="col-xs-2 app-box" style="box-shadow: 1px 1px 20px 1px #DAD2D2; border-radius: 8px;">
+          <div class="col-md-6" style="margin-top: 25px;margin-bottom: 26px;">
+            <img src='./css/image/pic/userMsg.jpg' id="headimgurl" style="border-radius: 50px;padding-left: 2px;" height='90px'/>
+          </div>
+          <div class="col-md-6" style="margin-top: 27px;padding-left: 10px;">
+            <span style="color: #67ADC7;" >姓名:</span>
+            <span style="color: #67ADC7;" id="userName"></span>
+            <br/>
+            <span style="color: #67ADC7;">年龄:</span>
+            <span style="color: #67ADC7;" id="UserAge"></span>
+            <br/>
+            <span style="color: #67ADC7;">性别:</span>
+            <span style="color: #67ADC7;" id="UserSex"></span>
+          </div> 
+        </div> 
+        <div class="col-xs-10">
+          <div class="col-xs-12"style="background: #EDF9F7; width: 99%;margin-left: 11px; margin-bottom: 5px;">
+            <div class="col-md-4"> 
+               <div  id="AllUserList" >
+                <lable style="margin-left: 10px;display: inline-block; padding-top: 16px;">用户列表</lable>
+                <select id="MapSelect" class="singleSelect" allowClear="false" name="" style="width: 180px padding-bottom: 4px;"> 
+                </select>
+                <span id="TotalUserNumber">(0人)</span>
+              </div>
+            </div>
+            <div class="col-md-8" style="margin-left: -30px;">
+              <div class="col-xs-12">
+                  <div style="padding-top: 12px;    margin-left: 21px;">
+                    <span>周期:</span>
+                    <a href="javascript:void(0)"  class="SelectTime" id="today" value="0">
+                      <span class="dateSelectstyle">今天</span>
+                    </a>
+                    <a href="javascript:void(0)" id="aweek" value="1">
+                      <span class="dateSelectstyle">七天</span>
+                    </a>
+                    <a href="javascript:void(0)" id="amonth" value="2">
+                      <span class="dateSelectstyle">一月</span>
+                    </a> 
+                    <a href="javascript:void(0)" id="year" value="3">
+                      <span class="dateSelectstyle">一年</span>
+                    </a>
+                    <span class="dateSelectstyle" id="otherTime" style="color: #000;">自定义</span> 
+                    <input id="daterange" class="daterange" style="width:170px" placeholder="选择日期"> 
+                  </div>
+              </div>
+            </div>
+          </div>
+          <div class=" col-xs-12 app-box" style="margin-left:11px;width: 99%;border-radius: 5px;"> 
+            <div class="col-md-2 topStatics">
+              <div class="col-md-1 background-User netpalyTime" style="margin-left: -4px;"> </div>
+               <div class="col-md-10 text-center" style="margin-left: 43px;margin-top: -55px;">
+                <span >上网时长排行</span>
+                <br/>
+                <span style="display: inline-block;margin-top: 2px;font-size: 30px;" id="sortTime">2</span>
+              </div> 
+            </div>
+            <div class="col-md-2 topStatics">
+              <div class="col-md-1 background-User useFlow"></div>
+               <div class="col-md-10 text-center" style="margin-left: 48px;margin-top: -55px;">
+                <span >上网流量排行</span>
+                 <br/>
+                <span style="display: inline-block; margin-top: 2px;font-size: 30px;" id="sortFlow">50</span>
+              </div> 
+            </div> 
+            <div class="col-md-2 topStatics">
+              <div class="col-md-1 background-User accessCount"></div>
+               <div class="col-md-10 text-center" style="margin-left: 50px;margin-top: -55px;">
+                  <span>访问次数排行</span>
+                   <br/>
+                  <span style="display: inline-block;margin-top: 2px;font-size: 30px;" id="AccessCount">0</span>
+              </div> 
+            </div> 
+            <div class="col-md-2 topStatics">
+              <div class="col-md-1 background-User accessHouse"></div>
+               <div class="col-md-10 text-center" style="margin-left: 46px;margin-top: -55px;">
+                <span >访问场所数量</span>
+                 <br/>
+                <span style="display: inline-block; margin-top: 2px;font-size: 30px;">9</span>
+              </div> 
+            </div> 
+            <div class="col-md-2 topStatics">
+              <div class="col-md-1 background-User usuallyHouse"></div>
+               <div class="col-md-10 text-center" style="margin-left: 39px;margin-top: -55px;">
+                <span >常去的场所</span>
+                 <br/>
+                <span style="display: inline-block; margin-top: 7px;font-size: 23px;">图书馆</span>
+              </div>
+            </div> 
+            <!-- <div class="col-md-2 topStatics" style="margin-left: -23px;">
+              <div class="col-md-1 background-User accessRoom"></div>
+               <div class="col-md-10 text-center" style="margin-left: 53px;margin-top: -55px;">
+                <span >访问样板间数量</span>
+                 <br/>
+                <span style="display: inline-block; margin-top: 2px;font-size: 30px;">11</span>
+              </div>
+            </div>  -->
+          </div>
+        </div> 
+        <div class="col-xs-12" style="margin-bottom: 0px;">
+           <ul class="nav nav-tabs">
+              <li class="active"><a href="javascript:void(0)" data-toggle="tab"  id="NetplayMsg" value="0">上网信息</a></li>
+              <li ><a href="javascript:void(0)" data-toggle="tab" id="LocationMsg" value="1">位置信息</a></li> 
+          </ul> 
+        </div> 
+        <!-- 上网信息展示 -->
+        <div class="col-xs-12 app-box box-footer" id="showNetplayMsg" style="border-top-color: #fff;overflow-x: hidden;"> 
+            <div class="col-xs-12">
+              <div class="col-xs-5" style="margin-left: 24px;margin-top: 8px;"> 
+                 <div class="radio-name" style="margin-left: 14px;">
+                      <input type="radio" id="DpiApp" checked name="DpiStyle" value="0">
+                      <label for="DpiApp">应用</label>
+                      &nbsp;&nbsp;
+                      <input type="radio" id="DpiUrl" name="DpiStyle" value="1">
+                      <label for="DpiUrl">网站</label>
+                  </div>
+                  
+              </div> 
+              <!-- 本地 -->
+              <div class="col-xs-6  link-container" style="margin-top: 14px;margin-left: 65px;">
+                 <a type="button" class="link-detail" id="userDpi_details" title="更多" href="dpi_user.userdpidetail" style="float: right;">
+                      <i class="detail-icon icon"></i>
+                  </a> 
+              </div>
+              <!-- 云上 --> 
+              <!-- <div class="col-xs-6  link-container" style="margin-top: 14px;margin-left: 65px;">
+                 <a type="button" class="link-detail" id="userDpi_details" title="更多" href="a_dataanalysis.UserDpiDetail" style="float: right;">
+                      <i class="detail-icon icon"></i>
+                  </a> 
+              </div> -->
+            </div>
+            
+            <!-- 饼图显示网站的信息 -->
+            <div class="col-xs-12 hide" id="showUrl">
+              <div class="col-xs-4"> 
+                <div class="col-xs-12" style="height:300px">
+                    <div id="UrlType_pie" class="myEchart"></div>
+                    <div id="UrlType_message" class="panel leg-panel"></div>
+                </div>
+                <div class="col-xs-12 text-center" style="margin-top:-64px;margin-left: -71px;z-index: 9000;">
+                   <div class="radio-name" style="margin-left: 14px;">
+                      <input type="radio" id="DpiUrlTime" checked name="UrlStyle" value="Durition">
+                      <label for="DpiUrlTime">时长</label>
+                      &nbsp;&nbsp;
+                      <input type="radio" id="DpiUrlCount" name="UrlStyle" value="Count">
+                      <label for="DpiUrlCount">次数</label>
+                  </div> 
+                </div>
+              </div>
+              <div class="col-xs-8">
+                <div class="col-xs-12" style="margin-bottom: -17px;">
+                  <div class="col-xs-6">
+                    <div style="padding-left: 12px;padding-top: 9px;">
+                      <span id="UrlGroupName">暂无数据</span>
+                      <div>
+                        <HR width="85%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5" color="#C7B9B9" />
+                      </div>
+                    </div>
+                    <div id="UrlName_pie" class="col-xs-12 myEchart"></div>
+                    <div id="UrlName_message" class="panel pieMsg  pieMsgPoint leg-panel"></div>
+                  </div>
+                  <div class="col-xs-6">
+                    <div style="padding-left: 12px;padding-top: 9px;">
+                      <span id="UrlGroupName1">暂无数据</span>
+                      <div>
+                        <HR width="85%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5"  color="#C7B9B9" />
+                      </div>
+                    </div>
+                    <div id="UrlName1_pie" class="col-xs-12 myEchart"></div>
+                    <div id="UrlName1_message" class="panel  pieMsg pieMsgPoint leg-panel"></div>
+                  </div> 
+                  <!-- <div class="col-xs-4">
+                    <div style="padding-left: 12px;padding-top: 9px;">
+                      <span>工具</span>
+                      <div>
+                        <HR width="85%"   style="border-top: 1px solid #C7B9B9;margin: 0 8px -13px -1px"  align="center" size="5"  color="#C7B9B9" />
+                      </div>
+                    </div>
+                    <div id="UrlName2_pie" class="col-xs-12 myEchart"></div>
+                    <div id="UrlName2_message" class="panel  pieMsg pieMsgPoint leg-panel"></div>
+                  </div> -->
+                </div>
+                <div class="col-xs-12">
+                  <div class="col-xs-6">
+                    <div style="padding-left: 12px;padding-top: 9px;">
+                      <span id="UrlGroupName2">暂无数据</span>
+                      <div>
+                        <HR width="85%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5"  color="#C7B9B9" />
+                      </div>
+                    </div>
+                    <div id="UrlName3_pie" class="col-xs-12 myEchart"></div>
+                    <div id="UrlName3_message" class="panel pieMsg pieMsgPoint leg-panel"></div>
+                  </div>
+                  <div class="col-xs-6">
+                    <div style="padding-left: 12px;padding-top: 9px;">
+                      <span id="UrlGroupName3">暂无数据</span>
+                      <div>
+                        <HR width="85%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5"  color="#C7B9B9" />
+                      </div>
+                    </div>
+                    <div id="UrlName4_pie" class="col-xs-12 myEchart"></div>
+                    <div id="UrlName4_message" class="panel  pieMsg pieMsgPoint leg-panel"></div>
+                  </div> 
+                  <!-- <div class="col-xs-4">
+                    <div style="padding-left: 12px;padding-top: 9px;">
+                      <span>新闻</span>
+                      <div>
+                        <HR width="85%"   style="border-top: 1px solid #C7B9B9;margin: 0 8px -13px -1px"  align="center" size="5"  color="#C7B9B9" />
+                      </div>
+                    </div>
+                    <div id="UrlName5_pie" class="col-xs-12 myEchart"></div>
+                    <div id="UrlName5_message" class="panel  pieMsg pieMsgPoint leg-panel"></div>
+                  </div> -->
+                </div>
+              </div>
+            </div>
+            <!-- 饼图显示应用的信息 -->
+            <div class="col-xs-12" id="showApp">
+              <div class="col-xs-4"> 
+                <div class="col-xs-12" style="height:300px">
+                    <div id="AppType_pie" class="myEchart"></div>
+                    <div id="AppType_message" class="panel leg-panel"></div>
+                </div>
+                <div class="col-xs-12 text-center" style="margin-top:-64px;margin-left: -71px;z-index: 9000;">
+                   <div class="radio-name" style="margin-left: 14px;">
+                      <input type="radio" id="DpiAppTime" checked name="AppStyle" value="Durition">
+                      <label for="DpiAppTime">时长</label>
+                      &nbsp;&nbsp;
+                      <input type="radio" id="DpiAppCount" name="AppStyle" value="Count">
+                      <label for="DpiAppCount">次数</label>
+                      &nbsp;&nbsp;
+                      <input type="radio" id="DpiAppFlow" name="AppStyle" value="Flow">
+                      <label for="DpiAppFlow">流量</label>
+                  </div> 
+                </div>
+              </div>
+              <div class="col-xs-8">
+                <div class="col-xs-12" style="margin-bottom: -17px; height:167px">
+                  <div class="col-xs-4">
+                    <div style="padding-left: 12px;padding-top: 9px;">
+                      <span id="AppGroupName">暂无数据</span>
+                      <div>
+                        <HR width="85%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+                      </div>
+                    </div>
+                    <div id="AppName_pie" class="col-xs-12 myEchart"></div>
+                    <div id="AppName_message" class="panel pieMsg  pieMsgPoint leg-panel"></div>
+                  </div>
+                  <div class="col-xs-4">
+                    <div style="padding-left: 12px;padding-top: 9px;">
+                      <span id="AppGroupName1">暂无数据</span>
+                      <div>
+                        <HR width="85%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+                      </div>
+                    </div>
+                    <div id="AppName1_pie" class="col-xs-12 myEchart"></div>
+                    <div id="AppName1_message" class="panel  pieMsg pieMsgPoint leg-panel"></div>
+                  </div> 
+                  <div class="col-xs-4">
+                    <div style="padding-left: 12px;padding-top: 9px;">
+                      <span id="AppGroupName2">暂无数据</span>
+                      <div>
+                        <HR width="85%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+                      </div>
+                    </div>
+                    <div id="AppName2_pie" class="col-xs-12 myEchart"></div>
+                    <div id="AppName2_message" class="panel  pieMsg pieMsgPoint leg-panel"></div>
+                  </div>
+                </div>
+                <div class="col-xs-12" style="height:167px">
+                  <div class="col-xs-4">
+                    <div style="padding-left: 12px;padding-top: 9px;">
+                      <span id="AppGroupName3">暂无数据</span>
+                      <div>
+                        <HR width="85%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+                      </div>
+                    </div>
+                    <div id="AppName3_pie" class="col-xs-12 myEchart"></div>
+                    <div id="AppName3_message" class="panel pieMsg pieMsgPoint leg-panel"></div>
+                  </div>
+                  <div class="col-xs-4">
+                    <div style="padding-left: 12px;padding-top: 9px;">
+                      <span id="AppGroupName4">暂无数据</span>
+                      <div>
+                        <HR width="85%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+                      </div>
+                    </div>
+                    <div id="AppName4_pie" class="col-xs-12 myEchart"></div>
+                    <div id="AppName4_message" class="panel  pieMsg pieMsgPoint leg-panel"></div>
+                  </div> 
+                  <div class="col-xs-4">
+                    <div style="padding-left: 12px;padding-top: 9px;">
+                      <span id="AppGroupName5">暂无数据</span>
+                      <div>
+                        <HR width="85%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+                      </div>
+                    </div>
+                    <div id="AppName5_pie" class="col-xs-12 myEchart"></div>
+                    <div id="AppName5_message" class="panel  pieMsg pieMsgPoint leg-panel"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <div>
+              <HR width="100%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+            </div>
+            <!-- 折线图显示网站信息 -->
+            <div class="col-xs-12 hide" id="urlType_chart">
+                <!-- <div class="text-center" style="margin-top: 5px;margin-bottom: -5px;"> 
+                   <div class="radio-name" style="margin-left: 14px;">
+                      <input type="radio" id="DpiUrlTime_chart" checked name="UrlStyle_chart" value="0">
+                      <label for="DpiUrlTime_chart">时长</label>
+                      &nbsp;&nbsp;
+                      <input type="radio" id="DpiUrlCount_chart" name="UrlStyle_chart" value="1">
+                      <label for="DpiUrlCount_chart">次数</label>
+                  </div> 
+                </div> -->
+               <div id="UserType_chart" class="myEchart"></div> 
+            </div>
+            <!-- 折线图显示有应用信息 -->
+            <div class="col-xs-12" id="appType_chart">
+                <div class="text-center" style="margin-top: 5px;margin-bottom: -5px;"> 
+                  <!--  <div class="radio-name" style="margin-left: 14px;">
+                      <input type="radio" id="DpiAppTime_chart" checked name="AppStyle_chart" value="0">
+                      <label for="DpiAppTime_chart">时长</label>
+                      &nbsp;&nbsp;
+                      <input type="radio" id="DpiAppCount_chart" name="AppStyle_chart" value="1">
+                      <label for="DpiAppCount_chart">次数</label>
+                      &nbsp;&nbsp;
+                      <input type="radio" id="DpiAppFlow_chart" name="AppStyle_chart" value="1">
+                      <label for="DpiAppFlow_chart">流量</label>
+                  </div> -->
+                  
+                </div>
+               <div id="UserAppType_chart" class="myEchart"></div> 
+            </div> 
+        </div> 
+        <!-- 位置信息展示 -->
+        <div class="col-xs-12 app-box box-footer hide" id="showLocaltionMsg" style="border-top-color: #fff;overflow-x: hidden;"> 
+            <div class="col-xs-12">
+              <div class="col-xs-5" style="margin-left: 24px;margin-top: 8px;"> 
+                 <div class="radio-name" style="margin-left: 14px;">
+                      <input type="radio" id="WecomeLocation" checked name="LocaltionType" value="0">
+                      <label for="WecomeLocation">最常访问</label>
+                      &nbsp;&nbsp;
+                      <input type="radio" id="NotWelcomeLocaltion" name="LocaltionType" value="1">
+                      <label for="NotWelcomeLocaltion">最少访问</label>
+                  </div> 
+              </div> 
+              <!-- 本地 -->
+              <div class="col-xs-6  link-container" style="margin-top: 14px;margin-left: 65px;">
+                 <a type="button" class="link-detail" id="UserLocaltion_details" title="更多" href="dpi_user.userlocaltiondetail" style="float: right;position: inherit;z-index: 9999;">
+                      <i class="detail-icon icon"></i>
+                  </a> 
+              </div> 
+              <!-- 云上 -->
+              <!-- <div class="col-xs-6  link-container" style="margin-top: 14px;margin-left: 65px;">
+                 <a type="button" class="link-detail" id="client_details" title="更多" href="a_dataanalysis.UserLocaltionDetail" style="float: right;">
+                      <i class="detail-icon icon"></i>
+                  </a> 
+              </div> --> 
+            </div>
+            
+            <!-- 饼图显示不欢迎的信息 -->
+            <!-- <div class="col-xs-12 hide" id="showNotWelcome">
+              <div class="col-xs-4"> 
+                <div class="col-xs-12" style="height:300px">
+                    <div id="NotWelcomeType_pie" class="myEchart"></div>
+                    <div id="NotWelcomeType_message" class="panel leg-panel"></div>
+                </div>
+                <div class="col-xs-12 text-center" style="margin-top:-64px;margin-left: -71px;z-index: 9000;">
+                   <div class="radio-name" style="margin-left: 14px;">
+                      <input type="radio" id="NotWelcomeTime" checked name="NotWelcomeStyle" value="0">
+                      <label for="NotWelcomeTime">时长</label>
+
+                      <input type="radio" id="NotWelcomeCount" name="NotWelcomeStyle" value="1">
+                      <label for="NotWelcomeCount">次数</label>
+                  </div> 
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <div class="col-xs-12" style="margin-bottom: -17px;">
+                  <div class="col-xs-4">
+                    <div style="padding-left: 12px;padding-top: 9px;">
+                      <span>餐饮</span>
+                      <div>
+                        <HR width="85%"   style="border-top: 1px solid #C7B9B9;margin: 0 8px -13px -1px"  align="center" size="5" color="#C7B9B9" />
+                      </div>
+                    </div>
+                    <div id="NotWelcomeName_pie" class="col-xs-12 myEchart"></div>
+                    <div id="NotWelcomeName_message" class="panel pieMsg  pieMsgPoint leg-panel"></div>
+                  </div>
+                  <div class="col-xs-4">
+                    <div style="padding-left: 12px;padding-top: 9px;">
+                      <span>服装</span>
+                      <div>
+                        <HR width="85%"   style="border-top: 1px solid #C7B9B9;margin: 0 8px -13px -1px"  align="center" size="5"  color="#C7B9B9" />
+                      </div>
+                    </div>
+                    <div id="NotWelcomeName1_pie" class="col-xs-12 myEchart"></div>
+                    <div id="NotWelcomeName1_message" class="panel  pieMsg pieMsgPoint leg-panel"></div>
+                  </div> 
+                  <div class="col-xs-4">
+                    <div style="padding-left: 12px;padding-top: 9px;">
+                      <span>娱乐</span>
+                      <div>
+                        <HR width="85%"   style="border-top: 1px solid #C7B9B9;margin: 0 8px -13px -1px"  align="center" size="5"  color="#C7B9B9" />
+                      </div>
+                    </div>
+                    <div id="NotWelcomeName2_pie" class="col-xs-12 myEchart"></div>
+                    <div id="NotWelcomeName2_message" class="panel  pieMsg pieMsgPoint leg-panel"></div>
+                  </div>
+                </div>
+                <div class="col-xs-12">
+                  <div class="col-xs-4">
+                    <div style="padding-left: 12px;padding-top: 9px;">
+                      <span>休息</span>
+                      <div>
+                        <HR width="85%"   style="border-top: 1px solid #C7B9B9;margin: 0 8px -13px -1px"  align="center" size="5"  color="#C7B9B9" />
+                      </div>
+                    </div>
+                    <div id="NotWelcomeName3_pie" class="col-xs-12 myEchart"></div>
+                    <div id="NotWelcomeName3_message" class="panel pieMsg pieMsgPoint leg-panel"></div>
+                  </div>
+                  <div class="col-xs-4">
+                    <div style="padding-left: 12px;padding-top: 9px;">
+                      <span>运动</span>
+                      <div>
+                        <HR width="85%"   style="border-top: 1px solid #C7B9B9;margin: 0 8px -13px -1px"  align="center" size="5"  color="#C7B9B9" />
+                      </div>
+                    </div>
+                    <div id="NotWelcomeName4_pie" class="col-xs-12 myEchart"></div>
+                    <div id="NotWelcomeName4_message" class="panel  pieMsg pieMsgPoint leg-panel"></div>
+                  </div> 
+                  <div class="col-xs-4">
+                    <div style="padding-left: 12px;padding-top: 9px;">
+                      <span>休闲</span>
+                      <div>
+                        <HR width="85%"   style="border-top: 1px solid #C7B9B9;margin: 0 8px -13px -1px"  align="center" size="5"  color="#C7B9B9" />
+                      </div>
+                    </div>
+                    <div id="NotWelcomeName5_pie" class="col-xs-12 myEchart"></div>
+                    <div id="NotWelcomeName5_message" class="panel  pieMsg pieMsgPoint leg-panel"></div>
+                  </div>
+                </div>
+              </div>
+            </div> -->
+            <!-- 饼图显示欢迎的信息 -->
+            <div class="col-xs-12" id="showWelcome">
+              <div class="col-xs-4"> 
+                <div class="col-xs-12" style="height:300px">
+                    <div id="WelcomeType_pie" class="myEchart"></div>
+                    <div id="WelcomeType_message" class="panel leg-panel"></div>
+                </div>
+                <div class="col-xs-12 text-center" style="margin-top:-64px;margin-left: -71px;z-index: 9000;">
+                   <div class="radio-name" style="margin-left: 14px;">
+                      <input type="radio" id="WelcomeTime" checked name="WelcomeStyle" value="0">
+                      <label for="WelcomeTime">时长</label>
+                      &nbsp;&nbsp;
+                      <input type="radio" id="WelcomeCount" name="WelcomeStyle" value="1">
+                      <label for="WelcomeCount">次数</label> 
+                  </div> 
+                </div>
+              </div>
+              <div class="col-xs-8">
+                <div class="col-xs-12 text-center" style="margin-top:-27px;">
+                   <div class="radio-name" style="margin-left: 14px;">
+                      <input type="radio" id="UserDetail" checked name="DetailAndtrend" value="0">
+                      <label for="UserDetail">详细信息</label>
+                      &nbsp;&nbsp;
+                      <input type="radio" id="UserTrend" name="DetailAndtrend" value="1">
+                      <label for="UserTrend">用户流向</label> 
+                  </div> 
+                </div>
+                <div class="col-xs-12" id="LocaltionDetail">
+                  <div class="col-xs-12" style="margin-bottom: -17px; height:167px">
+                    <div class="col-xs-4">
+                      <div style="padding-left: 12px;padding-top: 9px;">
+                        <span>餐饮</span>
+                        <div>
+                          <HR width="85%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+                        </div>
+                      </div>
+                      <div id="WelcomeName_pie" class="col-xs-12 myEchart"></div>
+                      <div id="WelcomeName_message" class="panel pieMsg  pieMsgPoint leg-panel"></div>
+                    </div>
+                    <div class="col-xs-4">
+                      <div style="padding-left: 12px;padding-top: 9px;">
+                        <span>服装</span>
+                        <div>
+                          <HR width="85%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+                        </div>
+                      </div>
+                      <div id="WelcomeName1_pie" class="col-xs-12 myEchart"></div>
+                      <div id="WelcomeName1_message" class="panel  pieMsg pieMsgPoint leg-panel"></div>
+                    </div> 
+                    <div class="col-xs-4">
+                      <div style="padding-left: 12px;padding-top: 9px;">
+                        <span>娱乐</span>
+                        <div>
+                          <HR width="85%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+                        </div>
+                      </div>
+                      <div id="WelcomeName2_pie" class="col-xs-12 myEchart"></div>
+                      <div id="WelcomeName2_message" class="panel  pieMsg pieMsgPoint leg-panel"></div>
+                    </div>
+                  </div>
+                  <div class="col-xs-12" style="height:167px">
+                    <div class="col-xs-4">
+                      <div style="padding-left: 12px;padding-top: 9px;">
+                        <span>休息</span>
+                        <div>
+                          <HR width="85%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+                        </div>
+                      </div>
+                      <div id="WelcomeName3_pie" class="col-xs-12 myEchart"></div>
+                      <div id="WelcomeName3_message" class="panel pieMsg pieMsgPoint leg-panel"></div>
+                    </div>
+                    <div class="col-xs-4">
+                      <div style="padding-left: 12px;padding-top: 9px;">
+                        <span>运动</span>
+                        <div>
+                          <HR width="85%"   style="border-top: 1px solid #C7B9B9;margin: 0 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+                        </div>
+                      </div>
+                      <div id="WelcomeName4_pie" class="col-xs-12 myEchart"></div>
+                      <div id="WelcomeName4_message" class="panel  pieMsg pieMsgPoint leg-panel"></div>
+                    </div> 
+                    <div class="col-xs-4">
+                      <div style="padding-left: 12px;padding-top: 9px;">
+                        <span>休闲</span>
+                        <div>
+                          <HR width="85%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+                        </div>
+                      </div>
+                      <div id="WelcomeName5_pie" class="col-xs-12 myEchart"></div>
+                      <div id="WelcomeName5_message" class="panel  pieMsg pieMsgPoint leg-panel"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 hide" id="LocaltionTrend">
+                    <div class="myEchart" id="TrendId"></div>
+                    <div id="TrendId_message" class="panel leg-panel"></div>
+                </div>
+                
+              </div>
+            </div>
+            
+            <div>
+              <HR width="100%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+            </div>
+            <!-- 折线图显示不欢迎信息 -->
+            <div class="col-xs-12 hide" id="NotwelcomeType_chart">
+                <!-- <div class="text-center" style="margin-top: 5px;margin-bottom: -5px;"> 
+                   <div class="radio-name" style="margin-left: 14px;">
+                      <input type="radio" id="NotwelcomeTime_chart" checked name="NotwelcomeStyle_chart" value="0">
+                      <label for="NotwelcomeTime_chart">时长</label>
+
+                      <input type="radio" id="NotwelcomeCount_chart" name="NotwelcomeStyle_chart" value="1">
+                      <label for="NotwelcomeCount_chart">次数</label>
+                  </div> 
+                </div>
+               <div id="UserNotwelcomeType_chart" class="myEchart"></div>  -->
+               <div class="col-xs-12">
+                  <div class="simple-list" id="NotWelcomeLocaltion_list"></div>
+               </div>
+            </div>
+            <!-- 折线图显示有欢迎信息 -->
+            <div class="col-xs-12" id="WelcomeType_chart">
+                <!-- <div class="text-center" style="margin-top: 5px;margin-bottom: -5px;"> 
+                   <div class="radio-name" style="margin-left: 14px;">
+                      <input type="radio" id="WelcomeTime_chart" checked name="WelcomeStyle_chart" value="0">
+                      <label for="WelcomeTime_chart">时长</label>
+                      &nbsp;&nbsp;
+                      <input type="radio" id="WelcomeCount_chart" name="WelcomeStyle_chart" value="1">
+                      &nbsp;&nbsp;
+                      <label for="WelcomeCount_chart">次数</label> 
+                      
+                  </div>
+                  
+                </div> -->
+               <div id="UserWelcomeType_chart" class="myEchart"></div> 
+            </div> 
+        </div>    
+    </div>
+</div>
+<div id="User_monitor_rc" class="rc-define" 
+         Type_HEAD="访问方式,新闻,工具,游戏,下载,视频,金融,生活,办公,通讯,导航,其他"
+         Localtion="场所,场所驻留时长,样板间,驻留时长,来访次数"
+         UrlType_HEAD="应用类型,起始时间,结束时间,"
+         USER_HEADER="应用名称,应用类型,MAC地址,使用流量,在线时长"
+         LocalName="场所名称,访问次数,访问时长"
+            ></div>
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("dpi_user.dpi_user");
+</script>

@@ -1,0 +1,48 @@
+<html>
+<head>
+</head>
+<body>
+<div class="dashboard" id="device_detial">
+    <div class="page-row">
+        <div class="col-xs-12  col-sm-12 app-colum right-block">
+            <div class="app-box" style="height:650px;">  
+                <div id="detect_container">
+                    <div class="sysinfo-footer">
+                        <span class="title">AP详细分布</span>
+                        <div class="text-right link-container">
+                            <a type="button" class="link-detail" id="dev_return">
+                           返回
+                            </a>
+                        </div> 
+                    </div>
+                    <div class="row-nohover row-clear padding0">
+                        <div id="Province" class=" col-xs-12 myEchart newpie-container"></div>
+                    </div>
+                </div>
+            </div>           
+        </div>
+       
+        <div id="Dev_list" class="modal fade modal-super dashboard in hide">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h3 class="modal-title">设备列表</h3>
+            </div>
+            <div class="modal-body">
+                <div id="aps_all_list" class="simple-list"></div>
+            </div>
+            <div class="modal-footer form-actions">
+                <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+            </div>
+        </div> 
+
+    </div>
+        
+</div>
+<div id="aps_all_rc" class="rc-define"
+     LIST_MONITOR="序列号,类型,软件版本,硬件版本,在线时长,CPU利用率（%）,内存利用率（%）"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("wdashboard.device_detail");
+</script>

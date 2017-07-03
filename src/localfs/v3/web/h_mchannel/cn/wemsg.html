@@ -1,0 +1,137 @@
+<html>
+<head>
+    <style type="text/css">
+        .upload-img{
+            position: relative;
+            float: right;
+            margin: 40px -27px 0 0;
+            overflow: hidden;
+        }
+        .upload-img img{
+
+
+        }
+
+        .comment-pic-upd{
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            z-index: 100;
+            width: 58px;
+            height: 58px;
+
+            filter: progid:DXImageTransform.Microsoft.Alpha(opacity=0);
+            filter:alpha(opacity=0);
+            -moz-opacity:0;
+            -khtml-opacity: 0;
+            opacity:0;
+            background: none;
+            border: none;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">微信消息</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="RegisterUserList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+
+<div class="hide" id="pageToggle">
+    <form id="adduser_form" class="form edit">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">规则名</label>
+
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="userName" name="userName" maxlength="128"
+                       error_id="userName_error"/>
+                <label class="info-explain">（1-128字符）</label>
+                <label class="error" id="userName_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">选择消息类型</label>
+
+            <div class="col-sm-9">
+                <div class="col-sm-4">
+                    <input type="radio" id="picMsg" name="type" value="1" checked/>
+                    <label for="picMsg">图文消息</label>
+                </div>
+                <div class="col-sm-4">
+                    <input type="radio" id="wordMsg" name="type" value="2"/>
+                    <label for="wordMsg">文字消息</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="picMessage" id="picMessage"
+                 style="border: 1px solid;border-color:#e5e5e5;width:600px;margin-left: 10px; min-height:208px;">
+                <div class="left-block pic col-sm-4 file">
+                    <div class="upload-img">
+                        <input type="file" class="comment-pic-upd" />
+                        <img src="../h_mchannel/pic/uploadPic.png" alt="上传照片" title="">
+                    </div>
+                </div>
+                <div class="right-block col-sm-8" style="min-height: 208px;">
+                    <form class="form edit" id="picText_form">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label required">图文标题</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="string big required" id="picTitle" name="userName"
+                                       maxlength="128" error_id="picTitle_error"/>
+                                <label class="info-explain">（1-128字符）</label>
+                                <label class="error" id="picTitle_error"></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">图文链接</label>
+                            <div class="col-sm-8">
+                                <input type="text" class="string big " id="picLink" name="userName"
+                                       error_id="picLink_error"/>
+                                <label class="error" id="picLink_error"></label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label required">描述</label>
+                            <div class="col-sm-8">
+                                <textarea class="string required" rows="3" errid="Text_error" maxlength="127"
+                                          id="decsText" name="decsText" allowempty="true">
+                                </textarea>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="wordMessage hide" id="wordMessage">
+            <div class="col-sm-3 control-label required">文字消息回复内容</div>
+            <div class="col-sm-8">
+                    <textarea class="string required" rows="2" errid="Text_error" maxlength="127" id="wordText"
+                              name="Wordtext" allowempty="true">
+                    </textarea>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="add_user_Dlag" class="hide modal fade"></div>
+
+<div id="wemsg_rc" class="rc-define"
+     USER_LIST_HEADER="规则名,消息类型"
+     ADD_USER="增加微信消息"
+     EDIT_USER="修改用户密码"
+     InputContentError="参数输入错误。"
+        >
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_mchannel.wemsg");
+</script>

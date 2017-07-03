@@ -1,0 +1,80 @@
+<head></head>
+
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">告警日志</h3>
+            <div id="filter_refresh">
+                <i class="glyphicon glyphicon-filter" data-toggle="dropdown" id="filter_loglevel"></i>
+                <i class="glyphicon glyphicon-refresh" ng-click="refresh()"></i>
+                <div id="warn_check" class="dropdown-menu opensleft" ng-click="$event.stopPropagation()">
+                    <table>
+                        <tr>
+                            <td>
+                                <span>告警级别</span>
+                            </td>
+                            <td>
+                                <input type="checkbox" ng-model="checkInfo.all" ng-click="checkAll()" id="all">
+                                <label for="all">全部</label>
+                                <input type="checkbox" ng-model="checkInfo.jinji" ng-click="checkLoglevel()" id="jinji">
+                                <label for="jinji">紧急</label>
+                                <input type="checkbox" ng-model="checkInfo.weixian" ng-click="checkLoglevel()" id="weixian">
+                                <label for="weixian">危险</label>
+                                <input type="checkbox" ng-model="checkInfo.jinggao" ng-click="checkLoglevel()" id="jinggao">
+                                <label for="jinggao">警告</label>
+                                <input type="checkbox" ng-model="checkInfo.baogao" ng-click="checkLoglevel()" id="baogao">
+                                <label for="baogao">报告</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>选择日期 </span>
+                            </td>
+                            <td>
+                                <input type="text" id="daterange" style="width: 200px; margin-right: 20px">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>关键字搜索</span>
+                            </td>
+                            <td>
+                                <input ng-model="searchText" type="text" placeholder="告警模块、信息搜索" style="width: 200px" ng-change="search()">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <button class="btn btn-cus" ng-disabled="bIsSyncing" ng-click="syncNow()" ng-if="permission.read">立即同步</button>
+                <button class="btn btn-cus" ng-disabled="bIsExporting" ng-click="exportLog()" ng-if="permission.execute || permisson.write">导出日志</button>
+                <span style="display: inline-block" ng-bind="statusInfo"></span>
+            </div>
+            <table bs-table="options"></table>
+        </div>
+    </div>
+</div>
+<div class="read_rc" id="warning_rc"
+     WARING_ITEM = "告警来源,告警模块,告警级别,告警信息,告警时间"
+     ONLINE = "上线"
+     OFFLINE = "下线"
+     UN_OPERATION = "未处理"
+     SYNC_NOW = "立即同步"
+     EXPORT_LOG = "导出日志"
+     LOGLEVEL = "紧急,紧急,危险,危险,警告,警告,报告,报告"
+     TRYAGAIN = "请重试"
+     TODAY = "今天"
+     UNSYNC = "尚未同步"
+     LASTSYNC = "最后一次同步时间："
+     NOLOGFILE = "当前设备没有日志文件！"
+     NOAUTHORITY = "该用户没有对此设备的操作权限!"
+     CONNFAILED = "无法连接到"
+     PLEASEWAIT = "正在同步,请稍候……"
+     DEVBUSY = "设备忙请重试"
+     NOLOGEXPORT = "没有可以导出的告警事件！"
+     GETTINGDATA = "正在获取数据,请稍候……"
+        >
+</div>
+<iframe id="exportFile" name="exportFile" style="display: none"></iframe>

@@ -1,0 +1,173 @@
+<html>
+<head>
+
+</head>
+<body>
+<div class="page-row">
+    <div class="col-xs-12 app-colum left-block">
+        <div class="app-box">
+            <div class="box-footer">
+                <div class="col-xs-1 ml20">
+                    <input id="alloverFilter" name="filter" value="allover" type="radio" checked>
+                    <label for="alloverFilter">全局</label>
+                </div>
+                <div class="col-xs-6">
+                    <div class="col-xs-4 col-sm-3 col-lg-2">
+                        <input id="branchFilter" name="filter" value="branch" type="radio">
+                        <label for="branchFilter">指定分支</label>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="hide" id="branchSelectorDiv">
+                            <select class="singleSelect" id="branchSelector" name="branchSelect" allowClear="false"></select>
+                        </div> 
+                    </div>                 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-row bussiness-wifi-ap-config">
+    <div class="col-xs-12 app-colum left-block">
+        <div class="app-box" style="overflow:hidden">
+            <div class="box-footer">
+                <span class="title">安全防御</span>
+                <div class="text-right link-container">
+                </div>
+            </div>
+            <div class="col-xs-12" id="device">
+                <div class="col-xs-2 ml20 mbutton-location">
+                    <input type="radio" id="APGroupRadio" name="devVer" value="1" checked class="input-element">
+                    <label for="APGroupRadio">AP组</label>
+                </div>
+                <div class="col-xs-2 mbutton-location">
+                    <input type="radio" id="APRadio" name="devVer" value="2" class="input-element" >
+                    <label for="APRadio">AP</label>
+                </div>
+            </div>
+            <div class="box-body no-height" style="padding: 0 30px 25px;">
+                <div id="APGroupSList" class="simple-list"></div>
+                <div id="APSList" class="simple-list hide"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div class="app-colum">-->
+    <!--<div class="app-box">-->
+        <!--<div class="box-footer">-->
+            <!--<span class="title">AP组安全防御</span>-->
+        <!--</div>-->
+        <!--<div class="box-body no-height">-->
+            <!--<div id="WipsList" class="simple-list"></div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<!--<div class="app-colum">-->
+    <!--<div class="app-box">-->
+        <!--<div class="box-footer">-->
+            <!--<span class="title">AP安全防御</span>-->
+        <!--</div>-->
+        <!--<div class="box-body no-height">-->
+            <!--<div id="WipList" class="simple-list"></div>-->
+        <!--</div>-->
+    <!--</div>-->
+<!--</div>-->
+
+<div class="hide modal fade" id="WipsDetailDlg">
+    <form class="form-horizontal form" id="WipsDetailForm">
+        <div class="form-group">
+            <label class="col-sm-4 control-label"></label>
+            <label class="col-sm-8 info-explain" id="APName"></label>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">射频</label>
+            <label class="col-sm-8 info-explain" id="radioMode"></label>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">检测钓鱼行为</label>
+            <label class="col-sm-8 info-explain" id="phishStatus"></label>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">反制钓鱼行为</label>
+            <label class="col-sm-8 info-explain" id="ctmPhishStatus"></label>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">检测泛洪攻击</label>
+            <label class="col-sm-8 info-explain" id="floodStatus"></label>
+        </div>
+    </form>
+</div>
+
+<div class="hide modal fade" id="WipsSetDlg">
+    <form class="form-horizontal form" id="WipsSetForm">
+        <div class="form-group" id="ab_block">
+            <label class="col-sm-2 control-label">检测私接代理</label>
+            <div class="col-sm-10">
+                <input type="checkbox" class="switch" id="natDetect" name="natDetect"/>
+                <br/>
+                <label class="info-explain">说明：修改指定AP下的所有radio的私接代理检测功能状态</label>
+            </div>
+        </div>
+        <div class="form-group" id="cb_block">
+            <label class="col-sm-2 control-label">无线探针</label>
+            <div class="col-sm-10">
+                <input type="checkbox" class="switch" id="probe" name="probe"/>
+                <br/>
+                <label class="info-explain">说明：检测未接入本网络的周边无线终端</label>
+            </div>
+        </div>
+
+        <div class="form-group" id="bb_block">
+            <label class="col-sm-2 control-label">无线攻击防御</label>
+            <div class="col-sm-10">
+
+                <div>
+                    <!--<input type="checkbox" id="WT3" name="WipsType" value="2"/>-->
+                    <!--<label for="WT3">无线攻击防御<span class="warn-style hide">提示：请至少选择一种反制方式！</span></label>-->
+
+                    <div class="WipsBlock">
+                        <input type="checkbox" id="phish" name="phish"/>
+                        <label for="phish">检测钓鱼行为</label><br/>
+                        <label class="info-explain">说明：检测发布与本网络或知名热点相似的无线服务、伪造网络设备MAC地址、伪造网络设备beacon帧</label>
+                    </div>
+                    <div class="WipsBlock">
+                        <input type="checkbox" id="ctmPhish" name="ctmPhish"/>
+                        <label for="ctmPhish">反制钓鱼行为</label><br/>
+                        <label class="info-explain">说明：可以使攻击者无法正常工作，需谨慎使用</label>
+                    </div>
+                    <div class="WipsBlock">
+                        <input type="checkbox" id="flood" name="flood"/>
+                        <label for="flood">检测泛洪攻击</label><br/>
+                        <label class="info-explain">说明：检测攻击者短时间内发送大量同类型的报文，导致目标系统无法正常提供服务</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="ws_ssid_rc" class="rc-define"
+    APGROUP_SLIST_TITLE = "AP组名称,射频,私接代理检测,无线安全,无线探针"
+    AP_SLIST_TITLE = "AP名称,射频,私接代理检测,无线安全,无线探针"
+    SLIST_MODIFY_BTN = "修改安全参数"
+     WIPS_WAIT="请稍等..."
+    WIPS_TITLE = "无线攻击防御"
+    RADIO_MODE = "2.4G,5G"
+    ON_OFF = "关闭,开启"
+     WIPS_TYPE = "无,无线探针,无线攻击防御"
+    BRANCH_SELECT_GETFAIL = "分支列表数据获取失败！"
+    SLIST_DATA_GETFAIL = "列表数据获取失败！"
+    SET_SUCCESS = "配置成功！"
+    SET_FAIL = "配置失败！"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("hq_securitypolicy.security");
+</script>

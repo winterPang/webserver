@@ -1,0 +1,86 @@
+<div class="page-row custom">
+    <div class="btn_h_return" ng-click="return()"></div> 
+
+    <!-- <div class="col-xs-12 app-colum ">
+        <div class="col-xs-12 app-box">
+            <div class="box-footer">
+                <div class="ml20">
+                   <input id="apGroup" name="area" type="radio" value="apGroup" 
+                    ng-click="apGroup()" ng-checked="true">  
+                    <label for="apGroup">AP Group</label>     
+                
+                    <input id="ap" name="area" type="radio" value="ap"  
+                    ng-click="ap()" style="margin-left:30px">  
+                    <label for="ap">AP</label> 
+                </div>             
+            </div>
+        </div>
+    </div> -->
+
+    <!-- <div class="col-xs-12 app-box">
+        <div ng-show="apGroupArea">
+            <div class="panel panel-default">                  
+                <div class="panel-heading">
+                    <h3 class="panel-title">bound AP Group List</h3>
+                </div>
+                           
+                <div class="panel-body">
+                    <button class="btn btn-cus" ng-click="unbindApGroup()" ng-disabled="unbindApGroupDisabled" 
+                    >Unbind</button>               
+                    <div bs-Table="bindApGroupTable"></div>
+                </div>
+            </div>
+    
+            <div class="panel panel-default">  
+                <div class="panel-heading">
+                    <h3 class="panel-title">unbound AP Group List</h3>
+                </div>
+                           
+                <div class="panel-body">
+                    <button class="btn btn-cus" ng-click="bindApGroup()" ng-disabled="bindApGroupDisabled">Bind</button>               
+                    <div bs-Table="unbindApGroupTable"></div>
+                </div>
+            </div>
+        </div>   
+    </div> -->
+
+    <div class="col-xs-12 app-box">
+        <div ng-show="apArea">
+           <div class="panel panel-default">                  
+               <div class="panel-heading">
+                   <h3 class="panel-title">bound AP List</h3>
+               </div>
+                          
+               <div class="panel-body">
+                   <button class="btn btn-cus" ng-click="unBindAp()" ng-disabled="unbindApDisabled">Unbind</button>               
+                   <div bs-Table="bindApTable"></div>
+               </div>
+           </div>
+           
+           <div class="panel panel-default">  
+               <div class="panel-heading">
+                   <h3 class="panel-title">unbound AP List</h3>
+               </div>
+                          
+               <div class="panel-body">
+                   <button class="btn btn-cus" ng-click="bindAp()" ng-disabled="bindApDisabled">Bind</button>               
+                   <div bs-Table="unbindApTable"></div>
+               </div>
+           </div>
+        </div>
+    </div>
+</div>
+                   
+<div id="apinfo_aplist_rc" class="rc-define"
+    	APGROUP_HEADER="AP Group Name,AP Group Describle,ModelNum"	
+    	AP_HEADER="AP Name,Serial Number,Model,radioNum,Belong APGroup"	
+      BIND_SUC="Binding succeeded"
+      BIND_SUC_RE="Binding succeeded.Please refresh the page manually"
+      REBIND_SUC="Unbinding succeeded"
+      REBIND_SUC_RE="Unbinding succeeded.Please refresh the page manually"
+      BIND_FAIL="Binding failed"
+      REBIND_FAIL="Unbinding failed"
+      APGROUP="AP Group"
+      NOTICE="cannot bind to wireless service because no AP models exist"
+      MAIN="Main connection is not found"
+></div>

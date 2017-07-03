@@ -1,0 +1,77 @@
+/******************* top-panel user relatively****************/
+@import "$mixin";
+@import "$variable";
+
+.top-panel {
+  width: 100%;
+  height: 60px;
+  height: @base-size*60rem;
+  line-height: 60px;
+  line-height: @base-size*60rem;
+  background-color: @top-panel-background-color;
+  margin: 0;
+  padding: 0 45px 0 0;
+  padding: 0 @base-size*45rem 0 0;
+
+  //label of change_station
+  .change_station {
+    margin-top: 15px;
+    line-height: 35px;
+  }
+
+  //user name and triangle
+  & > .dropdown {
+    float: right;
+
+    > .dropdown-toggle {
+      margin-top: -5px;
+      margin-top: -@base-size*5rem;
+      background: transparent !important;
+      border: none;
+      color: @top-panel-button-font-color;
+      outline: none !important;
+      .box-shadow(none);
+    }
+    .dropdown-menu {
+      min-width: 115px;
+      min-width: @base-size*115rem;
+      list-style: none;
+      padding: 0;
+      margin: 0 0 0 50px;
+      margin: 0 0 0 @base-size*50rem;
+      border: 1px solid @top-panel-dropdown-menu-border-color;
+      border: @base-size*1rem solid @top-panel-dropdown-menu-border-color;
+      width: 102px;
+      width: @base-size*102rem;
+      color: @top-panel-dropdown-menu-font-color;
+      z-index: 999;
+      > li {
+        a {
+          background: @top-panel-background-color;
+          height: 33px;
+          height: @base-size*33rem;
+          padding-left: 15px;
+          padding-left: @base-size*15rem;
+          line-height: 33px;
+          line-height: @base-size*33rem;
+          cursor: pointer;
+          &:hover {
+            background: @top-panel-dropdown-menu-font-color;
+            color: @top-panel-background-color;
+          }
+        }
+      }
+    }
+  }
+  & > .global-user-img {
+    img {
+      border-radius: 50%;
+      width: 30px;
+      width: @base-size*30rem;
+      height: 30px;
+      height: @base-size*30rem;
+      margin-right: 2px;
+      margin-right: @base-size*2rem;
+    }
+  }
+}

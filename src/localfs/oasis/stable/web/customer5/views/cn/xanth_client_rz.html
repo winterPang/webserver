@@ -1,0 +1,27 @@
+<div ng-init="
+    customerCount='人数';
+    newCustomer='新增宾客';
+    allCustomer='宾客总数';
+    ">
+    <div class="col-xs-6 app-colum left-block"> 
+        <div class="page-row xxb" id="userflow">
+            <div class="col-xs-12 app-colum " debug="getnewuser">
+                <div class="app-box no-bk-color">
+                    <div class="box-footer">
+                        <div class="col-xs-3">
+                            <span class="title">宾客统计</span>
+                        </div>
+                        <div class="time-change" id="total">
+                            <a id="days" class="time-link active" value='1' ng-click="clickTest($event)">一天</a>
+                            <a id="weeks" class="time-link" value='2' ng-click="clickTest($event)">一周</a>
+                            <a id="mounth" class="time-link" value='3' ng-click="clickTest($event)">一月</a>
+                        </div>
+                    </div>
+                    <div class="box-body userflow-height form-group body-nopadding">
+                        <div id="portalUser" class="col-xs-12" style="height:230px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

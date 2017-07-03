@@ -1,0 +1,62 @@
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<div class="modal-header">
+    <button type="button" data-dismiss="modal" air-hidden="true" class="close"></button>
+    <div class="title">Health Examination Report</div>
+</div>
+<form class="form-horizontal form edit" style="height:1000px;">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div class="app-box">
+                <div class="box-footer">
+                    <div class="title">Radio Quality Report</div>
+                </div>
+                <div class="box-body no-height form-group" style="width:850px;padding:8px 0px 8px 10px;">
+                    <div class="simple-list" id="qualityReport_slist"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div class="app-box">
+                <div class="box-footer">
+                    <div class="title">Interference Report</div>
+                </div>
+                <div class="box-body no-height" style="width:850px;padding:8px 0px 8px 10px;">
+                    <div class="simple-list" id="interfereReport_slist"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <a type="button" class="btn btn-primary" data-dismiss="modal" dlgtype="Close" style="margin-left:350px;margin-top:50px;">Close</a>
+    </div>
+</form>
+</body>
+<div class="define_rc" id="depcheckreport_rc"
+     qualityReportTitle="AP, Radio, Channel, Quality, Adjust Reason, Adjustment Suggestions, Report"
+     interfereReportTitle="Interference Type, Signal Strength, Affected Channel, AP, Radio"
+     chl="Change channel to"
+     por="Change power to"
+     reason0="Others"
+     reason="802.11 interference"
+     reason1="Packet loss"
+     reason2="Retransmission"
+     reason3="Radar"
+     reason4="Power adjustment"
+     reason5="Others"
+     ReasBitMap="None"
+     suggest="No need to adjust"
+     deepCheckFail="Cannot obtain deep examination statistics. Please contact customer service."
+     disabled="Failed to obtain data (the AP does not support spectrum analysis)"
+     find="More"
+        >
+</div>
+</html>
+<script>
+    Utils.Pages.loadJS("health.depcheckreport");
+</script>

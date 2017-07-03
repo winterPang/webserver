@@ -1,0 +1,11 @@
+{"apgroupList":
+      [
+          {"apGroupName":"1","stBindCount":0,"apGrpDesc":"","modelList":[]},
+          {"apGroupName":"2","stBindCount":0,"apGrpDesc":"","modelList":[]},
+          {"apGroupName":"3","stBindCount":0,"apGrpDesc":"","modelList":[]},
+          {"apGroupName":"4","stBindCount":0,"apGrpDesc":"","modelList":[]},
+          {"apGroupName":"5","stBindCount":0,"apGrpDesc":"","modelList":[]},
+          {"apGroupName":"12","stBindCount":0,"apGrpDesc":"","modelList":[]},
+          {"apGroupName":"122","stBindCount":0,"apGrpDesc":"12","modelList":[{"model":"UAP200","radioNum":2,"radioList":[{"radioId":1,"radioMode":"802.11ac"},{"radioId":2,"radioMode":"802.11gn"}]}]},
+          {"apGroupName":"1221","stBindCount":0,"apGrpDesc":"","modelList":[]},
+          {"apGroupName":"123","stBindCount":0,"apGrpDesc":"1","modelList":[{"model":"UAP200","radioNum":2,"radioList":[{"radioId":1,"radioMode":"802.11ac"},{"radioId":2,"radioMode":"802.11gn"}]},{"model":"WA2612","radioNum":1,"radioList":[{"radioId":1,"radioMode":"802.11gn"}]}]},{"apGroupName":"default-group","stBindCount":0,"apGrpDesc":"","modelList":[]}],"apGroupTotalCnt":5,"apGroupLeftCnt":0}

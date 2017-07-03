@@ -1,0 +1,20 @@
+{
+  "InterfaceList":[
+    {
+      "interfaceName": "GigabitEthernet1/0/1",
+      "interfaceType": 2
+    },
+    {
+      "interfaceName": "GigabitEthernet1/0/2",
+      "interfaceType": 2
+    },
+    {
+      "interfaceName": "GigabitEthernet1/0/3",
+      "interfaceType": 3
+    },
+    {
+      "interfaceName": "GigabitEthernet1/0/4",
+      "interfaceType": 2
+    }
+  ]
+}

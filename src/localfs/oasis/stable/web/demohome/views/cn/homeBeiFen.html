@@ -1,0 +1,218 @@
+<div>
+    <ul id="treeDemo" class="ztree"></ul>
+</div>
+<div home-site="region"></div>
+<!-- <div home-site="site" ng-model="region"></div> -->
+<div class="row hide">
+    <div class="text-center home-add-site">
+        <img src="../home/img/icon_homepage_add_active_111x111.png" ng-click="addSite()"></img>
+    </div>
+</div>
+<div class="row">
+    <div id="add_div" ng-click="addSite()">
+        <img src="../home/img/icon_homepage_add.png" id="add_img">
+    </div>
+</div>
+
+<div bs-modal="form.option">
+    <form class="form-horizontal" name="form1">
+        <div class="clearfix">
+            <ul class="text-center">
+                <li class="col-xs-3 pull-left"><span><img src="../home/img/one_active.png"></span><span>增加场所</span>
+                </li>
+                <li class="col-xs-3 pull-left">
+                    <span><img src="../home/img/two.png"></span><span>选择场景</span></li>
+                <li class="col-xs-3 pull-left"><span><img src="../home/img/three.png"></span><span>增加设备</span>
+                </li>
+                <li class="col-xs-3 pull-left">
+                    <span><img src="../home/img/four.png"></span><span>摘要</span></li>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">场所名称 <span class="label-require">*</span></label>
+            <div class="col-sm-4">
+                <input class="form-control" name="shopName" type="text" ng-model="row.shopName" required
+                       ajax-valid="validShopName" ng-pattern="/^[^0-9]/" ng-maxlength="30">
+            </div>
+            <div class="ng-error col-sm-4" ng-show="form1.shopName.$dirty" ng-messages="form1.shopName.$error">
+                <div ng-message="required">请输入场所名称！</div>
+                <div ng-message="maxlength">最多不能超过30位！</div>
+                <div ng-message="pattern">不能以数字开头！</div>
+                <div ng-message="ajaxValid-1">场所名称不合法</div>
+                <div ng-message="ajaxValid-2">场所已存在</div>
+                <div ng-message="ajaxValid-3">请求参数不合法</div>
+                <div ng-message="ajaxValid-4">网络异常</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">场所(总部)地址<span class="label-require">*</span></label>
+            <div>
+                <div class="form-group">
+                    省：<select id="cmbProvince" class="form-control" name="province" required>
+                </select>
+                    市：<select id="cmbCitys" class="form-control" name="city" required>
+                </select>
+                    区：<select id="cmbArea" class="form-control" name="area" required>
+                </select>
+                    <span ng-show="form1.province.$invalid||form1.city.$invalid||form1.area.$invalid" style="color:red;font-size:12px;">请选择省市区</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">详细地址</label>
+            <div class="col-md-5 col-sm-8">
+                <input class="form-control" name="address" type="text" ng-model="row.address" ng-maxlength="50">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">联系电话</label>
+            <div class="col-md-5 col-sm-8">
+                <input class="form-control" name="phone" type="number" ng-model="row.phone" ng-minlength="7" ng-maxlength="11">
+                <span ng-show="form1.phone.$invalid" style="color:red;font-size:12px;display:none;">请输入正确的电话号码</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">场所简介</label>
+            <div class="col-md-5 col-sm-8">
+                <textarea class="form-control" name="shopProfile" type="text" ng-model="row.shopDesc" ng-maxlength="150"></textarea>
+            </div>
+        </div>
+        <div class="text-center">
+            <button class="btn btn-cus" name="next1" ng-disabled="form1.$invalid">下一步</button>
+            <button class="btn btn-cus" name="cancel">取消</button>
+        </div>
+    </form>
+    <form class="form-horizontal" name="form2" style="display: none;">
+        <div class="clearfix">
+            <ul class="text-center">
+                <li class="col-xs-3 pull-left">
+                    <span><img src="../home/img/one.png"></span><span>增加场所</span></li>
+                <li class="col-xs-3 pull-left"><span><img src="../home/img/two_active.png"></span><span>选择场景</span>
+                </li>
+                <li class="col-xs-3 pull-left">
+                    <span><img src="../home/img/three.png"></span><span>增加设备</span></li>
+                <li class="col-xs-3 pull-left"><span><img src="../home/img/four.png"></span><span>摘要</span>
+                </li>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3">场景分类<span class="label-require">*</span></label>
+            <div class="col-md-5 col-sm-8">
+                <select name="scenario_category_name" class="form-control" ng-model="row.scenario_category_name"
+                        ng-options="scen.id as scen.namedesc for scen in scens">
+                </select>
+            </div>
+        </div>
+        <table bs-table="options"></table>
+        <div class="text-center" style="margin-top:20px;">
+            <button class="btn btn-cus" name="prev1">上一步</button>
+            <button class="btn btn-cus" name="next2">下一步</button>
+            <button class="btn btn-cus" name="cancel">取消</button>
+        </div>
+    </form>
+    <form class="form-horizontal" name="form3" style="display: none;">
+        <div class="clearfix">
+            <ul class="text-center">
+                <li class="col-xs-3 pull-left">
+                    <span><img src="../home/img/one.png"></span><span>增加场所</span></li>
+                <li class="col-xs-3 pull-left">
+                    <span><img src="../home/img/two.png"></span><span>选择场景</span></li>
+                <li class="col-xs-3 pull-left">
+                    <span><img src="../home/img/three_active.png"></span><span>增加设备</span>
+                </li>
+                <li class="col-xs-3 pull-left"><span><img src="../home/img/four.png"></span><span>摘要</span>
+                </li>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">设备别名 <span class="label-require">*</span></label>
+            <div class="col-md-5 col-sm-8">
+                <input class="form-control" name="devAlias" type="text" ng-model="addDev.devAlias" placeholder="请输入设备别名" ng-maxlength="30" required>
+                <span ng-show="form3.devAlias.$invalid" style="color:red;font-size:12px;">该值不能为空，最多为30个字符</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">设备序列号 <span class="label-require">*</span></label>
+            <div class="col-md-5 col-sm-8">
+                <input class="form-control" name="devSn" type="text" ng-model="addDev.devSn" placeholder="请输入设备序列号" ng-minlength="9" ng-maxlength="64" ng-pattern="/^([\u4e00-\u9fa5]+|[a-zA-Z0-9]+)$/" required>
+                <span ng-show="form3.devSn.$invalid" style="color:red;font-size:12px;">该值不能为空，请输入9-64个字符且不能为特殊字符</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">设备类型 </label>
+            <div class="col-md-5 col-sm-8">
+                <select name="" class="form-control" ng-model="addDev.devType">
+                    <option value="1" selected>物理设备</option>
+                    <option value="4">虚拟设备</option>
+                </select>
+            </div>
+        </div>
+        <div>
+            <div class="col-sm-2 pull-right" style="margin-bottom:20px;">
+                <button class="btn btn-cus" ng-disabled="form3.$invalid" ng-click="addDevModel()">添加</button>
+            </div>
+            <table bs-table="addOptions"></table>
+        </div>
+        <div class="form-group text-center" style="margin-top:20px;">
+            <button class="btn btn-cus" name="prev2">上一步</button>
+            <button class="btn btn-cus" name="next3" ng-disabled="form3.$invalid && !$scope.devices.length">下一步</button>
+            <button class="btn btn-cus" name="cancel">取消</button>
+        </div>
+    </form>
+    <form class="form-horizontal" name="form4" style="display:none;">
+        <div class="clearfix">
+            <ul class="text-center">
+                <li class="col-xs-3 pull-left"><span><img src="../home/img/one_active.png"></span><span>增加场所</span>
+                </li>
+                <li class="col-xs-3 pull-left">
+                    <span><img src="../home/img/two.png"></span><span>选择场景</span></li>
+                <li class="col-xs-3 pull-left">
+                    <span><img src="../home/img/three.png"></span><span>增加设备</span></li>
+                <li class="col-xs-3 pull-left"><span><img src="../home/img/four_active.png"></span><span>摘要</span>
+                </li>
+            </ul>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">场所名称 <span class="label-require">*</span></label>
+            <div class="col-md-5 col-sm-8 text-center" style="padding-top:7px;">
+                {{row.shopName}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">场所简介</label>
+            <div class="col-md-5 col-sm-8 text-center" style="padding-top:7px;">
+                {{row.shopDesc}}
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">场所(总部)地址<span class="label-require">*</span></label>
+            <div class="col-md-5 col-sm-8 text-center" style="padding-top:7px;" ng-bind="row.addr">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">详细地址</label>
+            <div class="col-md-5 col-sm-8 text-center" style="padding-top:7px;" ng-bind="row.addr+row.address">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">联系电话</label>
+            <div class="col-md-5 col-sm-8 text-center" style="padding-top:7px;">
+                {{row.phone}}
+            </div>
+        </div>
+        <div style="margin-bottom:20px;">
+            <table bs-table="addOptions2"></table>
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-cus" name="complete" ng-click="complete()">完成</button>
+        </div>
+    </form>
+</div>
+
+<form bs-modal="addAreaModal" class="form-horizontal clearfix">
+    <div class="col-sm-2">区域名称:</div>
+    <div class="col-sm-5">
+        <input class="form-control" name='name_area' ng-model="treeNode.areaName" placeholder='区域名称'>
+    </div>
+</form>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html  lang="cn">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div class="page-row business-wifi-devinfo">
+            <div class="col-xs-12 app-colum">
+                <div class="app-box">
+                    <div class="box-footer">
+                        <span class="title">设备信息</span>
+                        <div class="text-right link-container">
+                            <a type="button" class="refresh" id="fliterId">
+                                <i class="filter-icon icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="top-box">
+                        <div class="time-zone">
+                            <div class="form-actions top">
+                                <a class="form-btn icon-ok" title="确定"></a>
+                                <a class="form-btn icon-remove" title="取消"></a>
+                            </div>
+                            <div class="radio-title col-xs-1">
+                                <span>筛选</span>
+                            </div>
+                            <div class="col-xs-9">
+                                <div class="radio-name">
+                                    <input type="radio" id="Score" name="Type" value="0" checked>
+                                    <label for="Score">评分</label>
+                                    <div class="selectArea"  name="Score">
+                                        <input class="inputArea" type="text" id="ScoreStart" name="ScoreType" maxlength="10" minlength="1">
+                                        -
+                                        <input class="inputArea" type="text" id="ScoreEnd" name="ScoreType" maxlength="10" minlength="1">
+                                    </div>
+                                </div>
+                                <div class="radio-name">
+                                    <input type="radio" id="APCount" name="Type" value="1">
+                                    <label for="APCount">AP数</label>
+                                    <div class="selectArea" name="APCount">
+                                        <input class="inputArea" type="text" id="APCountStart" name="ScoreType" maxlength="10" minlength="1">
+                                        -
+                                        <input class="inputArea" type="text" id="APCountEnd" name="ScoreType" maxlength="10" minlength="1">
+                                    </div>
+                                </div>
+                                <div class="radio-name">
+                                    <input type="radio" id="UserCount" name="Type" value="2">
+                                    <label for="UserCount">用户数</label>
+                                    <div class="selectArea" name="UserCount">
+                                        <input class="inputArea" type="text" id="UserCountStart" name="ScoreType" maxlength="10" minlength="1">
+                                        -
+                                        <input class="inputArea" type="text" id="UserCountEnd" name="ScoreType" maxlength="10" minlength="1">
+                                    </div>
+                                </div>
+                            </div>
+                            <!--<div class="radio-name">-->
+                                <!--<button type="button" id="Apply">确定</button>-->
+                            <!--</div>-->
+                            <div class="form-actions bottom">
+                                <a class="btn btn-apply">确定</a>
+                                <a class="btn btn-cancel">取消</a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <div class="box-body no-height">
+                        <div id="deviceList" class="simple-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="device_rc" class="rc-define"
+             DEVICE_LIST="设备名,SN,设备组,位置,AP数,认证用户数,在线时长,评分"
+             DEV_STATUS=",在线,离线"></div>
+    </body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("b_deviceinfo.device");
+</script>

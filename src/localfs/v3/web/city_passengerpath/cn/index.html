@@ -1,0 +1,116 @@
+<html>
+<head>
+    <style>
+        .directSelect{
+            border-bottom-color: #4ec1b2 !important;
+            border-bottom-width: 3px !important;
+        }
+        .dataList > li{
+            height: 40px;
+            /*text-align: center;*/
+        }
+
+        .datewidget,.timewidget{
+            width:100%;
+        }
+        .input-append .add-on i.icon-calendar{
+            height: 24px;
+            width: 20px;
+            margin-top: 5px;
+            background-position: -508px -58px !important;
+        }
+        .input-append .add-on i{
+            background:url(./css/image/dashboard-icon.png) no-repeat !important;
+        }
+        .input-append .add-on{
+            top: -3px;!important;
+            left: 100px;!important;
+        }
+        .datewidget input:first-child{
+            border: none;
+        }
+        .datewidget input:first-child{
+            width: 100%;
+            height: 28px;
+            border: none;
+            margin: 5px 0px 2px 0px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="dashboard">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color col-xs-9">
+                <!--<div class="box-footer">
+                    <span class="title">人流分析</span>
+                </div>-->
+                <div id="passenger_path" style="height:600px"></div>
+            </div>
+            <div class="col-xs-3" style="display: inline-block;height: 600px">
+                <div style="background-color: #4ec1b2;margin-left: 10px;height: 100%;">
+                    <div style="height: 70px;">
+                        <div class="col-xs-6">
+                            <div style="margin: 5px">
+                                <select id="areaSelect" class="singleSelect" style="width: 100%;" allowClear="false"></select>
+                            </div>
+                        </div>
+                        <div class="col-xs-6" style="display: inline-block;">
+                            <div style="margin: 10px 5px 0px 5px;">
+                                <!--<input type="text" name="dateSelect" placeholder="请选择日期" style="width: 100%;">-->
+                                <div class="datewidget"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height: 500px;background-color: white;margin: 5px">
+                        <div style="height: 50px;">
+                            <div id="moveOut" class="col-xs-6 app-box directSelect">
+                                <div style="text-align:center;font-size: 20px;margin: 11px 0px 11px 0px">迁出</div>
+                            </div>
+                            <div id="moveIn" class="col-xs-6 app-box">
+                                <div style="text-align: center;font-size: 20px;margin: 11px 0px 11px 0px">迁入</div>
+                            </div>
+                        </div>
+                        <div class="" style="margin-top: 30px;">
+                            <ul id="dataList" class="dataList" style="height: 400px;padding: 0px;list-style-type: none;overflow: auto"></ul>
+                            <!--<div id="listTest" class="simple-list"></div>-->
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="form-group app-box no-bk-color" style="margin-left: 10px;">-->
+                    <!--<div class="col-sm-6">-->
+                        <!--<div style="margin: 5px">-->
+                            <!--<select id="areaSelect" class="singleSelect" style="width: 100%;" allowClear="false"></select>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<div class="col-sm-6" style="display: inline-block;">-->
+                        <!--<div style="margin: 5px;">-->
+                            <!--&lt;!&ndash;<select id="dateSelect" class="singleSelect" style="width: 100%;" allowClear="false"></select>&ndash;&gt;-->
+                            <!--<input type="text" name="dateSelect" placeholder="请选择日期" style="width: 100%;">-->
+                        <!--</div>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <!--<div class="form-group app-box no-bk-color" style="margin-left: 10px;margin-top: 10px;">-->
+                    <!--<div class="col-sm-6">-->
+                        <!--<span>迁出</span>-->
+                    <!--</div>-->
+                    <!--<div class="col-sm-6" style="display: inline-block;">-->
+                        <!--<span>迁入</span>-->
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<div id="passengerpath_rc" class="rc-define"
+     LISTHEADER="始发地, 去往, 目的地, 比例"
+     AREALIST="海淀区,昌平区,东城区"
+     PLACEHOLDER="请选择日期"></div>
+</html>
+
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("city_passengerpath.index");
+</script>

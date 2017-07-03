@@ -1,0 +1,143 @@
+<div class="container-fluid">
+    <div class="row-fluid">
+        <!-- BEGIN THEME CUSTOMIZER-->
+        <!--<div id="theme-change" class="hidden-phone" ng-click="theme_show()">-->
+            <!--<span  class="glyphicon glyphicon-cog themeButton"></span>-->
+							<!--<span class="settings">-->
+                                <!--<span class="text">主题</span>-->
+                                <!--<span class="colors">-->
+                                    <!--<span class="color-default" data-style="default"></span>-->
+                                    <!--<span class="color-gray" data-style="gray"></span>-->
+                                    <!--<span class="color-purple" data-style="purple"></span>-->
+                                    <!--<span class="color-navy-blue" data-style="navy-blue"></span>-->
+                                <!--</span>-->
+							<!--</span>-->
+        <!--</div>-->
+
+        <!--<h3 class="page-title">-->
+            <!--Dashboard-->
+            <!--<small> General Information </small>-->
+        <!--</h3>-->
+
+        <ul class="breadcrumb">
+            <li>
+                <a href="#"><span class="glyphicon glyphicon-home"></span></a><span class="divider">&nbsp;</span>
+            </li>
+            <li>
+                <a href="#">绿洲</a> <span class="divider">&nbsp;</span>
+            </li>
+            <li><a href="#">网络概览2</a><span class="divider-last">&nbsp;</span></li>
+            <!--<li class="pull-right search-wrap">-->
+            <!--<form class="hidden-phone">-->
+            <!--<div class="search-input-area has-feedback">-->
+            <!--<input id=" " class="search-query" type="text" placeholder="请搜索">-->
+            <!--<span class="glyphicon glyphicon-search form-control-feedback"></span>-->
+            <!--</div>-->
+            <!--</form>-->
+            <!--</li>-->
+        </ul>
+    </div>
+    <div class="container-fluid text-center" style="margin-top:60px;">
+        <!-- BEGIN OVERVIEW STATISTIC BLOCKS-->
+        <div class="row">
+            <div class="circle-stat block col-xs-2">
+                <img src="../l/images/row1_number1.jpg" alt="">
+                <div class="details">
+                    <div class="number">100人</div>
+                    <div class="title">在线</div>
+                </div>
+            </div>
+            <div class="circle-stat block col-xs-2">
+                <img src="../l/images/row1_number2.jpg" alt="">
+                <div class="details">
+                    <div class="number">100分</div>
+                    <div class="title">体验</div>
+                </div>
+            </div>
+            <div class="circle-stat block col-xs-2">
+                <img src="../l/images/row1_number3.jpg" alt="">
+                <div class="details">
+                    <div class="number">500M</div>
+                    <div class="title">下行</div>
+                </div>
+            </div>
+            <div class="circle-stat block col-xs-2">
+                <img src="../l/images/row1_number4.jpg" alt="">
+                <div class="details">
+                    <div class="number">100M</div>
+                    <div class="title">上行</div>
+                </div>
+            </div>
+            <div class="circle-stat block col-xs-2">
+                <img src="../l/images/row1_number5.jpg" alt="">
+                <div class="details">
+                    <div class="number">2台</div>
+                    <div class="title">在线AC</div>
+                </div>
+            </div>
+            <div class="circle-stat block col-xs-2">
+                <img src="../l/images/row1_number6.jpg" alt="">
+                <div class="details">
+                    <div class="number">15台</div>
+                    <div class="title">在线AP</div>
+                </div>
+            </div>
+        </div>
+        <!-- END OVERVIEW STATISTIC BLOCKS-->
+        <div class="row-fluid" style="margin-top:30px">
+            <div class="span8" style="margin-right:20px">
+                <!-- BEGIN SITE VISITS PORTLET-->
+                <div class="widget">
+                    <div class="widget-title">
+                        <h4><span class="glyphicon glyphicon-list-alt"></span> &nbsp;&nbsp;用户量趋势图</h4>
+									<span class="tools">
+									<a ng-click="users_flow_toggle($event)" class="glyphicon glyphicon-chevron-down"></a>
+									<a ng-click="users_flow_hide()" class="glyphicon glyphicon-remove"></a>
+									</span>
+                    </div>
+                    <div class="widget-body users_flow_chart">
+                        <!--用户量折线图-->
+                        <div class="echarts no-margin" dashboard-echarts="echarts_2" style="height:330px;"></div>
+                    </div>
+                </div>
+                <!-- END SITE VISITS PORTLET-->
+            </div>
+            <div class="span4">
+                <!-- BEGIN SITE VISITS PORTLET-->
+                <div class="widget">
+                    <div class="widget-title">
+                        <h4><span class="glyphicon glyphicon-list-alt"></span> &nbsp;&nbsp;流量趋势图</h4>
+									<span class="tools">
+									<a ng-click="flow_trend_toggle($event)" class="glyphicon glyphicon-chevron-down"></a>
+									<a ng-click="flow_trend_hide()" class="glyphicon glyphicon-remove"></a>
+									</span>
+                    </div>
+                    <div class="widget-body flow_trend_chart">
+                        <!--用户量折线图-->
+                        <div class="echarts no-margin" dashboard-echarts="echarts_1" style="height:330px;"></div>
+                    </div>
+                </div>
+                <!-- END SITE VISITS PORTLET-->
+            </div>
+        </div>
+        <!-- END SQUARE STATISTIC BLOCKS-->
+        <div class="row-fluid">
+            <div class="span12">
+                <!-- BEGIN RECENT ORDERS PORTLET-->
+                <div class="widget">
+                    <div class="widget-title">
+                        <h4><span class="glyphicon glyphicon-tags"></span> &nbsp;&nbsp;表格</h4>
+                                        <span class="tools">
+                                        <a ng-click="table_1_toggle($event)" class="glyphicon glyphicon-chevron-down"></a>
+                                        <a ng-click="table_1_hide()" class="glyphicon glyphicon-remove"></a>
+                                        </span>
+                    </div>
+                    <div class="widget-body table_1_show" style="text-align:left">
+                        <div bs-table="table_1"></div>
+                    </div>
+                </div>
+                <!-- END RECENT ORDERS PORTLET-->
+            </div>
+        </div>
+    </div>
+</div>

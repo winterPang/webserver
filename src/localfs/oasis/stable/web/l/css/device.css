@@ -1,0 +1,48 @@
+.l-device #fileTree {
+  height: 300px;
+  overflow: auto;
+}
+.l-device .l-device-menu {
+  z-index: 999;
+  display: none;
+  position: fixed;
+}
+.l-device .l-device-menu .list-group-item {
+  padding: 5px 10px;
+  transition: all 200ms linear;
+  -webkit-transition: all 200ms linear;
+  -moz-transition: all 200ms linear;
+  -ms-transition: all 200ms linear;
+  -o-transition: all 200ms linear;
+}
+.l-device .l-device-menu .list-group-item:hover {
+  background: #ccc;
+  cursor: pointer;
+  color: #000;
+}
+.l-device .l-device-fs-bottom {
+  padding-top: 10px;
+  margin: 0 -20px;
+  border-top: 1px solid #ddd;
+}
+.l-device .l-cmd-helper {
+  height: 400px;
+  overflow: auto;
+  padding: 10px;
+  background: #000;
+}
+.l-device .l-cmd-helper .l-cmd-helper-input {
+  padding: 4px 0;
+}
+.l-device .l-cmd-helper li {
+  color: #fff;
+  list-style: none;
+  line-height: 32px;
+}
+.l-device .l-cmd-helper li input[type=text] {
+  border: none;
+  outline: none;
+  background: #000 !important;
+  color: #fff;
+  width: 500px;
+}

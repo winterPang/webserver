@@ -1,0 +1,250 @@
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height default-bottom">
+        <div class="box-footer">
+            <span class="title">Authentication Template</span>
+        </div>
+        <div class="box-body no-height">
+            <div class="btn btn-cus" ng-click="addModal()" ng-if="permission.write"><i class="btn-icon icon-add"></i>Add</div>
+            <div bs-table="auth_table"></div>
+        </div>
+    </div>
+</div>
+<form name="add_form" class="form clearfix edit" bs-modal="auth_modal">
+    <div class="col-sm-6 response-block">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">Template name</label>
+            <div class="col-md-9">
+                <input type="text" class="string big" required ng-maxlength="64" name="authCfgTemplateName" ng-model="add.authCfgTemplateName">
+                <label class="info-explain">(1-64 chars or 1-21 Chinese chars)</label>
+                <div ng-show="add_form.authCfgTemplateName.$dirty" ng-messages="add_form.authCfgTemplateName.$error" style="display: inline-block;">
+                    <label ng-message="required" class="error" style="display: inline-block;">This field is required.</label>
+                    <label ng-message="maxlength" class="error" style="display: inline-block;">1-64 chars。</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group hidden">
+            <label class="col-sm-3 control-label">Session timeout</label>
+            <div class="col-md-9">
+                <input type="text" class="string big" name="ONLINE_MAX_TIME" placeholder="360" ng-model="add.ONLINE_MAX_TIME" number-range="1,1440">
+                <label class="info-explain">min (1-1440)</label>
+                <!-- <label class="info-explain">360 by default</label> -->
+                <div ng-show="add_form.ONLINE_MAX_TIME.$dirty" ng-messages="add_form.ONLINE_MAX_TIME.$error" style="display: inline-block;">
+                    <label ng-message="numberRange" class="error" style="display: inline-block;">enter a digit in the range of 1 to 1440.</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group hidden">
+            <label class="col-sm-3 control-label">Redirect to after auth success
+			<span class="toggle" ng-click="wifi_show = !wifi_show">
+                        <i class="icon-question-sign"></i></span></label>
+            <div class="col-md-9">
+                <input type="url" class="string big" placeholder="http:// or https://" name="URL_AFTER_AUTH" ng-model="add.URL_AFTER_AUTH" ng-maxlength="128">
+                <div ng-show="add_form.URL_AFTER_AUTH.$dirty" ng-messages="add_form.URL_AFTER_AUTH.$error" style="display: inline-block;">
+                    <label ng-message="url" class="error" style="display: inline-block;">Please enter a valid URL.</label>
+                    <label ng-message="maxlength" class="error" style="display: inline-block;">Cannot exceed 128 characters.</label>
+                </div>
+                <label class="info-help" ng-show="wifi_show" style="margin-top: 5px">www.h3c.com by default.<br />This setting does not take effect if you select the WeChat Wi-Fi authentication method.</label>
+            </div>
+        </div>
+        <div class="form-group hidden">
+            <label class="col-sm-3 control-label">Client idle timeout
+                <span class="toggle" ng-click="warn_show = !warn_show">
+                        <i class="icon-question-sign"></i></span>
+            </label>
+            <div class="col-md-9">
+                <input type="text" class="string big" placeholder="30" ng-model="add.IDLE_CUT_TIME" name="IDLE_CUT_TIME" number-range="0,{{add.ONLINE_MAX_TIME||360}}">
+                <label class="info-explain">min</label><br/>
+                <label class="info-help" ng-show="warn_show" style="margin-top: 5px">The idle timeout cannot be larger than the session timeout.<br/>The system does not log off idle clients if the idle timeout is set to 0.</label>
+                <div ng-show="add_form.IDLE_CUT_TIME.$dirty" ng-messages="add_form.IDLE_CUT_TIME.$error" style="display: inline-block;">
+                    <label ng-message="numberRange" class="error" style="display: inline-block;">Please enter a digit smaller than the session timeout.</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group hidden">
+            <label class="col-sm-3 control-label">Client idle threshold</label>
+            <div class="col-md-9">
+                <input type="text" class="string big" placeholder="10240" ng-model="add.IDLE_CUT_FLOW" name="IDLE_CUT_FLOW" number-range="1,1024000">
+                <label class="info-explain">bytes (1-1024000)</label>
+                <!-- <label class="info-explain">The default is 10240.</label> -->
+                <div ng-show="add_form.IDLE_CUT_FLOW.$dirty" ng-messages="add_form.IDLE_CUT_FLOW.$error" style="display: inline-block;">
+                    <label ng-message="numberRange" class="error" style="display: inline-block;">Please enter a digit in the range of 1 to 1024000.</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group hidden">
+            <label class="col-sm-3 control-label required">Auth free for reconnect</label>
+            <div class="col-md-9">
+                <div class="col-md-3">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="session1" name="session" class="input-element" value="1" ng-model="add.no_sensation">
+                        <span class="input-icon radio-icon" ng-class="{'checked':add.no_sensation == 1}" ></span>
+                        <label class="input-label" for="session1"></label>
+                    </div>
+                    <label for="session1">Enable</label>
+                </div>
+                <div class="col-md-3">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="session2" name="session" class="input-element" value="0" ng-model="add.no_sensation">
+                        <span ng-class="{'checked':add.no_sensation == 0}" class="input-icon radio-icon"></span>
+                        <label class="input-label" for="session2"></label>
+                    </div>
+                    <label for="session2">Disable</label>
+                </div>
+				<div class="col-md-6" ng-if="add.no_sensation == 1">
+                    <input type="checkbox" ng-model="add.MAC_TRIGER_PUSH_AD">
+                    <label>Show ad page</label>
+                </div>
+                <div class="col-md-12 Learn-MAC" ng-show="add.no_sensation == 1">
+                    <label>Free auth period</label>
+                    <br>
+                    <div class="Learn-Time">
+                        <input type="text" class="digits big" name="unauthtime" placeholder="7" ng-model="add.NO_SENSATION_TIME" number-range="1,30">
+                        <label class="info-explain">days (1-365)</label>
+                    </div>
+                    <label class="info-explain">Note: Clients that passed authentication are not reauthenticated when coming online again within the period.</label>
+                    <div ng-show="add_form.unauthtime.$dirty" ng-messages="add_form.unauthtime.$error">
+                        <label ng-message="numberRange" class="error" style="display: inline-block;">Please enter a digit in the range of 1 to 365.</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 response-block hidden">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Anonymous auth</label>
+            <div class="col-md-9">
+                <div class="col-md-3">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="add_authType1" name="add_authType" value="1" class="input-element" ng-model="add.authType">
+                        <span class="input-icon radio-icon" ng-class="{'checked':add.authType == 1}"></span>
+                        <label class="input-label" for="add_authType1"></label>
+                    </div>
+                    <label for="add_authType1">Enable</label>
+                </div>
+                <div class="col-md-3">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="add_authType2" name="add_authType" value="2" class="input-element" ng-model="add.authType">
+                        <span class="input-icon radio-icon" ng-class="{'checked':add.authType == 2}"></span>
+                        <label class="input-label" for="add_authType2"></label></div>
+                    <label for="add_authType2">Disable</label>
+                </div>
+            </div>
+        </div>
+        <div ng-show="add.authType == 2">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">SMS auth</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-2">
+                        <div class="xb-input xb-radio">
+                            <input type="radio" id="add_isEnableSms1" name="add_isEnableSms" ng-model="add.isEnableSms" value="1" class="input-element">
+                            <span class="input-icon radio-icon" ng-class="{'checked':add.isEnableSms == 1}"></span>
+                            <label class="input-label" for="add_isEnableSms1"></label></div>
+                        <label for="add_isEnableSms1">Enable</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="xb-input xb-radio">
+                            <input type="radio" id="add_isEnableSms2" name="add_isEnableSms" ng-model="add.isEnableSms" value="0" class="input-element">
+                            <span class="input-icon radio-icon" ng-class="{'checked':add.isEnableSms == 0}"></span>
+                            <label class="input-label" for="add_isEnableSms2"></label>
+                        </div>
+                        <label for="add_isEnableSms2">Disable</label>
+                    </div>
+					<div class="col-sm-8" ng-if="add.isEnableSms == 1">
+                        <input type="checkbox" ng-model="add.isEnableMacBind">
+                        <label> Remember phone number</label>
+                        <div ng-show="add.isEnableMacBind">
+                            <input type="text" class="digits big" placeholder="14" name="bindenabletime" ng-model="add.BIND_ENABLE_TIME" number-range="1,365">
+                            <label class="info-explain">days (1-365)</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">WeChat auth</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-2">
+                        <div class="xb-input xb-radio">
+                            <input type="radio" id="add_chatauth1" name="add_isEnableWeixin" value="1" class="input-element" ng-model="add.isEnableWeixin">
+                            <span class="input-icon radio-icon" ng-class="{'checked':add.isEnableWeixin == 1}"></span>
+                            <label class="input-label" for="add_chatauth1"></label></div>
+                        <label for="add_chatauth1">Enable</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="xb-input xb-radio">
+                            <input type="radio" id="add_chatauth2" name="add_isEnableWeixin" value="0" class="input-element" ng-model="add.isEnableWeixin">
+                            <span class="input-icon radio-icon" ng-class="{'checked':add.isEnableWeixin == 0}"></span>
+                            <label class="input-label" for="add_chatauth2"></label>
+                        </div>
+                        <label for="add_chatauth2">Disable</label>
+                    </div>
+                    <div class="col-sm-5" ng-if="add.isEnableWeixin == 1">
+                        <select name="pubmessage" class="form-control" ng-model="add.pubmessage"
+                                ng-options="pub.name as pub.name for pub in pubmessage">
+                            <option value="" selected disabled>Select official account</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">WeChat Wi-Fi</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-2">
+                        <div class="xb-input xb-radio">
+                            <input type="radio" id="add_ifwifi1" name="add_isWeixinConnectWifi" value="1" class="input-element" ng-model="add.isWeixinConnectWifi">
+                            <span class="input-icon radio-icon" ng-class="{'checked':add.isWeixinConnectWifi == 1}"></span>
+                            <label class="input-label" for="add_ifwifi1"></label></div>
+                        <label for="add_ifwifi1">Enable</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="xb-input xb-radio">
+                            <input type="radio" id="add_ifwifi12" name="add_isWeixinConnectWifi" value="0" class="input-element" ng-model="add.isWeixinConnectWifi">
+                            <span class="input-icon radio-icon" ng-class="{'checked':add.isWeixinConnectWifi == 0}"></span>
+                            <label class="input-label" for="add_ifwifi12"></label>
+                        </div>
+                        <label for="add_ifwifi12">Disable</label>
+                    </div>
+                    <div class="col-sm-5" ng-if="add.isWeixinConnectWifi == 1">
+                        <select name="store" class="form-control" ng-model="add.store"
+                                ng-options="s.shop_id as s.shop_name for s in storeList">
+                            <option value="" selected disabled>Select WeChat store</option>
+                        </select>
+                    </div>
+                    <div class="col-xs-4" ng-if="add.isWeixinConnectWifi == 1">
+                        <input id="add_forcedAttention" name="add_isForcedAttention" type="checkbox"
+                               ng-model="add.isForcedAttention">
+                        <label for="add_forcedAttention"> Follow</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Fixed account auth</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-2">
+                        <div class="xb-input xb-radio">
+                            <input type="radio" id="add_isEnableAccount1" name="add_isEnableAccount" value="1" class="input-element" ng-model="add.isEnableAccount">
+                            <span class="input-icon radio-icon" ng-class="{'checked':add.isEnableAccount == 1}"></span>
+                            <label class="input-label" for="add_isEnableAccount1"></label>
+                        </div>
+                        <label for="add_isEnableAccount1">Enable</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <div class="xb-input xb-radio">
+                            <input type="radio" id="add_isEnableAccount2" name="add_isEnableAccount" value="0" class="input-element" ng-model="add.isEnableAccount">
+                            <span class="input-icon radio-icon" ng-class="{'checked':add.isEnableAccount == 0}"></span>
+                            <label class="input-label" for="add_isEnableAccount2"></label>
+                        </div>
+                        <label for="add_isEnableAccount2">Disable</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</form>
+<div class="read_rc" id="authtemplate_detail_rc"
+     first-get="Request error,Please refresh the page and try again."
+     table-title="Name,Anonymous,Short Message,WeChat,WeChat Wi-Fi,Fixed Account,Enabled,Disabled"
+     delete-message="Are you sure you want to delete the selected data?"
+     prompt-message="Please select a WeChat account,Please select a WeChat store,Please select a minimum of one authentication method ,Template modified successfully,Deleted successfully,Added successfully,Add Authentication Template"
+     fail-message="The authentication template has been published.The WeChat WI-FI authentication method cannot be modified,The session timeout must be a digit in the tange of 1 to 1440,Invalid URL format,The idle timeout cannot be larger than the session timeout,The minimum traffic must be a digit in the range of 1 to 1024000,The authentication template already exists,Modification failed,Adding failed,Operation failed. The template has been published.,You cannot delete the selected item,Failed to delete the selected item,Operation failed.The Follow feature cannot be configured for unauthenticated WeChat accounts.">
+</div>

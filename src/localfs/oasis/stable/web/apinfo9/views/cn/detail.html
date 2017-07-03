@@ -1,0 +1,133 @@
+<style>
+    .apTotalCnt-icon{
+        background-position: -652px -844px;
+        width: 70px;
+        height: 62px;
+        display: inline-block;
+        line-height: 62px;
+        background-image: url(images/message3.png);
+        vertical-align: middle;
+        margin-left: 0;
+        margin-top: -43px;
+    }
+</style>
+<div class="dashboard js-apinfo">
+    <div class="page-row">
+        <div class=" col-sm-12 app-colum left-block">
+            <div class="app-box ">
+                <div class="box-footer "style=" overflow-y: hidden;">
+                    <div style="float: right;position: relative;right:2.14285714rem; ">
+                            <div class="xb-input xb-radio">
+                                <input id="headquarters" class="input-element" name="headquarters" type="radio" value="headquarters"
+                                       ng-model="template.filterBranch" ng-click="selFilter('headquarters')" >
+                                <span class="input-icon radio-icon " ng-class="{'checked':template.filterBranch=='headquarters'}"></span>
+                                <label for="headquarters" class="input-label"></label>
+                            </div>
+                            <label for="headquarters">总部</label>
+                            &nbsp &nbsp
+                            <div class="xb-input xb-radio">
+                                <input id="branch" class="input-element" name="branch" type="radio" value="branch"
+                                       ng-model="template.filterBranch " ng-click="selFilter('branch')" >
+                                <span class="input-icon radio-icon " ng-class="{'checked':template.filterBranch=='branch'}"></span>
+                                <label for="branch" class="input-label"></label>
+                            </div>
+                            <label for="branch">分组</label>&nbsp&nbsp
+
+                            <div style="width: 200px;float: right;">
+                                <div ng-show="template.filterBranch=='branch'" style="display: inline-block;" >
+                                    <select class="singleSelect" style="width: 200px;" ng-model="branchSel"
+                                            ng-options="branchOne.alias for branchOne in branchLists" ng-change = "selectGroup()">
+                                    </select>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-row" >
+        <div class="col-sm-12 app-colum left-block" debug="Aps">
+            <div class="bg-bor">
+                <div class="head-bar">
+                    <div class="box-footer">
+                        <div class="col-sm-10">
+                            <span class="title_h">AP数量</span>
+                        </div>
+                        <div class="text-right link-container">
+                            <a type="button" class="link-detail js-aplist" ng-click = "clickDetail()" title="更多"
+                            ng-model="group_info">
+                            <i class="detail-icon icon"></i> </a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="syslog-info-mine-Total">
+                            <div class="ap-icon_h icon-online"></div>
+                            <div class="right-text-info">
+                                <span class="number-count" id="online" ></span>
+                                <br />
+                                <span class="number-title">在线AP数</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="syslog-info-mine-Total">
+                            <div class="ap-icon_h icon-offline"></div>
+                            <div class="right-text-info">
+                                <span class="number-count" id="offline"></span>
+                                <br />
+                                <span class="number-title">离线AP数</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-4">
+                        <div class="syslog-info-mine-Total syslog-apinfo-border">
+                            <div class="apTotalCnt-icon"></div>
+                            <div class="right-text-info">
+                                <span class="number-count" id="unhealthy"></span>
+                                <br />
+                                <span class="number-title">AP总数</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-row">
+        <div class="col-sm-6 app-colum left-block">
+            <div class="panel app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">AP流量排行 TOP5</span>
+                </div>
+                <div class="panel-body" style="height: 300px;">
+                    <div bs-Table="apFlowTable"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 app-colum left-block" style="padding-left: 0px;">
+            <div class="panel app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">基于终端数</span>
+                </div>
+
+                <div class="panel-body" style="height: 300px;">
+                    <div id="According_client" style="height:280px;"></div>
+                </div>
+            </div>
+        </div>      
+    </div>
+
+</div>
+
+<div id="apinfo_rc" class="rc-define"
+    ap_info = "AP名称"
+    client_info = "流量（kb）"
+    apClient_Type="0,1~10,11~20,21~40,'',41~60,61~80,81~100,101以上"
+        >
+</div>

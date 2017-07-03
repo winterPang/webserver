@@ -1,0 +1,71 @@
+<div class="oasis-header">
+    <div class="oasis-header-left">
+        <!--<img src="../frame/img/logo.png" alt="logo">-->
+    </div>
+    <div class="oasis-header-right">
+        <div class="oasis-header-icon"></div>
+        <div class="oasis-header-main">
+            <ul>
+                <li  ng-repeat="menuName in menu" ng-class="{active:$state.current.name.indexOf('{{menuName.id}}')!=-1}" ui-sref="{{menuName.sref}}" ng-bind="menuName.name">
+                </li>
+                <!--<li class="active">首页</li>
+                <li>设备</li>
+                <li>工具</li>
+                <li>应用中心</li>-->
+            </ul>
+        </div>
+        <div class="oasis-header-user">
+            <div class="change-lang">
+                <ul class="mr20">
+                    <li ng-click="changeLange('cn');"
+                        ng-class="cnLanguage">
+                        中文
+                    </li>
+                    <div></div>
+                    <li ng-click="changeLange('en')"
+                        ng-class="enLanguage">
+                        English
+                    </li>
+                </ul>
+            </div>
+            <div class="mr20 global-head-wechat" id="chat_html">
+                <img src="images/wechat.png" id="chatimg">
+            </div>
+            <img ng-src="avatar" class="userImg">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle"
+                        type="button" id="userdrop" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="true">
+                    {{userInfo.attributes.name}} <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="userdrop">
+                    <!--<li><a ui-sref="newdesign.content.set.information">信息修改</a></li>
+                    &lt;!&ndash;<li><a ng-click="goHome()">返回首页</a></li>&ndash;&gt;
+                    <li><a ui-sref="newdesign.content.set.password">密码修改</a></li>-->
+                    <li><a ui-sref="global.setup.information">个人资料</a></li>
+                    <li><a ng-bind="changeType" ng-click="goAnother()"></a></li>
+                    <li><a ng-click="logout()">注销</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="oasis-header-info">
+        绿洲平台于2017年6月1日08:00起开始更新维护，请您做好准备！
+    </div>
+</div>
+<div ui-view></div>
+<div class="read_rc" id="global_rc"
+     logout-message="确定退出吗？"
+     close="关闭"
+></div>
+<div class="oasis-operates" bs-operate>
+    <div class="oasis-operate">
+        <div class="icon" ></div>
+        <div class="link">
+            <img src="../home/img/yunwei.png">
+            <img src="../home/img/dingwei.png">
+            <span ui-sref="global.tool.commandline" style="background-color: #374d63">命令<br/>助手</span>
+            <span ui-sref="global.tool.batchupgrade">升<br/>级</span>
+        </div>
+    </div>
+</div>

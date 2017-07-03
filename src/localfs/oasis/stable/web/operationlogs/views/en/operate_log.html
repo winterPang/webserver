@@ -1,0 +1,47 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Operation Log</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="btn btn-cus" ng-click="refresh()">Refresh</div>
+				 <button class="btn btn-cus" ng-click="delete()" ng-disabled="btnStatus">Delete</button>
+            </div>
+            <!--<div class="form-group pull-right">-->
+            <!--<button class="btn btn-cus"><span class="glyphicon glyphicon-search" ng-click="search()"></span>-->
+            <!--</button>-->
+            <!--</div>-->
+            <!--<div class="form-group pull-right input-group">-->
+            <!--<input type="text" ng-model="operatorName" class="form-control" placeholder="操作员">-->
+            <!--</div>-->
+            <!--<div class="form-group has-feedback pull-right " style="margin-right:10px;">-->
+            <!--<input type="text" ng-model="ipAddress" class="form-control" placeholder="IP地址">-->
+            <!--</div>-->
+            <table bs-table="options"></table>
+        </div>
+		<div bs-modal="option" id="modalDate">
+                <div class="form-group">
+                <label class="col-xs-3 control-label">Select a date<span class="label-require"> *</span></label>
+                <div class="col-xs-4">
+                    <input id="Bydate" class="daterange time-select" placeholder="Select a date" ctrl="daterang" style="width:280px">
+                </div>
+            </div>
+            
+        </div> 
+    </div>
+    <div class="read_rc" id="operate_rc"
+		DRP_APPLYLABEL = "OK"
+        DRP_CANCELLABEL = "Cancel"
+        DRP_FROMLABEL = "Start time"
+        DRP_TOLABEL = "End time"
+        DRP_CUSTOMRANGELABEL = "Custom"
+        DRP_DAYSOFWEEK = "Su,Mo,Tu,We,Th,Fr,Sa"
+        DRP_MONTHNAMES = "Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec"
+        DRP_Title="Delete Operation Log"
+        table-data="Operator,Operation Time,IP Address,Module Name,Description,Result,Failure Reason" 
+        delete-success="Deleted successfully."
+        delete-fail="Failed to delete the operation log."
+    >
+    </div>
+</div>

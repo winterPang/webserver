@@ -1,0 +1,33 @@
+<html>
+<head>
+</head>
+<body>
+<div class="widget" id="SystemUtilization">
+	<div class="global-sysinfo">
+	    <div class="system-time">
+	        <div class="cur-time"><div class="text">Current time</div><div id="currenttime"></div></div>
+	        <div class="up-time">
+	        	<div class="text">System up time</div><div class="run-time"><div id="day" class="up"></div><div id="hour" class="down"></div></div>
+	        </div>
+	    </div>
+	</div>
+	<div class="widget-content">
+		<div id="chassis_contrainer" class="widget chassis-contrainer">
+			<div class="table">
+				<div class="table-title">
+					<div class="id-container">ID</div>
+					<div class="status-container">Status</div>
+					<div class="cpu-container">CPU</div>
+					<div class="memory-container">Memory</div>
+					<div class="oper-container"></div>
+				</div>
+				<div id="panel" class="dashboard"></div>
+			</div>
+		</div>
+	</div>		
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("WDashboard.utilization_detail");
+</script>

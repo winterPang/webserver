@@ -1,0 +1,103 @@
+<style>
+    html .app-colum .app-box .box-body, body .app-colum .app-box .box-body {
+        height: auto;
+    }
+</style>
+
+<div class="dashboard container-fluid">    
+    <div class="page-row">
+        <div class="ztree-container tree3 col-sm-2">
+            <ul id="treeDemo3" class="ztree l-first"></ul>
+        </div>
+
+        <div class="col-sm-9 app-colum left-block" style="width: 1100px;margin-left: 40px;margin-top: 50px;">
+            <div class="app-box no-bk-color">
+                <div class="box-footer ">
+                    <span class="title">已添加设备</span>
+                </div>
+
+                <div class="box-body form-group" style="min-height: 391px">
+                    <button class="btn btn-cus" ng-click="addDevice()">添加设备</button>  
+                    <div bs-table="addedDevice"></div>
+                </div>
+            </div>
+        </div>
+
+        <form novalidate name="form3" bs-modal="modal3.option" >     
+            <div class="form-group row">
+                <label class="col-sm-3 control-label required">添加</label>
+                <div class="col-sm-5">
+                    <select  ng-model="data.add" ng-options="act for act in adds" 
+                    ng-init="adds[0]" required></select> 
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 control-label required">添加方式</label>
+                <div class="col-sm-5">  
+                    <select  ng-model="data.addMode" ng-options="act.name for act in addModes" 
+                    ng-init="addModes[0]" required></select> 
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label class="col-sm-3 control-label required">{{data.addMode.value}}</label>
+                <div class="col-sm-5">                                   
+                        <input type="text" required ng-model="data.numInfo">                        
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <label class="col-sm-3 control-label required">设备别名</label>
+                <div class="col-sm-5">                                   
+                        <input type="text" required ng-model="data.oName">                        
+                </div>
+            </div>
+
+
+            <div class="form-group row">
+                <label class="col-sm-3 control-label required">添加至</label>
+                <div class="col-sm-5"> 
+                    <select  ng-model="data.addTo" ng-options="act for act in addTos" 
+                    ng-init="addTos[0]" required></select> 
+                </div>
+            </div>         
+
+            <div class="text-center" style="margin-top:20px;">              
+                <button class="btn btn-cus" name="complete" ng-disabled="form3.$invalid">完成添加</button>
+                <button class="btn btn-cus" name="continue" ng-disabled="form3.$invalid">继续配置</button>
+                <button class="btn btn-cus" name="cancel3">取消</button>
+            </div>
+                                                        
+            <div ng-show="infoState">
+                <div bs-Table="bindDeviceTable"></div> 
+            </div>                                                
+        </form>
+
+
+        <form bs-modal="addAreaModal" class="form-horizontal" name="formAddArea">
+            <div class="form-group">
+                <div class="col-sm-2">区域名称:</div>
+                <div class="col-sm-5">
+                    <input class="form-control" name="name_area" ng-model="treeNode.areaName" placeholder='请输入区域名称，不超过10位' required ng-maxlength="10">
+                </div>
+                <div class="col-sm-5 ng-error" ng-messages="formAddArea.name_area.$error" ng-show="formAddArea.name_area.$dirty">
+                    <div ng-message="required">区域名称不能为空</div>
+                    <div ng-message="maxlength">区域名称不能超过10位</div>
+                </div>
+            </div>
+        </form>
+
+        <form bs-modal="modifyAreaModal" class="form-horizontal" name="formModifyArea">
+            <div class="form-group">
+                <div class="col-sm-2">区域名称:</div>
+                <div class="col-sm-5">
+                    <input class="form-control" name="name_area" ng-model="treeNode.areaName" placeholder='请输入区域名称，不超过10位' required ng-maxlength="10">
+                </div>
+                <div class="col-sm-5 ng-error" ng-messages="formModifyArea.name_area.$error" ng-show="formModifyArea.name_area.$dirty">
+                    <div ng-message="required">区域名称不能为空</div>
+                    <div ng-message="maxlength">区域名称不能超过10位</div>
+                </div>
+            </div>
+        </form>
+

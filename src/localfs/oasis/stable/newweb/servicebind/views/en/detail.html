@@ -1,0 +1,53 @@
+
+<style type="text/css">
+    .mbutton-location {
+        margin: 11px -57px 10px 32px;
+}
+</style>
+<div class="container-fluid">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height">          
+            <div class="box-footer">
+                <span class="title">Wireless Service Binding</span>
+            </div>
+            
+            <!--<div class="col-xs-12" id="device">               
+                <div class="col-xs-2 mbutton-location">
+                    <input type="radio" id="apgroupradio" name="devVer" value="1" checked class="input-element" ng-click="bindApGroup($event)">
+                    <label for="allversion">AP Group</label>
+                </div>
+                <div class="col-xs-2 mbutton-location ml0">
+                    <input type="radio" id="apradio" name="devVer" value="2" class="input-element" ng-click="bindApGroup($event)">
+                    <label for="alonversion">AP</label>
+                </div>
+            </div>-->
+          
+            <div class="panel-body">
+             <!--<div ng-show='!tableTest'>
+                <div bs-Table="apGroupOptions"></div>
+            </div>
+            <div ng-show='tableTest'>-->
+                <div  bs-Table="apOptions"></div>
+            </div>
+            
+        </div>
+        </div>
+    </div>
+   
+   <div bs-modal="apGroupButtons.options">
+       <div bs-Table="bindStaOptions"></div>
+   </div>
+   
+   <div bs-modal="apButtons.options">
+       <div bs-Table="bindApStaOptions"></div>
+   </div>
+</div>
+ 
+<div id="ap_bindservice_rc" class="rc-define"
+        BASE_HEADER_S="AP Group Name,Description For The AP Group,Service templates,Operation"     
+        BASE_HEADER_W="AP Name,Wireless Services,Operation"
+        Bind_HEADER="Wireless Service,SSID,Description"
+        APGROUPBIND="AP Group Name,SSID,Description"
+        OPERATION="Bind"
+        WIRELESS_SER="Bound Service Templates"
+    ></div>

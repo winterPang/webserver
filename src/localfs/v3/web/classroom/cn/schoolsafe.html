@@ -1,0 +1,378 @@
+<html>
+<head>
+<link href="../../web/frame/css/h-plugin.css" rel="stylesheet" type="text/css"/>
+<style type="text/css">
+    div.smartschool .xx-link{
+        cursor:pointer;
+    }
+    div.smartschool .xx-link:hover, div.smartschool .xx-link:active, div.smartschool .xx-link:focus {
+         color: #4ec1b2;
+         /*border-bottom: 1px solid #4ec1b2;*/
+    }
+     div.smartschool .heart{
+         width: 150px;
+         height: 120px;
+         margin: 40px auto;
+     }
+     div.smartschool .heart.red{
+        background: url(css/image/smartschool.png) -65px -198px;
+     }
+     div.smartschool .heart.green{
+        background: url(css/image/smartschool.png) -65px -36px;
+     }
+     a.xx-link.active{
+        color: #4ec1b2;
+     }
+     
+      div.smartschool .too {
+            margin: 0px 0px 0px 10px;
+            position: absolute;
+            text-align: center;
+      }
+      div.smartschool .unhealth-count{
+          margin: 25px 0px 0px 0px;
+      }
+      div.smartschool .label-title{
+          color: #343e4e;
+          font-size: 29px;
+          border-bottom: 1px solid;
+      }
+      div.smartschool .app-box .body-box {
+          padding: 5px 37px 0px 0px;
+
+      }
+      div.smartschool .app-box .history-school{
+          padding: 0;
+      }
+      div.smartschool .heart-title {
+            font-size:19px;
+      }
+
+      div.smartschool .text-style {
+          position: relative;
+          width: 72px;
+          top: -98px;
+          text-align: center;
+          margin: 0 auto;
+      }
+
+      div.smartschool .pieStyle {
+          font-size: 22px;
+          display: block;
+          /* float: left; */
+          text-decoration: underline;
+          cursor: pointer;
+          margin: 0 auto;
+      }
+      div.smartschool span.studentStatu{
+          font-size: 19px;
+      }
+
+    div.smartschool .large-height {
+        height:815px;
+        position:relative;
+        width:100%;
+    }
+
+    div.smartschool .heartheight{
+        height: 154px;
+    }
+
+    div.smartschool .emegencyheight{
+        height: 130px;
+    }
+    
+    span.sTitle{
+        font-size: 15px;
+        color: #272856;
+    }
+    
+    .color_emergency {
+        color: #f05566;
+        font-size:70px;
+    }
+    
+    .color_importance {
+        color:#ff7f00;
+        font-size:70px;
+    }
+    
+    .color_tishi {
+        color:#ffd700;
+        font-size:70px;
+    }
+    
+    .color_notice{
+        background: #f9f9f9;
+    }
+
+
+    *{ margin:0; padding:0; list-style:none;}
+    .FontScroll{text-align: center; width:500px;height:250px;line-height:30px;overflow:Hidden;padding:5px 0;margin:0px auto;}
+    .FontScroll .line{text-align:center;width:100%;}
+    .FontScroll .fontColor div{color:red;}
+    .FontScroll3{
+        text-align: center; width:500px;height:30px;line-height:30px;overflow:hidden;padding:5px 0;margin:0px auto;
+    }
+    
+
+</style>
+</head>
+<body>
+<div class="smartschool">
+    <div class="dashboard hide">
+    <div class="bg-transparent head-bar" style="background:initial;" id="level" debug="getLogStats">
+        <div class="box-footer">
+            <div class="col-xs-10">
+                <span class="title">安全告警</span>
+            </div> 
+        </div>
+        <div class="col-xs-12 middle-cell">
+            <div id="emegency_id_1" value="0" class="col-xs-6 col-sm-3 col-sm-offset-1">
+                <div class="syslog-info  bg-transparent  wrap_c" style="cursor:pointer">	
+                    <div class="icon-container">
+                        <i class="syslog-icon emergency-icon"></i>					
+                    </div>							
+                    <div class="text-right syslog-value">
+                        <div id="emergency_text_1" class="log-count number color_emergency" value="0">0</div>
+                        <div class="log-title">紧急</div>
+                    </div>								
+                </div>
+            </div>
+
+            <div id="importance_id_1" style="cursor:pointer" value="1" class="col-xs-6 col-sm-3 col-sm-offset-1">
+                <div class="syslog-info bg-transparent wrap_c" style="cursor:pointer">
+                    <div class="icon-container">
+                        <i class="syslog-icon critical-icon"></i>					
+                    </div>								
+                    <div class="text-right syslog-value">
+                        <div id="importance_text_1" class="log-count number color_critical" value="1">0</div>
+                        <div class="log-title">重要</div>
+                    </div>
+                </div>									
+            </div>
+
+            <div id="notice_id_1" style="cursor:pointer" value="2" class="col-xs-6 col-sm-3 col-sm-offset-1">
+                <div class="syslog-info bg-transparent wrap_c" style="cursor:pointer">
+                    <div class="icon-container">
+                        <i class="syslog-icon warning-icon"></i>					
+                    </div>								
+                    <div class="text-right syslog-value">
+                        <div id="tishi_text_1" class="log-count number color_warning"value="2">0</div>
+                        <div class="log-title">提示</div>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+    </div>
+     <div class="page-row">
+         <div class="col-xs-4 app-colum left-block">
+            <div class="app-box color_notice  wrap_c" style="cursor:pointer" id="emegency_id">
+                 <div class="box-footer" style="background:#ee6363">
+                    <div class="col-xs-5 col-xs-offset-4">
+                        <span class="title">紧急安全告警</span>
+                    </div>
+                </div>
+                <div class="box-body body-box emegencyheight color_notice">
+                    <div class="col-xs-6">
+                        <div style="text-align:center; margin:10px auto;">
+                            <img style='height:120px; width:120px; margin-top:-20px;' src='../frame/css/image/emergency.png'>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div style='text-align:center; margin:10px auto;'>
+                            <span id="emergency_text" class='color_emergency'>0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+         <div class="col-xs-4 app-colum left-block">
+            <div class="app-box color_notice  wrap_c" style="cursor:pointer" id="importance_id">
+                 <div class="box-footer" style="background:#ee9a49">
+                    <div class="col-xs-5 col-xs-offset-4">
+                        <span class="title">重要安全告警</span>
+                    </div>
+                </div> 
+                <div class="box-body body-box emegencyheight color_notice">
+                    <div class="col-xs-6">
+                        <div style="text-align:center; margin:10px auto;">
+                            <img style='height:100px; width:100px;' src='../frame/css/image/importance.png'>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div style='text-align:center; margin:10px auto;'>
+                            <span id="importance_text" class='color_importance'>0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+         <div class="col-xs-4 app-colum left-block">
+            <div class="app-box color_notice  wrap_c" style="cursor:pointer" id="notice_id">
+                 <div class="box-footer" style="background:#eee685">
+                    <div class="col-xs-5 col-xs-offset-4">
+                        <span class="title">安全提示</span>
+                    </div>
+                </div>
+                <div class="box-body body-box emegencyheight color_notice">
+                    <div class="col-xs-6">
+                        <div style="text-align:center; margin:10px auto;">
+                            <img style='height:90px; width:70px;' src='../frame/css/image/notice1.png'>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div style='text-align:center; margin:10px auto;'>
+                            <span id="tishi_text" class='color_tishi'>0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+     </div>
+     <div class="page-row">
+         <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color wrap_c">
+                <div class="box-footer">
+                    <div class="col-xs-4">
+                        <span class="title">今日进校情况</span>
+                    </div>
+                    <div class="col-xs-2 pull-right">
+                        <div class="col-xs-8 progress progress-small progress-striped active" style="margin-top:15px; border-radius: 20px;height: 10px;" data-percent="72人">
+                            <div id="age_pro_1" class="progress-bar" style="width: 66%; background-color:#ffca28"></div>
+                        </div>
+                        <div class="col-xs-4" style="margin-top:-5px;">65%</div>
+                    </div>
+                </div>
+                <div class="box-body  body-box">
+                    <div class="FontScroll3" >
+                        <ul style="overflow:hidden">
+                            <li style="overflow:hidden">
+                                <div class="col-xs-12">
+                                    <div class="col-xs-offset-2 col-xs-2" style="font-size:16px; font-weight:600; color:#4ec1b2">时间</div>
+                                    <div class="col-xs-offset-2 col-xs-2" style="font-size:16px; font-weight:600; color:#4ec1b2">姓名</div>
+                                    <div class="col-xs-offset-2 col-xs-2" style="font-size:16px; font-weight:600; color:#4ec1b2">进校情况</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                     <div id="scrollDiv1" class="FontScroll">
+                        <!--<ul>
+                            <li><div>10:26 周星驰 进校</div></li>
+                            <li><div>11:26 周星驰2 进校</div></li>
+                            <li><div>12:26 任达华 进校</div></li>
+                            <li><div>15:26 周杰伦 进校</div></li>
+                            <li><div>15:26 罗纳尔多 进校</div></li>
+                            <li><div>15:26 齐达内 进校</div></li>
+                            <li><div>16:26 苏伟 进校</div></li>
+                            <li><div>16:26 刘德华 进校</div></li>
+                            <li><div>16:26 张学友 进校</div></li>
+                            <li><div>16:26 古巨基 进校</div></li>
+                            <li><div>16:26 蔡依林 进校</div></li>
+                            <li><div>16:26 陈乔恩 进校</div></li>
+                            <li><div>16:26 李宇春 进校</div></li>
+                            <li><div>16:26 郭德纲 进校</div></li>
+                            <li><div>16:26 岳云鹏 进校</div></li>
+                            <li><div>16:26 曹云金 进校</div></li>
+                            <li><div>17:26 习大大 进校</div></li>
+                            <li><div>18:26 彭妈妈 进校</div></li>
+                        </ul>-->
+                    </div>
+                    <div style="float:right"><p><a id="enter_chart" style="font-size:15px; color:#6ca6cd; cursor:pointer">more > ></a></p></div>
+                </div>
+            </div>
+         </div>
+         <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color wrap_c">
+                <div class="box-footer">
+                    <div class="col-xs-4">
+                        <span class="title">今日离校情况</span>
+                    </div>
+                    <div class="col-xs-2 pull-right">
+                        <div class="col-xs-8 progress progress-small progress-striped active" style="margin-top:15px; border-radius: 20px;height: 10px;" data-percent="72人">
+                            <div id="age_pro_1" class="progress-bar" style="width: 66%; background-color:#ef5350"></div>
+                        </div>
+                        <div class="col-xs-4" style="margin-top:-5px;">25%</div>
+                    </div>
+                </div>
+                <div class="box-body  body-box">
+                    <div class="FontScroll3">
+                        <ul>
+                            <li>
+                                <div class="col-xs-12">
+                                    <div class="col-xs-offset-2 col-xs-2" style="font-size:16px; font-weight:600; color:#4ec1b2">时间</div>
+                                    <div class="col-xs-offset-2 col-xs-2" style="font-size:16px; font-weight:600; color:#4ec1b2">姓名</div>
+                                    <div class="col-xs-offset-2 col-xs-2" style="font-size:16px; font-weight:600; color:#4ec1b2">离校情况</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                     <div id="scrollDiv2" class="FontScroll">
+                        <!--<ul>
+                            <li><div class="col-xs-12"><div class="col-xs-offset-2 col-xs-2">10:26</div><div class="col-xs-offset-2 col-xs-2">周星驰</div><div class="col-xs-offset-2 col-xs-2">离校</div></div></li>
+                            <li><div>11:26 周星驰2 离校</div></li>
+                            <li><div>12:26 任达华 离校</div></li>
+                            <li><div>15:26 周杰伦 离校</div></li>
+                            <li><div>15:26 罗纳尔多 离校</div></li>
+                            <li><div>15:26 齐达内 离校</div></li>
+                            <li><div>16:26 苏伟 离校</div></li>
+                            <li><div>16:26 刘德华 离校</div></li>
+                            <li><div>16:26 张学友 离校</div></li>
+                            <li><div>16:26 古巨基 离校</div></li>
+                            <li><div>16:26 蔡依林 离校</div></li>
+                            <li><div>16:26 陈乔恩 离校</div></li>
+                            <li><div>16:26 李宇春 离校</div></li>
+                            <li><div>16:26 郭德纲 离校</div></li>
+                            <li><div>16:26 岳云鹏 离校</div></li>
+                            <li><div>16:26 曹云金 离校</div></li>
+                            <li><div>17:26 习大大 离校</div></li>
+                            <li><div>18:26 彭妈妈 离校</div></li>-->
+                        </ul>
+                    </div>
+                    <div style="float:right"><p><a id="exit_chart" style="font-size:15px; color:#6ca6cd; cursor:pointer;">more > ></a></p></div>
+                </div>
+            </div>
+         </div>
+     </div>
+</div>    
+    
+<!--modal-super page-->
+<!--<div class="hide modal fade modal-super" id="enterlist">
+    <form id="enterlist_form" class="form-horizontal form edit">
+        <div class="form-group" style="text-align:center;" width="900" height="900">
+            <div id="enter_list" class="simple-list"></div>
+        </div>
+    </form>
+</div>-->
+
+<div class="hide modal fade modal-super" id="enterlist">
+    <form id="enterlist_form" class="form-horizontal form edit">
+        <div class="form-group" style="text-align:center;" width="900" height="900">
+            <div id="enter_list" class="simple-list"></div>
+        </div>
+    </form>
+</div>
+
+<!--modal-super page-->
+<div class="hide modal fade modal-small" id="exitlist">
+    <form id="exitlist_form" class="form-horizontal form edit">
+        <div class="form-group" style="text-align:center;" width="900" height="900">
+            <div id="exit_list" class="simple-list"></div>
+        </div>
+    </form>
+</div>
+
+<div id="c_campus_rc" class="rc-define"
+     SLIST_STEP="年级,班号,平均年龄,昨日平均步数"
+     STUDENT_TYPE="到校学生,请假学生,离校学生,从未到校学生"
+     CONTACT_NAME = "联系家长"
+     STU_IN_SCHOOL = "学生到校率"
+     ENTER_EXIT_LIST = "时间,姓名,行为"
+     ENTER_DLG_TITLE = "今日进校情况详情,今日离校情况详情"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.schoolsafe");
+</script>

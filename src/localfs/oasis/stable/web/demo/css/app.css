@@ -1,0 +1,93 @@
+/**
+ * Created by liuyanping on 2016/11/17
+ */
+.ztree li span.button.roots_open,
+.ztree li span.button.center_open,
+.ztree li span.button.bottom_open {
+  background: url("../img/1_open.png") no-repeat;
+}
+.ztree li span.button.roots_close,
+.ztree li span.button.center_close,
+.ztree li span.button.bottom_close {
+  background: url("../img/1_close.png") no-repeat;
+}
+.tree3 .ztree li a:hover {
+  text-decoration: none;
+}
+.ztree li span.button.ico_open {
+  display: none;
+}
+.ztree li span.button.ico_close {
+  display: none;
+  /*background: url("../img/1_close.png") no-repeat !important;*/
+}
+.ztree li span.button.ico_docu {
+  margin-top: 4px;
+  background: url("../img/doc.png") no-repeat;
+}
+.ztree li span.button.add {
+  background: url("../../home/img/add.png") no-repeat;
+}
+.ztree li span.button.edit {
+  margin-left: 4px;
+  background: url("../../home/img/edit.png") no-repeat;
+}
+.ztree li span.button.remove {
+  margin-top: 4px;
+  margin-left: 2px;
+  background: url("../../home/img/remove.png") no-repeat;
+}
+.demo_app {
+  padding: 30px;
+}
+.demo_app > .row {
+  height: 50px;
+  line-height: 50px;
+  margin-bottom: 20px;
+}
+.demo_app > .row > .btn {
+  margin-right: 8px;
+}
+.demo_app .tabs-left > .nav-tabs {
+  border-bottom: 0;
+  float: left;
+  margin-right: 19px;
+  border-right: 1px solid #ddd;
+}
+.demo_app .tabs-left > .nav-tabs > li {
+  float: none;
+}
+.demo_app .tabs-left > .nav-tabs > li:not(:first-child) {
+  padding-top: 7px;
+}
+.demo_app .tabs-left > .nav-tabs > li > a {
+  margin-right: 0;
+  margin-bottom: 3px;
+  border: 1px solid #dddddd;
+}
+.demo_app .tabs-left > .nav-tabs > li > a {
+  margin-right: -1px;
+  -webkit-border-radius: 4px 0 0 4px;
+  -moz-border-radius: 4px 0 0 4px;
+  border-radius: 4px 0 0 4px;
+}
+.demo_app .tabs-left > .nav-tabs > li > a:hover,
+.demo_app .tabs-left > .nav-tabs > li > a:focus {
+  border-color: #eeeeee #dddddd #eeeeee #eeeeee;
+}
+.demo_app .tabs-left > .nav-tabs .active a {
+  border-color: #ddd transparent #ddd #ddd;
+  *border-right-color: #ffffff;
+}
+.demo_app .tabs-left > .nav-tabs .active a:hover,
+.demo_app .tabs-left > .nav-tabs .active a:focus {
+  border-color: #ddd transparent #ddd #ddd;
+  *border-right-color: #ffffff;
+}
+.demo_app .tab-content {
+  border: 1px solid #dddddd;
+  margin-left: 45px;
+  border-radius: 0 3px 3px 0;
+  background-color: #FFFFFF;
+  height: 800px;
+}

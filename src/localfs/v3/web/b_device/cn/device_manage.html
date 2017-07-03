@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div class="app-box">
+                <div class="box-footer">
+                    <span class="title">设备组</span>
+                </div>
+                <div class="box-body no-height">
+                    <div id="device_group_list" class="simple-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hide modal fade" id="showDeviceDlg">
+        <form id="device_form" class="form edit">
+            <div id="deviceList" class="simple-list" style="margin:10px 10px;"></div>
+        </form>
+    </div>
+
+    <div id="device_rc" class="rc-define"
+            DEVICE_GROUP="无线服务,设备组"
+            VIEW="查看"
+            INFO="信息"
+            DEVICE_LIST="无线服务,绑定设备组,终端数"></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("b_device.device_manage");
+</script>

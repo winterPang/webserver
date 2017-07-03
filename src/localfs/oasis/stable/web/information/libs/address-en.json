@@ -1,0 +1,5106 @@
+[
+  {
+    "name": "Beijing",
+    "cityList": [
+      {
+        "name": "City area",
+        "areaList": [
+          "Dongcheng",
+          "Xicheng",
+          "Chaoyang",
+          "Fengtai",
+          "Shijingshan",
+          "Haidian",
+          "Mentougou",
+          "Fangshan",
+          "Tongzhou",
+          "Shunyi",
+          "Changping",
+          "Daxing",
+          "Huairou",
+          "Pinggu"
+        ]
+      },
+      {
+        "name": "county",
+        "areaList": [
+          "Miyun",
+          "Yanqing"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Shanghai",
+    "cityList": [
+      {
+        "name": "City area",
+        "areaList": [
+          "Huangpu",
+          "luwan",
+          "Xuhui",
+          "Changning",
+          "Jingan",
+          "Putuo",
+          "zhabei",
+          "Hongkou",
+          "yangpu",
+          "Minhang",
+          "Baoshan",
+          "Jiading",
+          "Pudong New Area",
+          "Jinshan",
+          "Songjiang",
+          "Qingpu",
+          "Nanhui",
+          "Fengxian"
+        ]
+      },
+      {
+        "name": "county",
+        "areaList": [
+          "Chongming"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Tianjin",
+    "cityList": [
+      {
+        "name": "City area",
+        "areaList": [
+          "Heping",
+          "Hedong",
+          "Hexi",
+          "Nankai",
+          "Hebei",
+          "Hongqiao",
+          "Tanggu",
+          "Hangu",
+          "Dagang",
+          "Dongli",
+          "Xiqing",
+          "Jinnan",
+          "Beichen",
+          "Wuqing",
+          "Baodi"
+        ]
+      },
+      {
+        "name": "county",
+        "areaList": [
+          "Ninghe",
+          "Jinghai",
+          "Ji County"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Chongqing",
+    "cityList": [
+      {
+        "name": "City area",
+        "areaList": [
+          "Wanzhou",
+          "Fuling",
+          "Yuzhong",
+          "Dadukou",
+          "Jiangbei",
+          "Shapingba",
+          "Jiulongpo",
+          "South Bank",
+          "Beibei",
+          "Wansheng",
+          "Shuangqiao",
+          "Yubei",
+          "Banan",
+          "Qianjiang",
+          "Changshou"
+        ]
+      },
+      {
+        "name": "county",
+        "areaList": [
+          "Qijiang",
+          "Tongnan",
+          "Tongliang",
+          "Dazu",
+          "Rongchang",
+          "Bishan",
+          "Liangping",
+          "Chengkou",
+          "Fengdu",
+          "Dianjiang",
+          "Wulong",
+          "Zhong",
+          "Kai",
+          "Yunyang",
+          "Fengjie",
+          "Wushan",
+          "Wuxi",
+          "Shizhu Tujia Autonomous",
+          "Xiushan Tujia and Miao Autonomous",
+          "Youyang Tujia and Miao Autonomous",
+          "pengshui miao and tujia autonomous"
+        ]
+      },
+      {
+        "name": "city",
+        "areaList": [
+          "Jiangjin",
+          "Hechuan",
+          "Yongchuan",
+          "Nanchuan"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Sichuan",
+    "cityList": [
+      {
+        "name": "Chengdu",
+        "areaList": [
+          "City area",
+          "Jinjiang",
+          "Qingyang",
+          "Jinniu",
+          "Wuhou",
+          "Chenghua",
+          "Longquanyi",
+          "Qingbaijiang ",
+          "Xindu",
+          "Wenjiang",
+          "Jintang",
+          "Shuangliu",
+          "Pi",
+          "Dayi",
+          "Pujiang",
+          "Xinjin",
+          "dujiangyan",
+          "Pengzhou",
+          "Qionglai",
+          "Chongzhou"
+        ]
+      },
+      {
+        "name": "Zigong",
+        "areaList": [
+          "City area",
+          "Ziliujing",
+          "Gongjing",
+          "Da'an",
+          "Yantan",
+          "Rong",
+          "Fushun"
+        ]
+      },
+      {
+        "name": "Panzhihua",
+        "areaList": [
+          "City area",
+          "East Area",
+          "West Area",
+          "Renhe",
+          "Miyi",
+          "Yanbian"
+        ]
+      },
+      {
+        "name": "Luzhou",
+        "areaList": [
+          "City area",
+          "Jiangyang",
+          "Naxi",
+          "Longmatan",
+          "Lu",
+          "Hejiang",
+          "Xuyong",
+          "Gulin"
+        ]
+      },
+      {
+        "name": "deyang",
+        "areaList": [
+          "City area",
+          "Jingyang",
+          "Zhongjiang",
+          "Luojiang",
+          "Guanghan",
+          "Shifang",
+          "Mianzhu"
+        ]
+      },
+      {
+        "name": "Mianyang",
+        "areaList": [
+          "City area",
+          "fucheng",
+          "Youxian",
+          "Santai",
+          "Yanting",
+          "An",
+          "Zitong",
+          "Beichuan Qiang Autonomous",
+          "Pingwu",
+          "Jiangyou"
+        ]
+      },
+      {
+        "name": "Guangyuan",
+        "areaList": [
+          "City area",
+          "Shizhong",
+          "yuanba",
+          "Chaotian",
+          "Wangcang",
+          "Qingchuan",
+          "Jiange",
+          "Cangxi"
+        ]
+      },
+      {
+        "name": "suining",
+        "areaList": [
+          "City area",
+          "Chuanshan",
+          "Anju",
+          "Pengxi",
+          "Shehong",
+          "Daying"
+        ]
+      },
+      {
+        "name": "Neijiang",
+        "areaList": [
+          "City area",
+          "Shizhong",
+          "Dongxing",
+          "Weiyuan",
+          "Zizhong",
+          "Longchang"
+        ]
+      },
+      {
+        "name": "Leshan",
+        "areaList": [
+          "City area",
+          "Shizhong",
+          "Shawan",
+          "Wutongqiao",
+          "Jinkouhe",
+          "Qianwei",
+          "Jingyan",
+          "Jiajiang",
+          "Muchuan",
+          "Ebian Yi Autonomous",
+          "Mabian Yi Autonomous",
+          "Emeishan"
+        ]
+      },
+      {
+        "name": "Nanchong",
+        "areaList": [
+          "City area",
+          "Shunqing",
+          "Gaoping",
+          "Jialing",
+          "Nanbu",
+          "Yingshan",
+          "Pengan",
+          "Yilong",
+          "Xichong",
+          "Langzhong"
+        ]
+      },
+      {
+        "name": "Meishan",
+        "areaList": [
+          "City area",
+          "Dongpo",
+          "Renshou",
+          "Pengshan",
+          "Hongya",
+          "Danleng",
+          "Qingshen"
+        ]
+      },
+      {
+        "name": "Yinbin",
+        "areaList": [
+          "City area",
+          "Cuiping",
+          "Yibin",
+          "Nanxi",
+          "Jiangan",
+          "Changning",
+          "Gao",
+          "Gong",
+          "Junlian",
+          "Xingwen",
+          "Pingshan"
+        ]
+      },
+      {
+        "name": "Guangan",
+        "areaList": [
+          "City area",
+          "Guangan",
+          "Yuechi",
+          "Wusheng",
+          "Linshui",
+          "Huaying"
+        ]
+      },
+      {
+        "name": "Dazhou",
+        "areaList": [
+          "City area",
+          "Tongchuan",
+          "Da",
+          "Xuanhan",
+          "Kaijiang",
+          "Dazhu",
+          "Qu",
+          "Wanyuan"
+        ]
+      },
+      {
+        "name": "Ya'an",
+        "areaList": [
+          "City area",
+          "Yucheng ",
+          "Mingshan",
+          "Yingjing",
+          "Hanyuan",
+          "Shimian",
+          "Tianquan",
+          "Lushan",
+          "Baoxing"
+        ]
+      },
+      {
+        "name": "Bazhong",
+        "areaList": [
+          "City area",
+          "Bazhou",
+          "Tongjiang",
+          "Nanjiang",
+          "Pingchang"
+        ]
+      },
+      {
+        "name": "Ziyang",
+        "areaList": [
+          "City area",
+          "Yanjiang",
+          "Anyue",
+          "Lezhi",
+          "Jianyang"
+        ]
+      },
+      {
+        "name": "Aba Tibetan and Qiang Autonomous",
+        "areaList": [
+          "Wenchuan",
+          "Li",
+          "Mao",
+          "Songpan",
+          "Jiuzhaigou",
+          "Jinchuan",
+          "Xiaojin",
+          "Heishui",
+          "Maerkang",
+          "Rangtang",
+          "Aba ",
+          "Ruoergai",
+          "Hongyuan"
+        ]
+      },
+      {
+        "name": "Ganzi Tibetan Autonomous",
+        "areaList": [
+          "Kangding",
+          "Luding",
+          "Danba",
+          "Jiulong",
+          "Yajiang",
+          "Daofu",
+          "Luhuo",
+          "Ganzi",
+          "Xinlong",
+          "Dege",
+          "Baiyu",
+          "Shiqu",
+          "Seda",
+          "Litang",
+          "Batang",
+          "Xiangcheng",
+          "Daocheng",
+          "Derong"
+        ]
+      },
+      {
+        "name": "Liangshan Yi Autonomous",
+        "areaList": [
+          "Xichang",
+          "Muli Tibetan Autonomous",
+          "Yanyuan",
+          "Dechang",
+          "Huili",
+          "Huidong",
+          "Ningnan",
+          "Puge",
+          "Butuo",
+          "Jinyang",
+          "Zhaojue",
+          "Xide",
+          "Mianning",
+          "Yuexi",
+          "Ganluo",
+          "Meigu",
+          "Leibo"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Guizhou",
+    "cityList": [
+      {
+        "name": "Guiyang",
+        "areaList": [
+          "City area",
+          "Nanming",
+          "Yunyan",
+          "Huaxi",
+          "Wudang",
+          "Baiyun",
+          "Xiaohe",
+          "Kaiyang",
+          "Xifeng",
+          "Xiuwen",
+          "Qingzhen"
+        ]
+      },
+      {
+        "name": "Liupanshui",
+        "areaList": [
+          "Zhongshan",
+          "Six branches of the SAR",
+          "Shuicheng",
+          "Pan"
+        ]
+      },
+      {
+        "name": "Zunyi",
+        "areaList": [
+          "City area",
+          "Honghuagang",
+          "Huichuan",
+          "Zunyi",
+          "Tongzi",
+          "Suiyang",
+          "Zheng'an",
+          "Daozhen Gelao and Miao Autonomous",
+          "Wuchuan Gelao and Miao Autonomous",
+          "Fenggang",
+          "Meitan",
+          "Yuqing",
+          "Xishui",
+          "Chishui",
+          "Renhuai"
+        ]
+      },
+      {
+        "name": "Anshun",
+        "areaList": [
+          "City area",
+          "Xixiu",
+          "Pingba",
+          "Puding",
+          "Zhenning Buyi and Miao Autonomous",
+          "Guanling Buyei and Miao Autonomous",
+          "Ziyun Buyi and Miao Autonomous"
+        ]
+      },
+      {
+        "name": "Tongren area",
+        "areaList": [
+          "Tongren",
+          "Jiangkou",
+          "Yuping Dong Autonomous",
+          "Shiqian",
+          "Sinan",
+          "Yinjiang Tujia and Miao Autonomous",
+          "Dejiang",
+          "Yanhe Tujia Autonomous",
+          "Songtao Miao Autonomous",
+          "Wanshan"
+        ]
+      },
+      {
+        "name": "Qianxinan Buyei and Miao Autonomous",
+        "areaList": [
+          "Xingyi",
+          "Xingren",
+          "Puan",
+          "Qinglong",
+          "Zhenfeng",
+          "Wangmo",
+          "Ceheng",
+          "Anlong"
+        ]
+      },
+      {
+        "name": "Bijie area",
+        "areaList": [
+          "Bijie",
+          "Dafang",
+          "Qianxi",
+          "Jinsha",
+          "Zhijin",
+          "Nayong",
+          "Yi-Hui-Miao Autonomous County of Weining",
+          "Hezhang"
+        ]
+      },
+      {
+        "name": "Qiandongnan Miao and Dong Autonomous Prefecture",
+        "areaList": [
+          "Kaili",
+          "Huangping",
+          "Shibing",
+          "Sansui",
+          "Zhenyuan",
+          "Cengong",
+          "Tianzhu",
+          "Jinping",
+          "Jianhe",
+          "Taijiang",
+          "Liping",
+          "Rongjiang",
+          "Congjiang",
+          "Leishan",
+          "Majiang",
+          "Danzhai"
+        ]
+      },
+      {
+        "name": "Qiannan Buyei and Miao Autonomous Prefecture",
+        "areaList": [
+          "Duyun",
+          "Fuquan",
+          "Libo",
+          "Guiding",
+          "Weng'an",
+          "Dushan",
+          "Pingtang",
+          "Luodian",
+          "Changshun",
+          "Longli",
+          "Huishui",
+          "Shui Antonomous County of Sandu"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Yunnan",
+    "cityList": [
+      {
+        "name": "Kunming",
+        "areaList": [
+          "City area",
+          "wuhua",
+          "Panlong",
+          "Guandu",
+          "Xishan",
+          "Dongchuan",
+          "Chenggong",
+          "Jinning",
+          "Fumin",
+          "Yiliang",
+          "Shilin Yi Autonomous",
+          "Songming",
+          "Luquan Yi and Miao Autonomous",
+          "Xundian Hui and Yi Autonomous",
+          "Anning"
+        ]
+      },
+      {
+        "name": "Qujing",
+        "areaList": [
+          "City area",
+          "Qilin",
+          "Malong",
+          "Luliang",
+          "Shizong",
+          "Luoping",
+          "Fuyuan",
+          "Huize",
+          "Zhanyi",
+          "Xuanwei"
+        ]
+      },
+      {
+        "name": "Yuxi",
+        "areaList": [
+          "City area",
+          "Hongta",
+          "Jiangchuan",
+          "Chengjiang",
+          "Tonghai",
+          "Huaning",
+          "Yimen",
+          "Asan Yi",
+          "Xinping Yi and Dai",
+          "Yuanjiang Hani and Yi Dai"
+        ]
+      },
+      {
+        "name": "Baoshan",
+        "areaList": [
+          "City area",
+          "Longyang",
+          "Shidian",
+          "Tengchong",
+          "Longling",
+          "Chngning"
+        ]
+      },
+      {
+        "name": "Zhaotong",
+        "areaList": [
+          "City area",
+          "Zhaoyang",
+          "Ludian",
+          "Qiaojia",
+          "Yanjin",
+          "Daguan",
+          "Yongshan",
+          "Suijiang",
+          "Zhenxiong",
+          "Yiliang",
+          "Weixin",
+          "Shuifu"
+        ]
+      },
+      {
+        "name": "Lijiang",
+        "areaList": [
+          "City area",
+          "Gucheng",
+          "Yulong Naxi",
+          "Yongsheng",
+          "Huaping",
+          "Ninglang Yi"
+        ]
+      },
+      {
+        "name": "Simao",
+        "areaList": [
+          "City area",
+          "Cuiyun",
+          "Pu'er Hani and Yi",
+          "Mojiang Hani",
+          "Jingdong Yi",
+          "Jinggu Dai and Yi",
+          "Zhenyuan Yi nationality Hani Lahu",
+          "Jiangcheng Hani and Yi",
+          "Menglian Dai wa Lahu",
+          "Lancang Lahu",
+          "Ximeng wa"
+        ]
+      },
+      {
+        "name": "Lincang",
+        "areaList": [
+          "City area",
+          "Linxiang",
+          "Fengqing",
+          "Yun",
+          "Yongde",
+          "Zhenkang",
+          "Shuangjiang Lahu, WA Brown Dai nationality",
+          "Gengma Dai and wa",
+          "Cangyuan wa"
+        ]
+      },
+      {
+        "name": "Chuxiong Yi Autonomous Prefecture",
+        "areaList": [
+          "Chuxiong",
+          "Shuangbai",
+          "Mouding",
+          "Nanhua",
+          "Yao'an ",
+          "Dayao",
+          "Yongren",
+          "Yuanmou",
+          "Wuding",
+          "Lufeng"
+        ]
+      },
+      {
+        "name": "Honghe Hani and Yi Autonomous Prefecture",
+        "areaList": [
+          "Gejiu",
+          "Kaiyuan",
+          "Mengzi",
+          "Pingbian Miao",
+          "Jianshui",
+          "Shiping",
+          "Mile",
+          "Luxi",
+          "Yuanyang",
+          "Honghe",
+          "Jinping Dai Miao Yao",
+          "Lvchun",
+          "Hekou Yao"
+        ]
+      },
+      {
+        "name": "Wenshan Zhuang and Miao Autonomous Prefecture",
+        "areaList": [
+          "Wenshan",
+          "Yanshan",
+          "Xichou",
+          "Malipo",
+          "Maguan",
+          "Qiubei",
+          "Guangnan",
+          "Funing"
+        ]
+      },
+      {
+        "name": "Dai Autonomous Prefecture of Xishuangbanna",
+        "areaList": [
+          "Jinghong",
+          "Menghai",
+          "Mengla"
+        ]
+      },
+      {
+        "name": "Dali Bai Autonomous Prefecture",
+        "areaList": [
+          "Dali",
+          "Yangbi Yi",
+          "Xiangyun",
+          "Binchuan",
+          "Midu",
+          "Nanjian Yi",
+          "Weishan Yi Hui",
+          "Yongping",
+          "Yunlong",
+          "Eryuan",
+          "Jianchuan",
+          "Heqing"
+        ]
+      },
+      {
+        "name": "Dehong Dai Jingpo Autonomous Prefecture",
+        "areaList": [
+          "Ruili",
+          "luxi",
+          "Lianghe",
+          "Yingjiang",
+          "Longchuan"
+        ]
+      },
+      {
+        "name": "Nu River Lisu Autonomous Prefecture",
+        "areaList": [
+          "Lushui",
+          "Fugong",
+          "Gongshan derungzu Nuzu",
+          "Lanping Bai Pumi"
+        ]
+      },
+      {
+        "name": "Diqing Tibetan Autonomous Prefecture",
+        "areaList": [
+          "Shangri-la",
+          "Deqin ",
+          "Weixi Lisu"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Tibet",
+    "cityList": [
+      {
+        "name": "Lhasa",
+        "areaList": [
+          "City area",
+          "Chengguan",
+          "Linzhou",
+          "Dangxiong",
+          "Nimu",
+          "Qushui",
+          "Doilungdegen",
+          "Dazi",
+          "Mozhugongka"
+        ]
+      },
+      {
+        "name": "Changdu area",
+        "areaList": [
+          "Changdu",
+          "Jiangda",
+          "Gongjue",
+          "Leiwuqi",
+          "Dingqing",
+          "Chaya",
+          "Basu",
+          "Zuogong",
+          "Mangkang",
+          "Luolong",
+          "Bianba"
+        ]
+      },
+      {
+        "name": "Shannan area",
+        "areaList": [
+          "Naidong",
+          "Zhanang",
+          "Gongga",
+          "Sangri",
+          "Qiongjie",
+          "Qusong",
+          "Cuomei",
+          "Luozha",
+          "Jiacha",
+          "Longzi",
+          "Cuona",
+          "Langkazi"
+        ]
+      },
+      {
+        "name": "Rikaze area",
+        "areaList": [
+          "Rikaze",
+          "Nanmulin",
+          "Jiangzi",
+          "Dingri",
+          "Saga",
+          "Lazi",
+          "Angren",
+          "Xietongmen",
+          "Bailang",
+          "Renbu",
+          "Kangma",
+          "Dingjie",
+          "Zhongba",
+          "Yadong",
+          "Jilong",
+          "Nielamu",
+          "Saga",
+          "Gangba"
+        ]
+      },
+      {
+        "name": "Naqu",
+        "areaList": [
+          "Naqu",
+          "Jiali",
+          "Biru",
+          "Nierong",
+          "Anduo",
+          "Shenzha",
+          "Suo",
+          "Bange",
+          "Baqing",
+          "Nyima"
+        ]
+      },
+      {
+        "name": "Ali area",
+        "areaList": [
+          "Pulan",
+          "Zanda",
+          "Gar",
+          "ritu",
+          "Geji",
+          "Gaize",
+          "Cuoqing"
+        ]
+      },
+      {
+        "name": "Linzhi area",
+        "areaList": [
+          "Linzhi",
+          "Gongbujiangda",
+          "Milin",
+          "Motuo",
+          "Bomi",
+          "Chayu",
+          "Lang"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Henan",
+    "cityList": [
+      {
+        "name": "Zhengzhou City",
+        "areaList": [
+          "City area",
+          "Zhongyuan",
+          "Erqi",
+          "Guancheng Hui",
+          "Jinshui",
+          "Shangjie",
+          "mangshan",
+          "Zhongmou",
+          "Gongyi",
+          "xingyang",
+          "Xinmi",
+          "Xinzheng",
+          "Dengfeng"
+        ]
+      },
+      {
+        "name": "Kaifeng",
+        "areaList": [
+          "City area",
+          "Longting",
+          "shunhe hui",
+          "Gulou",
+          "Nanguan",
+          "Jiaoqu",
+          "Qixian",
+          "Tongxu",
+          "Weishi",
+          "Kaifeng",
+          "Lankao"
+        ]
+      },
+      {
+        "name": "Luoyang",
+        "areaList": [
+          "City area",
+          "Laocheng",
+          "Xigong",
+          "Chanhe Hui",
+          "Jianxi",
+          "Jili",
+          "Luolong",
+          "Mengjin",
+          "Xin'an",
+          "Luanchuan",
+          "Song",
+          "Ruyang",
+          "Yiyang",
+          "Luoning",
+          "Yichuan",
+          "Yanshi"
+        ]
+      },
+      {
+        "name": "Pingdingshan",
+        "areaList": [
+          "City area",
+          "Xinhua",
+          "Weidong",
+          "Shilong",
+          "Zhanhe",
+          "Baofeng",
+          "Ye",
+          "Lushan",
+          "Jia",
+          "Wugang",
+          "Ruzhou"
+        ]
+      },
+      {
+        "name": "Anyang",
+        "areaList": [
+          "City area",
+          "Wenfeng",
+          "Beiguan",
+          "Yindu",
+          "Longan",
+          "Anyang",
+          "Tangyin",
+          "Hua",
+          "Neihuang",
+          "Linzhou"
+        ]
+      },
+      {
+        "name": "Hebi",
+        "areaList": [
+          "City area",
+          "Heshan",
+          "Shancheng",
+          "Qibin",
+          "Jun",
+          "Qi"
+        ]
+      },
+      {
+        "name": "Xinxiang",
+        "areaList": [
+          "City area",
+          "Hongqi",
+          "Weibin",
+          "Fengquan",
+          "Muye",
+          "Xinxiang",
+          "Huojia",
+          "Yuanyang",
+          "Yanjin",
+          "Fengqiu",
+          "Changyuan",
+          "Weihui",
+          "Huixian"
+        ]
+      },
+      {
+        "name": "Jiaozuo",
+        "areaList": [
+          "City area",
+          "Jiefang",
+          "Zhongzhan",
+          "Macun",
+          "Shanyang",
+          "Xiuwu",
+          "Boai",
+          "Wuzhi",
+          "Wen",
+          "Jiyuan",
+          "Qinyang",
+          "Mengzhou"
+        ]
+      },
+      {
+        "name": "Puyang area",
+        "areaList": [
+          "City area",
+          "Hualong",
+          "Qingfeng",
+          "Nanle",
+          "Fan",
+          "Taiqian",
+          "Puyang"
+        ]
+      },
+      {
+        "name": "Xuchang",
+        "areaList": [
+          "City area",
+          "Weidu",
+          "Xuchang",
+          "Yanling",
+          "Xiangcheng",
+          "Yuzhou",
+          "Changge"
+        ]
+      },
+      {
+        "name": "Luohe",
+        "areaList": [
+          "City area",
+          "yuanhui",
+          "Yancheng",
+          "Shaoling",
+          "Wuyang",
+          "Linying"
+        ]
+      },
+      {
+        "name": "Sanmenxia",
+        "areaList": [
+          "City area",
+          "Hubin",
+          "Mianchi",
+          "Shan",
+          "Lushi",
+          "Yima",
+          "Lingbao"
+        ]
+      },
+      {
+        "name": "Nanyang",
+        "areaList": [
+          "City area",
+          "Wancheng",
+          "Wolong",
+          "Nanzhao",
+          "Fangcheng",
+          "Xixia",
+          "Zhenping",
+          "Neixiang",
+          "Xichuan",
+          "Sheqi",
+          "Tanghe",
+          "Xinye",
+          "Tongbai",
+          "Dengzhou"
+        ]
+      },
+      {
+        "name": "Shangqiu",
+        "areaList": [
+          "City area",
+          "Liangyuan",
+          "Suiyang",
+          "Minquan",
+          "Sui",
+          "Ningling",
+          "Zhecheng",
+          "Yucheng",
+          "Xiayi",
+          "Yongcheng"
+        ]
+      },
+      {
+        "name": "Xinyang",
+        "areaList": [
+          "City area",
+          "Shihe",
+          "Pingqiao",
+          "Luoshan",
+          "Guangshan",
+          "Xin",
+          "Shangcheng",
+          "Gushi",
+          "Huangchuan",
+          "Huaibin",
+          "Xi"
+        ]
+      },
+      {
+        "name": "Zhoukou",
+        "areaList": [
+          "City area",
+          "Chuanhui",
+          "Fugou",
+          "Xihua",
+          "Shangshui",
+          "Shenqiu",
+          "Dancheng",
+          "Huaiyang",
+          "Taikang",
+          "Luyi",
+          "Xiangcheng"
+        ]
+      },
+      {
+        "name": "Zhumadian",
+        "areaList": [
+          "City area",
+          "Yicheng",
+          "Xiping",
+          "Shangcai",
+          "Pingyu",
+          "Zhengyang",
+          "Queshan",
+          "Biyang",
+          "Runan",
+          "Suiping",
+          "Xincai"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Hubei",
+    "cityList": [
+      {
+        "name": "Wuhan",
+        "areaList": [
+          "City area",
+          "Jiang'an",
+          "Jianghan",
+          "Qiaokou",
+          "Hanyang",
+          "Wuchang",
+          "Qingshan",
+          "Hongshan",
+          "Dongxihu",
+          "Hannan",
+          "Caidian",
+          "Jiangxia",
+          "Huangpi",
+          "Xinzhou"
+        ]
+      },
+      {
+        "name": "Huangshi",
+        "areaList": [
+          "City area",
+          "Huangshixiang",
+          "Xisaishan",
+          "Xialu",
+          "Tieshan",
+          "Yangxin",
+          "Dazhi"
+        ]
+      },
+      {
+        "name": "Shiyan",
+        "areaList": [
+          "City area",
+          "Maojian",
+          "Zhangwan",
+          "Yun",
+          "Yunxi",
+          "Zhushan",
+          "Zhuxi",
+          "Fang",
+          "Danjiangkou"
+        ]
+      },
+      {
+        "name": "Yichang",
+        "areaList": [
+          "City area",
+          "Xiling",
+          "Wujiagang",
+          "Dianjun",
+          "Xiaoting",
+          "Yiling",
+          "Yuan'an",
+          "Xingshan",
+          "Zigui",
+          "Changyang Tujia",
+          "Five peaks Tujia Nationality",
+          "Yidu",
+          "Dangyang",
+          "Zhijiang"
+        ]
+      },
+      {
+        "name": "Xiangfan",
+        "areaList": [
+          "City area",
+          "Xiangcheng",
+          "Fancheng",
+          "Xiangyang",
+          "Nanzhang",
+          "Gucheng",
+          "Baokang",
+          "Laohekou",
+          "Zaoyang",
+          "Yicheng"
+        ]
+      },
+      {
+        "name": "Ezhou",
+        "areaList": [
+          "City area",
+          "Liangzi",
+          "Huarong",
+          "Echeng"
+        ]
+      },
+      {
+        "name": "Jingmen",
+        "areaList": [
+          "City area",
+          "Dongbao",
+          "Duodao",
+          "Jingshan",
+          "Shayang",
+          "Zhongxiang"
+        ]
+      },
+      {
+        "name": "Xiaogan",
+        "areaList": [
+          "City area",
+          "Xiaonan",
+          "Xiaochang",
+          "Dawu",
+          "Yunmeng",
+          "Yingcheng",
+          "Anlu",
+          "Hanchuan"
+        ]
+      },
+      {
+        "name": "Jingzhou",
+        "areaList": [
+          "City area",
+          "Shashi",
+          "Jingzhou",
+          "Gongan",
+          "Jianli",
+          "Jiangling",
+          "Shishou",
+          "Honghu",
+          "Songzi"
+        ]
+      },
+      {
+        "name": "Huanggang",
+        "areaList": [
+          "City area",
+          "Huangzhou",
+          "Tuanfeng",
+          "Hong'an",
+          "Luotian",
+          "Yingshan",
+          "Xishui",
+          "Qichun",
+          "Huangmei",
+          "Macheng",
+          "Wuxue"
+        ]
+      },
+      {
+        "name": "Xianning",
+        "areaList": [
+          "City area",
+          "Xian'an",
+          "Jiayu",
+          "Tongcheng",
+          "Chongyang",
+          "Tongshan",
+          "Chibi"
+        ]
+      },
+      {
+        "name": "Suizhou",
+        "areaList": [
+          "City area",
+          "Zengdu",
+          "Guangshui"
+        ]
+      },
+      {
+        "name": "Enshi Tujia and Miao Nationality",
+        "areaList": [
+          "Enshi",
+          "Lichuan",
+          "Jianshi",
+          "Badong",
+          "Xuan'en",
+          "Xianfeng",
+          "Laifeng",
+          "Hefeng"
+        ]
+      },
+      {
+        "name": "Provincial administrative units",
+        "areaList": [
+          "Xiantao",
+          "Qianjiang",
+          "Tianmen",
+          "Shennongjia"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Hu'nan",
+    "cityList": [
+      {
+        "name": "Changsha",
+        "areaList": [
+          "City area",
+          "furong",
+          "Tianxin",
+          "Yuelu",
+          "Kaifu",
+          "Yuhua",
+          "Changsha",
+          "Wangcheng",
+          "Ningxiang",
+          "Liuyang"
+        ]
+      },
+      {
+        "name": "Zhuzhou",
+        "areaList": [
+          "City area",
+          "Hetang",
+          "Lusong",
+          "Shifeng",
+          "Tianyuan",
+          "Zhuzhou",
+          "You",
+          "Chaling",
+          "Yanling",
+          "Liling"
+        ]
+      },
+      {
+        "name": "Xiangtan",
+        "areaList": [
+          "City area",
+          "Yuhu",
+          "Yuetang",
+          "Xiangtan",
+          "Xiangxiang",
+          "Shaoshan"
+        ]
+      },
+      {
+        "name": "Hengyang",
+        "areaList": [
+          "City area",
+          "Zhuhui",
+          "Yanfeng",
+          "Shigu",
+          "Zhengxiang",
+          "Nanyue",
+          "Hengyang",
+          "Hengnan",
+          "Hengshan",
+          "Hengdong",
+          "Qidong",
+          "Leiyang",
+          "Changning"
+        ]
+      },
+      {
+        "name": "Shaoyang",
+        "areaList": [
+          "City area",
+          "Shuangqing",
+          "Daxiang",
+          "Beita",
+          "Shaodong",
+          "Xinshao",
+          "Shaoyang",
+          "Longhui",
+          "Dongkou",
+          "Suining",
+          "Xinning",
+          "Chengbu Miao Autonomous County",
+          "Wugang"
+        ]
+      },
+      {
+        "name": "Yueyang",
+        "areaList": [
+          "City area",
+          "Yueyanglou",
+          "Yunxi",
+          "Junshan",
+          "Yueyang",
+          "Huarong",
+          "Xiangyin",
+          "Pingjiang",
+          "miluo",
+          "Linxiang"
+        ]
+      },
+      {
+        "name": "Changde",
+        "areaList": [
+          "City area",
+          "Wuling",
+          "Dingcheng",
+          "Anxiang",
+          "Hanshou",
+          "Li",
+          "Linli",
+          "Taoyuan",
+          "Shimen",
+          "Jinshi"
+        ]
+      },
+      {
+        "name": "Zhangjiajie",
+        "areaList": [
+          "City area",
+          "Yongding",
+          "Wulingyuan",
+          "Cili",
+          "Sangzhi"
+        ]
+      },
+      {
+        "name": "Yiyang",
+        "areaList": [
+          "City area",
+          "Ziyang",
+          "Heshan",
+          "Nan",
+          "Taojiang",
+          "Anhua",
+          "Yuanjiang"
+        ]
+      },
+      {
+        "name": "Chenzhou",
+        "areaList": [
+          "City area",
+          "Beihu",
+          "Suxian",
+          "Guiyang",
+          "Yizhang",
+          "Yongxing",
+          "Jiahe",
+          "Linwu",
+          "Rucheng",
+          "Guidong",
+          "Anren",
+          "Zixing"
+        ]
+      },
+      {
+        "name": "Yongzhou",
+        "areaList": [
+          "City area",
+          "Zhishan",
+          "Lengshuitan",
+          "Qiyang",
+          "Dong'an",
+          "ShuangPai",
+          "Daoxian",
+          "Jiangyong",
+          "Ningyuan",
+          "Lanshan",
+          "Xintian",
+          "Jiang Hua Yao"
+        ]
+      },
+      {
+        "name": "Huaihua",
+        "areaList": [
+          "City area",
+          "Hecheng",
+          "Zhongfang",
+          "Yuanling",
+          "Chenxi",
+          "Xupu",
+          "Huitong",
+          "Mayang Miao",
+          "Xinhuang Dong",
+          "Zhi River Dong",
+          "Jingzhou Miao and Dong",
+          "Tongdao",
+          "Hongjiang"
+        ]
+      },
+      {
+        "name": "Loudi",
+        "areaList": [
+          "City area",
+          "Louxing",
+          "Shuangfeng",
+          "Xinhua",
+          "Lengshuijiang",
+          "lianyuan"
+        ]
+      },
+      {
+        "name": "Xiangxi Tujia and Miao Nationality",
+        "areaList": [
+          "Jishou",
+          "Luxi",
+          "Fenghuang",
+          "Huayuan",
+          "Baojing",
+          "Guzhang",
+          "Yongshun",
+          "Longshan"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Guangdong",
+    "cityList": [
+      {
+        "name": "Guangzhou",
+        "areaList": [
+          "City area",
+          "Dongshan",
+          "Liwan",
+          "Yuexiu",
+          "Haizhu",
+          "Tianhe",
+          "Fangcun",
+          "Baiyun",
+          "Huangpu",
+          "Panyu",
+          "Huadu",
+          "Zengcheng",
+          "Conghua"
+        ]
+      },
+      {
+        "name": "Shaoguan",
+        "areaList": [
+          "City area",
+          "Wujiang",
+          "Zhenjiang",
+          "Qujiang",
+          "Shixing",
+          "Renhua",
+          "Wengyuan",
+          "Ruyuan Yao",
+          "Xinfeng",
+          "Lechang",
+          "Nanxiong"
+        ]
+      },
+      {
+        "name": "Shenzhen",
+        "areaList": [
+          "City area",
+          "luohu",
+          "Futian",
+          "Nanshan",
+          "Baoan",
+          "Longgang",
+          "Yantian"
+        ]
+      },
+      {
+        "name": "Zhuhai",
+        "areaList": [
+          "City area",
+          "Xiangzhou",
+          "Doumen",
+          "Jinwan"
+        ]
+      },
+      {
+        "name": "Shantou",
+        "areaList": [
+          "City area",
+          "Longhu",
+          "Jinping",
+          "Haojiang",
+          "Chaoyang",
+          "Chaonan",
+          "Chenghai",
+          "Nan'ao"
+        ]
+      },
+      {
+        "name": "Foshan",
+        "areaList": [
+          "City area",
+          "Chancheng",
+          "Nanhai",
+          "Shunde",
+          "Sanshui",
+          "Gaoming"
+        ]
+      },
+      {
+        "name": "Jiangmen",
+        "areaList": [
+          "City area",
+          "Pengjiang",
+          "Jianghai",
+          "Xinhui",
+          "Taishan",
+          "Kaiping",
+          "Heshan",
+          "Enping"
+        ]
+      },
+      {
+        "name": "Zhanjiang",
+        "areaList": [
+          "City area",
+          "Chikan",
+          "Xiashan",
+          "Potou",
+          "Mazhang",
+          "Suixi",
+          "Xuwen",
+          "Lianjiang",
+          "Leizhou",
+          "Wuchuan"
+        ]
+      },
+      {
+        "name": "Maoming",
+        "areaList": [
+          "City area",
+          "Maonan",
+          "Maoxiang",
+          "Dianbai",
+          "Gaozhou",
+          "Huazhou",
+          "Xinyi"
+        ]
+      },
+      {
+        "name": "Zhaoqing",
+        "areaList": [
+          "City area",
+          "Duanzhou",
+          "Dinghu",
+          "Guangning",
+          "Huaiji",
+          "Fengkai",
+          "Deqing",
+          "Gaoyao",
+          "Sihui"
+        ]
+      },
+      {
+        "name": "Huizhou",
+        "areaList": [
+          "City area",
+          "Huicheng",
+          "Huiyang",
+          "Boluo",
+          "Huidong",
+          "Longmen"
+        ]
+      },
+      {
+        "name": "Meizhou",
+        "areaList": [
+          "City area",
+          "Meijiang",
+          "Mei",
+          "Dapu",
+          "Fengshun",
+          "Wuhua",
+          "Pingyuan",
+          "Jiaoling",
+          "Xingning"
+        ]
+      },
+      {
+        "name": "Shanwei",
+        "areaList": [
+          "City area",
+          "Cheng district",
+          "Haifeng",
+          "Luhe",
+          "Lufeng"
+        ]
+      },
+      {
+        "name": "Heyuan",
+        "areaList": [
+          "City area",
+          "Yuancheng",
+          "Zijin",
+          "Longchuan",
+          "Lianping",
+          "Heping",
+          "Dongyuan"
+        ]
+      },
+      {
+        "name": "Yangjiang",
+        "areaList": [
+          "City area",
+          "Jiangcheng",
+          "Yangxi",
+          "Yangdong",
+          "Yangchun"
+        ]
+      },
+      {
+        "name": "Qingyuan",
+        "areaList": [
+          "City area",
+          "Qingcheng",
+          "Fogang",
+          "Yangshan",
+          "Lianshan Zhuang and Yao",
+          "Liannan Yao",
+          "Qingxin",
+          "Yingde",
+          "Lianzhou"
+        ]
+      },
+      {
+        "name": "Dongguan",
+        "areaList": [
+          "Dongguan"
+        ]
+      },
+      {
+        "name": "Zhongshan",
+        "areaList": [
+          "Zhongshan"
+        ]
+      },
+      {
+        "name": "Chaozhou",
+        "areaList": [
+          "City area",
+          "Xiangqiao",
+          "Chaoan",
+          "Raoping"
+        ]
+      },
+      {
+        "name": "Jieyang",
+        "areaList": [
+          "City area",
+          "Rongcheng",
+          "Jiedong",
+          "Jiexi",
+          "Huilai",
+          "Puning"
+        ]
+      },
+      {
+        "name": "Yunfu",
+        "areaList": [
+          "City area",
+          "Yuncheng",
+          "Xinxing",
+          "Yunan",
+          "Yunnan",
+          "Luoding"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Guangxi",
+    "cityList": [
+      {
+        "name": "Nanning",
+        "areaList": [
+          "City area",
+          "Xingning",
+          "Qingxiu",
+          "Jiangnan",
+          "Xixiangtang",
+          "Liangqing",
+          "Yongning",
+          "Wuming",
+          "Long'an",
+          "Mashan",
+          "Shanglin",
+          "Binyang",
+          "Heng"
+        ]
+      },
+      {
+        "name": "Liuzhou",
+        "areaList": [
+          "City area",
+          "Chengzhong",
+          "Yufeng",
+          "Liunan",
+          "Liubei",
+          "Liujiang",
+          "Liucheng",
+          "Luzhai",
+          "Rong'an",
+          "Rongshui Miao",
+          "Sanjiang Dong"
+        ]
+      },
+      {
+        "name": "Guilin",
+        "areaList": [
+          "City area",
+          "Xiufeng",
+          "Diecai",
+          "Xiangshan",
+          "Qixing",
+          "Yanshan",
+          "Yangshuo",
+          "Lingui",
+          "Lingchuan",
+          "Quanzhou",
+          "Xing'an",
+          "Yongfu",
+          "Guanyang",
+          "Longsheng",
+          "Ziyuan",
+          "Pingle",
+          "Lipu",
+          "Gongcheng Yao"
+        ]
+      },
+      {
+        "name": "Wuzhou",
+        "areaList": [
+          "City area",
+          "Wanxiu",
+          "Dieshan",
+          "Changzhou",
+          "Cangwu",
+          "Teng",
+          "Mengshan",
+          "Cenxi"
+        ]
+      },
+      {
+        "name": "Beihai",
+        "areaList": [
+          "City area",
+          "Haicheng",
+          "Yinhai",
+          "Tieshanxiang",
+          "Hepu"
+        ]
+      },
+      {
+        "name": "Fangchengxiang",
+        "areaList": [
+          "City area",
+          "Xiangkou",
+          "Fangcheng",
+          "Shangsi",
+          "Dongxing"
+        ]
+      },
+      {
+        "name": "Qinzhou",
+        "areaList": [
+          "City area",
+          "Qinnan",
+          "Qinbei",
+          "Lingshan",
+          "Pubei"
+        ]
+      },
+      {
+        "name": "Guixiang",
+        "areaList": [
+          "City area",
+          "Xiangbei",
+          "Xiangnan",
+          "Qintang",
+          "Pingnan",
+          "Guiping"
+        ]
+      },
+      {
+        "name": "Yulin",
+        "areaList": [
+          "City area",
+          "Yuzhou",
+          "Rong",
+          "Luchuan",
+          "Bobai",
+          "Xingye",
+          "Beiliu"
+        ]
+      },
+      {
+        "name": "Baise",
+        "areaList": [
+          "City area",
+          "Youjiang",
+          "Tianyang",
+          "Tiandong",
+          "Pingguo",
+          "Debao",
+          "Jingxi",
+          "Napo",
+          "Lingyun",
+          "Leye",
+          "Tianlin",
+          "Xilin",
+          "Longlin"
+        ]
+      },
+      {
+        "name": "Hezhou",
+        "areaList": [
+          "City area",
+          "Babu",
+          "Zhaoping",
+          "Zhongshan",
+          "Fuchuan Yao"
+        ]
+      },
+      {
+        "name": "Hechi",
+        "areaList": [
+          "City area",
+          "Jinchengjiang district",
+          "Nandan county",
+          "Tian'e county",
+          "Fengshan county",
+          "Donglan county",
+          "Luocheng mulamzuzizhixian",
+          "Huanjiang Maonan autonomous county",
+          "Bama Yao Autonomous county",
+          "Du'an Yao Autonomous county",
+          "Dahua Yao Autonomous county",
+          "Yizhou city"
+        ]
+      },
+      {
+        "name": "Laibin",
+        "areaList": [
+          "City area",
+          "Xingbin district",
+          "Xincheng county",
+          "Xiangzhou",
+          "Wuxuan county",
+          "Jinxiu Yao Autonomous county",
+          "Heshan city"
+        ]
+      },
+      {
+        "name": "Chongzuo",
+        "areaList": [
+          "City area",
+          "Jiangzhou district",
+          "Fusui county",
+          "Ningming county",
+          "Longzhou county",
+          "Greater Xinxian County",
+          "Tiandeng county",
+          "Pingxiang city"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Shanxi",
+    "cityList": [
+      {
+        "name": "Xi'an",
+        "areaList": [
+          "City area",
+          "Xincheng",
+          "Beilin district",
+          "Lianhu district",
+          "Baqiao district",
+          "Weiyang",
+          "Yanta district",
+          "Yanliang district",
+          "Lintong district",
+          "Changan District",
+          "Lantian county",
+          "Zhouzhi County",
+          "Huxian",
+          "Gaoling county"
+        ]
+      },
+      {
+        "name": "Tongchuan",
+        "areaList": [
+          "City area",
+          "Wangyi district",
+          "Yintai district",
+          "Yaozhou district",
+          "Yijun county"
+        ]
+      },
+      {
+        "name": "Baoji",
+        "areaList": [
+          "City area",
+          "Weibin district",
+          "Jintai district",
+          "Chencang district",
+          "Fengxiang county",
+          "Qishan county",
+          "Fufeng county",
+          "Meixian",
+          "Longxian",
+          "Qianyang county",
+          "Linyou county",
+          "Fengxian",
+	  "Taibai County"
+        ]
+      },
+      {
+        "name": "Xianyang",
+        "areaList": [
+          "City area",
+          "Qin district",
+          "Yangling district",
+          "Weicheng",
+          "Sanyuan county",
+          "Jingyang county",
+          "Qianxian County",
+          "Liquan county",
+          "Yongshou county",
+          "Binxian County",
+          "Changwu county",
+          "Xunyi county",
+          "Chunhua county",
+          "Wugong county",
+          "Xingping city"
+        ]
+      },
+      {
+        "name": "Weinan",
+        "areaList": [
+          "City area",
+          "Linwei district",
+          "Huaxian",
+          "Tongguan county",
+          "Dali county",
+          "Heyang county",
+          "Chengcheng county",
+          "Pucheng county",
+          "Baishui county",
+          "Fuping county",
+          "Hancheng city",
+          "Huayin city"
+        ]
+      },
+      {
+        "name": "Yan'an",
+        "areaList": [
+          "City area",
+          "Baota district",
+          "Yanchang county",
+          "Yanchuan county",
+          "Zichang county",
+          "Ansai county",
+          "Zhidan county",
+          "Wuqi county",
+          "Ganquan county",
+          "Fu xian",
+          "Luochuan county",
+          "Yichuan county",
+          "Huanglong county",
+          "Huangling county"
+        ]
+      },
+      {
+        "name": "Hanzhong",
+        "areaList": [
+          "City area",
+          "Hantai district",
+          "Nanzheng county",
+          "Chenggu county",
+          "Yangxian County",
+          "Xixiang county",
+          "Mianxian",
+          "Ningqiang county",
+          "Lueyang county",
+          "Zhenba county",
+          "Liuba county",
+          "Foping county"
+        ]
+      },
+      {
+        "name": "Yulin",
+        "areaList": [
+          "City area",
+          "Yuyang district",
+          "Shenmu",
+          "Fugu county",
+          "Hengshan county",
+          "Jingbian county",
+          "Dingbian county",
+          "Suide county",
+          "Mizhi county",
+          "Jiaxian",
+          "Wubao county",
+          "Qingjian county",
+          "Zizhou county"
+        ]
+      },
+      {
+        "name": "Ankang",
+        "areaList": [
+          "City area",
+          "Hanbin district",
+          "Hanyin county",
+          "Shiquan county",
+          "Ningshan county",
+          "Ziyang",
+          "Langao county",
+          "Pingli county",
+          "Zhenping county",
+          "Xunyang county",
+          "Baihe county"
+        ]
+      },
+      {
+        "name": "Shangluo",
+        "areaList": [
+          "City area",
+          "Shangzhou district",
+          "Luonan county",
+          "Danfeng county",
+          "In Shangnan county",
+          "Shanyang county",
+          "Zhen'an county",
+          "Zhashui county"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Gansu",
+    "cityList": [
+      {
+        "name": "Lanzhou",
+        "areaList": [
+          "City area",
+          "Chengguan district",
+          "Qilihe district",
+          "Xigu district",
+          "Anning district",
+          "Honggu district",
+          "Yongdeng county",
+          "Gaolan county",
+          "Yuzhong county"
+        ]
+      },
+      {
+        "name": "Jiayuguan",
+        "areaList": [
+          "City area"
+        ]
+      },
+      {
+        "name": "Jinchang",
+        "areaList": [
+          "City area",
+          "Jinchuan district",
+          "Yongchang county"
+        ]
+      },
+      {
+        "name": "Baiyin",
+        "areaList": [
+          "City area",
+          "Baiyin district",
+          "Pingchuan district",
+          "Jingyuan county",
+          "Huining county",
+          "Jingtai county"
+        ]
+      },
+      {
+        "name": "Tianshui",
+        "areaList": [
+          "City area",
+          "Qincheng district",
+          "The North Road area",
+          "Qingshui county",
+          "Qinan county",
+          "Gangu county",
+          "Wushan county",
+          "Zhangjiachuan hui"
+        ]
+      },
+      {
+        "name": "Wuwei",
+        "areaList": [
+          "City area",
+          "Liangzhou district",
+          "Minqin county",
+          "Gulang county",
+          "Tianzhu Tibetan"
+        ]
+      },
+      {
+        "name": "Zhangye",
+        "areaList": [
+          "City area",
+          "Ganzhou district",
+          "Sunan Yugu",
+          "Minle county",
+          "Linze county",
+          "Gaotai county",
+          "Shandan county"
+        ]
+      },
+      {
+        "name": "Pingliang",
+        "areaList": [
+          "City area",
+          "Kongtong district",
+          "Jingchuan county",
+          "Lingtai county",
+          "Chongxin county",
+          "Huating county",
+          "Zhuanglang county",
+          "Jingning county"
+        ]
+      },
+      {
+        "name": "Jiuquan",
+        "areaList": [
+          "City area",
+          "Suzhou",
+          "Jinta",
+          "Anxi",
+          "Subei Mongolian",
+          "Aksay Kazak",
+          "Yumen city",
+          "Dunhuang city"
+        ]
+      },
+      {
+        "name": "Qingyang",
+        "areaList": [
+          "City area",
+          "Xifeng",
+          "Qingcheng",
+          "Huan",
+          "Huachi",
+          "Heshui",
+          "Zhengning",
+          "Ning County",
+          "Zhenyuan"
+        ]
+      },
+      {
+        "name": "Dingxi",
+        "areaList": [
+          "City area",
+          "Anding district",
+          "Tongwei county",
+          "Longxi county",
+          "Weiyuan county",
+          "Lintao county",
+          "Zhang county",
+          "Minxian"
+        ]
+      },
+      {
+        "name": "Longnan",
+        "areaList": [
+          "City area",
+          "Wudu district",
+          "Cheng county",
+          "Wenxian",
+          "Dangchang county",
+          "Xian",
+          "Xihe county",
+          "Lixian",
+          "Huixian",
+          "Liangdang county"
+        ]
+      },
+      {
+        "name": "Hui Autonomous Prefecture of Linxia",
+        "areaList": [
+          "Linxia city",
+          "Linxia county",
+          "Kangle county",
+          "Yongjing county",
+          "Guanghe county",
+          "Political county",
+          "Dongxiang autonomous county",
+          "Jishishan Baoan Dongxiang salar"
+        ]
+      },
+      {
+        "name": "Gannan Tibetan",
+        "areaList": [
+          "Hezuo city",
+          "Lintan county",
+          "Zhuoni county",
+          "Zhouqu county",
+          "Diebu county",
+          "Maqu county",
+          "Luqu county",
+          "Xiahe county"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Qinghai",
+    "cityList": [
+      {
+        "name": "Xining",
+        "areaList": [
+          "City area",
+          "Chengdong",
+          "Chengzhong",
+          "Chengxi",
+          "Chengbei",
+          "Datong",
+          "Huangzhong county",
+          "Huangyuan county"
+        ]
+      },
+      {
+        "name": "Haidong",
+        "areaList": [
+          "Ping'an",
+          "Minhe Hui and Tu",
+          "Ledu",
+          "Huzhu Tu",
+          "Hualong Hui",
+          "Xunhua Salar nationality"
+        ]
+      },
+      {
+        "name": "Haibei Tibetan",
+        "areaList": [
+          "Menyuan Hui",
+          "Qilian county",
+          "In Haiyan county",
+          "Gangcha county"
+        ]
+      },
+      {
+        "name": "Huangnan Tibetan",
+        "areaList": [
+          "Tongren county",
+          "Jianzha county",
+          "Zeku county",
+          "Henan Mongolians"
+        ]
+      },
+      {
+        "name": "Hainan Tibetan",
+        "areaList": [
+          "Gonghe county",
+          "Tongde county",
+          "Guide county",
+          "Xinghai county",
+          "Guinan county"
+        ]
+      },
+      {
+        "name": "Tibetan Autonomous Prefecture of Golog",
+        "areaList": [
+          "Maqing county",
+          "Banma county",
+          "Gande county",
+          "Dari county",
+          "Jiuzhi county",
+          "Maduo county"
+        ]
+      },
+      {
+        "name": "Yushu Tibetan Autonomous Prefecture",
+        "areaList": [
+          "Yushu county",
+          "Heteropoly county",
+          "Chengduo county",
+          "Zhidoi county",
+          "Nangqian county",
+          "Qumalai county"
+        ]
+      },
+      {
+        "name": "Haixi Mongol and Tibetan Autonomous Prefecture",
+        "areaList": [
+          "Geermu",
+          "Delingha city",
+          "Wulan county",
+          "Dulan county",
+          "Tianjun county"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Ningxia",
+    "cityList": [
+      {
+        "name": "Yinchuan",
+        "areaList": [
+          "City area",
+          "Xingqing district",
+          "Xixia",
+          "Jinfeng district",
+          "Yongning county",
+          "Helan county",
+          "Lingwu City"
+        ]
+      },
+      {
+        "name": "Shizuishan",
+        "areaList": [
+          "City area",
+          "Dawukou district",
+          "Huinong district",
+          "Pingluo county"
+        ]
+      },
+      {
+        "name": "Wuzhong",
+        "areaList": [
+          "City area",
+	  "Litong",
+          "Yanchi",
+          "Tongxin",
+          "Qingtongxia"
+        ]
+      },
+      {
+        "name": "Guyuan",
+        "areaList": [
+          "City area",
+	  "Yuanzhou",
+          "Xiji",
+          "Longde",
+          "Jingyuan",
+          "Pengyang",
+          "Haiyuan"
+        ]
+      },
+      {
+        "name": "Zhongwei",
+        "areaList": [
+          "City area",
+	  "SHapoTou",
+          "Zhongning"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Xinjiang",
+    "cityList": [
+      {
+        "name": "Wulumuqi",
+        "areaList": [
+          "City area",
+	  "Tianshan",
+          "Shayibake",
+          "Xinshi",
+          "Shuimogou",
+          "Toutunhe",
+          "Dabancheng",
+          "Dongshan",
+          "Wulumuqi"
+        ]
+      },
+      {
+        "name": "Kelamayi",
+        "areaList": [
+          "City area",
+	  "Dushanzi",
+          "Kelamayi",
+          "Baijiantan",
+          "Wuheer"
+        ]
+      },
+      {
+        "name": "Tulufandi",
+        "areaList": [
+          "Tulufan",
+          "Shanshan",
+          "Tuokexun"
+        ]
+      },
+      {
+        "name": "Hamidi",
+        "areaList": [
+          "Hami",
+          "Balikunhasakezizhi",
+          "Yiwu"
+        ]
+      },
+      {
+        "name": "Changjihuizuzizhizhou",
+        "areaList": [
+          "Changji",
+          "Fukang",
+          "Miquan",
+          "Hutubi",
+          "Manasi",
+          "Qitai",
+          "Jimusaer",
+          "Muleihasakezizhi"
+        ]
+      },
+      {
+        "name": "Boertalamengguzizhizhou",
+        "areaList": [
+          "Bole",
+          "Jinghe",
+          "Wenquan"
+        ]
+      },
+      {
+        "name": "Bayinguolengmengguzizhizhou",
+        "areaList": [
+          "Kuerleshi",
+          "Luntai",
+          "Weilixian",
+          "Ruoqiang",
+          "Qiemo",
+          "Yanqihuizuzizhi",
+          "Hejing",
+          "Heshuo",
+          "Bohu"
+        ]
+      },
+      {
+        "name": "Akesudi",
+        "areaList": [
+          "Akesu",
+          "Wensu",
+          "Keche",
+          "Shaya",
+          "Xinhe",
+          "Baicheng",
+          "Wushi",
+          "Awati",
+          "Keping"
+        ]
+      },
+      {
+        "name": "Kezilesukeerkezizizhizhou",
+        "areaList": [
+          "Atushi",
+          "Aketao",
+          "Aheqi",
+          "Wuqia"
+        ]
+      },
+      {
+        "name": "Kashi",
+        "areaList": [
+          "Kashi",
+          "Shufu",
+          "Shule",
+          "Yingjisha",
+          "Zepu",
+          "Shache",
+          "Yecheng",
+          "Maigaiti",
+          "Yuepuhu",
+          "Gashi",
+          "Bachu",
+          "Tashikuergantakezizhi"
+        ]
+      },
+      {
+        "name": "Hetiandi",
+        "areaList": [
+	  "Hotan City",
+	  "Hotan County",
+          "Moyu",
+          "Pishan",
+          "Luopu",
+          "Cele",
+          "Yutian",
+          "Minfeng"
+        ]
+      },
+      {
+        "name": "Yilihasakezizhizhou",
+        "areaList": [
+	  "Yining City",
+          "Kuitun",
+	  "Yining County",
+          "Chabuchaerxibozizhi",
+          "Huocheng",
+          "Gongliu",
+          "Xinyuan",
+          "Zhaosu",
+          "Tekesi",
+          "Nileke"
+        ]
+      },
+      {
+        "name": "Tachengdi",
+        "areaList": [
+          "Tacheng",
+          "Wusu",
+          "Emin",
+          "Shawan",
+          "Tuoli",
+          "Yumin",
+          "Hebukesaiermengguzizhi"
+        ]
+      },
+      {
+        "name": "Aletai",
+        "areaList": [
+          "Aletai",
+          "Buerjin",
+          "Fuyun",
+          "Fuhai",
+          "Habahe",
+          "Qinghe",
+          "Jimunai"
+        ]
+      },
+      {
+        "name": "shengzhixiaxingzhengdanwei",
+        "areaList": [
+          "Shihezi",
+          "Alaer",
+          "Tumushuke",
+          "Wujiaqu"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Hebei",
+    "cityList": [
+      {
+        "name": "Shijiazhuang",
+        "areaList": [
+          "City area",
+	  "Changan",
+          "Qiaodong",
+          "Qiaoxi",
+          "Xinhua",
+          "Jingxingkuang",
+          "Yuhua",
+          "Jingxing",
+          "Zhengding",
+          "Luancheng",
+          "Xingtang",
+          "Lingshou",
+          "Gaoyi",
+          "Shenze",
+          "Zanhuang",
+          "Wuji",
+          "Pingshan",
+          "Yuanshi",
+          "zhao",
+          "Xinji",
+          "Gaocheng",
+          "JInzhou",
+          "Xinyue",
+          "Luquan"
+        ]
+      },
+      {
+        "name": "Tangshan",
+        "areaList": [
+          "City area",
+	  "Lunan",
+          "Lubei",
+          "Guye",
+          "Kaiping",
+          "Fengnan",
+          "Fengrun",
+          "Luanxian",
+          "Luannan",
+          "Yueting",
+          "Qianxi",
+          "Yutian",
+          "Tanghai",
+          "Zunhua",
+          "Qianan"
+        ]
+      },
+      {
+        "name": "Qinghuangdao",
+        "areaList": [
+          "City area",
+	  "Haigang",
+          "ShanHaiguang",
+          "Beidaihe",
+          "Qinglongmanzuzizhi",
+          "Changli",
+          "Funing",
+          "Lulong"
+        ]
+      },
+      {
+        "name": "Handan",
+        "areaList": [
+          "City area",
+	  "Hanshan",
+          "Congtai",
+          "Fuxing",
+          "Fengfengkuang",
+          "Handan",
+          "Linzhang",
+          "Chengan",
+          "Daming",
+          "She",
+          "Ci",
+          "Feishui",
+          "Yongnian",
+          "Qiu",
+          "Jize",
+          "Guangping",
+          "GUantao",
+          "Wei",
+          "Quzhou",
+          "Wuan"
+        ]
+      },
+      {
+        "name": "Xingtai",
+        "areaList": [
+          "City area",
+	  "Qiaodong",
+          "Qiaoxi",
+          "Xingtai",
+          "Lincheng",
+          "Neiqiu",
+          "Baixiang",
+          "Longyao",
+          "Ren",
+          "Nanhe",
+          "Ningjin",
+          "Julu",
+          "Xinhe",
+          "Guangzong",
+          "Pingxiang",
+          "Wei",
+          "Qinghe",
+          "LInxi",
+          "Nangong",
+          "Shahe"
+        ]
+      },
+      {
+        "name": "Baoding",
+        "areaList": [
+          "City area",
+	  "Xin",
+          "Bei",
+          "Nan",
+          "Mancheng",
+          "Qingyuan",
+          "Laishui",
+          "Fuping",
+          "Xushui",
+          "Dingxing",
+          "Tang",
+          "Gaoyang",
+          "Rongcheng",
+          "Laiyuan",
+          "Wangdu",
+          "Anxin",
+          "Yi",
+          "Quyang",
+          "Li",
+          "Shunping",
+          "Boye",
+          "Xiong",
+          "Zhuozhou",
+          "Dingzhou",
+          "Anguo",
+          "Gaobeidian"
+        ]
+      },
+      {
+        "name": "Zhangjiakou",
+        "areaList": [
+          "City area",
+	  "Qiaodong",
+          "Qiaoxi",
+          "Yihua",
+          "Xiahuayuan",
+          "Yihua",
+          "Zhangbei",
+          "Kangbao",
+          "Guyuan",
+          "Shangyi",
+          "Wei",
+          "Yangyuan",
+          "Huaian",
+          "Wanquan",
+          "Huailai",
+          "Zhuolu",
+          "Chicheng",
+          "Chongli"
+        ]
+      },
+      {
+        "name": "Chengde",
+        "areaList": [
+          "City area",
+	  "Shuangqiao",
+          "Shuangluan",
+          "Yingshouyingzikuang",
+          "Chengde",
+          "Xinglong",
+          "Pingquan",
+          "Luanping",
+          "Longhua",
+          "Fengningmanzuzizhi",
+          "Kuanchengmanzuzizhi",
+          "Weichangmanzumengguzuzizhi"
+        ]
+      },
+      {
+        "name": "Cangzhou",
+        "areaList": [
+          "City area",
+	  "Xinhua",
+          "Yunhe",
+          "Cang",
+          "Qing",
+          "Dongguang",
+          "Haixing",
+          "Yanshan",
+          "Suning",
+          "Nanpi",
+          "Wuqiao",
+          "Xian",
+          "Mengcunhuizuzizhi",
+          "Potou",
+          "Renqiu",
+          "Huahua",
+          "Hejian"
+        ]
+      },
+      {
+        "name": "Langfang",
+        "areaList": [
+          "City area",
+	  "Anci",
+          "Guangyang",
+          "Guan",
+          "Yongqing",
+          "XIanghe",
+          "Dacheng",
+          "Wenan",
+          "Dachanghuizu",
+          "Bazhou",
+          "Sanhe"
+        ]
+      },
+      {
+        "name": "Hengshui",
+        "areaList": [
+          "City area",
+	  "Taocheng",
+          "Zaoqiang",
+          "Wuyi",
+          "Wuqiang",
+          "Raoyang",
+          "Anping",
+          "Gucheng",
+          "Jing",
+          "Fucheng",
+          "Jizhou",
+          "Shenzhou"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Shanxi",
+    "cityList": [
+      {
+        "name": "Taiyuan",
+        "areaList": [
+          "City area",
+	  "Xiaodian",
+          "Yingze",
+          "Xinghualing",
+          "Jiaocaoping",
+          "Wanbolin",
+          "Jinyuan",
+          "Qingxu",
+          "Yangqu",
+          "Loufan",
+          "Gujiao"
+        ]
+      },
+      {
+        "name": "Datong",
+        "areaList": [
+          "City area",
+	  "Cheng",
+          "Kuang",
+          "Nanjiao",
+          "Xinrong",
+          "Yanggao",
+          "Tianzhen",
+          "Guangling",
+          "Lingqiu",
+          "Hunyuan",
+          "Zuoyun",
+          "Datong"
+        ]
+      },
+      {
+        "name": "Yangquan",
+        "areaList": [
+          "City area",
+	  "Cheng",
+          "Kuang",
+          "Jiao",
+          "Pingding",
+          "Yu"
+        ]
+      },
+      {
+        "name": "Changzhi",
+        "areaList": [
+          "City area",
+	  "Cheng",
+          "Jiao",
+          "Changzhi",
+          "Xiangyuan",
+          "Tunliu",
+          "Pingshun",
+          "Licheng",
+          "Huguan",
+          "Zhangzi",
+          "Wuxiang",
+          "Qin",
+          "QInyuan",
+          "Lucheng"
+        ]
+      },
+      {
+        "name": "Jincheng",
+        "areaList": [
+          "City area",
+	  "Cheng",
+          "Qinshui",
+          "Yangcheng",
+          "Lingchuan",
+          "Zezhou",
+          "Gaoping"
+        ]
+      },
+      {
+        "name": "Shuozhou",
+        "areaList": [
+          "City area",
+	  "Shuocheng",
+          "Pinglu",
+          "Shanyin",
+          "Ying",
+          "Youyu",
+          "Huairen"
+        ]
+      },
+      {
+        "name": "Jinzhong",
+        "areaList": [
+          "City area",
+	  "Yuci",
+          "Yushe",
+          "Zuoquan",
+          "Heshun",
+          "Xiyang",
+          "Shouyang",
+          "Taigu",
+          "Qi",
+          "Pingyao",
+          "Lingshi",
+          "Jiexiu"
+        ]
+      },
+      {
+        "name": "Yuncheng",
+        "areaList": [
+          "City area",
+	  "Yanhu",
+          "Linyi",
+          "Wanrong",
+          "Wenxi",
+          "Jishan",
+          "Xinjiang",
+          "Jiang",
+          "Yuanqu",
+          "Xia",
+          "Pinglu",
+          "Ruicheng",
+          "Yongji",
+          "Hejin"
+        ]
+      },
+      {
+        "name": "Xinzhou",
+        "areaList": [
+          "City area",
+	  "Xinfu",
+          "Dingxiang",
+          "Wutai",
+          "Dai",
+          "Fanshi",
+          "Ningwu",
+          "Jingyue",
+          "Shenchi",
+          "Wuzhai",
+          "Kelan",
+          "Hequ",
+          "Baode",
+          "Pianguan",
+          "Yuanping"
+        ]
+      },
+      {
+        "name": "Linfen",
+        "areaList": [
+          "City area",
+	  "Yaodu",
+          "Quwo",
+          "Yicheng",
+          "Xiangfen",
+          "Hongdong",
+          "Gu",
+          "Anze",
+          "Fushan",
+          "Ji",
+          "Xiangning",
+          "Daning",
+          "Xi",
+          "Yonghe",
+          "Pu",
+          "Fenxi",
+          "Houma",
+          "Huozhou"
+        ]
+      },
+      {
+        "name": "Lvliang",
+        "areaList": [
+          "City area",
+	  "Lishi",
+          "Wenshui",
+          "Jiaocheng",
+          "Xing",
+          "Lin",
+          "Liulin",
+          "Shilou",
+          "Lan",
+          "Fangshan",
+          "Zhongyang",
+          "Jiaokou",
+          "Xiaoyi",
+          "Fenyang"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Neimenggu",
+    "cityList": [
+      {
+        "name": "Huhehaote",
+        "areaList": [
+          "City area",
+	  "Xincheng",
+          "Huimin",
+          "Yuquan",
+          "Saihan",
+          "Tumotezuoqi",
+          "Tuoketuo",
+          "Helingeer",
+          "Qingshuihe",
+          "WUchuan"
+        ]
+      },
+      {
+        "name": "Baotou",
+        "areaList": [
+          "City area",
+	  "Donghe",
+          "Kundulun",
+          "Qingshan",
+          "Shiguai",
+          "Baiyunkuang",
+          "Jiuyuan",
+          "Tumoteyouqi",
+          "Guyang",
+          "Daerhanmaominganlianheqi"
+        ]
+      },
+      {
+        "name": "Wuhai",
+        "areaList": [
+          "City area",
+	  "Haibowan",
+          "Hainan",
+          "Wuda"
+        ]
+      },
+      {
+        "name": "Chifeng",
+        "areaList": [
+          "City area",
+	  "Hongshan",
+          "Yuanbaoshan",
+          "Songshan",
+          "Alukeerqinqi",
+          "Balinzuoqi",
+          "Balinyouqi",
+          "Linxi",
+          "Keerketengqi",
+          "Wengniuteqi",
+          "Kalaqinqi",
+          "Ningcheng",
+          "Aohanqi"
+        ]
+      },
+      {
+        "name": "Tongliao",
+        "areaList": [
+          "City area",
+	  "Keerqin",
+          "Keerqinzuoyizhongqi",
+          "Keerqinzuoyihouqi",
+          "Kailu",
+          "Kulunqi",
+          "Naimanqi",
+          "Zhaluteqi",
+          "Huolinguole"
+        ]
+      },
+      {
+        "name": "Eerduosi",
+        "areaList": [
+          "Dongsheng",
+          "Dalateqi",
+          "Zhungeerqi",
+          "Etuokeqianqi",
+          "Etuokeqi",
+          "Hangjinqi",
+          "Wushenqi",
+          "Yijinhuoluoqi"
+        ]
+      },
+      {
+        "name": "Hulunbeier",
+        "areaList": [
+          "City area",
+	  "Hailaer",
+          "Arongqi",
+          "Molidawadawoerzuzizhiqi",
+          "Elunchunzizhiqi",
+          "Ewenkezuzizhiqi",
+          "Chenbaerhuqi",
+          "Xinbaerhuzuoqi",
+          "Xinbaerhuyouqi",
+          "Manzhouli",
+          "Yakeshi",
+          "Zhalantun",
+          "Eerguna",
+          "Genhe"
+        ]
+      },
+      {
+        "name": "bayannaoer",
+        "areaList": [
+          "City area",
+	  "Linhe",
+          "Wuyuan",
+          "Dengkou",
+          "Wulateqianqi",
+          "Wulatezhongqi",
+          "Wulatehouqi",
+          "Hangjinhouqi"
+        ]
+      },
+      {
+        "name": "Wulanchabu",
+        "areaList": [
+          "City area",
+	  "Jining",
+          "Zhuozi",
+          "Huade",
+          "Shangdu",
+          "Xinghe",
+          "Liangcheng",
+          "Chahaeryouyiqianqi",
+          "Chahaeryouyizhongqi",
+          "Chahaeryouyihouqi",
+          "Siziwangqi",
+          "Fengzhenshi"
+        ]
+      },
+      {
+        "name": "Xinganmeng",
+        "areaList": [
+          "Wulanhaote",
+          "Aershan",
+          "Keerqinyouyiqianqi",
+          "Keerqinyouyizhongqi",
+          "Zhalaiteqi",
+          "Tuquan"
+        ]
+      },
+      {
+        "name": "Xilinguolemeng",
+        "areaList": [
+          "Erlianhaote",
+          "Xinlinhaote",
+          "Abagaqi",
+          "Sunitezuoqi",
+          "Suniteyouqi",
+          "Dongwuzhumuqinqi",
+          "Xinwuzhumuqinqi",
+          "Taipusiqi",
+          "Xianghuangqi",
+          "Zhengxiangbaiqi",
+          "Zhenglanqi",
+          "Duolun"
+        ]
+      },
+      {
+        "name": "Alashanmeng",
+        "areaList": [
+          "Alashanzuomeng",
+          "Alashanyoumeng",
+          "Ejinaqi"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Jiangsu",
+    "cityList": [
+      {
+        "name": "Nanjing",
+        "areaList": [
+          "City area",
+	  "Xuanwu",
+          "Baixia",
+          "Qinhuai",
+          "Jianye",
+          "Gulou",
+          "Xiaguan",
+          "Pukou",
+          "Qixia",
+          "Yuhuatai",
+          "Jiangning",
+          "Liuhe",
+          "Lishui",
+          "Gaochun"
+        ]
+      },
+      {
+        "name": "Wuxi",
+        "areaList": [
+          "City area",
+	  "Chongan",
+          "Nanchang",
+          "Beitang",
+          "Xishan",
+          "Huishan",
+          "Binhu",
+          "Jiangyin",
+          "Yixing"
+        ]
+      },
+      {
+        "name": "Xuzhou",
+        "areaList": [
+          "City area",
+	  "Gulou",
+          "Yunlong",
+          "Jiuli",
+          "Jiawang",
+          "Quanshan",
+          "Feng",
+          "Pei",
+          "Tongshan",
+          "Suining",
+          "Xinyi",
+          "Pizhou"
+        ]
+      },
+      {
+        "name": "Changzhou",
+        "areaList": [
+          "City area",
+	  "Tianning",
+          "Zhonglou",
+          "Qishuyan",
+          "Xinbei",
+          "Wujin",
+          "LiYang",
+          "Jintan"
+        ]
+      },
+      {
+        "name": "Suzhou",
+        "areaList": [
+          "City area",
+	  "Canglang",
+          "Pingjiang",
+          "JInchang",
+          "Huqiu",
+          "Wuzhong",
+          "Xiangcheng",
+          "Changshu",
+          "Zhangjiagang",
+          "Kunshan",
+          "Wujiang",
+          "Taicang"
+        ]
+      },
+      {
+        "name": "Nantong",
+        "areaList": [
+          "City area",
+	  "Chongchuan",
+          "Gangzha",
+          "Haian",
+          "Rudong",
+          "Qidong",
+          "Rugao",
+          "Tongzhou",
+          "Haimen"
+        ]
+      },
+      {
+        "name": "Lianyungang",
+        "areaList": [
+          "City area",
+	  "Lianyun",
+          "Xinpu",
+          "Haizhou",
+          "Ganyu",
+          "Donghai",
+          "Guanyun",
+          "Guannan"
+        ]
+      },
+      {
+        "name": "Huaian",
+        "areaList": [
+          "City area",
+	  "Qinghe",
+          "Chuzhou",
+          "Huaiyin",
+          "Qingpu",
+          "Lianshui",
+          "Hongze",
+          "Xuyi",
+          "Jinhu"
+        ]
+      },
+      {
+        "name": "Yancheng",
+        "areaList": [
+          "City area",
+	  "Tinghu",
+          "Yandu",
+          "Xiangshui",
+          "Binhai",
+          "Funing",
+          "Sheyang",
+          "Jianhu",
+          "Dongtai",
+          "Dafeng"
+        ]
+      },
+      {
+        "name": "Yangzhou",
+        "areaList": [
+          "City area",
+	  "Guangling",
+          "Hanjiang",
+          "Jiao",
+          "Baoying",
+          "Yizheng",
+          "Gaoyou",
+          "Jiangdu"
+        ]
+      },
+      {
+        "name": "Zhenjiang",
+        "areaList": [
+          "City area",
+	  "Jingkou",
+          "RUnzhou",
+          "Dantu",
+          "Danyang",
+          "Yangzhong",
+          "Jurong"
+        ]
+      },
+      {
+        "name": "Taizhou",
+        "areaList": [
+          "City area",
+	  "Hailing",
+          "Gaogang",
+          "Xinghua",
+          "Jingjiang",
+          "Taixing",
+          "Jiangyan"
+        ]
+      },
+      {
+        "name": "Suqian",
+        "areaList": [
+          "City area",
+	  "Sucheng",
+          "Suyu",
+          "Shuyang",
+          "Siyang",
+          "Sihong"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Zhejiang",
+    "cityList": [
+      {
+        "name": "Hangzhou",
+        "areaList": [
+          "City area",
+	  "Shangcheng",
+          "Xiacheng",
+          "Jianggan",
+          "Gongshu",
+          "Xiqu",
+          "Binjiang",
+          "Xiaoshan",
+          "Yuhang",
+          "Tonglu",
+          "Chunan",
+          "Jiande",
+          "Fuyang",
+          "Linan"
+        ]
+      },
+      {
+        "name": "Ningbo",
+        "areaList": [
+          "City area",
+	  "Haishu",
+          "Jiangdong",
+          "Jiangbei",
+          "Beicang",
+          "Zhenhai",
+          "Yinzhou",
+          "Xiangshan",
+          "Ninghai",
+          "Yuyao",
+          "Cixi",
+          "Fenghua"
+        ]
+      },
+      {
+        "name": "Wenzhou",
+        "areaList": [
+          "City area",
+	  "Lucheng",
+          "Longwan",
+          "Ouhai",
+          "Dongtou",
+          "Yongjia",
+          "Pingyang",
+          "Cangnan",
+          "Wencheng",
+          "Taishun",
+          "Ruian",
+          "Leqing"
+        ]
+      },
+      {
+        "name": "Jiaxing",
+        "areaList": [
+          "City area",
+	  "Xiucheng",
+          "Xiuzhou",
+          "Jiashan",
+          "Haiyan",
+          "Haining",
+          "Pinghu",
+          "Tongxiang"
+        ]
+      },
+      {
+        "name": "Huzhou",
+        "areaList": [
+          "City area",
+	  "Wuxing",
+          "Nanxun",
+          "Deqing",
+          "Changxing",
+          "Anji"
+        ]
+      },
+      {
+        "name": "Shaoxing",
+        "areaList": [
+          "City area",
+	  "Yuecheng",
+          "Shaoxing",
+          "Xinchnag",
+          "Zhuji",
+          "Shangyu",
+          "Shengzhou"
+        ]
+      },
+      {
+        "name": "Jinhua",
+        "areaList": [
+          "City area",
+	  "Wucheng",
+          "Jindong",
+          "Wuyi",
+          "Pujiang",
+          "Panan",
+          "Lanxi",
+          "Yiwu",
+          "Dongyang",
+          "Yongkang"
+        ]
+      },
+      {
+        "name": "Quzhou",
+        "areaList": [
+          "City area",
+	  "Kecheng",
+          "Qujiang",
+          "Changshan",
+          "Kaihua",
+          "Longyou",
+          "Jiangshan"
+        ]
+      },
+      {
+        "name": "Zhoushan",
+        "areaList": [
+          "City area",
+	  "Dinghai",
+          "Putuo",
+          "Daishan",
+          "Shengsi"
+        ]
+      },
+      {
+        "name": "Taizhou",
+        "areaList": [
+          "City area",
+	  "Jiaojiang",
+          "Huangyan",
+          "Luqiao",
+          "Yuhuan",
+          "Sanmen",
+          "Tiantai",
+          "Xianju",
+          "Wenling",
+          "Linhai"
+        ]
+      },
+      {
+        "name": "Lishui",
+        "areaList": [
+          "City area",
+	  "Liandu",
+          "Qingtian",
+          "Jinyun",
+          "Suichang",
+          "Songyang",
+          "Yunhe",
+          "Qingyuan",
+          "Jingningshezuzizhi",
+          "Longquan"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Anhui",
+    "cityList": [
+      {
+        "name": "Hefei",
+        "areaList": [
+          "City area",
+	  "Yaohai",
+          "Luyang",
+          "Shushan",
+          "Baohe",
+          "Changfeng",
+          "Feidong",
+          "Feixi"
+        ]
+      },
+      {
+        "name": "Wuhu",
+        "areaList": [
+          "City area",
+	  "Jinghu",
+          "Matang",
+          "Xinwu",
+          "Jiujiang",
+          "Wuhu",
+          "Fanchang",
+          "Nanling"
+        ]
+      },
+      {
+        "name": "Bengbu",
+        "areaList": [
+          "City area",
+	  "Longzihu",
+          "Bushan",
+          "YUhui",
+          "Huaishang",
+          "Huaiyuan",
+          "Wuhe",
+          "Guzhen"
+        ]
+      },
+      {
+        "name": "Huainan",
+        "areaList": [
+          "City area",
+	  "Datong",
+          "Tianjiaan",
+          "Xiejiaji",
+          "Bagongshan",
+          "Panji",
+          "Fengtaixian"
+        ]
+      },
+      {
+        "name": "Maanshan",
+        "areaList": [
+          "City area",
+	  "JInjiazhuang",
+          "Huashan",
+          "Yushan",
+          "Dangtu"
+        ]
+      },
+      {
+        "name": "Huaibei",
+        "areaList": [
+          "City area",
+	  "Duji",
+          "Xiangshan",
+          "Lieshan",
+          "Suixi"
+        ]
+      },
+      {
+        "name": "Tongling",
+        "areaList": [
+          "City area",
+	  "Tongguanshan",
+          "Shizishan",
+          "jiao",
+          "Tongling"
+        ]
+      },
+      {
+        "name": "Anqing",
+        "areaList": [
+          "City area",
+	  "Yingjiang",
+          "Daguan",
+          "Jiao",
+          "Huaining",
+          "Zongyang",
+          "Qianshan",
+          "taihu",
+          "Susong",
+          "Wangjiang",
+          "Yuexi",
+          "Tongcheng"
+        ]
+      },
+      {
+        "name": "Huangshan",
+        "areaList": [
+          "City area",
+	  "Tunxi",
+          "Huangshan",
+          "Huizhou",
+          "She",
+          "Xiuning",
+          "Yi",
+          "Qimen"
+        ]
+      },
+      {
+        "name": "Chuzhou",
+        "areaList": [
+          "City area",
+	  "Langya",
+          "Nanqiao",
+          "Laian",
+          "Quanjiao",
+          "Dingyuan",
+          "Fengyang",
+          "Tianchang",
+          "Mingguang"
+        ]
+      },
+      {
+        "name": "Fuyang",
+        "areaList": [
+          "City area",
+	  "Yingzhou",
+          "Yingdong",
+          "Yingquan",
+          "Linquan",
+          "taihe",
+          "Funan",
+          "Yingshang",
+          "Yishou"
+        ]
+      },
+      {
+        "name": "Suzhou",
+        "areaList": [
+          "City area",
+	  "Yongqiao",
+          "Dangshan",
+          "Xiao",
+          "Lingbi",
+          "Si"
+        ]
+      },
+      {
+        "name": "Chaohu",
+        "areaList": [
+          "City area",
+	  "Juchao",
+          "Lujiang",
+          "Wuwei",
+          "Hanshan",
+          "He"
+        ]
+      },
+      {
+        "name": "Liuan",
+        "areaList": [
+          "City area",
+	  "Jinan",
+          "Yuan",
+          "Shou",
+          "Huoqiu",
+          "Shucheng",
+          "Jinzhai",
+          "Huoshan"
+        ]
+      },
+      {
+        "name": "Bozhou",
+        "areaList": [
+          "City area",
+	  "Qiaocheng",
+          "Guoyang",
+          "Mengcheng",
+          "Lixin"
+        ]
+      },
+      {
+        "name": "Chizhou",
+        "areaList": [
+          "City area",
+	  "Guichi",
+          "Dongzhi",
+          "Shitai",
+          "Qingyang"
+        ]
+      },
+      {
+        "name": "Yicheng",
+        "areaList": [
+          "City area",
+	  "Yizhou",
+          "Langxi",
+          "Guangde",
+          "Jing",
+          "Jixi",
+          "Jingde",
+          "Ningguo"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Fujian",
+    "cityList": [
+      {
+        "name": "Fuzhou",
+        "areaList": [
+          "City area",
+	  "Gulou",
+          "Taijiang",
+          "Cangshan",
+          "Mawei",
+          "Jinan",
+          "Minhou",
+          "Liangjiang",
+          "Luoyuan",
+          "Minqing",
+          "Yongtai",
+          "Pingtan",
+          "Fuwqing",
+          "Changle"
+        ]
+      },
+      {
+        "name": "Xiamen",
+        "areaList": [
+          "City area",
+	  "Siming",
+          "Haicang",
+          "Huli",
+          "Jimei",
+          "Tongan",
+          "Xiangan"
+        ]
+      },
+      {
+        "name": "Putian",
+        "areaList": [
+          "City area",
+	  "Chengxiang",
+          "Hanjiang",
+          "Licheng",
+          "Xiuyu",
+          "Xianyou"
+        ]
+      },
+      {
+        "name": "Sanming",
+        "areaList": [
+          "City area",
+	  "Meilie",
+          "Sanyuan",
+          "Mingxi",
+          "Qingliu",
+          "Ninghua",
+          "Datian",
+          "Youxi",
+          "Sha",
+          "Jiangle",
+          "Taining",
+          "Jiangning",
+          "Yongyuan"
+        ]
+      },
+      {
+        "name": "Quanzhou",
+        "areaList": [
+          "City area",
+	  "Licheng",
+          "Fengze",
+          "Luojiang",
+          "Quangang",
+          "Huian",
+          "Anxi",
+          "Yongchun",
+          "Dehua",
+          "Jinmen",
+          "Shishi",
+          "Jinjiang",
+          "Nanan"
+        ]
+      },
+      {
+        "name": "Zhangzhou",
+        "areaList": [
+          "City area",
+	  "Xiangcheng",
+          "Longwen",
+          "Yunxiao",
+          "Zhangpu",
+          "Zhaoan",
+          "Changtai",
+          "Dongshan",
+          "Nanjing",
+          "Pinghe",
+          "Huaan",
+          "Longhai"
+        ]
+      },
+      {
+        "name": "Nanping",
+        "areaList": [
+          "City area",
+	  "Yanping",
+          "Shunchang",
+          "Pucheng",
+          "Guangze",
+          "Songxi",
+          "Zhenghe",
+          "Shaowu",
+          "Wuyishan",
+          "Jianou",
+          "Jianyang"
+        ]
+      },
+      {
+        "name": "Longyan",
+        "areaList": [
+          "City area",
+	  "Xinluo",
+          "Changting",
+          "Yongding",
+          "Shanghang",
+          "Wuping",
+          "Liancheng",
+          "Zhangping"
+        ]
+      },
+      {
+        "name": "Ningde",
+        "areaList": [
+          "City area",
+	  "Jiapcheng",
+          "Xiapu",
+          "Gutian",
+          "Pingnan",
+          "Shouning",
+          "Zhouning",
+          "Zherong",
+          "Fuan",
+          "Fuding"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Jiangxi",
+    "cityList": [
+      {
+        "name": "Nanchang",
+        "areaList": [
+          "City area",
+	  "Donghu",
+          "Xihu",
+          "Qingyunpu",
+          "Wanli",
+          "Qingshanhu",
+          "Nanchang",
+          "Xinjian",
+          "Anyi",
+          "Jinxian"
+        ]
+      },
+      {
+        "name": "Jingdezhen",
+        "areaList": [
+          "City area",
+	  "Changjiang",
+          "Zhushan",
+          "Fuliang",
+          "Leping"
+        ]
+      },
+      {
+        "name": "Pingxiang",
+        "areaList": [
+          "City area",
+	  "Anyuan",
+          "Xiangdong",
+          "Lianhua",
+          "Shangli",
+          "Luxi"
+        ]
+      },
+      {
+        "name": "Jiujiang",
+        "areaList": [
+          "City area",
+	  "Lushan",
+          "Xunyang",
+          "Jiujiang",
+          "Wuning",
+          "Xiushui",
+          "Yongxiu",
+          "Dean",
+          "Xingzi",
+          "Duchang",
+          "Hukou",
+          "Pengze",
+          "Ruichang"
+        ]
+      },
+      {
+        "name": "Xinyu",
+        "areaList": [
+          "City area",
+	  "Yushui",
+          "Fenyi"
+        ]
+      },
+      {
+        "name": "Yingtan",
+        "areaList": [
+          "City area",
+	  "Yuehu",
+          "Yujiang",
+          "Guixi"
+        ]
+      },
+      {
+        "name": "Ganzhou",
+        "areaList": [
+          "City area",
+	  "Zhanggong",
+          "Gan",
+          "Xinfeng",
+          "Dayu",
+          "Shangyou",
+          "Chongyi",
+          "Anyuan",
+          "Longnan",
+          "Dingnan",
+          "Quannan",
+          "Ningdu",
+          "Yudu",
+          "Xingguo",
+          "Huichang",
+          "Xunwu",
+          "Shicheng",
+          "Ruijin",
+          "Nankang"
+        ]
+      },
+      {
+        "name": "Jinan",
+        "areaList": [
+          "City area",
+	  "Jizhou",
+          "Qingyuan",
+          "Jian",
+          "Jishui",
+          "Xiajiang",
+          "Xingan",
+          "Yong",
+          "Taihe",
+          "Suichuan",
+          "Wanan",
+          "Anfu",
+          "Yongxin",
+          "Jinggangshan"
+        ]
+      },
+      {
+        "name": "Yichun",
+        "areaList": [
+          "City area",
+	  "Yuanzhou",
+          "Fenxin",
+          "Wanzai",
+          "Shanggao",
+          "Yifeng",
+          "Jingan",
+          "Tonggu",
+          "Fengcheng",
+          "Zhangshu",
+          "Gaoan"
+        ]
+      },
+      {
+        "name": "Fuzhou",
+        "areaList": [
+          "City area",
+	  "Linchuan",
+          "Nancheng",
+          "Lichuan",
+          "Nanfeng",
+          "Chongren",
+          "Lean",
+          "Yihuang",
+          "Jinxi",
+          "Zixi",
+          "Dongxiang",
+          "Guangchang"
+        ]
+      },
+      {
+        "name": "Shangrao",
+        "areaList": [
+          "City area",
+	  "Xinzhou",
+          "Shangroa",
+          "Guangfeng",
+          "Yushan",
+          "Qianshan",
+          "Hengfeng",
+          "Yiyang",
+          "Yugan",
+          "Poyang",
+          "Wannian",
+          "Wuyuan",
+          "Dexing"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Shandong",
+    "cityList": [
+      {
+        "name": "Jinan",
+        "areaList": [
+          "City area",
+	  "Lixia",
+          "Shizhong",
+          "Huiyin",
+          "Tianqiao",
+          "Licheng",
+          "Changqin",
+          "Pingyin",
+          "Jiyang",
+          "Shanghe",
+          "zhangqiu"
+        ]
+      },
+      {
+        "name": "Qingdao",
+        "areaList": [
+          "City area",
+	  "Shinan",
+          "Shibei",
+          "Sifang",
+          "Huangdao",
+          "Laoshan",
+          "Licang",
+          "Chengyang",
+          "Jiaozhou",
+          "Jimo",
+          "Pingdu",
+          "Jiaonan",
+          "Laixi"
+        ]
+      },
+      {
+        "name": "Zibo",
+        "areaList": [
+          "City area",
+	  "Zichuan",
+          "Zhangdian",
+          "Boshan",
+          "Linzi",
+          "Zhoucun",
+          "Hengtai",
+          "Gaoqing",
+          "Yiyuan"
+        ]
+      },
+      {
+        "name": "zaozhuang",
+        "areaList": [
+          "City area",
+	  "Shizhong",
+          "Xuecheng",
+          "Yicheng",
+          "Taierzhuang",
+          "Shanting",
+          "Tengzhou"
+        ]
+      },
+      {
+        "name": "Dongying",
+        "areaList": [
+          "City area",
+	  "Dongying",
+          "Hekou",
+          "Kenli",
+          "Lijin",
+          "Guangrao"
+        ]
+      },
+      {
+        "name": "Yantai",
+        "areaList": [
+          "City area",
+	  "Zhifu",
+          "Fushan",
+          "Mouping",
+          "Laishan",
+          "Changdao",
+          "Longkou",
+          "Laiyang",
+          "Laizhou",
+          "Penglai",
+          "Zhaoyuan",
+          "Qixia",
+          "Haiyang"
+        ]
+      },
+      {
+        "name": "Weifang",
+        "areaList": [
+          "City area",
+	  "Weicheng",
+          "Hanting",
+          "Fangzi",
+          "Kuiwen",
+          "Linqu",
+          "hangle",
+          "Qingzhou",
+          "Zhucheng",
+          "Shouguang",
+          "Anqiu",
+          "Gaomi",
+          "CHangqi"
+        ]
+      },
+      {
+        "name": "Jining",
+        "areaList": [
+          "City area",
+	  "Shizhong",
+          "Rencheng",
+          "Huishan",
+          "Yutai",
+          "Jinxiang",
+          "Jiaxiang",
+          "Wenshang",
+          "Sishui",
+          "Liangshan",
+          "Qufu",
+          "Yanzhou",
+          "Zhoucheng"
+        ]
+      },
+      {
+        "name": "Taian",
+        "areaList": [
+          "City area",
+	  "Taishan",
+          "Daiyue",
+          "Ningyang",
+          "Dongping",
+          "Xintai",
+          "Feicheng"
+        ]
+      },
+      {
+        "name": "Weihai",
+        "areaList": [
+          "City area",
+	  "Huancui",
+          "Wendeng",
+          "Rongcheng",
+          "Rushan"
+        ]
+      },
+      {
+        "name": "Rizhao",
+        "areaList": [
+          "City area",
+	  "Donggang",
+          "Lanshan",
+          "Wupeng",
+          "Ju"
+        ]
+      },
+      {
+        "name": "Laiwu",
+        "areaList": [
+          "City area",
+	  "Laicheng",
+          "Gangcheng"
+        ]
+      },
+      {
+        "name": "Linyi",
+        "areaList": [
+          "City area",
+	  "Lanshan",
+          "Luozhuan",
+          "Hedong",
+          "Yinan",
+          "Tancheng",
+          "Yishui",
+          "Cangshan",
+          "Fei",
+          "Pingyi",
+          "Junan",
+          "Mengyin",
+          "Linshu"
+        ]
+      },
+      {
+        "name": "Dezhou",
+        "areaList": [
+          "City area",
+	  "Decheng",
+          "Ling",
+          "Ningjin",
+          "Qingyun",
+          "Linyi",
+          "Qihe",
+          "Pingyuan",
+          "Xiajin",
+          "Wucheng",
+          "Leling",
+          "Yucheng"
+        ]
+      },
+      {
+        "name": "Liaocheng",
+        "areaList": [
+          "City area",
+	  "Dongchang",
+          "Yanggu",
+          "Shen",
+          "Chiping",
+          "Donge",
+          "Guan",
+          "Gaotang",
+          "LInqing"
+        ]
+      },
+      {
+        "name": "Binzhou",
+        "areaList": [
+          "City area",
+	  "Bincheng",
+          "Huimin",
+          "Yangxin",
+          "Wudi",
+          "Zhanhua",
+          "Boxing",
+          "Zhouping"
+        ]
+      },
+      {
+        "name": "Heze",
+        "areaList": [
+          "City area",
+	  "Mudan",
+          "Caoxian",
+          "Shan",
+          "Chengwu",
+          "Juye",
+          "Yuncheng",
+          "Juancheng",
+          "Dingtao",
+          "Dongmin"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Liaoning",
+    "cityList": [
+      {
+        "name": "Shenyang",
+        "areaList": [
+          "City area",
+	  "Heping",
+          "Shenhe",
+          "Dadong",
+          "Huanggu",
+          "Tiexi",
+          "SUjiatun",
+          "Dongling",
+          "Xinchengzi",
+          "Yuhong",
+          "Liaozhong",
+          "Kangping",
+          "Faku",
+          "Xinmin"
+        ]
+      },
+      {
+        "name": "Dalian",
+        "areaList": [
+          "City area",
+	  "Zhongshan",
+          "Xigang",
+          "Shahekou",
+          "Ganjingzi",
+          "Lvshunkou",
+          "Jinzhou",
+          "Changhai",
+          "Wafangdian",
+          "Pulandian",
+          "Zhuanghe"
+        ]
+      },
+      {
+        "name": "Anshan",
+        "areaList": [
+          "City area",
+	  "Tiedong",
+          "Tiexi",
+          "Lishan",
+          "Qianshan",
+          "Taian",
+          "Xiuyanmanzuzizhi",
+          "Haicheng"
+        ]
+      },
+      {
+        "name": "Fushun",
+        "areaList": [
+          "City area",
+	  "Xinfu",
+          "Dongzhou",
+          "Wanghua",
+          "Shuncheng",
+          "Fushun",
+          "Xinbinmanzuzizhi",
+          "Qingyuanmanzuzizhi"
+        ]
+      },
+      {
+        "name": "Benxi",
+        "areaList": [
+          "City area",
+	  "pingshan",
+          "Xihu",
+          "Mingshan",
+          "Nanfen",
+          "Benximanzuzizhi",
+          "Henrenmanzuzizhi"
+        ]
+      },
+      {
+        "name": "Dandong",
+        "areaList": [
+          "City area",
+	  "Yuanbao",
+          "Zhenxing",
+          "Zhenan",
+          "Kuandianmanzuzizhi",
+          "Donggang",
+          "Fengcheng"
+        ]
+      },
+      {
+        "name": "Jinzhou",
+        "areaList": [
+          "City area",
+	  "Guta",
+          "Linghe",
+          "Taihe",
+          "Heishan",
+          "Yi",
+          "Linghai",
+          "Beining"
+        ]
+      },
+      {
+        "name": "Yingkou",
+        "areaList": [
+          "City area",
+	  "Zhanqian",
+          "Xishi",
+          "Bayuquan",
+          "Laobian",
+          "Gezhou",
+          "Dashiqiao"
+        ]
+      },
+      {
+        "name": "Fuxin",
+        "areaList": [
+          "City area",
+	  "Haizhou",
+          "Xinqiu",
+          "Taiping",
+          "Qinghemen",
+          "Xihe",
+          "Fuxinmengguzuzizhi",
+          "Zhangwu"
+        ]
+      },
+      {
+        "name": "Liaoyang",
+        "areaList": [
+          "City area",
+	  "Baita",
+          "Wensheng",
+          "Hongwei",
+          "Gongzhangling",
+          "Taizihe",
+          "Liaoyang",
+          "Dengta"
+        ]
+      },
+      {
+        "name": "Panjin",
+        "areaList": [
+          "City area",
+	  "Shuangtaizi",
+          "Xinglongtai",
+          "Dawa",
+          "Panshan"
+        ]
+      },
+      {
+        "name": "Tieling",
+        "areaList": [
+          "City area",
+	  "Yinzhou",
+          "Qinghe",
+          "Tieling",
+          "Xifeng",
+          "CHangtu",
+          "Diaobingshan",
+          "Kaiyuan"
+        ]
+      },
+      {
+        "name": "Chaoyang",
+        "areaList": [
+          "City area",
+	  "Shuangta",
+          "Longcheng",
+          "Chaoyang",
+          "Jianping",
+          "Kalaqinzuoyimengguzuzizhi",
+          "Beipiao",
+          "Lingyuan"
+        ]
+      },
+      {
+        "name": "Huludao",
+        "areaList": [
+          "City area",
+	  "Lianshan",
+          "Longgang",
+          "Nanpiao",
+          "Suizhong",
+          "Jiangchang",
+          "Xingcheng"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Jilin",
+    "cityList": [
+      {
+        "name": "Changchun",
+        "areaList": [
+          "City area",
+	  "Nanguan",
+          "Kuancheng",
+          "CHaoyang",
+          "Erdao",
+          "Lvyuan",
+          "Shuangyang",
+          "Nongan",
+          "Jiutai",
+          "Yushu",
+          "Dehui"
+        ]
+      },
+      {
+        "name": "Jilin",
+        "areaList": [
+          "City area",
+	  "Changyi",
+          "Longtan",
+          "CHuanying",
+          "Fengman",
+          "Yongjhi",
+          "Jiaohe",
+          "Huadian",
+          "Shulan",
+          "Panshi"
+        ]
+      },
+      {
+        "name": "Siping",
+        "areaList": [
+          "City area",
+	  "Tiexi",
+          "Tiedong",
+          "Lishu",
+          "Yitongmanzuzizhi",
+          "Gongzhuling",
+          "Shuangliao"
+        ]
+      },
+      {
+        "name": "Liaoyuan",
+        "areaList": [
+          "City area",
+	  "Longshan",
+          "Xian",
+          "Dongfeng",
+          "Dongliao"
+        ]
+      },
+      {
+        "name": "Tonghua",
+        "areaList": [
+          "City area",
+	  "Dongchang",
+          "Erdaojiang",
+          "Tonghua",
+          "Huinan",
+          "Liuhe",
+          "Meihekou",
+          "Jian"
+        ]
+      },
+      {
+        "name": "Baishan",
+        "areaList": [
+          "City area",
+	  "badaojiang",
+          "Fusong",
+          "Jingyu",
+          "Changbaichaoxianzuzizhi",
+          "Jiangyuan",
+          "Linjiang"
+        ]
+      },
+      {
+        "name": "Songyuan",
+        "areaList": [
+          "City area",
+	  "Ningjiang",
+          "Qianguoerluosimengguzuzizhi",
+          "Changling",
+          "Qianan",
+          "Fuyu"
+        ]
+      },
+      {
+        "name": "Baicheng",
+        "areaList": [
+          "City area",
+	  "Taobei",
+          "Zhenlai",
+          "Tongyu",
+          "Taonan",
+          "Daan"
+        ]
+      },
+      {
+        "name": "Yanbianchaoxianzuzizhizhou",
+        "areaList": [
+          "Yanji",
+          "Tumen",
+          "Dunhua",
+          "Kunchun",
+          "Longjing",
+          "Helong",
+          "Wangqing",
+          "Antu"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Heilongjiang",
+    "cityList": [
+      {
+        "name": "Haerbin",
+        "areaList": [
+          "City area",
+	  "Daoli",
+          "Nangang",
+          "Daowai",
+          "Xiangfang",
+          "Dongli",
+          "Pingfang",
+          "Songbei",
+          "Hulan",
+          "Yilan",
+          "Fangzheng",
+          "Bin",
+          "Bayan",
+          "Mulan",
+          "Tonghe",
+          "Yanshou",
+          "Acheng",
+          "Shuangcheng",
+          "Shangzhi",
+          "Wuchang"
+        ]
+      },
+      {
+        "name": "Qiqihaer",
+        "areaList": [
+          "City area",
+	  "Longsha",
+          "Jianhua",
+          "Tiefeng",
+          "Angangxi",
+          "Fulaerji",
+          "Nianzishan",
+          "Meilisidaouerzu",
+          "Longjiang",
+          "Yian",
+          "Tailai",
+          "Ganan",
+          "Fuyu",
+          "Keshan",
+          "Kedong",
+          "Baiquan",
+          "Nahe"
+        ]
+      },
+      {
+        "name": "Jixi",
+        "areaList": [
+          "City area",
+	  "Jiguan",
+          "Hengshanb",
+          "Didao",
+          "Lishu",
+          "Chengzihe",
+          "Mashan",
+          "Jidong",
+          "Hulin",
+          "Mishan"
+        ]
+      },
+      {
+        "name": "Hegang",
+        "areaList": [
+          "City area",
+	  "Xiangyang",
+          "Gongnong",
+          "Nanshan",
+          "Xingan",
+          "Dongshan",
+          "Xingshan",
+          "Luobei",
+          "Suibin"
+        ]
+      },
+      {
+        "name": "Shuangyashan",
+        "areaList": [
+          "City area",
+	  "Jianshan",
+          "Lingdong",
+          "Sifangtai",
+          "Baoshan",
+          "Jixian",
+          "Youyi",
+          "Baoqing",
+          "Raohe"
+        ]
+      },
+      {
+        "name": "Daqing",
+        "areaList": [
+          "City area",
+	  "Saertu",
+          "Dongfeng",
+          "Ranghu",
+          "Honggang",
+          "Datong",
+          "Zhaozhou",
+          "Zhaoyuan",
+          "Lindian",
+          "Duerbotemengguzuzizhi"
+        ]
+      },
+      {
+        "name": "Yichun",
+        "areaList": [
+          "City area",
+	  "Yichun",
+          "Nancha",
+          "Youhao",
+          "Xilin",
+          "Cuiluan",
+          "Xinqing",
+          "Meixi",
+          "Jinshantun",
+          "Wuying",
+          "Wuma",
+          "Tangwanghe",
+          "Dailing",
+          "Wuyiling",
+          "Hongxing",
+          "Shangganling",
+          "Jiayinxian",
+          "Tieli"
+        ]
+      },
+      {
+        "name": "Jiamusi",
+        "areaList": [
+          "City area",
+	  "Yonghong",
+          "Xiangyang",
+          "Qianjin",
+          "Dongfeng",
+          "Jiao",
+          "huanan",
+          "Huachuan",
+          "Tangyuan",
+          "Fuyuan",
+          "Tongjiang",
+          "Fujin"
+        ]
+      },
+      {
+        "name": "Qitaihe",
+        "areaList": [
+          "City area",
+	  "Xinxing",
+          "Taoshan",
+          "Qiezihe",
+          "Boli"
+        ]
+      },
+      {
+        "name": "Mudanjiang",
+        "areaList": [
+          "City area",
+	  "Dongan",
+          "Yangming",
+          "Aimin",
+          "Xian",
+          "Dongning",
+          "Linkou",
+          "Suifenhe",
+          "Hailin",
+          "Ningan",
+          "Muleng"
+        ]
+      },
+      {
+        "name": "Heihe",
+        "areaList": [
+          "City area",
+	  "Aihui",
+          "Nenjiang",
+          "Xunke",
+          "Sunwu",
+          "Beian",
+          "Wudalianchi"
+        ]
+      },
+      {
+        "name": "Suihua",
+        "areaList": [
+          "City area",
+	  "Beilin",
+          "Wangkui",
+          "Lanxi",
+          "Qinggang",
+          "Qingan",
+          "Mingshui",
+          "Suileng",
+          "Anda",
+          "Zhaodong",
+          "Hailun"
+        ]
+      },
+      {
+        "name": "Daxinganlingdi",
+        "areaList": [
+          "Huma",
+          "Tahe",
+          "Mohe"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Hainan",
+    "cityList": [
+      {
+        "name": "Haikou",
+        "areaList": [
+          "City area",
+	  "Xiuying",
+          "Longhua",
+          "Qiongshan",
+          "meilan"
+        ]
+      },
+      {
+        "name": "Sanya",
+        "areaList": [
+          "City"
+        ]
+      },
+      {
+        "name": "City",
+        "areaList": [
+          "Wuzhishan",
+          "Qionghai",
+          "Danzhou",
+          "Wenchang",
+          "Wangning",
+          "Dongfang",
+          "Dingan",
+          "Tunchang",
+          "Chnegmai",
+          "Lingao",
+          "Baishalizuzizhi",
+          "Changjianglizuzizhi",
+          "YueDonglizuzizhi",
+          "Lingshuilizuzizhi",
+          "Baotinglizumiaozuzizhiu",
+          "Qiongzhonglizumiaozuzizhi",
+          "Xishaqundao",
+          "Nanshaqundao",
+          "Zhongshaqundao"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Taiwan",
+    "cityList": [
+      {
+        "name": "City",
+        "areaList": [
+          "Jilong",
+          "Taibei",
+          "Xinbei",
+          "Hsinchu",
+          "Taizhong",
+          "Chiayi",
+          "Tainan",
+          "Gaoxiong"
+        ]
+      },
+      {
+        "name": "County",
+        "areaList": [
+          "Taoyuan",
+          "Ilan",
+          "Hsinchu",
+          "Miaoli",
+          "Hualien",
+          "Changhua",
+          "Nantou",
+          "Yunlin",
+          "Chiayi",
+          "Taitung",
+          "Pingtung",
+          "Penghu"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Hong Kong",
+    "cityList": [
+      {
+        "name": "Administrative Region",
+        "areaList": [
+          "Central and Western",
+          "Eastern",
+          "Southern",
+          "Wan Chai",
+          "Kowloon City",
+          "Sham Shui Po",
+          "Yau Tsim Mong",
+          "Wong Tai Sin",
+          "Kwun Tong",
+          "North",
+          "Sai Kung",
+          "Sha Tin",
+          "Tai Po",
+          "Island",
+          "Kwai Tsing",
+          "Tsuen Wan",
+          "Tuen Mun",
+          "Yuen Long"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Macao",
+    "cityList": [
+      {
+        "name": "Parish",
+        "areaList": [
+          "Our Lady Fatima",
+          "St. Anthony",
+          "Cathedral",
+          "St. Lazarus",
+          "St. Lawrence",
+          "Island",
+          "The Typa"
+        ]
+      }
+    ]
+  }
+]

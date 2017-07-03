@@ -1,0 +1,186 @@
+<html>
+<head>
+    
+</head>
+<body>
+<div class="btn_h_return" id="return"></div>
+
+    <div class="col-xs-12 app-colum">
+
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">客户端统计</span>
+            </div>
+            <div class="box-body no-height" style="padding:0px 20px;">
+                <div class="form-group col-sm-12" id="anniumen">
+                    <div class="radioAnNiu" style="margin-top:10px;">
+                        <input type="radio" name="sanzhong-info" id="jiben">
+                        <label for="jiben" style="margin-right:30px;">基本信息</label>
+                        
+                        <input type="radio" name="sanzhong-info" id="shepin">
+                        <label for="shepin" style="margin-right:30px;">射频信息</label>
+                       
+                        <input type="radio" name="sanzhong-info" id="tongji">
+                        <label for="tongji" style="margin-right:30px;">统计信息</label>
+
+                        <input type="radio" name="sanzhong-info" id="yonghu">
+                        <label for="yonghu" style="margin-right:30px;">认证信息</label>    
+
+                        <input type="radio" name="sanzhong-info" id="newOutline">
+                        <label for="newOutline" style="margin-right:30px;">离线用户</label>                                            
+                    </div>
+                </div>
+
+<br /><br /><br />
+
+                <div id="clients_list" class="simple-list"></div>
+                <div id="clients_list_sp" class="simple-list"></div>
+                <div id="clients_list_tj" class="simple-list"></div>
+                <div id="clients_list_yh" class="simple-list"></div>
+                <div id="clients_list_lx" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 弹出框 -->
+    <div class="hide modal fade" id="flowdetailDlg">
+      <form class="form-horizontal form" id="flowdetail_form">
+            
+            <!-- 弹出框的数据显示 -->
+            <div class="col-sm-12">
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label"><strong>MAC地址</strong></label>
+                    <span id="clientMAC"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>IP地址</strong></label>
+                    <span id="clientIP"></span>
+                </div>
+                <!-- <div class="form-group">
+                    <label class="col-sm-2  control-label "><strong>终端名称</strong></label>
+                    <span id="clientName"></span>
+                </div> -->
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>终端厂商</strong></label>
+                    <span id="clientVendor"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>AP</strong></label>
+                    <span id="ApName"></span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>SSID</strong></label>
+                    <span id="clientSSID"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>终端信号强度</strong></label>
+                    <span id="signalStrength"></span>
+                    <span> db</span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>终端发送速率</strong></label>
+                    <span id="clientTxRate"></span>
+                    <span> Kbps</span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>终端接收速率</strong></label>
+                    <span id="clientRxRate"></span>
+                    <span> Kbps</span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>终端关联的Radio类型</strong></label>
+                    <span id="clientRadioMode"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>终端模式</strong></label>
+                    <span id="clientMode"></span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>终端关联的Radio信道</strong></label>
+                    <span id="clientChannel"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>用户名</strong></label>
+                    <span id="portalUserName"></span>
+                </div>     
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>认证方式</strong></label>
+                    <span id="portalAuthType"></span>
+                </div>  
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>portal 上线时间</strong></label>
+                    <span id="portalOnlineTime"></span>
+                </div> 
+            
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>终端发送报文字节数</strong></label>
+                    <span id="clientTxBytes">无</span><span> B</span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>终端接收报文字节数</strong></label>
+                    <span id="clientRxBytes">无</span>
+                    <span> B</span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>终端发送报文数</strong></label>
+                    <span id="clientTxPackets">无</span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>终端接收报文数</strong></label>
+                    <span id="clientRxPackets">无</span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>协商速率</strong></label>
+                    <span id="NegoMaxRate"></span><span> Mbps</span>
+                </div>                
+            </div>
+      </form>
+
+        <!-- 弹出框的返回按钮 -->
+       <!--  <div class="modal-footer form-actions">
+            <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+                关闭
+            </a>
+        </div> -->
+
+    </div>   
+
+
+    <!-- 弹出框：认证 -->
+    
+
+<iframe id="exportFile" name="exportFile" style="display: none" ></iframe>
+<div id="clients_rc" class="rc-define"
+     BUTTON_CANCEL="返回"
+     EXPORT_LOG="导出"
+
+     KICKOUT_renzheng="注销用户"
+     KICKOUT_ALL="注销所有用户"
+     
+     KICKOUT_lixian="清除在线状态"
+     
+     LIST_HEADER="MAC地址,IP地址,终端厂商,AP,SSID"
+     LIST_HEADER_SP="MAC地址,IP地址,AP,关联的Radio类型,终端模式,关联的Radio信道,协商速率(Mbps)"
+     LIST_HEADER_TJ="MAC地址,IP地址,AP,发送速率(Kbps),接收速率(Kbps)"
+     LIST_HEADER_YH="MAC地址,SSID,用户名,认证方式,portal 上线时间"
+     LIST_HEADER_LX="MAC地址,IP地址,用户名,认证方式,portal 上线时间"
+
+     USER_TYPE="一键认证,短信认证,微信客户端认证,支付宝认证,QQ认证,微信公众号认证,固定账号认证"
+
+     LIST_HEADER_BF="mac,ip,名称,厂商,接入点名称,关联的ssid名,信号强度(db),发送速率(Kbps),接收速率(Kbps),关联,模式,关联的Radio信道,协商速率(Mbps),发送报文字节(KB),接收报文字节(KB),发送报文数,接收报文数"
+     LIST_POWERSAVEMODE="激活,休眠"
+     LIST_QOSMODE="N/A,WMM,11e,WMM and 11e"
+     SEC_TYPE="不认证,802.1X认证,静态PSK密钥,静态WEP密钥,MAC地址认证,Portal认证,动态WEP密钥,802.1X 认证（不加密）"
+
+
+    TITLE_FLOWINFO="终端详情"
+    TITLE_RenZhengINFO="已认证终端详情"
+    FRESH="刷新"
+     ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("city_stamgrclients.clients");
+</script>
+

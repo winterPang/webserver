@@ -1,0 +1,231 @@
+<style>
+    .wrapper{
+        position:relative;
+        overflow: hidden;
+        width:100%;
+        height:29px;
+        background-color:#eaf6f4
+    }
+    .scroll{
+        position: absolute;
+        right:43px;
+        font-size:12px;
+        color: #666;
+        line-height:29px;
+        max-width:600px; 
+    }    
+    .ul1{
+        height:14px;
+        padding: 0;
+    }  
+    .li1{
+        float: left;
+        list-style: none;
+        padding-right: 20px;
+        cursor:pointer;
+    } 
+    .li2{
+        padding-left: 20px;
+        margin-right: 20px;
+        border-left: 1px solid #e7e7e9;
+        border-right: 1px solid #e7e7e9;    
+    }
+    .active{
+        color: #4ec1b2;
+        cursor: default;
+    }
+    .btn1{
+        width: 100px;
+        height: 30px;
+        position: absolute;            
+        color:#fff;
+        border-radius:3px;
+        border: 0;
+        text-align: center;
+        vertical-align: middle;
+        top: 17px;
+        outline: none;
+    }
+    .btn2{
+        background-color:#78cec3;
+        right: 190px;  
+        top: 135px; 
+    }
+    .btn2:hover{
+        background-color:#4ec1b2;      
+    }
+    .btn3{
+        background-color:#ff9c9e;
+        right: 65px;
+        top: 135px;
+    }
+    .btn3:hover{
+        background-color:#fe808b;      
+    }
+    .table1{
+        margin-top: 22px;
+        border: 1px solid #e7e7e9;
+        height: 54px;
+        width: 100%;
+        cursor: pointer;
+    }
+    .td2:hover{
+        background-color: #F3F3F3;
+    }
+    .td1{       
+        width: 58px;
+        background-color: #effaf9;
+        margin-top: 22px;
+        text-align: center;
+    }
+    .td2{
+        padding-left: 10px;
+        padding-right:10px;
+    }
+    .td5{
+        
+        width: 30%;
+    }
+    .td3{
+        width: 60%;
+        overflow: hidden;
+        color: #80878c;
+    }
+    .td4{
+        font-size: 12px;
+        color: #80878c;
+    }
+    .inp{
+        width: 80%;
+        height: 53px;
+        line-height: 53px;
+        overflow: hidden;
+    }
+    .mgb{
+        margin-bottom: 7px;
+    }
+    .span1{
+        width: 42px;
+        padding-left: 20px;
+        margin-left: 10px;
+        margin-right: 12px;
+        background:url(../frame/images/icon2.png) no-repeat  -68px -198px;
+    }
+    .span2{
+        position:relative;
+        color: #343e4e;
+    }
+    .span3{
+        margin-left: 42px;
+    }
+    .b1{
+        width: 30px;
+        height: 12px;
+        background:url(../frame/images/icon2.png) no-repeat  -20px -198px;
+        position: absolute;    
+        right: -20px;
+        top: -5px;  
+    }
+    .pageNum{
+        color: #80878c;
+        width: 30%;
+        margin-top: 20px;
+        margin-bottom: 8px;
+    }
+    #pagenation>li{
+        list-style: none;
+    }
+    #pagenation>li>a{
+        color: #2FA4E7;
+        border-color: #78cec3;          
+        position: relative;
+        float: left;
+        padding: 8px 12px;
+        line-height: 1.42857143;
+        text-decoration: none;
+    }
+    #pagenation>li>a:hover{
+        color: #157AB5;
+        background-color: #EEEEEE;
+    }
+    #pagenation>li.active>a{
+        color:#fff !important;
+        background-color: #78cec3 !important;
+    }
+    #pagenation>li.disabled>a{
+        color: #999999 !important;
+    }
+    #pagenation>li.disabled>a:hover{
+        cursor: not-allowed;
+        background-color: #fff !important;
+    }
+</style>
+
+
+<div class="panel panel-default">
+    <div class="panel-body">
+        <ul class="ul1">
+            <li class="li1 active">全部</li>
+            <li class="li1 li2">官方通知</li>
+            <li class="li1">系统通知</li>
+        </ul>
+
+        <button class="btn1 btn2" ng-click="setRead()">标为已读</button>
+        <button class="btn1 btn3">删除</button>  
+
+        <div style="margin-top:40px">
+            <table class="table1" ng-repeat="item in messages2" >
+                <tr>
+                    <td class="td1">
+                        <div class="xb-input xb-checkbox mgb">
+                            <input type="checkbox" class="input-element" id={{item.title}}  ng-model="item.state"
+                            ng-click="changeState($event,item.title)"/>
+                            <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': item.state == true}"></span>
+                            <label for={{item.title}} class="input-label"></label>
+                        </div> 
+                    </td>
+                    <td class="td2" ng-click="openModal(item.title,item.message,$event)">
+                        <table class="table2">
+                            <td class="td5">
+                                <span ng-class="{true:'span3',false:'span1'}[item.read]"></span>
+                                <span  class="span2">
+                                    {{item.title}}
+                                    <b ng-class="{true:'b1'}[item.newState]"></b>
+                                </span>
+                            </td>
+                            <td class="td3">
+                                <p class="inp">
+                                   {{item.message}} 
+                                </p>
+                            </td>
+                            <td class="td4">
+                                {{item.date}}
+                            </td>
+                        </table>          
+                    </td>
+                            
+                </tr>
+            </table>
+        </div>
+      
+        <div style="overflow: hidden;height:60px;line-height: 60px">    
+            <p  class="pageNum">共有{{page.totleMessage}}条记录，当前第{{page.start}}-{{page.end}}，第{{page.nowPage}}/{{page.totlePage}}页</p>
+            
+            <div id="pagenation" style="position: relative;left:70%;bottom:66px;"></div>     
+       </div>     
+    </div>
+</div>
+
+
+<!-- 通知详情modal开始 -->
+    <div bs-modal="detailModal.options">
+        <p>{{itemTitle}}</p>
+        <p>{{itemMessage}}</p>
+    </div>
+<!-- 通知详情modal结束 -->
+
+<div class="read_rc" id="sysNotice_detail_rc"
+     sysNotice="系统通知"
+     detail="通知详情"
+     >
+</div>

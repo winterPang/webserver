@@ -1,0 +1,46 @@
+<div class="container-fluid l-device">
+    <ul class="l-device-menu list-group">
+        <li class="list-group-item" ng-click="main.upgrade()">软件升级</li>
+        <li class="list-group-item" ng-click="main.command()">命令助手</li>
+        <li class="list-group-item" ng-click="main.cfgRestore()">配置还原</li>
+        <li class="list-group-item" ng-click="main.fileSystem()">文件系统</li>
+        <li class="list-group-item" ng-click="main.operate()">设备操作</li>
+    </ul>
+    <div class="page-row">
+        <div class="col-md-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer ">
+                    <div class="col-xs-3">
+                        <span class="title">设备管理</span>
+                    </div>
+                </div>
+                <div class="box-body" style="height: auto">
+                    <table bs-table="deviceTable"></table>
+                </div>
+            </div>
+            <div bs-modal="fileModal.modal">
+                <!--<ul dashboard-ztree="fileTree" style="height: 200px;"></ul>-->
+                <ul id="fileTree" class="ztree"></ul>
+                <div class="text-center l-device-fs-bottom">
+                    <button class="btn btn-cus" ng-disabled="fileModal.upload.disable" ng-click="fileModal.upload.click()">上传</button>
+                    <button class="btn btn-cus" ng-disabled="fileModal.download.disable" ng-click="fileModal.download.click()">下载</button>
+                    <button class="btn btn-cus" ng-disabled="fileModal.rename.disable" ng-click="fileModal.rename.click()">重命名</button>
+                    <button class="btn btn-cus" ng-disabled="fileModal.remove.disable" ng-click="fileModal.remove.click()">删除</button>
+                    <button class="btn btn-cus" ng-click="fileModal.close()">关闭</button>
+                </div>
+            </div>
+            <div bs-modal="cmdHelper.modal">
+                <ol class="l-cmd-helper" ng-click="cmdHelper.setFocus()">
+                    <li ng-repeat="l in cmdHelper.lines">{{l.txt}}</li>
+                    <li> &lt;H3C&gt;
+                        <input type="text" class="l-cmd-helper-input" autofocus="autofocus" ng-keyup="cmdHelper.keyup($event)" ng-model="cmdHelper.cmdStr">
+                    </li>
+                </ol>
+            </div>
+            <div bs-modal="cfgRestore.modal">
+                <div>配置还原</div>
+                <pre>{{row | json}}</pre>
+            </div>
+        </div>
+    </div>
+</div>

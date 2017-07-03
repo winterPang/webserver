@@ -1,0 +1,26 @@
+<div>
+    <div class="panel-body">
+            <div class="btn btn-cus" ng-click="refresh()">
+                <span class="glyphicon glyphicon-refresh" style="margin-right:7px;"></span>刷新
+            </div>
+            <table bs-table="managementOptions"></table>
+    </div>
+    <form novalidate bs-modal="modify_management" class="form-horizontal" name="signatureModify">
+        <div class="form-group">
+            <div class="col-sm-3 control-label">短信签名</div>
+            <div class="col-sm-5">
+                <input class="form-control" name="signature" ng-model="row.signature" placeholder='请输入短信签名' required ng-maxlength="10">
+            </div>
+            <div class="col-sm-4 ng-error" ng-messages="signatureModify.signature.$error" ng-show="signatureModify.signature.$dirty">
+                <div ng-message="required">短信签名不能为空</div>
+                <div ng-message="maxlength">不能超过10位</div>
+            </div>
+        </div>
+    </form>
+    <div class="read_rc" id="smsmanagement_rc"
+         modal-data="短信管理,确定,取消"
+         msgDialog-data="请求出错啦~"
+         table-data="用户名,已发短信条数,未发短信条数,短信签名,修改"
+    >
+    </div>
+</div>

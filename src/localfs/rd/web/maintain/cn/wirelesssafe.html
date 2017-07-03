@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .row.head{
+            margin-top:20px;
+        }
+        .title-img{
+            display: inline-block;
+            cursor: pointer;
+            float: left;
+        }
+        .sysinfo-footer.head{
+            background-color:#78CEC3!important;
+        }
+        .col-md-6.leftpadding{
+            padding-left:5px;
+        }
+        .head-title{
+            position: absolute;
+            margin: 10px 0 0 20px;
+            color: gray;
+            font-size: 15px;
+        }
+        .row.default-height{
+            height:300px;
+        }
+        .box-subfooter.orange-back{
+            background-color:#FFBD76;
+        }
+        .row .title{
+            display: block;
+            margin-left: 8px;
+            font-weight: normal;
+            color: #47495d;
+        }
+        .box-subfooter.blue-back{
+            background-color:#98E4FA;
+        }
+        .box-subfooter.green-back{
+            background-color:#8ED9D0;
+        }
+        .col-xs-6.title-center{
+            text-align:center;
+        }
+        .row #help_detail{
+            position: absolute;
+            bottom: 242px;
+            right: 32px;
+            cursor: pointer;
+            color: #4CBDCE;
+        }
+        .row .syslog-info{
+            height: 66px;
+            line-height: 30px;
+            vertical-align: middle;
+            background: #fff;
+            border: 0;
+            margin: 0 15px 0 0;
+            text-align: center;
+            width: auto;
+        }
+        .row .info-blue{
+            border-radius:3px;
+            background: #78CEC3!important;
+        }
+        .row .count-container{
+            text-align: center;
+            line-height: 30px;
+            padding-top: 12px;
+        }
+        .row .new-count{
+            color: #fff;
+            font-size: 15px;
+        }
+        .row .catlog-title{
+            font-size: 12px;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div class="dashboard summary-view">
+    <div class="row">
+        <div class="row app-colum right-block">
+            <div class="sysinfo-footer head">
+                <div class="title-img">
+                    <span class="" id="cycle_date">今天</span>
+                </div>
+            </div>
+        </div>
+        <div class="row head">
+            <div class="col-xs-7">
+                <div class="col-md-6 leftpadding">
+                    <div class="row default-height">
+                        <div class="head-title"><span>攻击信息</span></div>
+                        <div id="attackType_pie" class="myEchart" style="height:260px"></div>
+                    </div>
+                    <div class="row default-height">
+                        <div class="box-subfooter orange-back">
+                            <div class="col-xs-8">
+                                <span class="title">严重攻击</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="title" id="other_num"></span>
+                            </div>
+                        </div>
+                        <div id="other_attack" class="myEchart" style="height:200px;"></div>
+                    </div>
+                </div>
+                <div class="col-md-6 leftpadding">
+                    <div class="row default-height">
+                        <div class="box-subfooter blue-back">
+                            <div class="col-xs-8">
+                                <span class="title">泛洪攻击</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="title" id="Flood_num"></span>
+                            </div>
+                        </div>
+                        <div id="flood_attack" class="myEchart blue-border" style="height:200px;"></div>
+                    </div>
+                    <div class="row default-height">
+                        <div class="box-subfooter green-back">
+                            <div class="col-xs-8">
+                                <span class="title">畸形报文</span>
+                            </div>
+                            <div class="text-right">
+                                <span class="title" id="Malf_num"></span>
+                            </div>
+                        </div>
+                        <div id="malf_attack" class="myEchart green-border" style="height:200px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-5">
+                <div class="head-title"><span>设备信息</span></div>
+                <div class="row">
+                    <div class="col-xs-6  myEchart" id="Device_AP"></div>
+                    <div class="col-xs-6  myEchart" id="Device_client"></div>
+                    <div class="row">
+                        <div class="col-xs-6 title-center">
+                            <span>AP：</span>
+                            <span id="Total_ap"></span>
+                        </div>
+                        <div class="col-xs-6 title-center">
+                            <span>客户端：</span>
+                            <span id="Total_client"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div id="device_pie" class="myEchart"></div>
+                    <span id="help_detail">帮助</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-2">
+            <div class="syslog-info info-blue no-pointor">
+                <div class="count-container">
+                    <span class="new-count">客户端总数</span><span class="percent"></span>
+                </div>
+                <div class="catlog-title" id="totalClient"></div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="syslog-info info-blue no-pointor">
+                <div class="count-container">
+                    <span class="new-count">未授权客户端数</span><span class="percent"></span>
+                </div>
+                <div class="catlog-title" id="unAuthClient"></div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="syslog-info info-blue no-pointor">
+                <div class="count-container">
+                    <span class="new-count">AP总数</span><span class="percent"></span>
+                </div>
+                <div class="catlog-title" id="totalAp"></div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="syslog-info info-blue no-pointor">
+                <div class="count-container">
+                    <span class="new-count">Rouge AP数</span><span class="percent"></span>
+                </div>
+                <div class="catlog-title" id="rougeAp"></div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="syslog-info info-blue no-pointor">
+                <div class="count-container">
+                    <span class="new-count">攻击次数</span><span class="percent"></span>
+                </div>
+                <div class="catlog-title" id="attackCount"></div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="syslog-info info-blue no-pointor">
+                <div class="count-container">
+                    <span class="new-count">反制次数</span><span class="percent"></span>
+                </div>
+                <div class="catlog-title" id="ctmCount"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hide modal fade" id="formDetail">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3>描述信息</h3>
+    </div>
+    <form class="form-horizontal form edit">
+        <ul>
+            <li><span>授权AP(Authorized AP):</span>允许在无线网络中使用的AP。包括已经关联到AC上且并不在禁止列表中的AP和手动指定的授权AP。</li>
+            <li><span>非法AP(Rogue AP):</span>不允许在无线网络中使用的AP。包括禁止列表中的AP、不在OUI配置文件中的AP和手动指定的非法AP。</li>
+            <li><span>配置错误的AP(Misconfigured AP):</span>无线服务配置错误，但是允许在无线网络中使用的AP.</li>
+            <li><span>外部AP(External AP):</span>其他无线网络中的AP，WIPS可能会检测到邻近网络中的AP。</li>
+            <li><span>Ad hoc:</span>运行在Ad hoc模式下的AP,WIPS通过检测Beacon帧将其分类为Ad hoc。</li>
+            <li><span>潜在授权的AP(Potential-authoried AP):</span>无法确定但可能是授权的AP。如果AP既不在信任设备或信任OUI列表中也不再禁用设备列表中，那么该AP很可能是授权的AP。</li>
+            <li><span>潜在非法的AP(Potential-rogue AP):</span>无法确定但可能是非法的AP。如果AP既不在信任设备或信任OUI列表中也不再禁用设备列表中,而且它的无线服务配置也不正确，那么检测到它的有线端口可能连接到网络中，则认为其为潜在非法AP。</li>
+            <li><span>潜在外部的AP(Potential-external AP):</span>无法确定但可能是外部的AP。如果AP既不在信任设备或信任OUI列表中也不再禁用设备列表中,而且它的无线服务配置也不正确，同时也没有检测到它的有线端口连接到网络中，则该AP很可能是外部的AP。</li>
+            <li><span>未分类的AP(Uncategorized AP):</span>无法确定归属类别的AP。</li>
+            <li><span>授权客户端(Authorized Client):</span>允许使用的客户端，如关联到授权AP商的受信任的客户端或通过加密认证方式关联到授权AP上的客户端都是授权的客户端。</li>
+            <li><span>未授权客户端(Unauthorized Client):</span>不允许使用的客户端。如在禁用设备列表中的客户端、连接到Rogue AP上的客户端已经不再OUI配置文件中的客户端都是未授权客户端。
+            </li>
+            <li><span>错误关联客户端(Misassociation Client):</span>信任设备雷彪中的客户端关联到非授权AP上，错误关联的客户端可能会对网络信息安全带来隐患。
+            </li>
+            <li><span>未分类客户端(Uncategorized Client):</span>无法确定归属类别的客户端</li>
+        </ul>
+    </form>
+</div>
+</body>
+<div class="rc-define" id="wireless_rc"
+        device_type="授权AP,配置错误的AP,非法AP,外部AP,Ad hoc,Mesh AP,潜在授权的AP,潜在非法的AP,潜在外部的AP,未分类的AP,授权客户端,错误关联客户端,未授权客户端,未分类客户端"
+        ></div>
+</html>
+<script>
+    Utils.Pages.loadJS("maintain.wirelesssafe");
+</script>

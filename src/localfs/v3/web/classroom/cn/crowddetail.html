@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .app-box .box-body{
+            overflow:visible;!important;
+        }
+        .mar{
+            line-height:40px;
+        }
+        .classline {
+            margin: 30px 0 20px 0;
+            width: 100%;
+        }
+        .stuTitle .title {
+            color: #343e4e;
+            font-size: 17px;
+            padding-left: 25px;
+            float: left;
+        }
+        #StuList {
+            text-align: center;
+            vertical-align: top;
+            min-height: 240px;
+            padding-top:20px;
+        }
+        #StuList .stu-item{
+            display: inline-block;
+            width: 68px;
+            min-height: 70px;
+            margin-right: 18px;
+            margin-bottom: 20px;
+            position: relative;
+            vertical-align: top;
+        }
+        #StuList .stu-icon{
+            width: 45px;
+            height:45px;
+            display: block;
+            cursor: pointer;
+            background:url(../frame/css/image/smartschool.png) -318px -430px;
+        }
+        #StuList .on-site .stu-icon{
+            display:inline-block;
+            background:url(../frame/css/image/smartschool.png) -318px -358px;
+        }
+        #StuList .stu-name{
+            word-break:break-all;
+            display:inline-block;
+        }
+    </style>
+</head>
+<body>
+<div class="btn_h_return" id="return"></div>
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title" id="build_name">102</span>
+            </div>
+            <div class="box-body no-height">
+                <div class="page-row mar">
+                    <div class="col-xs-2">告警时间：</div>
+                    <div class="col-xs-10" id="warning_time"></div>
+                </div>
+                <div class="page-row mar">
+                    <div class="col-xs-2">原定阈值下限：</div>
+                    <div class="col-xs-10" id="threshold">0</div>
+                </div>
+                <div class="page-row mar">
+                    <div class="col-xs-2">原定阈值上限：</div>
+                    <div class="col-xs-10" id="thresholdMax">0</div>
+                </div>
+                <div class="page-row mar">
+                    <div class="col-xs-2">现有人数：</div>
+                    <div class="col-xs-10" id="stuNum">0</div>
+                </div>
+                <div class="page-row mar">
+                    <div class="col-xs-2">拥挤程度：</div>
+                    <div class="col-xs-10" id="crowdPer">0</div>
+                </div>
+            </div>
+            <div class="col-xs-12 classline">
+                <hr>
+            </div>
+            <div class="stuTitle">
+                <span class="title">现有学生</span>
+            </div>
+            <div class="box-body no-height">
+                <div class="col-xs-12">
+                    <div id="StuList"></div>
+                </div>
+             </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<div id="crowd_rc" class="rc-define"
+     Detail=" 拥挤告警信息"></div>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.crowddetail");
+</script>

@@ -1,0 +1,150 @@
+<html>
+<head>
+</head>
+<body>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div class="app-box no-height default-bottom">
+                <div class="box-footer">
+                    <span class="title">AP组配置</span>
+                </div>
+                <div class="box-body no-height">
+                    <div id="apgrp_cfg" class="simple-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+	<div class="modal fade modal-super" id="TerminalInfoDlgAP" tabindex="-1" aria-hidden="true">
+       <!--  下面的表单是用来弹窗的,弹出的窗是具体的信息 -->
+        <form class="form-horizontal form" id="view_client_form">
+            <div class="box-body no-height form-group">
+                <div class="page-row">
+                    <div class="col-xs-12 app-colum">
+                        <div class="app-box no-height default-bottom">
+                            <div class="box-body no-height" id="frameList">
+                            <!-- 这个div就是和下面的div有一个间距而已 -->
+                                <div id="flowdetail_listAP" class="simple-list"></div>
+                             
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer form-actions"></div><!-- 这里是用来绑定取消按钮的 -->
+        </form>
+        <div class="editor-alert">
+        </div>
+    </div>
+	<div class="modal fade modal-large" id="TerminalInfoDlgEditAP" tabindex="-1" aria-hidden="true">
+       <!--  下面的表单是用来弹窗的,弹出的窗是具体的信息 -->
+        <form class="form-horizontal form" id="view_client_form01">
+            <div class="box-body no-height form-group">
+                <div class="page-row">
+                    <div class="col-xs-12 app-colum">
+                        <div class="box-body no-height" id="frameList01">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label required">AP组名称</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="string big required" id="apgroup_name" name ="apgroup_name" errid="apgroup_name_error" maxlength=31 />
+                                    <label class="info-explain">（1-31字符）</label>
+                                    <label class="error" id="apgroup_name_error"></label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label ">描述</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="string big " id="description_name" name ="description_name" errid="description_name_error" maxlength=64 />
+                                    <label class="info-explain">（1-64字符）</label>
+                                    <label class="error" id="description_name_error"></label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label required">区域选择</label>
+                                <select id="AreaSelect" class="singleSelect" allowClear="false" name=""></select>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer form-actions"></div><!-- 这里是用来绑定取消按钮的 -->
+        </form>
+        <div class="editor-alert">
+        </div>
+    </div>
+
+    <div class="modal fade modal-large" id="TerminalInfoDlgAddAP" tabindex="-1" aria-hidden="true">
+        <!--  下面的表单是用来弹窗的,弹出的窗是具体的信息 -->
+        <form class="form-horizontal form" id="view_client_form02">
+            <div class="box-body no-height form-group">
+                <div class="page-row">
+                    <div class="col-xs-12 app-colum">
+                        <div class="box-body no-height" id="frameList02">
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label required">AP组名称</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="string big required" id="apgroup_name02" name ="apgroup_name02" errid="apgroup_name_error02" maxlength=31 />
+                                    <label class="info-explain">（1-31字符）</label>
+                                    <label class="error" id="apgroup_name_error02"></label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label ">描述</label>
+                                <div class="col-sm-8">
+                                    <input type="text" class="string big " id="description_name02" name ="description_name02" errid="description_name_error02" maxlength=64 />
+                                    <label class="info-explain">（1-64字符）</label>
+                                    <label class="error" id="description_name_error02"></label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-4 control-label required">区域选择</label>
+                                <select id="AreaSelect02" class="singleSelect" allowClear="false" name=""></select>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer form-actions"></div><!-- 这里是用来绑定取消按钮的 -->
+        </form>
+        <div class="editor-alert">
+        </div>
+    </div>
+<div id="apgrp_indexConfigure" class="rc-define"
+        ALLAPGROUP_HEADER2="AP组名称,描述,AP列表,区域,操作"
+		ALLAPLIST_HEADER2="AP名称,序列号,MAC地址,IP地址,所属AP组,操作"
+		DELETEALL="删除全部"
+		ADDAPGROUP="加入AP组"
+		LEFTAPGROUP="离开AP组"
+		TITLE_TERINFO="AP列表"
+        TITLE_ADDAPGROUP="添加AP组"
+		TITLE_EDITAPGROUP="修改AP组"
+        STATUS=",使能,去使能"
+        TERINFO="AP列表"
+        APGROUP="AP组"
+        TITLE_LOCATION="增加城市区域"
+        AUTHEN_TYPE="不认证,一键上网,账号认证"
+        ALLAP_HEADER3="AP名称,SN,AP型号,绑定"
+        ALLAP_HEADER4="AP组名称,绑定"
+        FRESH="刷新"
+        DEL_SUCCESS = "删除成功"
+        LINK_delete="主连接已断开,删除失败",
+        SSID_HEADER = "SSID,认证方式"
+        ADD_TITLE = "增加服务"
+        AUTH_CFG = "不认证,微信认证,短信认证,一键上网,选择页面模板"
+        DEL_AUTH_FAIL = "删除发布模板失败"
+        DEL_PUB_SUCC = "取消发布成功"
+        PUB_SUCC = "发布成功"
+        ADD_SUCCESS = "添加成功"
+        ADD_FAIL = "添加失败"
+        ADD_NULL_SSID = "SSID不能为空"
+        DEL_FAIL = "删除失败"
+        LINK="主连接已断开,添加失败"
+        ADD_Limit="服务模版已达到上限，添加失败"
+        SYN="同步"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+	Utils.Pages.loadJS("city_apgrpcfg.index_apgroup");
+</script>

@@ -1,0 +1,92 @@
+<html>
+<head>
+</head>
+<style>
+    #reDevSelect .scenes_panel{
+        top:6px;
+        left:15px;
+        position:absolute !important;
+        background:#EDF9F7 !important;
+        border:none !important;;
+
+    }
+    #reDevSelect #switchScenesBtn{
+        margin:10px 0;
+    }
+    #reDevSelect .scenes_panel_content{
+        margin-bottom:42px;
+        padding:0 !important;
+    }
+    #reDevSelect select{
+        width:100% !important;
+    }
+    #reDevSelect .form-group{
+        line-height:35px !important;
+    }
+</style>
+<body>
+
+<div class="page-row">
+
+    <div class="col-xs-12 app-colum">
+        <div class="page-row xxb" id="reDevSelect">
+            <div class="col-xs-12 app-colum">
+                <div class="app-box">
+                    <div class="box-footer">
+                        <div id="scene-contain" class="change_scenes">
+                            <div class="change_scenes_trigger change_station" style="visibility:hidden;" id="change_scenes_trigger">
+                                <!--<span class="fa fa-sort-down"></span>-->
+                                <span class="glyphicon-transfer glyphicon"></span>
+                                <span class="pos" id="switch-text">设备切换</span>
+                            </div>
+                            <div class="scenes_panel ng-show" id="scenes_panel" name="scenes_panel">
+                                <div class="scenes_panel_content">
+                                    <div class="form-group hide">
+                                        <label class="col-xs-3 control-label hide"><span id="switch-shop"></span>选择设备：</label>
+                                        <div class="col-xs-9">
+                                            <select id="selectedScene" class="select"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="device-contain">
+                                        <label class="col-xs-3 control-label"><span id="switch-device"></span>：</label>
+                                        <div class="col-xs-9">
+                                            <select id="devSn" class="select"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="scenes_panel_footer">
+                                    <button class="btn btn-cus hide" id="switchScenesBtn">确认</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 app-colum"  debug="getLogInfo">
+            <div class="app-box no-height">
+                <div class="box-footer">
+                    <span class="title">告警记录</span>
+                </div>
+
+                <div class="box-body no-height">
+                    <div id="alert_list" class="xxb-list simple-list"></div>
+                </div>
+            </div>
+    </div>
+</div>
+<iframe id="exportFile" name="exportFile" class="hide"></iframe>
+<div id="alert_monitor_rc" class="rc-define"
+     ALERT_HEADER="设备类型,告警信息,告警时间"
+     ALERT_OFFLINE="下线"
+     ALERT_ONLINE="上线"
+     ALERT_DOWNLOAD="导出"
+     switchBtn="切换场所"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("x_summary.alert");
+</script>

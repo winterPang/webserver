@@ -1,0 +1,22 @@
+{
+    "WristbandInfo":[
+        {"WristbandMac":"e0e5-cf1f-4b67","UserName":"Stu0"},
+        {"WristbandMac":"e0e5-cf1f-1e56","UserName":"Stu1"},
+        {"WristbandMac":"689e-1905-f0ba","UserName":"Stu2"},
+        {"WristbandMac":"689e-1905-f099","UserName":"Stu3"},
+        {"WristbandMac":"E0e5-cf1f-le56","UserName":"Stu4"},
+        {"WristbandMac":"689e-1905-a69d","UserName":"Stu5"},
+        {"WristbandMac":"F4b8-5eec-ed6e","UserName":"Stu6"},
+        {"WristbandMac":"11-22-33-44-55-77","UserName":"Stu7"},
+        {"WristbandMac":"11-22-33-44-55-88","UserName":"Stu8"},
+        {"WristbandMac":"11-22-33-44-55-99","UserName":"Stu9"}
+    ],
+    "Retcode":"0",
+    "wristbandlist":[
+        {"mac":"689e-1905-f099","count":"1","riis":"100","time":"30000","heartrate":"80","calorie":"356","step":"5694","major":"556","minor":"321","prefix":"10","txpower":"100"},
+        {"mac":"689e-1905-f0ba","count":"1","riis":"100","time":"30000","heartrate":"80","calorie":"356","step":"5694","major":"556","minor":"321","prefix":"10","txpower":"100"},
+        {"mac":"11-22-33-44-55-88","count":"1","riis":"100","time":"30000","heartrate":"80","calorie":"356","step":"5694","major":"556","minor":"321","prefix":"10","txpower":"100"},
+        {"mac":"F4b8-5eec-ed6e","count":"1","riis":"100","time":"30000","heartrate":"80","calorie":"356","step":"5694","major":"556","minor":"321","prefix":"10","txpower":"100"}
+    ]
+
+}

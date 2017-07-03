@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- <link href="../soon/soon.css" rel="stylesheet" type="text/css"> -->
+</head>
+<body>
+	<div class="col-xs-12 col-sm-12 app-colum" id="device_verlist">
+		<div class="app-box no-height">
+	        <div class="box-footer">
+	            <span class="title">设备版本</span>
+	        </div>
+	        <div style='margin-left:25px'>
+	        	<span>设备当前软件版本:</span>
+	        	<span id="curVer"></span>
+	        	<span id="verTips"></span>
+	        </div>
+            <div class="top-box">
+                <div class="time-zone">
+                    <div class="col-xs-9" id="version" style='margin-left:25px;margin-bottom:-10px'>
+                        <!-- <div class="xb-input xb-radio"> -->
+                        	<input type="radio" id="newestversion" name="devVer" value="0" checked class="input-element">
+                        	<label for="newestversion">最新版本</label>
+                        <!-- </div> -->
+                        <!-- <div class="xb-input xb-radio"> -->
+                        	<input type="radio" id="allversion" name="devVer" value="1" class="input-element">
+                        	<label for="allversion">所有版本</label>
+                        <!-- </div> -->
+                    </div>
+                </div>
+            </div>
+    		<div class="modal-body" style="clear:both">
+        		<div id="device_version_list" class="simple-list"></div>
+    		</div>
+	    </div>
+	</div>
+	<div class="modal-dialog hide" id ="rebootDialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" id="close" class="close" aria-label="Close">
+					<span aria-hidden="true"></span>
+				</button>
+				<h4 class="modal-title">确认提示</h4>
+			</div>
+			<div class="modal-body" id="rebootMsg" style="text-align: center">
+				<input type="radio" id="update1" name="updateType" value="2" style="margin-left: 5px;margin-right: 5px"/>
+				<span>升级并重启</span>
+				<input type="radio" id="update2" name="updateType" value="3" style="margin-left: 5px;margin-right: 5px"/>
+				<span>升级且保存配置并重启</span>
+				<input type="radio" id="update3" name="updateType" checked="checked" value="1" style="margin-left: 5px;margin-right: 5px"/>
+				<span>仅升级不重启</span>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-primary" id="sure">
+					<i class="btn-icon fa fa-check"></i>
+					确定
+				</button>
+				<button type="button" id="closeBtn" class="btn btn-default" >
+					<i class="btn-icon fa fa-times"></i>
+					取消
+				</button>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="device_infor_rc" class="rc-define"
+		 Version_HEADER="版本号,类型,发布时间,描述,大小（Mb）,升级进度"
+		 DPI_HEADER="存放地址,文件名,大小（Mb）,版本号,描述"
+		 UPDATE_HISTORY="日期,时间,版本,描述"
+		 DOWNLOAD="升级版本"
+		 REBOOTDOWN="下载且重启"
+		 SAVEREBOOTDOWN="保存配置下载且重启"
+		 OFFDOWNLOAD="离线下载"
+		 VERSION_TYPE=",正式版本,开发版本,安全补丁版本"
+		 VER_ERROR = "下载失败,设备空间不足,保存配置失败,其他错误,升级成功"
+		 DOWNLOAD_ERROR="升级成功,升级失败,只能选择一个版本"
+		 NEWEST_TIP="	当前版本最新正式版本"></div>
+	</div>
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("city_versionupdate.indexv3");
+</script>

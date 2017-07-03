@@ -1,0 +1,182 @@
+<html>
+<head>
+<style>
+.title-data{font-size:58px;color:#e6e6e6;line-height: 100px;}
+.box-body.terminal-statistics-height{height:143px;padding-top:0;}
+.app-box .box-body{padding: 25px 30px}
+.slist-body .slist-center .slist-row{border-bottom: 1px solid #DEDDDD;height:40px;line-height:40px;}
+.simple-list .slist-body{border:1px solid #DEDDDD;}
+.box-body.terminal-statistics-height.colum{overflow-y:auto;padding:25px 50px 0px 10px;}
+.box-body.doubleechart-height{height:518px;}
+.form-group.col-sm-12.rate{margin-top:60px;}
+.myEchart.height{height:160px;margin-top:-20px;margin-left:10px;}
+.myEchart.rate{height:280px;margin-top:-20px;}
+.col-xs-6.myEchart.terminaltype{height:180px;}
+.myEchart.legend{height:200px;}
+.myEchart.scatter{height:220px;}
+.button{height:30px;margin:15px 0px 15px 1280px;background:gray}
+.drop{position:absolute;list-style:none;padding:0;margin:1px;border:1px solid #d6dce3;z-index:10;}
+.drop>li{background:#FFF;height:35px;padding-left:18px;line-height:33px;cursor: pointer;width:100px;}
+.drop>li:hover{background:#383E4E;color:#FFF;}
+.drop_head ul{margin-left:1230px;}
+.leg-panel{background:transparent;border:none;padding-left:20px;padding-right:20px;margin-top:-28px;}
+.leg-panel .leg-row{color:#617058;font-size:12px;border-bottom:1px solid #D6DCE3;padding-bottom:5px;margin-bottom:5px;}
+.leg-panel .leg-row .leg-icon{display:block;height:12px;width:12px;float:left;border-radius:6px;margin:4px 10px 0 4px}
+.box-body.all{padding:10px 36px 0px 0px;margin-bottom:-24px;}
+.box-body.userinfo{margin-top:-20px;}
+.mlist-status-bar.mlist-toolbar{margin-bottom:10px}
+</style>
+</head>
+<body>
+
+<div class="drop_head">
+        <button class="button" type="button" id="button">show</button>
+        <ul id="drop" class="drop hide">
+            <li>
+                <span>最近一天</span>
+            </li>
+            <li>
+                <span>最近一周</span>
+            </li>
+            <li>
+                <span>最近一个月</span>
+            </li>
+        </ul>
+</div>
+<div class="dashboard summary-view">
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box" style="padding-bottom:20px;">
+                <div class="sysinfo-footer">
+                    <span class="title">异常统计</span>
+                </div>
+                    <div class="box-body terminal-statistics-height">
+                        <div class="col-sm-3 align-left">
+                            <label>异常总数</label><br/>
+                            <label class="title-data" id="sumnumber1"></label>
+                        </div>
+                        <div class="col-sm-3 align-left">
+                            <label>已修复</label><br/>
+                            <label class="title-data" id="sumnumber2"></label>
+                        </div>
+                        <div class="col-sm-3 align-left">
+                            <label>未修复</label><br/>
+                            <label class="title-data" id="sumnumber3"></label>
+                        </div>
+                        <div class="col-sm-3 align-left">
+                            <label>今日新增</label><br/>
+                            <label class="title-data" id="sumnumber4"></label>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        <!--紧急异常里面的表格代码-->
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box" style="padding-bottom:20px;">
+                <div class="sysinfo-footer">
+                    <span class="title">紧急异常</span>
+                </div>
+                <div class="box-body terminal-statistics-height colum">
+                    <div id="ap_info_mlist" class="mlist"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+       <div class="row">
+           <div class="col-xs-6 app-colum right-block">
+               <div class="app-box">
+                   <div class="sysinfo-footer">
+                       <span class="title">异常分布</span>
+                   </div>
+                   <div class="box-body doubleechart-height">
+                       <div class="box-body terminal-statistics-height">
+                           <div id="bar" class="myEchart height"></div>
+                       </div>
+                       <div class="form-group col-sm-12 rate">
+                           <div id="rate" class="myEchart rate"></div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+           <div class="col-xs-6 app-colum right-block">
+               <div class="app-box">
+                   <div class="sysinfo-footer">
+                       <span class="title">异常原因分布</span>
+                   </div>
+                   <div class="box-body echart-height body-nopadding">
+                       <div id="terminaltype" class="col-xs-6 myEchart terminaltype"></div>
+                       <div id="myLegend" class="col-xs-6 leg-panel"></div>
+                   </div>
+               </div>
+           </div>
+           <!--趋势里面的折线图-->
+           <div class="col-xs-6 app-colum right-block">
+               <div class="app-box">
+                   <div class="sysinfo-footer">
+                       <span class="title">趋势</span>
+                   </div>
+                   <div class="box-body echart-height body-nopadding">
+                       <div class="form-group col-sm-12">
+                           <div id="legend" class="myEchart legend"></div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <div class="row">
+           <div class="col-xs-12 app-colum right-block">
+               <div class="app-box" style="padding-bottom:50px;">
+                   <div class="sysinfo-footer">
+                       <span class="title">版本异常统计</span>
+                   </div>
+                   <div class="box-body echart-height" style="margin-top:-20px;">
+                       <div class="form-group col-sm-12">
+                           <div id="scatter" class="myEchart scatter"></div>
+                       </div>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <div class="row">
+           <div class="col-xs-12 app-colum right-block">
+               <div class="app-box no-height default-bottom">
+                   <div class="sysinfo-footer">
+                       <span class="title">异常概览</span>
+                   </div>
+                   <div class="box-body all">
+                       <div id="wirelessterminal_mlist" class="mlist"></div>
+					   <div id="Opendlg"></div>
+                   </div>
+               </div>
+           </div>
+       </div>
+       <div class="row">
+           <div class="col-sm-12 app-colum right-block">
+               <div class="app-box">
+                   <div class="sysinfo-footer">
+                       <span class="title">设备动态</span>
+                   </div>
+                   <div class="box-body userinfo">
+                       <div id="deviceStatus" class="mlist"></div>
+                   </div>
+               </div>
+           </div>
+       </div>
+  </div>
+
+
+ <div id="rc" class="rc-define"
+            AP_LABELS="时间,当前处理人,模块,产品"
+            APPINFO = "BitTorrent,数组访问越界,指针访问越界,访问空指针,访问无效指针,除零错误,内存未初始化,数据计算溢出,多线程访问资源,重复释放内存,堆栈写坏"
+            WIRELESSTERMINAL = "时间,当前处理人,模块,租户,状态,级别,类型,产品,版本"
+            device_status="时间,sn,用户,产品,动态,系统文件存在"
+     ></div>
+
+
+</body>
+</html>
+
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("maintain.main");
+	Utils.Pages.loadJS("maintain.displayapplyhander");
+</script>

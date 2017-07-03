@@ -1,0 +1,139 @@
+<html>
+
+<head>
+</head>
+<style>
+    #reDevSelect .scenes_panel{
+        top:6px;
+        left:15px;
+        position:absolute !important;
+        background:#EDF9F7 !important;
+        border:none !important;;
+
+    }
+    #reDevSelect #switchScenesBtn{
+        margin:10px 0;
+    }
+    #reDevSelect .scenes_panel_content{
+        margin-bottom:42px;
+        padding:0 !important;
+    }
+    #reDevSelect select{
+        width:100% !important;
+    }
+    #reDevSelect .form-group{
+        line-height:35px !important;
+    }
+    .xxb .app-box .box-body.pie-height{
+        height:280px !important;
+    }
+</style>
+<body>
+
+    <div class="page-row xxb" id="userflow">
+
+        <div class="col-xs-12 app-colum">
+            <div class="page-row xxb" id="reDevSelect">
+                <div class="col-xs-12 app-colum">
+                    <div class="app-box">
+                        <div class="box-footer">
+                            <div id="scene-contain" class="change_scenes">
+                                <div class="change_scenes_trigger change_station" style="visibility:hidden;" id="change_scenes_trigger">
+                                    <!--<span class="fa fa-sort-down"></span>-->
+                                    <span class="glyphicon-transfer glyphicon"></span>
+                                    <span class="pos" id="switch-text">设备切换</span>
+                                </div>
+                                <div class="scenes_panel ng-show" id="scenes_panel" name="scenes_panel">
+                                    <div class="scenes_panel_content">
+                                        <div class="form-group hide">
+                                            <label class="col-xs-3 control-label hide"><span id="switch-shop"></span>选择设备：</label>
+                                            <div class="col-xs-9">
+                                                <select id="selectedScene" class="select"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="device-contain">
+                                            <label class="col-xs-3 control-label"><span id="switch-device"></span>：</label>
+                                            <div class="col-xs-9">
+                                                <select id="devSn" class="select"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="scenes_panel_footer">
+                                        <button class="btn btn-cus hide" id="switchScenesBtn">确认</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 app-colum" debug="getnewuser">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <div class="col-xs-3">
+                        <span class="title">宾客统计</span>
+                    </div>
+                    <div class="index_out_div" id="total">
+                        <a id="days" class="xx-link active" value='1'>一天</a>
+                        <a id="weeks" class="xx-link" value='2'>一周</a>
+                        <a id="mounth" class="xx-link" value='3'>一月</a>
+                        <!--<a id="years" class="xx-link" value='4'>一年</a>-->
+                    </div>
+                </div>
+                <div class="box-body userflow-height form-group body-nopadding">
+                    <div id="loginuser" class="col-xs-10 myEchart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row xxb">
+        <div class="col-xs-12 app-colum left-block" debug="getAccessTime getOnlineTime">
+            <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <div class="col-xs-3">
+                        <span class="title">一周内数据统计</span>
+                    </div>
+                <div class="index_out_div" id="detail">
+                    <!--<a id="vDetail" class="xx-link">VIP宾客</a>-->
+                    <a id="oDetail" class="xx-link">在线宾客</a>
+                    <a id="hDetail" class="xx-link">历史明细</a>
+                </div>     
+            </div>
+                <div class="box-body pie-height form-group body-nopadding">
+                    <div class="col-xs-6 pietop">
+                    <!-- <div class="col-xs-4 pietop"> -->
+                        <div class="row-nohover row-clear padding0">
+                            <div id="Channel_utilization" class=" col-xs-12 myEchart newpie-container"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 pietop">
+                    <!-- <div class="col-xs-4 pietop"> -->
+                        <div class="row-nohover row-clear padding0">
+                            <div id="Channel_utilization1" class=" col-xs-12 myEchart newpie-container"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="x_userflow_rc" class="rc-define"
+    USER_COUNT="人数"
+    USER_TYPE="一次,两次,三次,四次以上"
+    USER_TYPE1111="来访次数,驻留时长,终端厂商"
+    USER_TYPE_TIME="半小时以内,一小时内,两小时内,两小时以上"
+    USER_TYPE_PHONE="其他,苹果,华为,魅族"
+    USER_TYPE_MODE="onehour,oneday,oneweek,onemonth"
+    USER_TYPE_MODE_NEW="ofhour,ofday,ofweek,ofmonth,ofyear"
+    XTEXT="分,时,日,日,月"
+    CLIENT_DATA="新增宾客,宾客总数"
+    switchBtn="切换场所"
+    ></div>
+</body>
+
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_summary.userflow");
+
+</script>

@@ -1,0 +1,77 @@
+#measure{
+    padding-top: 25px;
+    padding-left: 25px;
+    white-space: nowrap;
+}
+#measure_btn{
+    min-width: 95px;
+    height: 32px;
+    margin-right: 10px;
+    background: #4ec1b2;
+    color: white;
+    line-height: 32px;
+    border-radius: 2px;
+    text-align: center;
+    border-color: #4ec1b2;
+    border-style: none;
+    outline: none;
+}
+#mac_check{
+    display: none;
+    color: red;
+}
+#input_mac{
+    height: 32px;
+    width: 200px;
+    float: left;
+}
+#Test11kContent{
+    padding-left: 25px;
+    padding-top: 10px;
+}
+#Test11kTitleResult{
+    white-space: nowrap;
+}
+#measureResult th{
+    padding-top: 10px;
+}
+#measureResult tr+td{
+    padding-right: 20px;
+}
+#measureResult td+td{
+    text-align: right;
+}
+
+
+
+
+#rfpingContent{
+    padding-left: 25px;
+    padding-top: 10px;
+}
+#maintainpingContent{
+    padding-left: 25px;
+    padding-top: 10px;
+}
+#rfpingTitleResult{
+    white-space: nowrap;
+}
+#rfpingResult th+th{
+    padding-left: 10px;
+}
+#rfpingResult td+td{
+    padding-left: 10px;
+}
+
+#maintainpingResult th+th{
+    padding-left: 10px;
+}
+#maintainpingResult td+td{
+    padding: 10px;
+}
+#maintainpingAvgResult th+th{
+    padding: 10px;
+}
+#maintainpingAvgResult td+td{
+    padding-left: 10px;
+}

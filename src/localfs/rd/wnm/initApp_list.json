@@ -1,0 +1,35 @@
+{"aAppFilter":
+  [
+    {
+      "AddressType": "0","AppCategory": "Other3","AppName": "rtp","EndTime": "2015-08-21T11:08:37",
+      "LastTime": "2015-08-21T11:05:32","PktBytes": 0.43, "PktCnts": "10","PktDir": "0","PktDropBytes": "0",
+      "PktDropCnts": "0", "StartTime": "2015-08-21T00:00:00","Time": "2","UserId": "98",
+      "UserMac": "01-01-E2-F9-00-00"
+    }
+    ,{
+        "AddressType": "0","AppCategory": "Othere","AppName": "tsp","EndTime": "2015-08-21T11:08:37",
+        "LastTime": "2015-08-21T11:05:32","PktBytes": 0.43,"PktCnts": "10","PktDir": "0", "PktDropBytes": "0",
+        "PktDropCnts": "0","StartTime": "2015-08-21T00:00:00","Time": "2","UserId": "124",
+        "UserMac": "01-01-02-A1-00-00"
+      }
+    ,{
+        "AddressType": "0","AppCategory": "Otherd","AppName": "rtsp","EndTime": "2015-08-21T11:08:37",
+        "LastTime": "2015-08-21T11:05:33","PktBytes": 0.43,"PktCnts": "10","PktDir": "0","PktDropBytes": "0",
+        "PktDropCnts": "0","StartTime": "2015-08-21T00:00:00","Time": "2","UserId": "240",
+        "UserMac": "01-01-3A-C6-00-00"
+      }
+    ,{
+        "AddressType": "0","AppCategory": "Otherf","AppName": "rtspqq","EndTime": "2015-08-21T11:08:37",
+        "LastTime": "2015-08-21T11:05:32", "PktBytes": 0.47,"PktCnts": "11","PktDir": "1","PktDropBytes": "0",
+        "PktDropCnts": "0","StartTime": "2015-08-21T00:00:00","Time": "2","UserId": "98",
+        "UserMac": "01-01-E2-F9-00-00"
+      }
+    ,{
+        "AddressType": "0","AppCategory": "Othere","AppName": "rtsp","EndTime": "2015-08-21T11:08:37",
+        "LastTime": "2015-08-21T11:05:32","PktBytes": 0.47,"PktCnts": "11","PktDir": "1","PktDropBytes": "0",
+        "PktDropCnts": "0","StartTime": "2015-08-21T00:00:00","Time": "2","UserId": "124",
+        "UserMac": "01-01-02-A1-00-00"
+
+      }
+  ]
+}

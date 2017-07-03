@@ -1,0 +1,192 @@
+<html>
+<head>
+    
+</head>
+<body>
+<div class="btn_h_return" id="return"></div>
+
+    <div class="col-xs-12 app-colum">
+
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">AP统计</span>
+            </div>
+            <div class="box-body no-height" style="padding:0px 20px;">
+
+                <!-- 当前筛选条件声明 -->
+                <div id="shengMing_all" style="margin-top:20px;margin-bottom:5px;">
+                    <label>当前筛选条件：</label>
+                    <label id="shengMing_branch" >分支（<span id="shengMing_branchValue" style="color:#4EC1B2"></span>）</label>
+                </div>
+                            
+                <div class="form-group col-sm-12" id="anniumen">
+                    <div class="radioAnNiu" style="margin-top:10px;">
+                        <input type="radio" name="sanzhong-info" id="jiben">
+                        <label for="jiben" style="margin-right:30px;">基本信息</label>
+                        
+                        <input type="radio" name="sanzhong-info" id="shepin">
+                        <label for="shepin" style="margin-right:30px;">射频信息</label>
+                       
+                        <input type="radio" name="sanzhong-info" id="tongji">
+                        <label for="tongji" style="margin-right:30px;">连接信息</label>
+
+                        <input type="radio" name="sanzhong-info" id="yonghu">
+                        <label for="yonghu" style="margin-right:30px;">客户端信息</label>    
+
+                        <!-- <input type="radio" name="sanzhong-info" id="newOutline">
+                        <label for="newOutline" style="margin-right:30px;">离线用户</label> -->                                            
+                    </div>
+                </div>
+
+<br /><br /><br />
+
+                <div id="clients_list" class="simple-list"></div>
+                <div id="clients_list_sp" class="simple-list"></div>
+                <div id="clients_list_tj" class="simple-list"></div>
+                <div id="clients_list_yh" class="simple-list"></div>
+                <!-- <div id="clients_list_lx" class="simple-list"></div> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 弹出框 -->
+    <div class="hide modal fade" id="flowdetailDlg">
+      <form class="form-horizontal form" id="flowdetail_form">
+            
+            <!-- 弹出框的数据显示 -->
+            <div class="col-sm-12">
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label"><strong>Mac地址</strong></label>
+                    <span id="macAddr"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>AP名称</strong></label>
+                    <span id="apName"></span>
+                </div>
+                <!-- <div class="form-group">
+                    <label class="col-sm-2  control-label "><strong>终端名称</strong></label>
+                    <span id="clientName"></span>
+                </div> -->
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>AP型号</strong></label>
+                    <span id="apModel"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>IPv4地址</strong></label>
+                    <span id="ipv4Addr"></span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>IPv6地址</strong></label>
+                    <span id="ipv6Addr"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>上行流量</strong></label>
+                    <span id="transmitTraffic"></span>
+                    <span></span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>下行流量</strong></label>
+                    <span id="receiveTraffic"></span>
+                    <span></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>上行速率</strong></label>
+                    <span id="transmitRate"></span>
+                    <span></span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>下行速率</strong></label>
+                    <span id="receiveRate"></span>
+                </div>
+                <!-- <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>AP名称</strong></label>
+                    <span id=""></span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>AP名称</strong></label>
+                    <span id=""></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>AP名称</strong></label>
+                    <span id=""></span>
+                </div>     
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>AP名称</strong></label>
+                    <span id=""></span>
+                </div>  
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>AP名称</strong></label>
+                    <span id=""></span>
+                </div> 
+            
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>AP名称</strong></label>
+                    <span id="">无</span><span> B</span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>AP名称</strong></label>
+                    <span id="">无</span>
+                    <span></span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>AP名称</strong></label>
+                    <span id="">无</span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>AP名称</strong></label>
+                    <span id="">无</span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>AP名称</strong></label>
+                    <span id=""></span><span> Mbps</span>
+                </div> -->                
+            </div>
+      </form>
+
+        <!-- 弹出框的返回按钮 -->
+       <!--  <div class="modal-footer form-actions">
+            <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+                关闭
+            </a>
+        </div> -->
+
+    </div>   
+
+
+    <!-- 弹出框：认证 -->
+    
+
+<iframe id="exportFile" name="exportFile" style="display: none" ></iframe>
+<div id="clients_rc" class="rc-define"
+     BUTTON_CANCEL="返回"
+     EXPORT_LOG="导出"
+
+     KICKOUT_renzheng="注销绿洲用户"
+     KICKOUT_ALL="注销所有绿洲用户"
+     
+     KICKOUT_lixian="清除在线状态"
+     
+     LIST_HEADER="AP名称,AP型号,序列号,AP组名称,分支,MAC地址,IPv4地址,IPv6地址,XX2,XX3,XX4"
+     LIST_HEADER_SP="AP名称,AP型号,AP射频,信道,功率,XX1,XX2,XX3,XX4"
+     LIST_HEADER_TJ="AP名称,MAC地址,IPv4地址,IPv6地址,在线时长,XX1,XX2,XX3,XX4"
+     LIST_HEADER_YH="AP名称,5G客户端数量,2.4客户端数量,XX1,XX2,XX3,XX4"
+
+     USER_TYPE="一键认证,短信认证,微信客户端认证,支付宝认证,QQ认证,微信公众号认证,固定账号认证"
+
+     LIST_HEADER_BF="mac,ip,名称,厂商,接入点名称,关联的ssid名,信号强度(db),发送速率(Kbps),接收速率(Kbps),关联,模式,关联的Radio信道,协商速率(Mbps),发送报文字节(KB),接收报文字节(KB),发送报文数,接收报文数"
+     LIST_POWERSAVEMODE="激活,休眠"
+     LIST_QOSMODE="N/A,WMM,11e,WMM and 11e"
+     SEC_TYPE="不认证,802.1X认证,静态PSK密钥,静态WEP密钥,MAC地址认证,Portal认证,动态WEP密钥,802.1X 认证（不加密）"
+
+
+    TITLE_FLOWINFO="AP详情"
+    TITLE_RenZhengINFO="已认证终端详情"
+    FRESH="刷新"
+     ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("hq_apinfo.aplist");
+</script>
+

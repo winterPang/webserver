@@ -1,0 +1,98 @@
+<div class="site">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">Details</h3></div>
+        <div class="panel-body">
+            <form class="form-horizontal">
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Site name</label>
+                    <div class="col-md-5 col-sm-8">
+                        <label class="control-label" ng-bind="row.name"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Scenario</label>
+                    <div class="col-md-5 col-sm-8">
+                        <select name="scenario_category_name" class="form-control" ng-model="row.scenario_category_name"
+                                ng-options="scen.id as scen.namedesc for scen in scens" disabled="disabled">
+                        </select>
+                    </div>
+                    <div class="col-sm-2">
+                        <a class="btn btn-cus" ng-click="showmodel()" ng-disabled="">Supported Device Models</a>
+                        <div bs-modal="devmodel"><table bs-table="options"></table></div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Area</label>
+                    <div class="col-md-5 col-sm-8">
+                        <select name="area" class="form-control" ng-model="row.region"
+                                ng-options="area.id as area.name for area in areas" disabled="disabled">
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Address</label>
+                    <div class="col-lg-2 col-sm-4">
+                        <div class="form-group">
+                            <!--<label class="col-sm-1 control-label">Province ：</label>-->
+                            <div class="col-sm-11 padding-left-zero">
+                                <select id="cmbProvince" class="form-control" name="province" disabled="disabled">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-4">
+                        <div class="form-group">
+                            <!--<label class="col-sm-1 control-label">City ：</label>-->
+                            <div class="col-sm-11 padding-left-zero">
+                                <select id="cmbCitys" class="form-control" name="city" disabled="disabled">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-4 col-lg-offset-0 col-sm-offset-2">
+                        <div class="form-group">
+                            <!--<label class="col-sm-1 control-label">District ：</label>-->
+                            <div class="col-sm-11 padding-left-zero">
+                                <select id="cmbArea" class="form-control" name="area" disabled="disabled">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-4">
+                        <div class="form-group">
+                            <div class="col-sm-11 padding-left-zero">
+                                <label class="control-label" ng-bind="row.address"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Phone number</label>
+                    <div class="col-md-5 col-sm-8">
+                        <label class="control-label" ng-bind="row.phone"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Description</label>
+                    <div class="col-md-5 col-sm-8">
+                        <label class="control-label" ng-bind="row.brief"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-4 col-md-offset-4 col-sm-offset-5">
+                        <a class="btn btn-cus" ui-sref="global.content.system.site">Back</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="read_rc" id="site_detail_rc"
+        error="Request error ~"
+        support="Models"
+        page="Display , to , strip , common "
+        support-device="Supported Device Models"
+        off="Close"
+     >
+    </div>
+</div>
+

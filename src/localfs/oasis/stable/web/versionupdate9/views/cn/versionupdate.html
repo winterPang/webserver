@@ -1,0 +1,103 @@
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div style="height:50px;line-height:50px;">
+                <div style="float: right;position: relative;right:2.14285714rem; ">
+                    <div class="xb-input xb-radio">
+                        <input id="headquarters" class="input-element" name="headquarters" type="radio" value="headquarters"
+                               ng-model="template.filterBranch" ng-click="switchBranch()">
+                        <span class="input-icon radio-icon " ng-class="{'checked':template.filterBranch=='headquarters'}"></span>
+                        <label for="headquarters" class="input-label"></label>
+                    </div>
+                    <label for="headquarters">总部</label>
+                    &nbsp &nbsp
+                    <div class="xb-input xb-radio">
+                        <input id="branch" class="input-element" name="branch" type="radio" value="branch"
+                               ng-model="template.filterBranch " ng-click="switchBranch()">
+                        <span class="input-icon radio-icon " ng-class="{'checked':template.filterBranch=='branch'}"></span>
+                        <label for="branch" class="input-label"></label>
+                    </div>
+                    <label for="branch">分组</label>&nbsp;&nbsp;
+
+                    <div style="width: 200px;float: right;">
+                        <div ng-show="template.filterBranch=='branch'" style="display: inline-block;">
+                            <select class="singleSelect" style="width: 200px;"
+                                    ng-model="template.branch"
+                                    ng-change="switchBranch()"
+                                    ng-options="b.groupId as b.alias for b in template.branchList">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div>
+                <button class="btn btn-cus" type="button" ng-click="upgrade()" ng-disabled="!isCheck">
+                    批量升级
+                </button>
+            </div>
+
+            <table bs-table="devModelTable"></table>
+        </div>
+    </div>
+
+</div>
+
+<!--弹出框-->
+<div>
+    <form class="form edit" name="versionForm" bs-modal="updateModal">
+        <div class="form-group" style="position:relative;left:20px; color:#3eb0a1">
+            <label class="col-sm-8" style="color:#3eb0a1">说明：若当前设备正在升级，该设备将不执行此次升级操作</label>
+        </div>
+
+        <div class="form-group" style="position:relative;left:20px;">
+            <label class="col-sm-2">升级方式：</label>
+            <div class="col-sm-9" style="padding-left: 0">
+                <div class="col-sm-12">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" class="input-element" id="update1" name="updateType" value="1"
+                               ng-model="updateType.versionType" ng-click="checked()"/>
+                        <span class="input-icon radio-icon " ng-class="{'checked': updateType.versionType == 1}"></span>
+                        <label for="update1" class="input-label"></label>
+                    </div>
+                    <label for="update1">升级并重启</label>
+                </div>
+                <br><br>
+                <div class="col-sm-12">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" class="input-element" id="update2" name="updateType" value="2"
+                               ng-model="updateType.versionType" ng-click="checked()"/>
+                        <span class="input-icon radio-icon " ng-class="{'checked': updateType.versionType == 2}"></span>
+                        <label for="update2" class="input-label"></label>
+                    </div>
+                    <label for="update2">升级且保存配置并重启</label>
+                </div>
+                <br><br>
+                <div class="col-sm-12">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" class="input-element" id="update3" name="updateType" value="3"
+                               ng-model="updateType.versionType" ng-click="checked()"/>
+                        <span class="input-icon radio-icon " ng-class="{'checked': updateType.versionType == 3}"></span>
+                        <label for="update3" class="input-label"></label>
+                    </div>
+                    <label for="update3">仅升级不重启<span style="padding-left:10px;color:#9DA9B8;">(下次重启后生效)</span></label>
+                </div>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+<div id="device_infor_rc" class="rc-define"
+     Version_HEADER="AP型号,AP数量,最新版本,操作"
+     Title="更多"
+     VERSION_TYPE=",正式版本,开发版本,安全补丁版本"
+     SELECT="确认提示"
+     PERCENT="N/A"
+     Versioning="当前有版本正在升级,暂不可升级"
+     VERXION_FAIL="升级失败"
+     VERXION_SUC="正在升级中"
+     NO_DEVICES_UPGRADE="无设备需要升级"
+     VERXION_SUCESS="升级成功">
+</div>

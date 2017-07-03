@@ -1,0 +1,254 @@
+<html>
+<head>
+</head>
+<body>
+<!-- <div class="btn_h_return" id="return"></div> -->
+  <div class="tab-content row-fluid sub-page portlet page" >
+  <div class = "setting toggle-body app-box">
+      <div id="return"></div>
+      <div class="box-footer"> 
+          <span class="title">修改列表</span>
+      </div>
+      <div class="box-body no-height">
+            <div id="ssidList" class="simple-list"></div>
+      </div>
+      <div id="ssidToggle">
+       <form class=" form edit" id="toggle_form">
+       <div class="col-sm-6 response-block">
+           <div class="form-group">
+              <label class="col-sm-3" for="apName">无线服务名称</label>
+              <div class="col-sm-9 string big">   
+              <input  name = "apName"  id="apName" maxlength="63" readonly type="text"/>
+              </div> 
+           </div>
+           <div class="form-group">
+                 <label class="col-sm-3" for="apModel">SSID</label>
+                 <div class="col-sm-9 string big">
+                 <input name = "apModel"  id="apModel" maxlength="63" readonly type="text" />
+                 </div> 
+           </div>
+          
+           <div class="form-group" id="status">
+                  <label class="col-sm-3 control-label info-explain" for="apGroupName">状态</label>
+                  <div class="col-sm-9 string big">
+                      <input type="radio" id="apGroupName" checked name = "apGroupName" value="使能"/>
+                       <label class=" control-label info-explain" for="apGroupName">使能</label>
+                       &nbsp;&nbsp;&nbsp;&nbsp;
+                      <input type="radio" id="apGroupName_go"  name = "apGroupName" value="去使能"/>
+                       <label class=" control-label info-explain" for="apGroupName_go">去使能</label>
+              <!--    <input name = "apGroupName"  id="apGroupName" maxlength="63" type="text" /> -->
+                 </div> 
+           </div>
+      <!-- <div class="form-group" id="securityIE" style="display:none">
+                  <label class="col-sm-3 control-label info-explain" for="securityIE">安全IE</label>
+                  <div class="col-sm-9 string big">
+                  <input type="radio" id="Notconfigured" checked  name = "securityIE" value="Not configured"/>
+                  <label class=" control-label info-explain" for="Notconfigured">Not configured</label> 
+                  <input type="radio" id="WPA"  name = "securityIE" value="WPA"/>
+                  <label class=" control-label info-explain" for="WPA">WPA</label><br/>
+                  <input type="radio" id="RSN"  name = "securityIE" value="RSN"/>
+                  <label class=" control-label info-explain" for="RSN">RSN</label> 
+                  <input type="radio" id="OSEN"  name = "securityIE" value="OSEN"/>
+                  <label class=" control-label info-explain" for="OSEN">OSEN</label>                
+                  </div> 
+           </div>
+           <div class="form-group" id="cipherSuite" style="display:none">
+                 <label class="col-sm-3 control-label info-explain" for="cipherSuite">加密套件</label>
+                 <div class="col-sm-9 string big">
+                <!-- <select class="singleSelect"  allowClear="true" id="cipherSuite" name="cipherSuite">
+                 </select> -->
+       <!--           <input type="radio" id="Notconfigured" checked  name = "cipherSuite" value="Not configuredd"/>
+                  <label class=" control-label info-explain" for="Notconfigured">Not configured</label> 
+                  <input type="radio" id="TKIP"  name = "cipherSuite" value="TKIP"/>
+                  <label class=" control-label info-explain" for="TKIP">TKIP</label><br/>
+                  <input type="radio" id="CCMP"  name = "cipherSuite" value="CCMP"/>
+                  <label class=" control-label info-explain" for="CCMP">CCMP</label> 
+                  <input type="radio" id="TKIPCCMP"  name = "cipherSuite" value="TKIP/CCMP"/>
+                  <label class=" control-label info-explain" for="TKIPCCMP">TKIP/CCMP</label>     
+                 </div> 
+           </div> --> 
+          <div class="form-group" id="cipherSuite">
+                 <label class="col-sm-3 control-label info-explain"for="cipherSuite " id="cipherSuite_right">是否加密</label>
+                 <div class="col-sm-9 string big">
+                 <input type="radio" id="cipherSuite_false" checked  name = "cipherSuite" value="cipherSuite_false"/>
+                  <label class=" control-label info-explain" for="cipherSuite_false">否</label> 
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input type="radio" id="cipherSuite_true"  name = "cipherSuite" value="cipherSuite_true"/>
+                  <label class=" control-label info-explain" for="cipherSuite_true">是</label>
+                 </div> 
+           </div>
+          <!-- <div class="form-group hide" id="securityIE" >
+                  <label class="col-sm-3 control-label info-explain" for="securityIE" >加密方式</label>
+                  <div class="col-sm-9 string big">
+                  <input type="radio" id="Notconfigured"  name = "securityIE" value="Not configured"/>
+                  <label class=" control-label info-explain" for="Notconfigured">WPA</label> 
+                  <input type="radio" id="WPA"  name = "securityIE" value="WPA"/>
+                  <label class=" control-label info-explain" for="WPA">WPA2</label><br/>
+                  <input type="radio" id="RSN"  name = "securityIE" checked value="RSN"/>
+                  <label class=" control-label info-explain" for="RSN">WPA或WPA2</label>     </div> 
+          </div> -->
+       <!--      <div class="form-group hide" id="cipherKey_out" >
+                 <label class="col-sm-3 required"  for="apModel">密钥</label>
+                 <div class="col-sm-9 string big required">
+                 <input name = "cipherKey"  id="cipherKey"   type="text" />
+                 </div> 
+           </div> -->
+          <div class="form-group hide" id="cipherKey_out">
+                <label class="col-sm-3 control-label required">密钥</label>
+                <div class="col-md-9">
+                    <input type="text" class="string big required" id="restByte" name ="IDLE_CUT_FLOW" error_id="restByte_error" />
+                    <label class="error" id="restByte_error" >该参数必须配置</label>
+                </div>
+          </div>
+
+          <!-- 
+           <div class="form-group">
+                 <label class="col-sm-3 control-label info-explain"for="onlineTime1">绑定AP组</label>
+                 <div class="col-sm-9 string big">
+                 <input name = "onlineTime1"  id="onlineTime1" maxlength="63" type="text" />
+                 <span class="label form-if-setHtml" id="onlineTime1" name = "onlineTime1">--</span>
+                 </div> 
+           </div> -->
+       </div>
+
+      <div class="col-sm-6 response-block">
+      <div class="form-group" id="authTypes">
+          <label class="col-sm-3 control-label">认证方式</label>
+          <div class="col-sm-9">
+              <div class="col-sm-12">
+                  <input type="radio" value="AT1" id="AT1" name="AuthenType" ctrlBlock=".ath-type" content="" checked/>
+                  <label for="AT1">不认证</label>
+              </div>
+
+              <div class="col-sm-12">
+                  <input type="radio" value="AT2" id="AT2" name="AuthenType" ctrlBlock=".ath-type" content="" />
+                  <label for="AT2" >一键上网</label>
+              </div>
+
+              <div class="col-sm-12 st-type" id="MailBlock" >
+                  <input type="radio" value="AT3" id="AT3" name="AuthenType" ctrlBlock=".ath-type" content="#LoginWays" />
+                  <label for="AT3">账号登录</label>
+                  <div id="LoginWays" class="ath-type hide">
+                      <div class="col-sm-2">
+                          <input type="checkbox" value="短信认证" id="Message" name="LoginWays"/>
+                          <label for="Message">短信</label>
+                      </div>
+                      <div class="col-sm-3 account_style">
+                          <input type="checkbox" id="WeChart" name="LoginWays"/>
+                          <label for="WeChart">微信公众号</label>
+                      </div>
+                      <div class="col-sm-3 account_style">
+                          <input type="checkbox" id="FixAccount" name="LoginWays"/>
+                          <label for="FixAccount">固定账号</label>
+                      </div>
+                      <div class="col-sm-3 account_style">
+                          <input type="checkbox" id="isWeChatWifi" name="LoginWays"/>
+                          <label for="isWeChatWifi">微信连WIFI</label>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-sm-12 st-type" id="WeixinBlock" >
+                  <input type="radio" value="AT4" id="AT4" name="AuthenType" ctrlBlock=".ath-type" content="#ModelSelect"/>
+                  <label for="AT4">选择认证模板</label>
+                  <div class="ath-type hide"  id="ModelSelect">
+                      
+                      <select class="singleSelect"  allowClear="true" id="AuthCfgList" name="AuthCfgList">
+                      </select>
+                  </div>
+              </div>
+          </div>
+      </div>
+  
+      <div class="form-group" id="denglu">
+          <label class="col-sm-3 control-label">登录页面</label>
+          <div class="col-sm-9">
+              <div class="col-sm-12">
+                  <div class="col-sm-3">
+                      <input type="radio" id="LP1" value="LP1" name="LoginPage" value="1" ctrlBlock=".lg-page" checked/>
+                      <label for="LP1">简约</label>
+                  </div>
+              </div>
+              <div class="col-sm-12" id="yemian">
+                  <input type="radio" id="LP4" value="LP4" name="LoginPage" ctrlBlock=".lg-page" content="#LoginPageSelect">
+                  <label for="LP4">选择页面模板</label>
+                  <div class="lg-page hide"  id="LoginPageSelect">
+                      <!--allowClear="false" 属性-->
+                      <select class="singleSelect"  id="LoginPageList" name="LoginPageList">
+                      </select>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label class="col-sm-3 control-label">微信公众号</label>
+          <div class="col-sm-9" id="WeChartSelect">
+              <select class="singleSelect"  id="WeChartList" name="WeChartList">
+              </select>
+              <!--&nbsp;&nbsp;-->
+              <!--<a class="xb-link">新建</a>-->
+          </div>
+      </div>
+
+      <div class="form-group">
+          <label class="col-sm-3 control-label">免认证</label>
+          <div class="col-sm-9">
+              <input type="checkbox" class="switch" id="auto_study_enable" name="auth_study_group" checked ctrlBlock=".Learn-MAC"/>
+              <div class="Learn-MAC">
+                  <!--<input type="checkbox" id="impose_auth" checked ctrlBlock=".Learn-Time" hidden/>
+                  <label for="impose_auth" hidden>限制免认证时长</label>
+                  <br>-->
+                  <div class="Learn-Time">
+                      <input type="text" class="string big" id="impose_auth_time" value="7"/>
+                      <label class="info-explain">(1-30)天</label>
+                  </div>
+                  <label class="info-explain">说明：通过认证的用户在免认证期内上线无需重复认证</label>
+              </div>
+          </div>
+      </div>
+
+    </div>
+  </div>
+      <div class="form-actions bottom">
+        <a class="btn btn-apply" id="ensure">确定</a>
+        <a  class="btn btn-cancel" id="cancel">取消</a>
+      </div>
+   </form>
+   </div>
+   </div>
+  <div id="h_wireless_indexModifys" class="rc-define"
+            SSID_HEADER = "SSID,认证方式"
+            ALLAP_HEADER2="无线服务名称,SSID,认证方式,状态,绑定AP,绑定AP组,操作"
+            TERINFO="AP列表"
+            TITLE_TERINFO="AP详情"
+            APGROUP="AP组"
+            ALLAP_HEADER3="AP名称,SN,AP型号,绑定"
+            ALLAP_HEADER4="AP组名称,绑定"
+            ADD_TITLE = "增加服务"
+            AUTH_CFG = "不认证,微信认证,短信认证,一键上网,选择页面模板"
+            DEL_AUTH_FAIL = "删除发布模板失败"
+            DEL_PUB_SUCC = "取消发布成功"
+            PUB_SUCC = "发布成功"
+            ADD_SUCCESS = "添加成功"
+            ADD_FAIL = "添加失败"
+            ADD_NULL_SSID = "SSID不能为空"
+            DEL_SUCCESS = "删除成功"
+            DEL_FAIL = "删除失败"
+            AUTHEN_TYPE="不认证,一键上网,账号认证"
+            SYN="同步",
+            LINK="主连接已断开,添加失败"
+            LINK_delete="主连接已断开,删除失败"
+            ADD_Limit="服务模版已达到上限，添加失败"
+            CIPHERSUITE="Not configured,WEP40,TKIP,CCMP,TKIP/CCMP,WEP104,WEP128"
+            SECURITYIE ="Not configured,WPA,RSN,OSEN"
+            STATUS=",使能,去使能"
+            AKMMODE="否,是"
+            >
+            
+   </div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+	Utils.Pages.loadJS("h_wireless.index_modify");
+</script>

@@ -1,0 +1,67 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 10,
+  "rows": [
+    {
+      "AP_num": 270,
+      "user_count": 9419,
+      "flow_upload": "108GB",
+      "flow_download": "153GB"
+    },
+    {
+      "AP_num": 64,
+      "user_count": 7619,
+      "flow_upload": "321GB",
+      "flow_download": "670GB"
+    },
+    {
+      "AP_num": 367,
+      "user_count": 7616,
+      "flow_upload": "543GB",
+      "flow_download": "856GB"
+    },
+    {
+      "AP_num": 472,
+      "user_count": 7079,
+      "flow_upload": "454GB",
+      "flow_download": "399GB"
+    },
+    {
+      "AP_num": 911,
+      "user_count": 4319,
+      "flow_upload": "430GB",
+      "flow_download": "0GB"
+    },
+    {
+      "AP_num": 620,
+      "user_count": 1643,
+      "flow_upload": "64GB",
+      "flow_download": "99GB"
+    },
+    {
+      "AP_num": 307,
+      "user_count": 3401,
+      "flow_upload": "863GB",
+      "flow_download": "262GB"
+    },
+    {
+      "AP_num": 276,
+      "user_count": 5443,
+      "flow_upload": "129GB",
+      "flow_download": "750GB"
+    },
+    {
+      "AP_num": 933,
+      "user_count": 9448,
+      "flow_upload": "72GB",
+      "flow_download": "209GB"
+    },
+    {
+      "AP_num": 736,
+      "user_count": 6188,
+      "flow_upload": "191GB",
+      "flow_download": "878GB"
+    }
+  ]
+}

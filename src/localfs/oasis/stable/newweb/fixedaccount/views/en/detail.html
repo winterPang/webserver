@@ -1,0 +1,229 @@
+<div class="col-xs-12 app-colum">
+    <div id='listView' class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">Fixed Account</span>
+        </div>
+        <div class="panel-body">
+            <div class="btn btn-cus" ng-click="addAccount()">
+                <i class="btn-icon icon-add"></i>Add
+            </div>
+            <div class="btn btn-cus" ng-click="exportAccounts()">Export</div>
+            <div class="btn btn-cus" ng-click="importAccounts()">Import</div>
+            <div class="box-body no-height">
+                <div bs-table="userOption" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form name="myForm" novalidate bs-modal="accountAdd.options">
+    <div class="form-group">
+        <label class="col-sm-3 control-label required">Account name</label>
+        <div class="col-md-9">
+            <input ng-model="add.userName" type="text" class="string big " id="userName" name="userName" ng-maxlength="128" required ng-pattern="/^[^\s]+$/">
+            <label class="info-explain">(1-128 chars without spaces)</label>
+            <label ng-show="myForm.userName.$dirty" ng-messages="myForm.userName.$error" style="display:inline-block;">
+                <label ng-message="required" class="error" style="display: inline-block;">This field is required</label>
+                <label ng-message="maxlength" class="error" style="display: inline-block;">Please enter a string of 1 to 128 characters without spaces</label>
+                <label ng-message="pattern" class="error" style="display: inline-block;">Please enter a string of 1 to 128 characters without spaces</label>
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label required">Password</label>
+        <div ng-init="showPwd=true" class="col-md-9">
+            <input type="password" ng-model="add.password" id="password" ng-show='showPwd' class="string big" required name="userPassword" ng-minlength="6" ng-maxlength="32" ng-pattern="/^[^\u4E00-\u9FA5\s]+$/">
+            <input type="text" ng-model="add.password" ng-hide='showPwd' id="text" class="string big" required name="userPassword2" ng-minlength="6" ng-maxlength="32" ng-pattern="/^[^\u4E00-\u9FA5\s]+$/">
+            <span class="icon_eye" ng-class="{show_word:!showPwd}" ng-click="showPwd=!showPwd"></span>
+            <label class="info-explain">(6-32 English chars without spaces)</label>
+            <div ng-show="myForm.userPassword.$dirty" ng-messages="myForm.userPassword.$error" style="display:inline-block;">
+                <label ng-message="pattern" class="error" style="display:inline-block;">Please enter a string of 6 to 32 English characters without spaces</label>
+                <label ng-message="required" class="error" style="display: inline-block;">This field is required</label>
+                <label ng-message='minlength' class="error" style="display:inline-block;">Please enter a string of 6 to 32 English characters without spaces</label>
+                <label ng-message='maxlength' class="error" style="display:inline-block;">Please enter a string of 6 to 32 English characters without spaces</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label required">Confirm password</label>
+        <div ng-init="showConPwd=true" class="col-md-9">
+            <input pw-check="password" type="password" ng-model="add.passwordConf" ng-show="showConPwd" class="string big"
+                   required name="passwordConform" ng-minlength=6 ng-maxlength="32"/>
+
+            <input pw-check="password" type="text" ng-model="add.passwordConf" ng-hide="showConPwd" class="string big"
+                   required name="passwordConform2" ng-minlength=6 ng-maxlength="32"/>
+
+            <span class="icon_eye" ng-class="{show_word:!showConPwd}" ng-click="showConPwd=!showConPwd"></span>
+            <div ng-show="myForm.passwordConform.$dirty||myForm.passwordConform2.$dirty" ng-messages="myForm.passwordConform.$error" style="display:inline-block;">
+                <label ng-message="pwCheck" class="error" style="display: inline-block;">Inconsistent passwords</label>
+
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Configuration</label>
+        <div class="col-md-9">
+            <div class="col-md-5">
+                <div class="xb-input xb-radio">
+                    <input type="radio" id="section1" name="section" class="input-element" value="1" ng-model="add.no_choose">
+                    <span class="input-icon radio-icon" ng-class="{'checked':add.no_choose == 1}"></span>
+                    <label for="section1" class="input-label"></label>
+                </div>
+                <label for="section1">MAC address binding</label>
+            </div>
+            <div class="col-md-5">
+                <div class="xb-input xb-radio">
+                    <input type="radio" id="section2" name="section2" class="input-element" value="0" ng-model="add.no_choose">
+                    <span class="input-icon radio-icon" ng-class="{'checked':add.no_choose == 0}"></span>
+                    <label for="section2" class="input-label"></label>
+                </div>
+                <label for="section2">User limit</label>
+            </div> 
+        </div>
+    </div>
+    <div class="form-group col-sm-offset-3 col-md-9">
+        <div class="col-md-12 Learn-MAC" ng-if="add.no_choose == 1">
+            <label>Enter comma-separated MAC addresses</label>
+            <br>
+            <div class="Learn-Time">
+                <textarea cols="4" rows="1" id="getmac" class="digits big" name="bindMAC" ng-model="add.bindMAC" style="min-width:200px;height:142px;" placeholder="AA-BB-CC-DD-EE-FF">
+                </textarea>
+            </div>
+        </div>
+        <div class="col-md-12 Learn-MAC" ng-if="add.no_choose == 0">
+            <label>Enter the MAX. number of permitted online users.</label>
+            <br>
+            <div class="Learn-Time">
+                <input type="text" class="string digits big" id="Account" ng-model="add.onlineAccount" name="onlineAccount" ng-pattern="
+/(^[1-9][0-9]?$)|(^[1][0-9][0-9]$)|(^[2][0-4][0-9]$)|(^[2][0-4][0-9]$)|(^[2][0-4][0-9]$)|(^[2][0-4][0-9]$)|(^[2][5][0-5]$)/">
+                <label class="info-explain">(1-255)</label>
+            </div>
+            
+            <label ng-show="myForm.onlineAccount.$dirty&&myForm.onlineAccount.$error.pattern" style="display:inline-block;">
+                <label class="error" style="display: inline-block;">Please enter an integer in the range of 1 to 255</label>
+            </label>
+        </div>
+    </div>
+</form>
+
+
+<form bs-modal="accountModify.options" name="editForm" novalidate>
+    <div class="form-group">
+        <label class="col-sm-3 control-label required">Account name</label>
+        <div class="col-md-9">
+            <input ng-model="edit.username" type="text" class="string big required" readonly="readonly" name="userName"/>
+            <label class="info-explain">(1-128 chars without spaces)</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label required">Password</label>
+        <div ng-init="showeditPwd=true" class="col-md-9">
+            <input type="password" ng-model="edit.password" ng-show='showeditPwd' class="string big" required id="userPassword_1" name="editUserPassword" ng-minlength="6" ng-maxlength="32" ng-pattern="/^[^\u4E00-\u9FA5\s]+$/">
+            <input type="text" ng-model="edit.password" id="text_1" ng-hide='showeditPwd' class="string big" required name="editUserPassword2" ng-minlength="6" ng-maxlength="32" ng-pattern="/^[^\u4E00-\u9FA5\s]+$/">
+            <span class="icon_eye" id="switch_1" ng-class="{show_word:!showeditPwd}" ng-click="showeditPwd=!showeditPwd"></span>
+            <label class="info-explain">(6-32 English chars without spaces)</label>
+            <div ng-show="editForm.editUserPassword.$dirty" ng-messages="editForm.editUserPassword.$error" style="display:inline-block;">
+                <label ng-message="pattern" class="error" style="display: inline-block;">Please enter a string of 6 to 32 English characters without spaces</label>
+                <label ng-message="required" class="error" style="display: inline-block;">This field is required</label>
+                <label ng-message='minlength' class="error" style="display:inline-block;">Please enter a string of 6 to 32 English characters without spaces</label>
+                <label ng-message='maxlength' class="error" style="display:inline-block;">Please enter a string of 6 to 32 English characters without spaces</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label required">Confirm password</label>
+        <div ng-init="showConPwd1=true" class="col-md-9">
+            <input type="password" ng-model="edit.passwordConf" ng-show="showConPwd1" class="string big" required id="passwordConform_1" name="editPasswordConform" ng-minlength=6 ng-maxlength="32"/>
+            <input type="text" ng-model="edit.passwordConf" ng-hide="showConPwd1" id="text2_1" class="string big" required name="editPasswordConform2" ng-minlength="6" ng-maxlength="32"/>
+            <span class="icon_eye" id="switch2_1" ng-class="{show_word:!showConPwd1}" ng-click="showConPwd1=!showConPwd1"></span>
+            <div ng-show="editForm.editPasswordConform.$dirty || editForm.editPasswordConform2.$dirty " ng-messages="editForm.editPasswordConform.$error" style="display:inline-block;">
+                <lable ng-message="pwCheck" class="error" style="display:inline-block;">Inconsistent passwords</lable>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">Configuration</label>
+        <div class="col-md-9">
+            <div class="col-md-5">
+                <div class="xb-input xb-radio">
+                    <input type="radio" id="section3" name="section3" class="input-element" value="1" ng-model="edit.no_edit">
+                    <span class="input-icon radio-icon" ng-class="{'checked':edit.no_edit == 1}"></span>
+                    <label for="section3" class="input-label"></label>
+                </div>
+                <label for="section3">MAC address binding</label>
+            </div>
+            <div class="col-md-5">
+                <div class="xb-input xb-radio">
+                    <input type="radio" id="section4" name="section4" class="input-element" value="0" ng-model="edit.no_edit">
+                    <span class="input-icon radio-icon" ng-class="{'checked':edit.no_edit == 0}"></span>
+                    <label for="section4" class="input-label"></label>
+                </div>
+                <label for="section4">User limit</label>
+            </div> 
+        </div>
+    </div>
+    <div class="form-group col-sm-offset-3 col-md-9">
+        <div class="col-md-12 Learn-MAC" ng-if="edit.no_edit == 1">
+            <label >Enter comma-separated MAC addresses</label>
+            <br>
+            <div class="Learn-Time">
+                <textarea cols="4" rows="1" id="editmac" class="digits big" name="bindMAC" ng-model="edit.bindMAC" style="min-width:200px;height:142px;" placeholder="AA-BB-CC-DD-EE-FF">
+                </textarea>
+            </div>
+        </div>
+        <div class="col-md-12 Learn-MAC" ng-if="edit.no_edit == 0">
+            <label>Enter the MAX. number of permitted online users.</label>
+            <br>
+            <div class="Learn-Time">
+                <input type="text" class="string digits big" id="editAccount" ng-model="edit.onlineAccount" name="onlineAccount" ng-pattern="
+/(^[1-9][0-9]?$)|(^[1][0-9][0-9]$)|(^[2][0-4][0-9]$)|(^[2][0-4][0-9]$)|(^[2][0-4][0-9]$)|(^[2][0-4][0-9]$)|(^[2][5][0-5]$)/">
+                <label class="info-explain">(1-255)</label>
+            </div>
+            <label ng-show="editForm.onlineAccount.$dirty&&editForm.onlineAccount.$error.pattern" ng-messages="editForm.onlineAccount.$error" style="display:inline-block;">
+                <label class="error" style="display: inline-block;">Please enter an integer in the range of 1 to 255</label>
+            </label>
+        </div>
+    </div>
+</form>
+<div bs-modal="macAddress.options">
+    <div bs-table="macOption" class="simple-list"></div>
+</div>
+<form bs-modal="import.options" name="importForm" novalidate>
+    <div class="form-group">
+        <label class="col-sm-9 control-label">Please first download the template file and then edit it as required.</label> 
+        <div class="col-md-3">
+            <button ng-click="download()">Download</button> 
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Upload</label>
+        <div class="col-md-8">
+            <input type="file">
+        </div>
+    </div>
+</form>
+<div id="add_user_Dlag" class="hide modal fade"></div>
+<iframe id="exportFile" name="exportFile" style="display: none"></iframe>
+<div id="user_rc" class="rc-define"
+     USER_LIST_HEADER="Account Name,Registered At,Online Duration,Max. Users,Last Associated At,Bound MAC,Operation"
+     OPERATE="Edit,Delete"
+     ADD_USER="Add Fixed Account"
+     EDIT_USER="Modify Fixed Account,MAC Address List,Batch Import Fixed Accounts"
+     REMOVE_BLACK_LIST="Remove from Blacklist"
+     DERIVE="Export"
+     GET_STORE_FAILED="Failed to obtain site information"
+     CONFIGURE_SUCCESS="Configuration succeeded"
+     ADD_SUCCESS="Account added successfully"
+     ADD_FAIL="The fixed account already exists,already exists"
+     EDIT_SUCCESS="Account modified successfully,Account import successfully"
+     DATA_ERROR="Error occurred during data querying"
+     DEL_CONFIRM="Confirm"
+     DEL_FAIL="The account does not exist,This information is required"
+     CON_DEL="Are you sure you want to delete this account?"
+     MAC_ERROR="Valid format:AA-BB-CC-DD-EE-FF,Invalid MAC address"
+     BIND_ERROR ="Binding failed.A maximum number of 255 MAC address can be bound to account."
+    PASSWORD_ERROR = "Import failed.Vaild password format:6 to 32 English characters without spaces."
+    EXPORT_ERROR ="Operation failed.The number of entries in the file cannot exceed 1000."
+    NUM_ERROR ="Operation failed.Invalid maximum user quantity exists in the file."
+>
+</div>

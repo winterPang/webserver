@@ -1,0 +1,153 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+        .ssidinfos {display: none;  }
+        .tips{
+            padding: 10px 20px 0px 20px;margin-bottom: -10px;color: #000
+          }
+    </style>
+</head>
+
+<body>
+    <div class="col-xs-12 app-colum xxb" id="addwlan" debug="getDeviceInfo GetSsisCfg">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">修改Wi-Fi</span>
+            </div>
+            <div class="box-body no-height sub-box">
+                <div class="content-title">
+                    <h2>Wi-Fi名称<span id = "head_show" class="info-green">XXB-MSR_01</span>
+                    <input type="text" class="string big required ssid" id="ssid" errid="upspeed_error" maxlength="32">
+                        <label class="info-explain hide" for="ssid" id="infoExplain1"><span>长度不能超过32位,不能包含% # &</span></label>
+                    <a id="modify" class="xx-link">修改Wi-Fi名称</a></h2>
+                    <!--<a class="ssidinfos" id="ss">如果您要使用微信连wifi功能，SSID修改成功后，请点击认证方式到认证管理页面确认同步</a>-->
+                    <p>服务类型：<span id="servername">管理Wi-Fi</span></p>
+
+                </div>
+
+                <div class="form-group col-sm-12 server">
+                    <div class="addbox_head">服务状态</div>
+                    <div class="radio-group addboxbody">
+                        <div class="col-sm-1">
+                            <input type="radio" name="ssid-status" id="open_ssid" value="1" checked>
+                            <label for="open_ssid">开启</label>
+                        </div>
+                        <div class="col-sm-1">
+                            <input type="radio" name="ssid-status" id="close_ssid" value="0">
+                            <label for="close_ssid">关闭</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-sm-12 server"  id="displayssid">
+                    <div class="addbox_head">隐藏SSID</div>
+                    <div class="radio-group addboxbody" >
+                        <div class="col-sm-12">
+                            <div class="col-sm-1">
+                                <input type="radio" name="hide_ssid" id="hide_ssid" value="1">
+                                <label for="hide_ssid">是</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <input type="radio" name="hide_ssid" id="show_ssid" value="0" checked>
+                                <label for="show_ssid">否</label>
+                            </div>
+                        </div>
+                        <p class="info">
+                            隐藏SSID可以使其他人搜索不到此无线服务，提升网络安全性。
+                            <br> 若要使用此无线服务上网，需要在无线终端输入此SSID进行关联。
+                        </p>
+                    </div>
+                </div>
+                <div class="form-group col-sm-12 server">
+                    <div class="addbox_head">加密服务</div>
+                    <div class="radio-group addboxbody">
+                        <div class="col-sm-12">
+                            <div class="col-sm-1">
+                                <input type="radio" name="securityMode" id="add_secret" value="1" checked>
+                                <label for="add_secret">是</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="radio" name="securityMode" id="remove_secret" value="0">
+                                <label for="remove_secret">否</label>
+                            </div>
+                            <div class="col-sm-6 hide" id="pass">
+                                <label for="password">密码</label>
+                                <input type="password" class="string big" name="password" id="password" maxlength="32" min="8">
+                                <input type="text" id="text" class="string big" name="password" maxlength="32" min="8" style="display:none" />
+                                <span class="icon_eye" id="switch"></span>
+                                <label class="info-explain" for="password"><span>(8-32字符)</span></label>
+                            </div>
+                        </div>
+                        <div class="col-sm-12">
+                            <p id="manageWifi" class="info hide">
+                                通过加密服务，可使接入此SSID的客户端通信消息被加密，提高网络安全性，防止他人窃听。                                
+                            </p>
+                            <p id="businessWifi" class="info hide">
+                                对于使用微信连Wi-Fi等商业推广功能的无线服务，建议不加密服务。
+                            </p>    
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-sm-12">
+                    <div class="btn_foot">
+                        <button class="btn surebtn btn_ok" id="ok">确定</button>
+                        <button class="btn btn_cancel" id="cancel">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hide modal fade " id="failcfgDlg">
+        <div id="client_diag">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="closeX"></button>
+                <h3 class="modal-title">配置失败列表</h3>
+            </div>
+            <!-- <span id="tip" style=" color:red; display: none;">下发失败的原因是设备离线</span> -->
+            <div class="tips">
+              <strong>Tips：设备版本低不支持此配置，请先升级设备版本</strong> 
+            </div>
+            <div class="modal-body">
+                <div id="failList" class="simple-list showList"></div>
+            </div>
+            <div class="modal-footer form-actions">
+                <!-- <a class="btn btn-primary" id="failConform">确定</a> <a class="btn btn-primary" id="closeMadle">关闭</a> -->
+            </div>
+        </div>
+
+        <!--<div id="failList" class="simple-list showList"></div>-->
+        <!--<button class="btn btn-primary btn_ok hidemodify" id="signalStrength_btn" >确定</button>-->
+        <!--<button class="btn btn-primary btn_ok hidemodify" id="signalStrength_btn" >修改</button>-->
+    </div>
+        <div id="addwlan_rc" class="rc-define"
+        SUCCESS="配置成功"
+        FAILD="配置失败"
+        PENDING="正在下发配置"
+        Wi-Fi_NAME="内部Wi-Fi,商业Wi-Fi"
+        LIMIT_MSG="长度不能超过32位,且不能包含% # & &#34; < ? / '等特殊字符 ,首尾不能有空格 ,请输入密码,密码长度为8-32位且不能有空格,请重新输入,8-32字符"
+        Wi-Fi_NAME_MSG="请输入Wi-Fi名称,该Wi-Fi 名称已经存在"
+        SSID_NAME_LOG="修改,Wi-Fi名称为,服务状态为"
+        SSID_STATUS="关闭,开启"
+        YES_OR_NO="否,是"
+        HIDE_SSID_LOG="修改,是否隐藏SSID为"
+        SECURITY_MODE_LOG="修改,加密服务为"
+        MSG_INFO="无法获取设备的模式"
+        CLOSE_WEIXING_INFO="下发失败,需先关闭认证模版中的微信连Wi-Fi功能";
+        GET_WEIXING_INFO="正在下发配置...";
+        GET_FAIL="获取配置失败请重新操作"
+             FAIL_INFO ="设备端配置失败请重新配置"
+             FAIL_CFGLIST="配置失败列表"
+             DEV_LIST="设备序列号,状态"
+             STATE="在线,离线"
+             SUCCESS="配置成功"
+        >
+</div>
+</body>
+
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_networkcfg.addwlan");
+
+</script>

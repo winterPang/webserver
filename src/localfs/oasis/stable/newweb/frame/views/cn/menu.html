@@ -1,0 +1,34 @@
+<div class="oasis-menu" bs-sidebar>
+    <div class="oasis-menu-title" ng-bind="name"></div>
+    <ul class="menu-second">
+        <li ng-repeat="menu in leftMenu">
+            <div ng-if="menu.sref" ui-sref="{{menu.sref}}" class="menu-animate"
+                 ng-class="{'active':menuActive(menu.sref,menu.tabs)&&(!menu.tabs.toString()),'open':menuActive(menu.sref,menu.tabs)&&menu.tabs.toString()}">
+                <i class="{{menu.icon}}"></i>
+                <span ng-bind="menu.name"></span>
+                <i ng-if="menu.tabs.toString()"
+                   ng-class="{true:'glyphicon glyphicon-minus',false:'glyphicon glyphicon-plus'}[menuActive(menu.sref,menu.tabs)]"></i>
+            </div>
+            <div ng-if="!menu.sref" class="menu-animate"
+                 ng-class="{'active':menuActive(menu.sref,menu.tabs)&&(!menu.tabs.toString()),'open':menuActive(menu.sref,menu.tabs)&&menu.tabs.toString()}">
+                <i class="{{menu.icon}}"></i>
+                <span ng-bind="menu.name"></span>
+                <i ng-if="menu.tabs.toString()"
+                   ng-class="{true:'glyphicon glyphicon-minus',false:'glyphicon glyphicon-plus'}[menuActive(menu.sref,menu.tabs)]"></i>
+            </div>
+            <ul class="menu-third" ng-if="menu.tabs.toString()" style="{{menuActive(menu.sref,menu.tabs)?'':'display: none'}}" ng-class="{'':!menuActive(menu.sref,menu.tabs)}">
+                <li ng-repeat="tabs in menu.tabs" ng-class="{'active':menuActive(tabs.sref,undefined)}"
+                    ui-sref="{{tabs.sref}}">
+                    <i class="fa fa-circle-o"></i>
+                    <span ng-bind="tabs.name"></span>
+                </li>
+            </ul>
+        </li>
+    </ul>
+</div>
+<div class="oasis-menu-icon">
+
+</div>
+<div class="oasis-main-content">
+    <div ui-view></div>
+</div>

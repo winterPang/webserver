@@ -1,0 +1,900 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+    <title></title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <link href="/v3/web/frame/libs/css/bootstrap.css" rel="stylesheet" type="text/css"/>
+    <link href="/v3/web/frame/libs/css/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
+    <link href="/v3/web/frame/css/index.css" rel="stylesheet" type="text/css"/>
+    <link href="../../web/frame/css/home.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="head">
+<form class="toppannel station">
+    <label for="Country">场所切换：</label>
+    <select id ="station">
+       <!-- <option value="all">总部</option>
+        <option value="bj">北京</option>
+        <option value="sh">上海</option>-->
+    </select>
+    <div class="user-bar pull-right">
+        <a id="user_menu">
+            <i class="droplist-icon pull-right"></i>
+            <i class="user-icon pull-right" ></i>
+            <i><span id="username" class="user_name"></span></i>
+
+        </a>
+        <ul id="drop_list" class="pull-right hide">
+            <li index="0">
+                <span id="lougout_label" >注销</span>
+            </li>
+            <li index="1">
+                <span id="password_label">修改密码</span>
+            </li>
+            <li index="2">
+                <span id="online_service">在线客服</span>
+            </li>
+        </ul>
+    </div>
+</form>
+
+<div class="xb-layout-north logo-panel">
+    <ul>
+        <li><a href="#">数据统计</a></li>
+        <li><a href="#">应用管理</a></li>
+        <li><a href="#">认证管理</a></li>
+        <li><a href="#">网络管理</a></li>
+    </ul>
+</div>
+<div class="xb-layout-north logo"></div>
+</div>
+<div id="layout_center" class="homebox-layout-center content-panel">
+Loading...
+
+</div>
+    <!-- END CONTAINER -->
+    <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- BEGIN CORE PLUGINS -->
+    <script src="../../web/frame/libs/js/jquery.js" type="text/javascript"></script>
+    <script src="../../web/frame/libs/js/bootstrap.min.js" type="text/javascript"></script>
+    <!--[if lt IE 9]>
+    <script src="../../web/frame/libs/js/excanvas.min.js"></script>
+    <script src="../../web/frame/libs/js/respond.min.js"></script>-->
+
+<![endif]-->
+
+<script>
+    $(document).ready(function(){
+        function getuserSession(){
+            $.get("/v3/web/cas_session",function(data){
+                //alert(data);
+                $("#username").text(data.user)
+            });
+        }
+        getuserSession();
+        updatecs();
+        changeAC();
+        //cs : 杭州场所 1 - n  sn ： real sn not desn
+        /*
+        function getAcInfo(){
+            var Acdata = [{"cs":"酒店","desn":"32323-23-231"},{"cs":"北京","desn":"32323-23-232"},{"cs":"上海","desn":"32323-23-233"}
+                ,{"cs":"广州","desn":"32323-23-234"},{"cs":"咖啡厅","desn":"32323-23-235"}];
+            return Acdata;
+        }
+        */
+        function getAcInfo(){
+            var AcInfo = [];
+            var place = "杭州"
+            var idx = 1;
+            $.ajax({
+                url: "/v3/devmonitor/web/aclist",
+                type: "GET",
+                dataType: "json",
+                async: false,
+                success: function (data){
+                    data["acList"].forEach(function(ac){
+                        AcInfo.push({
+                            cs: (place+idx),
+                            sn: ac["devSN"]
+                        });
+                        idx++;
+                    });
+                }
+            });
+            return AcInfo;
+        }
+        function updatecs(){
+            var aclist  = getAcInfo();//替换
+            var opShtml="<option value='";
+            var opVhtml="'>";
+            var opEhtml="</option> ";
+            var ophtml="";
+            if(!aclist){
+                ophtml="<option>Null</option>"
+            }else{
+                for(var i =0;i<aclist.length;i++){
+                    ophtml +=opShtml+aclist[i].sn+opVhtml+aclist[i].cs+opEhtml;
+                }
+            }
+            $("#station").append(ophtml);
+        }
+        function changeAC(){
+            $("#station").bind("change",function(){
+                var desn= $("#station option:selected").attr("value");
+                window.location="/v3/web/frame/index.html?sn="+desn;
+            });
+        }
+        var _sUserBar=new UserBar();
+        _sUserBar.initUser();
+        function UserBar()
+        {
+            function onLogout()
+            {
+                window.location ="/v3/logout";
+                return false;
+            }
+
+           /* function onPassWord()
+            {
+                Utils.Base.openDlg("wsmbfile.changepassword", {}, {className:"modal-large"});
+                return false;
+            }
+
+            function onService()
+            {
+                Utils.Base.openDlg("chat.chatpage", {}, {className:"modal-super-large"});
+                //Utils.Base.openDlg(null, {}, {scope:$("#chatform"),className:"modal-super dashboard"});
+                return false;
+            }*/
+
+            function onItemClick(e)
+            {
+                var sIndex = $(this).attr("index");
+                var pfMap = [onLogout/*,onPassWord,onService*/];
+                pfMap[sIndex]();
+            }
+
+            function toggleUserMenu(e)
+            {
+                function show()
+                {
+                    jMenu.slideDown(200);
+                    $('body').on('click.usermenu',hide);
+                }
+                function hide()
+                {
+                    jMenu.slideUp(200);
+                    jMenu.prev().removeClass("active");
+                    $('body').off('click.usermenu');
+                }
+
+                var jMenu = $(this).next('ul');
+                $(this).toggleClass('active');
+                jMenu.is(':visible') ? hide() : show();
+
+                e.stopPropagation();
+            }
+
+            function initUser()
+            {
+                $("#user_menu").unbind('click').bind('click',toggleUserMenu);
+                $("#drop_list").off('click').on('click','li',onItemClick);
+            }
+
+            this.initUser = initUser;
+        }
+    });
+
+
+        function addEchars1(id){
+            require.config({
+                paths: {
+                    echarts: 'build/dist'
+                }
+            });
+
+            // 使用
+            require(
+                    [
+                        'echarts',
+                        'echarts/chart/pie' // 使用柱状图就加载bar模块，按需加载
+                    ],
+                    function (ec) {
+                        // 基于准备好的dom，初始化echarts图表
+                        var myChart = ec.init(document.getElementById(id));
+
+                        var labelTopOut = {
+                            normal : {
+                                color:"#77E8C4",
+                                label : {
+                                    show : true,
+                                    position : 'center',
+                                    textStyle: {
+                                        baseline : 'bottom'
+                                    }
+                                },
+                                labelLine : {
+                                    show : false
+                                }
+                            }
+                        };
+                        var labelFromatter = {
+                            normal : {
+                                label : {
+                                    formatter : function (params){
+                                        return 100 - params.value + '分'
+                                    },
+                                    textStyle: {
+                                        baseline : 'top'
+                                    }
+                                }
+                            },
+                        }
+                        var labelBottomOut = {
+                            normal : {
+                                color: 'white',
+                                label : {
+                                    show : true,
+                                    position : 'center'
+                                },
+                                labelLine : {
+                                    show : false
+                                }
+                            },
+                            emphasis: {
+                                color: 'white'
+                            }
+                        };
+                        var labelBottomInt = {
+                            normal : {
+                                color: 'black',
+                                label : {
+                                    show : true,
+                                    position : 'center'
+                                },
+                                labelLine : {
+                                    show : false
+                                }
+                            },
+                            emphasis: {
+                                color: 'black'
+                            }
+                        };
+
+                        var option = {
+                            tooltip : {
+                                trigger: 'item',
+                                formatter: " "
+                            },
+                            legend: {
+                                orient : 'vertical',
+                                x : 'left',
+                                data:[]
+                            },
+                            toolbox: {
+                                show : false,
+                                feature : {
+                                    mark : {show: true},
+                                    dataView : {show: true, readOnly: false},
+                                    magicType : {
+                                        show: true,
+                                        type: ['pie', 'funnel']
+                                    },
+                                    restore : {show: true},
+                                    saveAsImage : {show: true}
+                                }
+                            },
+                            calculable : false,
+                            series : [
+                                {
+                                    type : 'pie',
+                                    radius : [0,50],
+                                    // for funnel
+                                    x: '20%',
+                                    width: '40%',
+                                    funnelAlign: 'right',
+                                    max: 1548,
+                                    itemStyle : labelFromatter,
+                                    data : [
+                                        { value:46, itemStyle : labelBottomInt}
+                                    ]
+                                },
+                                {
+                                    type:'pie',
+                                    radius : [50,65],
+                                    // for funnel
+                                    x: '60%',
+                                    width: '35%',
+                                    funnelAlign: 'left',
+                                    max: 1048,
+                                    itemStyle : {
+                                        normal : {
+                                            label : {
+                                                position : 'out'
+                                            },
+                                            labelLine : {
+                                                show : false
+                                            }
+                                        }
+                                    },
+                                    data:[
+                                        {value:335,itemStyle : labelTopOut},
+                                        {value:310,itemStyle : labelBottomOut}
+                                    ]
+                                }
+                            ]
+                        };
+
+                        // 为echarts对象加载数据
+                        myChart.setOption(option);
+                    }
+            );
+        }
+        function addEchars2(id){
+            // 路径配置
+            require.config({
+                paths: {
+                    echarts: 'build/dist'
+                }
+            });
+
+            // 使用
+            require(
+                    [
+                        'echarts',
+                        'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+                    ],
+                    function (ec) {
+                        // 基于准备好的dom，初始化echarts图表
+                        var myChart = ec.init(document.getElementById(id));
+
+                        var option = {
+                            tooltip: {
+                                show:false,
+                                trigger: 'item'
+                            },
+                            toolbox: {
+                                show: false,
+                                feature: {
+                                    dataView: {show: true, readOnly: false},
+                                    restore: {show: true},
+                                    saveAsImage: {show: true}
+                                }
+                            },
+                            calculable: true,
+                            grid: {
+                                borderWidth: 0,
+                                y: 10,
+                                y2: 20
+                            },
+                            xAxis: [
+                                {
+                                    type: 'category',
+                                    show: false,
+                                    data: ['Line', 'Bar', 'Scatter', 'K', 'Pie', 'Radar', 'Chord', 'Force', 'Map', 'Gauge', 'Funnel']
+                                }
+                            ],
+                            yAxis: [
+                                {
+                                    type: 'value',
+                                    show: false
+                                }
+                            ],
+                            series: [
+                                {
+                                    name: '',
+                                    type: 'bar',
+                                    itemStyle: {
+                                        normal: {
+                                            color: function(params) {
+                                                // build a color map as your need.
+                                                var colorList = [
+                                                    '#77E8C4','#77E8C4','#77E8C4','#77E8C4','#77E8C4',
+                                                    '#77E8C4','#77E8C4','#77E8C4','#77E8C4','#77E8C4',
+                                                    '#77E8C4','#77E8C4','#77E8C4','#77E8C4','#77E8C4'
+                                                ];
+                                                return colorList[params.dataIndex]
+                                            },
+                                            label: {
+                                                show: false,
+                                                position: 'top',
+                                                formatter: ''
+                                            }
+                                        }
+                                    },
+                                    data: [12,21,10,4,12,5,6,5,25,23,7],
+                                    markPoint: {
+                                        tooltip: {
+                                            trigger: 'item',
+                                            backgroundColor: 'rgba(0,0,0,0)',
+                                            formatter: function(params){
+                                                return '<img src="'
+                                                        + params.data.symbol.replace('image://', '')
+                                                        + '"/>';
+                                            }
+                                        },
+                                        data: [
+                                            {xAxis:0, y: 350, name:'Line', symbolSize:20,symbol: 'image://../asset/ico/折线图.png'},
+                                            {xAxis:1, y: 350, name:'Bar', symbolSize:20, symbol: 'image://../asset/ico/柱状图.png'},
+                                            {xAxis:2, y: 350, name:'Scatter', symbolSize:20, symbol: 'image://../asset/ico/散点图.png'},
+                                            {xAxis:3, y: 350, name:'K', symbolSize:20, symbol: 'image://../asset/ico/K线图.png'},
+                                            {xAxis:4, y: 350, name:'Pie', symbolSize:20, symbol: 'image://../asset/ico/饼状图.png'},
+                                            {xAxis:5, y: 350, name:'Radar', symbolSize:20, symbol: 'image://../asset/ico/雷达图.png'},
+                                            {xAxis:6, y: 350, name:'Chord', symbolSize:20, symbol: 'image://../asset/ico/和弦图.png'},
+                                            {xAxis:7, y: 350, name:'Force', symbolSize:20, symbol: 'image://../asset/ico/力导向图.png'},
+                                            {xAxis:8, y: 350, name:'Map', symbolSize:20, symbol: 'image://../asset/ico/地图.png'},
+                                            {xAxis:9, y: 350, name:'Gauge', symbolSize:20, symbol: 'image://../asset/ico/仪表盘.png'},
+                                            {xAxis:10, y: 350, name:'Funnel', symbolSize:20, symbol: 'image://../asset/ico/漏斗图.png'},
+                                        ]
+                                    }
+                                }
+                            ]
+                        };
+
+
+                // 为echarts对象加载数据
+                myChart.setOption(option);
+            }
+    );
+    }
+    
+    //yichao版本
+    function getAcList(f){
+        $.post("/o2o/o2omng/devicelist/device.xhtml", function(data){
+            var a = [];
+            try{
+            $.map(data.split('<span class="textWrapStyle">').slice(1), function(v, i){
+            		var s = v.split('</span>')[0];
+            		!(i%6)&&a.push(s);
+            });
+          }catch(e){}
+            
+            f&&f(a);
+        });
+    }
+    
+    function getAcListV3(f){
+        $.ajax({
+            url: "/v3/devmonitor/web/aclist",
+            //url: "http://192.168.110.22/v3/devmonitor/web/aclist",
+            type: "GET",
+            dataType: "json",
+            //contentType: "application/json",
+            //data: "",
+            success: function (data){
+                //console.log(data);
+                //debugger;
+                var acList = [];
+                data["acList"].forEach(function(ac){
+                    acList.push(ac["devSN"]);
+                });
+                f&f(acList);
+            }
+        })
+    }
+    
+    function getAcListV4(f){
+        var acList = [];
+        $.ajax({
+            url: "/v3/devmonitor/web/aclist",
+            type: "GET",
+            dataType: "json",
+            success: function (data){
+                var acList = [];
+                data["acList"].forEach(function(ac){
+                    acList.push(ac["devSN"]);
+                });
+                f&f(acList);
+            }
+        })
+    }
+    
+    function getAcListFinal(f){
+        var acListObj = {};
+        var acListArr = [];
+        $.ajax({
+            url: "/v3/devmonitor/web/aclist",
+            type: "GET",
+            dataType: "json",
+            async: false,
+            success: function (data){          
+                data["acList"].forEach(function (ac){
+                    var acSN = ac["devSN"];
+            
+                    $.ajax({
+                        url: "/v3/devmonitor/web/wanspeed?devSN=" + acSN,
+                        type: "GET",
+                        dataType: "json",
+                        async: false,
+                        success: function(data){
+                            var speed_down = 0;
+                            var speed_up = 0;
+                            data["wan_speed"].forEach(function(wan){
+                                speed_down += wan["speed_down"];
+                                speed_up += wan["speed_up"];
+                            })
+                            ac["speed_down"] = speed_down;
+                            ac["speed_up"] = speed_up;
+                        }
+                    });
+                    /*
+                    $.ajax({
+                        url: "/v3/apmonitor/web/apstatistic?devSN=" + acSN,
+                        type: "GET",
+                        dataType: "json",
+                        async: false,
+                        success: function(data){
+                            var ap_statistic = data["ap_statistic"];
+                            ac["online"] = ap_statistic["online"];
+                            ac["offline"] = ap_statistic["offline"];
+                        }
+                    });
+                    */
+                    
+                    $.ajax({
+                        url: "/v3/stamonitor/web/clientcount?devSN=" + acSN,
+                        type: "GET",
+                        dataType: "json",
+                        async: false,
+                        success: function(data){
+                            ac["clientnum"] = data["clientnum"];
+                        }
+                    });
+                    
+                    //acListObj[acSN] = ac;
+                    acListArr.push(ac);
+                });
+            }
+        });
+        
+        f&f(acListArr);   
+    }
+        /*
+         var sTemplateItem = ' <div class="col-xs-6 app-colum "><div class="app-box no-bk-color"><div class="home-box-footer"><span class="title">%s</span><div class="text-right link-container"><a type="button" class="link-send active" title="View Details" href="index.html?sn=%s"><span>管理</span></a></div></div><div class="box-body"><div id="home-left-pie" class="home-left-pie"></div><div class="panel"><div id="home-left-bar" class="home-left-bar"></div><div class="home-right-nobar"><table class="home-left-table"><tbody><tr><th rowspan="2"></th><th style="width: 75px"><label>在线终端</label></th></tr><tr><th style="margin-right: 5px">56</th></tr></tbody></table></div></div><div class="panel"><table class="home-left-table-bottom"><tbody><tr><th><label>上行速度</label></th><th><label>下载速度</label></th><th><label>在线AP</label></th><th><label>离线AP</label></th></tr><tr><th>56</th><th>0.24Mbps</th><th>1.05Mbps</th><th><label>56</label></th></tr></tbody></table></div></div></div></div>';
+         */
+        var sTemplateItem = '<div class="col-xs-6 app-colum "><div class="app-box no-bk-color"><div class="home-box-footer"><span class="title">%s</span><div class="text-right link-container"><a type="button" class="link-send active" title="View Details"href="index.html?sn=%s"><span>管理</span></a></div></div><div class="box-body"><div id="%a" class="home-left-pie"></div><div class="panel"><div id="%1" class="home-left-bar"></div><div class="home-right-nobar"><table class="home-left-table"><tbody><tr><th rowspan="2"></th><th  style="width: 75px"><label>在线终端</label></th></tr> <tr><th style="margin-right: 5px">[clientnum]</th></tr></tbody></table></div></div><div class="panel"><table class="home-left-table-bottom"><tbody><tr><th><label>上行速度</label></th><th><label>下载速度</label></th><th><label>在线AP</label></th><th><label>离线AP</label></th></tr><tr><th>[speedup]</th><th>[speeddown]</th><th>[online]</th><th><label>[offline]</label></th></tr></tbody></table></div></div></div></div>'
+    $(function(){
+        /*
+        getAcList(function(aclist){
+           //alert(aclist);
+            var a = [];
+            $.map(aclist, function(v, i){
+                !(i%2)&&a.push('<div class="home-page-row">');
+                a.push(sTemplateItem.replace(/%s/g, v).replace(/%a/g, v+"pie").replace(/%1/g, v+"bar"));
+                (i%2)&&a.push('</div>');
+            }); 
+            $('#layout_center').html(a.length?a.join(''):'data error.');
+            aclist.forEach(function(id){
+                addEchars1(id+"pie");
+                addEchars2((id+"bar"));
+            });
+            //});
+	      });
+          */
+          /*
+          getAcListV3(function(aclist){
+           //alert(aclist);
+            var a = [];
+            $.map(aclist, function(v, i){
+                !(i%2)&&a.push('<div class="home-page-row">');
+                a.push(sTemplateItem.replace(/%s/g, v).replace(/%a/g, v+"pie").replace(/%1/g, v+"bar"));
+                (i%2)&&a.push('</div>');
+            });
+             
+            $('#layout_center').html(a.length?a.join(''):'data error.');
+            aclist.forEach(function(id){
+                addEchars1(id+"pie");
+                addEchars2((id+"bar"));
+            });
+            
+            //});
+	      });
+          */
+          
+          getAcListFinal(function(aclist){
+                var a = [];
+                $.map(aclist, function(v, i){
+                    
+                    var acSN = v["devSN"];
+                    var speedup = v["speed_up"];
+                    var speeddown = v["speed_down"];
+                    var online = v["online"];
+                    var offline = v["offline"];
+                    var clientnum = v["clientnum"];
+                    console.log(acSN);
+                    
+                    !(i%2)&&a.push('<div class="home-page-row">');
+                    a.push(sTemplateItem.replace(/%s/g, acSN).
+                        replace(/%a/g, acSN+"pie").
+                        replace(/%1/g, acSN+"bar").
+                        replace(/\[speedup\]/g, (speedup+ "kbps")).
+                        replace(/\[speeddown\]/g, (speeddown + "kbps")).
+                        replace(/\[online\]/g, online).
+                        replace(/\[offline\]/g, offline).
+                        replace(/\[clientnum\]/g, clientnum)
+                        );
+                        //replace(/_offline/g, offline);
+                        
+                    (i%2)&&a.push('</div>');
+                });
+            
+                $('#layout_center').html(a.length?a.join(''):'data error.');
+                
+                aclist.forEach(function(id){
+                    var acSN = id["devSN"];
+                    addEchars1(acSN+"pie");
+                    addEchars2((acSN+"bar"));
+                });
+          });
+    });
+</script>
+<!--EchartsBar-->
+<script src="build/dist/echarts.js"></script>
+<script type="text/javascript">
+    // 路径配置
+    require.config({
+        paths: {
+            echarts: 'build/dist'
+        }
+    });
+
+    // 使用
+    require(
+            [
+                'echarts',
+                'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('home-left-bar'));
+
+                var option = {
+                    tooltip: {
+                        show:false,
+                        trigger: 'item'
+                    },
+                    toolbox: {
+                        show: false,
+                        feature: {
+                            dataView: {show: true, readOnly: false},
+                            restore: {show: true},
+                            saveAsImage: {show: true}
+                        }
+                    },
+                    calculable: true,
+                    grid: {
+                        borderWidth: 0,
+                        y: 10,
+                        y2: 20
+                    },
+                    xAxis: [
+                        {
+                            type: 'category',
+                            show: false,
+                            data: ['Line', 'Bar', 'Scatter', 'K', 'Pie', 'Radar', 'Chord', 'Force', 'Map', 'Gauge', 'Funnel']
+                        }
+                    ],
+                    yAxis: [
+                        {
+                            type: 'value',
+                            show: false
+                        }
+                    ],
+                    series: [
+                        {
+                            name: '',
+                            type: 'bar',
+                            itemStyle: {
+                                normal: {
+                                    color: function(params) {
+                                        // build a color map as your need.
+                                        var colorList = [
+                                            '#77E8C4','#77E8C4','#77E8C4','#77E8C4','#77E8C4',
+                                            '#77E8C4','#77E8C4','#77E8C4','#77E8C4','#77E8C4',
+                                            '#77E8C4','#77E8C4','#77E8C4','#77E8C4','#77E8C4'
+                                        ];
+                                        return colorList[params.dataIndex]
+                                    },
+                                    label: {
+                                        show: false,
+                                        position: 'top',
+                                        formatter: ''
+                                    }
+                                }
+                            },
+                            data: [12,21,10,4,12,5,6,5,25,23,7],
+                            markPoint: {
+                                tooltip: {
+                                    trigger: 'item',
+                                    backgroundColor: 'rgba(0,0,0,0)',
+                                    formatter: function(params){
+                                        return '<img src="'
+                                                + params.data.symbol.replace('image://', '')
+                                                + '"/>';
+                                    }
+                                },
+                                data: [
+                                    {xAxis:0, y: 350, name:'Line', symbolSize:20,symbol: 'image://../asset/ico/折线图.png'},
+                                    {xAxis:1, y: 350, name:'Bar', symbolSize:20, symbol: 'image://../asset/ico/柱状图.png'},
+                                    {xAxis:2, y: 350, name:'Scatter', symbolSize:20, symbol: 'image://../asset/ico/散点图.png'},
+                                    {xAxis:3, y: 350, name:'K', symbolSize:20, symbol: 'image://../asset/ico/K线图.png'},
+                                    {xAxis:4, y: 350, name:'Pie', symbolSize:20, symbol: 'image://../asset/ico/饼状图.png'},
+                                    {xAxis:5, y: 350, name:'Radar', symbolSize:20, symbol: 'image://../asset/ico/雷达图.png'},
+                                    {xAxis:6, y: 350, name:'Chord', symbolSize:20, symbol: 'image://../asset/ico/和弦图.png'},
+                                    {xAxis:7, y: 350, name:'Force', symbolSize:20, symbol: 'image://../asset/ico/力导向图.png'},
+                                    {xAxis:8, y: 350, name:'Map', symbolSize:20, symbol: 'image://../asset/ico/地图.png'},
+                                    {xAxis:9, y: 350, name:'Gauge', symbolSize:20, symbol: 'image://../asset/ico/仪表盘.png'},
+                                    {xAxis:10, y: 350, name:'Funnel', symbolSize:20, symbol: 'image://../asset/ico/漏斗图.png'},
+                                ]
+                            }
+                        }
+                    ]
+                };
+
+
+                // 为echarts对象加载数据
+                myChart.setOption(option);
+            }
+    );
+</script>
+
+<!--EchartsPie-->
+<script src="build/dist/echarts.js"></script>
+<script type="text/javascript">
+    // 路径配置
+    require.config({
+            paths: {
+                echarts: 'build/dist'
+            }
+        });
+
+    // 使用
+    require(
+            [
+                'echarts',
+                'echarts/chart/pie' // 使用柱状图就加载bar模块，按需加载
+            ],
+            function (ec) {
+                // 基于准备好的dom，初始化echarts图表
+                var myChart = ec.init(document.getElementById('home-left-pie'));
+
+                var labelTopOut = {
+                    normal : {
+                        color:"#77E8C4",
+                        label : {
+                            show : true,
+                            position : 'center',
+                            textStyle: {
+                                baseline : 'bottom'
+                            }
+                        },
+                        labelLine : {
+                            show : false
+                        }
+                    }
+                };
+                var labelFromatter = {
+                    normal : {
+                        label : {
+                            formatter : function (params){
+                                return 100 - params.value + '分'
+                            },
+                            textStyle: {
+                                baseline : 'top'
+                            }
+                        }
+                    },
+                }
+                var labelBottomOut = {
+                    normal : {
+                        color: 'white',
+                        label : {
+                            show : true,
+                            position : 'center'
+                        },
+                        labelLine : {
+                            show : false
+                        }
+                    },
+                    emphasis: {
+                        color: 'white'
+                    }
+                };
+                var labelBottomInt = {
+                    normal : {
+                        color: 'black',
+                        label : {
+                            show : true,
+                            position : 'center'
+                        },
+                        labelLine : {
+                            show : false
+                        }
+                    },
+                    emphasis: {
+                        color: 'black'
+                    }
+                };
+
+                var option = {
+                    tooltip : {
+                        trigger: 'item',
+                        formatter: " "
+                    },
+                    legend: {
+                        orient : 'vertical',
+                        x : 'left',
+                        data:[]
+                    },
+                    toolbox: {
+                        show : false,
+                        feature : {
+                            mark : {show: true},
+                            dataView : {show: true, readOnly: false},
+                            magicType : {
+                                show: true,
+                                type: ['pie', 'funnel']
+                            },
+                            restore : {show: true},
+                            saveAsImage : {show: true}
+                        }
+                    },
+                    calculable : false,
+                    series : [
+                        {
+                            type : 'pie',
+                            radius : [0,50],
+                            // for funnel
+                            x: '20%',
+                            width: '40%',
+                            funnelAlign: 'right',
+                            max: 1548,
+                            itemStyle : labelFromatter,
+                            data : [
+                                { value:46, itemStyle : labelBottomInt}
+                            ]
+                        },
+                        {
+                            type:'pie',
+                            radius : [50,65],
+                            // for funnel
+                            x: '60%',
+                            width: '35%',
+                            funnelAlign: 'left',
+                            max: 1048,
+                            itemStyle : {
+                                normal : {
+                                    label : {
+                                        position : 'out'
+                                    },
+                                    labelLine : {
+                                        show : false
+                                    }
+                                }
+                            },
+                            data:[
+                                {value:335,itemStyle : labelTopOut},
+                                {value:310,itemStyle : labelBottomOut}
+                            ]
+                        }
+                    ]
+                };
+
+                // 为echarts对象加载数据
+                myChart.setOption(option);
+            }
+    );
+
+
+
+
+</script>
+
+
+</body>
+<!-- END BODY -->
+</html>

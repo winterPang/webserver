@@ -1,0 +1,40 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 3,
+  "rows": [
+    {
+      "id": 10,
+      "scenname": "WX5004",
+      "scendesc": "0235A35J",
+      "scenmenu": "A35J",
+      "selected": true,
+      "showDetail": true,
+      "showDelete": true,
+      "otherpage": true,
+      "showEdit": true
+    },
+    {
+      "id": 11,
+      "scenname": "LSUM3WCMD0",
+      "scendesc": "0231A1GH",
+      "scenmenu": "A1GH",
+      "selected": true,
+      "showDetail": true,
+      "showDelete": true,
+      "otherpage": true,
+      "showEdit": true
+    },
+    {
+      "id": 12,
+      "scenname": "EWPXM3WCMD0",
+      "scendesc": "0231A1GJ",
+      "scenmenu": "A1GJ",
+      "selected": true,
+      "showDetail": true,
+      "showDelete": true,
+      "otherpage": true,
+      "showEdit": true
+    }
+  ]
+}

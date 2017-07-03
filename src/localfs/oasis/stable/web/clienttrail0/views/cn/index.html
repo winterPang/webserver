@@ -1,0 +1,118 @@
+<style>
+    .fixed-table-pagination {
+        padding: 0 !important;
+        /*padding-left:10px!important;*/
+        display: inline-block !important;
+        text-align: center;
+        font-size: 8px !important;
+        width:100%;
+    }
+
+    .fixed-table-pagination div.pagination, .fixed-table-pagination .pagination-detail {
+        margin-top: 0 !important;
+        margin-bottom: 0 !important;
+    }
+
+    .fixed-table-pagination .pagination-detail {
+        width: 100% !important;
+    }
+
+    .fixed-table-pagination .pagination a {
+        padding: 6px 9px !important;
+    }
+
+    .oper-btn.period, .simple-list tr {
+        cursor: pointer;
+    }
+
+    .oper-btn.period{
+        color:#2fa4e7;
+    }
+
+    .fixed-table-body {
+        height: 382px;
+    }
+
+    .fixed-table-pagination {
+        height: auto;
+        background-color: #fff;
+        overflow: hidden;
+    }
+
+    /*#eff3f8*/
+    .pull-left.pagination-detail {
+        background: #eff3f8;
+    }
+
+    .pull-right.pagination, .fixed-table-container {
+        line-height: 0px;
+    }
+    .clienttrail0 .refresh{
+        cursor:pointer;
+    }
+</style>
+<div class="clienttrail0">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <!--<div id="detect_container1">-->
+            <div class="app-box" style="width:1100px;overflow-x:hidden;">
+                <div style="width:100%;background:#EDF9F7;height:50px;line-height:50px;">
+                    <!--<div class="col-xs-6" style="width:285px">-->
+                    <div class="col-xs-8">
+                        <label style="font-size: 16px">&nbsp&nbsp地图&nbsp&nbsp</label>
+                        <select id="MapSelect" name="MapSelect" class="singleSelect"
+                                ng-model="myMapName"
+                                ng-options="mapName.name as mapName.name for mapName in mapNames"
+                                ng-change="mapSelect()"
+                                style="width: 180px">
+
+                        </select>
+                    </div>
+                    <div class="col-xs-3 text-right">
+                        <span>终端周期:</span>
+                        <a class="oper-btn period" time="" title="实时" style="color:grey"
+                           ng-click="selectTime($event)">实时</a>
+                        <a class="oper-btn period" time="1" title="小时" ng-click="selectTime($event)">小时</a>
+                        <a class="oper-btn period" time="24" title="天" ng-click="selectTime($event)">天</a>
+                        <a class="oper-btn period" time="168" title="周" ng-click="selectTime($event)">周</a>
+                        <a type="button" style="margin-left:5px" class="refresh" value="1" id="refreshPie" ng-click="refresh()">
+                            <img src="../clienttrail0/img/icon-refresh.png"/>
+                        </a>
+                    </div>
+                    <div class="col-xs-1" style="margin-left:15px">
+
+                    </div>
+                </div>
+
+                <div style="width:100%;margin:0 20px">
+                        <div class="app-colum" id="canvas" style="display:inline-block;width:800px;">
+                            <canvas id="gameCanvas" width="800" height="450"></canvas>
+                        </div>
+                        <div class="client_table" style="display:inline-block;width:250px;background:#fff;">
+                            <div bs-table="clientOption" class="simple-list"></div>
+                        </div>
+                </div>
+            </div>
+            <!--</div>-->
+        </div>
+    </div>
+
+    <!--<form name="addForm" novalidate bs-modal="add_modalOptions.options">
+        &lt;!&ndash;angular.element(this).scope().uploadImage(this.files)&ndash;&gt;
+
+        <input type="file" id="testFile" onchange ="angular.element(this).scope().testFn(this.files)" />
+        <img src="" style="width:400px; height:400px;" id="upload_img">
+        &lt;!&ndash;<input type="text" ng-change="textFn()">&ndash;&gt;
+    </form>
+
+    <button id="clickMe" ng-click="fnClick()"></button>
+    <div class="hide modal fade" id="AddAuthTempDlg"></div>-->
+    <div id="wloc_rc" class="rc-define"
+         CLIENTMAC_LIST="终端列表"
+         GETMAPINFO_FAILED="获取地图信息失败"
+         NOWNOMAP_INFO="当前没有地图"
+         GETMAPFAILED_INFO="获取图片失败"
+         HISTORY_TIME="一天,半天,一小时"
+         rc="<<,<,>,>>"
+         STOP_BEGIN="开启,停止"></div>
+</div>

@@ -1,0 +1,307 @@
+.newdevmanage {
+  ul, li, p {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  .btn-customer {
+    display: inline-block;
+    color: #fff;
+    height: 34px;
+    line-height: 34px;
+    border: none;
+    border-radius: 4px;
+    background-color: #78cec3;
+    padding: 0 14px;
+    margin-right: 12px;
+    &:focus {
+      outline: none;
+    }
+    &:hover {
+      background-color: #4ec1b2;
+    }
+    &[disabled=disabled] {
+      cursor: not-allowed;
+      opacity: .65;
+      background-color: #78cec3;
+      &:hover {
+        background-color: #78cec3;
+      }
+    }
+    &.screen-more, &.btn-search, &.his-log {
+      margin-right: 0;
+    }
+    &.un-select-all {
+      background-color: #eff4f7;
+      color: #333;
+      margin-right: 0;
+      &:hover {
+        background-color: #fc9ea5;
+        color: #fff;
+      }
+    }
+    .btn-icon {
+      width: 16px;
+      height: 16px;
+      display: inline-block;
+      background: url('../images/icon.png') no-repeat;
+      margin: 8px 8px 0 0;
+      float: left;
+      &.icon-add {
+        background-position: -25px -19px;
+      }
+    }
+  }
+  .operates {
+    height: 34px;
+    margin-bottom: 10px;
+    position: initial;
+    .search-box {
+      width: 173px;
+      height: 34px;
+      border-color: #e7e7e9;
+      border-right: none;
+      position: relative;
+      top: -2px;
+      left: 6px;
+    }
+    .ret-mould {
+      display: inline-block;
+      width: 60px;
+      height: 32px;
+      background: url('../../frame/images/return.png') no-repeat -306px -88px;
+      &:hover {
+        background-position: -390px -88px;
+      }
+    }
+  }
+  .edit-label {
+    line-height: 30px;
+    margin-bottom: 10px;
+    &:after {
+      content: '';
+      display: table;
+      clear: both;
+    }
+    & > span {
+      display: inline-block;
+      padding-top: 2px;
+      margin-right: 10px;
+    }
+  }
+  .label-opt, .labels-list, .select-labels {
+    li {
+      color: #333;
+      text-align: center;
+      list-style: none;
+      padding: 2px 4px;
+      &.colors {
+        color: #fff;
+        &.c1 {
+          background-color: #e1554c;
+        }
+        &.c2 {
+          background-color: #4188ce;
+        }
+        &.c3 {
+          background-color: #139e83;
+        }
+        &.c4 {
+          background-color: #3a4f66;
+        }
+        &.c5 {
+          background-color: #febc06;
+        }
+      }
+    }
+  }
+  .label-opt {
+    li {
+      margin-right: 10px;
+      float: left;
+    }
+  }
+  .add-dev-area, .add-scene-area, .add-simple-mould {
+    width: 100%;
+    border: 1px solid #ddd;
+    margin: 20px 0;
+    padding: 20px;
+    .control-label {
+      margin-right: 10px;
+    }
+    .irf-field {
+      padding-top: 4px;
+    }
+    .labels-list {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+    .labels-list, .select-labels {
+      li {
+        margin: 10px;
+      }
+    }
+    .select-labels {
+      margin: 0;
+      height: 32px;
+      li {
+        float: left;
+        margin-left: 0;
+        margin-top: 8px;
+      }
+    }
+  }
+  .order-guide {
+    label {
+      display: inline-block;
+      padding: 10px;
+      margin-right: 10px;
+      background-color: #ddd;
+      &.active {
+        background-color: #4ec1b4;
+        color: #fff;
+      }
+    }
+  }
+  .scene-list {
+    ul {
+      height: 62px;
+    }
+    li {
+      float: left;
+      list-style: none;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 20px 10px;
+      margin-right: 20px;
+      &.active {
+        background-color: #4ec1b4;
+        color: #fff;
+      }
+    }
+  }
+  li, .ztree li {
+    &.level0 {
+      span {
+        &.button.level0 {
+          &.root_open, &.roots_open {
+            background: url(../../devmanage/images/icon-hc.png) no-repeat !important;
+          }
+          &.root_close, &.roots_close {
+            background: url(../../devmanage/images/icon-hn.png) no-repeat !important;
+          }
+        }
+      }
+    }
+    &.level1 {
+      span {
+        &.button.level1 {
+          &.center_open {
+            background: url(../../devmanage/images/icon-dc.png) no-repeat !important;
+          }
+          &.center_close {
+            background: url(../../devmanage/images/icon-dn.png) no-repeat;
+          }
+        }
+      }
+    }
+    span {
+      &.button {
+        &.center_open, &.bottom_open {
+          background: url(../../devmanage/images/icon-dc.png) no-repeat;
+        }
+        &.center_close, &.bottom_close {
+          background: url(../../devmanage/images/icon-dn.png) no-repeat;
+        }
+      }
+    }
+  }
+  form {
+    .form-group {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+  hr {
+    margin: 20px 0;
+  }
+  .conf-footer {
+    margin-top: 20px;
+  }
+  .branch-text {
+    width: 173px;
+  }
+  .conf-mould {
+    .common-conf {
+      width: 30%;
+      float: left;
+      margin-right: 30px;
+      margin-bottom: 30px;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 20px;
+      &:hover {
+        box-shadow: 1px 1px 4px rgba(90, 90, 90, 0.3);
+      }
+      &.disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+        &:hover {
+          box-shadow: none;
+        }
+      }
+      .mould-name {
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+      }
+      .mould-info {
+        height: 24px;
+        line-height: 24px;
+        .badge {
+          display: inline-block;
+          width: 24px;
+          height: 24px;
+          line-height: 24px;
+          padding: 0;
+          border-radius: 50%;
+          background-color: #00a1d7;
+          color: #fff;
+          &.warning {
+            background-color: #e1554c;
+          }
+          &.greate {
+            background-color: #139e83;
+          }
+        }
+      }
+    }
+  }
+  .modal-content {
+    .modal-body {
+      label {
+        margin-right: 20px;
+      }
+      span {
+        padding-top: 9px;
+      }
+    }
+  }
+  .clear-both {
+    &:before {
+      content: " ";
+      display: table;
+    }
+    &:after {
+      content: " ";
+      display: table;
+      clear: both;
+    }
+  }
+  .text-left {
+    text-align: left;
+  }
+}

@@ -1,0 +1,42 @@
+<div ng-init="
+    stayType_1='Within half hour';
+    stayType_2='Within 1 hour';
+    stayType_3='Within 2 hours';
+    stayType_4='Over 2 hours';
+    custCount='Length of stay';
+    visit='Visits';
+    visitCount_1='Once';
+    visitCount_2='Twice';
+    visitCount_3='Three times';
+    visitCount_4='Over four times';
+    ">
+    <div class="col-xs-6 app-colum left-block"> 
+        <div class="page-row xxb">
+            <div class="col-xs-12 app-colum " debug="getAccessTime getOnlineTime">
+                <div class="app-box no-bk-color">
+                    <div class="box-footer">
+                        <div class="col-xs-3">
+                            <span class="title">Visit Statistics</span>
+                        </div>
+                        <div class="time-change" id="detail">
+                            <a id="oDetail" class="time-link" ng-click="redirectOnlineCustomer_rz()">Online Guests</a>
+                            <a id="hDetail" class="time-link" ng-click="redirectHistoryCustomer_rz()">History Details</a>
+                        </div>     
+                    </div>
+                    <div class="box-body userflow-height form-group body-nopadding">
+                        <div class="col-xs-6 pietop">
+                            <div class="row-clear padding0">
+                                <div id="onlinePie" class=" col-xs-12" style="height:230px;"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6 pietop">
+                            <div class="row-clear padding0">
+                                <div id="ViewPie" class=" col-xs-12" style="height:230px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

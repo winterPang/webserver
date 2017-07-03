@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .col-xs-3.text-center.title{
+            border-right-style:solid;border-width:1px;border-color:#e5e8e8;
+        }
+        .col-xs-3.text-center.value{
+            border-right-style:solid;border-width:1px;border-color:#e5e8e8;color:white;
+        }
+        .changeTime{
+            border-radius:3px;width:260px;
+        }
+        .changeType{
+           width: 90px;border-radius: 3px;height: 33px;
+        }
+        .changeCount{
+            width: 90px;border-radius: 3px;height: 33px;
+        }
+        .changeDraw{
+           width: 90px;border-radius: 3px;height: 33px;
+        }
+        .changeTime_website{
+            border-radius:3px;width:260px;
+        }
+        .changeCount_website{
+            width: 90px;border-radius: 3px;height: 33px;
+        }
+        .changeDraw_website{
+           width: 90px;border-radius: 3px;height: 33px;
+        }
+        .changeType_website{
+           width: 90px;border-radius: 3px;height: 33px;
+        }
+        /*Legend列表 添加 css*/
+        .col-xs-2.leg-panel .leg-row{
+            color: #617058;
+            font-size: 12px;
+            border-bottom: 1px solid #D6DCE3;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+        }
+        .col-xs-2.leg-panel .leg-row .leg-icon{
+            display: block;
+            height: 12px;
+            width: 12px;
+            float: left;
+            border-radius: 6px;
+            margin: 4px 10px 0 4px;
+        }
+        .col-xs-6.leg-panel .leg-row{
+            color: #617058;
+            font-size: 12px;
+            border-bottom: 1px solid #D6DCE3;
+            padding-bottom: 5px;
+            margin-bottom: 5px;
+        }
+        .col-xs-6.leg-panel .leg-row .leg-icon{
+            display: block;
+            height: 12px;
+            width: 12px;
+            float: left;
+            border-radius: 6px;
+            margin: 4px 10px 0 4px;
+        }
+        .radio-group{
+            margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+<div class="dashboard summary-view">
+    <div class="col-xs-12" style="height:50px;background-color:#78CEC3">
+        <div class="col-xs-3">
+            <div class="col-md-2">
+                <div id="setTime" style="background:url(../maintain/css/calender.png) 10px 10px;background-repeat:no-repeat;cursor:pointer;padding:15px 0 0 15px;height:50px;"></div>
+            </div>
+            <div class="col-md-2">
+                <div style="padding-top:15px;" id="date">(今天)</div>
+            </div>
+        </div>
+        <div class="col-xs-9"></div>
+    </div>
+    <div class="selectTime col-xs-12 hide"  id="selectTime"  style="border:1px solid #f5f5f5;">
+        <div class="radio-group col-xs-1">
+            <span style="padding-left:15px;">周期</span>
+        </div>
+        <div class="radio-group col-xs-1">
+            <input type="radio" checked id="today" name="SelectTime" value="0">
+            <label>今天</label>
+        </div>
+        <div class="radio-group col-xs-1">
+            <input type="radio" id="week" name="SelectTime" value="1">
+            <label>一周</label>
+        </div>
+        <div class="radio-group col-xs-1">
+            <input type="radio" id="month" name="SelectTime" value="2">
+            <label>一月</label>
+        </div>
+        <div class="radio-group col-xs-1">
+            <input type="radio" id="year" name="SelectTime" value="3">
+            <label>一年</label>
+        </div>
+        <div class="radio-group col-xs-1">
+            <input type="radio" id="other" name="SelectTime" value="4">
+            <label>其他</label>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title col-sm-11">最受欢迎的应用</span>
+                    <i class="detail-icon icon col-sm-1" title="更多" id="applicationMore" style="cursor:pointer;"></i>
+                </div>
+                <div class="box-body echart-height body-nopadding">
+                    <div class="myEchart col-xs-6" id="application" style="height:200px;"></div>
+                    <div class="col-xs-6" id="application_message"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title col-sm-11">最受欢迎的网站</span>
+                    <i class="detail-icon icon col-sm-1" title="更多" id="websiteMore"></i>
+                </div>
+                <div class="box-body echart-height body-nopadding">
+                    <div class="myEchart col-xs-6" id="website" style="height:200px;"></div>
+                    <div class="col-xs-6" id="website_message"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">流量（今天）</span>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div class="col-xs-5">
+                        <div class="myEchart"  id="flow" style="height:220px"></div>
+                        <div class="col-xs-12" style="margin-top:20px;">
+                            <div class="col-xs-3 text-center title">总传输流量</div>
+                            <div class="col-xs-3 text-center title">上行流量</div>
+                            <div class="col-xs-3 text-center title">下行流量</div>
+                            <div class="col-xs-3 text-center title">总丢弃流量</div>
+                        </div>
+                        <div class="col-xs-12">
+                            <div class="col-xs-3 text-center value">
+                                <span id="TotalFlow"></span>
+                            </div>
+                            <div class="col-xs-3 text-center value">
+                                <span id="upflow"></span>
+                            </div>
+                            <div class="col-xs-3 text-center value">
+                                <span id="downflow"></span>
+                            </div>
+                            <div class="col-xs-3 text-center value">
+                                <span id="dropFlow"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-7">
+                        <div class="myEchart" id="flow_line" style="height:280px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">应用访问统计</span>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div class="col-xs-12">
+                        <div class="col-xs-8">
+                           <select  class="changeTime" id="changeTime">
+                               <option value="today">今天</option>
+                               <option value="week">七天</option>
+                               <option value="month">一月</option>
+                               <option value="year">一年</option>
+                           </select>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="col-xs-4">
+                                <select  class="changeType" id="changeUrlType">
+                                    <option value="all">全部</option>
+                                    <option value="Life">生活</option>
+                                    <option value="Office">办公</option>
+                                    <option value="Communication">通讯</option>
+                                    <option value="Video">视频</option>
+                                    <option value="Game">游戏</option>
+                                    <option value="Tool">工具</option>
+                                    <option value="News">新闻</option>
+                                    <option value="Finance">金融</option>
+                                    <option value="Navigation">导航</option>
+                                    <option value="Unknown">其他</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-4">
+                                <select  class="changeCount" id="changeCount">
+                                    <option value="manNum">人次</option>
+                                    <option value="Time">时长</option>
+                                    <option value="Flow">流量</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-4">
+                                <select  class="changeDraw" id="changeDraw">
+                                    <option value="pie">饼图</option>
+                                    <option value="line">折线图</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="myEchart col-xs-4" id="application_count_pie" style="height:200px;"></div>
+                        <div class="myEchart col-xs-6 hide" id="application_count_line" style="height:200px;"></div>
+                        <div class="col-xs-6" id="application_count_message"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 app-column right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">网站访问统计</span>
+                </div>
+                <div class="box-body" style="height:300px">
+                    <div class="row">
+                        <div class="col-xs-8">
+                            <select class="changeTime_website" id="changeTime_website">
+                                <option value="today">今天</option>
+                                <option value="week">七天</option>
+                                <option value="month">一月</option>
+                                <option value="year">一年</option>
+                            </select>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="col-xs-4">
+                                <select class="changeType_website" id="changeUrlType_website">
+                                    <option value="all">全部</option>
+                                    <option value="Entertainment">娱乐</option>
+                                    <option value="News">新闻</option>
+                                    <option value="Shopping">购物</option>
+                                    <option value="Technologyit">科技</option>
+                                    <option value="Downloads">下载</option>
+                                    <option value="Search">搜索</option>
+                                    <option value="Transportation">交通</option>
+                                    <option value="Finance">金融</option>
+                                    <option value="Unknown">其他</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-4">
+                                <select class="changeCount_website" id="changeCount_website">
+                                    <option value="manNum">人次</option>
+                                    <option value="Time">时长</option>
+                                </select>
+                            </div>
+                            <div class="col-xs-4">
+                                <select class="changeDraw_website" id="changeDraw_website">
+                                    <option value="pie">饼图</option>
+                                    <option value="line">折线图</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                       <div class="myEchart col-xs-4" id="website_count" style="height:180px;"></div>
+                       <div class="col-xs-6" id="website_count_message"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    Utils.Pages.loadJS("maintain.analyse_application");
+</script>

@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="btn_h_return" ng-click ="return()"></div>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">已入组AP列表</h3></div>
+        <div class="panel-body">
+            <button class="btn btn-cus" ng-click="deleteApFromGroup()" ng-disabled="isCheckUserIn">移除</button>
+            <!-- 已入组AP列表 -->
+           <div bs-table="apInGroup_table"></div>
+        </div>
+    </div>
+    
+    <div class="panel panel-default">
+    <div class="panel-heading"><h3 class="panel-title">未入组AP列表</h3></div>
+    <div class="panel-body">
+        <button class="btn btn-cus" ng-click="addApToGroup()" ng-disabled="isCheckUserOut">添加</button>
+        <!--未入组AP列表-->
+        <div bs-table="apOutGroup_table"></div>
+    </div>
+</div>
+
+<div class="read_rc" 
+     id="ap_rc"
+     ap-table-title="AP名称,AP型号,AP序列号,设备状态"
+     ADD-SUCCESS="入组成功，请稍后刷新页面"
+     ADD-FAILED="入组失败"
+     DEL-SUCCESS="出组成功，请稍后刷新页面"
+     DEL-FAILED="出组失败">
+</div>

@@ -1,0 +1,78 @@
+#container_cy
+{
+    padding:30px 35px 30px 15px;
+}
+#main_cy>div
+{
+	margin-bottom: 10px;
+}
+#main_cy>div>div
+{
+	padding-bottom: 10px;
+	padding-top: 10px;
+    background:rgb(249,249,249);
+    margin-left: 10px;
+    display:inline-block;
+    max-height: 75px;
+}
+#main_cy>div>div:first-child
+{
+    width: 7%;
+}
+#main_cy>div>div:last-child
+{
+    width: 90%;
+}
+#btnSave,#btnReboot,#btnDisconnect
+{
+	margin-top: 10px;
+}
+#b_btnSave, #b_btnReboot, #b_btnDisconnect
+{
+	width:120px;
+}
+#middleLine
+{
+	height: 32px;
+	padding-left: 30px;
+}
+#middleLine>span
+{
+	border-left:1px solid #ddd; 
+	display: inline;
+	line-height: 56px;
+	font-size: 22px;	
+}
+#description_cy>h5, #description_cy>p
+{
+	margin-left: 30px;
+}
+#bgImgSave
+{
+	width: 75px;
+	height:75px;
+	background: url(image/xiaobeireboot.png) no-repeat;
+	background-position: -118px -7px;
+}
+#bgImgReboot
+{
+	width: 75px;
+	height:75px;
+	background: url(image/xiaobeireboot.png) no-repeat;
+	background-position: -25px -7px;
+}
+#bgImgDisconnect
+{
+	width: 75px;
+	height:75px;
+	background: url(image/xiaobeireboot.png) no-repeat;
+	background-position: -202px -7px;
+}
+button.btnSave,button.btnReboot,button.btnSave:hover,button.btnReboot:hover,button.btnSave:active,button.btnReboot:active
+{
+	background: rgb(254,128,139);
+}
+button.btnDisconnect,button.btnDisconnect:hover,button.btnDisconnect:active
+{
+	background: rgb(242,188,152);	
+}

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <link href="../health/css/healthhistory.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+       
+    <div class="col-sm-12 calendar">
+        <div class="box-footer">
+            <div class="title">Health Examination Report</div>
+        </div>
+        <div class="box-body echart-height" id="version_block">
+            <div class="response-block col-sm-6 ">
+                <div class="form-group top">
+                    <label>Last routine examination</label>
+                    <a  class="label DeviceTypeEn" id="DeviceType" name="DeviceType"></a>
+                </div>
+                <div class="form-group position">
+                    <label >Routine examination score</label>
+                    <span class="label SerialNumberEn" id="SerialNumber" name="seriNUm"></span>
+                </div>
+                <div class="form-group position">
+                    <label>Last deep examination</label>
+                    <a id="FirmwareRev" name="boot_version" class="FirmwareRevEn"></a>
+                    <a id="HardwareRev2" name="hardware_version">Start deep examination</a>
+                    <span id="HardwareRev3" class="hide" style="font-size:13px;padding-left:25px;">Examining
+                        <img  style="width:40px;height:34px;" src="../health/css/loading2.png">
+                    </span>
+                </div>
+                <div class="form-group position">
+                    <label class="col-sm-2 control-label">Score trend</label>
+                    <div class="col-sm-12">
+                        <div id="cj_Details">
+                            <div class="pull-right">
+                                <a id="history_week"> <span>One week</span></a>
+                                <a id="history_month"> <span>One month</span></a>
+                                <a id="history_halfyear"> <span>Half year</span></a>
+                            </div>
+                            <div id="datacontent"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="response-block col-sm-6 ">
+                <div class="form-group position">
+                    <div  class="col-sm-12">
+                        <label>Health examination history</label>
+                    </div>
+                    <div class="fullcalendar" id='calendar'></div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    <div class="fc-popover fc-more-popover hide" id="dep_jContent">
+        <div class="fc-event-userdefine">
+            <a  id="dep_report" style="cursor:pointer;font-size:14px;">Report</a> <br/>
+            <a  id="interfReport" style="cursor:pointer;font-size:14px;">Interference</a><br/>
+            <a  id="dep_download" style="cursor:pointer;font-size:14px;" class="gray">Download Diagnostics</a> <br/>
+            <a  id="dep_delete" style="cursor:pointer;font-size:14px;">Delete</a> <br/>
+        </div>
+    </div>
+
+    <div class="fc-popover fc-more-popover hide" id="jContent">
+         <div class="fc-event-userdefine">
+             <a  id="report" style="cursor:pointer;font-size:14px;">Report</a> <br/>
+             <a  id="delete" style="cursor:pointer;font-size:14px;">Delete</a> <br/>
+         </div>
+    </div>
+    </body>
+    <div id="history_rc" class="rc-define"
+         check="Routine examination"
+         deepcheck="Deep examination"
+         file="The diagnostic information file is being generated."
+         Check="The routine examination result is reported at a specific interval. New data will be reported after the deletion. Continue?"
+         delete="The deleted file cannot be restored. Continue?"
+         errorMessage="Cannot obtain data. Please contact customer service."
+         noAp="Cannot obtain AP state. Please contact customer service."
+         delete="File deleted successfully."
+         DEEPCHECK="Deep examination"
+         DESCRIBE="Spectrum analysis completed. The system is making DFS and TPC suggestions, which may take a long time. You can view the result in the history record."
+         DEEPCHECKFAIL="Deep examination failed. Please check the connection between the device and the lvzhou platform."
+         DEEPCHECKSUC="Deep examination completed successfully."
+         DEVICEERROR="Connection error occurred."
+         NOAP="Cannot perform deep examination because none of the online APs supports spectrum analysis."
+         DEEPCHECKING="The previous deep examination is still in process. Please wait for it to complete before starting another deep examination."
+         startDeepCheck="Start deep examination. The examination might take a long time. Please wait."
+         endDeepCheck="Collect diagnostic information (it takes 20 to 30 minutes and occupies a lot of CPU resources)."
+         noApCheck="Cannot perform deep examination because no AP is online."
+         noRadioCheck="The radio is disabled. Please check configuration."
+         months="Jan., Feb., Mar., Apr., May, Jun., Jul., Aug., Sep., Oct., Nov., Dec."
+         weeks="Sun., Mon., Tues., Wed., Thur., Fri., Sat."
+         weekDescribe="4 weeks ago,3 weeks ago,Last week,This week"
+         monthDescribe="Jan., Feb., Mar., Apr., May, Jun., Jul., Aug., Sep., Oct., Nov., Dec."
+         yue="Month"
+         ri="Day"
+         weekHealth ="近一周小贝健康状况"
+         monthHealth="近一个月小贝健康状况"
+         halfYearHealth="近半年小贝健康状况"
+         HEALTH="Healthiness"
+    >
+    </div>
+    <script language="javascript" type="text/javascript">
+        Utils.Pages.loadJS ("health.healthhistory");
+    </script>
+</html>

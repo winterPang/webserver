@@ -1,0 +1,125 @@
+@import "$variable";
+@import "$mixin";
+
+.navbar.navbar-top {
+  background: @navbar-default-bg none;
+  border-color: @navbar-default-border;
+  border-radius: 0;
+  margin-bottom: 0;
+  //margin-top: 60px;
+  //margin-top: @base-size*60rem;
+  .navbar-brand {
+    display: none;
+    color: @navbar-default-brand-color;
+    &:hover, &:focus {
+      color: @navbar-default-brand-hover-color;
+      background-color: @navbar-default-brand-hover-bg;
+    }
+  }
+  .navbar-toggle {
+    border-color: @navbar-default-toggle-border-color;
+    &:hover,
+    &:focus {
+      background-color: @navbar-default-toggle-hover-bg;
+    }
+    .icon-bar {
+      background-color: @navbar-default-toggle-icon-bar-bg;
+    }
+  }
+  .navbar-collapse {
+    border-color: @navbar-default-border;
+    .navbar-nav {
+      > li {
+        cursor: pointer;
+        font-weight: bold;
+        margin: 0 10px;
+        margin: 0 @base-size*10rem;
+        > a {
+          color: @navbar-default-link-color;
+          &:hover,
+          &:focus {
+            color: @navbar-default-link-hover-color;
+            background-color: @navbar-default-link-hover-bg;
+          }
+        }
+        &.active > a {
+          &,
+          &:hover,
+          &:focus {
+            color: @navbar-default-link-active-color;
+            background-color: @navbar-default-link-active-bg;
+          }
+        }
+        &.disabled > a {
+          &,
+          &:hover,
+          &:focus {
+            color: @navbar-default-link-disabled-color;
+            background-color: @navbar-default-link-disabled-bg;
+          }
+        }
+      }
+    }
+  }
+}
+
+.navbar.navbar-top .navbar-nav > .open > a {
+  &, &:hover, &:focus {
+    background-color: #3eb0a1;
+    color: #f2faf9;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar.navbar-top .navbar-nav .open .dropdown-menu {
+    > li > a {
+      color: #A6E0D8;
+      &:hover, &:focus {
+        color: #f2faf9;
+        background-color: transparent;
+      }
+    }
+    > .active > a {
+      &, &:hover, &:focus {
+        color: #f2faf9;
+        background-color: #3eb0a1;
+      }
+    }
+    > .disabled > a {
+      &, &:hover, &:focus {
+        color: #ccc;
+        background-color: transparent;
+      }
+    }
+  }
+}
+
+/**
+* 默认显示logo不显示banner，菜单折叠时显示banner不显示logo
+*/
+.logo {
+  background: url(../images/xiaobei.png) no-repeat -42px -1px;
+  background: url(../images/xiaobei.png) no-repeat -@base-size*42rem -@base-size*1rem;
+  width: 157px;
+  width: @base-size*157rem;
+  height: 140px;
+  height: @base-size*140rem;
+  top: 0;
+  left: 40px;
+  left: @base-size*40rem;
+  position: fixed;
+  z-index: 1040;
+  &.en_logo {
+    background: url(../../static/image/scenelogo_en.png);
+  }
+}
+
+@media (max-width: @screen-md) {
+  .logo {
+    display: none !important;
+  }
+
+  .navbar-brand {
+    display: inline-block !important;
+  }
+}

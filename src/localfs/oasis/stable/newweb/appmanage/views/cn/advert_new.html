@@ -1,0 +1,292 @@
+<style type="text/css">
+    .iphone{
+        position: absolute;
+        top: 90px;
+        left: 74px;
+    }
+    .black{
+        position: absolute;
+        top: 89px;
+        left: 75px;
+        width: 150px;
+        height: 264px;
+        display: block;
+        opacity: .7;
+        background-color: #000000;
+    }
+    .cover{
+        position: absolute;
+        top: 110px;
+        left: 80px;
+    }
+    .move{
+        text-align: center;
+        float: left;
+        width: 185.4px;
+    }
+</style>
+
+<div id="select_devsn_step_two">
+    <div class="panel panel-default">
+        <div class="panel-heading" >
+            <h3 class="panel-title " >广告配置
+                <a href="" class="pull-right" style="color:#fe808b;font-size:14px;text-decoration:underline;"
+                ng-click="showExplain()">使用说明</a>
+            </h3>
+
+        </div>
+        <div class="panel-body">
+            <div>
+                <button class="btn btn-cus btn-global" ng-click="adPlatform()" ng-disabled="advert_default" >广告平台</button>
+                <button class="btn btn-cus btn-global" ng-click="withdrawAd()" ng-disabled="advert_default" title="注销会停止全部广告的推送">注销</button>
+            </div>
+            <div id="adManageModule">
+                <div class="">
+                    <ul class="arrow-nav">
+                        <li ng-class="{'active':operation_this == 'active_shop'}">请选择场所</li>
+                        <li ng-class="{'active':operation_this == 'active_devsn'}">请选择设备</li>
+                        <li ng-class="{'active':operation_this == 'active_ssid'}">请选择SSID</li>
+                        <li ng-class="{'active':operation_this == 'active_buttons'}">操作列</li>
+                    </ul>
+                    <ul class="arrow-body">
+                        <li >
+                            <div ng-repeat="x in shopData" >
+                                <div ng-class="{'active':shopSelected == x.shopId}" ng-click="selShop(x.shopId)">{{x.shopName}}</div>
+                            </div>
+                        </li  >
+                        <li >
+                            <div ng-repeat="x in devsnData" >
+                                <div ng-class="{'active':devsnSelected == x}" ng-click="selDevsn(x)">{{x}}</div>
+                            </div>
+                        </li >
+                        <li >
+                            <div ng-repeat="x in ssidData" >
+                                <div ng-class="{'active':x.ssidSelected == true}">
+                                    <input type="checkbox"  ng-model="ssidSelecteddd" id={{x.stName}} name="{{x.ssidName}}"
+                                           ng-checked="x.ssidSelected" ng-click="SelSsid($event,x.ssidName,x.status)"><label
+                                        for="{{x.stName}}" >{{x.ssidName}} <span class="status" ng-class="'status_'+x.status"></span></label>
+                                </div>
+                            </div>
+                        </li >
+                        <li>
+                            <div >
+                                <button class="btn btn-cus btn-confirm" ng-click="startAd()" ng-disabled="disable_using" >启用</button>
+                                <button class="btn btn-cus btn-confirm" ng-click="stopAd()" ng-disabled="disable_pause">停用</button>
+                                <button class="btn btn-cus btn-confirm" ng-click="pauseAd()" ng-disabled="disable_pause">暂停</button>
+                                <button class="btn btn-cus btn-confirm" ng-click="defaultPage()" ng-disabled="only_one">配置页面</button>
+                                <!--<button class="btn btn-cus btn-confirm" ng-click="onSure()" ng-disabled="adwords">广告平台</button>
+                                <button class="btn btn-cus btn-confirm" ng-click="onSure()" ng-disabled="written_off">注销</button>-->
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <form novalidate role="form" name="explainForm" bs-modal="explainOpt" style="padding-bottom: 15px;max-height:480px;overflow:auto;width: 650px">
+        <div class="form-group row">
+            <div class="col-sm-12">
+                <p style="padding-bottom: 5px"><b>1.</b> 按照 shop->acSn->ssid的层级关系，选择ssid启用广告。</p>
+                <p style="padding-bottom: 5px"><b>2.</b> 启用成功可以进入"配置页面"选择想要推送广告的portal认证页面，默认4个界面全部推送。</p>
+                <p><b>3.</b> 通过"广告平台"可以跳转登录到广告商的平台上，对您的广告收益进行查看并提现。</p>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<div bs-modal="BigModel">
+    <div class="row no-select">
+        <div class="col-xs-11" style="margin-bottom:10px; margin-left:20px ;color:#3eb0a1">
+            <div class="advert-title">说明：选择认证页面，终端用户认证时将会在所选的认证页面上推送广告。</div>
+        </div>
+
+        <div class="col-xs-3" style="text-align:center">
+            <p ng-show="detailShow.ad_index" style="margin-bottom: 20px">
+                <input type="checkbox" ng-model="detailInfo.ad_index">
+                <span ng-click="detailInfo.ad_index=!detailInfo.ad_index" class="no-select">首页</span>
+            </p>
+            <img src="../appmanage/img/iphone.png" alt="">
+            <img src="../appmanage/img/NumberTwo.png" class="iphone" style="left:38px">
+            <div ng-show = "detailInfo.ad_index" class="black" style="left:38px"></div>
+            <img ng-show = "detailInfo.ad_index" src="../appmanage/img/Cover1.png" class="cover" style="left:43px">
+        </div>
+
+        <div class="col-xs-3" style="text-align:center">
+            <p ng-show="detailShow.ad_login" style="margin-bottom: 20px">
+                <input type="checkbox" ng-model="detailInfo.ad_login">
+                <span ng-click="detailInfo.ad_login=!detailInfo.ad_login" class="no-select">登录页</span>
+            </p>
+            <img src="../appmanage/img/iphone.png" alt="">
+            <img src="../appmanage/img/NumberOne.png" class="iphone" style="left:38px">
+            <div ng-show = "detailInfo.ad_login" class="black" style="left:38px"></div>
+            <img ng-show = "detailInfo.ad_login" src="../appmanage/img/Cover1.png" class="cover" style="left:43px">
+        </div>
+
+        <div class="col-xs-3" style="text-align:center">
+            <p ng-show="detailShow.ad_portal" style="margin-bottom: 20px">
+                <input type="checkbox" ng-model="detailInfo.ad_portal">
+                <span ng-click="detailInfo.ad_portal=!detailInfo.ad_portal" class="no-select">登录成功跳转页</span>
+            </p>
+            <img src="../appmanage/img/iphone.png" alt="">
+            <img src="../appmanage/img/NumberThree.png" class="iphone" style="left:38px">
+            <div ng-show = "detailInfo.ad_portal" class="black" style="left:38px"></div>
+            <img ng-show = "detailInfo.ad_portal" src="../appmanage/img/Cover1.png" class="cover" style="left:43px">
+        </div>
+
+        <div class="col-xs-3" style="text-align:center">
+            <p ng-show="detailShow.ad_home" style="margin-bottom: 20px">
+                <input type="checkbox" ng-model="detailInfo.ad_home">
+                <span ng-click="detailInfo.ad_home=!detailInfo.ad_home" class="no-select">主页</span>
+            </p>
+            <img src="../appmanage/img/iphone.png" alt="">
+            <img src="../appmanage/img/NumberFor.png" class="iphone" style="left:38px">
+            <div ng-show = "detailInfo.ad_home" class="black" style="left:38px"></div>
+            <img ng-show = "detailInfo.ad_home" src="../appmanage/img/Cover1.png" class="cover" style="left:43px">
+        </div>
+    </div>
+</div>
+
+<div bs-modal="SmallModel">
+    <div class="row no-select">
+        <div class="col-xs-11" style="margin-bottom:10px; margin-left:20px;color:#3eb0a1">
+            <div class="advert-title">说明：选择认证页面，终端用户认证时将会在所选的认证页面上推送广告。</div>
+        </div>
+        <div class="col-xs-6" style="text-align:center">
+            <p ng-show="detailShow.ad_home" style="margin-bottom: 20px">
+                <input type="checkbox" ng-model="detailInfo.ad_home">
+                <span ng-click="detailInfo.ad_home=!detailInfo.ad_home" class="no-select">主页</span>
+            </p>
+            <img src="../appmanage/img/iphone.png" alt="">
+            <img src="../appmanage/img/NumberFor.png" class="iphone">
+            <div ng-show = "detailInfo.ad_home" class="black"></div>
+            <img ng-show = "detailInfo.ad_home" src="../appmanage/img/Cover1.png" class="cover">
+        </div>
+
+        <div class="col-xs-6" style="text-align:center">
+            <p ng-show="detailShow.ad_portal" style="margin-bottom: 20px">
+                <input type="checkbox" ng-model="detailInfo.ad_portal">
+                <span ng-click="detailInfo.ad_portal=!detailInfo.ad_portal" class="no-select">登录成功跳转页</span>
+            </p>
+            <img src="../appmanage/img/iphone.png" alt="">
+            <img src="../appmanage/img/NumberThree.png" class="iphone">
+            <div ng-show = "detailInfo.ad_portal" class="black"></div>
+            <img ng-show = "detailInfo.ad_portal" src="../appmanage/img/Cover1.png" class="cover">
+        </div>
+    </div>
+</div>
+
+<div bs-modal="MoveModel">
+    <div class="row no-select">
+        <div class="col-xs-11" style="margin-bottom:10px; margin-left:20px;color:#3eb0a1">
+            <div class="advert-title">说明：选择认证页面，终端用户认证时将会在所选的认证页面上推送广告。</div>
+        </div>
+
+        <div class="col-xs-1" style="text-align:center;line-height:403px">
+            <img src="../appmanage/img/leftlater.png" ng-click = "ImgLeftClack()" ng-show = "Lefthide">
+        </div>
+        <div class="col-xs-10" style="overflow:hidden;height:403px">
+            <div style="width:200%">
+                <div class="move no-select" style="position:relative">
+                    <p ng-show="detailShow.ad_index" style="margin-bottom: 20px">
+                        <input type="checkbox" ng-model="detailInfo.ad_index">
+                        <span ng-click="detailInfo.ad_index=!detailInfo.ad_index" class="no-select">首页</span>
+                    </p>
+                    <img src="../appmanage/img/iphone.png" alt="">
+                    <img src="../appmanage/img/NumberTwo.png" class="iphone" style="left:19px">
+                    <div ng-show = "detailInfo.ad_index" class="black" style="left:19px"></div>
+                    <img ng-show = "detailInfo.ad_index" src="../appmanage/img/Cover1.png" class="cover" style="left:25px">
+                </div>
+                <div class="move no-select" style="position:relative">
+                    <p ng-show="detailShow.ad_login" style="margin-bottom: 20px">
+                        <input type="checkbox" ng-model="detailInfo.ad_login">
+                        <span ng-click="detailInfo.ad_login=!detailInfo.ad_login" class="no-select">登录页</span>
+                    </p>
+                    <img src="../appmanage/img/iphone.png" alt="">
+                    <img src="../appmanage/img/NumberOne.png" class="iphone" style="left:19px">
+                    <div ng-show = "detailInfo.ad_login" class="black" style="left:19px"></div>
+                    <img ng-show = "detailInfo.ad_login" src="../appmanage/img/Cover1.png" class="cover" style="left:25px">
+                </div>
+                <div class="move no-select" style="position:relative">
+                    <p ng-show="detailShow.ad_portal" style="margin-bottom: 20px">
+                        <input type="checkbox" ng-model="detailInfo.ad_portal">
+                        <span ng-click="detailInfo.ad_portal=!detailInfo.ad_portal" class="no-select">登录成功跳转页</span>
+                    </p>
+                    <img src="../appmanage/img/iphone.png" alt="">
+                    <img src="../appmanage/img/NumberThree.png" class="iphone" style="left:19px">
+                    <div ng-show = "detailInfo.ad_portal" class="black" style="left:19px"></div>
+                    <img ng-show = "detailInfo.ad_portal" src="../appmanage/img/Cover1.png" class="cover" style="left:25px">
+                </div>
+                <div class="move no-select" style="position:relative">
+                    <p ng-show="detailShow.ad_home" style="margin-bottom: 20px">
+                        <input type="checkbox" ng-model="detailInfo.ad_home">
+                        <span ng-click="detailInfo.ad_home=!detailInfo.ad_home" class="no-select">主页</span>
+                    </p>
+                    <img src="../appmanage/img/iphone.png" alt="">
+                    <img src="../appmanage/img/NumberFor.png" class="iphone" style="left:19px">
+                    <div ng-show = "detailInfo.ad_home" class="black" style="left:19px"></div>
+                    <img ng-show = "detailInfo.ad_home" src="../appmanage/img/Cover1.png" class="cover" style="left:25px">
+                </div>
+
+                <div class="move no-select" style="position:relative">
+                    <p ng-show="detailShow.ad_index" style="margin-bottom: 20px">
+                        <input type="checkbox" ng-model="detailInfo.ad_index">
+                        <span ng-click="detailInfo.ad_index=!detailInfo.ad_index" class="no-select">绿洲</span>
+                    </p>
+                    <img src="../appmanage/img/iphone.png" alt="">
+                    <img src="../appmanage/img/NumberTwo.png" class="iphone" style="left:19px">
+                    <div ng-show = "detailInfo.ad_index" class="black" style="left:19px"></div>
+                    <img ng-show = "detailInfo.ad_index" src="../appmanage/img/Cover1.png" class="cover" style="left:25px">
+                </div>
+                <div class="move no-select" style="position:relative">
+                    <p ng-show="detailShow.ad_login" style="margin-bottom: 20px">
+                        <input type="checkbox" ng-model="detailInfo.ad_login">
+                        <span ng-click="detailInfo.ad_login=!detailInfo.ad_login" class="no-select">平台</span>
+                    </p>
+                    <img src="../appmanage/img/iphone.png" alt="">
+                    <img src="../appmanage/img/NumberOne.png" class="iphone" style="left:19px">
+                    <div ng-show = "detailInfo.ad_login" class="black" style="left:19px"></div>
+                    <img ng-show = "detailInfo.ad_login" src="../appmanage/img/Cover1.png" class="cover" style="left:25px">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-1 no-select" style="text-align:center;line-height:403px">
+            <img src="../appmanage/img/right.gif" ng-click = "ImghideClack()" ng-hide = "Imghide">
+            <img src="../appmanage/img/rightlater.png" ng-click = "ImgRightClack()" ng-show = "Righthide">
+        </div>
+    </div>
+</div>
+
+<div id="advertRc"
+     requestError = "请求出现错误"
+     note_withdraw = "注销会停止全部广告的推送,您确定要注销广告？"
+     withdrawSucc="注销应用成功"
+     withdrawFail="注销应用失败"
+     startSucc="应用开启成功"
+     startFail="应用开启失败"
+     stopSucc="应用停用成功"
+     stopFail="应用停用失败"
+     pauseSucc="应用暂停成功"
+     pauseFail="应用暂停失败"
+
+     table-header="场所,场所状态,广告开启状态,操作"
+     config-show="配置广告展示页面"
+     open-text="打开"
+     close-text="关闭"
+     noPublish="未发布"
+     published="已发布"
+     noBoundAc="未绑定AC"
+     noStart="未开启"
+     started="已开启"
+     configAdvert="配置广告"
+     configSucc="配置广告成功"
+     configFail="配置广告失败"
+
+
+
+     operaConfig="配置"
+     operaStart="开启"
+     operaPause="暂停"
+     paused="已暂停">
+</div>

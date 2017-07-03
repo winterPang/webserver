@@ -1,0 +1,75 @@
+{
+	"clientData":[
+		{
+			"MAC":"33-33-22-33-22-12",
+			"IP": "12.1.2.2",
+			"onlineTime":"2小时",
+			"manufacturer":"苹果",
+			"relationApName":"AP1"
+		},
+		{
+			"MAC":"33-33-22-33-22-12",
+			"IP": "12.1.2.2",
+			"onlineTime":"2小时",
+			"manufacturer":"华为",
+			"relationApName":"AP1"
+		},
+		{
+			"MAC":"33-33-22-33-22-12",
+			"IP": "12.1.2.2",
+			"onlineTime":"2小时",
+			"manufacturer":"苹果",
+			"relationApName":"AP1"
+		},
+		{
+			"MAC":"33-33-22-33-22-12",
+			"IP": "12.1.2.2",
+			"onlineTime":"2小时",
+			"manufacturer":"苹果",
+			"relationApName":"AP1"
+		},
+		{
+			"MAC":"33-33-22-33-22-12",
+			"IP": "12.1.2.2",
+			"onlineTime":"2小时",
+			"manufacturer":"华为",
+			"relationApName":"AP1"
+		},
+		{
+			"MAC":"33-33-22-33-22-12",
+			"IP": "12.1.2.2",
+			"onlineTime":"2小时",
+			"manufacturer":"苹果",
+			"relationApName":"AP1"
+		},
+		{
+			"MAC":"33-33-22-33-22-12",
+			"IP": "12.1.2.2",
+			"onlineTime":"2小时",
+			"manufacturer":"华为",
+			"relationApName":"AP1"
+		},
+		{
+			"MAC":"33-33-22-33-22-12",
+			"IP": "12.1.2.2",
+			"onlineTime":"2小时",
+			"manufacturer":"华为",
+			"relationApName":"AP1"
+		},
+		{
+			"MAC":"33-33-22-33-22-12",
+			"IP": "12.1.2.2",
+			"onlineTime":"2小时",
+			"manufacturer":"苹果",
+			"relationApName":"AP1"
+		},
+		{
+			"MAC":"33-33-22-33-22-12",
+			"IP": "12.1.2.2",
+			"onlineTime":"2小时",
+			"manufacturer":"苹果",
+			"relationApName":"AP1"
+		}
+	],
+	"totalCount":10
+}

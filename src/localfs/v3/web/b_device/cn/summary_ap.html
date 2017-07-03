@@ -1,0 +1,101 @@
+<html>
+ <head>
+  <!--<link rel="stylesheet" type="text/css" href="/v3/web/b_deviceinfo/css.css" />-->
+ </head> 
+ <body>
+  <div class="dashboard js-apinfo">
+   <div class="page-row"> 
+    <div class="col-xs-12 app-colum left-block"> 
+     <div class="bg-white">
+      <div class="head-bar"> 
+       <div class="box-footer"> 
+        <div class="col-xs-10"> 
+         <span class="title_h">AP数量</span> 
+        </div> 
+        <div class="text-right link-container">
+         <a type="button" class="link-detail js-aplist" href="b_device.ap_detail" title="更多"> <i class="detail-icon icon"></i> </a>
+        </div> 
+       </div> 
+       <div class="col-xs-4"> 
+            <div class="syslog-info-mine-Total">
+                 <div class="ap-icon_h icon-online"> </div>
+                 <div class="right-text-info">
+                    <span class="counter" id="online">1000</span>
+                    <br>
+                    <span class="number-title">AP在线数</span>
+                 </div>
+            </div>
+       </div> 
+       <div class="col-xs-4"> 
+            <div class="syslog-info-mine-Total">
+                 <div class="ap-icon_h icon-offline"></div>
+                 <div class="right-text-info">
+                    <span class="counter" id="offline">200</span>
+                    <br>
+                    <span class="number-title">AP离线数</span>
+                 </div>
+            </div>
+       </div> 
+       <div class="col-xs-4"> 
+            <div class="syslog-info-mine-Total syslog-apinfo-border">
+                 <div class="ap-icon_h icon-unhealth"></div>
+                 <div class="right-text-info">
+                  <span class="counter" id="unhealthy">0</span>
+                  <br>
+                  <span class="number-title">不健康AP数</span>
+                 </div>
+            </div>
+       </div> 
+      </div> 
+     </div> 
+    </div> 
+   </div> 
+   <div class="page-row">
+     <div class="col-xs-6 app-colum left-block">
+        <div class="app-box no-bk-color custom-height">
+          <div class="box-footer">
+            <span class="title">基于设备组</span>
+          </div>
+          <div class=" list-height sysinfo-body ">
+            <div id="DevGroup_list" class="simple-list"></div>
+          </div>
+       </div>
+       <div class="app-box no-bk-color custom-height">
+         <div class="box-footer">
+          <span class="title">基于终端数</span>
+         </div>
+         <div class=" list-height sysinfo-body">
+          <div id="According_client" class=" col-xs-12 myEchart newpie-container"></div>
+         </div>
+       </div>
+     </div> 
+
+    <div class="col-xs-6 app-colum left-block">
+        <div class="app-box no-bk-color custom-height">
+          <div class="box-footer">
+           <span class="title">基于设备</span>
+          </div>
+          <div class=" list-height sysinfo-body">
+           <div id="Device_list" class="simple-list"></div>
+          </div>
+        </div>
+
+        <div class="app-box no-bk-color custom-height">
+         <div class="box-footer">
+           <span class="title">基于AP型号</span>
+         </div>
+         <div class=" list-height sysinfo-body">
+           <div id="APModel_bar" class="myEchart col-xs-12"></div>
+         </div>
+       </div>
+     </div>
+
+    </div> 
+   </div> 
+  </div> 
+  <div id="apinfo_rc" class="rc-define" tips="'在线的手工AP','自动AP','离线的手工AP','未认证的AP'" group_header="设备组,设备数目" apgroup_header="设备名称,设备数目" ssid_header="SSID,AP数目（5GHz）,AP数目（2.4GHz）" ap_type="在线的手工AP,自动AP,离线的手工AP,未认证的AP"></div>
+  <script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("b_device.summary_ap");
+</script> 
+ </body>
+</html>

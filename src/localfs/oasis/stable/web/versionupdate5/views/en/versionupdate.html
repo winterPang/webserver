@@ -1,0 +1,89 @@
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Device Version</h3>
+        </div>
+        <div class="panel-body">
+            <div style='margin-bottom:8px;'>
+                <span>Current software version:</span>
+                <span id="curVer">{{curVersion}}</span>
+                <span id="verTips"></span>
+                <span class="about_description" ng-show="showHide.upgradeflag==0" style="cursor:pointer;">
+                    <i id="version_num" class="fa fa-question-circle" style="color:black;" ></i>
+                </span>
+            </div>
+            <div class="col-xs-12" id="version" style='margin-bottom:15px'>
+                <div style="display: inline-block;">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="newestversion" name="devVer" ng-model="version" value="0" ng-click="updateVersion()" class="input-element"/>
+                        <span class="input-icon radio-icon " ng-class="{'checked': version== 0}"></span>
+                        <label for="newestversion" class="input-label"></label>
+                    </div>
+                    <label for="newestversion">Latest</label>
+                </div>
+                <div style="display: inline-block;">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="allversion" name="devVer" ng-model="version" value="1" ng-click="updateVersion()" class="input-element"/>
+                        <span class="input-icon radio-icon " ng-class="{'checked': version== 1}"></span>
+                        <label for="allversion" class="input-label"></label>
+                    </div>
+                    <label for="allversion">All</label>
+                </div>
+            </div>
+            <button class="btn btn-cus" ng-click="updateDeviceModal()" ng-disabled="isCheck" ng-if="permission.write"><i class="btn-icon fa fa-cloud-download"></i>Upgrade</button>
+            <!--<div class="btn btn-cus" ng-click="a()" ><i class="btn-icon fa fa-cloud-download"></i>版本</div>-->
+            <button class="btn btn-cus" ng-click="offDownload()" ng-disabled="isCheck" ng-if="permission.write"><i class="btn-icon fa fa-download"></i>Offline Download</button>
+            <!--device versions table-->
+            <div bs-table="deviceVersion_table"></div>
+        </div>
+    </div>
+</div>
+<!--升级摸态框-->
+<div bs-modal="update.options">
+    <form  class="form edit" id="versionFormat">
+        <div class="form-group" style="position:relative;left:20px;">
+            <div class="col-sm-3"  style="display: inline-block;margin:10px 0 0 20px;">
+                <div class=" xb-input xb-radio">
+                    <input type="radio" id="update1" name="updateType" ng-model="updateType.versionType"  value="2" class="input-element" ng-click="checked()"/>
+                    <span class="input-icon radio-icon " ng-class="{'checked': updateType.versionType== 2}"></span>
+                    <label for="update1" class="input-label"></label>
+                </div>
+                <label for="update1">Upgrade and Reboot</label>
+            </div>
+            <div class="col-sm-4" style="display: inline-block;margin:10px 0 0 50px;">
+                <div class=" xb-input xb-radio">
+                    <input type="radio" id="update2" name="updateType" ng-model="updateType.versionType"  value="3" class="input-element" ng-click="checked()"/>
+                    <span class="input-icon radio-icon " ng-class="{'checked': updateType.versionType== 3}"></span>
+                    <label for="update2" class="input-label"></label>
+                </div>
+                <label  for="update2">Upgrade,Save,and Reboot</label>
+            </div>
+            <div class="col-sm-4" style="display: inline-block;margin-top:10px;">
+                <div class=" xb-input xb-radio">
+                    <input type="radio" id="update3" name="updateType" ng-model="updateType.versionType"   value="1"  class="input-element" ng-click="checked()"/>
+                    <span class="input-icon radio-icon " ng-class="{'checked': updateType.versionType== 1}"></span>
+                    <label for="update3" class="input-label"></label>
+                </div>
+                <label for="update3">Upgrade Only<span style="padding-left:10px;color:#9DA9B8;">(Effetive upon reboot)</span></label>
+            </div>
+        </div>
+    </form>
+</div>
+<div id="device_infor_rc" class="rc-define"
+     version_INFO="online upgrade is not supported because the current soft version is low."
+     version_Dev="The baseline current software version for online upgrade is"
+     HUO="or"
+     Version_HEADER="Version,Type,Release At,Description,Size (MB),Progress"
+     DOWNLOAD="Upgrade Version"
+     VERSION_TYPE=",Official version,Developer version,Patch version"
+     VER_ERROR = "Version downloading failure,Upgrading failed.;Insufficient space,Upgrading failed.;Configuration saving failure,Upgrading failed.;Unknown error.It might occur when the device is running at a low software version that dose not support online upgrade .Please try other upgrade methods.;No upgrade required.The device is running at the upgraded software version.;Failed to upgrade the software because the connection error occurred to the device.;Upgrading succeeded"
+     DOWNLOAD_ERROR="Upgrading succeeded,Upgrading failed,You can select only one version."
+     SELECT="Confirm"
+     PERCENT="N/A"
+     Versioning = "Upgrade in progerss.Please wait."
+     VERSION_FAIL="You are not authorized to upgrade the version.;Operation failed.The main connection is broken.;The device is being upgrade.;Errors occurred.Operation failed."
+     VERSION_BEGIN="Start image downloading."
+     VERSION_ERROR="Operation failed.The space is less than two times the size of the image file."
+     VERSION_SUCESS="Upgrading succeeded"
+     MESSAGE="Image downloading completed.The upgrading process starts.Please wait...">
+</div>

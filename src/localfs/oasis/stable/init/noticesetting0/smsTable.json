@@ -1,0 +1,22 @@
+[
+    {"phoneNum":"123456789",
+     "noticeTime":"A",
+     "status":0,
+     "maxNum":"2"
+ 	},
+ 	{"phoneNum":"185456789",
+     "noticeTime":"A",
+     "status":1,
+     "maxNum":"2"
+ 	},
+ 	{"phoneNum":"130456789",
+     "noticeTime":"A",
+     "status":0,
+     "maxNum":"2"
+ 	},
+ 	{"phoneNum":"157456789",
+     "noticeTime":"A",
+     "status":0,
+     "maxNum":"2"
+ 	}    
+]

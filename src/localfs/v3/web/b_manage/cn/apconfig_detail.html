@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<boby>
+    <div class="col-sm-12 app-colum apconfig-detail">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">无线服务配置</span>
+            </div>
+            <p style="margin-top:10px;margin-bottom:-5px"></p>
+            <div class='col-sm-12'>
+            	<div class='row column'>
+	                <div class="col-sm-2 title">设备/设备组</div>
+			        <div class='col-sm-2 title'>xiaobei</div>
+		        </div>
+			    <div class='row column'>
+			        <div class='caption col-sm-2'>内部Wi-Fi</div>
+					<div class="col-sm-2 xb-input xb-checkbox">
+						<input type="checkbox" class="switch input-element has-switch" id="Cupid1" name="Cupid" checked>
+						<span class="input-icon checkbox-icon switch has-switch"></span>
+					</div>
+					<div class="col-sm-3" style="padding-top:10px">
+						<input list="ssid" name="myBrowser" value="xiaobei"/>
+						<datalist id="ssid">
+						  <option>xiaobei</option>
+						  <option>brief</option>
+						  <option>brjfdk</option>
+						  <option>Internet</option>
+						  <option>Voodo</option>
+						  <option>Safari</option>
+						  <option>Edge</option>
+						</datalist>
+					</div>
+				</div>
+			    <div class='row column'>
+			        <div class='caption col-sm-2 '>商业Wi-Fi1</div>
+					<div class="col-sm-2 xb-input xb-checkbox" style='margin-top:-7px'>
+						<input type="checkbox" class="switch input-element has-switch" id="Cupid2" name="Cupid" checked>
+						<span class="input-icon checkbox-icon switch has-switch checked"></span>
+					</div>
+					<div class="col-sm-3" style="padding-top:10px">
+						<input list="ssid" name="myBrowser" value="xiaobei"/>
+					</div>
+				</div>
+				<div class='row column'>
+			        <div class='caption col-sm-2 '>商业Wi-Fi2</div>
+					<div class="col-sm-2 xb-input xb-checkbox" style='margin-top:-7px'>
+						<input type="checkbox" class="switch input-element has-switch" id="Cupid3" name="Cupid" checked>
+						<span class="input-icon checkbox-icon switch has-switch"></span>
+					</div>
+					<div class="col-sm-3" style="padding-top:10px">
+						<input list="ssid" name="myBrowser" value="Internet"/>
+					</div>
+				</div>
+			    <div class='row column'>
+			        <div class='caption col-sm-2'>商业Wi-Fi3</div>
+					<div class="col-sm-2 xb-input xb-checkbox" style='margin-top:-7px'>
+						<input type="checkbox" class="switch input-element has-switch" id="Cupid4" name="Cupid" checked>
+						<span class="input-icon checkbox-icon switch has-switch checked"></span>
+					</div>
+					<div class="col-sm-3" style="padding-top:10px">
+						<input list="ssid" name="myBrowser" value="Voodo"/>
+					</div>
+					<div class='col-sm-12 btn-grp'>
+					    <button class="btn btn-apply">确定</button> 
+						<button id="cancel" class="btn btn-cancel">取消</button>
+					</div>
+				</div>
+            </div>
+        </div>
+    </div>
+<body>
+<script>
+$("#cancel").click(function(){
+	history.back();
+})
+</script>
+
+
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+		 	.app-colum.left-block{
+		 		padding-right:0px;
+		 	}
+        </style>
+    </head>
+    <body>
+    
+    		<div class="col-xs-12 app-colum left-block">
+    	            <div class="app-box">
+    	                <div class="select-footer">
+    	                    <div class="col-xs-3 ml20">
+    	                        <div class="form-group">
+    	                            <div class="col-xs-6">
+    	                                <div class="xb-input xb-radio">
+    		                                <input type="radio" name="terminal" id="APGroup" value="1" checked="checked" class="input-element">
+    		                                <label for="APGroup">AP组</label>
+    	                                </div>	                                
+    	                            </div>
+    
+    	                            <div class="col-xs-6">
+    	                                <div class="xb-input xb-radio">
+    		                                <input type="radio" name="terminal" id="AP" value="2" class="input-element">
+    	                                	<label for="AP">AP</label>
+    	                                </div>
+    	                            </div>
+    	                        </div>
+    	                    </div>
+    	                </div>
+    	            </div>
+       			</div>
+    	                         
+            <div class="btn_h_return" id="return"></div>
+    
+            <div id="APGroupZone">
+                <div class="col-xs-12 app-colum">
+                    <div class="app-box no-height default-bottom">
+                        <div class="box-footer">
+                            <span class="title">已绑定AP组</span>
+                        </div>
+                        <div class="box-body no-height">
+                            <div id="APGroupBindList" class="simple-list"></div>
+                        </div>                  
+                    </div>
+                </div>
+    
+                <div class="col-xs-12 app-colum">
+                    <div class="app-box no-height default-bottom">
+                        <div class="box-footer">
+                            <span class="title">未绑定AP组</span>
+                        </div>
+                        <div class="box-body no-height">
+                            <div id="APGroupUnbindList" class="simple-list"></div>
+                        </div>
+                    </div>
+                </div>   
+            </div>
+    
+            <div id="APZone">
+                <div class="col-xs-12 app-colum">
+                    <div class="app-box no-height default-bottom">
+                        <div class="box-footer">
+                            <span class="title">已绑定AP</span>
+                        </div>
+                        <div class="box-body no-height">
+                            <div id="APBindList" class="simple-list"></div>
+                        </div>                  
+                    </div>
+                </div>
+    
+                <div class="col-xs-12 app-colum">
+                    <div class="app-box no-height default-bottom">
+                        <div class="box-footer">
+                            <span class="title">未绑定AP</span>
+                        </div>
+                        <div class="box-body no-height">
+                            <div id="APUnbindList" class="simple-list"></div>
+                        </div>
+                    </div>
+                </div>   
+            </div>         
+    
+            <div id="ap_detail_rc" class="rc-define"        
+    		         APGROUPBIND="AP组名称,描述"
+    		         APBIND="AP名称,APSN,AP型号"
+    		         OPERATION="绑定"
+    		         AP_BIND="绑定AP"
+    		         APG_BIND="绑定AP组"
+    		         REBIND="解除绑定"
+    		     ></div>                            
+        
+    </body>
+</html>
+
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("p_wireless.bind");
+</script>

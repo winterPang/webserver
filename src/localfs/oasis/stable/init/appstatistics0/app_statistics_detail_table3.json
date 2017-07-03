@@ -1,0 +1,57 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 10,
+  "rows": [
+    {
+      "appname": "腾讯新闻",
+      "begintime": "2016-10-22 09:43:21",
+      "endtime": "2016-10-08 08:30:49"
+    },
+    {
+      "appname": "魔兽世界",
+      "begintime": "2016-10-18 06:30:04",
+      "endtime": "2016-11-04 01:55:59"
+    },
+    {
+      "appname": "淘宝",
+      "begintime": "2016-11-09 07:51:25",
+      "endtime": "2016-11-10 05:29:11"
+    },
+    {
+      "appname": "微信",
+      "begintime": "2016-10-21 21:18:21",
+      "endtime": "2016-11-04 02:25:56"
+    },
+    {
+      "appname": "Beyond Compare",
+      "begintime": "2016-10-17 13:45:59",
+      "endtime": "2016-10-31 15:37:07"
+    },
+    {
+      "appname": "TortoiseGit",
+      "begintime": "2016-10-24 16:03:37",
+      "endtime": "2016-10-15 14:50:58"
+    },
+    {
+      "appname": "WebStorm",
+      "begintime": "2016-11-06 09:35:26",
+      "endtime": "2016-10-20 00:39:06"
+    },
+    {
+      "appname": "新浪博客",
+      "begintime": "2016-10-25 16:57:15",
+      "endtime": "2016-11-05 16:56:54"
+    },
+    {
+      "appname": "优酷视频",
+      "begintime": "2016-10-17 06:36:50",
+      "endtime": "2016-10-11 11:02:02"
+    },
+    {
+      "appname": "淘宝",
+      "begintime": "2016-11-06 06:37:20",
+      "endtime": "2016-10-06 20:18:05"
+    }
+  ]
+}

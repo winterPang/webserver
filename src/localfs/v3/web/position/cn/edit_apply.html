@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <link href="../position/css/position.css" rel="stylesheet" type="text/css" />
+    <!--<script type="text/javascript" src="../position/cocos/cocos2d-js-v3.9.js" charset="UTF-8"></script>-->
+    <style>
+        body{
+            -moz-user-select: none; /*火狐*/
+            -webkit-user-select: none; /*webkit浏览器*/
+            -ms-user-select: none; /*IE10*/
+            -khtml-user-select: none; /*早期浏览器*/
+            user-select: none;
+        }
+        .link-container {
+            position: absolute;
+            right: 5px;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        #box-body2015 {
+            height: auto!important;
+        }
+
+
+        .simple-list .slist-body {
+            border: 1px solid #dedddd;
+        }
+
+        .app-box .box-body {
+            padding: 0;
+            height: 600px;
+        }
+
+        .delete,.delete_Wall{
+            width: 50px;
+            height: 30px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #fff;
+            display :none;
+            border: solid 1px grey;
+            text-align: center;
+        }
+        .delete a,.delete_Wall a{
+            text-decoration: underline;
+            font-size:13px;
+            text-align: center;
+        }
+        .top{
+            display: inline-block;
+            margin-right:20px;
+        }
+        .mapName,.mapScale{
+            text-align:center;
+        }
+        #imgContainer{
+           /* min-height: 600px;*/
+            position:relative;
+            width:100%;
+        }
+        .canvasContain{
+            position:relative;
+            height:600px;
+            margin: 0 auto;
+            overflow:hidden;
+            width:100%;
+        }
+        .editMap{
+            margin-left: 15px;
+        }
+        #back,#save,#big,#small{
+            cursor:pointer;
+        }
+        .contextmenu{
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: #fff;
+            z-index: 999;
+            display: none;
+        }
+        .contextmenu ul{
+            list-style: none;
+            border: solid 1px grey;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        .contextmenu ul li{
+            border-bottom: solid 1px grey;
+            list-style: none;
+            padding:3px 10px;
+        }
+        .contextmenu ul .last_li{
+            border-bottom: none;
+        }
+        #bgCanvas{
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        #picture{
+            width: 400px;
+            height: 400px;
+            margin: 0 auto;
+            border: solid 1px grey;
+            box-sizing: border-box;
+            margin-top:10px;
+        }
+        #picture img{
+            width: 400px;
+            height: 400px;
+        }
+        #mapScale{
+            font-style:normal;
+        }
+        #big {
+            width: 19px;
+            height: 19px;
+        }
+        #small {
+            width: 19px;
+            height: 19px;
+        }
+        #areaName_error,#vertices_error{
+            vertical-align: middle;
+            color: #47495d;
+            font-size: 14px;
+            font-weight: normal;
+            display: none;
+            background: #fce6e6;
+            padding: 0px 10px;
+            line-height: 22px;
+            border: 1px solid #df443e;
+            margin-top: 1px;
+            border-radius: 5px;
+        }
+        #upload_file{
+            width: 95px;
+            height: 32px;
+            position:absolute;
+            left:0;
+            top:0;
+            display:block;
+            opacity:0;
+            cursor:pointer;
+        }
+        .ap_info{
+            line-height:35px;
+        }
+    </style>
+
+</head>
+
+<body>
+<div>
+    <div class="col-xs-12 app-colum left-block">
+        <div class="app-box default-height">
+            <div id="detect_container7">
+                <div class="box-footer">
+                    <div class="col-xs-12">
+                        <div class="top editMap">编辑地图</div>
+                        <div class="top">比例尺（<span class="mapScale">1px:<i id="mapScale">1</i>m</span>）</div>
+                        <div class="top" id="back">
+                            <img src="../position/cocos/res/icon-back.png" />
+                            <span>返回</span>
+                        </div>
+                        <div class="top" id="save">
+                            <img src="../position/cocos/res/icon-save.png" />
+                            <span>保存</span>
+                        </div>
+                        <!--<div class="top">
+                            <img src="../position/cocos/res/icon-big.png" id="big"/>
+                            <sapn>放大</sapn>
+                        </div>
+                        <div class="top">
+                            <img src="../position/cocos/res/icon-small.png" id="small"/>
+                            <sapn>缩小</sapn>
+                        </div>-->
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div id="imgContainer">
+                        <div id="contextmenu_ap" class="contextmenu">
+                            <ul>
+                                <li><a id="APInfo_a">查看AP信息</a></li>
+                                <li><a id="editAP_a">修改AP坐标</a></li>
+                                <li class="last_li"><a id="deleteAP_a">删除该AP</a></li>
+                            </ul>
+                        </div>
+                        <div id="contextmenu_area" class="contextmenu">
+                            <ul>
+                                <li class="last_li">
+                                    <a id="deleteArea_a">删除该区域</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div id="contextmenu" class="contextmenu">
+                            <ul>
+                                <li><a id="addAP_a">添加AP</a></li>
+                                <li><a id="addArea_a">添加区域</a></li>
+                                <li><a id="editMap_a">修改图片</a></li>
+                                <li class="last_li"><a id="editScale_a">修改比例尺</a></li>
+                            </ul>
+                        </div>
+                        <div class="canvasContain" id="canvasContain">
+                            <canvas id="bgCanvas"></canvas>
+                        </div>
+                        <canvas id="backgroundCanvas" hidden></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form class="form-horizontal form hide" id="addApForm">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">添加Ap</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">AP</label>
+            <div class="col-sm-9">
+                <select id="apNameList" class="singleSelect" allowClear="true" name="">
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Save" id="addApOkBtn">
+            <i class="icon-ok"></i> 添加
+        </a>
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+            <i class="icon-remove"></i> 取消
+        </a>
+    </div>
+</form>
+<form class="form-horizontal form hide" id="addAreaForm">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">添加区域</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">顶点数</label>
+
+            <div class="col-sm-9">
+                <input type="number" class="required" id="vertices" name="vertices" errid="vertices_error"/>
+                <label class="info-explain">(2-10个)</label>
+                <label class="error" id="vertices_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">区域名称</label>
+
+            <div class="col-sm-9">
+                <input type="text" id="areaName" class="big string required" name="areaName" errid="areaName_error" maxlength="32"/>
+                <label class="info-explain">（英文：1-32字符&nbsp;&nbsp;中文：1-10字符）</label>
+                <label class="error" id="areaName_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">区域类型</label>
+
+            <div class="col-sm-9">
+                <select class="singleSelect required" id="areaType" name="areaType" errid="areaType_error"></select>
+                <label class="info-explain"></label>
+                <label class="error" id="areaType_error"></label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Save" id="addAreaOkBtn">
+            <i class="icon-ok"></i> 添加
+        </a>
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+            <i class="icon-remove"></i> 取消
+        </a>
+    </div>
+</form>
+
+<!--修改地图-->
+<div class="hide modal fade" id="tableDlg">
+    <form class="form-horizontal form" id="verlist" onsubmit="return false">
+        <div class="form-group">
+            <div style="margin: 0px auto; width: 800px;position:relative">
+                <label class="col-xs-2 control-label" style="margin-top: 10px;">图片</label>
+                <div class="col-xs-9 file"  style="margin-top: 10px;">
+                    <a class="btn">Browse</a>
+                    <label class="error" id="file_error"></label>
+                    <input type="file" name="photo" id="upload_file">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div id="picture">
+                <!--<canvas id="gameCanvas" width="800" height="450"></canvas>-->
+            </div>
+        </div>
+    </form>
+</div>
+<!--修改比例尺-->
+<form class="form-horizontal form hide" id="setScaleForm">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">设置比例尺</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">比例尺</label>
+            <div class="col-sm-10">
+                1px &nbsp; : &nbsp;
+                <input type="number" id="scaleValue" placeholder="请输入大于0的数">&nbsp; (米)
+                <label class="error" id="scaleValue_error"></label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Save" id="setScaleOk">
+            <i class="icon-ok"></i> 保存
+        </a>
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+            <i class="icon-remove"></i> 取消
+        </a>
+    </div>
+</form>
+<!--查看ap信息-->
+<form class="form-horizontal form hide" id="apInfoForm">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">查看AP信息</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">AP名字:</label>
+            <div class="col-sm-9 ap_info">
+                <span id="info_apName"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">AP&nbsp;&nbsp;Mac:</label>
+            <div class="col-sm-9 ap_info">
+                <span id="info_apMac"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">横坐标:</label>
+            <div class="col-sm-9 ap_info">
+                <span id="info_X"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">纵坐标:</label>
+            <div class="col-sm-9 ap_info">
+                <span id="info_Y"></span>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+            <i class="icon-remove"></i> 关闭
+        </a>
+    </div>
+</form>
+<!--修改AP坐标-->
+<form class="form-horizontal form hide" id="editCoordinate">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">修改AP坐标</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">横坐标：</label>
+
+            <div class="col-sm-9">
+                <input type="number" class="required" id="editX" name="editX" errid="editX_error"/>
+                <label class="info-explain"></label>
+                <label class="error" id="editX_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">纵坐标：</label>
+
+            <div class="col-sm-9">
+                <input type="number" class="required" id="editY" name="editY" errid="editY_error"/>
+                <label class="info-explain"></label>
+                <label class="error" id="editY_error"></label>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Save" id="editOkBtn">
+            <i class="icon-ok"></i> 确定
+        </a>
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+            <i class="icon-remove"></i> 取消
+        </a>
+    </div>
+</form>
+<div id="apply_manage_rc" class="rc-define" title="地图详情" addMapTitle="添加地图" scaleSmallBtn="缩小"
+     scaleBigBtn="放大" addApBtn="增加AP" addWallBtn="增加墙体" setScaleBtn="设置比例尺">
+</div>
+
+</body>
+
+</html>
+
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("position.imageview");
+    Utils.Pages.loadJS("position.edit_apply");
+</script>

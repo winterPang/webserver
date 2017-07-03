@@ -1,0 +1,51 @@
+{
+  "code": 0,
+  "message": "查询成功",
+  "data": [
+    {
+      "id": 1,
+      "ownerId": 304,
+      "name": "总部",
+      "authFrom": 55
+    },
+    {
+      "id": 2,
+      "ownerId": 304,
+      "name": "北京",
+      "parentId": 1,
+      "authFrom": 55
+    },
+    {
+      "id": 3,
+      "ownerId": 304,
+      "name": "上海",
+      "parentId": 1
+    },
+    {
+      "id": 4,
+      "ownerId": 304,
+      "name": "广州",
+      "parentId": 1
+    },
+    {
+      "id": 29,
+      "ownerId": 304,
+      "name": "王府井",
+      "parentId": 2
+    },
+    {
+      "id": 90,
+      "ownerId": 304,
+      "name": "西单",
+      "parentId": 2,
+      "authFrom": 55
+    },
+    {
+      "id": 373,
+      "ownerId": 304,
+      "name": "广州市区",
+      "parentId": 4,
+      "authFrom": 55
+    }
+  ]
+}

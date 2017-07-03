@@ -1,0 +1,118 @@
+<html> 
+
+<head>
+    <meta charset="utf-8">
+</head>
+
+<body>
+<div class="col-xs-12 app-colum xxb" id="addwlan" debug="getDeviceInfo GetSsisCfg">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">Modify WLAN</span>
+        </div>
+        <div class="box-body no-height sub-box">
+            <div class="content-title">
+                <h2>WLAN Name<span id = "head_show" class="info-green">XXB-MSR_01</span>
+                    <input type="text" class="string big required ssid" id="ssid" errid="upspeed_error" maxlength="32">
+                    <label class="info-explain hide" for="ssid" id="infoExplain1"><span>The name cannot contain more than 32 characters, cannot contain only spaces, and cannot contain percent signs (%), pound signs (#), and ampersand signs (&).</span></label>
+                    <a id="modify" class="xx-link">Change WLAN name</a></h2>
+
+                <p>Service type:<span id="servername">Manage WLAN</span></p>
+
+            </div>
+
+            <div class="form-group col-sm-12 server">
+                <div class="addbox_head">Service status</div>
+                <div class="radio-group addboxbody">
+                    <div class="col-sm-1">
+                        <input type="radio" name="ssid-status" id="open_ssid" value="1" checked>
+                        <label for="open_ssid">Enable</label>
+                    </div>
+                    <div class="col-sm-1">
+                        <input type="radio" name="ssid-status" id="close_ssid" value="0">
+                        <label for="close_ssid">Disable</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-sm-12 server"  id="displayssid">
+                <div class="addbox_head">Hide SSID</div>
+                <div class="radio-group addboxbody" >
+                    <div class="col-sm-12">
+                        <div class="col-sm-1">
+                            <input type="radio" name="hide_ssid" id="hide_ssid" value="1">
+                            <label for="hide_ssid">Yes</label>
+                        </div>
+                        <div class="col-sm-1">
+                            <input type="radio" name="hide_ssid" id="show_ssid" value="0" checked>
+                            <label for="show_ssid">No</label>
+                        </div>
+                    </div>
+                    <p class="info">
+                        Hiding SSID disables users from discovering a WLAN to improve WLAN security.
+                        <br> To discover the WLAN, enter the SSID on the client manually.
+                    </p>
+                </div>
+            </div>
+            <div class="form-group col-sm-12 server">
+                <div class="addbox_head">Encryption Service</div>
+                <div class="radio-group addboxbody">
+                    <div class="col-sm-12">
+                        <div class="col-sm-1">
+                            <input type="radio" name="securityMode" id="add_secret" value="1" checked>
+                            <label for="add_secret">Yes</label>
+                        </div>
+                        <div class="col-sm-3">
+                            <input type="radio" name="securityMode" id="remove_secret" value="0">
+                            <label for="remove_secret">No</label>
+                        </div>
+                        <div class="col-sm-6 hide" id="pass">
+                            <label for="password">Password</label>
+                            <input type="password" class="string big" name="password" id="password" maxlength="32" min="8">
+                            <input type="text" id="text" class="string big" name="password" maxlength="32" min="8" style="display:none" />
+                            <span class="icon_eye" id="switch"></span>
+                            <label class="info-explain" for="password"><span>(8-32 chars)</span></label>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <p id="manageWifi" class="info hide">
+                            Encryption service enables client traffic to be encrypted in the WLAN to improve WLAN security.
+                        </p>
+                        <p id="businessWifi" class="info hide">
+                            For WLANs using WeChat WiFi and other commercial functions, do not use the encryption service as a best practice.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group col-sm-12">
+                <div class="btn_foot">
+                    <button class="btn surebtn btn_ok" id="ok">OK</button>
+                    <button class="btn btn_cancel" id="cancel">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="addwlan_rc" class="rc-define"
+     SUCCESS="Configuration succeeded"
+     FAILD="Configuration failed"
+     PENDING="Issuing configuration"
+     Wi-Fi_NAME="Internal WLAN,Commercial WLAN"
+     LIMIT_MSG="A maximum of 32 characters ,that do not contain % # & * < ? / ', and do not end with a space,Please neter a password,The password length must be in the range of 8 to 32 characters,please enter again.,8 to 32 characters"
+     Wi-Fi_NAME_MSG="Please enter a WLAN name.,The WLAN name already exists."
+     SSID_NAME_LOG="Change , WLAN name to , service state to"
+     SSID_STATUS="Disable,Enable"
+     YES_OR_NO="No,Yes"
+     HIDE_SSID_LOG="Change , SSID hiding state to"
+     SECURITY_MODE_LOG="Change , encryption service state to"
+     MSG_INFO="Failed to obtain device mode."
+     CLOSE_WEIXING_INFO="Configuration failed.Please first disabled WeChart Wi-Fi in the authentication template"
+     GET_WEIXING_INFO="Issuing configuration..."
+     GET_FAIL="获取配置失败请重新操作"
+        >
+</div>
+</body>
+
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_networkcfg.addwlan");
+</script>

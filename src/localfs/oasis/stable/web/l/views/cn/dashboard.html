@@ -1,0 +1,117 @@
+<div class="dashboard-l container-fluid">
+    <!--概览信息-->
+    <div class="page-row">
+        <div class="col-md-3 col-xs-6 app-colum left-block">
+            <div class="app-box detail-count">
+                <h1 class="col-xs-6">
+                    <i class="glyphicon glyphicon-user"></i>
+                    <span>在线</span>
+                </h1>
+                <h1 class="col-xs-6 text-right">100
+                    <span>人</span>
+                </h1>
+            </div>
+        </div>
+        <div class="col-md-3 col-xs-6 app-colum left-block">
+            <div class="app-box detail-count">
+                <h1 class="col-xs-6">
+                    <i class="glyphicon glyphicon-thumbs-up"></i>
+                    <span>体验</span>
+                </h1>
+                <h1 class="col-xs-6 text-right">100
+                    <span>分</span>
+                </h1>
+            </div>
+        </div>
+        <div class="col-md-3 col-xs-6 app-colum left-block">
+            <div class="app-box detail-count">
+                <h1 class="col-xs-6">
+                    <i class="glyphicon glyphicon-save"></i>
+                    <span>下行</span>
+                </h1>
+                <h1 class="col-xs-6 text-right">500
+                    <span>Mbs</span>
+                </h1>
+            </div>
+        </div>
+        <div class="col-md-3 col-xs-6 app-colum left-block">
+            <div class="app-box detail-count">
+                <h1 class="col-xs-6">
+                    <i class="glyphicon glyphicon-open"></i>
+                    <span>上行</span>
+                </h1>
+                <h1 class="col-xs-6 text-right">100
+                    <span>Mbs</span>
+                </h1>
+            </div>
+        </div>
+    </div>
+    <!--在线用户信息-->
+    <div class="page-row">
+        <div class="col-md-12 app-colum left-block">
+            <div class="app-box no-bk-color detail-count" style="padding-left: 0">
+                <div class="col-md-4">
+                    <div class="col-md-6">
+                        <div class="sm-echarts" dashboard-echarts="weekViewCharts"></div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="user-experience">
+                            <h3>100分</h3>
+                            <p>非常好</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <ul>
+                        <li>
+                            <div class="col-md-5">在线AC：</div>
+                            <div class="col-md-7">2台</div>
+                        </li>
+                        <li>
+                            <div class="col-md-5">在线AP：</div>
+                            <div class="col-md-7">15台</div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <ul>
+                        <li>
+                            <div class="col-md-5">丢包：</div>
+                            <div class="col-md-7">30kb</div>
+                        </li>
+                        <li>
+                            <div class="col-md-5">时延：</div>
+                            <div class="col-md-7">300ms</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row" ng-hide="showRelationCharts">
+        <div class="col-md-12 app-colum left-block">
+            <div class="app-box no-bk-color detail-count">
+                <!--用户量折线图-->
+                <div class="col-md-6">
+                    <div class="echarts no-margin" dashboard-echarts="userNumInfo"></div>
+                </div>
+                <!--用户量折线图-->
+                <div class="col-md-6">
+                    <div class="echarts no-margin" dashboard-echarts="dataFlowInfo"></div>
+                </div>
+                <div class="relation-link" ng-click="showRelationCharts=true">查看关系图
+                    <i class="glyphicon glyphicon-link"></i></div>
+            </div>
+        </div>
+    </div>
+    <!--用户流量折线图-->
+    <div class="page-row" ng-show="showRelationCharts">
+        <div class="col-md-12 app-colum left-block">
+            <div class="app-box">
+                <div class="echarts" dashboard-echarts="userFlowRelation"></div>
+                <div class="relation-link" ng-click="showRelationCharts=false">查看趋势图
+                    <i class="glyphicon glyphicon-link"></i></div>
+            </div>
+        </div>
+    </div>
+</div>

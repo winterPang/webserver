@@ -1,0 +1,270 @@
+<html>
+<head>
+<link href="../../web/wireless/wireless.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">无线服务配置</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="ssidList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+<!--第一个页面-->
+<div class="hide modal fade" id="AddSt">
+    <div class="modal-body">
+        <form class="form edit" id="AddStForm">
+          <div class="form-group">
+              <label class="col-sm-3 control-label required" for="apName">无线服务名称</label>
+              <div class="col-sm-9 ">   
+              <input  type="text"  class="string big required" id="apName" maxlength='63' name ="IDLE_CUT_FLOW"  errid="restByte_error"/>
+              <label class="info-explain">(1-63个字符)</label>
+              <label class="error" id="restByte_error"></label>
+              </div> 
+           </div>
+           <div class="form-group">
+                 <label class="col-sm-3 control-label required" for="apModel">SSID</label>
+                 <div class="col-sm-9">
+                 <input name = "apModel"  id="apModel" class="string big required"   maxlength="32"  type="text" errid="apModel_error"/>
+                 <label class="info-explain">(1-32个字符)</label>
+                 <label class="error" id="apModel_error" ></label>
+                 </div> 
+           </div>
+          
+           <div class="form-group">
+                 <label class="col-sm-3  " for="apGroupName">状态</label>
+                  <div class="col-sm-9 ">
+                  <input type="radio" id="apGroupName"  name = "apGroupName" checked value="使能"/>
+                   <label class=" control-label " for="apGroupName">使能</label>&nbsp;&nbsp;&nbsp;
+                   &nbsp;&nbsp;
+                  <input type="radio" id="apGroupName_go"  name = "apGroupName" value="去使能"/>
+                   <label class=" control-label " for="apGroupName_go">去使能</label>
+                <!--  <input name = "apGroupName"  id="apGroupName" maxlength="63" type="text" /> -->
+                 </div> 
+           </div>
+            <div class="form-group hide" id="cipherSuite">
+                 <label class="col-sm-3 "for="cipherSuite " id="cipherSuite_right">是否加密</label>
+                 <div class="col-sm-9 ">
+                 <input type="radio" id="cipherSuite_false" checked  name = "cipherSuite" value="cipherSuite_false"/>
+                  <label class=" control-label" for="cipherSuite_false">否</label> 
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input type="radio" id="cipherSuite_true"  name = "cipherSuite" value="cipherSuite_true"/>
+                  <label class=" control-label " for="cipherSuite_true">是</label>
+                 </div> 
+            </div>
+            <div class="form-group hide" id="cipherKey_out">
+                <label class="col-sm-3 control-label required">密钥</label>
+                <div class="col-md-9">
+                    <input type="text" class="string big required" id="restByte" name ="IDLE_CUT_FLOW" error_id="restByte_error" />
+                    <label class="error" id="restByte_error" >该参数必须配置</label>
+                </div>
+            </div>
+
+            <div class="form-group modal-footer form-actions" id="button_next">
+                <a class="btn btn-apply" id="ensure">下一步</a>
+                <a  class="btn btn-cancel" id="cancel">取消</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--第二个页面-->
+<div class="hide modal fade" id="AddSt_choice">
+    <div class="modal-body">
+        <form class="form edit col-sm-12" id="AddStForm_choice">
+                <a class="btn btn-apply col-sm-12" id="ensureBindAp">绑定AP</a>&nbsp;
+                <a  class="btn btn-apply col-sm-12" id="ensureBindApGroup">绑定AP组</a>
+        </form>
+    </div>
+</div>
+
+<!--绑定AP-->
+<div class="modal fade modal-super" id="InfoDlgAP" tabindex="-1" aria-hidden="true">
+   <!--  下面的表单是用来弹窗的,弹出的窗是具体的信息 -->
+    <form class="form-horizontal form" id="InfoDlgFormAP">
+        <div class="box-body no-height form-group">
+            <div class="page-row">
+                <div class="col-xs-12 app-colum">
+                    <div class="app-box no-height default-bottom">
+                        <div class="box-body no-height" id="frameList">
+                            <div id="detail_listAP" class="simple-list"></div>
+                          <!-- <a class="btn btn-apply" id="BindAp_gonext">下一步</a> -->
+                         <!--  <a  class="btn btn-apply" id="cancelBindAp">取消</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer form-actions"></div><!-- 这里是用来绑定取消按钮的 -->
+    </form>
+    <div class="editor-alert">
+    </div>
+</div>
+<!--绑定AP组-->
+<div class="modal fade modal-super" id="InfoDlgAPGroup" tabindex="-1" aria-hidden="true" style="margin-top: -148px; display: none;">
+       <!--  下面的表单是用来弹窗的,弹出的窗是具体的信息 -->
+        <form class="form-horizontal form" id="InfoDlgFormAPGroup">
+            <div class="box-body no-height form-group">
+                <div class="page-row">
+                    <div class="col-xs-12 app-colum">
+                        <div class="app-box no-height default-bottom">
+                            <div class="box-body no-height" id="frameList"><!-- 这个div就是和下面的div有一个间距而已 -->
+                                <div id="detail_listAPGroup" class="simple-list" ></div>
+                                <!-- <a class="btn btn-apply" id="BindApGroup_gonext">下一步</a> -->
+                               <!--  <a  class="btn btn-apply" id="cancelBindApGroup">取消</a> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer form-actions"></div><!-- 这里是用来绑定取消按钮的 -->
+        </form>
+        <div class="editor-alert">
+        </div>
+</div>
+
+
+<div class="hide modal fade" id="Authentication">
+    <div class="modal-body">
+        <form class="form edit" id="AuthenticationForm">
+         <div class="form-group">
+          <label class="col-sm-3 control-label">认证方式</label>
+          <div class="col-sm-9">
+            <!-- <div class="row"> -->
+              <div class="col-sm-9">
+                  <input type="radio" value="AT1" id="AT1" name="AuthenType" ctrlBlock=".ath-type" content="" checked/>
+                  <label for="AT1">不认证</label>
+              </div>
+
+              <div class="col-sm-9">
+                  <input type="radio" value="AT2" id="AT2" name="AuthenType" ctrlBlock=".ath-type" content="" />
+                  <label for="AT2" >一键上网</label>
+              </div>
+
+              <div class="col-sm-9 st-type" id="MailBlock" >
+                  <input type="radio" value="AT3" id="AT3" name="AuthenType" ctrlBlock=".ath-type" content="#LoginWays" />
+                  <label for="AT3">账号登录</label>
+                  <div id="LoginWays" class="ath-type hide">
+                      <div class="col-sm-2">
+                          <input type="checkbox" value="短信认证" id="Message" name="LoginWays"/>
+                          <label for="Message">短信</label>
+                      </div>
+                      <div class="col-sm-3 account_style">
+                          <input type="checkbox" id="WeChart" name="LoginWays"/>
+                          <label for="WeChart">微信公众号</label>
+                      </div>
+                      <div class="col-sm-3 account_style">
+                          <input type="checkbox" id="FixAccount" name="LoginWays"/>
+                          <label for="FixAccount">固定账号</label>
+                      </div>
+                      <div class="col-sm-3 account_style">
+                          <input type="checkbox" id="isWeChatWifi" name="LoginWays"/>
+                          <label for="isWeChatWifi">微信连WIFI</label>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col-sm-9 st-type" id="WeixinBlock" >
+                  <input type="radio" value="AT4" id="AT4" name="AuthenType" ctrlBlock=".ath-type" content="#ModelSelect"/>
+                  <label for="AT4">选择认证模板</label>
+                  <div class="ath-type hide"  id="ModelSelect">
+                      <!-- -->
+                      <select class="singleSelect"  allowClear="true" id="AuthCfgList" name="AuthCfgList">
+                      </select>
+                  </div>
+              </div>
+            <!-- </div> -->
+          </div>
+      </div>
+      <div class="form-group" id="denglu">
+          <label class="col-sm-3 control-label">登录页面</label>
+          <div class="col-sm-9">
+              <div class="col-sm-9">
+                  <div class="col-sm-3">
+                      <input type="radio" id="LP1" value="LP1" name="LoginPage" value="1" ctrlBlock=".lg-page" checked/>
+                      <label for="LP1">简约</label>
+                  </div>
+              </div>
+              <div class="col-sm-9">
+                  <input type="radio" id="LP4" value="LP4" name="LoginPage" ctrlBlock=".lg-page" content="#LoginPageSelect">
+                  <label for="LP4">选择页面模板</label>
+                  <div class="lg-page hide"  id="LoginPageSelect">
+                      <!--allowClear="false" 属性-->
+                      <select class="singleSelect"  id="LoginPageList" name="LoginPageList">
+                      </select>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="form-group" id="weixin">
+          <label class="col-sm-3 control-label">微信公众号</label>
+          <div class="col-sm-9" id="WeChartSelect">
+              <select class="singleSelect "  id="WeChartList" name="WeChartList">
+              </select>
+              <!--&nbsp;&nbsp;-->
+              <!--<a class="xb-link">新建</a>-->
+          </div>
+      </div>
+       <div class="form-group" id="mian">
+          <label class="col-sm-3 control-label">再次连接免认证</label>
+          <div class="col-sm-9">
+              <div >
+                <input type="checkbox" class="switch " id="auto_study_enable" name="auth_study_group" checked ctrlBlock=".Learn-MAC"/>
+              </div>
+              <div class="Learn-MAC ">
+                  <!--<input type="checkbox" id="impose_auth" checked ctrlBlock=".Learn-Time" hidden/>
+                  <label for="impose_auth" hidden>限制免认证时长</label>
+                  <br>-->
+                  <div class="Learn-Time">
+                      <input type="text" class="string big" id="impose_auth_time" value="7"/>
+                      <label class="info-explain">(1-30)天</label>
+                  </div>
+                  <label class="info-explain">说明：通过认证的用户在免认证期内上线无需重复认证</label>
+              </div>
+          </div>
+      </div>
+        </form>
+    </div>
+</div>
+
+<div id="ws_ssid_rc" class="rc-define"
+     SSID_HEADER = "SSID,认证方式"
+     ADD_TITLE = "添加"
+     AUTH_CFG = "不认证,微信认证,短信认证,一键上网,选择页面模板"
+     DEL_AUTH_FAIL = "删除发布模板失败"
+     DEL_PUB_SUCC = "取消发布成功"
+     PUB_SUCC = "发布成功"
+     ADD_SUCCESS = "添加成功"
+     ADD_FAIL = "添加失败"
+     ADD_NULL_SSID = "SSID不能为空"
+     DEL_SUCCESS = "删除成功"
+     DEL_FAIL = "删除失败"
+     AUTHEN_TYPE="不认证,一键上网,账号认证"
+     SYN="同步",
+     LINK="主连接已断开,添加失败",
+     LINK_delete="主连接已断开,删除失败",
+     ADD_Limit="服务模版已达到上限，添加失败",
+     NEXTSTEP="下一步"，
+     ALLAP_HEADER3="AP名称,SN,AP型号,绑定",
+     ALLAP_HEADER4="AP组名称,绑定",
+     BIND="绑定",
+     AUTHEN="认证"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_wireless.index_add2");
+</script>
+
+
+
+
+
+
+
+
+

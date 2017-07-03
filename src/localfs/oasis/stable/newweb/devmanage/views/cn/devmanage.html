@@ -1,0 +1,95 @@
+<div class="devmanage newdevmanage">
+    <div class="panel">
+        <div class="panel-body">
+            <!--操作栏-->
+            <div class="operates">
+                <!--点击添加按钮 =》 清空表单，讲编辑状态置为false-->
+                <button type="button" class="btn-customer" ng-click="flags.showAddArea=true;addDev={};isEdit=false">
+                    <i class="btn-icon icon-add"></i>增加
+                </button>
+                <button type="button" class="btn-customer defeatable" ng-click="evts.delLot()" ng-disabled="canDelMulti">
+                    <i class="btn-icon icon-add"></i>批量删除
+                </button>
+                <div class="pull-right">
+                    <site-picker os-model="siteInfo" os-click="treeClick($info)" os-loaded="treeClick($info)" allow-click-region auto-select></site-picker>
+                    <!--搜索框部分-->
+                    <div style="display:inline-block">
+                        <input class="search-box" ng-model="searchText" type="text" placeholder="search">
+                        <button class="btn-customer not-btn-search" ng-click="search()">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!--添加修改设备-->
+            <div class="add-dev-area" ng-show="flags.showAddArea">
+                <div ng-hide="isEdit">
+                    <label><input type="radio" value="single" name="addDevMethod" ng-model="addDevMethod">逐个添加</label>
+                    <label><input type="radio" value="lot" name="addDevMethod" ng-model="addDevMethod">批量添加</label>
+                    <button class="btn-customer pull-right" ng-click="flags.showAddArea=false" ng-hide="addDevMethod">取消
+                    </button>
+                </div>
+                <div class="form-horizontal" ng-show="addDevMethod=='single'|| isEdit" style="position: relative;">
+                    <div ng-hide="isEdit" class="form-group" ng-hide="flags.simple_branch=='simple'">
+                        <label class="col-xs-3 control-label">分支 <span class="label-require">*</span></label>
+                        <div class="col-xs-4">
+                            <input class="form-control" ng-model="branchName" ng-click="evts.showZtreeModal()">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">设备别名 <span class="label-require">*</span></label>
+                        <div class="col-xs-4">
+                            <input class="form-control" placeholder="请输入30位以下的字符" name="devAlias" type="text" ng-model="addDev.devAlias" required ng-maxlength="30">
+                        </div>
+                        <div class="col-xs-4 ng-error" ng-show="devAddForm.devAlias.$dirty" ng-messages="devAddForm.devAlias.$error">
+                            <div ng-message="required">请输入设备别名！</div>
+                            <div ng-message="maxlength">不能超过30位！</div>
+                        </div>
+                    </div>
+                    <div ng-hide="isEdit" class="form-group" ng-hide="flags.simple_branch=='simple'">
+                        <label class="col-xs-3 control-label">是否是IRF设备</label>
+                        <div class="col-xs-2 text-left irf-field">
+                            <span><input type="checkbox" ng-model="addDev.isIRF"></span>
+                            <span>IRF设备</span>
+                        </div>
+                    </div>
+                    <div ng-hide="isEdit" class="form-group">
+                        <label class="col-xs-3 control-label">设备序列号 <span class="label-require">*</span></label>
+                        <div class="col-xs-4">
+                            <input class="form-control" name="devSn" type="text" ng-model="addDev.devSn" placeholder="由9-64位字母数字组成" required ng-pattern="/^[0-9a-zA-Z]{9,64}$/" ajax-valid="validDevSn">
+                        </div>
+                        <div class="col-xs-4 ng-error" ng-show="devAddForm.devSn.$dirty" ng-messages="devAddForm.devSn.$error">
+                            <div ng-message="required">请输入设备序列号！</div>
+                            <div ng-message="pattern">包含数字或字母,长9-64位</div>
+                            <div ng-message="ajaxValid-1">设备序列号已存在！</div>
+                        </div>
+                    </div>
+                    <div ng-hide="isEdit" class="form-group" ng-show="addDev.isIRF">
+                        <label class="col-xs-3 control-label">分组名称 <span class="label-require">*</span></label>
+                        <div class="col-xs-4">
+                            <select ng-model="addDev.groupId" class="form-control">
+                                <option value="-1">新建分组</option>
+                                <option ng-repeat="g in addDev.groupTypeList" value="{{g.id}}">{{g.name}}</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-show="addDev.isIRF && addDev.groupId==-1">
+                        <label class="col-xs-3 control-label">新分组名称 <span class="label-require">*</span></label>
+                        <div class="col-xs-4">
+                            <input class="form-control" name="groupName" type="text" ng-model="addDev.groupName" placeholder="请输入分组名称">
+                        </div>
+                    </div>
+                </div>
+                <div ng-show="addDevMethod=='lot'">
+                    选择文件上传：<input type="file"> <a href="javascript:void(0)">点击下载模板</a>
+                </div>
+                <div class="contros" style="width:140px;margin:0 auto;" ng-show="addDevMethod||isEdit">
+                    <button type="button" class="btn-customer" ng-click="isEdit?editAlias():addDevice()">确定</button>
+                    <button type="button" class="btn-customer" ng-click="flags.showAddArea=false">取消</button>
+                </div>
+            </div>
+            <div bs-table="devList"></div>
+        </div>
+    </div>
+    <div id="devmanage_rc" ON_LINE="在线" OFF_LINE="离线" DEV_LOAD_ERR="设备信息加载失败" EDIT_ALIAS_ERR="修改别名失败" EDIT_ALIAS_SUCC="修改别名成功"></div>
+</div>

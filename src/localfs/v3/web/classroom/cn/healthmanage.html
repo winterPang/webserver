@@ -1,0 +1,521 @@
+<html>
+<head>
+    <style type="text/css">
+        .rel {
+            position: relative;
+        }
+        .abs {
+            position: absolute;
+        }
+        .underline {
+            text-decoration: underline;
+        }
+        .lh1-5{
+            line-height: 1.5;
+        } 
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .echart-center {
+            right: 32%;
+            top: 46%;
+            font-size: 22px;
+            color: #343e4e;
+        }
+
+        .iot .health_box .cir {
+            background: #4ec1b2;
+        }
+
+        .iot .health_box .boxname {
+            height: 28px;
+            border-bottom: none;
+        }
+
+        .iot .health_box .boxcont {
+            display: block;
+            height: 115px;
+        }
+
+        .heart{
+            background: url(css/image/smartschool.png) -59px -370px;
+            width: 150px;
+            height: 120px;
+            margin: 10px auto;
+        }
+
+        .foot{
+            background: url(css/image/smartschool.png) -310px -20px;
+            width: 85px;
+            height: 150px;
+            margin: 20px auto;
+        }
+
+        .healthbody{
+            padding: 0 30px 20px 25px!important;
+        }
+
+        .margin_36{
+            margin-top:36px;
+        }
+
+        .margin_20{
+            margin-top:20px;
+        }
+
+        #tooSlowHeart,#tooFastHeart,#today-step,#yesterday-step{
+            color: #343e4e;font-size:45px;
+        }
+        
+        .progress{
+                margin-bottom: 10px;
+                overflow: hidden;
+                background-color: #f5f5f5;
+                border-radius: 4px;
+                -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+                box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .echart-height-small{
+            height:180px;
+            /*width:180px;   */
+            width:auto;
+            margin: auto;
+        }
+        
+        .echart-height-half{
+            height:90px;
+            /*width:180px;   */
+            width:auto;
+            margin: auto;
+        }
+        
+        .text1{
+            color: #777!important;
+            margin-top: -30px;
+            text-align: center;
+        }
+        .label-primary:hover{
+            background-color: #26a69a!important;
+            border-color: #26a69a!important;
+        }
+        
+        .xx-link{
+            cursor:pointer;
+        }
+        .xx-link:hover, .xx-link:active, .xx-link:focus {
+            color: #4ec1b2;
+            /*border-bottom: 1px solid #4ec1b2;*/
+        }
+        .step-height{
+            height:200px;
+        }
+        
+        .xx-link.active {
+            color: #4ec1b2;
+        }
+
+    </style>
+    
+    <!-- flip styles -->
+    <!--<link  href="../../web/frame/libs/css/flip/base.css" rel="stylesheet" type="text/css"/>-->
+   
+    <link  href="../../web/frame/libs/css/flip/index-content.css" rel="stylesheet" type="text/css"/>
+<!--    
+    <link  href="../../web/frame/libs/css/assets/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>-->
+     
+    <!--<link rel="stylesheet" href="../../web/frame/libs/css/assets/css/ace.min.css" />-->
+    <!--<link rel="stylesheet" href="../../web/frame/libs/css/assets/css/ace-rtl.min.css" />
+    <link rel="stylesheet" href="../../web/frame/libs/css/assets/css/ace-skins.min.css" />
+
+    <link rel="stylesheet" href="../../web/frame/libs/css/assets/css/jquery-ui-1.10.3.full.min.css" />-->
+</head>
+<body>
+    <div class="page-row  iot">
+        <div class="col-xs-12 app-colum hide">
+            <div class="app-box no-bk-color wrap_c">
+                <div class="box-footer">
+                    <span class="title">信息概览</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="link-receive" id="standard" href="javascript:;">
+                            <span>标准说明</span>
+                        </a>
+                        |
+                        <a type="button" class="link-receive" id="filter1" href="javascript:;">
+                            <span>筛选</span>
+                        </a>
+                        |
+                        <a type="button" class="link-receive" id="detail" href="javascript:;">
+                            <span>详情</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body no-height healthbody">
+                    <div class="col-xs-12">
+                        <div class="col-xs-3 rel">
+                            <div class="echart-height myEchart" id="age-overview"></div>
+                        </div>
+                        <div class="col-xs-3 rel">
+                            <div class="echart-height myEchart" id="sex-overview"></div>
+                        </div>
+                        <div class="col-xs-3 rel">
+                            <div class="echart-height myEchart" id="weight-overview"></div>
+                        </div>
+                        <div class="col-xs-3 rel">
+                            <div class="echart-height myEchart" id="height-overview"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 app-colum ">
+            <div  id="filter" class="col-xs-12 app-colum">
+                <span class="label label-xlg label-primary arrowed-right" style="color:#FFF; cursor:pointer;"></span>
+            </div>
+            <div id="select_id" class="col-xs-12 app-colum hide">
+                <div class="col-xs-7">
+                    <div class="col-xs-4">
+                        <select id="Grade" class="singleSelect" allowClear="true" name=""></select>
+                    </div>
+                    <div class="col-xs-4">
+                        <select id="Class" class="singleSelect" allowClear="true" name=""></select>
+                    </div>
+                    <div class="col-xs-4" style="margin-top:10px">
+                        <button id="select_comfire" class="btn btn-minier btn-success">确认</button>
+                        <button id="select_cancel" class="btn btn-minier hide">取消</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 app-colum left-block">
+            <div class="app-box no-bk-color wrap_c">
+                <div class="box-footer">
+                    <span class="title">概览</span>
+                </div>
+                <div class="box-body mini-height healthbody">
+                    <div class="col-xs-12">
+                        <div class="col-xs-6 rel">
+                            <div class="echart-height-small myEchart" id="age-overview_1"></div>
+                            
+                        </div>
+                        <div class="col-xs-6 rel" style="margin-top:-10px;">
+                            <h6 class="text-primary" style="margin-bottom: 0px;">学生年龄分布</h6>
+                            <div id="age_1"><small>0~6岁</small><small class="pull-right">0人</small></div>
+                            <div class="progress progress-small progress-striped active" style="border-radius: 20px;height: 10px;" data-percent="72人">
+                                <div id="age_pro_1" class="progress-bar" style="width: 0%; background-color:#42a5f5"></div>
+                            </div>
+                            <div id="age_2"><small>7～9岁</small><small class="pull-right">0人</small></div>
+                            <div class="progress progress-small progress-striped active" style="border-radius: 20px;height: 10px;" data-percent="72人">
+                                <div id="age_pro_2" class="progress-bar" style="width: 0%; background-color:#26a69a"></div>
+                            </div>
+                            <div id="age_3"><small>10～12岁</small><small class="pull-right">0人</small></div>
+                            <div class="progress progress-small progress-striped active" style="border-radius: 20px;height: 10px;" data-percent="72人">
+                                <div id="age_pro_3" class="progress-bar" style="width: 0%; background-color:#ef5350"></div>
+                            </div>
+                            <div id="age_4"><small>12岁以上</small><small class="pull-right">0人</small></div>
+                            <div class="progress progress-small progress-striped active" style="border-radius: 20px;height: 10px;" data-percent="72人">
+                                <div id="age_pro_4" class="progress-bar" style="width: 0%; background-color:#ffca28"></div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 app-colum left-block">
+            <div class="app-box no-bk-color wrap_c">
+                <div class="box-footer">
+                    <span class="title">性别</span>
+                </div>
+                <div class="box-body mini-height healthbody">
+                        <div class="regularly-contBody">
+			 				<div class="regularly-item-list">
+			 					<!--<li class="viewport-flip">-->
+                                     <div class="flip-body">
+                                        <div class="flip-box flip">
+                                            <div class="col-xs-12">
+                                                <div class="echart-height-small myEchart" id="sex-overview_chart"></div>
+                                            </div>
+                                        </div>
+                                        <div class="flip-box flip out">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-6 rel">
+                                                    <div class="col-xs-12 text-center">
+                                                        <img style="height: 80px; width: 80px;" src="../frame/css/image/user_male.png"/>
+                                                    </div>
+                                                    <div class="col-xs-12 text-center">
+                                                        <h2 id="male_count"></h2>
+                                                    </div>
+                                                </div>
+                                                <div class="col-xs-6 rel">
+                                                    <div class="col-xs-12 text-center">
+                                                        <img style="height: 80px; width: 80px;" src="../frame/css/image/user_female.png"/>
+                                                    </div>
+                                                    <div class="col-xs-12 text-center">
+                                                        <h2 id="female_count"></h2>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                     </div>
+			 					<!--</li>-->
+			 				</div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xs-12 col-sm-4 app-colum left-block">
+            <div class="app-box no-bk-color wrap_c">
+                <div class="box-footer">
+                    <span class="title">身高体重</span>
+                </div>
+                <div class="box-body mini-height healthbody">
+                        <div class="regularly-contBody">
+			 				<div class="regularly-item-list">
+			 					<!--<li class="viewport-flip">-->
+                                     <div class="flip-body">
+                                        <div class="flip-box flip out">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-12 rel">
+                                                    <div class="echart-height-half myEchart" id="height_chart"></div>
+                                                    
+                                                </div>
+                                                <div class="col-xs-12 rel">
+                                                    <div class="echart-height-half myEchart" id="weight_chart"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="flip-box flip">
+                                            <div class="col-xs-12">
+                                                <div class="col-xs-6 rel">
+                                                    <div class="echart-height-small myEchart" id="verheight_chart"></div>
+                                                    <h5 class="text1">平均身高</h5>
+                                                </div>
+                                                <div class="col-xs-6 rel">
+                                                    <div class="echart-height-small myEchart" id="verweight_chart"></div>
+                                                    <h5 class="text1">平均体重</h5>
+                                                </div>
+                                            </div>
+                                        </div>
+                                     </div>
+			 					<!--</li>-->
+			 				</div>
+                        </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-4 app-colum left-block">
+            <div class="app-box no-bk-color wrap_c">
+                <div class="box-footer">
+                    <span class="title">心率</span>
+                </div>
+                <div class="box-body echart-height healthbody">
+                    <div class="col-xs-12 text-center">
+                        <div class="col-xs-12">
+                            <div class="heart"></div>
+                        </div>
+                        <div class="col-xs-12 lh1-5 ">
+                            <div class="col-xs-6">
+                                <div class="index_div_lu" id="tooSlowHeart">0</div>
+                                <p class="index_div_lu_desc">心率过缓(<40)</p>
+                            </div>
+                            <div class="col-xs-6">
+                                <div class="index_div_lu" id="tooFastHeart">1</div>
+                                <p class="index_div_lu_desc">心率过速(>160)</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-9 echart-height myEchart hide" id="heart-rate">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-8 app-colum left-block">
+            <div class="app-box no-bk-color wrap_c">
+                <div class="box-footer">
+                    <span class="title">步数</span>
+                </div>
+                <div class="box-body echart-height healthbody">
+                    <div class="col-xs-3 text-center" >
+                        <div class="col-xs-6">
+                            <div class="foot"></div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div>
+                                <div id="today-step" class="index_div_lu">0</div>
+                                <p class="index_div_lu_desc">今日平均步数</p>
+                            </div>
+                            <div class="margin_20">
+                                <div id="yesterday-step" class="index_div_lu">0</div>
+                                <p class="index_div_lu_desc">昨日平均步数</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-9 widget-container-span">
+                        <div class="widget-box transparent">
+                            <div class="widget-header">
+                                <!--<h4 class="lighter">历史记录</h4>-->
+                                <!--<div class="widget-toolbar no-border">
+                                    <ul class="nav nav-tabs" id="myTab2">
+                                        <li class="active">
+                                            <a data-toggle="tab" href="#oneWeek">一周</a>
+                                        </li>
+
+                                        <li>
+                                            <a data-toggle="tab" href="#oneMonth">一月</a>
+                                        </li>
+
+                                        <li>
+                                            <a data-toggle="tab" href="#oneYear">一年</a>
+                                        </li>
+                                    </ul>
+                                </div>-->
+                                
+                                <div class="xxb text-right link-container">
+                                    <a data-toggle="tab" value="aWeek" class="xx-link active">1周</a>&nbsp;&nbsp;|
+                                    <a data-toggle="tab" value="aMonth" class="xx-link">1月</a>&nbsp;&nbsp;|
+                                    <a data-toggle="tab" value="aYear" class="xx-link">1年</a>&nbsp;&nbsp;
+                                </div>
+                            </div>
+
+                            <div class="widget-body">
+                                <!--<div class="widget-main padding-12 no-padding-left no-padding-right">
+                                    <div class="tab-content padding-4">
+                                        <div id="oneWeek" class="tab-pane in active">
+                                            <div class="col-xs-12">
+                                                <div class="step-height myEchart" id="oneWeek_bar"></div>
+                                            </div>
+                                        </div>
+
+                                        <div id="oneMonth" class="tab-pane">
+                                            <div class="col-xs-12">
+                                                <div class="step-height myEchart" id="oneMonth_bar"></div>
+                                            </div>
+                                        </div>
+
+                                        <div id="oneYear" class="tab-pane">
+                                            <div class="col-xs-12">
+                                                <div class="step-height myEchart" id="oneYear_bar"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>-->
+                                
+                                                <div class="mini-height myEchart" id="oneWeek_bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-9 echart-height myEchart hide" id="walk-mate"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 app-colum left-block">
+            <div id="accordion" class="accordion-style2">
+                <div class="group">
+                    <h3 class="accordion-header">健康详情</h3>
+
+                    <div>
+                        <div id="health-detail" class="simple-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--<div class="col-xs-12 col-sm-12 app-colum left-block">
+            <div class="app-box no-bk-color wrap_c">
+                <div class="box-footer">
+                    <span class="title">健康详情</span>
+                </div>
+                <div class="box-body no-height">
+                    <div id="health-detail" class="simple-list"></div>
+                </div>
+            </div>
+        </div>-->
+    </div>
+<!--
+    <div class="hide modal fade" id="Filter_dlg">
+        <form class="form-horizontal form" id="Filter_form">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">年级</label>
+                <div class="col-sm-10">
+                    <select id="Grade" class="singleSelect" allowClear="true" name=""></select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">班级</label>
+                <div class="col-sm-10">
+                    <select id="Class" class="singleSelect" allowClear="true" name=""></select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-2 control-label">时间</label>
+                <div class="col-sm-10">
+                    <div class="col-sm-2">
+                        <input type="radio" id="TR0" name="TimeRange" value="0" checked="checked"/>
+                        <label for="TR0">一小时</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" id="TR1" name="TimeRange" value="1"/>
+                        <label for="TR1">一天</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" id="TR3" name="TimeRange" value="2" />
+                        <label for="TR3">一月</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="radio" id="TR4" name="TimeRange" value="3" />
+                        <label for="TR4">一年</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label style="font-size:14px;">注:时间筛选对 <b>信息概览</b> 和 <b>昨日平均步数</b> 不生效</label>
+            </div>
+        </form>
+    </div>-->
+
+    <form class="modal fade modal-super dashboard in hide" id="Standard_dlg">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">标准说明</h3>
+        </div>
+        <div class="modal-body iot">
+            <!-- 体质指数 -->
+            <div class="health_box" id="Bandwidth-speed">
+                <span class="boxname"><span class="cir"></span>体重饼图即体质指数(BMI)标准</span>
+                <div class='boxcont'>
+                    <div class="form-group">
+                        <span class="col-sm-3">计算公式</span>
+                        <span class="col-sm-8">体质指数(BMI）= 体重（kg）÷ 身高^2（m）</span>
+                    </div>
+                    <div class="form-group">
+                        <span class="col-sm-3">偏瘦</span>
+                        <span class="col-sm-8">BMI < 18.5</span>
+                    </div>
+                    <div class="form-group">
+                        <span class="col-sm-3">标准</span>
+                        <span class="col-sm-8"> 18.5 <= BMI < 23</span>
+                    </div>
+                    <div class="form-group">
+                        <span class="col-sm-3">偏胖</span>
+                        <span class="col-sm-8"> BMI >= 23</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</body>
+</html>
+<div id="c_health_rc" class="rc-define"
+     Filter_TITLE="筛选"
+        ></div>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.healthmanage");
+</script>
+

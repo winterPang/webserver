@@ -1,0 +1,79 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 30,
+  "rows": [
+    {
+      "id": 10,
+      "operator": "yangfengjun",
+      "operationTime": "2016-08-13 15:16:34",
+      "ipAddress": "221.12.31.29",
+      "moduleName": "云端",
+      "pedagogicalOperation": "登录用户yangfengjun",
+      "operatingResults": "成功",
+      "failureCause": ""
+    },
+    {
+      "id": 11,
+      "operator": "yangfengjun",
+      "operationTime": "2016-08-13 15:16:34",
+      "ipAddress": "221.12.31.29",
+      "moduleName": "云端",
+      "pedagogicalOperation": "登录用户yangfengjun",
+      "operatingResults": "成功",
+      "failureCause": ""
+    },
+    {
+      "id": 12,
+      "operator": "yangfengjun",
+      "operationTime": "2016-08-13 15:16:34",
+      "ipAddress": "221.12.31.29",
+      "moduleName": "云端",
+      "pedagogicalOperation": "登录用户yangfengjun",
+      "operatingResults": "成功",
+      "failureCause": ""
+    },
+    {
+      "id": 13,
+      "operator": "yangfengjun",
+      "operationTime": "2016-08-13 15:16:34",
+      "ipAddress": "221.12.31.29",
+      "moduleName": "云端",
+      "pedagogicalOperation": "登录用户yangfengjun",
+      "operatingResults": "成功",
+      "failureCause": ""
+    },
+    {
+      "id": 14,
+      "operator": "yangfengjun",
+      "operationTime": "2016-08-13 15:16:34",
+      "ipAddress": "221.12.31.29",
+      "moduleName": "云端",
+      "pedagogicalOperation": "登录用户yangfengjun",
+      "operatingResults": "成功",
+      "failureCause": ""
+    },
+    {
+      "id": 15,
+      "operator": "yangfengjun",
+      "operationTime": "2016-08-13 15:16:34",
+      "ipAddress": "221.12.31.29",
+      "moduleName": "云端",
+      "pedagogicalOperation": "登录用户yangfengjun",
+      "operatingResults": "成功",
+      "failureCause": ""
+    },
+    {
+      "id": 16,
+      "operator": "yangfengjun",
+      "operationTime": "2016-08-13 15:16:34",
+      "ipAddress": "221.12.31.29",
+      "moduleName": "云端",
+      "pedagogicalOperation": "登录用户yangfengjun",
+      "operatingResults": "成功",
+      "failureCause": ""
+
+
+    }
+  ]
+}

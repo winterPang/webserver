@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<link href="../systemfile/css/jquery.treetable.css" rel="stylesheet" type="text/css">
+	<link href="../systemfile/css/jquery.treetable.theme.default.css" rel="stylesheet" type="text/css">
+	<link href="../systemfile/css/screen.css" rel="stylesheet" type="text/css">
+	<!--<script src="../js/jquery-1.11.3.min.js" language="javascript" type="text/javascript"></script>-->
+	<!--<script src="../js/jquery.treetable.js" language="javascript" type="text/javascript"></script>-->
+	<!--<script src="../js/jquery.treetable.test.js" language="javascript" type="text/javascript"></script>-->
+	<!--<script src="../js/jquery-ui.js" language="javascript" type="text/javascript"></script>-->
+	<style>
+		*, *::before, *::after{
+			box-sizing: content-box;
+		}
+	</style>
+</head>
+<body>
+<!-- START设置模态框（Modal） -->
+<!--<div class="modal fade" id="sysFileModal"  aria-hidden="true">-->
+	<!--<div class="modal-dialog">-->
+		<!--<div class="modal-content">-->
+			<!--<div id="sysFileSend" class="sysFileModalHead">-->
+				<!--文件上传-->
+			<!--</div>-->
+			<!--<div class="modal-body sysFileModalBody" id="sysFileModalBody">-->
+				<!--<form class="" id="verlist" action="/v3/fs/uploadFile/" enctype="multipart/form-data" method="post"-->
+					  <!--onsubmit="return false">-->
+					<!--&lt;!&ndash;<div id="sysFileHeadImgToolsContent" class="htmleaf-container" style="margin-left: 32%">-->
+						<!--<input id="sysFileHeadImgToolsChoise" type="file" required data-min-file-count="1" name="sysFile">-->
+					<!--</div>&ndash;&gt;-->
+				<!--</form>-->
+			<!--</div>-->
+			<!--<div class="modal-footer" id="chatSettingFooter">-->
+				<!--<button id="chatSettingBtnCancel" type="button" class="btn btn-primary"-->
+						<!--data-dismiss="modal">取消-->
+				<!--</button>-->
+				<!--<button id="chatSettingBtnOk" type="button" class="btn btn-primary disabled"-->
+						<!--data-dismiss="modal">确定-->
+				<!--</button>-->
+			<!--</div>-->
+		<!--</div>-->
+	<!--</div>-->
+<!--</div>-->
+<div class="modal fade" id="sysFileRenameModal"  aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div id="sysFileRename" class="sysFileModalHead">
+				文件重命名
+			</div>
+			<div class="modal-body sysFileModalBody" id="sysFileModalRenameBody">
+				<form class="" id="sysFileRenameForm" action="/v3/fs/renameFile" method="post">
+					<div id="sysFileRenameContent" class="htmleaf-container" style="margin-left: 32%">
+						<input id="sysFileRenameChoise" type="text" name="sysFileNewName">
+						<input style='display:none' />
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer" id="sysFileRenameid">
+				<button id="fileSettingBtnCancel" type="button" class="btn btn-default"
+						data-dismiss="modal">取消
+				</button>
+				<button id="fileSettingBtnOk" type="button" class="btn btn-primary disabled"
+						data-dismiss="modal">确定
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="sysFileProgressBar"  aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div id="sysFileBar" class="sysFileModalHead">
+				文件进度条
+			</div>
+			<div style="color: #14A89D; font-size: 18px; text-align: center; margin: 6px;">
+				<span id="sysprogressbar" class="title"></span>
+			</div>
+			<div id="systemfilebarrate" style="position: absolute;margin-top: 10px;margin-left: 36px;">
+				<span>100KB/S</span>
+			</div>
+			<div class="progress" style="width: 66%; margin: auto; margin-bottom: 16px; margin-top: 16px">
+				<div id="systemfilebar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+					<span class="sr-only">60% Complete</span>
+				</div>
+			</div>
+			<div id="systemfilebarnum" style="position: absolute;margin-top: -35px;margin-left: 49%;">
+				<span>0%</span>
+			</div>
+			<div class="modal-footer" id="sysFileProgressBarId">
+				<button id="sysfileSettingBtnCancel" type="button" class="btn btn-default"
+						data-dismiss="modal">关闭
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="col-xs-12 app-colum">
+	<div class="app-box no-height">
+		<div class="box-footer">
+			<span class="title">文件系统</span>
+		</div>
+		<div style="max-height: 450px; overflow: auto; height: 450px;">
+			<table id="systemFileTable" style="color: #000">
+				<thead>
+				<tr>
+					<th>文件名称</th>
+					<th>文件类型</th>
+					<th>文件大小</th>
+					<th>修改时间</th>
+				</tr>
+				</thead>
+
+			</table>
+		</div>
+		<div id = "sysFileBtnDiv"class="col-xs-12" style="margin-top: 40px; margin-bottom: 40px; text-align: center">
+			<a href="" data-toggle="modal" class="btn btn-primary disabled" id="systemFilesend">发送文件到设备</a>
+
+			<button class="btn btn-primary disabled" id="systemFilerecv">从设备提取文件</button>
+
+			<a href="#sysFileRenameModal" data-toggle="modal" class="btn btn-primary disabled" id="systemFileRename">文件重新命名</a>
+
+			<button class="btn_delete disabled" id="systemFiledelete">删除设备文件</button>
+		</div>
+	</div>
+	<iframe id="filerecive" name="filerecive" style="display: none"></iframe>
+</div>
+
+
+<div class="hide modal fade" id="AddSsidDlg">
+	<div class="modal-body">
+		<form class="form" id="verlist" action="/v3/fs/uploadFile/" enctype="multipart/form-data" method="post"
+				  onsubmit="return false">
+			<div class="form-group">
+				<div id="sysFileHeadImgToolsContent" class="htmleaf-container" style="margin-left: 32%">
+					<input id="sysFileHeadImgToolsChoise" type="file" required data-min-file-count="1" name="sysFile">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<div id="systemfile_rc" class="rc-define"
+	 NOTFOUND_LINK = "云端没有找到设备的主链接，请确认设备的状态!"
+	 NOOPERATE_ACCESS = "该用户没有设备的操作权限!"
+	 OPERATE_FAILED = "操作失败!"
+	 UPLOADING_FILE = "设备正在下载文件或者上传文件，请稍候!"
+	 UPLOAD_SUCCESS = "文件上传成功!"
+	 NOENOUGH_SPACE = "设备空间不足!"
+	 EXIST_SAMEFILE = "设备上已有相同名字的文件!"
+	 DEVICEINIT_FAILED = "设备初始化失败!"
+	 LOCALFILETO_CLOUD = "文件从本地上传到云"
+	 DEVICEFILETO_CLOUD = "文件从设备上传到云"
+	 CLOUDFILETO_DEVICE = "文件从云上传到设备"
+	 MAKESURE_DELETE = "你确定要删除该文件么?(不可恢复)"
+	 FILE_NOTEXIST = "文件不存在!"
+	 SYSTEM_IMPORTANTFILE = "系统重要文件,不能操作!"
+	 DELETE_FAILED = "删除失败!"
+	 DELETE_FOLDER = "不能删除文件夹!"
+	 SELECT_FILE = "请选择文件!"
+	 OPERATEMAY_FAILED = "此次操作可能失败!"
+	 DOWNLOAD_FOLDER = "不能下载文件夹!"
+	 CHINESE_CHATARATERS = "文名不可以是中文或含有空格符!"
+	 UPLOAD_EMPTYFILE = "请不要上传空文件!"
+	 ILLEGAL_FILENAME = "文件名不合法!"
+	 MODIFY_FILENAME = "确定修改该文件名?"
+	 MODIFY_FOLDER = "不能修改文件夹名!"
+	 REQUEST_TIMEOUT = "设备响应超时"
+		></div>
+
+
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("systemfile.index");
+</script>

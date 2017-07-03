@@ -1,0 +1,61 @@
+#warning_module .pl-0 {
+  padding-left: 0;
+}
+#warning_module .pr-0 {
+  padding-right: 0;
+}
+#warning_module .plr-0 {
+  padding-left: 0;
+  padding-right: 0;
+}
+#warning_module .panel-title .input-label,
+#warning_module .panel-title input,
+#warning_module .panel-title select {
+  font-size: 14px;
+  color: #80878c;
+}
+#warning_module .panel-title .filter-bar {
+  display: inline-block;
+  margin-right: 6px;
+}
+#warning_module .panel-body .panel-title {
+  font-size: 16px;
+  color: #343e4e;
+}
+#warning_module .config-btn {
+  font-size: 22px;
+  color: #4ec1b2;
+  margin-left: 196px;
+  line-height: 50px;
+  cursor: pointer;
+}
+#warning_module .my-popover {
+  width: 230px;
+  min-width: 230px;
+  left: 4px !important;
+}
+#warning_module .my-popover .arrow {
+  left: 211px !important;
+}
+#warning_module [bs-modal] label {
+  font-size: 14px;
+  color: #80878c;
+}
+#warning_module input[type="checkbox"] {
+  margin-top: 4px;
+}
+#warning_module .level-description > div {
+  margin-bottom: 10px;
+}
+#warning_module .level-description label:before {
+  content: "";
+  display: inline-block;
+  background: url("../images/icon.png") 0 -24px no-repeat;
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+#warning_module .level-description label.active:before {
+  background-position: 0 0;
+}

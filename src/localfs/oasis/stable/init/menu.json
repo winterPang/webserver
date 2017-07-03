@@ -1,0 +1,565 @@
+﻿{
+  "menu":
+  {
+    "default":
+    [
+      {
+        "name": "用户管理",
+        "id": "user",
+        "sref": "global.content.user.information",
+        "tabs": [
+          {
+            "name": "信息修改",
+            "id": "information",
+            "sref": "global.content.user.information",
+            "tabs": []
+          },
+          {
+            "name": "修改密码",
+            "id": "password",
+            "sref": "global.content.user.password",
+            "tabs": []
+          },
+          {
+            "name": "子账号管理",
+            "id": "account",
+            "sref": "global.content.user.account_list",
+            "tabs": []
+          }
+        ]
+      },
+      {
+        "name": "系统管理",
+        "id": "system",
+        "sref": "global.content.system.site",
+        "tabs": [
+          {
+            "name": "场所管理",
+            "id": "site",
+            "sref": "global.content.system.site",
+            "tabs": []
+          },
+          {
+            "name": "短信配置",
+            "id": "message",
+            "sref": "global.content.system.message",
+            "tabs": []
+          },
+          {
+            "name": "操作日志",
+            "id": "operate_log",
+            "sref": "global.content.system.operate_log",
+            "tabs": []
+          }
+        ]
+      }
+    ],
+    "0": [
+      {
+        "name": "网络监控",
+        "id": "monitor",
+        "sref": "scene.content.monitor.dashboard2",
+        "tabs": [
+          {
+            "name": "设备概览",
+            "id": "dashboard2",
+            "sref": "scene.content.monitor.dashboard2",
+            "tabs": []
+          },
+          {
+            "name": "无线终端",
+            "id": "wirelessterminal2",
+            "sref": "scene.content.monitor.wirelessterminal2",
+            "tabs": []
+          },
+          {
+            "name": "AP信息",
+            "id": "apinfo0",
+            "sref": "scene.content.monitor.apinfo0",
+            "tabs": []
+          },
+          {
+            "name": "无线服务",
+            "id": "wirelessservice2",
+            "sref": "scene.content.monitor.wirelessservice2",
+            "tabs": []
+          },
+          {
+            "name": "无线安全",
+            "id": "wiresecurit",
+            "sref": "scene.content.monitor.wiresecurit5",
+            "tabs": []
+          },
+          {
+            "name": "告警日志",
+            "id": "warning",
+            "sref": "scene.content.monitor.warning",
+            "tabs": []
+          }
+        ]
+      },
+      {
+        "name": "网络部署",
+        "id": "netdeploy",
+        "sref": "scene.content.netdeploy.wireless0",
+        "tabs": [
+          {
+            "name": "无线配置",
+            "id": "wireless0",
+            "sref": "scene.content.netdeploy.wireless0",
+            "tabs": []
+          },
+          {
+            "name": "在线访客",
+            "id": "user0",
+            "sref": "scene.content.netdeploy.user0",
+            "tabs": []
+          },
+          {
+            "name": "安全策略",
+            "id": "securitpolicy5",
+            "sref": "scene.content.netdeploy.securitpolicy5",
+            "tabs": []
+          },
+          {
+            "name": "认证配置",
+            "id": "auth",
+            "sref": "",
+            "tabs": [
+              {
+                "name": "页面模板",
+                "id": "pagetemplate5",
+                "sref": "scene.content.netdeploy.pagetemplate5",
+                "tabs": []
+              },
+              {
+                "name": "公众号",
+                "id": "pubmessage5",
+                "sref": "scene.content.netdeploy.pubmessage5",
+                "tabs": []
+              },
+              {
+                "name": "微信门店",
+                "id": "chatstore5",
+                "sref": "scene.content.netdeploy.chatstore5",
+                "tabs": []
+              },
+              {
+                "name": "固定账号",
+                "id": "fixedaccount5",
+                "sref": "scene.content.netdeploy.fixedaccount5",
+                "tabs": []
+              },
+              {
+                "name": "黑名单",
+                "id": "blackname5",
+                "sref": "scene.content.netdeploy.blackname5",
+                "tabs": []
+              },
+              {
+                "name": "认证模板",
+                "id": "authtemplate5",
+                "sref": "scene.content.netdeploy.auth_authtemplate5",
+                "tabs": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "运营维护",
+        "id": "maintenance",
+        "sref": "scene.content.maintenance.configrestore5",
+        "tabs": [
+          {
+            "name": "配置还原",
+            "id": "configrestore",
+            "sref": "scene.content.maintenance.configrestore5",
+            "tabs": []
+          },
+          {
+            "name": "软件升级",
+            "id": "versionupdate",
+            "sref": "scene.content.maintenance.versionupdate5",
+            "tabs": []
+          },
+          {
+            "name": "文件系统",
+            "id": "filesystem",
+            "sref": "scene.content.maintenance.filesystem",
+            "tabs": []
+          },
+          {
+            "name": "设备操作",
+            "id": "tunneldevice5",
+            "sref": "scene.content.maintenance.tunneldevice5",
+            "tabs": []
+          },
+          {
+            "name": "命令助手",
+            "id": "commandline",
+            "sref": "scene.content.maintenance.commandline5",
+            "tabs": []
+          },
+          {
+            "name": "维护日志",
+            "id": "maintainlog",
+            "sref": "scene.content.maintenance.maintainlog5",
+            "tabs": []
+          }
+        ]
+      }
+    ],
+    "2": [
+      {
+        "name": "网络监控",
+        "id": "monitor",
+        "sref": "scene.content.monitor.dashboard2",
+        "tabs": [
+          {
+            "name": "设备概览",
+            "id": "dashboard2",
+            "sref": "scene.content.monitor.dashboard2",
+            "tabs": []
+          },
+          {
+          "name": "无线终端",
+          "id": "wirelessterminal2",
+          "sref": "scene.content.monitor.wirelessterminal2",
+          "tabs": []
+        },
+          {
+            "name": "AP信息",
+          "id": "apinfo2",
+          "sref": "scene.content.monitor.apinfo2",
+            "tabs": []
+          },
+          {
+            "name": "无线服务",
+            "id": "wirelessservice2",
+            "sref": "scene.content.monitor.wirelessservice2",
+            "tabs": []
+          },
+          {
+            "name": "无线安全",
+            "id": "wiresecurit",
+            "sref": "scene.content.monitor.wiresecurit5",
+            "tabs": []
+          },
+          {
+            "name": "告警日志",
+            "id": "warning",
+            "sref": "scene.content.monitor.warning",
+            "tabs": []
+          }
+        ]
+      },
+      {
+        "name": "网络部署",
+        "id": "netdeploy",
+        "sref": "scene.content.netdeploy.wirelessconfig2",
+        "tabs": [
+          {
+            "name": "无线配置",
+            "id": "wirelessconfig2",
+            "sref": "scene.content.netdeploy.wirelessconfig2",
+            "tabs": []
+          },      
+          {
+            "name": "安全策略",
+            "id": "securitpolicy2",
+            "sref": "scene.content.netdeploy.securitpolicy2",
+            "tabs": []
+          },
+          {
+            "name": "认证配置",
+            "id": "auth",
+            "sref": "",
+            "tabs": [
+              {
+                "name": "认证模板",
+                "id": "authtemplate5",
+                "sref": "scene.content.netdeploy.auth_authtemplate5",
+                "tabs": []
+              },
+              {
+                "name": "页面模板",
+                "id": "pagetemplate5",
+                "sref": "scene.content.netdeploy.pagetemplate5",
+                "tabs": []
+              },
+              {
+                "name": "公众号",
+                "id": "pubmessage5",
+                "sref": "scene.content.netdeploy.pubmessage5",
+                "tabs": []
+              },
+              {
+                "name": "微信门店",
+                "id": "chatstore5",
+                "sref": "scene.content.netdeploy.chatstore5",
+                "tabs": []
+              },
+              {
+                "name": "固定账号",
+                "id": "fixedaccount5",
+                "sref": "scene.content.netdeploy.fixedaccount5",
+                "tabs": []
+              },
+              {
+                "name": "黑名单",
+                "id": "blackname5",
+                "sref": "scene.content.netdeploy.blackname5",
+                "tabs": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "运营维护",
+        "id": "maintenance",
+        "sref": "scene.content.maintenance.configrestore5",
+        "tabs": [
+          {
+            "name": "配置还原",
+            "id": "configrestore",
+            "sref": "scene.content.maintenance.configrestore5",
+            "tabs": []
+          },
+          {
+            "name": "软件升级",
+            "id": "versionupdate",
+            "sref": "scene.content.maintenance.versionupdate5",
+            "tabs": []
+          },
+          {
+            "name": "文件系统",
+            "id": "filesystem",
+            "sref": "scene.content.maintenance.filesystem",
+            "tabs": []
+          },
+          {
+            "name": "命令助手",
+            "id": "commandline",
+            "sref": "scene.content.maintenance.commandline5",
+            "tabs": []
+          },
+          {
+            "name": "维护日志",
+            "id": "maintainlog",
+            "sref": "scene.content.maintenance.maintainlog5",
+            "tabs": []
+          }
+        ]
+      }
+    ],
+    "5": [
+      {
+        "name": "网络监控",
+        "id": "monitor",
+        "sref": "scene.content.monitor.dashboard5",
+        "tabs": [
+          {
+            "name": "网络概览",
+            "id": "dashboard5",
+            "sref": "scene.content.monitor.dashboard5",
+            "tabs": []
+          },
+          {
+            "name": "广告分析",
+            "id": "ad",
+            "sref": "scene.content.monitor.total5",
+            "tabs": [
+              {
+                "name": "广告统计",
+                "id": "total5",
+                "sref": "scene.content.monitor.total5",
+                "tabs": []
+              },
+              {
+                "name": "公众号",
+                "id": "public5",
+                "sref": "scene.content.monitor.public5",
+                "tabs": []
+              }
+            ]
+          },
+          {
+            "name": "宾客信息",
+            "id": "customer5",
+            "sref": "scene.content.monitor.customer5.customer",
+            "tabs": []
+          },
+          {
+            "name": "AP信息",
+            "id": "apinfo5",
+            "sref": "scene.content.monitor.apinfo5",
+            "tabs": []
+          },
+          {
+            "name": "无线安全",
+            "id": "wiresecurit",
+            "sref": "scene.content.monitor.wiresecurit5",
+            "tabs": []
+          },
+          {
+            "name": "告警日志",
+            "id": "warning",
+            "sref": "scene.content.monitor.warning",
+            "tabs": []
+          }
+        ]
+      },
+      {
+        "name": "网络部署",
+        "id": "netdeploy",
+        "sref": "scene.content.netdeploy.apgroup5",
+        "tabs": [
+          {
+            "name": "AP组管理",
+            "id": "apgroup5",
+            "sref": "scene.content.netdeploy.apgroup5",
+            "tabs": []
+          },
+          {
+            "name": "无线配置",
+            "id": "xdashboard",
+            "sref": "",
+            "tabs": [
+              {
+                "name": "服务配置",
+                "id": "serviceconfig5",
+                "sref": "scene.content.netdeploy.serviceconfig5",
+                "tabs": []
+              },
+              {
+                "name": "服务绑定",
+                "id": "servicebind5",
+                "sref": "scene.content.netdeploy.servicebind5",
+                "tabs": []
+              }
+            ]
+          },
+          {
+            "name": "认证配置",
+            "id": "auth",
+            "sref": "",
+            "tabs": [
+              {
+                "name": "页面模板",
+                "id": "pagetemplate5",
+                "sref": "scene.content.netdeploy.pagetemplate5",
+                "tabs": []
+              },
+              {
+                "name": "公众号",
+                "id": "pubmessage5",
+                "sref": "scene.content.netdeploy.pubmessage5",
+                "tabs": []
+              },
+              {
+                "name": "微信门店",
+                "id": "chatstore5",
+                "sref": "scene.content.netdeploy.chatstore5",
+                "tabs": []
+              },
+              {
+                "name": "固定账号",
+                "id": "fixedaccount5",
+                "sref": "scene.content.netdeploy.fixedaccount5",
+                "tabs": []
+              },
+              {
+                "name": "黑名单",
+                "id": "blackname5",
+                "sref": "scene.content.netdeploy.blackname5",
+                "tabs": []
+              },
+              {
+                "name": "认证模板",
+                "id": "authtemplate5",
+                "sref": "scene.content.netdeploy.auth_authtemplate5",
+                "tabs": []
+              }
+            ]
+          },
+          {
+            "name": "安全策略",
+            "id": "securitpolicy5",
+            "sref": "scene.content.netdeploy.securitpolicy5",
+            "tabs": []
+          },
+          {
+            "name": "应用配置",
+            "id": "applyset5",
+            "sref": "scene.content.netdeploy.applyset5",
+            "tabs": []
+          }
+        ]
+      },
+      {
+        "name": "应用管理",
+        "id": "manage",
+        "sref": "scene.content.manage.flowprobe5",
+        "tabs": [
+          {
+            "name": "客流探针",
+            "id": "flowprobe",
+            "sref": "scene.content.manage.flowprobe5",
+            "tabs": []
+          },
+          {
+            "name": "行为分析",
+            "id": "behavioranalysis",
+            "sref": "scene.content.manage.behavioranalysis5",
+            "tabs": []
+          }
+        ]
+      },
+      {
+        "name": "运营维护",
+        "id": "maintenance",
+        "sref": "scene.content.maintenance.configrestore5",
+        "tabs": [
+          {
+            "name": "配置还原",
+            "id": "configrestore",
+            "sref": "scene.content.maintenance.configrestore5",
+            "tabs": []
+          },
+          {
+            "name": "软件升级",
+            "id": "versionupdate",
+            "sref": "scene.content.maintenance.versionupdate5",
+            "tabs": []
+          },
+          {
+            "name": "文件系统",
+            "id": "filesystem",
+            "sref": "scene.content.maintenance.filesystem",
+            "tabs": []
+          },
+          {
+            "name": "设备操作",
+            "id": "tunneldevice5",
+            "sref": "scene.content.maintenance.tunneldevice5",
+            "tabs": []
+          },
+          {
+            "name": "命令助手",
+            "id": "commandline",
+            "sref": "scene.content.maintenance.commandline5",
+            "tabs": []
+          },
+          {
+            "name": "操作日志",
+            "id": "maintainlog",
+            "sref": "scene.content.maintenance.maintainlog5",
+            "tabs": []
+          }
+        ]
+      }
+    ]
+  }
+}

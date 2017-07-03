@@ -1,0 +1,47 @@
+<html>
+<head>
+    <title></title>
+    <style></style>
+</head>
+<body>
+<div class="dashboard">
+    <div class="row">
+        <div class="col-xs-12 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">文件系统</span>
+                </div>
+                <div class="box-body" style="height:400px">
+                    <div class="col-xs-12" style="text-align:center;margin-top:300px;">
+                        <button type="button" class="btn btn-info" id="toHDFS">上传文件到HDFS</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="formDlg">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3>文件上传</h3>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal form edit" method="post" action="/rd/jag/maintenance/upload" enctype="multipart/form-data">
+                <div class="form-group col-xs-12">
+                    <input type="file" name="filename" id="file">
+                </div>
+                <div class="form-group col-xs-12">
+                    <div class="col-md-4"></div>
+                    <div class="col-md-6">
+                        <button type="submit" class="btn btn-info success" disabled>确定</button>
+                        <button type="button" class="btn btn-info" data-dismiss="modal" aria-hidden="true" id="cancle">取消</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    Utils.Pages.loadJS("maintain.uploadfile");
+</script>

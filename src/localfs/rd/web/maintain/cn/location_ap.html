@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .app-box.rank{
+            margin-bottom:20px;
+        }
+        #cityDetail{
+            height:600px;
+        }
+        #city .slick-viewport{
+            height:300px;
+        }
+        .changeDate{
+            cursor:pointer;
+            font-size:15px;
+        }
+        .changeDate.select{
+            text-decoration:underline;
+            color:#4ec1b2;
+        }
+    </style>
+</head>
+<body>
+<div class="dashboard">
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">省市排行（最多）</span>
+                </div>
+                <div class="box-body" style="height:300px">
+                    <div class="myEchart" id="most" style="height:280px"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">省市排行（最少）</span>
+                </div>
+                <div class="box-body" style="height:300px">
+                    <div class="myEchart" id="least" style="height:280px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 app-colum right-block">
+            <div class="app-box rank">
+                <div class="sysinfo-footer">
+                    <span class="title">省市排行详细信息</span>
+                </div>
+                <div class="box-body">
+                    <div  id="rankDetail_mlist"  class="mlist"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 app-colum right-block">
+            <div class="app-box rank">
+                <div class="sysinfo-footer col-xs-12">
+                    <span class="title col-md-4">变化趋势</span>
+                    <div style="float:right">
+                        <span id="flow_day"   class="changeDate select">按天显示</span>
+                        <span>|</span>
+                        <span id="flow_week"  class="changeDate">按周显示</span>
+                        <span>|</span>
+                        <span id="flow_month" class="changeDate">按月显示</span>
+                    </div>
+                </div>
+                <div class="box-body" style="height:300px">
+                    <div class="myEchart" id="tendency" style="height:280px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-dialog hide" id="cityDetail">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3>市级详情</h3>
+        </div>
+        <div class="modal-body">
+            <div class="col-xs-12 app-colum right-block">
+                <div class="app-box">
+                    <div class="box-body">
+                        <div id="city" class="mlist"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer"></div>
+    </div>
+</div>
+</body>
+<div class="rc-define" id="location_rc"
+              rankDetailTitle= "位置,在线ap数量,离线ap数量,ac数量,终端数量,市级详细信息"
+              cityTitle = "位置,在线ap数量,离线ap数量,ac数量,终端数量"
+        ></div>
+</html>
+<script>
+    Utils.Pages.loadJS("maintain.location_ap");
+</script>

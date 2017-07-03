@@ -1,0 +1,88 @@
+{
+  "redisConnParas" : {"port" : 7000, "host" : "172.27.8.110"},
+  "mongoConnParas" : "mongodb://web:web@172.27.8.110:27017/webserver",
+  "mongoConnParasErrorRecord": "mongodb://admin:admin@172.27.8.110:27017/webserver",
+  "MQHostnames" : ["172.27.8.110"],
+  "httpPort"  : 80,
+  "httpsPort" : 443,
+  "hdfsConnOption" : {
+    "user" : "root",
+    "host" : "172.27.8.110",
+    "port" : 50070,
+    "path" : "/webhdfs/v1/home/hdfs/"
+  },
+  "cas_url" : "https://lvzhou.h3c.com/cas",
+  "service_url" : "https://localhost",
+  "login_url" : "https://localhost/v3/web/login.html",
+  "allow_origin" : "https://lvzhou.h3c.com",
+  "user_type" : "web",
+  "cookieTmpAge" : 3600000,
+  "cookieSuccessAge" : 2592000000,
+  "devCookieAge" : 345600000,
+  "devCookieFlushPeriod" : 172800000,
+  "messageHost":"172.27.8.184",
+  "digestUserName" : "security_super",
+  "digestPassword" : "lvzhou1-super",
+  "digestOption" : {"host" : "lvzhou.h3c.com", "port" : 443},
+  "v2Option" : {"host" : "172.16.4.200", "port" : 80},
+  "v2OptionTest" : {"host" : "172.16.4.201", "port" : 3080},
+  "log4jsConfig" : {
+    "appenders": [
+      {
+        "type": "console"
+      },
+      {
+        "category": [ "https","console" ],
+        "type": "dateFile",
+        "filename": "../logs/",
+        "alwaysIncludePattern": true,
+        "pattern": "webserver-yyyyMMddhh.log"
+      },
+      {
+        "category": [ "conn" ],
+        "type": "dateFile",
+        "filename": "../logs/",
+        "alwaysIncludePattern": true,
+        "pattern": "conn-yyyyMMddhh.log"
+      }
+    ],
+    "replaceConsole": true,
+    "levels":
+    {
+      "console":"ALL",
+      "https":"WARN",
+      "conn":"ALL"
+    }
+  },
+  "log4jsConnect" : {
+    "level": "auto",
+    "format": ":remote-addr - - \":method :url HTTP/:http-version\" :status :content-length \":referrer\" \":user-agent\" :response-timems"
+  },
+  "memoryConfig" : {"heapdump" : false, "memwatch" : false},
+  "hoturlConfig" : {
+    "enable" : true,
+    "vaildfile" : "../hoturl.json",
+    "time" : [{"h": [0], "m": [10]}]
+  },
+  "uploadDir" : "/../../",
+  "trustIpArray" : ["::ffff:127.0.0.1", "::1", "::ffff:172.27.8.212"],
+  "testSuffix" : "_test",
+  "timeoutInterval" : 3000,
+  "oasisIp" : "172.21.0.52",
+  "oasisPort" : "8888",
+  "o2oPortalIp" : "172.21.0.64",
+  "o2oPortalPort" : "8899",
+  "o2oPortalIp4O" : "172.16.4.200",
+  "o2oPortalPort4O" : "80",
+  "o2oPortalIp4OTest" : "172.16.4.201",
+  "o2oPortalPort4OTest" : "3080",
+  "portalIp" : "172.16.4.16",
+  "portalPort" : "80",
+  "portalIpTest" : "172.16.4.79",
+  "portalPortTest" : "8092",
+  "bDelDevConnPeriodically" : false,
+  "devConnDelPeriod" : 1339200000,
+  "devConnTimeoutPeriod" : 1339200000,
+  "wlocmongoConnParas":"mongodb://wloc:wloc@172.27.8.110:27017/wloc",
+  "devlogserver" : "oasis-rsyslog.chinanorth.cloudapp.chinacloudapi.cn"
+}

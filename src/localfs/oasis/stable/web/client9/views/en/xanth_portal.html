@@ -1,0 +1,40 @@
+<div ng-init="
+    header_1='MAC Address';
+    header_2='IP Address';
+    header_3='Vendor';
+    header_4='AP';
+    header_5='SSID';  
+	header_6='Unknown';  
+    apGroupName='AP Group Name';
+	ngModel='Client Statistics';
+    autoClose='Disable';
+    clientCount_5='5 GHz Clients';
+    clientCount_2='2.4 GHz Clients';
+    ssidName='SSID';
+    ">
+    <div class="page-row">
+        <!-- <div class="col-xs-6 app-colum left-block"> 
+            <div class="app-box" debug="byApList ap"> 
+                <div class="box-footer"> 
+                    <span class="title">Based on AP Group</span> 
+                </div> 
+                <div class="box-body no-height"> 
+                    <div bs-table="options"></div>
+                </div> 
+            </div> 
+        </div> -->
+        <div class="col-xs-12 app-colum left-block"> 
+            <div class="app-box" debug="bySsidList ssid"> 
+                <div class="box-footer"> 
+                    <span class="title">Based on AP Model</span> 
+                </div> 
+                <div class="box-body no-height"> 
+                    <div bs-table="ssidoptions"></div>
+                </div> 
+            </div>     
+        </div>
+    </div>
+    <div bs-modal="maoxian1">
+        <div bs-table="maoxian"></div>
+    </div>
+</div>

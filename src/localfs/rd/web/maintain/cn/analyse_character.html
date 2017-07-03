@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="dashboard">
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">特性使用(最多)</span>
+                </div>
+                <div class="box-body" style="height:280px">
+                    <div class="myEchart" id="characterMost" style="height:260px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">特性使用(最少)</span>
+                </div>
+                <div class="box-body" style="height:280px">
+                    <div class="myEchart" id="characterLeast" style="height:260px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+	<div class="row">
+		<div class="col-xs-12 app-colum right-block">
+			<div class="app-box">
+				<div class="sysinfo-footer">
+					<span class="title">特性统计</span>
+				</div>
+				<div class="box-body" style="height:280px">
+					<div class="myEchart" id="characterStat" style="height:260px;"></div>
+				</div>
+			</div>
+		</div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    Utils.Pages.loadJS("maintain.analyse_character");
+</script>

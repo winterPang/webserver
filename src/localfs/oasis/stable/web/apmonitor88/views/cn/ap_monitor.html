@@ -1,0 +1,270 @@
+<style>
+    .box-time {
+        padding: 7px 15px;
+        height: 42px;
+        overflow: hidden;
+        background-color: #edf9f7;
+    }
+    
+    .time-title {
+        float: left;
+        color: #80878c;
+        padding: 3px 10px 15px 0;
+        font-family: Microsoft YaHei;
+    }
+    
+    .daterange {
+        width: 100px;
+    }
+</style>
+<div>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color bottom-block">
+                <div class="box-time">
+                    <span class="time-title ">日期</span>
+                    <div class="col-xs-3">
+                        <input id="daterange" class="daterange time-select date_input" ctrl="daterang">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color" style="height:310px">
+                <div class="box-footer col-xs-12">
+                    <span class="title">关联成功率 < 70% 的AP占比</span>
+                </div>
+                <div class="body-nopadding">
+                    <div id="assoc" class="col-xs-12 " style="height:250px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color" style="height:310px">
+                <div class="box-footer col-xs-12">
+                    <span class="title">丢包率 >10% 的AP占比</span>
+                </div>
+                <div class="body-nopadding">
+                    <div id="dropPacket" class="col-xs-12 " style="height:250px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color" style="height:310px">
+                <div class="box-footer col-xs-12">
+                    <span class="title">CPU使用率 >90% 的AP占比</span>
+                </div>
+                <div class="body-nopadding">
+                    <div id="CPU" class="col-xs-12 " style="height:250px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color" style="height:310px">
+                <div class="box-footer col-xs-12">
+                    <span class="title">内存使用率 >90% 的AP占比</span>
+                </div>
+                <div class="body-nopadding">
+                    <div id="memory" class="col-xs-12 " style="height:250px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color" style="height:310px">
+                <div class="box-footer col-xs-12">
+                    <span class="title">终端数 >30个 的AP占比</span>
+                </div>
+                <div class="body-nopadding">
+                    <div id="clientOnAp" class="col-xs-12 " style="height:250px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color" style="height:310px">
+                <div class="box-footer col-xs-12">
+                    <span class="title">5G用户比例 < 50% 的AP占比</span>
+                </div>
+                <div class="body-nopadding">
+                    <div id="5g" class="col-xs-12 " style="height:250px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div bs-modal="assocModal">
+        <div>
+            <div class="body-nopadding">
+                <div id="assocPie" class="col-xs-6" style="height:200px;"></div>
+            </div>
+            <div class="body-nopadding col-xs-1" style="height:200px;"></div>
+            <div class="body-nopadding col-xs-5" style="height:200px;">
+                <div style="margin-top:15px">
+                    <span>时间：{{eventData.time}}</span>
+                </div>
+                <div style="margin-top:5px">
+                    <span>排障建议: <br/>
+                      建议建议建议建议建议建议建议<br/>
+                      建议建议建议建议建议建议建议<br/>
+                      建议建议建议建议建议建议建议<br/>
+                      建议建议建议建议建议建议建议
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="body-nopadding col-xs-12" style="height:10px;"></div>
+            <div bs-table="assocTable"></div>
+        </div>
+    </div>
+
+    <div bs-modal="dropPacketModal">
+        <div>
+            <div class="body-nopadding">
+                <div id="dropPacketPie" class="col-xs-6" style="height:200px;"></div>
+            </div>
+            <!--<div class="body-nopadding col-xs-1" style="height:200px;"></div>-->
+            <div class="body-nopadding col-xs-6" style="height:200px;">
+                <div style="margin-top:15px">
+                    <span>时间：{{eventData.time}}</span>
+                </div>
+                <div style="margin-top:5px">
+                    <span>丢包率: <br/>
+                        体现AP向无线终端发送报文失败的比例
+                    </span>
+                </div>
+                <div style="margin-top:5px">
+                    <span>排障建议: <br/>
+                        根据周围无线信号覆盖情况，调整AP信道利用率或者功率，降低干扰。如果信号弱（低于-65dBm），建议适当增加AP以增强覆盖<br/>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="body-nopadding col-xs-12" style="height:10px;"></div>
+            <div bs-table="dropPktTable"></div>
+        </div>
+    </div>
+
+    <div bs-modal="cpuModal">
+        <div>
+            <div class="body-nopadding">
+                <div id="cpuPie" class="col-xs-6" style="height:200px;"></div>
+            </div>
+            <!--<div class="body-nopadding col-xs-1" style="height:200px;"></div>-->
+            <div class="body-nopadding col-xs-6" style="height:200px;">
+                <div style="margin-top:15px">
+                    <span>时间：{{eventData.time}}</span>
+                </div>
+                <div style="margin-top:5px">
+                    <span>CPU使用率: <br/>
+                        AP的CPU负载情况
+                    </span>
+                </div>
+                <div style="margin-top:5px">
+                    <span>排障建议: <br/>
+                        检查CPU利用率高期间，AP上接入的用户数和业务量，如果很大，说明为正常业务量大导致。
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="body-nopadding col-xs-12" style="height:10px;"></div>
+            <div bs-table="cpuTable"></div>
+        </div>
+    </div>
+
+    <div bs-modal="memoryModal">
+        <div>
+            <div class="body-nopadding">
+                <div id="memoryPie" class="col-xs-6" style="height:200px;"></div>
+            </div>
+            <!--<div class="body-nopadding col-xs-1" style="height:200px;"></div>-->
+            <div class="body-nopadding col-xs-6" style="height:200px;">
+                <div style="margin-top:15px">
+                    <span>时间：{{eventData.time}}</span>
+                </div>
+                <div style="margin-top:5px">
+                    <span>内存使用率: <br/>
+                        AP的内存使用情况
+                    </span>
+                </div>
+                <div style="margin-top:5px">
+                    <span>排障建议: <br/>
+                        检查内存利用率高期间，AP上接入的用户数和业务量，如果很大，说明为正常业务量大导致。
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="body-nopadding col-xs-12" style="height:10px;"></div>
+            <div bs-table="memoryTable"></div>
+        </div>
+    </div>
+
+    <div bs-modal="clientNumModal">
+        <div>
+            <div class="body-nopadding">
+                <div id="clientNumPie" class="col-xs-6" style="height:200px;"></div>
+            </div>
+            <!--<div class="body-nopadding col-xs-1" style="height:200px;"></div>-->
+            <div class="body-nopadding col-xs-6" style="height:200px;">
+                <div style="margin-top:15px">
+                    <span>时间：{{eventData.time}}</span>
+                </div>
+                <div style="margin-top:5px">
+                    <span>终端数: <br/>
+                        AP上接入终端个数情况
+                    </span>
+                </div>
+                <div style="margin-top:5px">
+                    <span>排障建议: <br/>
+                    1、建议开启AP负载均衡功能<br/>
+                    2、配置基于用户的限速<br/>
+                    3、适当增加终端高密区域AP数量<br/>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="body-nopadding col-xs-12" style="height:10px;"></div>
+            <div bs-table="clientNumTable"></div>
+        </div>
+    </div>
+
+    <div bs-modal="client5gModal">
+        <div>
+            <div class="body-nopadding">
+                <div id="client5gPie" class="col-xs-6" style="height:200px;"></div>
+            </div>
+            <!--<div class="body-nopadding col-xs-1" style="height:200px;"></div>-->
+            <div class="body-nopadding col-xs-6" style="height:200px;">
+                <div style="margin-top:15px">
+                    <span>时间：{{eventData.time}}</span>
+                </div>
+                <div style="margin-top:5px">
+                    <span>终端数: <br/>
+                        AP上2.4G和5G用户接入比例
+                    </span>
+                </div>
+                <div style="margin-top:5px">
+                    <span>排障建议: <br/>
+                    5G接入比例较低时：<br/>
+                    1、检查终端支持5G比例（如果较低，则正常）<br/>
+                    2、开启频谱导航<br/>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="body-nopadding col-xs-12" style="height:10px;"></div>
+            <div bs-table="client5gTable"></div>
+        </div>
+    </div>
+
+</div>

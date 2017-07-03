@@ -1,0 +1,104 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">Add Subaccount</h3></div>
+        <div class="panel-body">
+            <form class="form-horizontal" name="accountAdd" novalidate onsubmit="return false;">
+                <div class="form-group">
+                    <label for="name" class="col-sm-2 control-label">Subaccount name <span style="color: red;">*</span></label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control " ng-model="add.name" name="name" id="name"
+                               placeholder="Please enter the subaccount name" ajax-valid="validName" required
+                               ng-pattern="/^[a-zA-Z][a-zA-Z0-9_]{5,31}$/">
+                    </div>
+                    <div class="col-sm-4 ang-error" ng-show="accountAdd.name.$dirty"
+                         ng-messages="accountAdd.name.$error">
+                        <span ng-message="required">This information is required.</span>
+                        <span ng-message="pattern">A string of 6 to 32 characters that can contain English letters,underscores and digits, and start with a letter.</span>
+                        <span ng-message="ajaxValid">The username is already used.</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password" class="col-sm-2 control-label">New password <span style="color: red;">*</span></label>
+                    <div class="col-sm-3">
+                        <input type="password" class="form-control" ng-model="add.password" name="password"
+                               id="password" placeholder="Please enter the new password" required ng-pattern="passwordpat">
+                    </div>
+                    <div class="col-sm-4 ang-error" ng-show="accountAdd.password.$dirty"
+                         ng-messages="accountAdd.password.$error">
+                        <span ng-message="required">This information is required.</span>
+                        <span ng-message="pattern">A string of 8 to 32 characters that do not contain spaces.</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="conpassword" class="col-sm-2 control-label">Confirm password <span
+                            style="color: red;">*</span></label>
+                    <div class="col-sm-3">
+                        <input type="password" class="form-control" ng-model="conpassword" name="conpassword"
+                               id="conpassword" placeholder="Please confirm the new password"  pw-check="password">
+                    </div>
+                    <div class="col-sm-4 ang-error" ng-show="accountAdd.conpassword.$dirty"
+                         ng-messages="accountAdd.conpassword.$error">
+                        <span ng-message="pwCheck">Inconsistent passwords</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="roleList" class="col-sm-2 control-label">User Role <span style="color: red;">*</span></label>
+                    <div class="col-sm-3">
+                        <select id="roleList" name="roleList" class="form-control" ng-model="role"
+                                ng-options="role as role.name for role in roleList">
+                            <option value="" selected disabled>Please select a role.</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="phone" class="col-sm-2 control-label">Phone number <span style="color: red;">*</span></label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" ng-model="add.phone" name="phone" id="phone"
+                               placeholder="Please enter a mobile phone number" required ng-pattern="/^(\+86|0086)?\s*1[34578]\d{9}$/"
+                               ajax-valid="validPhone">
+                    </div>
+                    <div class="col-sm-4 ang-error" ng-show="accountAdd.phone.$dirty" ng-messages="accountAdd.phone.$error">
+                        <span ng-message="required">This information is required.</span>
+                        <span ng-message="pattern">Please enter a correct phone number.</span>
+                        <span ng-message="ajaxValid">The mobile phone number is already registered.</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="col-sm-2 control-label">Email <span style="color: red;">*</span></label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" ng-model="add.email" name="email" id="email"
+                               placeholder="Please enter a mailbox" required ajax-valid="validEmail"
+                               ng-pattern="/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/">
+                    </div>
+                    <div class="col-sm-4 ang-error" ng-show="accountAdd.email.$dirty" ng-messages="accountAdd.email.$error">
+
+                        <span ng-message="required">This information is required.</span>
+                        <span ng-message="pattern">Please enter a correct email address.</span>
+                        <span ng-message="ajaxValid">The mailbox is already registered.</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="address" class="col-sm-2 control-label">Contact address </label>
+                    <div class="col-sm-3">
+                        <input type="text" class="form-control" ng-model="add.address" name="address" id="address" maxlength="50" placeholder="The address cannot contain over 50 characters">
+                    </div>
+                </div>
+                <div>
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-3">
+                        <button class="btn btn-cus" ng-disabled="accountAdd.$invalid||accountAdd.roleList.$pristine" ng-click="formSubmit()">OK
+                        </button>
+                        <button class="btn btn-cus" ng-click="cancelAdd()">Cancel</button>
+                    </div>
+                </div>
+
+            </form>
+
+
+        </div>
+    </div>
+</div>
+<div class="read_rc" id="account_add_rc"
+     first-get="Ruquest failure.Please refresh to try again."
+     disabled-message="Operation failed.">
+</div>

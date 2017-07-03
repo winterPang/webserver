@@ -1,0 +1,92 @@
+#cj_Details {
+    position: relative;
+    width: 100%;
+}
+#cj_Details a {
+    cursor: pointer;
+    position: relative;
+    top: -23px;
+    right: 14px;
+    font-size: 12px;
+    z-index: 99;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+#datacontent{
+    width: 100%;
+    margin-bottom: 40px;
+}
+#jContent{
+    margin-left:-80px;width:128px;margin-top:18px;height:100px;
+}
+.label{
+    line-height:35px;
+    font-size:14px;
+}
+.col-sm-12.calendar{
+    border: solid 1px #ddd;
+    overflow: hidden;
+    padding-bottom: 40px;
+    padding-right: 30px;
+}
+.box-footer{
+    height:30px;
+}
+.box-body.echart-height{
+    padding-left: 30px;
+    min-height: 440px
+}
+.gray{
+    opacity:0.4;
+    cursor:not-allowed;
+    pointer-events:none;
+}
+.title{
+    font-size:17px;
+    margin-top:14px;
+    color:#343e4e;
+	margin-left:11px;	
+}
+#DeviceType{
+    text-decoration:underline;
+    cursor:pointer;
+    margin-left:42px;
+}
+#SerialNumber{
+    margin-left:42px;
+}
+#FirmwareRev{
+    text-decoration:underline;
+    cursor:pointer;
+    margin-left:33px;
+    font-size:14px;
+}
+#HardwareRev2{
+    text-decoration:underline;
+    padding-left:25px;
+    cursor:pointer;
+    font-size:14px;
+    color:#4cc1b2
+}
+
+.fc-content{
+    cursor:pointer;
+}
+
+@media (max-width:1024px){
+    .response-block{
+        float: none;
+        width: 100%;
+        clear: both;
+    }
+    .box-body.echart-height{
+        padding-right: 20px;
+    }
+}
+#dep_jContent{
+    margin-left:-80px;width:128px;margin-top:18px;
+}
+.fc-ltr .fc-basic-view .fc-other-month {
+    color:transparent;
+}
+

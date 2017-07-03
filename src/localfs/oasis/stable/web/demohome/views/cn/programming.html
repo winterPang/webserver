@@ -1,0 +1,58 @@
+<div class="btn_h_return" ng-click="return()"></div> 
+<div class="zTreeDemoBackground left col-sm-2">
+        <ul id="treeDemo" class="ztree"></ul>
+</div>
+
+<div class="col-sm-10">
+    <div class="panel panel-default">                  
+    <div class="panel-heading">
+        <h3 class="panel-title">已添加设备</h3>
+    </div>
+               
+    <div class="panel-body">
+        <button class="btn btn-cus" ng-click="addDevice()" 
+        >添加设备</button>               
+        <div bs-Table="addedDevice"></div>
+    </div>
+
+    <form name="form3" bs-modal="modal3.option" novalidate>     
+        
+        <div class="form-group row">
+            <label class="col-sm-3 control-label required">添加</label>
+            <div class="col-sm-5">
+                <select  ng-model="add" ng-options="act for act in adds" 
+                ng-init="adds[0]" required></select> 
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3 control-label required">序列号</label>
+            <div class="col-sm-5">                                   
+                    <input type="text">                        
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3 control-label required">添加方式</label>
+            <div class="col-sm-5">  
+                <select  ng-model="addMode" ng-options="act for act in addModes" 
+                ng-init="addModes[0]" required></select> 
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3 control-label required">添加至</label>
+            <div class="col-sm-5"> 
+                <select  ng-model="addTo" ng-options="act for act in addTos" 
+                ng-init="addTos[0]" required></select> 
+            </div>
+        </div>         
+
+         <div class="text-center" style="margin-top:20px;">         
+            <button class="btn btn-cus" name="complete">完成</button>
+            <button class="btn btn-cus" name="continue">继续添加</button>
+            <button class="btn btn-cus" name="cancel3">取消</button>
+        </div>
+    </form>
+</div>
+</div>

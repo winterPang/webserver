@@ -1,0 +1,16 @@
+<div class="msgCfg" ng-init="resolve()">
+    <ul class="tab-pages">
+        <li class="shop-list" ng-class="{active:currentTab === 0}">
+            <a class="tab-content tab-content-first" ng-click="tabSwitch(0)" ui-sref="global.content.system.message.emay">亿美短信</a>
+            <i class="tab-edging tab-edging-right"></i>
+        </li>
+        <li class="sta-dev-list ng-scope" ng-class="{active:currentTab === 1}" >
+            <i class="tab-edging tab-edging-left"></i>
+            <a class="tab-content ng-binding" ng-click="tabSwitch(1)" ui-sref="global.content.system.message.greentown">短信状态</a>
+            <i class="tab-edging tab-edging-right"></i>
+        </li>    </ul>
+    <div class="tab-container">
+        <div ui-view></div>
+    </div>
+</div>
+

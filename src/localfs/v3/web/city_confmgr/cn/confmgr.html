@@ -1,0 +1,112 @@
+<html>
+<head>
+<style>
+    .warn-style{
+        color: #ef2311;
+        margin-left: 30px;
+    }
+</style>
+</head>
+<body>
+
+<div class="app-colum">
+    <div class="app-box">
+        <div class="box-footer">
+            <span class="title">安全防御</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="WipsList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+
+<div class="hide modal fade" id="WipsTypeDlg">
+    <form class="form-horizontal form" id="WipsTypeForm">
+        <div class="form-group">
+            <label class="col-sm-4 control-label">AP名称</label>
+            <label class="col-sm-8 info-explain" id="ApName"></label>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">射频</label>
+            <label class="col-sm-8 info-explain" id="RadioName"></label>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">检测钓鱼行为</label>
+            <label class="col-sm-8 info-explain" id="PhishState">关闭</label>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">反制钓鱼行为</label>
+            <label class="col-sm-8 info-explain" id="CtmState">关闭</label>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">检测泛洪攻击</label>
+            <label class="col-sm-8 info-explain" id="FloodState">关闭</label>
+        </div>
+    </form>
+</div>
+
+<div class="hide modal fade" id="WipsSetDlg">
+    <form class="form-horizontal form" id="WipsSetForm">
+        <div class="form-group" id="ab_block">
+            <label class="col-sm-2 control-label">检测私接代理</label>
+            <div class="col-sm-10">
+                <input type="checkbox" class="switch" id="NatDetect" name="NatDetect"/>
+                <br/>
+                <label class="info-explain">说明：修改指定AP下的所有radio的私接代理检测功能状态</label>
+            </div>
+        </div>
+        <div class="form-group" id="cb_block">
+            <label class="col-sm-2 control-label">无线探针</label>
+            <div class="col-sm-10">
+                <input type="checkbox" class="switch" id="WT2" name="probe"/>
+                <br/>
+                <label class="info-explain">说明：检测未接入本网络的周边无线终端</label>
+            </div>
+        </div>
+
+        <div class="form-group" id="bb_block">
+            <label class="col-sm-2 control-label">无线攻击防御</label>
+            <div class="col-sm-10">
+
+                <div>
+                    <!--<input type="checkbox" id="WT3" name="WipsType" value="2"/>-->
+                    <!--<label for="WT3">无线攻击防御<span class="warn-style hide">提示：请至少选择一种反制方式！</span></label>-->
+                    
+                    <div class="WipsBlock">
+                        <input type="checkbox" id="Phish" name="Phish"/>
+                        <label for="Phish">检测钓鱼行为</label><br/>
+                        <label class="info-explain">说明：检测发布与本网络或知名热点相似的无线服务、伪造网络设备MAC地址、伪造网络设备beacon帧</label>
+                    </div>
+                    <div class="WipsBlock">
+                        <input type="checkbox" id="CmtPhish" name="CmtPhish"/>
+                        <label for="CmtPhish">反制钓鱼行为</label><br/>
+                        <label class="info-explain">说明：可以使攻击者无法正常工作，需谨慎使用</label>
+                    </div>
+                    <div class="WipsBlock">
+                        <input type="checkbox" id="Flood" name="Flood"/>
+                        <label for="Flood">检测泛洪攻击</label><br/>
+                        <label class="info-explain">说明：检测攻击者短时间内发送大量同类型的报文，导致目标系统无法正常提供服务</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="ws_ssid_rc" class="rc-define"
+     LIST_TITLE = "AP名称,AP组名称,射频,私接代理检测,无线安全,无线探针"
+     EDIT_TITLE = "修改安全参数"
+     WIPS_WAIT="请稍等..."
+     WIPS_TITLE = "无线攻击防御"
+     ON_OFF = "关闭,开启"
+     WIPS_TYPE = "无,无线探针,无线攻击防御"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("city_confmgr.confmgr");
+</script>

@@ -1,0 +1,25 @@
+<div class="main-menu">
+    <!--右侧菜单折叠按钮-->
+    <div ng-click="toggleLeftMenu($event)" class="btn-show-submenu">&lt;</div>
+    <div class="left-menu">
+        <div class="menu-title" ng-bind="name">
+        </div>
+        <div class="menu-content">
+            <ul>
+                <li ng-repeat="menu in leftMenu">
+                    <a ng-if="menu.sref" ng-class="{'menu-active':menuActive(menu.sref,menu.tabs)}" ui-sref="{{menu.sref}}" ng-bind="menu.name" ng-click="menuToggle($event)"></a>
+                    <a ng-if="!menu.sref" ng-class="{'menu-active':menuActive(menu.sref,menu.tabs)}" ng-bind="menu.name" ng-click="menuToggle($event)"></a>
+                    <ul ng-if="menu.tabs.toString()" ng-class="{'lyp-hide':!menuActive(menu.sref,menu.tabs)}">
+                        <li class="clearfix" ng-repeat="tabs in menu.tabs">
+                            <div class="lm-split-line"></div>
+                            <a  ng-class="{'menu-active':menuActive(tabs.sref,undefined)}" ui-sref="{{tabs.sref}}" ng-bind="tabs.name"></a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="main-content">
+        <div ui-view></div>
+    </div>
+</div>

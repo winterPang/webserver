@@ -1,0 +1,21 @@
+.oasis-input {
+  display: inline-block;
+}
+.oasis-input.disabled label,
+.oasis-input.disabled input {
+  cursor: not-allowed;
+}
+.oasis-input label {
+  font-weight: lighter;
+  text-align: right;
+}
+.oasis-input label::after {
+  content: ":";
+}
+.oasis-input .form-control {
+  width: auto;
+}
+.oasis-input .errmsg {
+  font-size: 14px;
+  color: #ff0000;
+}

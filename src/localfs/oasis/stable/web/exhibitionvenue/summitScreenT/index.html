@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>新华三|峰会CEO</title>
+    <link href="css/main.css" rel="stylesheet" media="screen">
+    <style>
+    </style>
+</head>
+<body>
+<!--峰会大屏背景-->
+<div class="bg-sumScreen pos-rel">
+    <!--峰会大屏大小显示分为上下两部分-->
+    <ul class="summit_screen pos-abs">
+        <!-- 操作失败 -->
+        <ul class="reactBox informFail">
+            <li></li>
+            <li class="failStr">获取数据失败！</li>
+        </ul>
+        <!--上半部分为综合信息-->
+        <ul class="sumTop">
+            <!--右侧部分客户身份信息分布-->
+            <li class="topBar clientDetials pos-rel">
+                <!--年龄结构Echarts图-->
+                <ul class="ageContent">
+                    <!--Echarts图-->
+                    <li id="agePie"></li>
+                    <li id="sexualPie"></li>
+                    <div class="iconCommon iconAge pos-abs">
+                        <div></div>
+                        <div>年龄分布</div>
+                    </div>
+                    <div class="iconCommon iconSexual pos-abs">
+                        <div></div>
+                        <div>男女比例</div>
+                    </div>
+                </ul>
+                <!--标题头部-->
+                <ul class="sumTitle pos-rel">学历分布
+                    <li class="pos-abs"></li>
+                    <li class="pos-abs"></li>
+                </ul>
+                <!--学历分布-->
+                <ul id="qualificationBar"></ul>
+                <!--标题头部-->
+                <ul class="sumTitle pos-rel">职业分布
+                    <li class="pos-abs"></li>
+                    <li class="pos-abs"></li>
+                </ul>
+                <!--职业分布-->
+                <ul id="professionBar">
+                    <!--<li class="tangleBox pos-rel">
+                        <ul class="tangleContent"></ul>
+                        <ul class="proType pos-abs"></ul>
+                        <ul class="proPercent pos-abs"></ul>
+                    </li>
+                    <li class="tangleBox pos-rel">
+                        <ul class="tangleContent"></ul>
+                        <ul class="proType pos-abs"></ul>
+                        <ul class="proPercent pos-abs"></ul>
+                    </li>
+                    <li class="tangleBox pos-rel">
+                        <ul class="tangleContent"></ul>
+                        <ul class="proType pos-abs"></ul>
+                        <ul class="proPercent pos-abs"></ul>
+                    </li>
+                    <li class="tangleBox pos-rel">
+                        <ul class="tangleContent"></ul>
+                        <ul class="proType pos-abs"></ul>
+                        <ul class="proPercent pos-abs"></ul>
+                    </li>-->
+                </ul>
+                <ul class="umengItem pos-abs">数据及技术支持： <em>U-Oplus【友盟+】线下分析</em></ul>
+            </li>
+            <!--实时及历史数据展示-->
+            <li class="topBar onLineNumber">
+                <!--logo部分-->
+                <ul class="logoContent"></ul>
+                <!--实时数码表-->
+                <ul class="onlineData pos-rel">
+                    <!--标题-->
+                    <li class="pos-abs">实时来宾</li>
+                    <!--累计数据-->
+                    <li class="pos-abs">总来宾数 :&nbsp&nbsp<span class="sumCount">0</span>&nbsp&nbsp人</li>
+                    <!--滚动数码表-->
+                    <li class="numBox pos-abs">
+                        <ul class="slideBar"></ul>
+                        <ul class="slideBar"></ul>
+                        <ul class="slideBar"></ul>
+                        <ul class="slideBar"></ul>
+                    </li>
+                </ul>
+                <!--点击广告数码表-->
+                <ul class="advertNum">
+                    <li class="pos-rel adverBg">
+                        <!--头部标题-->
+                        <ul class="pos-abs">实时广告点击量</ul>
+                        <!--数字-->
+                        <div class="clickNum adClick">
+                            <div class="slideBar"></div>
+                            <div class="slideBar"></div>
+                            <div class="slideBar"></div>
+                            <div class="slideBar"></div>
+                        </div>
+                    </li>
+                    <li class="pos-rel adverBg">
+                        <!--头部标题-->
+                        <ul class="pos-abs">实时广告曝光量</ul>
+                        <!--数字-->
+                        <div class="clickNum adExplore">
+                            <div class="slideBar"></div>
+                            <div class="slideBar"></div>
+                            <div class="slideBar"></div>
+                            <div class="slideBar"></div>
+                        </div>
+                    </li>
+                </ul>
+                <!--广告趋势-->
+                <ul class="sumTitle pos-rel">现场来宾趋势
+                    <li class="pos-abs"></li>
+                    <li class="pos-abs"></li>
+                </ul>
+                <ul id="advertTrad"></ul>
+                <!--尾部提示信息-->
+                <ul class="advertTips pos-rel">
+                    <!--<div></div>
+                    <div></div>-->
+                    <span>广告资源由 <em>奥菲传媒</em> 提供</span>
+                </ul>
+            </li>
+            <!--右侧客户习惯信息-->
+            <li class="topBar clientDetials pos-rel">
+                <!--消费结构Echarts图-->
+                <ul class="ageContent pos-rel">
+                    <!--两部分Echarts图-->
+                    <li id="shopPie"></li>
+                    <li id="consumePie"></li>
+                    <div class="iconCommon iconShop pos-abs">
+                        <div></div>
+                        <div>购物兴趣</div>
+                    </div>
+                    <div class="iconCommon iconConsume pos-abs">
+                        <div></div>
+                        <div>消费能力</div>
+                    </div>
+                </ul>
+                <!--标题头部-->
+                <ul class="sumTitle pos-rel">上网偏好
+                    <li class="pos-abs"></li>
+                    <li class="pos-abs"></li>
+                </ul>
+                <!--客户上网习惯-->
+                <ul id="onlineHabit"></ul>
+                <!--标题头部-->
+                <ul class="sumTitle pos-rel">客户来源
+                    <li class="pos-abs"></li>
+                    <li class="pos-abs"></li>
+                </ul>
+                <!--客户来源分布-->
+                <ul id="clientSource">
+                    <!--<li class="tangleSource pos-rel">
+                        <ul class="tangleIn"></ul>
+                        <ul class="souType pos-abs"></ul>
+                        <ul class="souPercent pos-abs"></ul>
+                    </li>
+                    <li class="tangleSource pos-rel">
+                        <ul class="tangleIn"></ul>
+                        <ul class="souType pos-abs"></ul>
+                        <ul class="souPercent pos-abs"></ul>
+                    </li>
+                    <li class="tangleSource pos-rel">
+                        <ul class="tangleIn"></ul>
+                        <ul class="souType pos-abs"></ul>
+                        <ul class="souPercent pos-abs"></ul>
+                    </li>
+                    <li class="tangleSource pos-rel">
+                        <ul class="tangleIn"></ul>
+                        <ul class="souType pos-abs"></ul>
+                        <ul class="souPercent pos-abs"></ul>
+                    </li>
+                    <li class="tangleSource pos-rel">
+                        <ul class="tangleIn"></ul>
+                        <ul class="souType pos-abs"></ul>
+                        <ul class="souPercent pos-abs"></ul>
+                    </li>
+                    <li class="tangleSource pos-rel">
+                        <ul class="tangleIn"></ul>
+                        <ul class="souType pos-abs"></ul>
+                        <ul class="souPercent pos-abs"></ul>
+                    </li>
+                    <li class="tangleSource pos-rel">
+                        <ul class="tangleIn"></ul>
+                        <ul class="souType pos-abs"></ul>
+                        <ul class="souPercent pos-abs"></ul>
+                    </li>
+                    <li class="tangleSource pos-rel">
+                        <ul class="tangleIn"></ul>
+                        <ul class="souType pos-abs"></ul>
+                        <ul class="souPercent pos-abs"></ul>
+                    </li>-->
+                </ul>
+                <ul class="umengItem pos-abs">数据及技术支持： <em>U-Oplus【友盟+】线下分析</em> </ul>
+            </li>
+        </ul>
+        <!--下半部分为物联网信息-->
+        <ul class="sumBot pos-rel">
+            <li class="logoCity pos-abs">物联网-智慧城市</li>
+            <li class="logoSchool pos-abs">物联网-校园</li>
+            <li class="schoolLine pos-abs">数据来源自南京市<i>《大光路小学》</i></li>
+            <li class="botSign"></li>
+            <li>
+                <ul class="botBar rubMonitor pos-rel">
+                    <!--小标题-->
+                    <li class="botTitle">
+                            <span class="pos-rel">垃圾桶检测(台州市)
+                                <i class="pos-abs"></i>
+                                <i class="pos-abs"></i>
+                            </span>
+                    </li>
+                    <li class="rubItem">
+                        <ul class="itemLine">
+                            <li>垃圾桶编号：2857</li>
+                            <li>
+                                <div></div>
+                            </li>
+                        </ul>
+                        <ul class="itemLine">
+                            <li>垃圾桶编号：2162</li>
+                            <li>
+                                <div></div>
+                            </li>
+                        </ul>
+                        <ul class="itemLine">
+                            <li>垃圾桶编号：2150</li>
+                            <li>
+                                <div></div>
+                            </li>
+                        </ul>
+                        <ul class="itemLine">
+                            <li>垃圾桶编号：2208</li>
+                            <li>
+                                <div></div>
+                            </li>
+                        </ul>
+                        <ul class="itemLine">
+                            <li>垃圾桶编号：2167</li>
+                            <li>
+                                <div></div>
+                            </li>
+                        </ul>
+                        <ul class="itemLine">
+                            <li>垃圾桶编号：2043</li>
+                            <li>
+                                <div></div>
+                            </li>
+                        </ul>
+                        <ul class="itemLine">
+                            <li>垃圾桶编号：2056</li>
+                            <li>
+                                <div></div>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="rubMap pos-rel">
+                        <!--&lt;!&ndash;小标题&ndash;&gt;
+                        <ul class="botTitle">
+                            <span class="pos-rel">垃圾桶检测
+                                <i class="pos-abs"></i>
+                                <i class="pos-abs"></i>
+                            </span>
+                        </ul>-->
+                        <ul class="mapContent pos-rel">
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </li>
+                    <li class="mapTips pos-abs">
+                        <ul class="pos-abs lenIcon">
+                            <li></li>
+                            <li>少量</li>
+                        </ul>
+                        <ul class="pos-abs lenIcon">
+                            <li></li>
+                            <li>未满</li>
+                        </ul>
+                        <ul class="pos-abs lenIcon">
+                            <li></li>
+                            <li>已满</li>
+                        </ul>
+                        <div>借助物联网技术，对城市道路垃圾桶、垃圾运送车、垃圾处理站等统一监测和管理。</div>
+                    </li>
+                    <li class="mapLine pos-abs"></li>
+                </ul>
+                <ul class="botBar">
+                   <!--小标题-->
+                    <li class="botTitle">
+                        <span class="pos-rel">学生身高指标
+                            <i class="pos-abs"></i>
+                            <i class="pos-abs"></i>
+                        </span>
+                    </li>
+                    <li class="perTarget">
+                        <ul class="perContent pos-rel">
+                            <li class="perTangle heightTarget">
+                                <div class="partOne pos-rel">
+                                    <ul class="perBotTitleM pos-abs">过低</ul>
+                                    <ul class="perTopTitleM pos-abs"><125cm</ul>
+                                </div>
+                                <div class="partTwo pos-rel">
+                                    <ul class="perBotTitleM pos-abs">身高正常</ul>
+                                    <ul class="perTopTitleM pos-abs">125-145cm</ul>
+                                </div>
+                                <div class="partThree pos-rel">
+                                    <ul class="perBotTitleM pos-abs">过高</ul>
+                                    <ul class="perTopTitleM pos-abs">145cm<</ul>
+                                </div>
+                            </li>
+                            <li class="iconContent pos-abs"></li>
+                            <!--<li class="perTopTitle pos-abs"></li>-->
+                            <!--<li class="perBotTitle pos-abs"></li>-->
+                        </ul>
+                    </li>
+                    <!--小标题-->
+                    <li class="botTitle">
+                        <span class="pos-rel">学生到校时间分布
+                            <i class="pos-abs"></i>
+                            <i class="pos-abs"></i>
+                        </span>
+                    </li>
+                    <li id="timeSpread"></li>
+                </ul>
+                <ul class="botBar">
+                    <!--小标题-->
+                    <li class="botTitle">
+
+                    </li>
+                    <!---->
+                    <li class="perTarget">
+                        <ul class="heartEch pos-rel">
+                            <li id="heartBox"></li>
+                            <li class="pos-abs">
+                                <div class="pos-abs"></div>
+                                <div class="pos-abs">心率</div>
+                            </li>
+                        </ul>
+                        <ul class="heartBeat heartPercent">
+                            <li class="iconSlow"></li>
+                            <li>
+                                <div class="heartSlow">0%</div>
+                                <div>过缓</div>
+                            </li>
+                        </ul>
+                        <ul class="heartBeat heartPercent">
+                            <li class="iconQuick"></li>
+                            <li>
+                                <div class="heartQuick">0%</div>
+                                <div>过快</div>
+                            </li>
+                        </ul>
+                    </li>
+                    <!--小标题-->
+                    <li class="botTitle">
+                        <span class="pos-rel">步数统计
+                            <i class="pos-abs"></i>
+                            <i class="pos-abs"></i>
+                        </span>
+                    </li>
+                    <li id="botStep"></li>
+                </ul>
+                <ul class="botBar pos-rel">
+                    <!--小标题-->
+                    <li class="botTitle">
+                        <span class="pos-rel">学生体重指标
+                            <i class="pos-abs"></i>
+                            <i class="pos-abs"></i>
+                        </span>
+                    </li>
+                    <!---->
+                    <li class="perTarget">
+                        <ul class="perContent pos-rel">
+                            <li class="perTangle weightTarget">
+                                <div class="partOne pos-rel">
+                                    <ul class="perBotTitleM pos-abs">偏瘦</ul>
+                                    <ul class="perTopTitleM pos-abs">BMI<16.5</ul>
+                                </div>
+                                <div class="partTwo pos-rel">
+                                    <ul class="perBotTitleM pos-abs">正常</ul>
+                                    <ul class="perTopTitleM pos-abs">BMI16.5~23</ul>
+                                </div>
+                                <div class="partThree pos-rel">
+                                    <ul class="perBotTitleM pos-abs">偏胖</ul>
+                                    <ul class="perTopTitleM pos-abs">BMI>23</ul>
+                                </div>
+                            </li>
+                            <li class="iconContent iconWeight pos-abs"></li>
+                            <!--<li class="perTopTitle pos-abs"></li>-->
+                            <!--<li class="perBotTitle pos-abs"></li>-->
+                        </ul>
+                    </li>
+                    <!--小标题-->
+                    <li class="botTitle">
+                        <span class="pos-rel">学生上课举手
+                            <i class="pos-abs"></i>
+                            <i class="pos-abs"></i>
+                        </span>
+                    </li>
+                    <li id="botHand"></li>
+                </ul>
+            </li>
+        </ul>
+    </ul>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="build/dist/echarts.js"></script>
+<script src="js/mainSet.js"></script>
+</body>
+</html>

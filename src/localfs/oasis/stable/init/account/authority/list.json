@@ -1,0 +1,36 @@
+{
+  "code":0,
+  "message":"o2o.oasis.mng.query.success",
+  "total":3,
+  "rows":[{
+    "id":10,
+    "name":"读操作",
+    "code":"READ",
+    "description":"读操作权限（请勿删除或修改）",
+    "selected":true,
+    "showDetail":true,
+    "showDelete":true,
+    "otherpage":true,
+    "showEdit":true
+  },{
+    "id":11,
+    "name":"写操作",
+    "code":"WRITE",
+    "description":"写操作权限（请勿删除或修改）",
+    "selected":true,
+    "showDetail":true,
+    "showDelete":true,
+    "otherpage":true,
+    "showEdit":true
+  },{
+    "id":12,
+    "name":"执行操作",
+    "code":"OPERATE",
+    "description":"执行操作权限（请勿删除或修改）",
+    "selected":true,
+    "showDetail":true,
+    "showDelete":true,
+    "otherpage":true,
+    "showEdit":true
+  }]
+}

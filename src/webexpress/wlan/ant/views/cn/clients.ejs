@@ -1,0 +1,51 @@
+<html>
+<head>
+</head>
+<body>
+
+    <div class="mlist" id="client_mlist">
+        
+    </div>
+    <div id="Opendlg" class="hide">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">探针AP</h3>
+        </div>
+        <div class="modal-body">
+            <div class="simple-list" id="sensor_Slist">        
+            </div>
+        </div>
+        <div class="modal-footer form-actions">
+            <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+        </div>    
+    </div>
+    <div id="Cleardlg" class="hide">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">确认提示</h3>
+        </div>
+        <div class="modal-body">
+            <div id="Tip_info" style="text-align:center;"> <span style="text-align:center;">确定要清除所有数据吗?</span>       
+            </div>
+        </div>
+        <div class="modal-footer form-actions">
+            <a id="Entry_clear" class="btn btn-primary" data-dismiss="modal"><i class="icon-ok"></i>是</a>
+            <a class="btn btn-default" dlgtype="Close" data-dismiss="modal"><i class="icon-remove"></i>否</a>
+        </div>    
+    </div>
+
+    <div id="client_rc" class="rc-define"
+        LIST_HEADER="MAC地址,进店时间,离开时间,停留时间,SSID,状态,在线时间,厂商,探针AP,最大信号强度,RSSI(dBi)"
+        STATUS="活跃,非活跃"
+        LIST_SIMPLE_HEADR="AP名称,MAC地址,射频,RSSI(dBi),信道"
+        TIMES="分,秒,天,时"
+        CLEAR="清除"
+         DATA=<%=JSON.stringify(statistics)%>
+                >
+    </div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("clientprobe.clients");
+</script>
+

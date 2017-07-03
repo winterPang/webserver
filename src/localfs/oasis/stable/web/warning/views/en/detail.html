@@ -1,0 +1,120 @@
+<div id="warning_module"
+     date-picker-label="确定,取消,起始时间,结束时间"
+     date-picker-week="日,一,二,三,四,五,六"
+     date-picker-month="一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月"
+     warn-chart-count="Logs"
+     warn-list-header="Device Name,Module,Level,Message,Time"
+     warn-config-title="Configure Device Logs"
+     warn-popover-info="Search logs from last seven days at most"
+     warn-popover-content="Set"
+     set-config-msg="Operation succeeded.,Operation failed.,Failed to obtain device logs.The main connection is broken.">
+    <div class="panel panel-default">
+        <div class="panel-heading pr-0">
+            <div class="panel-title">
+                <div class="filter-bar">
+                    <label for="dateRangePicker">
+                        <span class="input-label">Time range</span>
+                        <input class="form-control" id="dateRangePicker" type="text" style="width: 302px;"/>
+                    </label>
+                </div>
+                <div class="filter-bar">
+                    <label for="moduleRangePicker">
+                        <select class="form-control" id="moduleRangePicker"
+                                ng-options="item for item in filterBar.moduleList"
+                                ng-model="filterBar.module">
+                            <option value="" selected>Select a module</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="filter-bar">
+                    <label for="levelPicker">
+                        <select class="form-control" id="levelPicker"
+                                ng-options="item for item in filterBar.levelList"
+                                ng-model="filterBar.level">
+                            <option value="" selected>Select a level</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="filter-bar">
+                    <button class="btn btn-cus" id="searchLogBtn" type="button"
+                            ng-click="filterBar.clickSearchBtn()">Search</button>
+                </div>
+                <div class="pull-right" style="position: relative;width: 236px;">
+                    <a class="config-btn" id="configBtn" href="javascript:void(0);">
+                    <span class="fa fa-cog"
+                          ng-click="filterBar.clickConfigBtn()"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body" style="padding-top: 50px;">
+            <div class="col-sm-6">
+                <span class="panel-title">Level</span>
+                <div id="levelPie" style="height: 300px;width: 100%;"></div>
+            </div>
+            <div class="col-sm-6">
+                <span class="panel-title">Module</span>
+                <div id="modulePie" style="height: 300px;width: 100%;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row" style="padding: 20px 0 30px 0;">
+        <div class="col-sm-12">
+            <div bs-table="list.warn"></div>
+        </div>
+    </div>
+    <form class="form-horizontal" bs-modal="modal.config" novalidate>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Log collection</label>
+            <div class="col-sm-2 pr-0" style="width: 100px;">
+                <div class="xb-input xb-checkbox">
+                    <input class="switch input-element" id="collectedSwitch" type="checkbox"
+                           ng-model="config.collected"
+                           ng-change="config.clickCollectedSwitch()"/>
+                    <span class="input-icon checkbox-icon switch"
+                          ng-class="{checked: config.collected}"></span>
+                    <label class="input-label" for="collectedSwitch"></label>
+                </div>
+            </div>
+            <label class="col-sm-8 control-label plr-0" style="color: #ff0000;"
+                   ng-show="config.collected">This feature sets the log format to unicom.It might affect log reporting to other servers.</label>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label" for="levelSelector">Level</label>
+            <div class="col-sm-10">
+                <select class="form-control" id="levelSelector" style="width: 165px;"
+                        ng-options="item for item in filterBar.levelList"
+                        ng-disabled="!config.collected"
+                        ng-model="config.level">
+                    <option value="" selected disabled>Select a level</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group level-description">
+            <div class="col-sm-offset-2 col-sm-10">
+                <label ng-class="{active: config.emergency}" ng-click="config.selectLevelDes('emergency')">Emergency:The system is unusable.For example,the system authorization has expired.</label>
+            </div>
+            <div class="col-sm-offset-2 col-sm-10">
+                <label ng-class="{active: config.alert}" ng-click="config.selectLevelDes('alert')">Alert:Action must be taken immediately.For example,traffic on an interface exceeds the upper limit.</label>
+            </div>
+            <div class="col-sm-offset-2 col-sm-10">
+                <label ng-class="{active: config.critical}" ng-click="config.selectLevelDes('critical')">Critical:Critical condition.For example,the device temperature exceeds the upper limit,the power module.</label>
+            </div>
+            <div class="col-sm-offset-2 col-sm-10">
+                <label ng-class="{active: config.error}" ng-click="config.selectLevelDes('error')">Error:Error condition.For example,the link state changes.</label>
+            </div>
+            <div class="col-sm-offset-2 col-sm-10">
+                <label ng-class="{active: config.warning}" ng-click="config.selectLevelDes('warning')">Warning:Warning condition.For example,an interface is disconnected,or the memory resources are used up.</label>
+            </div>
+            <div class="col-sm-offset-2 col-sm-10">
+                <label ng-class="{active: config.notification}" ng-click="config.selectLevelDes('notification')">Notification:Normal but significant condition.For example,a terminal logs in to the device,or the device reboots.</label>
+            </div>
+            <div class="col-sm-offset-2 col-sm-10">
+                <label ng-class="{active: config.informational}" ng-click="config.selectLevelDes('informational')">Informational:Informational message.For example,a command or a ping operation is executed.</label>
+            </div>
+            <div class="col-sm-offset-2 col-sm-10">
+                <label ng-class="{active: config.debugging}" ng-click="config.selectLevelDes('debugging')">Debugging:Debug message.</label>
+            </div>
+        </div>
+    </form>
+</div>

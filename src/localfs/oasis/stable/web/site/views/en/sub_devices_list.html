@@ -1,0 +1,20 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">
+            <a href="#/global/content/system/site" style="color:#2fa4e7;">Site Management</a> > <a style="cursor:pointer;color:#2fa4e7;" class="devlistshow">Device List</a> > Sub Device List</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="btn btn-cus" ng-click="refresh()">Refresh</div>
+            </div>
+            <table bs-table="options"></table>
+        </div>
+    </div>
+    <div class="read_rc" id="sub_device_rc"
+        error="Request error ~"
+        online="Online"
+        offline="Offline"
+        table-title="Alias,Device sn,Device models,Software version, hardware version,Device Status"
+     >
+    </div>
+</div>

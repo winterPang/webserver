@@ -1,0 +1,86 @@
+.city_station_online {
+    float: left;
+    width: 43%;
+    margin-top:40px;
+}
+
+.city_total_style {
+    margin-left: 25%;
+    margin-top: 27px;
+}
+
+.city-wips-icon-client{
+    width: 60px;
+    height: 60px;
+    background:url(../images/ant-wips-icon.png) no-repeat -195px -150px;
+}
+.city-wips-icon-unauthored-client{
+    width: 70px;
+    height: 60px;
+    background:url(../images/ant-wips-icon.png) no-repeat -365px -150px;
+}
+.city-wips-icon-ap{
+    width: 60px;
+    height: 60px;
+    background:url(../images/ant-wips-icon.png) no-repeat -580px -150px;
+}
+.city-wips-icon-rouge-ap{
+    width: 60px;
+    height: 60px;
+    margin-left:5px;
+    background:url(../images/ant-wips-icon.png) no-repeat -760px -150px;
+}
+.city-wips-icon-attack{
+    width: 60px;
+    height: 60px;
+    background:url(../images/ant-wips-icon.png) no-repeat -965px -150px;
+}
+.city-wips-icon-reflect{
+    width: 60px;
+    height: 60px;
+    background:url(../images/ant-wips-icon.png) no-repeat -1165px -150px;
+}
+
+.city_wips_dev {
+    margin-top:10%;
+    margin-left:20px;
+    display:inline-block;
+}
+.ant-wips-icon-detail{
+    right: 20px;
+    width: 25px;
+    height: 20px;
+    background:url(../images/ant-wips-icon.png) no-repeat -640px -70px;
+}
+.ant-wips-icon-detail:hover{
+    right: 20px;
+    width: 25px;
+    height: 20px;
+    background:url(../images/ant-wips-icon.png) no-repeat -585px -70px;
+}
+.ant-vertical-center{
+    position: absolute;
+    display: table;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    padding-left: 10px;
+}
+.city_wips_label {
+    font-size: 16px;
+    color: #75808b;
+    margin-top: 5px;
+    display: block;
+}
+.city_wips_state {
+    font-size: 16px;
+    color: #75808b;
+    margin-top: -5px;
+    margin-left:10%;
+}
+.city_wips {
+    height: 28%;
+    margin-left: 10%;
+    margin-right:10%;
+    border-bottom: 1px solid #e7e7e9;
+}

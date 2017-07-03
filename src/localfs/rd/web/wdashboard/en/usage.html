@@ -1,0 +1,36 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<div class="index-group">
+	        <div class="sysinfo-footer">
+	            <div class="col-xs-12">
+	                <span class="title">Usage</span>
+	            </div>
+	           	<div class="text-right link-container">
+	                <a type="button" class="refresh" id="refresh_usage">
+	                    <i class="refresh-icon icon"></i>
+	                </a>
+	            </div>
+	       </div>
+		    <div class="sysinfo-body" >
+					<!-- <div style="position: absolute;top: 8px;right: 6px;">
+						<span class="client-font active" value="1h">1h</span>
+               			<span class="client-font " value="2h">2h</span>
+               			<span class="client-font " value="1d">1d</span>
+               			<span class="client-font " value="1w">1w</span>
+               			<span class="client-font " value="1m">1m</span>
+               			<span class="client-font " value="1y">1y</span>
+					</div> -->
+					<div id="usage" name="usage" class="myEchart">
+					</div>
+		    </div>
+	 </div>
+	 <div id="app_usage_rc" class="rc-define"
+         STREAM="Up Stream,Down Stream"
+    ></div>
+	</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("WDashboard.Usage");
+</script>

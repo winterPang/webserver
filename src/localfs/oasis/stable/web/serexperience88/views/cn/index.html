@@ -1,0 +1,259 @@
+<style>
+    .p_releative{
+        position: relative;
+    }
+    .date_change{
+        position: absolute;
+        top: 4px;
+        right: 0px;
+        width: 200px;
+        height: 30px;
+        line-height: 30px;
+    }
+    .top-progress {
+        height: 10px;
+        border-radius: 10px;
+        margin-top: 3px;
+        margin-bottom: 10px;
+    }
+    .top-progress-block {
+        margin-top: 3px;
+        font-size: 10px;
+        margin-left: -25px;
+    }
+    .top-progress-block span {
+        font-weight: 100;
+        margin-left: 10px
+    }
+    .top-one {
+        background-color: #4ec1b2;
+    }
+
+    .top-two {
+        background-color: #78cec3;
+    }
+
+    .top-three {
+        background-color: #f2bc98;
+    }
+
+    .top-four {
+        background-color: #fe808b;
+    }
+
+    .top-five {
+        background-color: #4fc4f6;
+    }
+
+    .top-six {
+        background-color: rgb(255, 156, 158);
+    }
+
+    .top-seven {
+        background-color: rgb(21, 194, 169);
+    }
+    .top-progress-block{
+        list-style-type: none;
+    }
+    .line{
+        border-top: 1px solid #ddd;
+        margin-left: 25px;
+        margin-right: 25px;
+    }
+    #clientTab {
+        overflow: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    #clientTab li {
+        float: left;
+        margin: 0 .5em 0 0;
+        border: 1px solid #ddd;
+        border-bottom: 0px;
+        border-radius: 5px 6px 0px 0px;
+    }
+    #clientTab a {
+        position: relative;
+        background: #edf9f7;
+        padding: 0.6em 2.0em;
+        float: left;
+        text-decoration: none;
+        color: #444;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
+        -webkit-border-radius: 5px 0 0 0;
+        -moz-border-radius: 5px 0 0 0;
+        border-radius: 5px 0 0 0;
+    }
+    #clientTab a:hover, #clientTab a:hover::after, #clientTab a:focus, #clientTab a:focus::after {
+        background: #fff;
+    }
+    #clientTab a:focus {
+        outline: 0;
+    }
+    #clientTab a::after {
+        content:'';
+        position:absolute;
+        z-index: 1;
+        top: 0;
+        right: -.5em;
+        bottom: 0;
+        width: 1em;
+        background: #edf9f7;
+        -moz-box-shadow: 1px 0px 0px #ddd;
+        -webkit-box-shadow: 1px 0px 0px #ddd;
+        -webkit-box-shadow: 1px 0px 0px #ddd;
+        -webkit-transform: skew(10deg);
+        -moz-transform: skew(20deg);
+        -ms-transform: skew(20deg);
+        -o-transform: skew(20deg);
+        transform: skew(20deg);
+        -webkit-border-radius: 0 4px 0 0;
+        -moz-border-radius: 0 4px 0 0;
+        border-radius: 0 4px 0 0;
+    }
+    #clientTab .active a, #clientTab .active a::after {
+        background: #fff;
+        z-index: 3;
+        color: #4ec1b2;
+    }
+</style>
+<div class="p_releative">
+    <!--用户体验柱状图-->
+    <ul id="clientTab">
+        <li tag="baseInfo" class="active"><a>分时体验</a></li>
+        <li tag="allInfo"><a>体验日报</a></li>
+    </ul>
+    <div class="date_change">
+        <span>日期</span>
+        <input type="text" name="datefilter" id="daterange_sta" class="daterange time-select range" ctrl="daterang" style="height:25px;width: 147px;" name ="clientTime" required >
+    </div>
+    <div class="clientSection page-row" style="display: block;" id="baseInfo">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-body no-height">
+                    <div id="userexperience" style="width:96%; height: 280px"></div>
+                </div>
+                <div class="line"></div>
+                <div class="box-footer">
+                    <div class="col-xs-6">
+                        <span class="title" style="color:#fe808b" ng-if="{true:'active',false:''}[isBad]">体验较差客户端详情  时间：{{eventData.timeNormal}}</span>
+                        <span class="title" style="color:#4ec1b2" ng-if="{true:'active',false:''}[isGood]">体验优质客户端详情  时间：{{eventData.timeNormal}}</span>
+                        <span class="title" style="color:#f2bc98" ng-if="{true:'active',false:''}[isNormal]">体验良好客户端详情  时间：{{eventData.timeNormal}}</span>
+                        <!--<span class="title" ng-if="{true:'active',false:''}[is50Actived]">体验<span>{{eventData.category}}</span>客户端详情 </span><span class="title">时间：{{eventData.timeNormal}}</span>-->
+                    </div>
+                    <div class="time-change">
+                        <a class="time-link" ng-class="{true:'active',false:''}[is10Actived]" ng-click="changeListNum(10)">top10</a>
+                        <a class="time-link" ng-class="{true:'active',false:''}[is50Actived]" ng-click="changeListNum(50)">top50</a>
+                        <a class="time-link" ng-class="{true:'active',false:''}[is100Actived]" ng-click="changeListNum(100)">top100</a>
+                       
+                    </div>
+                </div>
+                <div class="panel-body">
+                    <div bs-table=userTable></div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="clientSection page-row" style="display: none;" id="allInfo">
+        <div class="col-xs-3 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">体验评分</span>
+                </div>
+                <div class="box-body no-height">
+                    <div id="allexperience" class="myEchart" style="height:140px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-9 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">体验趋势</span>
+                </div>
+                <div class="box-body no-height">
+                    <div id="experienceLine" class="myEchart" style="height: 140px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">体验最差客户端TOP 5</span>
+                </div>
+                <div class="box-body" style="padding-right: 40px;height:280px;">
+                    <ul id="clientList">
+                        <li class="top-progress-block" ng-repeat="v in badClientList" ng-click="goStaorAP(v)">
+                            <span ng-bind="v.clientMAC"></span>
+                            <span style="float: right;" ng-bind="v.clientScore"></span>
+                            <div class="progress top-progress">
+                                <div class="progress-bar progress-bar-success" ng-class="v.color" role="progressbar" aria-valuenow="40" aria-valuemin="0"
+                                    aria-valuemax="100" style="width: {{v.valuePercent}}">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">体验差次数最多客户端TOP 5</span>
+                </div>
+                <div class="box-body" style="padding-right: 40px;height: 280px;">
+                    <ul id="clientCount">
+                        <li class="top-progress-block" ng-repeat="v in badCountList" ng-click="goStaorAP(v)">
+                            <span ng-bind="v.clientMAC"></span>
+                            <span style="float: right;" ng-bind="v.badScoreTimes"></span>
+                            <div class="progress top-progress">
+                                <div class="progress-bar progress-bar-success" ng-class="v.color" role="progressbar" aria-valuenow="40" aria-valuemin="0"
+                                    aria-valuemax="100" style="width: {{v.valuePercent}}">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">接入体验差客户端个数最多AP TOP 5</span>
+                </div>
+                <div class="box-body" style="padding-right: 40px;height: 280px;">
+                    <ul id="apCount">
+                        <li class="top-progress-block" ng-repeat="v in badAPList" ng-click="goStaorAP(v)">
+                            <span ng-bind="v.apSN"></span>
+                            <span style="float: right;" ng-bind="v.badStaCount"></span>
+                            <div class="progress top-progress">
+                                <div class="progress-bar progress-bar-success" ng-class="v.color" role="progressbar" aria-valuenow="40" aria-valuemin="0"
+                                    aria-valuemax="100" style="width: {{v.valuePercent}}">
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div id="userExp_rc" class="rc-define"
+    clientScore="体验分数"
+    negoSpeed="协商速率(Mbps)"
+    clientOnlineTime = "在线时长"
+    clientVendor = "厂商"
+    clientApName="关联AP" 
+    good = "优质"
+    bad = "较差"
+    normal = "良好"
+    radio = "射频ID"
+    userexperience = "用户体验"
+    WEEK="日, 一, 二, 三, 四, 五, 六"
+    MONTH="一月, 二月, 三月, 四月, 五月, 六月, 七月, 八月, 九月, 十月, 十一月, 十二月"
+    >
+</div>

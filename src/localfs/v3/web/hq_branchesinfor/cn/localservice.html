@@ -1,0 +1,87 @@
+<html>
+<head>
+	<!-- <link rel="stylesheet" type="text/css" href="/v3/web/h_stamgrclients/m_clients.css"> -->
+</head>
+<body>
+<!-- <dl class="headline wlan-headline">
+    <span class="headbutton">
+        <div class="btn-group shortcut">
+            <a class="btn btn-default" href="#M_WIPS?np=wips.help" title="Help"><i class="icon-book"> </i></a>
+        </div>
+    </span>
+</dl> -->
+
+<div class="page-row">
+    <div class="col-xs-12 app-colum left-block">
+        <div class="app-box">
+            <div class="select-footer" style="">
+                <div class="col-xs-1 ml20">
+                    <input type="radio" name="globals-info" id="ap_group" value="1" checked="checked">
+                    <label for="ap_group">全局</label>
+                </div>
+                <div class="col-xs-9">
+                    <input type="radio" name="globals-info" id="ap" value="2">
+                    <label for="ap">指定分支</label>
+                    <div id="branchSelectu"><select class="singleSelect" id="branchSelect" name="branchSelect" style="margin-top:0px;margin-left:10px;vertical-align:middle;height:20px;width:150px;"></select></div>
+                </div>                  
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dashboard">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block" debug="getAdMessage">
+            <div class="app-box no-height default-bottom">
+                <div class="box-footer">
+                    <span class="title">本地服务列表</span>
+                </div>
+                <div class="box-body no-height">
+                    <div id="server_slist" class="simple-list">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+ </div>       
+
+<div class="hide modal fade" id="ap_info">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">AP信息</h3>
+    </div>
+    <div class="modal-body">
+        <div id="ap_list" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" id="guanbi">关闭</a>
+    </div>
+</div>
+
+<div class="hide modal fade" id="apgroup_info">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">AP组信息</h3>
+    </div>
+    <div class="modal-body">
+        <div id="apgroup_list" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" id="guanbi">关闭</a>
+    </div>
+</div>
+
+ <div id="maoxian">
+</div>
+
+<div id="summary_rc" class="rc-define"
+LOCALAC_HEADER="无线服务名称,SSID,AP数,AP组数,在线客户端数"
+APLIST_HEADER="AP-MAC地址,AP-IP地址,AP名称"
+APGROUPLIST_HEADER="AP组名称,AP组描述"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("hq_branchesinfor.localservice");
+</script>
+

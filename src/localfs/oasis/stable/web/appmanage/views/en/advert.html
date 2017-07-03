@@ -1,0 +1,68 @@
+<div class="global-appstore">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">My Applications</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group zeromargin">
+                <button class="btn btn-cus" ng-disabled="!selection.length" ng-click="openAdvertMulti()">Start</button>
+                <button class="btn btn-cus" ng-disabled="!selection.length" ng-click="pauseAdvertMulti()">Pause</button>
+                <button class="btn btn-cus" ng-disabled="!advertUrl || !canStop" ng-click="openAdvertUrlWin()">Advertisement Platform</button>
+                <button class="btn btn-cus" ng-disabled="!canStop" ng-click="stopAdvert()">Stop</button>
+            </div>
+            <table bs-table="table"></table>
+        </div>
+    </div>
+    <div bs-modal="modal">
+        <div class="row">
+            <div class="col-xs-5 col-xs-offset-1">
+                <div class="advert-title">Start Advertisement：</div>
+                <p ng-show="detailShow.ad_index">
+                    <input type="checkbox" ng-model="detailInfo.ad_index">
+                    <span ng-click="detailInfo.ad_index=!detailInfo.ad_index" class="no-select">Index Page</span>
+                </p>
+                <p ng-show="detailShow.ad_login">
+                    <input type="checkbox" ng-model="detailInfo.ad_login">
+                    <span ng-click="detailInfo.ad_login=!detailInfo.ad_login" class="no-select">Login Page</span>
+                </p>
+                <p ng-show="detailShow.ad_portal">
+                    <input type="checkbox" ng-model="detailInfo.ad_portal">
+                    <span ng-click="detailInfo.ad_portal=!detailInfo.ad_portal" class="no-select">Redirected Page</span>
+                </p>
+                <p ng-show="detailShow.ad_home">
+                    <input type="checkbox" ng-model="detailInfo.ad_home">
+                    <span ng-click="detailInfo.ad_home=!detailInfo.ad_home" class="no-select">Home Page</span>
+                </p>
+            </div>
+            <div class="col-xs-6">
+                <div class="advert-title">Advertisement Preview：</div>
+                <img src="../appmanage/img/adPreview.png" alt="">
+            </div>
+        </div>
+    </div>
+    <div id="advertRc"
+         table-header="Shop,Shop Status,Advertisement Status,Operation"
+         config-show="Configure The Page Of Advertisement"
+         open-text="Started"
+         close-text="Closed"
+         noPublish="No Publish"
+         published="Published"
+         noBoundAc="No AC Bound"
+         noStart="Not Started"
+         started="Started"
+         configAdvert="Configure Advertisement"
+         configSucc="Configure Advertisement Success"
+         configFail="Configure Advertisement Fail"
+         stopSucc="Application Stop Success"
+         stopFail="Application Stop Fail"
+         startSucc="Application Start Success"
+         startFail="Application Start Fail"
+         pauseSucc="Application Pause Success"
+         pauseFail="Application Pause Fail"
+         requestError="Request Error"
+         operaConfig="Configure"
+         operaStart="Start"
+         operaPause="Pause"
+         paused="Paused">
+    </div>
+</div>

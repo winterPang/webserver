@@ -1,0 +1,487 @@
+
+<!-- Content -->
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">WeChat Official Account</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="chatList">
+                <div class="btn btn-cus" ng-click="AddChatModal()" ng-if="permission.write">Add</div>
+                <!-- Form Content -->
+                <div bs-table="tableOptions"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- 添加-模态框 -->
+<form class="form edit alretModel" name="addPubNumForm" bs-modal="add_modalOptions" style="height:400px;overflow:auto" novalidate>
+    <div class="info-tip">Make sure the following configuration is identical with the configuration on WeChat</div>
+    <div class="col-sm-6 response-block">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Account type</label>
+            <div class="col-sm-9">
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="pubNum1" name="type" value="1" checked class="input-element" ng-model="newUser.type"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':newUser.type==1}"></span>
+                        <label class="input-label" for="pubNum1"></label>
+                    </div>
+                    <label for="pubNum1">Subscription</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="pubNum2" name="type" value="2" class="input-element" ng-model="newUser.type"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':newUser.type==2}"></span>
+                        <label class="input-label" for="pubNum2"></label>
+                    </div>
+                    <label for="pubNum2">Service</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="pubNum3" name="type" value="3" class="input-element" ng-model="newUser.type"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':newUser.type==3}"></span>
+                        <label class="input-label" for="pubNum3"></label>
+                    </div>
+                    <label for="pubNum3">Enterprise</label>
+                </div>   
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Tencent-verified</label>
+            <div class="col-sm-9">
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="AuthType1" name="ifWeixinAuth" value="1" class="input-element" ng-model="newUser.ifWeixinAuth"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':newUser.ifWeixinAuth==1}"></span>
+                        <label class="input-label" for="AuthType1"></label>
+                    </div>
+                    <label for="AuthType1">Yes</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="AuthType2" name="ifWeixinAuth" checked value="0" class="input-element" ng-model="newUser.ifWeixinAuth"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':newUser.ifWeixinAuth==0}"></span>
+                        <label class="input-label" for="AuthType2"></label>
+                    </div>
+                    <label for="AuthType2">No</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" style="margin-top:16px;">
+            <label class="col-sm-3 control-label required">Name</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" required ng-minlength="6" ng-maxlength="20" name="add_name" ng-model="newUser.name" ng-pattern="/^[a-zA-Z][a-zA-Z0-9\_\-]*$/"/>
+                <label class="info-explain">(6-20 chars that can contain letters, digits, underscores, and minus signs. The first character of the name must be a letter.)</label>
+                <div ng-show="addPubNumForm.add_name.$dirty" ng-messages="addPubNumForm.add_name.$error" style="display: inline-block;">
+                    <label ng-message="pattern" class="error" style="display: inline-block;">
+                    The first character of the name must be a letter and only contain letters, digits, underscores, and minus signs.</label>
+                    <label ng-message="maxlength" class="error" style="display: inline-block;">The field cannot contain over 20 chars.</label>
+                    <label ng-message="minlength" class="error" style="display: inline-block;">The field must contain at least 6 chars.</label>
+                    <label ng-message="required" class="error" style="display: inline-block;">This field is required.</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" style="margin-top:16px;">
+            <label class="col-sm-3 control-label required">WeChat Account</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" required name="add_biz" ng-model="newUser.biz"/>
+                <!-- <label class="info-explain">（6-20 chars that can contain letters, digits, underscores, and minus signs. The first character of the name must be a letter.）</label> -->
+                <div ng-show="addPubNumForm.add_biz.$dirty" ng-messages="addPubNumForm.add_biz.$error" style="display: inline-block;">
+                    <!-- <label ng-message="pattern" class="error" style="display: inline-block;">
+                    The first character of the name must be a letter and only contain letters, digits, underscores, and minus signs.
+                    </label> -->
+                    <!-- <label ng-message="maxlength" class="error" style="display: inline-block;">The field cannot contain over 20 chars.</label> -->
+                    <!-- <label ng-message="minlength" class="error" style="display: inline-block;">The field must contain at least 6 chars.</label> -->
+                    <label ng-message="required" class="error" style="display: inline-block;">This field is required.</label>
+                </div>
+            </div>
+        </div>        
+        <div class="form-group">
+         <label class="col-sm-3 control-label">Description</label>
+        <div class="col-sm-9">
+                <input type="text" class="string big" ng-maxlength="256" name = "add_description"  ng-model="newUser.description"/>
+                <label class="info-explain">(1-256 chars)</label>
+                <div ng-show="addPubNumForm.add_description.$dirty" ng-messages="addPubNumForm.add_description.$error" style="display: inline-block;">
+                    <label ng-message="max
+                    length" class="error" style="display: inline-block;">
+                        The field cannot contain over 256 chars
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">APP ID
+                <span class="toggle">
+                    <i class="icon-question-sign" ng-click="State.appId=!State.appId"></i>
+                </span>
+            </label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" required ng-maxlength="64" name="add_appId" ng-model="newUser.appId"/>
+                <label class="info-explain">(1-64 chars)</label>
+                <label class="info-help" id="addAppIdInfo" ng-show="State.appId">
+Please obtain the APP ID from Basic Configuration on the WeChat official account platform.                </label>
+                <div ng-show="addPubNumForm.add_appId.$dirty" ng-messages="addPubNumForm.add_appId.$error" style="display: inline-block;">
+                    <label ng-message="maxlength" class="error" style="display: inline-block;">
+                        The field cannot contain over 64 chars.
+                    </label>
+                    <label ng-message="required" class="error" style="display: inline-block;">
+                        This field is required.
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">APP SECRET
+                <span class="toggle">
+                    <i class="icon-question-sign" ng-click="State.appSecret=!State.appSecret"></i>
+                </span>
+            </label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" required ng-maxlength="64" name = "add_appSecret" ng-model="newUser.appSecret"/>
+                <label class="info-explain">（1-64 chars）</label>
+                <label class="info-help" id="addAppSecretInfo" ng-show="State.appSecret">
+                Please obtain the APP SECRET from Basic Configuration on the WeChat official account platform.                
+                </label>
+                <div ng-show="addPubNumForm.add_appSecret.$dirty" ng-messages="addPubNumForm.add_appSecret.$error" style="display: inline-block;">
+                    <label ng-message="maxlength" class="error" style="display: inline-block;">
+                        The field cannot contain over 64 chars.
+                    </label>
+                    <label ng-message="required" class="error" style="display: inline-block;">
+                        This field is required.
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group detail-content">
+        <div class="advan_content">
+            <div>
+                <div class="float-left" style="cursor:pointer" ng-click="State.isAdvanOpen=!State.isAdvanOpen">
+                    <div class="advan_set advan_icon float-left"></div>
+                    <a class="float-left ad-button">
+                        <span class="text">Advanced Settings</span>
+                    </a>
+                    <div class="advan_set float-left advan_btn" ng-class="{true: 'advan_open', false: ''}[State.isAdvanOpen]"></div>
+                </div>
+                <div class="bottomline float-left"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 response-block" ng-show="State.isAdvanOpen">
+        <div class="form-group">
+            <label class="col-sm-5 control-label info-explain">Configure advanced settings with caution.</label>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">TOKEN</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" placeholder="default" required ng-maxlength="32" ng-minlength="3" name="add_token" ng-model="newUser.token" ng-pattern="/^[a-zA-Z0-9]*$/"/>
+                <label class="info-explain">(3-32 chars)</label>
+                <div ng-show="addPubNumForm.add_token.$dirty" ng-messages="addPubNumForm.add_token.$error" style="display: inline-block;">
+                    <label ng-message="maxlength" class="error" style="display: inline-block;">THe field cannot contain over 32.</label>
+                    <label ng-message="minlength" class="error" style="display: inline-block;">The field must contain at least 3 chars</label>
+                    <label ng-message="required" class="error" style="display: inline-block;">This field is required.
+                    </label>
+                    <label ng-message="pattern" class="error" style="display: inline-block;">
+                    （3-32 chars can only  contain letters or digits）</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Authenticated at
+                <span class="toggle">
+                <i class="icon-question-sign" ng-click="State.url=!State.url"></i>
+            </span>
+            </label>
+            <div class="col-sm-9">
+                <div>
+                    <input type="text" class="url big readonly" disabled name = "add_url" ng-model="newUser.url"/>
+                    <button class="btn btn-primary" id="url_rand" ng-click="addUrl($event)">Generate Randomly</button>
+                    <label class="info-help" id="IdentityUrlInfo" ng-show="State.url">
+Please configure the randomly generated address as the authentication server address of the WeChat official account.                    </label>
+                    <div ng-show="addPubNumForm.add_url.$dirty" ng-messages="addPubNumForm.add_url.$error" style="display: inline-block;">
+                        <label ng-message="required" class="error" style="display: inline-block;">
+This field is required.                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" disabled maxlength="43" id="encodingAesKey" name = "add_encodingAesKey" ng-model="newUser.encodingAesKey"/>
+                <button class="btn btn-primary" id="addRand" ng-click="generatingKey('add',$event)">Generate Password</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Encryption type</label>
+            <div class="col-sm-9">
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="cipherMode1" name="cipherMode" value="1" checked class="input-element" ng-model="newUser.cipherMode"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':newUser.cipherMode==1}"></span>
+                        <label class="input-label" for="cipherMode1"></label>
+                    </div>
+                    <label for="cipherMode1">Plaintext</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="cipherMode2" name="cipherMode" value="2" class="input-element" ng-model="newUser.cipherMode"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':newUser.cipherMode==2}"></span>
+                        <label class="input-label" for="cipherMode2"></label>
+                    </div>
+                    <label for="cipherMode1">Compatible</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="cipherMode3" name="cipherMode" value="3" class="input-element" ng-model="newUser.cipherMode"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':newUser.cipherMode==3}"></span>
+                        <label class="input-label" for="cipherMode3"></label>
+                    </div>
+                    <label for="cipherMode1">Secure</label>
+                </div>   
+            </div>
+        </div>
+    </div>
+</form>
+
+
+    <!-- 修改-模态框 -->
+<form class="form edit alretModel" name="chattoggleForm" bs-modal="edit_modalOptions" style="height:400px;overflow:auto" novalidate>
+    <div class="info-tip">Make sure the following configuration is identical with the configuration on WeChat</div>
+    <div class="col-sm-6 response-block">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Account type</label>
+            <div class="col-sm-9">
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="publicNumber1" name="type" value="1" class="input-element" ng-model="rowData.type"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':rowData.type==1}"></span>
+                        <label class="input-label" for="publicNumber1"></label>
+                    </div>
+                    <label for="publicNumber1">Subscription</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="publicNumber2" name="type" value="2" class="input-element" ng-model="rowData.type"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':rowData.type==2}"></span>
+                        <label class="input-label" for="publicNumber2"></label>
+                    </div>
+                    <label for="publicNumber2">Service</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="publicNumber3" name="type" value="3" class="input-element" ng-model="rowData.type"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':rowData.type==3}"></span>
+                        <label class="input-label" for="publicNumber3"></label>
+                    </div>
+                    <label for="publicNumber3">Enterprise</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Tencent-verified</label>
+            <div class="col-sm-9">
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="chatAuthType1" name="ifWeixinAuth" value="1" class="input-element" ng-model="rowData.ifWeixinAuth"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':rowData.ifWeixinAuth==1}"></span>
+                        <label class="input-label" for="chatAuthType1"></label>
+                    </div>
+                    <label for="chatAuthType1">Yes</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="chatAuthType2" name="ifWeixinAuth" value="0" class="input-element" ng-model="rowData.ifWeixinAuth"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':rowData.ifWeixinAuth==0}"></span>
+                        <label class="input-label" for="chatAuthType2"></label>
+                    </div>
+                    <label for="chatAuthType2">No</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">Name</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="chatname" name = "name" ng-model="rowData.name" disabled/>
+                <label class="info-explain">(6-20 chars that can contain letters, digits, underscores, and minus signs. The first character of the name must be a letter.)</label>
+            </div>
+        </div>
+        <div class="form-group" style="margin-top:16px;">
+            <label class="col-sm-3 control-label required">WeChat Account</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" required name="edit_biz" ng-model="rowData.biz" disabled />
+                <!-- <label class="info-explain">（微信号必须是以字母开头的6-20个字母、数字、下划线或减号的组合）</label> -->
+                <div ng-show="chattoggleForm.edit_biz.$dirty" ng-messages="chattoggleForm.edit_biz.$error" style="display: inline-block;">
+                    <label ng-message="required" class="error" style="display: inline-block;">This field is required。</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Description</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" ng-maxlength="256" name = "description"  ng-model="rowData.description"/>
+                <label class="info-explain">(1-256 chars)</label>
+                <div ng-show="chattoggleForm.description.$dirty" ng-messages="chattoggleForm.description.$error" style="display: inline-block;">
+                    <label ng-message="maxlength" class="error" style="display: inline-block;">
+The field must not exceed 256 chars.
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">APP ID
+                <span class="toggle">
+                    <i class="icon-question-sign" ng-click="State.appId=!State.appId"></i>
+                </span>
+            </label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" required ng-maxlength="64" name="appId" ng-model="rowData.appId"/>
+                <label class="info-explain">（1-64 chars）</label>
+                <label class="info-help" id="AppIdInfo" ng-show="State.appId">
+Please obtain the APP ID from Basic Configuration on the WeChat official account platform.                </label>
+                <div ng-show="chattoggleForm.appId.$dirty" ng-messages="chattoggleForm.appId.$error" style="display: inline-block;">
+                    <label ng-message="maxlength" class="error" style="display: inline-block;">
+The name must not exceed 64 chars.                    </label>
+                    <label ng-message="required" class="error" style="display: inline-block;">
+                        This field is required.
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">APP SECRET
+                <span class="toggle">
+                    <i class="icon-question-sign" ng-click="State.appSecret=!State.appSecret"></i>
+                </span>
+            </label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" required ng-maxlength="64" name = "appSecret" ng-model="rowData.appSecret"/>
+                <label class="info-explain">（1-64 chars）</label>
+                <label class="info-help" id="appSecretInfo" ng-show="State.appSecret">
+Please obtain the APP SECRET from Basic Configuration on the WeChat official account platform.                 </label>
+                <div ng-show="chattoggleForm.appSecret.$dirty" ng-messages="chattoggleForm.appSecret.$error" style="display: inline-block;">
+                    <label ng-message="maxlength" class="error" style="display: inline-block;">
+                        The name must not exceed 64 chars.
+                    </label>
+                    <label ng-message="required" class="error" style="display: inline-block;">
+                        This field is required.
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group detail-content">
+        <div class="advan_content">
+            <div>
+                <div class="float-left" style="cursor:pointer" ng-click="State.isAdvanOpen=!State.isAdvanOpen">
+                    <div class="advan_set advan_icon float-left"></div>
+                    <a class="float-left ad-button">
+                        <span class="text">Advanced Settings</span>
+                    </a>
+                    <div class="advan_set float-left advan_btn" ng-class="{true: 'advan_open', false: ''}[State.isAdvanOpen]"></div>
+                </div>
+                <div class="bottomline float-left"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 response-block" ng-show="State.isAdvanOpen">
+        <div class="form-group">
+            <label class="col-sm-5 control-label info-explain">Configure advanced settings with caution.</label>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">TOKEN</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" required ng-maxlength="32" ng-minlength="3" name="token" ng-model="rowData.token" ng-pattern="/^[a-zA-Z0-9]*$/"/>
+                <label class="info-explain">(3-32 chars)</label>
+                <div ng-show="chattoggleForm.token.$dirty" ng-messages="chattoggleForm.token.$error" style="display: inline-block;">
+                    <label ng-message="maxlength" class="error" style="display: inline-block;">The field cannot contain over 32 chars</label>
+                    <label ng-message="minlength" class="error" style="display: inline-block;">The field must contain at least 3 chars<</label>
+                    <label ng-message="required" class="error" style="display: inline-block;">This field is required.</label>
+                    <label ng-message="pattern" class="error" style="display: inline-block;">3-32 chars can only  contain letters or digits </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Authenticated at
+                <span class="toggle">
+                    <i class="icon-question-sign" ng-click="State.url=!State.url"></i>
+                </span>
+                </span>
+            </label>
+            <div class="col-sm-9">
+                <div>
+                    <input type="text" class="url big readonly" disabled name = "url" ng-model="rowData.url"/>
+                    <label class="info-help" id="IdentityUrlInfo" ng-show="State.url">
+Please configure the randomly generated address as the authentication server address of the WeChat official account.</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Password</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" disabled maxlength="43" name = "encodingAesKey" ng-model="rowData.encodingAesKey"/>
+                <button class="btn btn-primary" id="rand" ng-click="generatingKey('item',$event)">Generate Password</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Encryption type</label>
+            <div class="col-sm-9">
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="encryptionType1" name="cipherMode" value="1" class="input-element" ng-model="rowData.cipherMode"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':rowData.cipherMode==1}"></span>
+                        <label class="input-label" for="encryptionType1"></label>
+                    </div>
+                    <label for="encryptionType1">Plaintext</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="encryptionType2" name="cipherMode" value="2" class="input-element" ng-model="rowData.cipherMode"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':rowData.cipherMode==2}"></span>
+                        <label class="input-label" for="encryptionType2"></label>
+                    </div>
+                    <label for="encryptionType2">Compatible</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="encryptionType3" name="cipherMode" value="3" class="input-element" ng-model="rowData.cipherMode"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':rowData.cipherMode==3}"></span>
+                        <label class="input-label" for="encryptionType3"></label>
+                    </div>
+                    <label for="encryptionType3">Secure</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+    <!-- del-Modal -->
+<div bs-modal="del_modalOptions">Are you sure you want to delete the selected official account?</div>
+
+<!--info tip-->
+<div id="controllerInfo"
+    tableTitle="WeChat Official Account"
+    addTitle="add WeChat Official Account"
+    editTitle="edit WeChat Official Account"
+    delTitle="Confirmation Prompt"
+    okText="OK"
+    cancelText="Cancel"
+    msgAddSuc="Official account added successfully"
+    msgAddNameExist="The name already exists,please re-enter"
+    msgAddAIExist="The APP ID already exists，please re-enter"
+    msgAddError="Failed to add,please try again"
+    msgEditSuc="Modified successfully"
+    msgEditError="Failed to modify,please try again"
+    msgDelSuc="Official account deleted successfully"
+    msgDelDontExist="The name does not exist"
+    msgDelPub="The WeChat official account is bound to a published template and cannot be deleted."
+    msgDelError="Failed to delete,please try again"
+    weSerCantReutrn="No verification results were received form the WeChat server."
+    bizError="WeChat account verification failed."
+    appIdError="AppId verification failed."
+    appSecretError="AppSecret verification failed."
+    err1502=" The token must be a string of 3 to 32 characters including English letters or digits."
+    err1503="The password must contain 43 characters,which can be digits or letters."
+    msgDel1309="Operation failed.Please first export the stores of this official account."
+  ></div>

@@ -1,0 +1,106 @@
+<!--<div class="input-icon checkbox-icon switch checked" ng-class="{'checked':drsValueIsEnable}" ng-click="drsValueChange()"></div>-->
+<div l-menu="" class="l-left">
+    <div><img src="../l/images/logo.png"></div>
+    <div>
+        <ul class="l-first">
+            <li>
+                <div class="l-animate">网络监控<i class="l-open"></i></div>
+                <ul class="l-second">
+                    <li>
+                        <div ng-class="{'active':$state.current.name.indexOf('monitor')!=-1}" class="l-animate"><i class="l-dashboard"></i>概览</div>
+                        <ul class="l-third">
+                            <li ui-sref="menu1.monitor_dashboard" ui-sref-active="active"><i></i>网络概览</li>
+                            <li ui-sref="menu1.monitor_total" ui-sref-active="active"><i></i>广告分析</li>
+                            <li ui-sref="menu1.monitor_customer" ui-sref-active="active"><i></i>宾客信息</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="l-animate"><i class="l-hotmap"></i>网络热图</div>
+                        <ul class="l-third" style="display: none;">
+                            <li><i></i>设备概览</li>
+                            <li><i></i>终端信息</li>
+                            <li><i></i>流量分析</li>
+                            <li><i></i>设备信息</li>
+                            <li><i></i>网络信息</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="l-animate"><i class="l-tijian"></i>网络体检</div>
+                    </li>
+                    <li>
+                        <div class="l-animate"><i class="l-wiresecurit"></i>无线安全</div>
+                    </li>
+                    <li>
+                        <div class="l-animate"><i class="l-warning"></i>告警日志</div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="l-animate">网络部署<i class="l-close"></i></div>
+                <ul class="l-second" style="display: none">
+                    <li>
+                        <div class="l-animate"><i class="l-dashboard"></i>概览</div>
+                        <ul class="l-third">
+                            <li><i></i>设备概览</li>
+                            <li><i></i>终端信息</li>
+                            <li><i></i>流量分析</li>
+                            <li><i></i>设备信息</li>
+                            <li><i></i>网络信息</li>
+                        </ul>
+                    </li>
+                    <li>
+                        <div class="l-animate"><i class="l-tijian"></i>网络体检</div>
+                    </li>
+                    <li>
+                        <div class="l-animate"><i class="l-hotmap"></i>网络热图</div>
+                    </li>
+                    <li>
+                        <div class="l-animate"><i class="l-wiresecurit"></i>无线安全</div>
+                    </li>
+                    <li>
+                        <div class="l-animate"><i class="l-warning"></i>告警日志</div>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <div class="l-animate">应用管理<i class="l-close"></i></div>
+            </li>
+            <li>
+                <div class="l-animate">网络维护<i class="l-close"></i></div>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="l-right">
+    <div class="l-top-panel container-fluid">
+        <div class="pull-left">
+            <label class="change_station">场所切换： </label>
+            <select class="form-control" style="width: 180px;margin-right: 20px;">
+                <option value="">园区商业Wi-Fi</option>
+                <option value="">上海</option>
+                <option value="">广州</option>
+                <option value="">天津</option>
+            </select>
+        </div>
+        <div class="pull-right">
+            <div class="dropdown">
+                <button class="btn btn-default dropdown-toggle"
+                        type="button" id="userdrop" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="true">
+                    {{userInfo.attributes.name}} <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="userdrop">
+                    <li><a ui-sref="global.content.system.site">系统管理</a></li>
+                    <li><a href="https://lvzhoutest.h3c.com/o2o/o2omng/homePage/homePage.jsf">返回首页</a></li>
+                    <li><a href="javascript:window.location='/v3/logout'">注销</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="pull-right">
+            <img src="images/wechat.png">
+            <img src="images/jay.png">
+        </div>
+
+    </div>
+    <div class="container-fluid" ui-view style="padding-top: 69px"></div>
+</div>

@@ -1,0 +1,100 @@
+<div class="global-appstore">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">App Store</h3>
+        </div>
+        <div class="panel-body">
+            <!--container-->
+            <div class="app-item-box" ng-show="hotApps.length">
+                <!--category-->
+                <div class="app-box-header">Hot Apps</div>
+                <!--application's body-->
+                <div class="app-box-body clearfix">
+                    <div ng-hide="hotApps.length" class="no-data">No Data Display</div>
+                    <!--single application's information-->
+                    <div class="app-item col-lg-2 col-md-3 col-sm-3 col-xs-6" ng-repeat="app in hotApps">
+                        <!--application's icon-->
+                        <div class="app-item-icon">
+                            <!--<img ng-click="showDetail(app.id)" src="http://download.easyicon.net/png/1164771/72/" alt="{{app.name}}">-->
+                            <!--<img ng-click="showDetail(app.id)" src="http://172.27.9.118/data/upload/shop/store/goods/6/6_05349390159442003_240.jpg" alt="{{app.name}}">-->
+                            <img ng-click="showDetail(app.id)" ng-src="{{app.logo}}">
+                        </div>
+                        <!--application's name-->
+                        <div class="app-item-name" ng-bind="app.name"></div>
+                    </div>
+                </div>
+            </div>
+            <!--container-->
+            <div class="app-item-box" ng-show="newApps.length">
+                <!--category-->
+                <div class="app-box-header">New Apps</div>
+                <!--application's container-->
+                <div class="app-box-body clearfix">
+                    <div ng-hide="newApps.length" class="no-data">No Data Display</div>
+                    <!--single application's information-->
+                    <div class="app-item col-lg-2 col-md-3 col-sm-3 col-xs-6" ng-repeat="app in newApps">
+                        <!--application's logo-->
+                        <div class="app-item-icon">
+                            <!--<img ng-click="showDetail(app.id)" src="http://download.easyicon.net/png/1164771/72/" alt="{{app.name}}">-->
+                            <!--<img ng-click="showDetail(app.id)" src="http://172.27.9.118/data/upload/shop/store/goods/6/6_05349390159442003_240.jpg" alt="{{app.name}}">-->
+                            <img ng-click="showDetail(app.id)" ng-src="{{app.logo || img}}">
+                        </div>
+                        <!--application's name-->
+                        <div class="app-item-name" ng-bind="app.name"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="app-item-box">
+                <!--category-->
+                <div class="app-box-header">All Apps</div>
+                <!--application's container-->
+                <div class="app-box-body clearfix">
+                    <div class="col-xs-6">
+                        <div class="app-all-type">Free Apps</div>
+                        <div ng-hide="freeApps.length" class="no-data">No Data Display</div>
+                        <!--single application's information-->
+                        <div class="app-item col-lg-4 col-md-6 col-sm-6 col-xs-12" ng-repeat="app in freeApps">
+                            <!--application's icon-->
+                            <div class="app-item-icon">
+                                <!--<img ng-click="showDetail(app.id)" src="http://download.easyicon.net/png/1164771/72/" alt="{{app.name}}">-->
+                                <!--<img ng-click="showDetail(app.id)" src="http://172.27.9.118/data/upload/shop/store/goods/6/6_05349390159442003_240.jpg" alt="{{app.name}}">-->
+                                <img ng-click="showDetail(app.id)" ng-src="{{app.logo || img}}">
+                            </div>
+                            <!--application's name-->
+                            <div class="app-item-name" ng-bind="app.name"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6" style="border-left: 1px solid #ddd">
+                        <div class="app-all-type">Fee Apps</div>
+                        <div ng-hide="feeApps.length" class="no-data">No Data Display</div>
+                        <!--single application's information-->
+                        <div class="app-item col-lg-4 col-md-6 col-sm-6 col-xs-12" ng-repeat="app in feeApps">
+                            <!--application's icon-->
+                            <div class="app-item-icon">
+                                <!--<img ng-click="showDetail(app.id)" src="http://download.easyicon.net/png/1164771/72/" alt="{{app.name}}">-->
+                                <!--<img ng-click="showDetail(app.id)" src="http://172.27.9.118/data/upload/shop/store/goods/6/6_05349390159442003_240.jpg" alt="{{app.name}}">-->
+                                <img ng-click="showDetail(app.id)" ng-src="{{app.logo || img}}">
+                            </div>
+                            <!--application's name-->
+                            <div class="app-item-name" ng-bind="app.name"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div bs-modal="detailModal" class="app-detail-modal">
+        <p>App Name：{{detail.name}}</p>
+        <p>App Description：{{detail.description}}</p>
+        <p>App Preview：</p>
+        <p>
+            <img width="100%" ng-src="{{detail.logo}}" alt="">
+            <!--<img width="100%" ng-src="//gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/42166d224f4a20a4aa3b45a092529822720ed0b4.jpg" alt="">-->
+        </p>
+    </div>
+    <div id="appstore_list"
+         modal_ok="Purchase"
+         modal_cancel="Cancel"
+         modal_title="Application Detail"
+    ></div>
+</div>

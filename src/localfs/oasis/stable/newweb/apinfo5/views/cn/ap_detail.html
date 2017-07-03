@@ -1,0 +1,43 @@
+<div class="apinfo5-detail">
+    <div class="btn_h_return" ng-click="onReturn();"></div>
+    <oasis-row>
+        <oasis-col xs=12>
+            <oasis-box>
+                <oasis-box-header ostitle='AP列表'></oasis-box-header>
+                <oasis-box-body height-auto>
+                    <oasis-col xs=12>
+                         <oasis-radio   os-model="apinfo.checked" value="base">基本信息</oasis-radio>
+                         <oasis-radio   os-model="apinfo.checked" value="radio">射频信息</oasis-radio>
+                         <oasis-radio   os-model="apinfo.checked" value="link">连接信息</oasis-radio>
+                         <oasis-radio   os-model="apinfo.checked" value="client">客户端信息</oasis-radio>   
+                    </oasis-col>
+                    <oasis-button ng-click="refresh()" text="刷新"></oasis-button>
+                    <oasis-button ng-show="exportState" ng-click="export()" text="导出"></oasis-button>
+                     <div bs-table="clients_list_jb" ></div>
+                </oasis-box-body>
+            </oasis-box>
+        </oasis-col>
+    </oasis-row>
+
+    <div id="clients_rc" class="rc-define"
+        BUTTON_CANCEL="返回"
+        EXPORT_LOG="导出"
+        KICKOUT_renzheng="注销绿洲用户"
+        KICKOUT_ALL="注销所有绿洲用户"
+        KICKOUT_lixian="清除在线状态"     
+        LIST_HEADER="AP名称,AP型号,序列号,AP组名称,MAC地址,IP地址"
+        LIST_HEADER_SP="AP名称,AP型号,序列号,AP射频,信道,功率"
+        LIST_HEADER_TJ="AP名称,AP型号,序列号,在线时长,MAC地址,IP地址"
+        LIST_HEADER_YH="AP名称,AP型号,序列号,5G客户端数量,2.4客户端数量"
+        LIST_HEADER_LX="MAC地址,IP地址,用户名,认证方式,portal 上线时间"
+        USER_TYPE="一键认证,短信认证,微信客户端认证,支付宝认证,QQ认证,微信公众号认证,固定账号认证"
+        LIST_POWERSAVEMODE="激活,休眠"
+        LIST_QOSMODE="N/A,WMM,11e,WMM and 11e"
+        SEC_TYPE="不认证,802.1X认证,静态PSK密钥,静态WEP密钥,MAC地址认证,Portal认证,动态WEP密钥,802.1X 认证（不加密）"
+        TITLE_FLOWINFO="终端详情"
+        TITLE_RenZhengINFO="已认证终端详情"
+        FRESH="刷新"
+        STATUS=",在线,离线,正在下载版本"
+     ></div>
+</div>
+

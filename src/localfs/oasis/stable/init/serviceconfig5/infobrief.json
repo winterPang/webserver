@@ -1,0 +1,37 @@
+[
+    {"stName":"st1",
+     "ssidName":"A",
+     "lvzhouAuthMode":"2",
+ 	 "status":"2",
+ 	 "apGroupCnt":"5",
+ 	 "apCnt":"5"
+ 	},
+    {"stName":"st2",
+     "ssidName":"B",
+	 "lvzhouAuthMode":"1",
+  	 "status":"1",
+	 "apGroupCnt":"5",
+	 "apCnt":"5"
+	},
+    {"stName":"st3",
+     "ssidName":"C",
+	 "lvzhouAuthMode":"2",
+  	 "status":"1",
+	 "apGroupCnt":"5",
+	 "apCnt":"5"
+	},
+	{"stName":"st4",
+     "ssidName":"D",
+	 "lvzhouAuthMode":"0",
+  	 "status":"1",
+	 "apGroupCnt":"5",
+	 "apCnt":"5"
+	}, 
+	{"stName":"st5",
+     "ssidName":"E",
+	 "lvzhouAuthMode":"1",
+  	 "status":"1",
+	 "apGroupCnt":"5",
+	 "apCnt":"5"
+	}   
+]

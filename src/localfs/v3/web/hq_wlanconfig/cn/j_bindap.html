@@ -1,0 +1,67 @@
+<html>
+<head>
+</head>
+<body>
+
+<div class="page-row">
+    <div class="btn_h_return" id="return"></div>
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height default-bottom">
+
+            <div class="box-footer">
+                <span class="title">已绑定无线服务</span>
+            </div>
+
+            <div class="box-body no-height">
+                <div>
+                    <label>当前AP：</label>
+                    <label ><span style="color:#4EC1B2" class="curAP"></span></label>
+                </div>
+                <div class="simple-list" id="WLSerByAP_List"></div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="page-row">
+   <div class="col-xs-12 app-colum">
+        <div class="app-box no-height default-bottom">
+
+            <div class="box-footer">
+                <span class="title">其他无线服务</span>
+            </div>
+            <div class="box-body no-height">
+                <div>
+                    <label>当前AP：</label>
+                    <label ><span style="color:#4EC1B2" class="curAP"></span></label>
+                </div>
+                <div class="simple-list"id="OWLSerByAP_List"></div>
+            </div>
+
+        </div>
+    </div> 
+</div>
+
+ 
+
+<div class="rc-define" id="bindAP_rc"
+
+MSG_INFO_ERROR = "数据获取失败!!!"
+BIND_BTN = "绑定"
+UNBIND_BTN = "解除绑定"
+ENABLE_DISABLE = "使能状态,开启,关闭"
+
+WL_ST_TYPE = "内部-WiFi,商业-WiFi"
+WL_AUTH_TYPE = "不认证,一键认证,账号认证"
+WL_ST_STATUS = "开启, 关闭"
+
+WLSER_BYAP_LIST_HEADER="无线服务名称,SSID,服务类型,认证方式,服务状态"      
+        
+></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("hq_wlanconfig.j_bindap");
+</script>

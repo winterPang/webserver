@@ -1,0 +1,134 @@
+<div class="beforeLogin">
+    <div class="banner"></div>
+    <div class="content">
+        <img src="../img/logo-cn.png" class="logo">
+        <div class="go-login">已有账号，请<a href="../../../login.html">登录</a></div>
+        <div class="top-line"></div>
+        <div class="title">
+            <div>注册通行证</div>
+            <a class="change" ui-sref="registerByEmail">邮箱注册</a>
+        </div>
+        <div class="line"></div>
+        <form class="form" name="byPhone" novalidate>
+            <div class="form-group">
+                <label>用户名</label>
+                <input type="text" name="name" placeholder="6-32位，以字母开头包含字母数字或下划线" ng-model="register.name" required
+                       ng-pattern="/^[a-zA-Z][a-zA-Z0-9_]{5,31}$/" ajax-valid="validName" ng-blur="change.name=true"
+                       ng-focus="change.name=false" ng-keyup="keySubmit($event)">
+                <div class="error" ng-show="byPhone.name.$invalid && byPhone.name.$dirty&&change.name"
+                     ng-messages="byPhone.name.$error">
+                    <span ng-message="required">用户名不能为空</span>
+                    <span ng-message="pattern">用户名格式不正确</span>
+                    <span ng-message="ajaxValid">该用户名已被注册</span>
+                </div>
+                <div class="success" ng-show="byPhone.name.$valid&&change.name"></div>
+            </div>
+            <div class="form-group">
+                <label>验证码</label>
+                <input class="h142" type="text" placeholder="请输入验证码" name="code" ng-model="register.code" required
+                       ng-change="clearCodeError()" ng-minlength="4" ng-maxlength="4" ng-blur="change.code=true"
+                       ng-focus="change.code=false" ng-keyup="keySubmit($event)">
+                <div class="code" ng-click="changeCode()">
+                    <img ng-src="{{getCode}}">
+                </div>
+                <div class="error" ng-show="byPhone.code.$invalid && byPhone.code.$dirty&&change.code"
+                     ng-messages="byPhone.code.$error">
+                    <span ng-message="required">验证码不能为空</span>
+                    <span ng-message="minlength">验证码为4位</span>
+                    <span ng-message="maxlength">验证码为4位</span>
+                </div>
+                <div class="error" ng-show="codeError.show">
+                    <span ng-show="codeError.required">验证码不能为空</span>
+                    <span ng-show="codeError.error">验证码有误</span>
+                    <span ng-show="codeError.timeOut">验证码已失效,请更换</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>手机号</label>
+                <input type="text" name="phone" ng-model="register.phone" placeholder="请输入手机号" required
+                       ng-pattern="/^1[34578]\d{9}$/" ajax-valid="validPhone" ng-blur="change.phone=true"
+                       ng-focus="change.phone=false" ng-keyup="keySubmit($event)">
+                <div class="error" ng-show="byPhone.phone.$dirty && byPhone.phone.$invalid&&change.phone"
+                     ng-messages="byPhone.phone.$error">
+                    <span ng-message="required">手机号不能为空</span>
+                    <span ng-message="pattern">请输入正确的手机号</span>
+                    <span ng-message="ajaxValid">该手机号已注册</span>
+                </div>
+                <div class="success" ng-show="byPhone.phone.$valid&&change.phone"></div>
+            </div>
+            <div class="form-group">
+                <label>手机验证码</label>
+                <input class="pr88" type="text" placeholder="请输入手机验证码" ng-model="register.checkCode" name="checkCode" required
+                       ng-blur="change.checkCode=true" ng-focus="change.checkCode=false" ng-keyup="keySubmit($event)">
+                <div class="btn-sort" ng-class="{'disabled':codeDisabled}" ng-click="getPhoneCode($event)">获取验证码</div>
+                <div class="error" ng-show="byPhone.checkCode.$dirty && byPhone.checkCode.$invalid&&change.checkCode"
+                     ng-messages="byPhone.checkCode.$error">
+                    <span ng-message="required">手机验证码不能为空</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>登录密码</label>
+                <input class="pr37" id="password" type="password" placeholder="请输入8-32位登录密码" required ng-pattern="passwordpat" name="password" ng-model="register.password" ng-hide="showPassword" ng-blur="change.password=true" ng-focus="change.password=false" oncopy="return false;" onpaste="return false;" oncut="return false;" ng-keyup="keySubmit($event)">
+                <input class="pr37" type="text" placeholder="请输入8-32位登录密码" ng-model="register.password" ng-show="showPassword" name="password1" ng-blur="change.password=true" ng-focus="change.password=false" oncopy="return false;" onpaste="return false;" oncut="return false;" ng-keyup="keySubmit($event)">
+                <i class="icon-eye" ng-class="{'open':toggleEye}" ng-click="togglePassword()"></i>
+                <div class="error"
+                     ng-show="byPhone.password.$invalid&&change.password&&(byPhone.password.$dirty||byPhone.password1.$dirty)"
+                     ng-messages="byPhone.password.$error">
+                    <span ng-message="required">密码不能为空</span>
+                    <span ng-message="pattern">8-32位非空格英文字符</span>
+                </div>
+                <div class="success" ng-show="byPhone.password.$valid&&change.password&&(byPhone.password.$dirty||byPhone.password1.$dirty)"></div>
+                <div class="password-level" ng-show="passwordLevel">
+                    <div class="word">
+                        <div class="word1"><span ng-show="pw.l">弱</span></div>
+                        <div class="word2"><span ng-show="pw.m">中</span></div>
+                        <div class="word3"><span ng-show="pw.h">强</span></div>
+                    </div>
+                    <div class="level">
+                        <div class="level1" ng-show="pw.l"></div>
+                        <div class="level2" ng-show="pw.m"></div>
+                        <div class="level3" ng-show="pw.h"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>确认密码</label>
+                <input class="pr37" type="password" placeholder="请输入确认密码" name="conpassword" ng-model="conpassword"
+                       ng-hide="showPasswordCon" required pw-check="password" ng-blur="change.conpassword=true"
+                       ng-focus="change.conpassword=false"  oncopy="return false;" onpaste="return false;" oncut="return false;" ng-keyup="keySubmit($event)">
+                <input class="pr37" type="text" placeholder="请输入确认密码" name="conpassword1" ng-model="conpassword"
+                       ng-show="showPasswordCon" ng-blur="change.conpassword=true"
+                       ng-focus="change.conpassword=false"  oncopy="return false;" onpaste="return false;" oncut="return false;" ng-keyup="keySubmit($event)">
+                <i class="icon-eye" ng-class="{'open':toggleEyeCon}" ng-click="togglePasswordCon()"></i>
+                <div class="error"
+                     ng-show="byPhone.conpassword.$invalid&&change.conpassword&&(byPhone.conpassword.$dirty||byPhone.conpassword1.$dirty)"
+                     ng-messages="byPhone.conpassword.$error">
+                    <span ng-message="required">确认密码不能为空</span>
+                    <span ng-message="pwCheck">密码不一致</span>
+                </div>
+                <div class="success"
+                     ng-show="byPhone.conpassword.$valid &&change.conpassword&&(byPhone.conpassword.$dirty||byPhone.conpassword1.$dirty)"></div>
+            </div>
+            <div class="form-group">
+                <label></label>
+                <input type="checkbox" ng-model="agree"/><span>同意<a class="register-pro" target="_blank" ui-sref="provision">绿洲用户注册协议</a></span>
+            </div>
+            <div class="form-group">
+                <label></label>
+                <div class="btn" ng-click="submitData()">完成注册</div>
+            </div>
+            <div class="form-group mt0" ng-show="error.show">
+                <label></label>
+                <div class="backstageError" ng-bind="error.message"></div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="read_rc" id="register_byPhone_rc"
+     request-error="请求发送失败，请重试"
+     code-error="图片验证码获取失败，请点击重试"
+     code-text="获取验证码,重新发送"
+     phone-code="手机验证码发送失败，请重试"
+     data-error="请正确填写注册信息"
+     agree-error="请同意绿洲用户注册信息">
+</div>

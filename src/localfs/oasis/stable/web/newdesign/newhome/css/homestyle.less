@@ -1,0 +1,446 @@
+.oasis-home{
+  font-family: "Microsoft YaHei";
+  .oasis-home-header{
+    background-color: #292f34;
+    border-bottom: 1px solid #384147;
+    //384147
+    .oasis-header-main{
+      width: 1000px;
+      margin: 0 auto;
+      height: 78px;
+      //border-bottom: 1px solid #eeeeee;
+      .oasis-header-nav{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        height: 77px;
+        line-height: 77px;
+        float: left;
+        li{
+          float: left;
+          color: #fffdf8;
+          font-size: 16px;
+          margin: auto 15px;
+          cursor: pointer;
+          &:hover{
+            color: #59ddcc;
+          }
+          &.active{
+            color: #59ddcc;
+          }
+        }
+      }
+      .oasis-header-right{
+        float: right;
+        height: 78px;
+        text-align: center;
+        line-height: 78px;
+        >div{
+          display: inline-block;
+          &:nth-child(1){
+            position: relative;
+            >input{
+              width: 150px;
+              background-color: #323a3f;
+              border: none;
+              &::-webkit-input-placeholder { /* WebKit browsers */
+                color:#80878c;
+              }
+              &:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+                color:#80878c;
+              }
+              &::-moz-placeholder { /* Mozilla Firefox 19+ */
+                color:#80878c;
+              }
+              &:-ms-input-placeholder { /* Internet Explorer 10+ */
+                color:#80878c;
+              }
+            }
+            >span{
+              position: absolute;
+              top: 34px;
+              right: 10px;
+              color: #ffffff;
+            }
+          }
+          &:nth-child(2){
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #292f34;
+            font-size: 16px;
+            color: #ffffff;
+          }
+          &:nth-child(3){
+            width: 80px;
+            height: 30px;
+            line-height: 30px;
+            background-color: #51c9b9;
+            font-size: 16px;
+            color: #ffffff;
+          }
+        }
+      }
+    }
+  }
+  .oasis-home-banner{
+    img{
+      width: 100%;
+    }
+  }
+  .oasis-home-title{
+    height: 150px;
+    background-color: #384147;
+    .oasis-title-main{
+      width: 1000px;
+      height: 150px;
+      margin: 0 auto;
+      border-left: 1px solid #4d5961;
+      border-right: 1px solid #4d5961;
+      >div{
+        float: left;
+        width: 33.333%;
+        height: 150px;
+        border-right: 1px solid #4d5961;
+        padding-left: 20px;
+        display: table;
+        &:last-child{
+          border-right:none;
+        }
+        .oasis-title-content{
+          display: table-cell;
+          vertical-align: middle;
+          >div{
+            &:first-child{
+              color: #fffdf8;
+              font-size: 22px;
+              padding-bottom: 10px;
+            }
+            &:last-child{
+              color: #a5a7a6;
+              font-size: 16px;
+            }
+          }
+        }
+      }
+    }
+  }
+  .oasis-home-content-first{
+    height: 350px;
+    background-color: #f9fafa;
+    >div{
+      &:first-child{
+        height: 45px;
+        border-bottom: 1px solid #e7e7e9;
+        text-align: center;
+        >div{
+          width: 120px;
+          display: inline-block;
+          font-size: 22px;
+          color: #292f34;
+          background-color: #f9fafa;
+          margin-top: 28px;
+        }
+      }
+      &:last-child{
+        text-align: center;
+        padding-top: 25px;
+        ul{
+          list-style: none;
+          width: 1000px;
+          margin: 0 auto;
+          li{
+            display: inline-block;
+            font-size: 16px;
+            color: #6f7376;
+            margin-right: 25px;
+            &:before{
+              content: "";
+              display: inline-block;
+              width: 10px;
+              height: 10px;
+              background-color: #565c61;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+
+    }
+  }
+  .oasis-home-content-second{
+    height: 445px;
+    background-color: #f0f2f3;
+    >div{
+      &:first-child{
+        height: 45px;
+        border-bottom: 1px solid #e7e7e9;
+        text-align: center;
+        >div{
+          width: 120px;
+          display: inline-block;
+          font-size: 22px;
+          color: #292f34;
+          background-color: #f0f2f3;
+          margin-top: 28px;
+        }
+      }
+      &:nth-child(2){
+        text-align: center;
+        padding-top: 25px;
+        ul{
+          list-style: none;
+          width: 1000px;
+          margin: 0 auto;
+          li{
+            display: inline-block;
+            font-size: 16px;
+            color: #6f7376;
+            margin-right: 25px;
+            &:before{
+              content: "";
+              display: inline-block;
+              width: 10px;
+              height: 10px;
+              background-color: #565c61;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+      &:nth-child(3){
+        padding-top: 65px;
+        width: 1000px;
+        margin: 0 auto;
+        >div{
+          width: 310px;
+          height: 245px;
+          background-color: #ffffff;
+          float: left;
+          text-align: center;
+          padding: 30px 25px 0 25px;
+          color: #292f34;
+          font-size: 16px;
+          &:not(:last-child){
+            margin-right: 35px;
+          }
+          >div{
+            padding-top: 30px;
+          }
+        }
+      }
+    }
+
+  }
+  .oasis-home-content-third{
+    height: 510px;
+    background-color: #384147;
+    >div{
+      &:first-child{
+        height: 78px;
+        line-height: 78px;
+        text-align: center;
+        color: #fffdf8;
+        font-size: 22px;
+      }
+      &:nth-child(3){
+        height: 360px;
+        background-color: #2f363c;
+        margin-top: 20px;
+        padding: 20px 0;
+        >div{
+          width: 1000px;
+          margin: 0 auto;
+          >div{
+            float: left;
+            &:not(:last-child){
+              margin-right: 13px;
+            }
+          }
+        }
+      }
+    }
+    >ul{
+      list-style: none;
+      width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      li{
+        display: inline-block;
+        font-size: 16px;
+        color: #e3e2de;
+        margin-right: 25px;
+        &:before{
+          content: "";
+          display: inline-block;
+          width: 10px;
+          height: 10px;
+          background-color: #fffefc;
+          margin-right: 10px;
+        }
+      }
+    }
+  }
+  .oasis-home-content-fourth{
+    height: 560px;
+    background-color: #f0f2f3;
+    >div{
+      &:first-child{
+        height: 45px;
+        border-bottom: 1px solid #e7e7e9;
+        text-align: center;
+        >div{
+          width: 120px;
+          display: inline-block;
+          font-size: 22px;
+          color: #292f34;
+          background-color: #f0f2f3;
+          margin-top: 28px;
+        }
+      }
+      &:nth-child(2){
+        text-align: center;
+        padding-top: 25px;
+        ul{
+          list-style: none;
+          width: 1000px;
+          margin: 0 auto;
+          li{
+            display: inline-block;
+            font-size: 16px;
+            color: #6f7376;
+            margin-right: 25px;
+            &:before{
+              content: "";
+              display: inline-block;
+              width: 10px;
+              height: 10px;
+              background-color: #565c61;
+              margin-right: 10px;
+            }
+          }
+        }
+      }
+      &:nth-child(3){
+        width: 1000px;
+        margin: 0 auto;
+        padding-top: 55px;
+      }
+      &:nth-child(4){
+        width: 1000px;
+        margin: 0 auto;
+      }
+    }
+  }
+  .oasis-home-content-fifth{
+    background-color: #fafafa;
+    padding-top: 30px;
+    >div{
+      width: 1000px;
+      margin: 0 auto;
+      .oasis-fifth-title{
+        font-size: 22px;
+        color: #292f34;
+        text-align: center;
+      }
+      .oasis-fifth-title-small{
+        font-size: 16px;
+        color: #53575a;
+        text-align: center;
+      }
+      .row{
+        margin-top: 20px;
+        color: #737c84;
+        h3{
+          color: #737c84;
+          font-size: 24px;
+        }
+        h4{
+          color: #737c84;
+          font-size: 16px;
+        }
+      }
+      .map_side {
+        padding-top: 50px;
+        & > .row {
+          margin-bottom: 50px;
+        }
+      }
+      hr {
+        margin: 10px auto;
+        width: 70%;
+        border-color: #777;
+      }
+      >div{
+        &:nth-child(4){
+          >div{
+            float: left;
+            width: 125px;
+            overflow: hidden;
+          }
+        }
+      }
+    }
+  }
+  .oasis-home-content-sixth{
+    height: 175px;
+    background-color: #3393f5;
+    >div{
+      width: 1000px;
+      margin: 0 auto;
+      display: table;
+      height: 175px;
+      line-height: 175px;
+      text-align: center;
+      span{
+        font-size: 22px;
+        color: #f6f9fe;
+        &:first-child{
+          margin-right: 40px;
+        }
+        &:last-child{
+          border: 1px solid #f6f9fe;
+          padding: 10px 35px;
+          background-color: rgba(255,255,255,0.1);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .oasis-home-footer{
+    height: 410px;
+    background-color: #292f34;
+    color: #d7d6d2;
+    .row{
+      width: 1000px;
+      margin: 0 auto;
+      text-align: center;
+      ul{
+        list-style: none;
+        line-height: 30px;
+        margin-top: 55px;
+        display: inline-block;
+        text-align: left;
+        padding: 0;
+        li{
+          &:first-child{
+            line-height: 55px;
+          }
+          >a{
+            color: #2381ec;
+          }
+        }
+      }
+    }
+    .oasis-footer-bottom{
+      width: 1000px;
+      margin: 0 auto;
+      padding-top: 90px;
+      text-align: center;
+      color: #d7d6d3;
+    }
+  }
+  .mt9{
+    margin-top: 9px;
+  }
+}

@@ -1,0 +1,99 @@
+<dashboard-log sn="{{sceneInfo.sn}}"></dashboard-log>
+<div class="dashboard container-fluid">
+    <div class="page-row xxb">
+        <div class="col-xs-6 app-colum left-block" debug="getClientCount initApTraffic">
+            <div class="app-box no-bk-color">
+                <div class="box-body midl-height">
+                    <div class="index_inner_div index_inner_div_left_top">
+                        <div class="col-xs-6 index_div_wrapper_multiple"style="padding:0px;">
+                            <div id="client-count" class="index_div_lu" style="color: #343e4e;margin-top:18px;">{{clientCount}}</div>
+                            <p class="index_div_lu_desc">Regular guests</p>
+                        </div>
+                        <div class="col-xs-6 returning-customer">
+                            <div class="returning-icon returning-position"></div>
+                        </div>
+                    </div>
+
+                    <div class="index_inner_div index_inner_div_right_top">
+                        <div class="col-xs-6 index_div_wrapper_multiple"style="padding:0px;">
+                            <div id="online_new_user" class="index_div_lu" style="color: #343e4e;margin-top:18px;">{{newUser}}</div>
+                            <p class="index_div_lu_desc">New guests</p>
+                        </div>
+                        <div class="col-xs-6 returning-customer">
+                            <div class="returning-icon new-customer"></div>
+                        </div>
+                    </div>
+                    <div class="index_inner_div index_inner_div_left_bottom">
+                        <div class="col-xs-6 ad_view">
+                            <div class="click-img view"></div>
+                        </div>
+                        <div class="col-xs-6 ad_view ad_num1">
+                            <!-- <div id="client-count" class="click-num">0</div> -->
+                            <div id="ad-count" class="click-num">{{adCount}}</div>
+                            <p class="margin-tl">Ad views</p>
+                        </div>
+                    </div>
+
+                    <div class="index_inner_div index_inner_div_right_bottom">
+                        <div class="col-xs-6 ad_view">
+                            <div class="click-img num"></div>
+                        </div>
+                        <div class="col-xs-6 ad_view ad_num2">
+                            <!-- <div id="clickCount" class="click-num">0</div> -->
+                            <div id="clickCount" class="click-num">{{clickCount}}</div>
+                            <p class="margin-tl">Ad clicks</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <dashboard-online-customer sn="{{sceneInfo.sn}}" nas="{{sceneInfo.nasid}}"></dashboard-online-customer>
+    </div>
+    <palmap-iframe nasid="sceneInfo.nasid"></palmap-iframe>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="col-sm-4 col-xs-4">
+                    <div class="box-footer align-center">
+                        <span class="c-title">Authentication info</span>
+                    </div>
+                    <div class="box-body echart-height form-group">
+                        <div id="pie_terminal" class="col-xs-12 myEchart" style="height:245px;"></div>
+					</div>
+				</div>
+				<div class="col-sm-4 col-xs-4">
+                        <div class="box-footer align-center">
+                            <span class="c-title">Client type</span>
+                        </div>
+                        <div class="box-body echart-height form-group" style="padding-top:0px;">
+                            <div id="Terminal_type" class="col-xs-12 myEchart" style="height:245px;"></div>
+                        </div>
+
+                    </div>
+                <div class="col-sm-4 col-xs-4">
+                    <div class="box-footer align-center">
+                        <span class="c-title">Vendor</span>
+                    </div>
+                    <div class="box-body echart-height form-group" style="padding-top:0px;">
+                        <div id="Terminal_firm" class="col-xs-12 myEchart" style="height:245px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <dashboard-ap sn="{{sceneInfo.sn}}"></dashboard-ap>
+        <dashboard-health permission="permission" sn="{{sceneInfo.sn}}"></dashboard-health>
+    </div>
+</div>
+
+<dashboard-wiser sn="{{sceneInfo.sn}}" user="{{userInfo.user}}" nas="{{sceneInfo.nasid}}"></dashboard-wiser>
+
+<dashboard-flow sn="{{sceneInfo.sn}}"></dashboard-flow>
+
+<div  id="wireless_service_rc"
+      WEIZHI="Unknown"
+      PORTALSTA="Authentication Info,Unauthenticated"
+      TERMINAL_NUMBER="Clients"
+        >
+</div>

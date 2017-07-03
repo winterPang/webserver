@@ -1,0 +1,53 @@
+<html>
+<head>
+</head>
+<div id="drs_monitor">
+    <ul class="nav nav-tabs">
+        <li>
+            <a href="drs.url" data-toggle="tab">最受欢迎的网站</a>
+        </li>
+        <li >
+            <a href="drs.wecomappinfo" data-toggle="tab">最受欢迎的应用</a>
+        </li>
+        <li class="active">
+            <a href="drs.interfaceinfo" data-toggle="tab">接口流量</a>
+        </li>
+        <li>
+            <a href="drs.userinfo" data-toggle="tab">用户流量</a>
+        </li>
+        <li>
+            <a href="drs.webinfo" data-toggle="tab">网站统计</a>
+        </li>
+        <li>
+            <a href="drs.appinfo" data-toggle="tab">应用统计</a>
+        </li>
+
+    </ul>
+</div>
+
+<dev id="interfacesFlow">
+    <dl class="headline">
+        <dt id="back_to_index"><a class="back" ></a><span>鐢ㄦ埛淇℃伅</span></dt>
+    </dl>
+    <div  class="ui-widget-content body-cntr">
+        <div class="mlist" id="Interface_List"></div>
+    </div>
+
+    <div id="inter_infor_rc" class="rc-define"
+         INTER_HEADER="接口名称,报文数目,流量（KB）,丢弃报文数目,丢弃流量（KB）,流量方向"
+         INTER_NAME="显示周期"
+         ONEDAY = "一天内"
+         AWEEK = "一周内"
+         FEN = "分"
+         MIAO = "秒"
+         XIAOSHI = "小时"
+         UPPKT = "上行"
+         DOWNPKT = "下行"
+         INTDATA = <%=JSON.stringify(IntData)%>
+            ></div>
+</dev>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("drs.interfaceinfo"); 
+</script> 

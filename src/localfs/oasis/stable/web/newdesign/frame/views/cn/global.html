@@ -1,0 +1,102 @@
+<!--<style>
+    #home a:active,#home a:hover{
+        background:#4ec1b2;
+    }
+    .homeimg{
+        display: block;
+        margin: 0 auto;
+        width: 26px;
+        height: 20px;
+        padding-top: 45px;
+        background: url(images/home.png) -40px 11px;
+        cursor:pointer;
+    }
+    #home:hover .homeimg{
+        background-position:-8px 11px;
+    }
+</style>-->
+<!--<div class="top-panel container-fluid">
+    <div class="pull-right global-user-img" id="home">
+        <a ng-click="goHome()" style="display: block;
+            width: 60px;
+            height: 4.28571429rem;
+            border-left: 1px solid #f2f2f2;
+            vertical-align: sub;
+            border-radius: inherit;
+            border-right: 1px solid #f2f2f2;
+            text-align:center;
+            cursor:pointer;">
+            <span class="homeimg"></span>
+        </a>
+    </div>
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle"
+                type="button" id="userdrop" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="true">
+            {{userInfo.attributes.name}} <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="userdrop">
+            <li><a ng-click="goSystem()">系统管理</a></li>
+            &lt;!&ndash;<li><a ng-click="goHome()">返回首页</a></li>&ndash;&gt;
+            <li><a ng-click="alertInfo()">关于绿洲</a></li>
+            <li><a ng-click="logout()">注销</a></li>
+        </ul>
+    </div>
+    <div class="pull-right global-user-img" id="chatHeadImg">
+        <img src="images/jay.png" id="headImg" style="width:30px;height:30px;border-radius:15px;
+        margin-right:5px;
+        margin-top: -15px;">
+    </div>
+    &lt;!&ndash;<div class="pull-right global-head-wechat" style="margin-right:10px;margin-top:-2px;" id="chat_html">
+        <img src="images/wechat.png" id="chatimg">
+    </div>&ndash;&gt;
+	
+    <div class="pull-right" ng-if="!$state.current.name.indexOf('scene')" style="height: 60px">
+        <div scene-change></div>
+    </div>
+    <div class="pull-right" style="margin-right: 8px;">
+        <li ng-click="changeManage(url)" style="display: inline-block;cursor: pointer;" ng-show = 'showPeration'>运维(Beta)</li>
+        <li ng-click="changeManage(url)" style="display: inline-block;cursor: pointer;" ng-show = 'showManage'>管理</li>
+        &lt;!&ndash; <a href="{{url}}" ng-show = 'showPeration'><span>运维</span></a>
+        <a href="{{url}}" ng-show = 'showManage'><span>管理</span></a> &ndash;&gt;
+    </div>
+	<div class="pull-right">
+        <ul style="margin: -2px 20px 0 auto;">
+            <li ng-click="changeLange('cn');" style="display: inline-block;
+            cursor: pointer;"
+                ng-class="cnLanguage">
+               中文
+            </li>
+            <div style="border-left: 1px solid darkgray;
+                        display:inline-block;
+                        height: 20px;
+                        position: relative;top: 5px"></div>
+            <li ng-click="changeLange('en')"
+                style="display: inline-block;
+                cursor: pointer;"
+                ng-class="enLanguage">
+                English
+            </li>
+        </ul>
+    </div>
+    <div class="logo" ng-click="goHome()"></div>
+</div>
+<div ui-view></div>
+
+<div class="about-oasis" bs-modal="aboutOasisModal">
+    <div class="about-log" ng-repeat="log in aboutLogs">
+        <h4 class="title">{{log.title}}</h4>
+        <ol>
+            <li class="update-info" ng-repeat="l in log.info track by $index">{{l}}</li>
+        </ol>
+    </div>
+</div>
+
+<div class="read_rc" id="global_rc"
+     logout-message="确定退出吗？"
+     about-oasis="关于绿洲"
+     close="关闭"
+>
+</div>-->
+
+<div ui-view></div>

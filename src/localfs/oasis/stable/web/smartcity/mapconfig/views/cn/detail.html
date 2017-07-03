@@ -1,0 +1,130 @@
+<head>
+    <style>
+        table tr td span {
+            padding-right: 5px;
+            padding-left: 12px;
+        }
+    </style>
+</head>
+
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">地图配置</h3>
+        </div>
+        <div class="panel-body">
+            <span>地图类型</span>
+            <div style="padding-left: 60px; display: flex;">
+                <input type="radio" name="maptype" ng-value=1 ng-model="checked" id="dynamicmap"/>
+                <label for="dynamicmap">动态地图（百度地图）</label>
+                <input type="radio" name="maptype" ng-value=0 ng-model="checked" id="staticmap"/>
+                <label for="staticmap">静态地图</label>
+            </div>
+            <!---------动态地图部分-------------->
+            <div ng-show="checked">
+                <div style="padding-left: 60px">
+                    <table>
+                        <tr>
+                            <td>
+                                <span>请选择所在城市</span>
+                            </td>
+                            <td>
+                                <span>省：</span>
+                            </td>
+                            <td>
+                                <select ng-model="province" ng-options="p for p in provinces" ng-change="selectPro()"></select>
+                            </td>
+                            <td>
+                                <span>市：</span>
+                            </td>
+                            <td>
+                                <select ng-model="city" ng-options="c for c in cities[province]"></select>
+                            </td>
+                        </tr>
+                    </table>
+                </div><br/>
+                <span style="font-size: 14px;padding-left: 25px" >AP位置导入</span><br/>
+                <div style="padding-left: 60px; padding-bottom: 40px">
+                    <label class="col-sm-2 contrrol-label">AP位置列表</label>
+                    <div class="col-xs-3">
+                        <input type="text" readonly="readonly" ng-value="inputFile.name" id="text_dong_AP_id"/><!--输入框-->
+                        <form name="AP_list" id="area_form_id"  action="/v3/fs/uploadAPpositionFile/" method="post" enctype="multipart/form-data" >
+                            <input type="file" id="file_dong_AP_id" onchange="angular.element(this).scope().fileChange(this)" style="display: none" accept=".xlsx"><!--文件域-->
+                        </form>
+                    </div>
+                    <div class="col-xs-1">
+                        <input type="button" ng-click="triggerSelect()" id="button_dong_AP_id" value="浏览" /><!--浏览按钮-->
+                    </div>
+                    <label id="mobanxiazai1" class="col-sm-2" style="cursor:pointer;color:#4ec1b2">模板下载</label>
+
+                    <iframe id="filerecive" style="display: none"></iframe> <!--接受数据 ifame-->
+                </div>
+
+                <div class="col-xs-10" align="right" style="padding-bottom: 20px">
+                    <button  class="btn btn-apply hide" id="display_AP_id">显示AP位置</button><!--确定按钮-->
+                    <button  class="btn btn-apply" id="sure_AP_id">确定</button><!--确定按钮-->
+                </div>
+                <div class="col-xs-2" style="padding-left: 10px;padding-bottom: 20px">
+                    <button  class="btn btn-cancel" id="cancel_AP_id">取消</button><!--取消按钮-->
+                </div>
+            </div>
+            <!---------静态地图部分-------------->
+            <div ng-show="!checked">
+                <label class="info-explain" style="padding-left: 60px">支持格式……</label><br/>
+                <div style="padding-left: 60px;padding-bottom: 40px">
+                    <form name="AP_list" action="" method="post" enctype="multipart/form-data" >
+                        <label class="col-sm-2 contrrol-label">请选择地图</label>
+                        <div class="chartContent col-xs-3">
+                            <input type="text" readonly="readonly" name="text_map" id="text_map_id"/><!--输入框-->
+                            <input type="file" name="file_map" id="file_map_id" style="display: none" /><!--文件域-->
+                        </div>
+                        <div class="chartContent col-xs-1" >
+                            <input type="button"  name="button_map" id="button_map_id" value="浏览" "/><!--浏览按钮-->
+                        </div>
+                    </form>
+                </div>
+                <span style="padding-left: 40px" >AP位置导入</span><br/>
+                <div style="padding-left: 60px;padding-bottom: 40px">
+                    <form name="AP_list" action="" method="post" enctype="multipart/form-data" >
+                        <label class="col-sm-2 contrrol-label">AP位置列表</label>
+                        <div class="chartContent col-xs-3">
+                            <input type="text" readonly="readonly" name="text_jing_AP" id="text_jing_AP_id"/><!--输入框-->
+                            <input type="file" name="file_jing_AP" id="file_jing__AP_id" style="display: none" /><!--文件域-->
+                        </div>
+                        <div class="chartContent col-xs-1" >
+                            <input type="button"  name="button_jing_AP" id="button_jing_AP_id" value="浏览" /><!--浏览按钮-->
+                        </div>
+                    </form>
+                </div>
+
+                <div class="chartContent col-xs-10" align="right" style="padding-bottom: 20px">
+                    <button  class="btn btn-apply" name="sure_AP2" id="sure_AP_id2">确定</button><!--确定按钮-->
+                </div>
+                <div class="chartContent col-xs-2" style="padding-left: 10px;padding-bottom: 20px" >
+                    <button  class="btn btn-cancel" name="cancel_AP2" id="cancel_AP_id2">取消</button><!--取消按钮-->
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">区域配置</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <button class="btn btn-cus">
+                    <i class="btn-icon icon-add"></i>添加</button>
+                <button class="btn btn-cus" ng-disabled="" ng-click="">同步</button>
+                <button class="btn btn-cus" ng-disabled="" ng-click="">删除</button>
+            </div>
+            <table bs-table="options"></table>
+        </div>
+    </div>
+
+</div>
+<div class="read_rc" id="mapconfig_rc"
+     AREANAME = "区域名称"
+     AREATYPE = "区域类型"
+>
+</div>
+<iframe id="exportFile" name="exportFile" style="display: none"></iframe>

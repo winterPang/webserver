@@ -1,0 +1,32 @@
+<style>
+    .l-map>div{
+        width: 75%;
+        margin: 0 auto;
+        padding: 15px;
+        border: 1px solid #e1e1e1;
+        border-radius: 10px;
+    }
+</style>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 l-map">
+            <div>
+                <img ng-src="{{detail.path}}" style="width:100%">
+            </div>
+        </div>
+        <div class="col-md-6 r-word">
+            <div>
+                <div>
+                    <label>上传用户：{{detail.userName}}</label>
+                </div>
+                <div>
+                    <label>上传时间：{{detail.dateTime}}</label>
+                </div>
+                <div>
+                    <label>经度：{{detail.longitude}}</label><br/>
+                    <label>纬度：{{detail.latitude}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

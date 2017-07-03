@@ -1,0 +1,34 @@
+
+<div class="btn_h_return" ng-click ="return()"></div>
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">已绑定无线服务</span>
+        </div>
+        <div class="panel-body">
+            <button class="btn btn-cus" ng-click="unbind()" ng-disabled="bindBtnDisable">解除绑定</button>
+            <div class="box-body no-height">
+                <div bs-Table="bindOptions"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">未绑定无线服务</span>
+        </div>
+        <div class="panel-body">
+            <div class="btn btn-cus" ng-click="bind()" ng-disabled="unbindBtnDisable">绑定服务</div>
+            <div class="box-body no-height">
+                <div bs-Table="unbindOptions"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="apinfo_aplist_rc" class="rc-define"
+    	Bind_HEADER="无线服务名称,SSID,描述" 	
+        BIND_SUCCESS="绑定成功,请检查AP组下是否配置了APModel"
+        UNBIND_SUCCESS ="解绑成功"
+></div>

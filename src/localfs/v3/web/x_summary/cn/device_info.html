@@ -1,0 +1,35 @@
+<html>
+<head>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<div class="page-row xxb" debug="getApInfo getClientAccount" id="device_info">
+    <div class="col-xs-12 app-colum left-block">
+        <div class="app-box">
+            <div class="box-footer">
+                <div class="col-xs-11">
+                    <span class="title">设备信息</span>
+                </div>
+            </div>
+            <div class="box-body no-height">
+                <div id="dev_info_list" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="device_infor_rc" class="rc-define"
+     DEV_LABELS="设备别名,设备型号,序列号,状态,在线时长,商业Wi-Fi宾客数,内部Wi-Fi用户数"
+     DEV_STATUS = "在线,离线,版本下载"
+     ENABLE = "关闭,开启"
+     TIME="天,小时,分,秒"
+     AP_LABELS="AP名称,MAC地址,在线时长,AP状态"
+     PENDING_MSG="正在获取设备信息列表"
+     switchBtn="切换场所"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("x_summary.device_info");
+</script>

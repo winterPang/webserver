@@ -1,0 +1,67 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 10,
+  "rows": [
+    {
+      "MAC": "35:07:F6:AC:19:E6",
+      "lossrate_num": 78,
+      "lossrate": "7.8%",
+      "lossrate_time": "2016-10-04 07:29:47"
+    },
+    {
+      "MAC": "CE:93:1C:73:10:F3",
+      "lossrate_num": 39,
+      "lossrate": "0.6%",
+      "lossrate_time": "2016-10-28 22:52:13"
+    },
+    {
+      "MAC": "13:13:8A:C2:AC:9D",
+      "lossrate_num": 14,
+      "lossrate": "10.8%",
+      "lossrate_time": "2016-10-13 16:29:30"
+    },
+    {
+      "MAC": "58:3A:2D:1E:05:01",
+      "lossrate_num": 95,
+      "lossrate": "6.4%",
+      "lossrate_time": "2016-10-21 06:04:55"
+    },
+    {
+      "MAC": "3C:D6:73:D6:A4:30",
+      "lossrate_num": 11,
+      "lossrate": "7.8%",
+      "lossrate_time": "2016-10-02 12:51:29"
+    },
+    {
+      "MAC": "89:92:AF:78:A4:EB",
+      "lossrate_num": 7,
+      "lossrate": "0.8%",
+      "lossrate_time": "2016-10-01 14:31:50"
+    },
+    {
+      "MAC": "20:9A:7C:71:A1:DF",
+      "lossrate_num": 87,
+      "lossrate": "0.2%",
+      "lossrate_time": "2016-10-28 23:00:02"
+    },
+    {
+      "MAC": "35:B6:FF:A2:EE:A6",
+      "lossrate_num": 21,
+      "lossrate": "2.0%",
+      "lossrate_time": "2016-11-01 09:15:14"
+    },
+    {
+      "MAC": "19:96:81:60:4C:BC",
+      "lossrate_num": 55,
+      "lossrate": "5.3%",
+      "lossrate_time": "2016-10-31 04:52:05"
+    },
+    {
+      "MAC": "2E:6E:96:98:8C:AE",
+      "lossrate_num": 66,
+      "lossrate": "10.2%",
+      "lossrate_time": "2016-10-12 18:37:53"
+    }
+  ]
+}

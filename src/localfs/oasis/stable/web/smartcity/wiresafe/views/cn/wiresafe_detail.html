@@ -1,0 +1,52 @@
+<div class="container-fluid">
+    
+    <div class="btn_h_return" id="city_return"ng-click="return()" ></div>
+
+    <div class="page-row">
+        <div class="col-xs-12 app-colum  city-label">
+            <div class="app-box">
+                <div class="select-footer">
+                    <span class="float-left ml25">周期：</span>
+                    <div class="time-change ml20" style="float:left;" id="total">
+                        <a id="days" class="time-link active" value="1" ng-click="clickTest($event)">一天</a>
+                        <a id="weeks" class="time-link" value="2" ng-click="clickTest($event)">七天</a>
+                        <a id="mounth" class="time-link" value="3" ng-click="clickTest($event)">一月</a>
+                        <a id="year" class="time-link" value="4" ng-click="clickTest($event)">一年</a>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+		
+		
+            
+        </div>
+        <div class="col-xs-12 app-colum ">
+            <div style="margin-top: 10px;" class="app-box no-bk-color">
+                <div class="box-footer"><span class="title">检测到的攻击情况</span></div>
+                <div style="height:300px" id="attack_line" class="myEchart col-xs-8"></div>
+				<div style="height:300px" id="attack_pie" class="myEchart col-xs-4"></div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color custom-height" >
+                <div class="box-footer">
+                    <span class="title">累计攻击信息排序</span>
+                </div>
+                <div id="attackinfo_bar" class="myEchart col-xs-12"></div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum ">
+            <div class="app-box no-bk-color custom-height" >
+                <div class="box-footer">
+                    <span class="title">累计设备信息排序</span>
+                </div>
+                <div id="deviceinfo_bar" class="myEchart col-xs-12"></div>
+            </div>
+        </div>
+</div>
+
+
+        
+<div id="wips_rc" class="rc-define"></div>
+

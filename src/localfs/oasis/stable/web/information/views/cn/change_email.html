@@ -1,0 +1,53 @@
+<div bs-modal="changeEmailModal">
+    <form class="form-horizontal" name="CEM.changeEmailForm1" novalidate ng-show="CEF1.step=='1'">
+        <!--<div class="form-group">
+            <label class="col-sm-offset-1" style="color: #4ec1b2;">提示：点击下一步，发送激活邮件至您的原邮箱中。</label>
+        </div>-->
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="CEF1_email">原邮箱</label>
+            <div class="col-sm-5">
+                <input class="form-control" id="CEF1_email" name="CEF1_email" disabled ng-model="IMFData.email"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4 col-md-offset-4 col-sm-offset-5">
+                <button class="btn btn-cus" type="button" style="color: #80878c !important;background: #e7e7e9;"
+                        ng-click="closeModal('CEM')">取消</button>
+                <button class="btn btn-cus" type="button" ng-click="CEF1.next()">下一步</button>
+            </div>
+        </div>
+    </form>
+    <form class="form-horizontal" name="CEM.changeEmailForm2" novalidate ng-show="CEF1.step=='2'">
+        <!--<div class="form-group">
+            <label class="col-sm-offset-1" style="color: #4ec1b2;">提示：只有在原邮箱中激活后，才可更换新邮箱。</label>
+        </div>-->
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="CEF2_email">新邮箱</label>
+            <div class="col-sm-5">
+                <input class="form-control" id="CEF2_email" name="CEF2_email" type="text" placeholder="请输入邮箱"
+                       required
+                       ajax-valid="validEmail"
+                       ng-maxlength="64"
+                       ng-pattern="/^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})$/"
+                       ng-model="CEF2.email"/>
+            </div>
+            <div class="ng-error"
+                 ng-show="CEM.changeEmailForm2.CEF2_email.$dirty"
+                 ng-messages="CEM.changeEmailForm2.CEF2_email.$error">
+                <span ng-message="required">邮箱不能为空</span>
+                <span ng-message="pattern">邮箱格式不正确</span>
+                <span ng-message="maxlength">邮箱长度最多64位</span>
+                <span ng-message="ajaxValid">该邮箱已注册</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4 col-md-offset-4 col-sm-offset-5">
+                <button class="btn btn-cus" type="button" style="color: #80878c !important;background: #e7e7e9;"
+                        ng-click="closeModal('CEM')">取消</button>
+                <button class="btn btn-cus" type="button"
+                        ng-disabled="CEM.changeEmailForm2.$invalid"
+                        ng-click="CEF2.submit()">确定</button>
+            </div>
+        </div>
+    </form>
+</div>

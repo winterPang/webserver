@@ -1,0 +1,27 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">Edit Subaccounts</h3></div>
+        <div class="panel-body">
+            <button class="btn btn-cus" ng-click="addAccount()" ng-if="showHide.write" ng-disabled="tableSuccess">Add</button>
+            <div class="btn btn-cus" ng-click="refresh()" ng-disabled="tableSuccess">Refresh</div>
+            <div class="form-group pull-right">
+                <button class="btn btn-cus" ng-click="search()"><span class="glyphicon glyphicon-search"></span>
+                </button>
+            </div>
+            <div class="form-group pull-right input-group">
+                <input type="text" class="form-control" placeholder="Username" ng-model="queryCondition" ng-keydown="enterSearch($event)">
+            </div>
+            <table bs-table="options"></table>
+            <ol class="accountList">
+                <li ng-repeat="user in userList"><a ng-click="listClick(user)">{{user.name}}</a></li>
+            </ol>
+        </div>
+    </div>
+</div>
+<div class="read_rc" id="account_list_rc"
+     first-get="Ruquest failure.Please refresh to try again."
+     table-title="Username,Phone,Email,Subaccount,Authorize,Reclaim Authorization,Modify,Delete,User Role"
+     delete-message="Are you sure you want to delete the selected subaccount?"
+     revokeAuth-message="Are you sure you want to reclaim the authorization of the subaccount?,This account has not been authorized."
+     fail-message="Operation failed">
+</div>

@@ -1,0 +1,80 @@
+<head></head>
+
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Alert Log</h3>
+            <div id="filter_refresh">
+                <i class="glyphicon glyphicon-filter" data-toggle="dropdown" id="filter_loglevel"></i>
+                <i class="glyphicon glyphicon-refresh" ng-click="refresh()"></i>
+                <div id="warn_check" class="dropdown-menu opensleft" ng-click="$event.stopPropagation()">
+                    <table>
+                        <tr>
+                            <td>
+                                <span>告警级别</span>
+                            </td>
+                            <td>
+                                <input type="checkbox" ng-model="checkInfo.all" ng-click="checkAll()" id="all">
+                                <label for="all">All</label>
+                                <input type="checkbox" ng-model="checkInfo.jinji" ng-click="checkLoglevel()" id="jinji">
+                                <label for="jinji">Emergency</label>
+                                <input type="checkbox" ng-model="checkInfo.weixian" ng-click="checkLoglevel()" id="weixian">
+                                <label for="weixian">Critical</label>
+                                <input type="checkbox" ng-model="checkInfo.jinggao" ng-click="checkLoglevel()" id="jinggao">
+                                <label for="jinggao">Warning</label>
+                                <input type="checkbox" ng-model="checkInfo.baogao" ng-click="checkLoglevel()" id="baogao">
+                                <label for="baogao">Informational</label>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>选择日期 </span>
+                            </td>
+                            <td>
+                                <input type="text" id="daterange" style="width: 200px; margin-right: 20px">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <span>关键字搜索</span>
+                            </td>
+                            <td>
+                                <input ng-model="searchText" type="text" placeholder="告警模块、信息搜索" style="width: 200px" ng-change="search()">
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <button class="btn btn-cus" ng-disabled="bIsSyncing" ng-click="syncNow()" ng-if="permission.read">Synchronize Now</button>
+                <button class="btn btn-cus" ng-disabled="bIsExporting" ng-click="exportLog()" ng-if="permission.execute || permisson.write">Export Logs</button>
+                <span style="display: inline-block" ng-bind="statusInfo"></span>
+            </div>
+            <table bs-table="options"></table>
+        </div>
+    </div>
+</div>
+<div class="read_rc" id="warning_rc"
+     WARING_ITEM = "Source, Module, Level, Message, Time"
+     ONLINE = "Online"
+     OFFLINE = "Offline"
+     UN_OPERATION = "Unprocessed"
+     SYNC_NOW = "Synchronize Now"
+     EXPORT_LOG = "Export Logs"
+     LOGLEVEL = "Emergency, Emergency, Critical, Critical, Warning, Warning, Informational, Informational"
+     TRYAGAIN = "Please try again"
+     TODAY = "Today"
+     UNSYNC = "Not synchronized"
+     LASTSYNC = "Last synchronized at:   "
+     NOLOGFILE = "No log file for the device."
+     NOAUTHORITY = "You are not authorized to manage the device."
+     CONNFAILED = "Cannot connect to"
+     PLEASEWAIT = "Synchronizing. Please wait…"
+     DEVBUSY = "The device is busy. Please try again."
+     NOLOGEXPORT = "No alert event to be exported."
+     GETTINGDATA = "Obtaining data. Please wait…"
+        >
+</div>
+<iframe id="exportFile" name="exportFile" style="display: none"></iframe>

@@ -1,0 +1,168 @@
+<div class="container-fluid" style="position:relative;">
+
+
+    <div class="loading" ng-if="loading">        
+        <label class="" ng-bind="message"></label>
+        <img src="images/icon_waiting_54x54.gif">        
+    </div>
+
+
+    <div class="btn_h_return" ng-click="return()"></div>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div class="app-box no-height">
+                <div class="box-footer">
+                    <!-- AP/APGroup radio按钮切换 -->
+                    <div class="form-group col-sm-12" id="btn_Radio_div">
+                        <div class="" style="margin-top:10px;">
+                            <input type="radio" name="btn_Radio" id="APGroup_Radio" checked>
+                            <label for="APGroup_Radio" style="margin-right:30px;">AP组</label>
+
+                            <input type="radio" name="btn_Radio" id="AP_Radio" >
+                            <label for="AP_Radio" style="margin-right:30px;">AP</label>
+                        </div>
+                    </div>
+                </div>
+
+                    
+                <div class="box-body no-height" style="padding:0px 20px;">
+                    <!-- AP Group部分 -->
+                    <div id="APGroup_div">
+                        <div class="col-xs-12 app-colum left-block"> 
+                            <div class="app-box no-bk-color"> 
+                                <div class="box-footer"> 
+                                    <span class="title">已绑定AP组列表</span> 
+                                </div> 
+                                <div class="sysinfo-body app-box-slist"> 
+                                    <!-- 解绑按钮 -->
+                                    <div class="btn btn-cus" ng-click="unbind_APGroup_Event()">解绑</div>
+                                    <!-- 已绑定列表 -->
+                                    <div bs-table="table_bindAPGroupStatus_stList"></div> 
+                                </div> 
+                            </div>      
+                        </div>
+                                        
+
+                        <div class="col-xs-12 app-colum left-block"> 
+                            <div class="app-box no-bk-color"> 
+                                <div class="box-footer"> 
+                                    <span class="title">未绑定AP组列表</span> 
+                                </div> 
+                                <div class="sysinfo-body app-box-slist"> 
+                                    <!-- 绑定按钮 -->
+                                    <div class="btn btn-cus" ng-click="bind_APGroup_Event()">绑定</div>
+                                    <!-- 未绑定列表 -->
+                                    <div bs-table="table_unbindAPGroupStatus_stList"></div> 
+                                </div> 
+                            </div>      
+                        </div>                                                
+                    </div>
+                    <!-- AP部分 -->
+                    <div id="AP_div">
+                        <div class="col-xs-12 app-colum left-block"> 
+                            <div class="app-box no-bk-color"> 
+                                <div class="box-footer"> 
+                                    <span class="title">已绑定AP列表</span> 
+                                </div> 
+                                <div class="sysinfo-body app-box-slist"> 
+                                    <!-- 解绑按钮 -->
+                                    <div class="btn btn-cus" ng-click="unbind_AP_Event()">解绑</div>
+                                    <!-- 已绑定列表 -->
+                                    <div bs-table="table_bindAPStatus_stList"></div> 
+                                </div> 
+                            </div>      
+                        </div>
+
+                        <div class="col-xs-12 app-colum left-block"> 
+                            <div class="app-box no-bk-color"> 
+                                <div class="box-footer"> 
+                                    <span class="title">未绑定AP列表</span> 
+                                </div> 
+                                <div class="sysinfo-body app-box-slist"> 
+                                    <!-- 绑定按钮 -->
+                                    <div class="btn btn-cus" ng-click="bind_AP_Event()">绑定</div>
+                                    <!-- 未绑定列表 -->
+                                    <div bs-table="table_unbindAPStatus_stList"></div> 
+                                </div> 
+                            </div>      
+                        </div>
+                        
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div> 
+
+
+</div>
+
+
+ <style>
+    .loading{
+        position: absolute;
+        z-index: 1000;
+        background-color: rgba(0,0,0,0.6);
+        width: 100%;
+        height: 100%;
+        top:0;        
+    }
+
+    .loading label{
+        font-size: 28px;
+        color:white;
+
+        position: absolute;
+        top: 46%;
+        left: 37%;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .loading img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+    }
+
+</style>
+
+    <div id="RC" class="rc-define"
+        stBindOrUnbindAPGroup_Text= "AP组名称,AP组描述,Model数量"
+        stBindOrUnbindAP_Text= "AP名称,AP序列号,Model型号,radio个数,所属AP组名称"
+        getDataFailed= "获取此ST下，绑定、未绑定信息失败!"
+
+        mustChooseAPGroup= "请选择apgroup！"
+        mustNeedModelAPGroup= "请不要选择：没有model的apgroup，这些apgroup无法解绑！"
+        unbindAPGroupOK= '解绑APGroup成功。查看最新绑定信息，可能需要返回上一页稍后进行同步!'
+        unbindAPGroupFail3= "解绑APGroup失败，由于：设备连接超时！"
+        unbindAPGroupFail4= "解绑APGroup失败，由于：主链接断开！"
+        unbindAPGroupFailOther= '解绑APGroup失败!'
+
+        mustNeedModelAPGroupBind= "请不要选择：没有model的apgroup，这些apgroup无法绑定！"
+        bindAPGroupOK= '绑定APGroup成功。查看最新绑定信息，可能需要返回上一页稍后进行同步!'
+        bindAPGroupFailLimit= "绑定失败，此radio支持绑定的服务模板数量已达上限。"
+        bindAPGroupFail3= "绑定APGroup失败，由于：设备连接超时！"
+        bindAPGroupFail4= "绑定APGroup失败，由于：主链接断开！"
+        bindAPGroupFailOther= '绑定APGroup失败!'
+
+        mustChooseAP= "请选择ap！"
+        unbindAPFailOK= '解绑AP成功。查看最新绑定信息，可能需要返回上一页稍后进行同步!'
+        unbindAPFailNeedApsn= "由于版本过低，您选择了没有序列号ap，这些ap未能解绑成功！"
+        unbindAPFail3= "解绑AP失败，由于：设备连接超时！"
+        unbindAPFail4= "解绑AP失败，由于：主链接断开！"
+        unbindAPFailOther= "解绑AP失败！"
+
+        bindAPFailOK= '绑定AP成功。查看最新绑定信息，可能需要返回上一页稍后进行同步!'
+        bindAPFailNeedApsn= "由于版本过低，您选择了没有序列号ap，这些ap未能绑定成功！"
+        bindAPFailLimit= "绑定失败，此radio支持绑定的服务模板数量已达上限。"
+        bindAPFail3= "绑定AP失败，由于：设备连接超时！"
+        bindAPFail4= "绑定AP失败，由于：主链接断开！"
+        bindAPFailOther= "绑定AP失败！"
+
+        Processing="处理中"
+    >
+    </div>

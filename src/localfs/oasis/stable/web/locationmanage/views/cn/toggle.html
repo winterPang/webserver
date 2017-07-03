@@ -1,0 +1,23 @@
+<div class="form-horizontal toggle-block page">
+    <div class="toggle-body">
+    	<form novalidate role="form" name="cycleForm">
+	     <h4>周期设置</h4>
+        <div class="form-group row">
+            <label class="col-sm-2 control-label required">获取定位结果周期</label>
+            <div>
+                <input type="number" id="cycle" name="cycle" class="string big form-control " required 
+                ng-model="cycleInfo.cycle" ng-pattern=/^[1-9]\d?$|^[1-5]\d\d$|^600$/ >
+                <label class="info-explain">1-600(秒)</label>
+                <label ng-if="cycleForm.cycle.$error.required && cycleForm.cycle.$touched"  style="color:red">该参数必须配置</label>
+                <label ng-if="cycleForm.cycle.$error.pattern && cycleForm.cycle.$dirty"  style="color:red">获取周期必须在1~600秒之间</label>               
+            </div>
+        </div>
+			<h4>状态设置</h4>
+			<div style="width:95%;margin:0 auto">
+				<button class="btn btn-cus" ng-click="open()" ng-disabled="btndisabled">开启</button>
+		    <button class="btn btn-cus" ng-click="close()" ng-disabled="btndisabled">关闭</button>
+		    <div bs-Table="deviceTable"></div>  
+			</div>
+    	</form>
+    </div>
+</div>

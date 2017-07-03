@@ -1,0 +1,151 @@
+<style>
+	.fl{
+        margin-left:67px !important;
+    }
+    .fl2{
+        margin-left:81px !important;
+    }
+    .hd{
+        overflow: hidden !important;
+    }
+    .mp{
+        margin-top: 5px !important;
+    }
+    .mt{
+    	margin-top: -7px;
+    }
+    .lh{
+        line-height: 8px;
+    }
+    .tp3{
+        top: 3px !important;
+    }
+</style>
+
+<div class="form-horizontal toggle-block page" >
+    <div class="toggle-body" style="overflow: hidden;">
+    	<form role="form" name="editForm">                             
+            <div class="form-group  row">
+                <label class="col-sm-2 control-label required lh">服务模板名称</label>
+                <div>
+                    <input type="text" id="stName" class="string big" disabled
+                    ng-model="editInfo.stName">
+                    <label class="info-explain">(服务模板名称不可修改)</label>
+                    <label class="error" id="server_error"></label>
+                </div>
+            </div>
+
+
+            <div class="form-group  row">
+                <label class="col-sm-2 control-label required lh">SSID</label>
+                <div>
+                    <input type="text" name="SSID" class="string big" required 
+                    ng-model="editInfo.SSID" ng-minlength="1" ng-maxlength="32">
+                    <label class="info-explain">(1-32字符)</label>
+
+                    <label ng-if="editForm.SSID.$error.required && editForm.SSID.$touched" 
+                    style="color:red;">该参数必须配置</label>
+                    <label ng-if="editForm.SSID.$error.maxlength && editForm.SSID.$dirty"  style="color:red">参数长度超出限制</label>
+                </div>
+            </div>
+            
+            <div class="form-group row">
+                <label class="col-sm-2 control-label mt">加密服务</label>
+                <div>                   
+                    <div class="xb-input xb-radio tp3">
+		                <input type="radio" class="input-element" id="editPwdOn" name="pwdState" value="pwdOn" 
+		                ng-model="editInfo.pwdState" ng-click="editPwdOn()"/>
+		                <span class="input-icon radio-icon input-icon2" ng-class="{'checked': editInfo.pwdState == 'pwdOn'}"></span>
+		                <label for="editPwdOn" class="input-label"></label>
+		            </div>
+		            <label for="editPwdOn" class="mr5">开启</label>
+
+		            <div class="xb-input xb-radio tp3 fl">
+		                <input type="radio" class="input-element" id="editPwdOff" name="pwdState"  
+		                ng-model="editInfo.pwdState" ng-click="editPwdOff()"/>
+		                <span class="input-icon radio-icon input-icon2" ng-class="{'checked': editInfo.pwdState == 'pwdOff'}"></span>
+		                <label for="editPwdOff" class="input-label"></label>
+		            </div>
+		            <label for="editPwdOff" class="mr5">关闭</label>  
+
+                    <div ng-if="editPwd" ng-init="showPwd1=true" class="col-sm-offset-2">    
+                        <input type="password" name="password" class="string big" required
+                        ng-model="editInfo.pwd" ng-show="showPwd1" ng-pattern='/^[a-zA-Z0-9]{8,63}$/'>
+
+                        <!-- <input type="text" name="text" class="string big" required
+                        ng-model="editInfo.pwd" ng-hide="showPwd1" ng-pattern='/^[a-zA-Z0-9]{8,63}$/'> -->
+
+                        <!-- <span class="icon_eye" ng-class="{show_word: !showPwd1}"  
+                                           ng-click="showPwd1=!showPwd1"></span>  -->                   
+                        
+                        <label ng-if="(editForm.password.$error.required && editForm.text.$error.required)&&(editForm.password.$touched|| editForm.text.$touched)"  style="color:red">该参数必须配置</label>
+
+                        <label ng-if="(editForm.password.$error.pattern && editForm.password.$dirty) ||(editForm.text.$error.pattern&&editForm.text.$dirty)"  style="color:red">密码长度或格式不符</label>              
+
+                        <div>
+                            <label class="info-explain">(说明：密码由8～63位数字和（或）字母组成)</label>
+                        </div>   
+                    </div> 
+                </div>
+            </div>
+           
+            <div class="form-group row">
+                <label class="col-sm-2 control-label mt">无线服务</label>  
+                <div class="xb-input xb-radio tp3">
+	                <input type="radio" class="input-element" id="EditwirelessOpen" name="wirelessServer"  ng-model="editInfo.wirelessServer" ng-click="editWirelessOpen()"/>
+	                <span class="input-icon radio-icon input-icon2" ng-class="{'checked': editInfo.wirelessServer == 'wirelessOpen'}"></span>
+	                <label for="EditwirelessOpen" class="input-label"></label>
+	            </div>
+	            <label for="EditwirelessOpen" class="mr5">开启</label>
+
+	            <div class="xb-input xb-radio tp3 fl">
+	                <input type="radio" class="input-element" id="editWirelessClosed" name="wirelessServer"  
+	                ng-model="editInfo.wirelessServer" ng-click="editWirelessClosed()"/>
+	                <span class="input-icon radio-icon input-icon2" ng-class="{'checked': editInfo.wirelessServer =='wirelessClosed'}"></span>
+	                <label for="editWirelessClosed" class="input-label"></label>
+	            </div>
+	            <label for="editWirelessClosed" class="mr5">关闭</label>
+            </div> 
+
+             <div class="form-group row">
+                <label class="col-sm-2 control-label mt">认证方式</label>  
+                <div> 
+                	<div class="xb-input xb-radio tp3">
+		                <input type="radio" class="input-element" id="editAuth_on" name="authType"  ng-model="editInfo.authType" ng-click="editAuth_on()"/>
+		                <span class="input-icon radio-icon input-icon2" ng-class="{'checked': editInfo.authType == 'auth_on'}"></span>
+		                <label for="editAuth_on" class="input-label"></label>
+		            </div>
+		            <label for="editAuth_on" class="mr5">认证</label>
+
+		            <div class="xb-input xb-radio tp3 fl">
+		                <input type="radio" class="input-element" id="editAuth_off" name="authType"  
+		                ng-model="editInfo.authType" ng-click="editAuth_off()"/>
+		                <span class="input-icon radio-icon input-icon2" ng-class="{'checked': editInfo.authType =='auth_off'}"></span>
+		                <label for="editAuth_off" class="input-label"></label>
+		            </div>
+		            <label for="editAuth_off" class="mr5">不认证</label>                         
+                </div>
+            </div> 
+
+            <div ng-show="editAuth">
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label lh">选择认证模板</label> 
+                    <select class="big"  ng-model="editInfo.authSelect" 
+                    ng-options="act for act in authCfgTemplates"></select>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label lh">选择页面模板</label> 
+                    <select class="big" ng-model="editInfo.pageSelect" 
+                    ng-options="act for act  in themeNames"></select>                                                
+                </div>               
+            </div>
+            
+                   
+            <div align = "center">
+                <button class="btn btn-cus" ng-disabled="editForm.$invalid||editForm.$pristine" 
+                ng-click="editSubmit()">确定</button>
+            </div>     
+        </form>  
+    </div>
+</div>

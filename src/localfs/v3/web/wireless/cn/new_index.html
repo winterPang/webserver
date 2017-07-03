@@ -1,0 +1,198 @@
+﻿<html>
+<head>
+    <link href="../../web/wireless/wireless.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">无线服务配置</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="ssidList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+
+<div class="hide" id="ssidToggle">
+    <form id="toggle_form" class="form edit">
+        <div class="col-sm-6 response-block">
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">SSID</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="SSID" name="SSID" readonly/>
+                    <label class="info-explain">（1-32字符）</label>
+                    <label class="error" id="SSID_error"></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 response-block">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">认证方式</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-12">
+                        <input type="radio" value="AT1" id="AT1" name="AuthenType" ctrlBlock=".ath-type" content="" checked/>
+                        <label for="AT1">不认证</label>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <input type="radio" value="AT2" id="AT2" name="AuthenType" ctrlBlock=".ath-type" content="" />
+                        <label for="AT2" >一键上网</label>
+                    </div>
+
+                    <div class="col-sm-12 st-type" id="MailBlock" >
+                        <input type="radio" value="AT3" id="AT3" name="AuthenType" ctrlBlock=".ath-type" content="#LoginWays" />
+                        <label for="AT3">账号登录</label>
+                        <div id="LoginWays" class="ath-type hide">
+                            <div class="col-sm-2">
+                                <input type="checkbox"  value="1" id="Message" name="LoginWays"/>
+                                <label for="Message">短信</label>
+                            </div>
+                            <div class="col-sm-3 account_style">
+                                <input type="checkbox"  value="2" id="WeChart" name="LoginWays"/>
+                                <label for="WeChart">微信公众号</label>
+                            </div>
+                            <div class="col-sm-3 account_style">
+                                <input type="checkbox" value="3" id="FixAccount" name="LoginWays"/>
+                                <label for="FixAccount">固定账号</label>
+                            </div>
+                            <div class="col-sm-3 account_style">
+                                <input type="checkbox" value="4" id="isWeChatWifi" name="LoginWays"/>
+                                <label for="isWeChatWifi">微信连WI-FI</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 st-type" id="WeixinBlock" >
+                        <input type="radio" value="AT4" id="AT4" name="AuthenType" ctrlBlock=".ath-type" content="#ModelSelect"/>
+                        <label for="AT4">选择认证模板</label>
+                        <div class="ath-type hide" id="ModelSelect">
+                            <!-- -->
+                            <select class="singleSelect"  allowClear="true" id="AuthCfgList" name="AuthCfgList">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">登录页面</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-12">
+                        <div class="col-sm-3">
+                            <input type="radio" id="LP1" value="LP1" name="LoginPage" value="1" ctrlBlock=".lg-page"/>
+                            <label for="LP1">简约</label>
+                        </div>
+                        <!--<div class="col-sm-2">
+                        <a class="xb-link" id ="simpledraw">编辑</a>
+                        </div>-->
+                    </div>
+                    <div class="col-sm-12">
+                        <input type="radio" id="LP4" value="LP4" name="LoginPage" ctrlBlock=".lg-page" content="#LoginPageSelect">
+                        <label for="LP4">选择页面模板</label>
+                        <div class="lg-page hide" id="LoginPageSelect">
+                            <!--allowClear="false" 属性-->
+                            <select class="singleSelect"  id="LoginPageList" name="LoginPageList">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">微信公众号</label>
+                <div class="col-sm-9" id="WeChartSelect">
+                    <select class="singleSelect"  id="WeChartList" name="WeChartList">
+                    </select>
+                    <!--&nbsp;&nbsp;-->
+                    <!--<a class="xb-link">新建</a>-->
+                </div>
+            </div>
+
+            <div class="form-group" id = "freeCertification">
+                <label class="col-sm-3 control-label">免认证</label>
+                <div class="col-sm-9">
+                    <input type="checkbox" class="switch" id="auto_study_enable" name="auto_study_enable" checked ctrlBlock=".Learn-MAC"/>
+                    <div class="Learn-MAC">
+                        <!--<input type="checkbox" id="impose_auth" checked ctrlBlock=".Learn-Time" hidden/>
+                        <label for="impose_auth" hidden>限制免认证时长</label>
+                        <br>-->
+                        <div class="Learn-Time">
+                            <input type="text" class="string big" placeholder="7" id="impose_auth_time" name="impose_auth_time" value="7"/>
+                            <label class="info-explain">(1-30)天</label>
+                        </div>
+                        <label class="info-explain">说明：通过认证的用户在免认证期内上线无需重复认证</label>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </form>
+</div>
+
+<div class="hide modal fade" id="AddSsidDlg">
+    <div class="modal-body">
+        <form class="form edit" id="AddSsidForm">
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">SSID</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="ssid_name" name ="ssid_name" errid="ssid_name_error" maxlength=32 />
+                    <label class="info-explain">（1-32字符）</label>
+                    <label class="error" id="ssid_name_error"></label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="ws_ssid_rc" class="rc-define"
+     SSID_HEADER = "SSID,认证方式"
+     ADD_TITLE = "增加服务"
+     AUTH_CFG = "不认证,微信认证,短信认证,一键上网,选择页面模板"
+     DEL_AUTH_FAIL = "删除发布模板失败。"
+     DEL_PUB_SUCC = "取消发布成功。"
+     PUB_SUCC = "发布成功。"
+     ADD_SUCCESS = "添加成功。"
+     ADD_FAIL = "添加失败。"
+     ADD_NULL_SSID = "SSID不能为空。"
+     DEL_SUCCESS = "删除成功。"
+     DEL_FAIL = "删除失败。"
+     AUTHEN_TYPE="不认证,一键上网,账号认证"
+     SYN="同步",
+     LINK="主连接已断开,添加失败。",
+     LINK_delete="主连接已断开,删除失败。",
+     ADD_Limit="服务模版已达到上限，添加失败。"
+     CFG_OK="配置成功。"
+     CFG_Fail="配置失败，删除页面模板失败。"
+     CFG_FAIL="配置失败。"
+     CFG_senting="配置下发中..."
+     CFG_add_senting="添加配置下发中..."
+     CFG_dell_senting="删除配置下发中..."
+     add_syn_fail="添加成功,同步失败。手动同步。"
+     del_syn_fail="删除成功,同步失败。手动同步。"
+     SYN_FAIL="同步失败"
+     syn="同步"
+     second="秒"
+     DATA_error="获取数据错误"
+     NO_support="该设备版本不支持获取支持的model操作，请升级新版本。"
+	 ERROR_CODE_1006="服务器内部错误"
+     ERROR_CODE_1007="请登录"
+     SET_SUCCESS="配置成功"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("wireless.new_index");
+</script>
+
+
+
+
+
+
+
+
+

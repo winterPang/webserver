@@ -1,0 +1,24 @@
+<html>
+<head>
+<script>
+	if (!window.FrameInfo)
+	{
+		window.location = "../../";
+	}
+
+    function setCookie(sName, sValue)
+    {
+        try{
+            document.cookie = sName+"="+escape(sValue)+"; path=/;";
+        }catch(e){/* cookie is disabled */}
+    }
+	function onDocReady()
+	{
+		setCookie(FrameInfo.sessionid, "true");
+		window.location = "index.php?sessionid="+FrameInfo.sessionid;	// "/wnm/frame/index.php"
+	}
+</script>
+</head>
+<body onload="onDocReady()">
+</body>
+</html> 

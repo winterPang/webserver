@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+  xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:t="http://myfaces.apache.org/tomahawk"
+  xmlns:p="http://primefaces.org/ui"
+  xmlns:imch="http://www.huawei-3com.com/jsf/html"
+  xmlns:imcf="http://www.huawei-3com.com/jsf/core"
+  xmlns:imce="http://www.huawei-3com.com/jsf/ext"
+  xmlns:ui="http://java.sun.com/jsf/facelets">
+<f:loadBundle basename="com.h3c.o2o.auth.LocalStrings" var="o2ouammsgs" />
+<f:view>
+  <h:head>
+    <script>
+    	function chooseTheme(themeId){
+    		document.getElementById("mainForm:newThemeId").value = themeId;
+    		//模板案例
+    		document.getElementById("mainForm:img1").style.display = 'none';
+    		document.getElementById("mainForm:img2").style.display = 'none';
+    		document.getElementById("mainForm:img3").style.display = 'none';
+    		//document.getElementById("mainForm:img3").style.display = 'none';
+    		//选择模板
+    		var img = document.getElementById("mainForm:img"+themeId);
+    		img.style.display = 'block';
+    		#{o2ouamThemeTempletBean.newThemeId} == themeId;
+    	}
+    </script>
+    <script type="text/javascript" src="../js/common.js"></script>
+  </h:head>
+  <ui:include src="../../common/common.xhtml" />
+  <h:body onkeypress="ass_setEnterControl(event,'mainForm:add')">
+    <h:form id="mainForm">
+
+      <imcf:history></imcf:history>
+          <p:panel id="panel" styleClass="marginTop74">
+            <f:facet name="header">
+	            <h:outputText value="#{o2ouammsgs['o2ouam.theme.add.addTheme']}"/>
+	        </f:facet>
+            <!-- 表格开始-->
+            <t:panelGrid cellpadding="2" cellspacing="0" border="0" columns="4"
+              width="100%"
+              columnClasses="cmn_wdfixed_15,cmn_wdper_15,cmn_wdper_42,cmn_wdper_35">
+              <!-- 名称 -->
+              <h:outputText />
+              <p:outputLabel value="#{o2ouammsgs['o2ouam.theme.list.themeName']}" styleClass="imc_ui_inputLabel"
+                for="themeName" />
+              <h:panelGroup>
+              <h:panelGrid columns="6" cellspacing="0" cellpadding="2">
+             <p:inputText id="themeName" style="width:200px"
+                  required="true" maxlength="32"
+                  value="#{o2ouamThemeTempletBean.newThemeName}">
+                  <p:focus for="themeName"></p:focus>
+                </p:inputText>
+              <h:outputText />
+              <h:outputText />
+              <h:outputText />
+              <h:outputText />
+              <p:message for="themeName" styleClass="cmn_errorMsgFont" />
+              </h:panelGrid>
+              </h:panelGroup>
+              <h:outputText />
+
+			  <!-- 描述 -->
+              <h:outputText />
+              <p:outputLabel value="#{o2ouammsgs['o2ouam.theme.list.themeDescription']}" styleClass="imc_ui_inputLabel"/>
+              <h:panelGroup>
+              <h:panelGrid columns="2" cellspacing="0" cellpadding="2">
+              <p:inputText style="width:250px"
+                maxlength="128"
+                value="#{o2ouamThemeTempletBean.newThemeDescription}" />
+                </h:panelGrid>
+                </h:panelGroup>
+              <h:outputText />
+            </t:panelGrid>
+
+         <!-- 模板 1-->
+	     <t:panelGrid cellpadding="2" cellspacing="0" border="0" columns="2"
+              width="95%" style="padding: 5px;"
+              columnClasses="cmn_wdfixed_50,cmn_wdper_50">
+           <!-- 模板 1-->
+		     <p:panel style="height: 375px;max-width: 500px;">
+		         <h:outputText align="center" value="#{o2ouammsgs['o2ouam.theme.add.theme.model1']}" />
+				 <t:graphicImage value="resources/themes/default/images/model1.png"
+	            		height="300" width="100%" border="0" onclick="chooseTheme(1)" style="cursor: pointer;"/>
+                    <t:panelGroup id="img1" style="text-align: right;display:block;">
+						<t:graphicImage value="resources/themes/default/images/finished-32.gif"
+							height="20" width="20" border="0"/>
+			        </t:panelGroup>
+		     </p:panel>
+		   <!-- 模板 2    346  510-->
+		     <p:panel style="height: 375px;max-width: 500px;">
+                <h:outputText align="center" value="#{o2ouammsgs['o2ouam.theme.add.theme.model2']}" />
+                <t:graphicImage value="resources/themes/default/images/model2.png"
+                    height="300" width="100%" border="0" onclick="chooseTheme(2)" style="cursor: pointer;"/>
+                <t:panelGroup id="img2" style="text-align: right;display:none;">
+                <t:graphicImage value="resources/themes/default/images/finished-32.gif"
+                	height="20" width="20" border="0"/>
+                </t:panelGroup>
+             </p:panel>
+             <!-- 模板 3    346  510-->
+		     <p:panel style="height: 375px;max-width: 500px;">
+                <h:outputText align="center" value="#{o2ouammsgs['o2ouam.theme.add.theme.model3']}" />
+                <t:graphicImage value="resources/themes/default/images/model3.png"
+                    height="300" width="100%" border="0" onclick="chooseTheme(3)" style="cursor: pointer;"/>
+                <t:panelGroup id="img3" style="text-align: right;display:none;">
+                <t:graphicImage value="resources/themes/default/images/finished-32.gif"
+                	height="20" width="20" border="0"/>
+                </t:panelGroup>
+             </p:panel>
+	    </t:panelGrid>
+
+          <!-- 确定和返回-->
+          <t:panelGrid columns="2" cellpadding="2" cellspacing="0" 
+            align="center">
+            <p:commandButton id="add" value="#{o2ouammsgs['button.ok']}"
+              rendered="#{visitorBean.visitorCtrlHidden}"
+              onclick="wait();" action="#{o2ouamThemeTempletBean.onAddTheme}"
+              update = "mainForm" ajax="false"
+               styleClass="btn-min70">
+            </p:commandButton>
+            <!-- 返回 -->
+            <p:commandButton id="back" ajax="false" onclick="wait();"
+              action="#{o2ouamThemeTempletBean.onBack}" immediate="true"
+              value="#{o2ouammsgs['button.cancel']}"  styleClass="btn-min70" />
+          </t:panelGrid>
+      <p:inputText id="newThemeId" style="display: none;" value="#{o2ouamThemeTempletBean.newThemeId}" />
+       </p:panel>
+    </h:form>
+  </h:body>
+</f:view>
+</html>

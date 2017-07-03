@@ -1,0 +1,12 @@
+{
+  "error_code": 0,
+  "error_message": "o2o.oasis.mng.query.success",
+  "data":
+    {
+      "sn": "3SDK-EMY-0130-KCRQM",
+      "key": "601712",
+      "balance": "￥ 6528.7(0.1元/条)",
+      "userName": "oasis_test"
+    }
+
+}

@@ -1,0 +1,30 @@
+<html>
+<head>
+</head>
+<body>
+<div class="page-row">
+    <div class="col-xs-12 app-colum app-box left-block">
+        <div id="detect_container1">
+            <div class="app-box">
+                <div class="box-footer">
+                    <div class="col-xs-12">
+                        <span class="title">详细信息</span>
+                    </div>
+                </div>
+                <div class="col-xs-12 app-colum" style="padding: 15px 15px 15px 15px">
+                    <div class="list-height sysinfo-body">
+                        <div id="log_list" class="simple-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="log_monitor_rc" class="rc-define"
+         LOG_HEAD="用户名,IP,模块名,严重级别,详细信息"
+            ></div>
+    </div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("b_log.loginfo");
+</script>

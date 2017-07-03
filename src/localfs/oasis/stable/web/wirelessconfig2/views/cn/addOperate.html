@@ -1,0 +1,290 @@
+<div class="container-fluid" style="position:relative;">
+
+
+    <div class="loading" ng-if="loading">        
+        <label class="" ng-bind="message"></label>
+        <img src="images/icon_waiting_54x54.gif">        
+    </div>
+
+
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+
+            <div class="app-box no-height">
+                <div class="box-footer">
+                    <span class="title">服务模板添加</span>
+                </div>
+
+                <div class="box-body no-height" style="padding:0px 20px;">
+                    <div class="page-row">
+
+                        <!-- 基本信息 -->
+                        <div class="col-xs-12"> 
+                            <!-- <h4>基本信息创建</h4>  -->
+
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label class="col-sm-3 control-label required">无线服务名称</label>              
+                                    <div class="col-sm-9">                   
+                                        <input id="stName" type="text" class="string big" minlength='1' maxlength='63'>
+                                        <label class="info-explain">（1-63个字符，仅限：英文、数字、下划线，不区分大小写）
+                                        </label>
+                                        <br />
+                                        <label class="error" id="stName_error" style="display: inline-block;"></label>                          
+                                    </div>
+                                </div> 
+                            </div>  
+
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label class="col-sm-3 control-label required">SSID</label>              
+                                    <div class="col-sm-9">
+                                        <input id="ssid" type="text" class="string big"
+                                        minlength='1' maxlength='32'>
+                                        <label class="info-explain">(1-32个字符，区分大小写)
+                                        </label>
+                                        <br />
+                                        <label class="error" id="ssid_error" style="display: inline-block;"></label>
+                                    </div>
+                                </div>
+                            </div> 
+                            <!-- st状态 -->
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label class="col-sm-3 control-label">无线服务状态</label>              
+                                    <div class="col-sm-9">     
+                                        <div class="col-sm-4">
+                                            <div class="xb-input xb-radio">
+                                                <input type="radio" id="stOpen" name="st" class="input-element" value="1"
+                                                ng-checked="ststatus.status" ng-click="stStatusClick(1)">
+                                                <span class="input-icon radio-icon" ng-class="{checked: ststatus.status}"></span>
+                                                <label class="input-label" for="stOpen"></label>
+                                            </div> 
+                                            <label for="stOpen">开启</label>
+                                        </div> 
+
+                                        <div class="col-sm-5">
+                                            <div class="xb-input xb-radio">
+                                                <input type="radio" id="stClose" name="st" class="input-element" value="2"
+                                                ng-checked="!ststatus.status" ng-click="stStatusClick(2)">
+                                                <span class="input-icon radio-icon"
+                                                ng-class="{checked: !ststatus.status}"></span>
+                                                <label class="input-label" for="stClose"></label>
+                                            </div>
+                                            <label for="stClose">关闭</label> 
+                                        </div>                                            
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 是否隐藏SSID -->
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label class="col-sm-3 control-label">是否隐藏SSID</label>              
+                                    <div class="col-sm-9">     
+                                        <div class="col-sm-4">
+                                            <div class="xb-input xb-radio">
+                                                <input type="radio" id="ssidHide" name="ssidDute" class="input-element" value=1
+                                                ng-model="ststatus.ssidDuteValue">
+                                                <span class="input-icon radio-icon" ng-class="{'checked': ststatus.ssidDuteValue== 1}"></span>
+                                                <label class="input-label" for="ssidHide"></label>
+                                            </div> 
+                                            <label for="ssidHide">开启</label>
+                                        </div> 
+
+                                        <div class="col-sm-5">
+                                            <div class="xb-input xb-radio">
+                                                <input type="radio" id="ssidShow" name="ssidDute" class="input-element" value=0
+                                                ng-model="ststatus.ssidDuteValue">
+                                                <span class="input-icon radio-icon"
+                                                ng-class="{checked: ststatus.ssidDuteValue== 0}"></span>
+                                                <label class="input-label" for="ssidShow"></label>
+                                            </div>
+                                            <label for="ssidShow">关闭</label> 
+                                        </div>                                            
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- 是否加密 -->
+                            <div class="form-group">
+                                <div class="col-sm-12">
+                                    <label class="col-sm-3 control-label">无线服务加密</label>              
+                                    <div class="col-sm-9">
+                                        <div class="col-sm-4">
+                                            <div class="xb-input xb-radio">
+                                                <input type="radio" id="stKeyOpen" name="stKey" class="input-element" value="1" ng-checked="stkeystatus.status" ng-click="stKeyStatusClick(1)">
+                                                <span class="input-icon radio-icon" ng-class="{checked: stkeystatus.status}"></span>
+                                                <label class="input-label" for="stKeyOpen"></label>
+                                            </div>
+                                            <label for="stKeyOpen">开启</label> 
+                                        </div> 
+
+                                        <div class="col-sm-5">
+                                            <div class="xb-input xb-radio">
+                                                <input type="radio" id="stKeyClose" name="stKey" class="input-element" value="0"
+                                                ng-checked="!stkeystatus.status" ng-click="stKeyStatusClick(0)">
+                                                <span class="input-icon radio-icon" ng-class="{checked: !stkeystatus.status}"></span>
+                                                <label class="input-label" for="stKeyClose"></label>
+                                            </div>
+                                            <label for="stKeyClose">关闭</label> 
+                                        </div>                                            
+                                    </div>
+                                </div>
+
+
+                                <div class="col-sm-12" ng-show="stkeystatus.status" ng-hide="!stkeystatus.status">
+                                    <label class="col-sm-3 control-label"></label> 
+
+                                    <div class="col-sm-9">                   
+                                        <input id="stKeyString" type="text" class="string big" maxlength='63'>
+                                        <label class="info-explain">
+                                        (8-63个字符)
+                                        </label>
+                                        <br />
+                                        <label class="error" id="stKeyString_error" style="display: inline-block;"></label>                           
+                                    </div>
+                                </div>
+                            </div>  
+                        </div>
+
+                        <!-- 发布信息 -->
+                        <div class="col-xs-12"> 
+                            <!-- <h4>发布信息配置</h4>  -->
+                            <div class="form-group">
+
+                                <div class="col-sm-12">
+                                    <label class="col-sm-3 control-label">是否认证</label>      
+                                    <div class="col-sm-9">
+                                        
+                                        <div class="xb-input xb-radio">
+                                            <input type="radio" id="sureAuthNo" name="sureAuth" class="input-element" value="0" ng-checked="!sureauthstatus.status" ng-click="sureAuthStatusClick(0)">
+                                            <span class="input-icon radio-icon" ng-class="{checked: !sureauthstatus.status}"></span>
+                                            <label class="input-label" for="sureAuthNo"></label>
+                                        </div> 
+                                        <label for="sureAuthNo">不认证</label>
+
+                                        <br />
+
+                                        <div class="xb-input xb-radio">
+                                            <input type="radio" id="sureAuthYes" name="sureAuth" class="input-element" value="1" ng-checked="sureauthstatus.status" ng-click="sureAuthStatusClick(1)">
+                                            <span class="input-icon radio-icon" ng-class="{checked: sureauthstatus.status}"></span>
+                                            <label class="input-label" for="sureAuthYes"></label>
+                                        </div>
+                                        <label for="sureAuthYes">认证</label> 
+                                                                                   
+                                    </div>
+                                </div>
+
+                                <div ng-show="sureauthstatus.status" ng-hide="!sureauthstatus.status">
+                                    <div class="col-sm-12" >
+                                        <label class="col-sm-3 control-label">认证模板选择</label>
+                                        <div class="col-sm-9">                   
+                                            <select select2="authList" id="authList" style="width: 200px;">
+                                                
+                                            </select>
+                                            <label class="error" id="authList_error" style="display: inline-block;"></label>                           
+                                        </div>
+                                    </div> 
+
+                                    <div class="col-sm-12">
+                                        <label class="col-sm-3 control-label">页面模板选择</label>
+                                        <div class="col-sm-9">                   
+                                            <select select2="themeList" id="themeList" style="width: 200px;"></select> 
+                                            <label class="error" id="themeList_error" style="display: inline-block;"></label>                          
+                                        </div>
+                                    </div>
+                                </div>                                 
+                            </div>  
+                        </div>
+
+                        <!-- 按钮 -->
+                        <div class="col-xs-12">
+                            <div class="col-sm-4">
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="btn btn-cus" ng-click="okEvent()">
+                                    确定
+                                </div>
+                                <div class="btn btn-cus" ng-click="cancelEvent()">
+                                    取消
+                                </div> 
+                            </div>
+                            <div class="col-sm-4">
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> 
+</div>
+
+ <style>
+    .loading{
+        position: absolute;
+        z-index: 1000;
+        background-color: rgba(0,0,0,0.6);
+        width: 100%;
+        height: 100%;
+        top:0;        
+    }
+
+    .loading label{
+        font-size: 28px;
+        color:white;
+
+        position: absolute;
+        top: 46%;
+        left: 37%;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .loading img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+    }
+
+</style>
+
+
+<div id="RC" class="rc-define"
+     getAuthList_Failed='获取认证模板失败!'
+     getThemeList_Failed='获取页面模板失败!'
+     pleaseChoose='请选择'
+     getSSIDList_Failed='获取当前所有服务模板失败，无法确保“服务模板添加”是否重复!'
+
+     stName_exists='服务模板名称已存在！'
+     stName_required='服务模板名称必填！'
+     noKongGe='参数格式，输入错误！'
+
+     ssid_required='SSID必填！'
+
+     psk_required='PSK密码必填！'
+     psk_dayu8='PSK密码，不能低于8个字符！'
+
+     needAuth='认证模板必选！'
+     needTheme='页面模板必选！'
+
+     stAddFailed_limit="服务模板创建失败，服务模板已到达上限。"
+     stAddFailed_full="服务模板创建失败，设备内存已满。"
+     stAddFailed_3="服务模板创建失败，由于：设备连接超时！"
+     stAddFailed_4="服务模板创建失败，由于：主链接断开！"
+     stAddFailed_other="服务模板创建失败"
+
+     stAddOK_authNo="服务模板创建成功，且不认证。"
+     stAddOK_authOK="服务模板创建成功，且认证配置成功。"
+     stAddOK_authFail='服务模板创建成功，但认证配置失败。'
+     stAddOK_authFail1301='服务模板创建成功，但认证配置失败，由于认证过程中SSID不允许出现：特殊字符&=\?%。'
+
+     Processing="处理中"
+     themeType1='（简约）'
+     themeType2='（天空）'
+     themeType3='（2017活力版）'
+    >
+</div>       

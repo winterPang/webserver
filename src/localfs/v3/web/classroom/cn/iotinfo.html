@@ -1,0 +1,34 @@
+<html>
+<head>
+</head>
+<body>
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">手环监控</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="BraceList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">模块监控</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="NetInforList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+    <div id="c_net_infor_rc" class="rc-define"
+         INFOR_HEAD="MAC,手环电量,信号强度"
+         MOD_INFOR_HEAD="ap名字,ap序列号,模块ID,绑定serial Id"
+         STU_STATU="修改状态"
+            ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.iotinfo");
+</script>

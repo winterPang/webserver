@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default navbar-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">H3C Oasis Platform</a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <!-- <li><a href="https://lvzhoutest.h3c.com/o2o/o2omng/appmng/appCenter.jsf">应用中心</a></li> -->
+                <li  ng-repeat="menuName in menu" ng-class="{active:$state.current.name.indexOf('{{menuName.id}}')!=-1}" ui-sref="{{menuName.sref}}">
+                    <a ng-bind="menuName.name"></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="main container-fluid" ng-if="content.show">
+    <div ui-view></div>
+</div>

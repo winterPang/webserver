@@ -1,0 +1,35 @@
+.oasis-slider {
+  display: inline-block;
+}
+.oasis-slider.disabled {
+  cursor: not-allowed;
+}
+.oasis-slider.disabled label {
+  cursor: not-allowed;
+}
+.oasis-slider.disabled .slider {
+  pointer-events: none;
+}
+.oasis-slider.disabled .slider .slider-handle {
+  background: #D3DCE6;
+}
+.oasis-slider .slider {
+  margin: 0 10px;
+}
+.oasis-slider .slider .slider-selection {
+  box-shadow: none;
+  background: #8ce6db;
+}
+.oasis-slider .slider .slider-handle {
+  background: #4ec1b2;
+}
+.oasis-slider .slider .slider-track {
+  box-shadow: none;
+}
+.oasis-slider label {
+  font-weight: lighter;
+  text-align: right;
+}
+.oasis-slider label::after {
+  content: ":";
+}

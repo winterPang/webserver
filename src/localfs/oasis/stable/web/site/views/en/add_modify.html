@@ -1,0 +1,166 @@
+<div class="site">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title" ng-bind="type=='add'?'Add Site':'Modify Site'"></h3></div>
+        <div class="panel-body">
+            <form name="siteAddForm" class="form-horizontal" novalidate>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Site name <span class="label-require">*</span></label>
+                    <div class="col-md-5 col-sm-8">
+                        <input placeholder="Up to 20 characters,and can't start with digits." class="form-control"
+                               name="name" type="text" ng-model="row.name"
+                               required ng-maxlength="20" ng-pattern="/^[^0-9]/" ajax-valid="validName">
+                    </div>
+                    <div class="col-md-5 col-sm-8 ng-error padding-left" ng-show="siteAddForm.name.$dirty"
+                         ng-messages="siteAddForm.name.$error">
+                        <div ng-message="required">Please enter the site name !</div>
+                        <div ng-message="maxlength">Up to 20 characters.</div>
+                        <div ng-message="pattern">Can't start with digits.</div>
+                        <div ng-message="ajaxValid-1">Invalid site name.</div>
+                        <div ng-message="ajaxValid-2">The site already exists.</div>
+                        <div ng-message="ajaxValid-3">Input error.</div>
+                        <div ng-message="ajaxValid-4">Network anomaly.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Scenario <span class="label-require">*</span></label>
+                    <div class="col-md-5 col-sm-8">
+                        <select name="scenario_category_name" class="form-control" ng-model="row.scenario_category_name"
+                                ng-options="scen.id as scen.namedesc for scen in scens" required>
+                        </select>
+                    </div>
+                    <div class="col-md-5 col-sm-8 ng-error" ng-show="siteAddForm.scenario_category_name.$dirty"
+                         ng-messages="siteAddForm.scenario_category_name.$error">
+                        <div ng-message="required">Please select a scenario category !</div>
+                    </div>
+                    <div class="col-sm-2">
+                        <a class="btn btn-cus" ng-click="showdevmodel()">Supported Device Models</a>
+                        <div bs-modal="devmodel">
+                            <table bs-table="options"></table>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Area <span class="label-require">*</span></label>
+                    <div class="col-md-5 col-sm-8">
+                        <select name="area" class="form-control" ng-model="row.region"
+                                ng-options="area.id as area.name for area in areas" required>
+                        </select>
+                    </div>
+                    <div class="col-md-5 col-sm-8 ng-error" ng-show="siteAddForm.area.$dirty"
+                         ng-messages="siteAddForm.area.$error">
+                        <div ng-message="required">Please select an area !</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Industry <span class="label-require">*</span></label>
+                    <div class="col-md-5 col-sm-8">
+                        <select name="industry" class="form-control" ng-model="row.industry"
+                                ng-options="industry.id as industry.industryName for industry in industries" required>
+                        </select>
+                    </div>
+                    <div class="col-md-5 col-sm-8 ng-error" ng-show="siteAddForm.industry.$dirty"
+                         ng-messages="siteAddForm.industry.$error">
+                        <div ng-message="required">Please select the affiliated industry.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Address <span class="label-require">*</span></label>
+                    <div class="col-lg-2 col-sm-4">
+                        <div class="form-group">
+                            <!--<label class="col-sm-1 control-label">Province ：</label>-->
+                            <div class="col-sm-11 padding-left-zero">
+                                <select id="cmbProvince" class="form-control" name="province" required>
+                                </select>
+                            </div>
+                            <div class="col-md-5 col-sm-8 ng-error" ng-show="siteAddForm.province.$dirty"
+                                 ng-messages="siteAddForm.province.$error">
+                                <div ng-message="required">Please select provinces and cities!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-4">
+                        <div class="form-group">
+                            <!--<label class="col-sm-1 control-label">City ：</label>-->
+                            <div class="col-sm-11 padding-left-zero">
+                                <select id="cmbCitys" class="form-control" name="city" required>
+                                </select>
+                            </div>
+                            <div class="col-md-5 col-sm-8 ng-error" ng-show="siteAddForm.city.$dirty"
+                                 ng-messages="siteAddForm.city.$error">
+                                <div ng-message="required">Please select the city!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-4 col-lg-offset-0 col-sm-offset-2">
+                        <div class="form-group">
+                            <!--<label class="col-sm-1 control-label">District ：</label>-->
+                            <div class="col-sm-11 padding-left-zero">
+                                <select id="cmbArea" class="form-control" name="area" required>
+                                </select>
+                            </div>
+                            <div class="col-md-5 col-sm-8 ng-error" ng-show="siteAddForm.area.$dirty"
+                                 ng-messages="siteAddForm.area.$error">
+                                <div ng-message="required">Please select the district!</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-sm-4">
+                        <div class="form-group">
+                            <div class="col-sm-11 padding-left-zero">
+                                <input class="form-control" name="address" type="text" ng-model="row.address"
+                                       ng-maxlength="50">
+                            </div>
+                            <div class="col-md-5 col-sm-8 ng-error" ng-show="siteAddForm.address.$dirty"
+                                 ng-messages="siteAddForm.address.$error">
+                                <div ng-message="maxlength">Up to 50 characters.</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Phone number</label>
+                    <div class="col-md-5 col-sm-8">
+                        <input placeholder="Please enter the mobile phone number" class="form-control" name="phone"
+                               type="text" ng-model="row.phone"
+                               ng-pattern="/^((0086|\+86)?\s*1[34578]\d{9}|(\d{3,4}-)?\d{7,8})$/">
+                    </div>
+                    <div class="col-md-5 col-sm-8 ng-error padding-left" ng-show="siteAddForm.phone.$dirty"
+                         ng-messages="siteAddForm.phone.$error">
+                        <div ng-message="pattern">Invalid phone number.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">Description</label>
+                    <div class="col-md-5 col-sm-8">
+                        <textarea placeholder="Up to 500 characters." class="form-control" name="siteDesc" type="text"
+                                  ng-model="row.brief" ng-maxlength="500"></textarea>
+                    </div>
+                    <div class="col-md-5 col-sm-8 ng-error padding-left" ng-show="siteAddForm.siteDesc.$dirty"
+                         ng-messages="siteAddForm.siteDesc.$error">
+                        <div ng-message="maxlength">Up to 500 characters.</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-4 col-md-offset-4 col-sm-offset-5">
+                        <button ng-click="onSubmit()" class="btn btn-cus" type="submit"
+                                ng-disabled="siteAddForm.$invalid">OK
+                        </button>
+                        <a class="btn btn-cus" ui-sref="global.content.system.site">Cancel</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div bs-modal="completeInfo">Please complete the information.</div>
+    <div class="read_rc" id="add_modify_rc"
+         error="Request error ~"
+         add-success="Add success"
+         modify-success="Successful modification"
+         support="Models"
+         page="Showing , to ,  , of "
+         support-device="Supported Device Models"
+         off="Close"
+         tip="Prompt"
+    >
+    </div>
+</div>

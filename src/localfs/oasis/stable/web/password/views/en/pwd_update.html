@@ -1,0 +1,67 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Change Password</h3>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" name="pwdForm" novalidate onsubmit="return false;">
+                <div class="form-group">
+                    <label for="currPwd" class="col-sm-2 control-label">Current password <span style="color: red;">*</span></label>
+                    <div class="col-sm-3">
+                        <input type="password" class="col-sm-3 form-control "  ng-model="currPwd" name="currPwd" id="currPwd" placeholder="Please enter the current password" required ng-pattern="/^([^\s]{8,32})$/">
+
+                        <!-- <span class="glyphicon glyphicon-remove form-control-feedback failed" aria-hidden="true" ng-show="hasShow"></span> -->
+                        <!-- <span class="currPwd" ng-show="hasShow" style="color:#A94442;">{{data.message}}</span> -->
+                    </div>
+                    <div class="col-sm-4 ng-error" ng-show="pwdForm.currPwd.$dirty" ng-messages="pwdForm.currPwd.$error">
+                        <span ng-message="required">This information is required.</span>
+                        <span ng-message="pattern">A string of 8 to 32 characters that do not contain spaces.</span>
+                        <span ng-show="hasShow">{{data.message}}</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="newPwd" class="col-sm-2 control-label">New password <span style="color: red;">*</span></label>
+                    <div class="col-sm-3">
+                        <input type="password" class="col-sm-3 form-control" ng-model="newPwd" name="newPwd" id="newPwd" placeholder="Please enter the new password" required ng-pattern="/^([^\s]{8,32})$/" dif-check="currPwd">
+                    </div>
+                    <div class="col-sm-4 ng-error" ng-show="pwdForm.newPwd.$dirty" ng-messages="pwdForm.newPwd.$error">
+                        <span ng-message="required">This information is required.</span>
+                        <span ng-message="pattern">A string of 8 to 32 characters that do not contain spaces.</span>
+                        <span ng-message="difCheck">The new password must be diffrent from the current password.</span>
+                        <!-- <span ng-show="newPwd==currPwd">不能与当密码相同</span> -->
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="reptNewPwd" class="col-sm-2 control-label">Confirm password <span style="color: red;">*</span></label>
+                    <div class="col-sm-3">
+                        <input type="password" class="col-sm-3 form-control" ng-model="reptNewPwd" name="reptNewPwd" id="reptNewPwd" placeholder="Please confirm new Password" required ng-pattern="/^([^\s]{8,32})$/" pw-check="newPwd">
+                    </div>
+                    <div class="col-sm-4 ng-error" ng-show="pwdForm.reptNewPwd.$dirty" ng-messages="pwdForm.reptNewPwd.$error">
+                        <span ng-message="required">This information is required.</span>
+                        <span ng-message="pattern">A string of 8 to 32 characters that do not contain spaces.</span>
+                        <span ng-message="pwCheck">Inconsistent passwords.</span>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="col-sm-2">&nbsp;</div>
+                    <div class="col-sm-3">
+                        <button type="button" ng-click="onSubmit($event)" class="btn btn-cus" ng-disabled="pwdForm.$invalid">OK</button>
+                    </div>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</div>
+<div  id="update_password_rc"
+      notNull="This information is required."
+      length="The password length must be diffrent from the current password."
+      currPwdDifferent="The new password must be diffrent"
+      identical="Inconsistent password."
+      
+      isChangePassword="Are you sure you want to change the password?"
+      successMessage="Password modified successfully. The current password is：">
+</div>

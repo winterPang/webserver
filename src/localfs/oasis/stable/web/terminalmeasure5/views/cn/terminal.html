@@ -1,0 +1,19 @@
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height default-bottom">
+        <div class="box-footer">
+            <span class="title">终端测量</span>
+        </div>
+        <div class="box-body no-height">
+            <form class="form-inline" role="form">
+                <div class="form-group input-group pull-left">
+                    <input id="input_mac" ng-model="clientMac" class="form-control" maxlength="14" placeholder="客户端MAC：xxxx-xxxx-xxxx">
+                </div>
+                <button id="measure_btn" class="btn btn-cus pull-left">&nbsp;&nbsp;测量&nbsp;&nbsp;</button>
+                <div class="form-group">
+                    <a class="xb-link" title="选择客户端" ng-click="select()">选择客户端</a>
+                    <div bs-modal="selectClient"><div bs-table="clientOptions"></div></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

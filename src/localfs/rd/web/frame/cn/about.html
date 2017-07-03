@@ -1,0 +1,21 @@
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+		<h3>关于</h3>
+	</div>
+	<div class="modal-body help">
+		<div class="">
+			<div class="">
+		<p>为了方便用户配置和集中管理，可以指定设备的接口作为DHCP客户端，使用DHCP协议从DHCP服务器动态获得IP地址等参数。
+DHCP客户端中对于接口的相关配置，目前只能在三层以太网接口（包括子接口）、VLAN接口和三层聚合接口上进行。
+多个具有相同DHCP客户端ID的接口不能正常通过DHCP方式申请IP地址，需要通过修改接口的客户端ID对以上情况进行规避。
+<p>配置接口通过DHCP协议获取IP地址，需要注意：
+·              如果DHCP服务器为接口分配的IP地址与设备上其他接口的IP地址在同一网段，则该接口不会使用该IP地址，且会再向DHCP服务器重新申请IP地址。
+<p>在完成上述配置后，在任意视图下执行display命令可以显示配置后DHCP客户端的信息，通过查看显示信息验证配置的效果。
+				<p>WebUI Version 1.0.0
+				<p>Copyright &copy; 2013
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<a href="#" id="btn_cancel" class="btn" data-dismiss="modal"><i class="icon-remove" ></i> Close</a>
+	</div>

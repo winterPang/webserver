@@ -1,0 +1,119 @@
+<html>
+
+<head>
+</head>
+
+<body>
+<div class="page-row">
+    <div class="col-xs-12 app-colum left-block" debug="wireless_list">
+        <div class="app-box"> 
+            <div class="box-footer"> 
+                <span class="title">Wireless Service</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="wireless_list" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="hide modal fade" id="TerminalInfoDlg">
+    <form class="form-horizontal form" id="view_client_form">
+       
+        <div class="col-sm-12">
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">Wireless Service Name</label>
+                  <span class="label form-if-setHtml" id="stName">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">SSID</label>
+                  <span class="label form-if-setHtml" id="ssidName">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">Status</label>
+                  <span class="label form-if-setHtml" id="status">--</span>
+            </div>
+        
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">Security IE</label>
+                  <span class="label form-if-setHtml" id="securityIE">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">Cipher Suite</label>
+                  <span class="label form-if-setHtml"  id="cipherSuite">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">Authentication Location</label>
+                  <span class="label form-if-setHtml" id="authLocation">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">Clients</label>
+                  <span class="label form-if-setHtml" id="clinetCount">--</span>
+            </div>
+           
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">Identity Authentication and Key Management Mode</label>
+                  <span class="label form-if-setHtml" id="akmMode">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">Hide SSID</label>
+                  <span class="label form-if-setHtml" id="hideSSID">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">Maximum number of online clients</label>
+                  <span class="label form-if-setHtml" id="maxClients">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">Maximum Rx rate</label>
+                  <span class="label form-if-setHtml" id="maxReceiveRatio">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">Maximum Tx rate</label>
+                  <span class="label form-if-setHtml" id="maxSendRatio">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">VLAN ID</label>
+                  <span class="label form-if-setHtml" id="vlanId">--</span>
+            </div>
+            
+        </div>
+    </form>
+</div>
+
+<div id="wireless_rc" class="rc-define"
+     WIRELESS_ITEM = "Wireless Service Name, SSID, Status, Security IE, Cipher Suite, Authentication Location, Clients"
+     STATUS = ",Enabled, Disabled"
+     HIDE_SSID = "Not Hide, Hide"
+     TYPE = "Local forwarding & Policy-based forwarding"
+     TYPES = "Centralized forwarding"
+     AUTH = "Static WEP"
+     NOAUTH = "No authentication"
+     ON = "On"
+     OFF = "Off"
+     LIST = "Service Template Name, AP Name, Radio, Bound VLAN, VLAN Group, NAS ID, NAS Port ID, Hide SSID"
+     HIDE = "Not Hide"
+     ENCRYPTION = "No"
+     TIME = "00 days 04 hours 30 minutes 39 seconds"
+     LOCATION = "东电B1实验局" 
+     OFF = "Off"
+     ON = "On"
+     AUTHLOCATION=",Central-AC,AC,,AP,,,,Other"
+     CIPHERSUITE="Not configured,WEP40,TKIP,CCMP,TKIP/CCMP,WEP104,WEP128"
+     SECURITYIE="Not configured,WPA,RSN,OSEN";
+     FRESH = "Refresh"
+     STATE = "Online"
+     TERINFO="Details"
+     TITLE_TERINFO="AP Details"
+     AKMMODE="Not configured,DOT1X,PSK,FT-OVER-DOT1X,
+                                   FT—USING-PSK,DOT1X-256,PSK-256, PRIVATE-PSK,DOT1X-WFA"
+     FWDLOCATION=",MAC,NAC,,AP,,,,Other"
+     PERMISSIONDENIED="Permission denied."
+        ></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_wireless1.index");
+</script>

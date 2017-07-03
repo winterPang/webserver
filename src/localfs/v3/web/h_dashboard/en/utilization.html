@@ -1,0 +1,102 @@
+<html>
+<head>
+</head>
+<body>
+    <form class="form-horizontal form edit" id="system_form">
+        <div class="row-clear padding0" debug="getGaugeCpu">
+            <div class="col-xs-6 file-container" style="margin-left: -15px;">
+                <div id="flash" class="col-xs-6">
+                   <div id="gauge_cpu" class="myEchart"></div>
+                </div>
+                <div id="cfcardA" class="col-xs-6">
+                    <div id="gauge_mem" class="myEchart"></div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="app-content"  style="color:#80878c;" id="version_block">
+                    <div class="page-row odd">
+                        <div class="utilization-height">
+                            <div class="col-xs-5">
+                                <span class="form-label">Device model:</span>
+                            </div>
+                            <div class="col-xs-7 text-left">
+                                <span id="devMode"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-row odd">
+                        <div class="utilization-height">
+                            <div class="col-xs-5">
+                                <span class="form-label">Serial number:</span>
+                            </div>
+                            <div class="col-xs-7 text-left">
+                                <span id="SerialNumber"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-row even">
+                        <div class="utilization-height">
+                            <div class="col-xs-5">
+                                <span class="form-label">Baseline version:</span>
+                            </div>
+                            <div class="col-xs-7 text-left">
+                                <span id="devSoftVersion"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-row even">
+                        <div class="utilization-height">
+                            <div class="col-xs-5">
+                                <span class="form-label">Software version:</span>
+                            </div>
+                            <div class="col-xs-7 text-left">
+                                <span id="devHardVersion"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-row odd">
+                        <div class="utilization-height">
+                            <div class="col-xs-5">
+                                <span class="form-label">Boot ROM version:</span>
+                            </div>
+                            <div class="col-xs-7 text-left">
+                                <span id="devBootWare"></span>
+                            </div>
+                        </div>
+                    </div>     
+                     <div class="page-row odd">
+                        <div class="utilization-height">
+                            <div class="col-xs-5">
+                                <span class="form-label">V2 connection status:</span>
+                            </div>
+                            <div class="col-xs-7 text-left">
+                                <span id="devCloudConnectionState"></span>
+                            </div>
+                        </div>
+                    </div> 
+                     <div class="page-row odd">
+                        <div class="utilization-height">
+                            <div class="col-xs-5">
+                                <span class="form-label">V3 connection status:</span>
+                            </div>
+                            <div class="col-xs-7 text-left">
+                                <span id="devv3CloudConnectionState"></span>
+                            </div>
+                        </div>
+                    </div>               
+                </div>
+            </div>
+        </div>
+    </form>
+    <div id="app_utilization_rc" class="rc-define"
+         FORM_TITLE="System Information"
+         cpu="CPU"
+         memory="Memory"
+         Connect_Sta="Connected,Disconnected"
+         Connect_Stav3="Connected,Disconnected"
+    ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_dashboard.utilization");
+</script>

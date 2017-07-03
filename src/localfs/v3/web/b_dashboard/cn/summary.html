@@ -1,0 +1,332 @@
+<html>
+<head>
+</head>
+<body>
+<div class="business-wifi">
+    <div class="page-row">
+        <div class="col-sm-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <div class="col-sm-10">
+                        <span class="title">概览</span>
+                    </div>
+                    <div class="col-sm-2 col-xs-2" id="total">
+                        <span id="Map" class="r-title" style="cursor:pointer;">地图</span>
+                    </div>
+                </div>
+                <div class="dashboard double-height">
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <div class="col-sm-6 col-xs-6 min-echart-height">
+                                <div id="onlineDev" class="myEchart col-sm-12"></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="dashboard-title">在线设备</span>
+                                <div class="label-title" id="onDevNum">8369</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="col-sm-6 col-xs-6 min-echart-height">
+                                <div id="offlineDev" class="myEchart col-sm-12"></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="dashboard-title">离线设备</span>
+                                <div class="label-title" id="offDevNum">592</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <div class="col-sm-6 col-xs-6 min-echart-height">
+                                <div id="onlineAP" class="myEchart col-sm-12"></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="dashboard-title">在线AP</span>
+                                <div class="label-title"  id="onApNum">30165</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="col-sm-6 col-xs-6 min-echart-height">
+                                <div id="offlineAp" class="myEchart col-sm-12"></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="dashboard-title">离线AP</span>
+                                <div class="label-title" id="offApNum">2957</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <div class="col-sm-6">
+                                <div class="terminal-img ass-img"></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="dashboard-title">关联终端</span>
+                                <div class="label-title" id="relatedClient">423658</div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6 form-height">
+                            <div class="col-sm-6 form-height left-padding">
+                                <div class="terminal-img port-img"></div>
+                            </div>
+                            <div class="col-sm-6">
+                                <span class="dashboard-title">认证终端</span>
+                                <div class="label-title" id="authClient">198876</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 app-colum left-block">
+            <div class="app-box no-bk-color " id="terminaltype_block">
+                <div class="box-footer">
+                    <div class="col-sm-10 col-sm-10">
+                        <span class="title">设备历史</span>
+                    </div>
+                    <div class="col-sm-2 col-xs-2">
+                        <a id="days" class="active">日</a>
+                        |
+                        <a id="weeks" class="xx-link">周</a>
+                        
+                        <a id="mounth" class="xx-link">月</a>
+                        |
+                        <a id="year" class="xx-link">年</a>
+                    </div>
+                </div>
+                <div class="box-body double-height">
+                    <div id="devHistory" class="myEchart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row" id="userflow">
+        <div class="col-sm-12 app-colum">
+            <div class="app-box no-bk-color dashboard">
+                <div class="box-footer">
+                    <div class="col-sm-9">
+                        <span class="title">综合健康度统计</span>
+                    </div>
+                    <div class="col-sm-3 text-right">
+                        <span class="title">评分最低设备</span>
+                    </div>
+                </div>
+                <div class="col-sm-12 form-group body-nopadding">
+                        <div class="col-sm-8">
+                            <div class="col-sm-4 ">
+                                <div class="mid-echart-height">
+                                    <div id="health40" class="col-sm-10 myEchart" href="b_deviceinfo.device"></div>
+                                </div>
+                                <div class="text-center text_margin">
+                                    综合健康度&nbsp;&nbsp;<&nbsp;&nbsp;<span id="equalTen">40</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 ">
+                                <div class="mid-echart-height">
+                                    <div id="health60" class="col-sm-10 myEchart" href="b_deviceinfo.device"></div>
+                                </div>
+                                <div class="text-center text_margin">
+                                    综合健康度&nbsp;&nbsp;=&nbsp;&nbsp;<span id="equalTen">40~60</span>
+                                </div>
+                            </div>
+                            <div class="col-sm-4 ">
+                                <div class="mid-echart-height">
+                                    <div id="health80" class="col-sm-10 myEchart" href="b_deviceinfo.device"></div>
+                                </div>
+                                <div class="text-center text_margin">
+                                    综合健康度&nbsp;&nbsp;>&nbsp;&nbsp;<span id="equalTen">80</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 dashboard"  style="border-left:1px solid #e7e7e7;">
+                            <div class="form-group body-nopadding">
+                                <div class="lowscore">
+                                    <div class="form-group col-sm-12 low-height">
+                                        <div id="num1" class="col-sm-8">设备1</div>
+                                        <div id="num1_detail" class="col-sm-4"><a class="score-detail">详情</a></div>
+                                    </div>
+                                    <div class="form-group col-sm-12 low-height">
+                                        <div id="num2" class="col-sm-8">设备2</div>
+                                        <div id="num2_detail" class="col-sm-4"><a class="score-detail">详情</a></div>
+                                    </div>
+                                    <div class="form-group col-sm-12 low-height">
+                                        <div id="num3" class="col-sm-8">设备3</div>
+                                        <div id="num3_detail" class="col-sm-4"><a class="score-detail">详情</a></div>
+                                    </div>
+                                    <div class="form-group col-sm-12 low-height">
+                                        <div id="num4" class="col-sm-8">设备4</div>
+                                        <div id="num4_detail" class="col-sm-4"><a class="score-detail">详情</a></div>
+                                    </div>
+                                    <div class="form-group col-sm-12 low-height">
+                                        <div id="num5" class="col-sm-8">设备5</div>
+                                        <div id="num5_detail" class="col-sm-4"><a class="score-detail">详情</a></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-sm-12 app-colum">
+            <div class="app-box no-bk-color left-block">
+                <div class="box-footer">
+                    <div class="col-sm-3">
+                        <span class="title">AP在线率</span>
+                    </div>
+                    <div class="text-right link-container" id="total">
+                        <a id="days" class="xx-link active" value='1'>1小时</a>&nbsp;&nbsp;|
+                        <a id="weeks" class="xx-link" value='2'>2小时</a>&nbsp;&nbsp;|
+                        <a id="mounth" class="xx-link" value='3'>12小时</a>&nbsp;&nbsp;|
+                        <a id="years" class="xx-link" value='4'>24小时</a>
+                    </div>
+                </div>
+                <div class="col-sm-12 echart-height box-body body-nopadding">
+                        <div class="col-sm-3">
+                            <div class="mid-echart-height">
+                                <div id="ap60" class="col-sm-10 myEchart" href="b_device.summary_ap"></div>
+                            </div>
+                            <div class="text-center text_margin">
+                                AP在线率&nbsp;&nbsp;<=&nbsp;&nbsp;<span id="equalThirty">60%</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="mid-echart-height">
+                                <div id="ap79" class="col-sm-10 myEchart" href="b_device.summary_ap"></div>
+                            </div>
+                            <div class="text-center text_margin">
+                                AP在线率&nbsp;&nbsp;=&nbsp;&nbsp;<span id="equalThirty">60%~79%</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="mid-echart-height">
+                                <div id="ap99" class="col-sm-10 myEchart" href="b_device.summary_ap"></div>
+                            </div>
+                            <div class="text-center text_margin">
+                                AP在线率&nbsp;&nbsp;=&nbsp;&nbsp;<span id="equalThirty">80%~99%</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="mid-echart-height">
+                                <div id="ap100" class="col-sm-10 myEchart" href="b_device.summary_ap"></div>
+                            </div>
+                            <div class="text-center text_margin">
+                                AP在线率&nbsp;&nbsp;=&nbsp;&nbsp;<span id="equalThirty">100%</span>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-sm-12 app-colum">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">认证终端统计</span>
+                    <div class="text-right link-container" id="total">
+                        <a id="days" class="xx-link active" value='1'>1小时</a>&nbsp;&nbsp;|
+                        <a id="weeks" class="xx-link" value='2'>2小时</a>&nbsp;&nbsp;|
+                        <a id="mounth" class="xx-link" value='3'>12小时</a>&nbsp;&nbsp;|
+                        <a id="years" class="xx-link" value='4'>24小时</a>
+                    </div>
+                </div>
+                <div class="col-sm-12 echart-height box-body body-nopadding">
+                        <div class="col-sm-3">
+                            <div class="mid-echart-height">
+                                <div id="client10" class="col-sm-10 myEchart"></div>
+                            </div>
+                            <div class="text-center text_margin">
+                               认证终端数&nbsp;&nbsp;<&nbsp;&nbsp;<span id="lessTen">10</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="mid-echart-height">
+                                <div id="client30" class="col-sm-10 myEchart  echart-height"></div>
+                            </div>
+                            <div class="text-center text_margin">
+                                认证终端数&nbsp;&nbsp;<=&nbsp;&nbsp;<span id="equalTen">10~30</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="mid-echart-height">
+                                <div id="client60" class="col-sm-10 myEchart"></div>
+                            </div>
+                            <div class="text-center text_margin">
+                                认证终端数&nbsp;&nbsp;<=&nbsp;&nbsp;<span id="equalThirty">31~60</span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="mid-echart-height">
+                                <div id="client61" class="col-sm-10 myEchart"></div>
+                            </div>
+                            <div class="text-center text_margin">
+                                认证终端数&nbsp;&nbsp;>&nbsp;&nbsp;<span id="equalThirty">60</span>
+                            </div>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row dashboardWifi">
+        <div class="col-sm-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">最近重启设备</span>
+                    <div class="text-right link-container" id="total">
+                        <a id="days" class="xx-link active" value='1'>1小时</a>&nbsp;&nbsp;|
+                        <a id="weeks" class="xx-link" value='2'>2小时</a>&nbsp;&nbsp;|
+                        <a id="mounth" class="xx-link" value='3'>12小时</a>&nbsp;&nbsp;|
+                        <a id="years" class="xx-link" value='4'>24小时</a>
+                    </div>
+                </div>
+                <div class="list-body">
+                    <div id="Restart_list" class="simple-list"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">最近严重告警</span>
+                    <div class="text-right link-container" id="total">
+                        <a id="days" class="xx-link active" value='1'>1小时</a>&nbsp;&nbsp;|
+                        <a id="weeks" class="xx-link" value='2'>2小时</a>&nbsp;&nbsp;|
+                        <a id="mounth" class="xx-link" value='3'>12小时</a>&nbsp;&nbsp;|
+                        <a id="years" class="xx-link" value='4'>24小时</a>
+                    </div>
+                </div>
+                <div class="list-body">
+                    <div id="Alert_list" class="simple-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hide modal fade" id="devDlg">
+        <form id="dev_form" class="form edit" style="margin:10px;">
+            <div id="healthList" class="simple-list hide"></div>
+            <div id="apList" class="simple-list hide" ></div>
+            <div id="clientList" class="simple-list hide"></div>
+        </form>
+    </div>
+</div>
+
+
+
+
+<div id="wifi_dashboard_rc" class="rc-define"
+        ALERTLIST="设备名,告警时间,告警内容"
+        RESTARTDEV="设备名,重启时间,重启原因"
+        STATUS="在线,离线"
+        DEV_NAME="设备列表"
+        DEV_HEALTH="设备名,综合健康度"
+        DEV_ONLINE="设备名,在线时长,离线时长"
+        DEV_AUTH_CLIENT="设备名,终端数,认证终端数"
+        DEVICE_LIST="设备名,SN,设备组,位置,AP数,认证用户数,在线时长,评分"
+        DEV_STATUS=",在线,离线"
+        ></div>
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("b_dashboard.summary");
+</script>

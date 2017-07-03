@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:imcc="http://java.sun.com/jsf/composite/imcc"
+	xmlns:imcf="http://www.huawei-3com.com/jsf/core"
+    xmlns:imch="http://www.huawei-3com.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	>
+<f:view contentType="text/html">
+<h:head>
+<ui:include src="../../common/common.xhtml" />
+<script type="text/javascript" src="../js/common.js"></script>
+<h:outputScript library="jscript" name="wsmCommon.js" target="head" />
+<script>
+	function refreshData(){
+		 document.getElementById("mainForm:refresh").click();
+	}
+
+	function openwindow(url,name,iWidth,iHeight)
+	{
+		var url; //转向网页的地址;
+		var name; //网页名称，可为空;
+		var iWidth; //弹出窗口的宽度;
+		var iHeight; //弹出窗口的高度;
+		//window.screen.height获得屏幕的高，window.screen.width获得屏幕的宽
+		var iTop = (window.screen.height-30-iHeight)/2; //获得窗口的垂直位置;
+		var iLeft = (window.screen.width-10-iWidth)/2; //获得窗口的水平位置;
+		window.open(url,name,'height='+iHeight+',,innerHeight='+iHeight+',width='+iWidth+',innerWidth='+iWidth+',top='+iTop+',left='+iLeft+',toolbar=no,menubar=no,scrollbars=auto,resizeable=no,location=no,status=no');
+	}
+</script>
+    <style>
+.hasDatepicker {
+    WIDTH: 120px !important
+}
+
+.textWrapStyle {
+    display: block;
+    word-wrap: break-word;
+    word-break: break-all;
+    white-space: normal;
+    overflow: hidden;
+}
+</style>
+<title><h:outputText value=""/></title>
+<f:loadBundle basename="com.h3c.o2o.auth.LocalStrings" var="o2ouammsgs" />
+</h:head>
+
+<h:body onUnload="" oncontextmenu="return false;" onkeypress="">
+
+<h:form id="mainForm">
+	<p:panel styleClass="marginTop74">
+	     <f:facet name="header">
+	        <h:outputText value="#{o2ouammsgs['o2ouam.theme.draw.title']}"/>
+	    </f:facet>
+	    <h:panelGrid width="100%" cellpadding="0" cellspacing="0" columns="1">
+             <p:toolbar>
+              	<p:toolbarGroup align = "left">
+              		<!-- 增加 -->
+					<p:commandButton id="addTheme"
+							rendered="#{visitorBean.visitorCtrlHidden}"
+							value="#{o2ouammsgs['o2ouam.theme.list.theme.addButton']}"
+							immediate="true" ajax="false"
+							action="#{o2ouamThemeTempletBean.preAdd}"
+							update=":mainForm:data"
+							 styleClass="btn-min70"
+                            onclick="wait();"
+							/>
+					<!-- 刷新-->
+	                <p:commandButton id="refresh"
+	                  value="#{o2ouammsgs['common.btn.refresh']}"
+	                  action="#{o2ouamThemeTempletBean.queryConditionChanged}" ajax="false"
+                      onstart="wait();" oncomplete="stopWait();" onclick="wait();"
+	                  update=":mainForm:data"  styleClass="btn-min70"/>
+              	</p:toolbarGroup>
+          	</p:toolbar>
+          </h:panelGrid>
+
+          <!-- ===表格数据（开始）=== -->
+          <h:panelGrid id="panel" width="100%" cellspacing="0"
+							styleClass="list_style_new " style="padding-top: 15px;">
+                 <t:aliasBean id="list" alias="#{tableListControl}" value="#{o2ouamThemeTempletBean}">
+                   <p:dataTable id="data" value="#{tableListControl.data}"
+										var="row" widgetVar="dataTableiMC" paginator="true"
+										rowIndexVar="rowIndex"
+										paginatorTemplate="#{tableListControl.paginatorTemplate}"
+										rowsPerPageTemplate="#{tableListControl.rowsPerPageTemplate}"
+										paginatorPosition="#{tableListControl.paginatorPosition}"
+										emptyMessage="#{tableListControl.noItemMsg}"
+										rows="#{tableListControl.maxItems}"
+										currentPageReportTemplate="#{tableListControl.itemMsg}"
+										lazy="#{tableListControl.lazying}"
+										first="#{tableListControl.startRowIndex}" style="width:100%"
+										paginatorAlwaysVisible="#{tableListControl.paginatorAlwaysVisible}"
+										draggableColumns="false" resizableColumns="true"
+										sortBy="#{row.themeName}" sortOrder="ascending"
+										selection="#{tableListControl.selectedList}">
+										<p:ajax event="page" onstart="wait();"
+											oncomplete="stopWait();" immediate="true"></p:ajax>
+										<p:ajax event="sort" onstart="wait();"
+											oncomplete="stopWait();" immediate="true"></p:ajax>
+
+                                                <!-- 主题名称 -->
+                                                <p:column style="width:15%" headerText="#{o2ouammsgs['o2ouam.theme.list.themeName']}" sortBy="#{row.themeName}">
+													<h:outputText value="#{row.themeName}" styleClass="textWrapStyle"/>
+                                                </p:column>
+                                                <!-- 描述 -->
+                                                <p:column style="width:25%" headerText="#{o2ouammsgs['o2ouam.theme.list.themeDescription']}">
+													<h:outputText value="#{row.description}" styleClass="textWrapStyle"/>
+                                                </p:column>
+                                                <!-- 绘制 -->
+                                                <p:column
+                                               		rendered="#{visitorBean.visitorCtrlHidden}"
+                                                	style="width:10%" headerText="#{o2ouammsgs['o2ouam.theme.list.themeDraw']}">
+													<p:commandLink
+														rendered="#{visitorBean.visitorCtrlHidden}"
+                                                        action="#{tableListControl.preDraw}"
+														immediate="true"
+                                                        update=":mainForm:data,:growl"
+														ajax="true"
+														 oncomplete="if(args.showDraw == true){openwindow(args.pathName + '/draw.xhtml?templateId=#{row.id}&amp;type=1&amp;ownerId='+args.ownerId,'draw', '1280','1280');}else{setTimeout(function(){addPc();}, 1000)}">
+														<t:graphicImage value="resources/themes/default/images/icon_troubleshooting_16x16.png"
+															height="16" width="16" border="0" />
+													</p:commandLink>
+                                                </p:column>
+                                                <!-- 修改列 -->
+												<p:column style="width:10%"
+												rendered="#{visitorBean.visitorCtrlHidden}"
+													headerText="#{o2ouammsgs['o2ouam.theme.list.themeEdit']}">
+													<p:commandLink action="#{tableListControl.preModify}"
+													    rendered="#{visitorBean.visitorCtrlHidden}"
+														immediate="true"
+														update=":mainForm:data,:growl"
+														ajax="true" oncomplete="if(args.showModify == true){openwindow(
+					                                         'editThemeTemplet.xhtml',
+					                                         'deviceSelect', 600, 250);}{setTimeout(function(){addPc();}, 1000)}">
+														<t:graphicImage value="resources/themes/default/images/icon_modify_16x16.png"
+															height="16" width="16" border="0" />
+													</p:commandLink>
+												</p:column>
+
+												<!-- 删除列 -->
+												<p:column style="width:10%"
+												rendered="#{visitorBean.visitorCtrlHidden}"
+													headerText="#{o2ouammsgs['o2ouam.theme.list.themeDelete']}">
+													<p:commandLink action="#{tableListControl.onDelete}"
+														immediate="true"
+														rendered="#{!tableListControl.isDefaultTheme and visitorBean.visitorCtrlHidden}"
+														ajax="false"
+														onclick="if(!confirm('#{o2ouammsgs['o2ouam.theme.list.theme.deleteConfirm']}')) {return false;} else {}">
+														<t:graphicImage value="resources/themes/default/images/icon_delete_16x16.png"
+															height="16" width="16" border="0" />
+													</p:commandLink>
+												</p:column>
+                                          </p:dataTable>
+                         </t:aliasBean>
+                       <p:remoteCommand name="addPc" update=":growl,data,panel" />
+                   </h:panelGrid>
+            </p:panel>
+		</h:form>
+</h:body>
+</f:view>
+</html>

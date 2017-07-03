@@ -1,0 +1,83 @@
+
+#apSiteTree li.level0 span.button.level0.root_open, .ztree li.level0 span.button.level0.roots_open {
+    background: url(../../apsitemng/images/icon-hc.png) no-repeat !important;
+}
+#apSiteTree li.level0 span.button.level0.root_close, .ztree li.level0 span.button.level0.roots_close {
+    background: url(../../apsitemng/images/icon-hn.png) no-repeat !important;
+}
+
+#apSiteTree li.level1 span.level1.button.center_open {
+    background: url(../../apsitemng/images/icon-dc.png) no-repeat !important;
+}
+#apSiteTree li.level1 span.level1.button.center_close {
+    background: url(../../apsitemng/images/icon-dn.png) no-repeat;
+}
+
+#apSiteTree li span.button.center_open, .ztree li span.button.bottom_open {
+    background: url(../../apsitemng/images/btn-down.png) no-repeat;
+}
+#apSiteTree li span.button.center_close, .ztree li span.button.bottom_close {
+    background: url(../../apsitemng/images/icon-zkn.png) no-repeat;
+}
+
+
+
+
+.guideModal .clearfix {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #bdbdbd;
+}
+
+ul.text-center {
+    list-style: none;
+    font-size: 14px;
+}
+
+ul.text-center li span {
+    margin-right: 8px;
+}
+
+
+.site .padding-left-zero {
+    padding-left:0;
+}
+
+
+
+
+.site .padding-left-zero {
+    padding-left:0;
+}
+.site .fixed-table-body table {
+    table-layout: fixed;
+}
+
+.site .fixed-table-body table td {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/*.site .fixed-table-body table th[data-field=addrShow] {*/
+/*width: 180px;*/
+/*}*/
+
+/*.site .fixed-table-body table th[data-field=manage], .site .fixed-table-body table th[data-field=dev_show] {*/
+/*width: 101px;*/
+/*}*/
+
+/*.site .fixed-table-body table th[data-field=modify], .site .fixed-table-body table th[data-field=del] {*/
+/*width: 54px;*/
+/*}*/
+
+.site #cmbProvince, .site #cmbCitys, .site #cmbArea {
+    width:100%;
+}
+.tooltip {
+    word-break: break-all;
+}
+
+.site .padding-left {
+    padding-left:10px;
+}

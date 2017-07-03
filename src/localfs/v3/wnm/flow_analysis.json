@@ -1,0 +1,66 @@
+{
+  "aAPStatistics":
+  [
+  ]
+  ,"aTra_Interfaces":
+  [
+    {"IfIndex": "2", "InBits": "3367864", "InOctets": "420983", "InPkts": "3968", "Interval": "300", "Name": "GigabitEthernet1/0/1", "OutBits": "19328136", "OutOctets": "416017", "OutPkts": "1771"}
+    ,{"IfIndex": "3", "InBits": "0", "InOctets": "0", "InPkts": "0", "Interval": "300", "Name": "GigabitEthernet1/0/2", "OutBits": "0", "OutOctets": "0", "OutPkts": "0"}
+    ,{"IfIndex": "4", "InBits": "0", "InOctets": "0", "InPkts": "0", "Interval": "300", "Name": "GigabitEthernet1/0/3", "OutBits": "0", "OutOctets": "0", "OutPkts": "0"}
+    ,{"IfIndex": "5", "InBits": "0", "InOctets": "0", "InPkts": "0", "Interval": "300", "Name": "GigabitEthernet1/0/4", "OutBits": "0", "OutOctets": "0", "OutPkts": "0"}
+    ,{"IfIndex": "6", "InBits": "0", "InOctets": "0", "InPkts": "0", "Interval": "300", "Name": "GigabitEthernet1/0/5", "OutBits": "0", "OutOctets": "0", "OutPkts": "0"}
+    ,{"IfIndex": "8", "InBits": "0", "InOctets": "0", "InPkts": "0", "Interval": "300", "Name": "NULL0", "OutBits": "0", "OutOctets": "0", "OutPkts": "0"}
+    ,{"IfIndex": "9", "InBits": "0", "InOctets": "0", "InPkts": "0", "Interval": "300", "Name": "InLoopBack0", "OutBits": "0", "OutOctets": "0", "OutPkts": "0"}
+    ,{"IfIndex": "200", "InBits": "0", "InOctets": "0", "InPkts": "0", "Interval": "300", "Name": "Vlan-interface1", "OutBits": "0", "OutOctets": "0", "OutPkts": "0"}
+    ,{"IfIndex": "201", "InBits": "0", "InOctets": "0", "InPkts": "0", "Interval": "300", "Name": "CMTunnel4093", "OutBits": "0","OutOctets": "0", "OutPkts": "0"}
+  ]
+  ,"aInterfaces":
+  [
+    {"AbbreviatedName": "GE1/0/1", "ActualBandwidth": "100000", "ActualDuplex": "1", "ActualSpeed": "100000", "AdminStatus": "1", "ConfigDuplex": "3", "ConfigSpeed": "1", "Description": "GigabitEthernet1/0/1 Interface", "IfIndex": "2", "LinkType": "1", "Loopback": "0", "MAC": "38-91-D5-2F-4D-F1", "MDI": "4", "Name": "GigabitEthernet1/0/1", "OperStatus": "1", "PVID": "1", "PortIndex": "2", "PortLayer": "2", "SubPort": "false", "ifType": "6", "ifTypeExt": "19"}
+    ,{"AbbreviatedName": "GE1/0/2", "ActualBandwidth": "0", "ActualDuplex": "3", "ActualSpeed": "0", "AdminStatus": "1", "ConfigDuplex": "3", "ConfigSpeed": "1", "Description": "GigabitEthernet1/0/2 Interface", "IfIndex": "3", "LinkType": "1", "Loopback": "0", "MAC": "38-91-D5-2F-4D-F2", "MDI": "4", "Name": "GigabitEthernet1/0/2", "OperStatus": "2", "PVID": "1", "PortIndex": "3", "PortLayer": "1", "SubPort": "false", "ifType": "6", "ifTypeExt": "19"}
+    ,{"AbbreviatedName": "GE1/0/3", "ActualBandwidth": "0", "ActualDuplex": "3", "ActualSpeed": "0", "AdminStatus": "1", "ConfigDuplex": "3", "ConfigSpeed": "1", "Description": "GigabitEthernet1/0/3 Interface", "IfIndex": "4", "LinkType": "1", "Loopback": "0", "MAC": "38-91-D5-2F-4D-F3", "MDI": "4", "Name": "GigabitEthernet1/0/3", "OperStatus": "2", "PVID": "1", "PortIndex": "4", "PortLayer": "1", "SubPort": "false", "ifType": "6", "ifTypeExt": "19"}
+    ,{"AbbreviatedName": "GE1/0/4", "ActualBandwidth": "0", "ActualDuplex": "3", "ActualSpeed": "0", "AdminStatus": "1", "ConfigDuplex": "3", "ConfigSpeed": "1", "Description": "GigabitEthernet1/0/4 Interface", "IfIndex": "5", "LinkType": "1", "Loopback": "0", "MAC": "38-91-D5-2F-4D-F4", "MDI": "4", "Name": "GigabitEthernet1/0/4", "OperStatus": "2", "PVID": "1", "PortIndex": "5", "PortLayer": "1", "SubPort": "false", "ifType": "6", "ifTypeExt": "19"}
+    ,{"AbbreviatedName": "GE1/0/5", "ActualBandwidth": "0", "ActualDuplex": "3", "ActualMTU": "1500", "ActualSpeed": "0", "AdminStatus": "1", "ConfigDuplex": "3", "ConfigMTU": "1500", "ConfigSpeed": "1", "Description": "GigabitEthernet1/0/5 Interface", "ForwardingAttributes": "17", "IfIndex": "6", "Loopback": "0", "MAC": "38-91-D5-2F-4D-F5", "Name": "GigabitEthernet1/0/5", "OperStatus": "2", "PortIndex": "6", "PortLayer": "2", "SubPort": "false", "ifType": "6", "ifTypeExt": "23"}
+    ,{"AbbreviatedName": "NULL0", "ActualBandwidth": "1000000", "ActualMTU": "1500", "AdminStatus": "1", "ConfigMTU": "1500", "Description": "NULL0 Interface", "ForwardingAttributes": "18", "IfIndex": "8", "MAC": "00-00-00-00-00-00", "Name": "NULL0", "OperStatus": "1", "PortLayer": "2", "SubPort": "false", "ifType": "1", "ifTypeExt": "30"}
+    ,{"AbbreviatedName": "InLoop0", "ActualBandwidth": "0", "ActualMTU": "1536", "AdminStatus": "1", "ConfigMTU": "1536", "Description": "InLoopBack0 Interface", "ForwardingAttributes": "20", "IfIndex": "9", "InetAddressIPV4": "127.0.0.1", "InetAddressIPV4Mask": "255.0.0.0", "MAC": "00-00-00-00-00-00", "Name": "InLoopBack0", "OperStatus": "1", "PortLayer": "2", "SubPort": "false", "ifType": "24", "ifTypeExt": "15"}
+    ,{"AbbreviatedName": "Vlan1", "ActualBandwidth": "1000000", "ActualMTU": "1500", "AdminStatus": "1", "ConfigMTU": "1500", "Description": "Vlan-interface1 Interface", "ForwardingAttributes": "17", "IfIndex": "200", "InetAddressIPV4": "192.168.0.209", "InetAddressIPV4Mask": "255.255.0.0", "MAC": "38-91-D5-2F-4D-E0", "Name": "Vlan-interface1", "OperStatus": "1", "PortLayer": "2", "SubPort": "false", "ifType": "136", "ifTypeExt": "41"}
+    ,{"AbbreviatedName": "CMTunnel4093", "ActualBandwidth": "64", "ActualMTU": "1500", "AdminStatus": "1", "ConfigMTU": "1500", "Description": "CMTunnel4093 Interface", "ForwardingAttributes": "2", "IfIndex": "201", "MAC": "00-00-00-00-00-00", "Name": "CMTunnel4093", "OperStatus": "2", "PortLayer": "2", "SubPort": "false", "ifType": "1", "ifTypeExt": "120"}
+  ]
+  ,"aStations":
+  [
+
+  ]
+  ,"aStationStatistics":
+   [
+
+   ]
+  ,"oAllData":
+  {
+    "DownData":[],
+    "UpData":[]
+  }
+  ,"aUserAppDown":
+  [
+
+  ]
+  ,"aUsers":
+  [
+
+  ]
+  ,"aSSID":
+  [
+    {"Aid": "aid1", "ApName": "AP1", "Bssid": "bssid1", "DeviceType": "Nokia", "Ipv4Address": "1.1.1.1", "Ipv6Address": "1:1::1:1", "ListenInterval": "listen1", "MacAddress": "11-11-11-11-11-12", "PowerSaveMode": "0","QoSMode": "0", "RadioId": "1", "RxRate": "1589", "Ssid": "ssid1", "TxRate": "4816", "UpTime": "897", "UserName": "username1", "VLAN": "1", "WirelessMode": "1"}
+    ,{"Aid": "aid2", "ApName": "AP2", "Bssid": "bssid2", "Ipv4Address": "1.1.1.1", "Ipv6Address": "1:1::1:1", "ListenInterval": "listen2", "MacAddress": "11-11-11-11-11-13", "PowerSaveMode": "1", "QoSMode": "1", "RadioId": "2", "RxRate": "156489", "Ssid": "ssid2", "TxRate": "564816", "UpTime": "58621476", "UserName": "username2", "VLAN": "2", "WirelessMode": "64"}
+    ,{"Aid": "aid2", "ApName": "AP2", "Bssid": "bssid2", "Ipv4Address": "1.1.1.1", "Ipv6Address": "1:1::1:1", "ListenInterval": "listen2", "MacAddress": "11-11-11-11-11-14", "PowerSaveMode": "0", "QoSMode": "3", "RadioId": "2", "RxRate": "15649", "Ssid": "ssid2", "TxRate": "5816", "UpTime": "58621476", "UserName": "username2", "VLAN": "2", "WirelessMode": "2"}
+    ,{"Aid": "aid1", "ApName": "AP1", "Bssid": "bssid1", "DeviceType": "Nokia", "Ipv4Address": "1.1.1.1", "Ipv6Address": "1:1::1:1", "ListenInterval": "listen1", "MacAddress": "aa-11-11-11-11-12", "PowerSaveMode": "0", "QoSMode": "0", "RadioId": "1", "RxRate": "156489", "Ssid": "ssid1", "TxRate": "564816", "UpTime": "12376", "UserName": "username1", "VLAN": "1", "WirelessMode": "1"}
+    ,{"Aid": "aid2", "ApName": "AP2", "Bssid": "bssid2", "Ipv4Address": "1.1.1.1", "Ipv6Address": "1:1::1:1", "ListenInterval": "listen2", "MacAddress": "bb-11-11-11-11-13", "PowerSaveMode": "1", "QoSMode": "1", "RadioId": "2", "RxRate": "1489", "Ssid": "ssid2", "TxRate": "5816", "UpTime": "58621476", "UserName": "username2", "VLAN": "2", "WirelessMode": "64"}
+    ,{"Aid": "aid2", "ApName": "AP2", "Bssid": "bssid2", "Ipv4Address": "1.1.1.1", "Ipv6Address": "1:1::1:1", "ListenInterval": "listen2", "MacAddress": "cc-11-11-11-11-14", "PowerSaveMode": "0", "QoSMode": "3", "RadioId": "2", "RxRate": "6489", "Ssid": "ssid2", "TxRate": "816", "UpTime": "58621476", "UserName": "username2", "VLAN": "2", "WirelessMode": "2"}
+  ]
+  ,"aSecurity":
+  [
+    {"AkmMethod": "0", "MacAddress": "11-11-11-11-11-12"}
+    ,{"AccessCategory": "2", "MacAddress": "1-1-1", "TID": "2"}
+    ,{"AccessCategory": "3", "MacAddress": "3-3-3", "TID": "3"}
+  ]
+  ,"oAP": {"ApName": "AP1", "Bandwidth": "1", "Channel": "2", "MaxPower": "2", "Mode": "1", "RadioID": "1", "Status": "enable"}
+}

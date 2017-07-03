@@ -1,0 +1,45 @@
+<div class="col-xs-4 app-colum  right-block">
+    <div class="app-box default-height" style="height: 380px">
+        <div id="detect_container">
+            <div class="sysinfo-footer">
+                <span class="title">最受欢迎的网站</span>
+                <div class="text-right link-container">
+                    <div>
+                        <a type="button" class="refresh"  value = "2" id="refresh_Url">
+                            <i class="refresh-icon icon"></i>
+                        </a>
+                        <a type="button" class="filter" id="filter_url">
+                            <i class="filter-icon icon"></i>
+                        </a>
+
+
+                        <a type="button" class="link-detail" id="url_detail" title="更多"  href="drs.url">
+                            <i class="icon detail-icon"/>
+                        </a>
+                    </div>
+                    <div class="hide" id="filter_UrlDate" value="1">
+                        <div class="filter-container">
+                            <div class="form-horizontal form-bordered form edit">
+                                <div class="form-group" id= "filter_UrlDate1">
+                                    <label >统计时间:&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                                    <input type="radio" id="UrlOneday" checked name="WecomUrlDate" value="0">
+                                    <label   id = "UrlToday" for="UrlOneday">本日&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                                    <input type="radio" id="UrlAweekCom" name="WecomUrlDate" value="1">
+                                    <label  id = "UrlAweek" for="UrlAweekCom">本周&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                                </div>
+                                <div class="form-group" id = "filter_UrlDate2">
+                                    <input id="filter_UrlDate3" type="checkbox" id="serRadio"  name="MacUrl" value="0" brother="macRadio">
+                                    <label for="serRadio">Mac地址:</label>
+                                    <input id="filter_UrlDate4" type="text" class="string big" id="MacSelect" name="MacSelect1" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="list-height sysinfo-body " >
+                <div id="Url_pie" class="myEchart col-xs-12"></div>
+            </div>
+        </div>
+    </div>
+</div>

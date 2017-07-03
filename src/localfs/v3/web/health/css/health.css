@@ -1,0 +1,161 @@
+﻿body{
+margin: 0;
+padding: 0;
+}
+table{font-size:14px}
+.fc_security{
+	color:green;
+}
+.report_list{
+	padding:0 5px;
+	text-indent:2px;
+}
+.report_list h2 {
+  border-bottom: 1px solid #D8DEEB;
+  font-size: 16px;
+  margin-left: 4%;
+  margin-right: 4%;
+  margin-top: 0;
+  margin-bottom: 0;
+  height: 45px;
+  color: #4cc1b2;
+  text-align: -webkit-left;
+  line-height: 4px;
+  padding: 21px 4% 0px 4%;
+}
+.report_list th {
+	color: #5e616a;
+	font-weight: 400;
+	text-align: -webkit-left;
+	width:50%;
+}
+.dangerous{
+	color:red;
+}
+
+.toggle-btn {
+  display: inline-block;
+  margin: -5px 4px 0 0;
+  width: 15px;
+  height: 12px;
+  cursor: pointer;
+  background: url(./icon.png) no-repeat -268px -403px;
+  position: absolute;
+  left:88%;
+}
+.toggle-btn.row-open{
+    background-position: -308px -403px;
+}
+
+.healthContent {
+    width: 80%;
+    margin: auto;
+    border-style: solid;
+    border-color: #ddd;
+    border-width: 1px;
+    padding-bottom: 30px;
+}
+
+.healthContent ul {
+    border-style: none;
+}
+
+.healthTab {
+    width: 50%;
+}
+
+.healthContent ul>li>a, .healthContent ul>li>a:hover, .healthContent ul>li>a:focus {
+    margin: 0px;
+    background-color: rgb(232, 250, 246);
+    color: #000;
+    border-radius: 0px;
+    font-size: 16px;
+    text-align: center;
+    font-size: 20px;
+    border-style: solid;
+    border-color: #eeeeee;
+    border-width: 0px 1px 1px 0px;
+}
+
+.healthContent ul>li.active>a, .healthContent ul>li.active>a:hover, .healthContent ul>li.active>a:focus {
+    background-color: rgb(255, 255, 255);
+    border-style: solid;
+    border-color: #eeeeee;
+    border-width: 0px 1px 0px 1px;
+}
+
+#healthTabFirst {
+    border-left-style: none;
+}
+
+#healthTabLast {
+    border-Right-style: none;
+}
+
+.healthContent .tab-content {
+    padding: 0px;
+    margin: 0px;
+    margin-top: 21px;
+}
+
+.healthContent .tab-content .col-xs-6{
+    width: 100%;
+}
+.buttonContent {
+    position: absolute;
+    top: 100px;
+    left: 0px;
+    right: 0px;
+    width: 80%;
+    padding: 0 20px;
+    margin: auto;
+    z-index: 10000;
+}
+.buttonStyle,
+.butionStyle button:focus{
+    background-color: #5FD4C5;
+    font-size: 18px;
+    color: #fff;
+    text-align: center;
+    width: 145px;
+    padding: 9px;
+    border-style: none;
+    border-radius: 4px;
+    outline-style: none;
+    cursor:pointer;
+}
+.buttonLeft {
+    float: left;
+}
+.buttonRight {
+    float: right;
+}
+
+
+.chartContent {
+    text-align: center;
+}
+.chartStyle {
+    margin: auto;
+    margin-top: 5px;
+}
+.chartClear {
+    clear: both;
+}
+.modal-header h3 {
+    font-size: 17px;
+}
+.modal-footer {
+    box-shadow: none;
+    border: none;
+}
+
+.modal-scrollable {
+    overflow: overlay;
+}
+.onToggle{
+	cursor:pointer;
+}
+th#cputemperature:after {
+    content: " \00B0";
+}

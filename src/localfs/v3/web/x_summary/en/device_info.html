@@ -1,0 +1,32 @@
+<html>
+<head>
+    <style type="text/css">
+
+    </style>
+</head>
+<body>
+<div class="page-row xxb" debug="getApInfo getClientAccount" id="device_info">
+    <div class="col-xs-12 app-colum left-block">
+        <div class="app-box">
+            <div class="box-footer">
+                <div class="col-xs-11">
+                    <span class="title">Devices</span>
+                </div>
+            </div>
+            <div class="box-body no-height">
+            <div id="dev_info_list" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+<div id="device_infor_rc" class="rc-define"
+     DEV_LABELS="Device Model,Serial ID,Online Duration,Commercial WLAN Guests,Internal WLAN Users"
+     DEV_STATUS = "Online,Offline,Version downloading"
+     ENABLE = "Disabled,Enabled"
+     TIME="d,h,m"
+     AP_LABELS="AP Name,MAC Address,Online Duration,AP State"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("x_summary.device_info");
+</script>

@@ -1,0 +1,26 @@
+<form class="form-horizontal form model">
+    <div class="form-group">
+        <div class="col-sm-4 ml20 title-fontStyle">AP名称</div>
+        <div class="col-sm-4"
+             ng-bind="data.name"></div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4 ml20 title-fontStyle">射频</div>
+        <div class="col-sm-4" ng-bind="data.radio"></div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4 ml20 title-fontStyle">检测钓鱼行为</div>
+        <div class="col-sm-4" ng-bind="data.phishStatus"></div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4 ml20 title-fontStyle">反制钓鱼行为</div>
+        <div class="col-sm-4" ng-bind="data.ctmPhishStatus"></div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4 ml20 title-fontStyle">检测泛洪攻击</div>
+        <div class="col-sm-4" ng-bind="data.floodStatus"></div>
+    </div>
+</form>

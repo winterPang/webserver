@@ -1,0 +1,207 @@
+<html>
+<head>
+</head>
+<body>
+<div>
+    <div class="dashboard" id="ap_container">
+        <div class="row">
+            <div id="aps_box_1" class="col-xs-6 app-colum">
+            	<div class="app-box double-height" id="ap_performance">
+			        <div class="sysinfo-footer">
+			           <div class="col-xs-12">
+			               <span class="title">Performance</span>
+			           </div>
+			        </div>
+				    <div class="sysinfo-body" id="performance_page">
+					    <div class="form-group summary-view">
+					        <div class="col-sm-3">
+					            <span class="sum-title">AP Number</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="sum-content" id="ApNum">500</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="sum-title">Radio Number</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="sum-content" id="RadioNum">1000</span>
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11b(2.4GHz)</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="rm1">100</strong></span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11a(5GHz)</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="rm2">200</strong></span>
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11n(2.4GHz)</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="rm4">100</strong></span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11n(5GHz)</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="rm5">300</strong></span>
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11ac(2.4GHz)</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="rm6">300</strong></span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11ac(5GHz)</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="rm7">300</strong></span>
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11g(2.4GHz)</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="rm3">300</strong></span>
+					        </div>
+					    </div>
+					    <div class="form-group">
+					    	<div class="echart"  style="margin-top:34px;">
+						    	<div class="sysinfo-footer">
+							        <span class="title">Noise Floor (dBm)</span>
+								</div>
+					            
+				                <div>
+				                    <div id="noise" class="col-sm-12 myEchart"></div>
+				                    <div id="noiseLabel" class="label"></div>
+				                </div>
+			                </div>
+					    </div>
+					    <div class="form-group">
+					    	<div class="echart">
+						    	<div class="sysinfo-footer">
+							        <span class="title">Channel Busy (%)</span>
+								</div>
+					            
+				                <div>
+				                    <div id="channel" class="col-sm-12 myEchart"></div>
+				                    <div id="channelLabel" class="label"></div>
+				                </div>
+			                </div>
+					    </div>
+					    <div class="form-group">
+					    	<div class="echart">
+						    	<div class="sysinfo-footer">
+							        <span class="title">Interference (%)</span>
+								</div>
+					            
+				                <div>
+				                    <div id="interface" class="col-sm-12 myEchart"></div>
+				                    <div id="interfaceLabel" class="label"></div>
+				                </div>
+			                </div>
+					    </div>
+					</div>
+				</div>
+	        </div>
+
+            <div id="aps_box_2" class="col-xs-6 app-colum right-block">
+            	<div class="app-box" id="apTopUsage">
+			        <div class="sysinfo-footer">
+			           <div class="col-xs-12">
+			               <span class="title">Top 5 By Usage</span>
+			           </div>
+		                <div class="text-right link-container">
+		                	<div class="btn-group">
+			                    <a class="btn btn-default active" id="Download" xhref="#">Throughput</a>
+			                    <a class="btn btn-default" id="Upload" xhref="#">Clients</a>
+			                </div>
+			           </div> 
+			       </div>
+				    <div class="row-nohover sysinfo-body" >
+		                <div class="col-xs-5">
+		                    <div id="RxList" class="simple-list"></div>
+		                </div>
+		                <div class="col-xs-1">
+		                </div>
+		                <div class="col-xs-5">
+		                    <div id="TxList" class="simple-list"></div>
+		                </div>
+				    </div>
+			    </div>
+
+			    <div class="app-box">
+			        <div class="sysinfo-footer">
+			           	<div class="col-xs-12">
+			               	<span class="title">AP Groups</span>
+			           	</div>
+			           	<div class="text-right link-container">
+                            <div>
+                                <a type="button" class="filter" id="filter_group">
+                                    <i class="filter-icon icon"></i>
+                                </a>
+                            </div>
+
+                            <div class="hide" id="group_block">
+                                <div class="filter-container">
+                                    <span>AP group</span>
+                                    <select class="singleSelect big" id="ApNameSelect"></select>
+                                </div>
+                            </div>
+
+                        </div> 
+			        </div>
+		            <div class="row-nohover sysinfo-body">
+		               <div id="GroupList" class="simple-list"></div>
+				    </div>
+			    </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="aps_box_r1" class="col-xs-12 app-colum">
+            	<div class="app-box" id="aplist_page">
+			        <div class="sysinfo-footer">
+			           <div class="col-xs-12">
+			               <span class="title">Running AP list</span>
+			           </div>
+			           <div class="text-right link-container">
+                            <div>
+                                <a type="button" class="btn" id="disconAp"><span class="">Disconnect</span></a>
+                            </div>
+                        </div> 
+			       	</div>
+				    <div class="row-nohover sysinfo-body no-height" >
+				    	<div style="padding-bottom:8px;"></div>
+		                <div id="AllApList" class="mlist"></div>
+				    </div>
+			    </div>
+            </div>
+        </div>
+    </div>
+    <div id="aps_detail_rc" class="rc-define"
+    	TX_HEADER="AP Name,Upload Rate"
+        RX_HEADER="AP Name,Download Rate"
+        ALL_Group="All AP Group"
+        GROUP_HEADER="AP Name,Model Name,Status,Serial ID,IP Address"
+        MODE=",802.11b,802.11a,802.11g,802.11n(2.4GHz),802.11n(5GHz),802.11ac(2.4GHz),802.11ac(5GHz)"
+        ALLAP_HEADER1="AP Name,Model Name,IP Address,Serial ID, Radios,Group Name,Clients Number,Throughput(kb),Online Time"
+        ALLAP_HEADER="AP Name,Model Name,IP Address,Serial ID, Radios,Group Name,Clients Number,Online Time"
+    ></div>
+</div>
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+	Utils.Pages.loadJS("WDashboard.APs_Detail");
+</script>

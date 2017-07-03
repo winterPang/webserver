@@ -1,0 +1,37 @@
+{
+    "count_left":0,
+    "count_total":1,
+    "apList":[
+        {"acSN":"210235A1JNB161000011",
+        "macAddr":"000f-e212-ff99",
+        "apSN":"219801A0CNC13A001584",
+        "apName":"ap1",
+        "apModel":"WA2620i-AGN",
+        "status":1,
+        "radioNum":2,
+        "ipv4Addr":"100.0.0.254",
+        "ipv6Addr":"",
+        "softVersion":"R2118P11",
+        "apType":0,
+        "apAuthState":1,
+        "apGroupName":"default-group",
+        "timeStamp":0,
+        "transmitTraffic":3237664.381,
+        "receiveTraffic":1310891.43,
+        "transmitRate":1150,
+        "receiveRate":735,
+        "cpuRatio":12,
+        "memoryRatio":88,
+        "onlineTime":"00d:08h:08m:43s",
+        "packLostRatio":0.15677561628879516,
+        "uniqueKey":"210235A1JNB161000011ap1",
+        "branchName":"",
+        "client5GNum":0,
+        "client24GNum":0,
+        "radioList":[
+            {"radioId":1,"radioMode":"5G","radioStatus":1,"radioChannel":149,"radioPower":20},
+            {"radioId":2,"radioMode":"2.4G","radioStatus":1,"radioChannel":6,"radioPower":20}
+            ]
+        }
+    ]
+}

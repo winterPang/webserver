@@ -1,0 +1,252 @@
+<style>
+    .adddata {
+        line-height: 38px;
+    }
+
+    .dec {
+        text-decoration: underline;
+    }
+
+    .frame {
+        margin-top: 20px;
+        border-top: 1px solid #e5e5e5;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .pagermar ul {
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+    .border {
+        /*border: 1px solid #000;*/
+        padding: 2%;
+    }
+
+    .active {
+        background-color: #78cec3;
+    }
+
+    .taborigin, .taborigin tr, .taborigin td, .taborigin th {
+        border: 1px solid #000;
+        text-align: center;
+    }
+
+    .minh {
+        min-height: 200px;
+    }
+</style>
+
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title" ng-bind="title"></h3>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" name="addApp" novalidate onsubmit="return false;">
+                <div class="row mb15">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">定制应用名<span class="label-require">*</span></label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control " ng-model="app.Name" name="Name" required
+                                       ng-maxlength="20">
+                            </div>
+                            <div class="col-sm-4 ang-error" ng-show="addApp.Name.$dirty"
+                                 ng-messages="addApp.Name.$error">
+                                <label ng-message="required" class="error"
+                                       style="display: inline-block;">定制应用名不能为空</label>
+                                <label ng-message="maxlength" class="error"
+                                       style="display: inline-block;">定制应用名不能超过20位</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">描述&nbsp;</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" ng-model="app.breif" name="breif"
+                                       ng-maxlength="50">
+                            </div>
+                            <div class="col-sm-4 ang-error" ng-show="addApp.breif.$dirty"
+                                 ng-messages="addApp.breif.$error">
+                                <label ng-message="maxlength" class="error"
+                                       style="display: inline-block;">描述不能超过50个字符</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="file" class="col-sm-2 control-label">应用图标<span
+                                    class="label-require">*</span></label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" id="falfile" placeholder="请上传图片"
+                                       ng-model="fileName"
+                                       readonly>
+                                <input id="file" type="file" name="file" style="display: none">
+                                <div style="min-height: 150px;border: 1px solid #e1e1e1;border-radius: 5px;margin-top: 15px">
+                                    <div ng-if="!(app.path)"
+                                         style="height: 150px;line-height: 150px;font-size: 24px;text-align: center">
+                                        图片预览
+                                    </div>
+                                    <img ng-src="{{app.path}}" width="100%"/>
+                                </div>
+                            </div>
+                            <div class="col-sm-1">
+                                <button id="btnUpload" class="btn btn-cus">上传图片</button>
+                            </div>
+                            <div class="col-sm-6" style="line-height: 32px">
+                                图片大小不能超过2M
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="templet" class="col-sm-2 control-label">模板应用<span class="label-require">*</span></label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" placeholder="请选择模板应用"
+                                       ng-value="app.outtemplet.name" name="templetName" id="templet" required readonly
+                                       ng-click="box.templetOpen()">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="type" class="col-sm-2 control-label">应用类型<span
+                                    class="label-require">*</span></label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" placeholder="请选择应用类型"
+                                       ng-value="app.outtype.name" name="typename" id="type" required readonly
+                                       ng-click="box.typeOpen()">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">应用标签&nbsp;<span class="label-require"></span></label>
+                            <div class="col-sm-3">
+                                <input type="text" ng-model="applabel.applabelinput">
+                            </div>
+                            <div class="col-sm-1">
+                                <button class="btn btn-cus"  ng-click="applabel.addlabel()">添加</button>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-hide="applabel.applabelall.length === 0">
+                            <div class="col-sm-offset-2 col-sm-3">
+                                <table style="width: 100%" class="taborigin">
+                                    <tr>
+                                        <th style="width: 75%">标签</th>
+                                        <th style="width: 25%">操作</th>
+                                    </tr>
+                                    <tr ng-repeat="v in applabel.applabelall">
+                                        <td>{{v}}</td>
+                                        <td ng-click="applabel.dellabel(v)"><a href="" class="adddata dec">删除</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">绑定数据来源<span class="label-require">*</span></label>
+                            <div class="col-sm-3">
+                                <a href="" class="adddata dec" ng-click="box.originOpen()">添加</a>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-hide="local.origin.length === 0">
+                            <div class="col-sm-offset-2 col-sm-3">
+                                <table style="width: 100%" class="taborigin">
+                                    <tr>
+                                        <th style="width: 25%">数据类型</th>
+                                        <th style="width: 50%">数据名称</th>
+                                        <th style="width: 25%">操作</th>
+                                    </tr>
+                                    <tr ng-repeat="v in local.origin">
+                                        <td>场所</td>
+                                        <td>{{v.shopName}}</td>
+                                        <td ng-click="delorigin(v)"><a href="" class="adddata dec">删除</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">应用权限<span
+                                    class="label-require"></span></label>
+                            <div class="col-sm-3">
+                                <input name="appAuth" type="radio" value="" checked><span
+                                    class="adddata">仅本人账户（包含子账户）</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-cus" ng-click="box.previewOpen()">预览</button>
+                    <button class="btn btn-cus"
+                            ng-disabled="!(app.Name && app.path && app.outtemplet && app.outtype && local.origin.length && isclick)"
+                            ng-click="submitData()">确定
+                    </button>
+                    <button class="btn btn-cus" ng-click="cancelAdd()">取消</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div id="appmanageAddRc"
+         templet-choice="定制模板"
+         please-templet-choice="请选择定制模板"
+         type-choice="应用类型"
+         please-type-choice="请选择应用类型"
+         origin-choice="数据来源"
+         please-origin-choice="请选择数据来源"
+         preview-choice="效果预览"
+         origin-table-header="场所名称,场所（总部）地址,描述,所属区域"
+         picture-format="图片限于bmp,png,gif,jpeg,jpg,dwg格式"
+         picture-size="上传的文件大小不能超过2M！">
+    </div>
+</div>
+<div class="container-fluid" bs-modal="box.templetOption">
+    <div class="row">
+        <div class="col-xs-offset-3 col-xs-6">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="请输入..." ng-model="box.searchfortem">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="searchfortemplet()">搜索</button>
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="row frame minh">
+        <div class="col-sm-3 border" ng-repeat="v in templetpager.data" ng-click="templetclick(v)"
+             ng-class="{active:v.id === app.intemplet.id}">
+            <div>
+                <div style="height: 150px">
+                    <img ng-src={{v.logo}} alt={{v.name}} style="width: 100%;height: 100%">
+                </div>
+                <div style="height: 20px;margin-top: 30px">
+                    <p style="text-align:center;font-size: larger; height: 20px;line-height: 20px;font-weight:bold;color: #000;"ng-bind="v.name"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div bs-pager="pager" ng-model="page" class="pull-right pagermar"></div>
+</div>
+<div class="container-fluid" bs-modal="box.typeOption">
+    <div class="row">
+        <div class="col-xs-3" ng-repeat="v in htps.type">
+            <input name="typeinput" type="radio" ng-value="v" ng-model="app.intype">
+            <span ng-bind="v.name"></span>
+        </div>
+    </div>
+</div>
+<div class="container-fluid" bs-modal="box.originOption">
+    <div bs-table="tables.origintable"></div>
+</div>
+<div class="container-fluid" bs-modal="box.previewOption">
+    <div style="height: 450px;border:1px solid #000;position: relative;">
+        <div style="height: 32px">
+            <div style="padding: 5px;width: 32px;float: right;margin-right: 30px;border-left: 1px solid #f2f2f2;border-right: 1px solid #f2f2f2;">
+                <i class="fa fa-user-circle" style="font-size: 22px;color: #78cec3;"></i>
+            </div>
+        </div>
+        <div style="height: 30px;background-color: #78cec3">
+            <div style="position: absolute;top:0;left: 30px;width: 80px;height: 80px;border-radius: 10px;border: 1px solid #f2f2f2;overflow: hidden;">
+                <img  ng-src="{{app.path}}" alt="" style="width: 100%;height: 100%;">
+            </div>
+            <p style="margin-left: 125px;height: 30px;line-height: 30px;color: #000;font-size: 25px;" ng-bind="app.Name"></p>
+        </div>
+        <div style="height: 380px">
+            <img src="../appdiy/images/preview.jpg" alt="" height="100%" width="100%">
+        </div>
+    </div>
+</div>
+

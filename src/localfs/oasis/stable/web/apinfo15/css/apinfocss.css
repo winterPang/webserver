@@ -1,0 +1,28 @@
+.js-apinfo .apmodel {
+    width: 522px;
+    height: 280px;
+}
+
+.js-apinfo .clientnum {
+    height: 285px;
+}
+
+.js-apinfo .clientnumecharts {
+    width: 522px;
+    height: 235px;
+}
+
+.js-apinfo .app-colum .app-box .table-padding {
+    padding: 0 30px;
+}
+
+.js-apinfo .ap-info-label {
+    color: rgb(78, 193, 178);
+    font-size: 15px;
+    margin: 10px 0 10px 22px;
+    display: inline-block;
+}
+
+.js-apinfo .ap-info-nums {
+    color: grey;
+}

@@ -1,0 +1,195 @@
+<html>
+<head>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">Authentication Template</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="authList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+
+<div class="hide" id="authToggle">
+    <form id="toggle_form" class="form edit" autocomplete="off">
+        <div class="col-sm-6 response-block">
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">Authentication template</label>
+                <div class="col-md-9">
+                    <input type="text" class="string big required" maxlength="64" id="authname" name ="authCfgTemplateName" error_id="authname_error"/>
+                    <label class="info-explain">(1 to 64 characters)</label>
+                    <label class="error" id="authname_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">Maximum online duration</label>
+                <div class="col-md-9">
+                    <input type="text" class="string big required" id="onlineTime" name ="ONLINE_MAX_TIME" error_id="onlineTime_error"  placeholder="360" />
+                    <label class="info-explain">min (1 to 1440)</label>
+                    <label class="info-explain">Note: The value is 360 by default.</label>
+                    <label class="error" id="onlineTime_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label ">Redirect to after successful auth<!--URL--></label>
+                <div class="col-md-9">
+                    <input type="text" class="string big " maxlength="128" id="redirectURL" name ="URL_AFTER_AUTH" error_id="redirectURL_error" placeholder="http:// or https://"/>
+                    <label class="info-explain">Note: The URL is www.h3c.com by default.</label>
+                    <label class="error" id="redirectURL_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">Maximum idle period
+                        <span class="toggle" contents="#IdleCutFlow">
+                        <i class="icon-question-sign"></i></span>
+                </label>
+                <div class="col-md-9">
+                    <input type="text" class="string big required" id="restTime" name ="IDLE_CUT_TIME" error_id="restTimeL_error" placeholder="30"/>
+                    <label class="info-explain">min</label>
+                    <label class="error" id="restTime_error"></label>
+                    <label class="info-explain">Note: The maximum idle period must be no larger than the maximum online duration.</label>
+                    <label class="info-help hide" id="IdleCutFlow">
+                        The system does not log off idle clients if the maximum idle period is set to 0
+                    </label>
+                </div>
+            </div>
+            <div class="form-group" id="idle_flow_cut">
+                <label class="col-sm-3 control-label required">Minimum traffic</label>
+                <div class="col-md-9">
+                    <input type="text" class="string big required" id="restByte" name ="IDLE_CUT_FLOW" error_id="restByte_error" placeholder="10240"/>
+                    <label class="info-explain">bytes (1 to 1024000)</label>
+                    <label class="info-explain">Note: The value is 10240 by default.</label>
+                    <label class="error" id="restByte_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Auth free for reconnection</label>
+                <div class="col-md-9">
+                    <div class="col-md-5">
+                        <input type="radio" id="feelauth1" name="feelauth" value="1" />
+                        <label for="feelauth1">Enable</label>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="radio" id="feelauth2" name="feelauth" value="0" checked="checked"/>
+                        <label for="feelauth2" >Disable</label>
+                    </div>
+                    <DIV id = "anthTime" CLASS="hide col-md-12 Learn-MAC">
+                        <!--<input type="checkbox" id="impose_auth" checked ctrlBlock=".Learn-Time"/>-->
+                        <label for="impose_auth">Auth free period</label>
+                        <br>
+                        <div class="Learn-Time">
+                            <input type="text" class="digits big text-error required" id="impose_auth_time" name = "unauthtime" maxlength="2" value="1" min ="1" max = "30" placeholder="7" error_id="impose_auth_time_error"/>
+                            <label class="info-explain">d (1 to 30)</label>
+                            <label class="error" id="impose_auth_time_error"></label>
+                        </div>
+                        <label class="info-explain">Note: Clients passed authentication do not need to be reauthenticated when coming online again within the period. The period is 7 days by default.</label>
+                    </DIV>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 response-block">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">One-key authentication</label>
+                <div class="col-md-9">
+                    <div class="col-md-5">
+                        <input type="radio" id="authType1" name="authType" value="1" checked="checked"/>
+                        <label for="authType1">Enable</label>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="radio" id="authType2" name="authType" value="2" />
+                        <label for="authType2" >Disable</label>
+                    </div>
+                </div>
+            </div>
+            <div class="hide" id="other_auth">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Short message auth</label>
+                    <div class="col-md-9">
+                        <div class="col-md-5">
+                            <input type="radio" id="isEnableSms1" name="isEnableSms" value="1" />
+                            <label for="isEnableSms1">Enable</label>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="radio" id="isEnableSms2" name="isEnableSms" value="0" />
+                            <label for="isEnableSms2" >Disable</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">WeChat official account auth</label>
+                    <div class="col-md-9">
+                        <div class="col-md-5">
+                            <input type="radio" id="chatauth1" name="isEnableWeixin" value="1"  />
+                            <label for="chatauth1">Enable</label>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="radio" id="chatauth2" name="isEnableWeixin" value="0"/>
+                            <label for="chatauth2" >Disable</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">WeChat Wi-Fi</label>
+                    <div class="col-md-9">
+                        <div class="col-md-5">
+                            <input type="radio" id="ifwifi1" name="isWeixinConnectWifi" value="1"  />
+                            <label for="chatauth1">Enable</label>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="radio" id="ifwifi12" name="isWeixinConnectWifi" value="0"/>
+                            <label for="chatauth2" >Disable</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Fixed account auth</label>
+                    <div class="col-md-9">
+                        <div class="col-md-5">
+                            <input type="radio" id="isEnableAccount1" name="isEnableAccount" value="1"  />
+                            <label for="isEnableAccount1">Enable</label>
+                        </div>
+                        <div class="col-md-5">
+                            <input type="radio" id="isEnableAccount2" name="isEnableAccount" value="0" />
+                            <label for="isEnableAccount2" >Disable</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<div class="hide modal fade" id="AddAuthTempDlg"></div>
+
+<div id="ws_ssid_rc" class="rc-define"
+     SSID_HEADER = "Authentication Template, One-Key Authentication, Short Message Auth, WeChat Official Account Auth, WeChat Wi-Fi, Fixed Account Auth"
+     AUTH_Status ="Disable, Enable"
+     ADD_TITLE = "Add Authentication Template"
+     USER_MUST_BE_AUTH = "Please select one authentication method"
+     ADD_AUTH_TEMPELETE_ERROR_CODE_0    = "Authentication template added successfully"
+     ADD_AUTH_TEMPELETE_ERROR_CODE_1105 = "The authentication template already exits"
+     ADD_AUTH_TEMPELETE_ERROR_CODE_1106 = "The authentication template does not exist"
+     ADD_AUTH_TEMPELETE_ERROR_CODE_1107 = "The value of auth free period is in the range of 1 to 30"
+     ADD_AUTH_TEMPELETE_ERROR_CODE_1101 = "The maximum online duration must be a number in the range of 1 to 1440"
+     ADD_AUTH_TEMPELETE_ERROR_CODE_1102 = "The URL must start with http:// or https://"
+     ADD_AUTH_TEMPELETE_ERROR_CODE_1103 = "The maximum idle period must be a number that is no larger than the maximum online duration"
+     ADD_AUTH_TEMPELETE_ERROR_CODE_1104 = "The minimum traffic must be a number in the range of 1 to 1024000."
+     ADD_AUTH_TEMPELETE_ERROR_CODE_1001 = "Please enter the authentication template name."
+     DEL_AUTH_TEMPELETE_ERROR_CODE_1109 = "The authentication template is bound to a published template and cannot be deleted."
+     DEL_AUTH_TEMPELETE_ERROR_CODE_0    = "Authentication template deleted successfully"
+     DEL_AUTH_TEMPELETE_ERROR_CODE_FAIL = "Failed to delete the authentication template"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("auth.index");
+</script>

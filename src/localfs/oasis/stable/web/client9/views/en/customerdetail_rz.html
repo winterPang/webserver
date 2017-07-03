@@ -1,0 +1,186 @@
+<style>
+    .form-horizontal .control-label {
+        text-align: left !important;
+        padding-top: 2px;
+        margin-right: 200px;
+    }
+    .form-group {
+        margin-bottom:0px;
+    }
+    .form-horizontal [class^="col-md-"], 
+    .form-horizontal [class*="col-md-"],
+    .form-horizontal [class^="col-xs-"],
+    .form-horizontal [class*="col-xs-"],
+    .form-horizontal [class^="col-sm-"], 
+    .form-horizontal [class*="col-sm-"] {
+        line-height: 30px;
+    }
+</style>
+<div class="container-fluid">
+    <div class="btn_h_return" ng-click="return()"></div>
+        <div class="col-xs-12 app-colum">
+            <div class="app-box no-height">
+                <div class="box-footer">
+                    <span class="title">Client Statistics</span>
+                </div>
+                <div class="box-body no-height" style="padding:0px 20px;">
+                    <div class="form-group col-sm-12" id="anniumen">
+                        <div class="radioAnNiu" style="margin-top:10px;">
+                            <input id="jiben" type="radio" name="sanzhong-info" checked ng-click="clickRadio('basicInfo')">
+                            <label for="jiben" style="margin-right:30px;">Basic Information</label>
+                            <input id="shepin" type="radio" name="sanzhong-info" ng-click="clickRadio('RadioInfo')">
+                            <label for="shepin" style="margin-right:30px;">Radio Information</label>
+                            <input id="tongji" type="radio" name="sanzhong-info" ng-click="clickRadio('StatisticsInfo')">
+                            <label for="tongji" style="margin-right:30px;">Statistics Information</label>
+                            <input id="yonghu" type="radio" name="sanzhong-info" ng-click="clickRadio('UserInfo')">
+                            <label for="yonghu" style="margin-right:30px;">Authentication Information</label>
+                            <input id="newOutline" type="radio" name="sanzhong-info" ng-click="clickRadio('AllInfo')">
+                            <label for="newOutline" style="margin-right:30px;">Offline users</label>                                            
+                        </div>
+                    </div>
+    <br /><br /><br />
+
+                    <div class="box-body no-height" ng-show="curCheckedRadio == 'basicInfo'">
+                        <div class="btn btn-cus" ng-click="fresh()">Refresh</div>
+                        <div class="btn btn-cus" ng-click="export()">Export</div>
+                        <button class="btn btn-cus" ng-click="cancellation()" ng-disabled="modBtnDisable">
+                        Log Out Users</button>
+                        <div class="btn btn-cus" ng-click="cancellationall()">Log Out All Users</div>
+                        <div bs-Table="listOpts.basicInfo"></div>
+                    </div>
+                    <div class="box-body no-height" ng-show="curCheckedRadio == 'RadioInfo'">
+                        <div class="btn btn-cus" ng-click="fresh()">Refresh</div>
+                        <div class="btn btn-cus" ng-click="export()">Export</div>
+                        <button class="btn btn-cus" ng-click="cancellation()" ng-disabled="modBtnDisable">Log Out Users</button>
+                        <div class="btn btn-cus" ng-click="cancellationall()">Log Out All Users</div>
+                        <div bs-Table="listOpts.RadioInfo"></div>
+                    </div>
+                    <div class="box-body no-height" ng-show="curCheckedRadio =='StatisticsInfo'">
+                        <div class="btn btn-cus" ng-click="fresh()">Refresh</div>
+                        <div class="btn btn-cus" ng-click="export()">Export</div>
+                        <button class="btn btn-cus" ng-click="cancellation()" ng-disabled="modBtnDisable">Log Out Users</button>
+                        <div class="btn btn-cus" ng-click="cancellationall()">Log Out All Users</div>
+                        <div bs-Table="listOpts.StatisticsInfo"></div>
+                    </div>
+                    <div class="box-body no-height" ng-show="curCheckedRadio == 'UserInfo'" >
+                        <div class="btn btn-cus" ng-click="fresh()">Refresh</div>
+                        <div class="btn btn-cus" ng-click="export()">Export</div>
+                        <button class="btn btn-cus" ng-click="cancellation()" ng-disabled="modBtnDisable">Log Out Users</button>
+                        <div class="btn btn-cus" ng-click="cancellationall()">Log Out All Users</div>
+                        <div bs-Table="listOpts.UserInfo"></div>
+                    </div>
+                    <div class="box-body no-height" ng-show="curCheckedRadio == 'AllInfo'">
+                        <div class="btn btn-cus" ng-click="fresh()">Refresh</div>                
+                        <button class="btn btn-cus" ng-click="cancellation()" ng-disabled="modBtnDisable">Clear Online Status</button>
+                        <div class="btn btn-cus" ng-click="cancellationall()">Log Out All Users</div>
+                        <div bs-Table="listOpts.AllInfo"></div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+<form class="form-horizontal form" id="flowdetail_form" bs-modal="aiyaoption">
+    <div class="col-sm-12">
+        <div class="form-group detail-even">
+            <label class="col-sm-3  control-label"><strong>MAC Address</strong></label>
+            <span id="clientMAC"></span>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3  control-label "><strong>IP Address</strong></label>
+            <span id="clientIP"></span>
+        </div>
+        <div class="form-group detail-even">
+            <label class="col-sm-3  control-label "><strong>Vendor</strong></label>
+            <span id="clientVendor"></span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3  control-label "><strong>AP</strong></label>
+            <span id="ApName"></span>
+        </div>
+        <div class="form-group detail-even">
+            <label class="col-sm-3  control-label "><strong>SSID</strong></label>
+            <span id="clientSSID"></span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3  control-label "><strong>Client signal strength</strong></label>
+            <span id="signalStrength"></span>
+            <span> db</span>
+        </div>
+        <div class="form-group detail-even">
+            <label class="col-sm-3  control-label "><strong>Client tx rate</strong></label>
+            <span id="clientTxRate"></span>
+            <span> Kbps</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3  control-label "><strong>Client rx rate</strong></label>
+            <span id="clientRxRate"></span>
+            <span> Kbps</span>
+        </div>
+        <div class="form-group detail-even">
+            <label class="col-sm-3  control-label "><strong>Associated radio type</strong></label>
+            <span id="clientRadioMode"></span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3  control-label "><strong>Client Mode</strong></label>
+            <span id="clientMode"></span>
+        </div>
+        <div class="form-group detail-even">
+            <label class="col-sm-3  control-label "><strong>Associated radio channal</strong></label>
+            <span id="clientChannel"></span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3  control-label "><strong>Username</strong></label>
+            <span id="portalUserName"></span>
+        </div>     
+        <div class="form-group detail-even">
+            <label class="col-sm-3  control-label "><strong>Authentication Method</strong></label>
+            <span id="portalAuthType"></span>
+        </div>  
+        <div class="form-group">
+            <label class="col-sm-3  control-label "><strong>Portal access time</strong></label>
+            <span id="portalOnlineTime"></span>
+        </div> 
+    
+        <div class="form-group detail-even">
+            <label class="col-sm-3  control-label "><strong>Client sent bytes</strong></label>
+            <span id="clientTxBytes">N/A</span><span> B</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3  control-label "><strong>Client received bytes</strong></label>
+            <span id="clientRxBytes">N/A</span>
+            <span> B</span>
+        </div>
+        <div class="form-group detail-even">
+            <label class="col-sm-3  control-label "><strong>Client sent packets</strong></label>
+            <span id="clientTxPackets">N/A</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3  control-label "><strong>Client received packets</strong></label>
+            <span id="clientRxPackets">N/A</span>
+        </div>
+        <div class="form-group detail-even">
+            <label class="col-sm-3  control-label "><strong>Negotiated Rate</strong></label>
+            <span id="NegoMaxRate"></span><span> Mbps</span>
+        </div>                
+    </div>
+</form>
+</div>
+<iframe id="exportFile" name="exportFile" style="display: none" ></iframe>
+<div id="clients_rc" class="rc-define" 
+    LIST_HEADER="MAC Address,IP Address,Vendor,AP,SSID"
+    LIST_HEADER_SP="MAC Address,IP Address,AP,Associated radio type,Client Mode,Associated radio channel,Negotiated Rate(Mbps)"
+    LIST_HEADER_TJ="MAC Address,IP Address,AP,Tx Rate(Kbps),Rx Rate(Kbps)"
+    LIST_HEADER_YH="MAC Address,SSID,Username,Authentication Method,Authentication Time"
+    LIST_HEADER_LX="MAC Address,IP Address,Username,Authentication Method,Portal  Access Time" 
+    LIST_QOSMODE="Users logged out in batch successfully.Please refresh the page later."
+    LIST_QSMODE="Users logged out in batch unsuccessfully.Please try again."
+    SEC_TYPE="All users logged out successfully.Please refresh the page later." 
+    SEC_TYPEFAIL="Failed to log off all users.Please try again." 
+    SAC_WLEEOP="Exportation failed." 
+    SEC_FAIL="Client Statistics"
+    SEC_TYPEFL="Disabled"
+    LIST_QOS="Other"
+    LIST_QOSML="Unknown"    
+    >
+</div>

@@ -1,0 +1,130 @@
+html,
+body {
+  background-color: #efefef;
+}
+.addconfmould {
+  margin: 0 15%;
+}
+.addconfmould div,
+.addconfmould p,
+.addconfmould ul,
+.addconfmould li,
+.addconfmould h1,
+.addconfmould h2,
+.addconfmould h3,
+.addconfmould h4 {
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+.addconfmould .navbar.navbar-default {
+  background: #f8faf5 none;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding: 0 15px;
+  width: 70%;
+  position: fixed;
+  z-index: 100;
+}
+.addconfmould .navbar.navbar-default .navbar-header .navbar-brand {
+  width: 220px;
+  height: 64px;
+  line-height: 64px;
+  padding-left: 30px;
+  background: url(../../frame/img/sprite.png) no-repeat #1bbc9b -220px -85px;
+}
+.addconfmould .navbar.navbar-default .navbar-header .navbar-toggle {
+  border-color: #80878c;
+  color: #80878c;
+}
+.addconfmould .navbar.navbar-default .navbar-header .navbar-toggle:hover,
+.addconfmould .navbar.navbar-default .navbar-header .navbar-toggle:focus {
+  background: none;
+}
+.addconfmould .navbar.navbar-default .navbar-header .navbar-toggle .icon-bar {
+  background-color: #80878c;
+}
+.addconfmould .navbar.navbar-default .navbar-nav {
+  margin-left: 30px;
+}
+.addconfmould .navbar.navbar-default .navbar-nav > li > a {
+  font-size: 16px;
+  padding: 21px 20px;
+  color: #34495e;
+  float: left;
+  cursor: pointer;
+}
+.addconfmould .navbar.navbar-default .navbar-nav > li > a:hover,
+.addconfmould .navbar.navbar-default .navbar-nav > li > a:focus {
+  background-color: transparent;
+  color: #1bbc9b;
+}
+.addconfmould .navbar.navbar-default .navbar-nav > li.active > a {
+  color: #1bbc9b;
+  border-bottom: 2px solid #1bbc9b;
+  background-color: transparent;
+}
+.addconfmould .navbar.navbar-default .navbar-nav.navbar-right {
+  line-height: 64px;
+}
+.addconfmould .add-conf-mould {
+  min-height: 752px;
+  padding: 84px 20px 20px;
+  background-color: #fff;
+}
+.addconfmould form .form-group {
+  margin-bottom: 5px;
+}
+.addconfmould form .form-group h4 {
+  color: #80878c;
+  font-weight: 600;
+  padding-bottom: 15px;
+  border-bottom: 2px solid #AFBABF;
+}
+.addconfmould form .form-group .ctrs {
+  text-align: center;
+}
+.addconfmould form .form-group label {
+  font-weight: lighter;
+  text-align: right;
+  padding-top: 9px;
+}
+.addconfmould form .form-group label.text-left {
+  text-align: left;
+}
+.addconfmould form .form-group label .label-require {
+  color: #f00;
+}
+.addconfmould form .form-group .form-control {
+  border-radius: 0;
+}
+.addconfmould .clear-both:before {
+  content: " ";
+  display: table;
+}
+.addconfmould .clear-both:after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+/*滚动条美化css 适合WebKit引擎的浏览器如chrome、oprea、Safari等*/
+::-webkit-scrollbar {
+  width: 16px;
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  border: 5px solid transparent;
+}
+::-webkit-scrollbar-track {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2) inset;
+}
+::-webkit-scrollbar-thumb {
+  min-height: 20px;
+  background-clip: content-box;
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.2) inset;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}

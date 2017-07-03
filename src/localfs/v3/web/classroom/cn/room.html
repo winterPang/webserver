@@ -1,0 +1,286 @@
+<html>
+<head>
+<style type="text/css">
+#ClassPanel{
+    display: flex;
+    display: -moz-flex;
+    display: -webkit-flex;
+}
+
+#ClassPanel>div.app-box{
+    border: 1px solid #e7e7e9;
+    margin-bottom: 20px;
+    background: #fff;
+}
+#ClassPanel>div.app-box:first-child{
+    flex:1 1 200px;
+    margin-right: 20px;
+}
+#ClassPanel>div.app-box:last-child{
+    flex:4 4 600px;
+    position: relative;
+}
+
+#ClassPanel>div.app-box .box-body{
+    height: auto;
+}
+
+#ClassPanel .app-box .box-footer .tool-btn{
+    float: right;
+    margin-right: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+#ClassPanel .app-box .box-footer .tool-btn:hover{
+    color: #4EC1B2;
+}
+#StuList {
+    text-align: center;
+    vertical-align: top;
+}
+#StuList .stu-item{
+    display: inline-block;
+    max-width: 60px;
+    margin-right: 18px;
+    margin-bottom: 10px;
+    position: relative;
+    vertical-align: top;
+}
+#StuList .stu-icon{
+    width: 60px;
+    border: 2px solid #EDF9F7;
+    border-radius: 40px;
+    display: block;
+    cursor: pointer;
+}
+#StuList .off-set .stu-icon{
+    filter: grayscale(100%);
+    -webkit-filter: grayscale(100%);
+    -moz-filter: grayscale(100%);
+}
+#StuList .stu-icon.h-over{
+    transform: rotateY(720deg);
+    transition: 1.5s;
+    transform-style: preserve-3d;
+}
+#StuList .stu-name{
+}
+#StuList .stu-edit{
+    float: none;
+    vertical-align: middle;
+    line-height: 8px;
+    margin-left: 2px;
+    cursor: pointer;
+    margin-top: 0;
+    display: none;
+}
+#StuList .stu-edit:hover{
+    color: #4EC1B2;
+}
+#StuList .stu-item:hover .stu-edit{
+    display: inline-block;
+    position: absolute;
+    top: 55px;
+    right: -8px;
+}
+#StuList .stu-hand{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+}
+#StuList .stu-item.active .stu-hand{
+    -webkit-animation:twinkle 0.5s linear infinite;
+}
+
+#HandTop .top-item{
+    height: 65px;
+    width: 100%;
+    padding: 5px 10px 5px 5px;
+    border-radius: 5px;
+}
+
+#HandTop .top-item:hover{
+    background: #EEF3F2;
+}
+
+#HandTop .top-icon{
+    width: 50px;
+    height: 50px;
+    float: left;
+    border: 2px solid #EDF9F7;
+    border-radius: 25px;
+}
+#HandTop .top-name{
+    line-height: 50px;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+#HandTop .top-infor{
+    min-width: 50px;
+    height: 50px;
+    float: right;
+    text-align: center;
+}
+#HandTop .top-infor span{
+    display: block;
+}
+#HandTop .top-infor .top-ranking{
+    color: #4EC1B2;
+    font-weight: bolder;
+    font-style: italic;
+    font-size: 20px;
+}
+
+#SetStu_form .head-field{
+    text-align: center;
+}
+#SetStu_form .head-field img{
+    width: 120px;
+    height: 120px;
+    border: 1px solid #4DC1B2;
+}
+
+#PageBar{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translate(-50%,0);
+    -webkit-user-select:none;
+    -ms-user-select:none;
+    -moz-user-select:none;
+}
+#PageBar ul{
+    display: inline-block;
+    list-style: none;
+    line-height: 23px;
+    padding: 0;
+}
+#PageBar ul>li{
+    display: inline-block;
+    height: 24px;
+    width: 24px;
+    border: 1px solid #69c3c5;
+    text-align: center;
+    cursor: pointer;
+    margin-left: 5px;
+}
+#PageBar ul>li:first-child{
+   margin-left: 0;
+}
+#PageBar ul>li.checked{
+    background: #69c4c5;
+    color: #FFF;
+}
+#PageBar ul>span{
+    color: #69c4c5;
+    font-size: 28px;
+    margin-left: 5px;
+}
+#PageBar .page-btn{
+    display: inline-block;
+    width: 60px;
+    height: 24px;
+    border: 2px solid #4EC1B2;
+    text-align: center;
+    cursor: pointer;
+    color: #000;
+}
+#PageBar .page-btn.disabled{
+    opacity: 0.3;
+    cursor: default;
+}
+
+@-webkit-keyframes twinkle{
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+
+}
+@media (max-width: 1280px)
+{
+    #ClassPanel .app-colum{
+        float: left;
+        clear: none;
+    }
+
+    #ClassPanel .app-colum.col-xs-3 {
+        width: 25%;
+    }
+    #ClassPanel .app-colum.col-xs-9 {
+        width: 75%;
+    }
+}
+
+
+</style>
+</head>
+<body>
+
+<div class="page-row class-row" id="ClassPanel">
+    <div class="app-box">
+        <div class="box-footer">
+            <span class="title">举手排名</span>
+            <!-- <span class="tool-btn">清空</span> -->
+        </div>
+        <div class="box-body">
+            <div id="HandTop"></div>
+        </div>
+    </div>
+
+    <div class="app-box">
+        <div class="box-footer">
+            <span class="title">学生列表</span>
+        </div>
+        <div class="box-body">
+            <div id="StuList"></div>
+            <div id="PageBar">
+                <a class="page-btn last">上一页</a>
+                <ul cur="1" total="1"></ul>
+                <a class="page-btn next">下一页</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hide modal fade" id="SetStu_dlg">
+    <form class="form-horizontal form" id="SetStu_form">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">学生姓名</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="UserName" errid="UserName_error" maxlength=32  />
+                <label class="error" id="UserName_error"></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">修改头像</label>
+            <div class="col-sm-9">
+                <input type="file" />
+            </div>
+        </div>
+        
+        <div class="form-group head-field">
+            <img id="CurHead" src=""/>
+        </div>
+    </form>
+</div>
+    
+<div id="c_room_rc" class="rc-define"
+    STU_NAME=",大高个男,邸志伟,范晓坤,巩志涛,何学斌,金鸿婷,李刚,刘超,刘宏伟,柳天骄,庞立东,秦顺宇,任文慧,田文文,王丙志,王琳凯,王宇,袁粤坤,张来玉,张明,长头发女,赵廷海"
+    TIME="次"
+    STU_TITLE="修改学生信息"
+    REQ_ERROR="数据请求错误，请您刷新页面重试。"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.room");
+</script>

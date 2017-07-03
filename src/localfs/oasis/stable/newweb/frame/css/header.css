@@ -1,0 +1,189 @@
+/**
+ * Created by liuyanping lkf6877 on 2017/6/03.
+ */
+.oasis-header {
+  height: 92px;
+  background-color: #f6f6f6;
+  border-bottom: 1px solid #d7dbdd;
+}
+.oasis-header .oasis-header-left {
+  float: left;
+  width: 220px;
+  height: 64px;
+  line-height: 64px;
+  padding-left: 30px;
+  background: url("../img/sprite.png") no-repeat #1bbc9b -220px -85px;
+}
+.oasis-header .oasis-header-right {
+  padding-left: 220px;
+  height: 64px;
+}
+.oasis-header .oasis-header-right .oasis-header-icon {
+  float: left;
+  width: 66px;
+  height: 63px;
+  cursor: pointer;
+  border-right: 1px solid #d7dbdd;
+  background: url("../img/sprite.png") no-repeat -16px -175px;
+}
+.oasis-header .oasis-header-right .oasis-header-icon.icon-close {
+  background: url("../img/sprite.png") no-repeat -116px -175px;
+}
+.oasis-header .oasis-header-right .oasis-header-main ul {
+  padding-left: 52px;
+  height: 64px;
+  line-height: 62px;
+  float: left;
+}
+.oasis-header .oasis-header-right .oasis-header-main ul li {
+  font-size: 16px;
+  padding: 0 20px;
+  color: #34495e;
+  float: left;
+  cursor: pointer;
+}
+.oasis-header .oasis-header-right .oasis-header-main ul li:hover {
+  color: #1bbc9b;
+}
+.oasis-header .oasis-header-right .oasis-header-main ul li.active {
+  color: #1bbc9b;
+  border-bottom: 2px solid #1bbc9b;
+}
+.oasis-header .oasis-header-right .oasis-header-user {
+  float: right;
+  margin-right: 40px;
+  height: 64px;
+  line-height: 64px;
+}
+.oasis-header .oasis-header-right .oasis-header-user > div {
+  display: inline-block;
+}
+.oasis-header .oasis-header-right .oasis-header-user .change-lang li {
+  display: inline-block;
+  cursor: pointer;
+}
+.oasis-header .oasis-header-right .oasis-header-user .change-lang div {
+  border-left: 1px solid darkgray;
+  display: inline-block;
+  height: 20px;
+  position: relative;
+  top: 5px;
+}
+.oasis-header .oasis-header-right .oasis-header-user .mr20 {
+  margin-right: 20px;
+}
+.oasis-header .oasis-header-right .oasis-header-user img.userImg {
+  width: 38px;
+  height: 38px;
+  border-radius: 38px;
+}
+.oasis-header .oasis-header-right .oasis-header-user #chat_html img {
+  cursor: pointer;
+}
+.oasis-header .oasis-header-right .oasis-header-user .dropdown > .btn {
+  padding: 0;
+}
+.oasis-header .oasis-header-right .oasis-header-user .dropdown > .dropdown-toggle {
+  margin-top: -5px;
+  margin-top: -0.35714286rem;
+  background: transparent !important;
+  border: none;
+  color: #555;
+  outline: none !important;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+}
+.oasis-header .oasis-header-right .oasis-header-user .dropdown .dropdown-menu {
+  min-width: 115px;
+  min-width: 8.21428571rem;
+  list-style: none;
+  padding: 0;
+  margin: 0 0 0 50px;
+  margin: 0 0 0 3.57142857rem;
+  border: 1px solid #d6dce3;
+  border: 0.07142857rem solid #d6dce3;
+  color: #383e4e;
+  /* position: absolute; */
+  z-index: 999;
+}
+.oasis-header .oasis-header-right .oasis-header-user .dropdown .dropdown-menu > li a:hover {
+  background: #383e4e;
+  color: #fff;
+}
+.oasis-header .oasis-header-right .oasis-header-user .dropdown .dropdown-menu > li a {
+  background: #fff;
+  height: 33px;
+  height: 2.35714286rem;
+  padding-left: 15px;
+  padding-left: 1.07142857rem;
+  line-height: 33px;
+  line-height: 2.35714286rem;
+  cursor: pointer;
+}
+.oasis-header .oasis-header-info {
+  margin-left: 220px;
+  padding-left: 12px;
+  height: 28px;
+  background-color: #428ace;
+  font-size: 12px;
+  color: #ffffff;
+  line-height: 28px;
+}
+.oasis-operates {
+  position: fixed;
+  bottom: 60px;
+  right: 0;
+  z-index: 2;
+}
+.oasis-operates .oasis-operate {
+  display: inline-block;
+  height: 50px;
+  background-color: rgba(171, 141, 124, 0.4);
+  vertical-align: middle;
+  margin-left: -27px;
+  z-index: 0;
+  position: relative;
+}
+.oasis-operates .oasis-operate .icon {
+  width: 62px;
+  height: 62px;
+  border-radius: 62px;
+  top: -5px;
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+  left: -34px;
+  background: url("../img/sprite.png") no-repeat -30px -326px;
+  box-shadow: 0 1px 3px rgba(60, 70, 90, 0.41);
+}
+.oasis-operates .oasis-operate .link {
+  margin-left: 35px;
+  line-height: 48px;
+  padding-right: 10px;
+}
+.oasis-operates .oasis-operate .link img {
+  height: 40px;
+  width: 40px;
+  border-radius: 30px;
+  margin-right: 7px;
+  cursor: pointer;
+}
+.oasis-operates .oasis-operate .link img:last-child {
+  margin-left: 0;
+}
+.oasis-operates .oasis-operate .link span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  font-size: 12px;
+  padding-top: 7px;
+  line-height: 12px;
+  text-align: center;
+  border-radius: 40px;
+  background-color: #4071a2;
+  vertical-align: middle;
+  color: #FFFFFF;
+  cursor: pointer;
+}

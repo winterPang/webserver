@@ -1,0 +1,90 @@
+<!--<div class="input-icon checkbox-icon switch checked" ng-class="{'checked':drsValueIsEnable}" ng-click="drsValueChange()"></div>-->
+<div class="l-header">
+    <div class="l-header-img">
+        <img src="../l/images/logo.png">
+    </div>
+    <div class="l-home" style="">
+        <span ui-sref="oasisdemo.demohome">回到首页</span>
+    </div>
+</div>
+<div class="l-second-header">
+    <label ng-click="showAreaTree=!showAreaTree">选择区域：<a> >> </a><span ng-bind="selectedName"></span></label>
+    <div class="l-header-time">
+        <label for="l-date">时间：</label>
+        <input id="l-date">
+    </div>
+
+</div>
+<div class="l-left">
+    <ul class="l-first">
+        <li>
+            <div class="l-animate" ui-sref="demo3.dashboard" ui-sref-active="active"><i class="l-dashboard"></i>网络概览
+            </div>
+        </li>
+        <li>
+        </li>
+        <li>
+            <div class="l-animate"><i class="l-tijian"></i>终端分析<span class="l-number">5</span></div>
+            <ul class="l-second" style="display: none">
+                <li ui-sref="oasisdemo.content.sta_active" ui-sref-active="active">活跃度分析</li>
+                <li ui-sref="oasisdemo.content.sta_flow" ui-sref-active="active">流量分析</li>
+                <li ui-sref="oasisdemo.content.sta_performance" ui-sref-active="active">指标分析</li>
+                <li ui-sref="oasisdemo.content.sta_abnormal" ui-sref-active="active">上下线异常分析</li>
+                <li ui-sref="oasisdemo.content.sta_experience_score" ui-sref-active="active">用户体验</li>
+            </ul>
+        </li>
+        <li>
+            <div class="l-animate"><i class="l-hotmap"></i>AP分析<span class="l-number">2</span></div>
+            <ul class="l-second" style="display: none">
+                <li ui-sref="oasisdemo.content.ap_overview" ui-sref-active="active"><i></i>概览</li>
+                <li ui-sref="oasisdemo.content.ap_analysis" ui-sref-active="active"><i></i>AP指标</li>
+            </ul>
+        </li>
+        <li>
+            <div class="l-animate" ui-sref="oasisdemo.content.device" ui-sref-active="active"><i class="l-wiresecurit"></i>设备管理
+            </div>
+        </li>
+        <li>
+            <div class="l-animate"><i class="l-dashboard"></i>网络优化</div>
+        </li>
+        <li>
+            <div class="l-animate"><i class="l-warning"></i>告警日志<span class="l-number">2</span></div>
+            <ul class="l-second" style="display: none">
+                <li ui-sref="oasisdemo.content.warning_sta" ui-sref-active="active"><i></i>用户告警</li>
+                <li ui-sref="oasisdemo.content.warning_ap" ui-sref-active="active"><i></i>AP告警</li>
+            </ul>
+        </li>
+        <!--<li>
+            <div class="l-animate"><i class="l-hotmap"></i>网络部署<span class="l-number">5</span></div>
+            <ul class="l-second" style="display: none;">
+                <li><i></i>设备概览</li>
+                <li><i></i>终端信息</li>
+                <li><i></i>流量分析</li>
+                <li><i></i>设备信息</li>
+                <li><i></i>网络信息</li>
+            </ul>
+        </li>
+        <li>
+            <div class="l-animate"><i class="l-tijian"></i>应用管理</div>
+        </li>
+        <li>
+            <div class="l-animate"><i class="l-wiresecurit"></i>网络维护</div>
+        </li>-->
+    </ul>
+</div>
+<div class="l-right">
+    <div class="container-fluid" ui-view></div>
+</div>
+<div class="l-area-box" ng-show="showAreaTree">
+    <div class="l-area-ztree">
+        <ul class="ztree" id="areaTree"></ul>
+        <!--<div dashboard-ztree="areaTree"></div>-->
+    </div>
+    <div class="l-area-ztree-footer text-center">
+        <button class="btn btn-cus" ng-click="showAreaTree=false">确定</button>
+        <button class="btn btn-cus" ng-click="showAreaTree=false">取消</button>
+    </div>
+</div>
+<!--<div style="position: fixed;width: 100%;height: 100%;background: rgba(0,0,0,0.5)">
+
+</div>-->

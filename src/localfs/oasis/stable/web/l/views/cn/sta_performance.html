@@ -1,0 +1,99 @@
+<div class="dashboard container-fluid sta_analyse">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <div class="col-xs-3">
+                        <span class="title">全网指标分析</span>
+                    </div>
+                </div>
+
+                <div class="box-body echart-height">
+                    <div dashboard-echarts="sta_performance_option"></div>
+                </div>
+                <div class="box-body auto_height echart-height">
+                    <div bs-table="all_net_performance_options"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color sta_analyse_box">
+                <div class="box-footer">
+                    <div class="col-xs-3">
+                        <span class="title">终端指标分析</span>
+                    </div>
+                    <div class="col-xs-3">
+                        <select name="mac_address" select2>
+                            <option value="0">请选择MAC地址</option>
+                            <option value="1">0000-879e-bb4c</option>
+                            <option value="2">0000-879e-bb4c</option>
+                            <option value="3">0000-879e-bb4c</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="box-body echart-height form-group">
+                    <div class="col-sm-2 statistical_data">
+                        <dl class="size_of_statistical maxData"><dt>100</dt><dd>最大值</dd></dl>
+                        <dl class="size_of_statistical minData"><dt>1</dt><dd>最小值</dd></dl>
+                        <dl class="size_of_statistical averageData"><dt>80</dt><dd>平均值</dd></dl>
+                    </div>
+                    <div class="col-sm-10" dashboard-echarts="user_performance_option"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer ">
+                    <div class="col-xs-3">
+                        <span class="title">时延TOP10的终端</span>
+                    </div>
+                    <div class="text-right link-container">
+                        <a ng-click="show_delay_user_modal()" type="button" class="refresh list-link">
+                            <i class="fa fa-mydetail"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="box-body auto_height echart-height">
+                    <div bs-table="top_delay_user"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer ">
+                    <div class="col-xs-3">
+                        <span class="title">丢包率TOP10的终端</span>
+                    </div>
+                    <div class="text-right link-container">
+                        <a ng-click="show_lossrate_user_modal()" type="button" class="refresh list-link">
+                            <i class="fa fa-mydetail"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="box-body auto_height echart-height">
+                    <div bs-table="top_lossrate_user"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div bs-modal="delay_user_modal" class="form-horizontal">
+    <table bs-table="delay_user_options"></table>
+</div>
+
+<div bs-modal="lossrate_user_modal" class="form-horizontal">
+    <table bs-table="lossrate_user_options"></table>
+</div>

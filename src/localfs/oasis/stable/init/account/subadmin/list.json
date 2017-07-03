@@ -1,0 +1,38 @@
+{
+  "code":0,
+  "message":"o2o.oasis.mng.query.success",
+  "total":4,
+  "rows":[{
+    "name":"super111",
+    "phone":"13888888880",
+    "email":"super@h3c.com",
+    "creatorName":"super",
+    "parentName":"super",
+    "createDateTime":"2016-07-04 15:29:25",
+    "id":1
+  },{
+    "name":"super222",
+    "phone":"13888888887",
+    "email":"super2@h3c.com",
+    "creatorName":"super",
+    "parentName":"super",
+    "createDateTime":"2016-07-04 15:29:25",
+    "id":2
+  },{
+    "name":"super333",
+    "phone":"13111111111",
+    "email":"yichao@h3c.com",
+    "creatorName":"super",
+    "parentName":"super",
+    "createDateTime":"2016-07-22 06:05:48",
+    "id":4
+  },{
+    "name":"super444",
+    "phone":"13500224411",
+    "email":"super444@h3c.com",
+    "creatorName":"super",
+    "parentName":"super",
+    "createDateTime":"2016-07-22 15:34:51",
+    "id":5
+  }]
+}

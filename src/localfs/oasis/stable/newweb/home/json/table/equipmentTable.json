@@ -1,0 +1,101 @@
+[
+  {
+    "name":"设备1",
+    "state":"在线",
+    "cpu":"25%",
+    "memory":"63%",
+    "type":"AC",
+    "model":"WEX540",
+    "upflow":"12 MB",
+    "downflow":"15 MB",
+    "group":"分组1"
+  },
+  {
+    "name":"设备2",
+    "state":"在线",
+    "cpu":"25%",
+    "memory":"63%",
+    "type":"AP",
+    "model":"WEX540",
+    "upflow":"12 MB",
+    "downflow":"15 MB",
+    "group":"无"
+  },
+  {
+    "name":"设备3",
+    "state":"离线",
+    "cpu":"25%",
+    "memory":"63%",
+    "type":"路由器",
+    "model":"WFR90",
+    "upflow":"12 MB",
+    "downflow":"15 MB",
+    "group":"分组2"
+  },
+  {
+    "name":"设备4",
+    "state":"在线",
+    "cpu":"25%",
+    "memory":"63%",
+    "type":"交换机",
+    "model":"SDIHNXI",
+    "upflow":"12 MB",
+    "downflow":"15 MB",
+    "group":"分组10"
+  },
+  {
+    "name":"设备5",
+    "state":"离线",
+    "cpu":"25%",
+    "memory":"63%",
+    "type":"FAT-AP",
+    "model":"WEX540",
+    "upflow":"12 MB",
+    "downflow":"15 MB",
+    "group":"无"
+  },
+  {
+    "name":"设备6",
+    "state":"在线",
+    "cpu":"25%",
+    "memory":"63%",
+    "type":"AC",
+    "model":"WEX540",
+    "upflow":"12 MB",
+    "downflow":"15 MB",
+    "group":"分组1"
+  },
+  {
+    "name":"设备7",
+    "state":"离线",
+    "cpu":"25%",
+    "memory":"63%",
+    "type":"AC",
+    "model":"WEX540",
+    "upflow":"12 MB",
+    "downflow":"15 MB",
+    "group":"分组1"
+  },
+  {
+    "name":"设备8",
+    "state":"在线",
+    "cpu":"25%",
+    "memory":"63%",
+    "type":"路由器",
+    "model":"KJIHGJ",
+    "upflow":"12 MB",
+    "downflow":"15 MB",
+    "group":"无"
+  },
+  {
+    "name":"设备9",
+    "state":"在线",
+    "cpu":"25%",
+    "memory":"63%",
+    "type":"小小贝",
+    "model":"WEX540",
+    "upflow":"12 MB",
+    "downflow":"15 MB",
+    "group":"分组7"
+  }
+]

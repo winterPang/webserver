@@ -1,0 +1,147 @@
+﻿<html>
+<head>
+    <style>
+
+    </style>
+</head>
+<body>
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">微信公众号</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="chatList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+<div class="hide" id="chatToggle">
+    <form id="chattoggle_form" class="form edit">
+        <div class="col-sm-6 response-block">
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">名称</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="chatname" maxlength="20" name = "name" error_id="chatname_error"/>
+                    <label class="info-explain">（名称必须是6-20个字母、数字、下划线或减号的组合）</label>
+                    <label class="error" id="chatname_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">TOKEN</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="token" maxlength="32" name="token" error_id="token_error"/>
+                    <label class="info-explain">（3-32字符）</label>
+                    <label class="error" id="token_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">公众号类型</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-4">
+                        <input type="radio" id="publicNumber1" name="type" value="1" checked />
+                        <label for="publicNumber1">订阅号</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="radio" id="publicNumber2" name="type" value="2" />
+                        <label for="publicNumber2" >服务号</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="radio" id="publicNumber3" name="type" value="3"/>
+                        <label for="publicNumber2" >企业号</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">经过微信认证</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-4">
+                        <input type="radio" id="chatAuthType1" name="ifWeixinAuth" value="1" />
+                        <label for="chatAuthType1">是</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="radio" id="chatAuthType2" name="ifWeixinAuth" value="0" checked />
+                        <label for="chatAuthType2" >否</label>
+                    </div>
+                    <div>
+                        <input type="text" class="url big required" id="url" name = "url" error_id="chatUrl_error" placeholder="http://lvzhou.h3c.com/weixin/xxxx/xxxx"/>
+                        <label class="error" id="chatUrl_error"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">描述</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big" id="chatDescription" maxlength="256" name = "description"/>
+                    <label class="info-explain">（1-256字符）</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 response-block">
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">APP ID</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" maxlength="64" id="appId" name = "appId" error_id="appId_error"/>
+                    <label class="info-explain">（1-64字符）</label>
+                    <label class="error" id="appId_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">APP SECRET</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" maxlength="64" id="appSecret" name = "appSecret" error_id="appSecret_error"/>
+                    <label class="info-explain">（1-64字符）</label>
+                    <label class="error" id="appSecret_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">加密密钥</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" maxlength="43" id="encodingAesKey" name = "encodingAesKey" error_id="key_error"/>
+                    <label class="info-explain"></label>
+                    <button class="btn btn-primary" id="rand">随机生成</button>
+                    <label class="error" id="key_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">加解密类型</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-4">
+                        <input type="radio" id="encryptionType1" name="cipherMode" value="1" checked />
+                        <label for="encryptionType1">明文</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="radio" id="encryptionType2" name="cipherMode" value="2" checked />
+                        <label for="encryptionType2" >兼容</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="radio" id="encryptionType3" name="cipherMode" value="3"/>
+                        <label for="encryptionType3" >安全</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">自动回复</label>
+                <div class="col-sm-9">
+                    <a href="#" style="color:#0078ff;border-bottom:1px solid #0078ff;font-size:13px" id = "detail">详情</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="hide modal fade" id="AddChatTempDlg"></div>
+<div id="ws_ssid_rc" class="rc-define"
+     SSID_HEADER = "认证模板,一键登录,短信认证,微信认证,固定账号认证"
+     AUTH_Status ="关闭,开启"
+     Page_HEADER = "页面模板,描述"
+     Chat_HEADER = "公众号名称,AppID,AppSECRET,TOKEN"
+     ADD_TITLE = "增加认证模板"
+     ADDPage_TITLE = "增加页面模板"
+     ADDChat_TITLE = "增加微信公众号"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_auth.publishmanage");
+</script>

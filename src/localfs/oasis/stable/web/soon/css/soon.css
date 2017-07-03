@@ -1,0 +1,10 @@
+.soon{
+
+}
+
+.soon .comesoon-img{
+	background: url(image/coming_soon.png) no-repeat;
+    width: 100%;
+   	height: 700px;
+    margin: -160px auto;
+}

@@ -1,0 +1,158 @@
+<html>
+<head>
+</head>
+<body>
+<div>
+	<dl class="headline">
+        <dt id="back_to_index"><a class="back" href="#M_Dashboard"></a><span>Cilent Detail</span></span></dt>
+    </dl>
+
+    <div class="dashboard" id="client_container">
+
+        <div class="row">
+            <div id="clients_box_1" class="col-xs-6 app-colum">
+            	<div class="app-box double-height">
+	            	<div class="sysinfo-footer">
+				        <span class="title">Performance</span>
+					</div>
+					<div class="sysinfo-body" id="client_performance">
+					    <div class="form-group summary-view">
+					        <div class="col-sm-3">
+					            <span class="sum-title">Total Number</span>
+					        </div>
+					        <div class="col-sm-9">
+					            <span class="sum-content" id="Total"></span>
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11b</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="wsm1">0</strong></span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11a</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="wsm2">0</strong></span>
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11g</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="wsm4">0</strong></span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-title"> 802.11gn</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="wsm8">0</strong></span>
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11an</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="wsm16">0</strong></span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11ac</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="wsm64">0</strong></span>
+					        </div>
+					    </div>
+					    <div class="form-group">
+					    	<div class="echart"  style="margin-top:34px;">
+						    	<div class="sysinfo-footer">
+							        <span class="title">SNR(dB)</span>
+								</div>
+					            
+				                <div>
+				                    <div id="snr" class="col-sm-12 myEchart"></div>
+				                    <div id="snr_label" class="label"></div>
+				                </div>
+			                </div>
+					    </div>
+					    <div class="form-group">
+					    	<div class="echart">
+						    	<div class="sysinfo-footer">
+							        <span class="title">Speed (Mbps)</span>
+								</div>
+					            
+				                <div>
+				                    <div id="speed" class="col-sm-12 myEchart"></div>
+				                    <div id="speed_label" class="label"></div>
+				                </div>
+			                </div>
+				       
+					    </div>
+					</div>
+            </div>
+            </div>
+
+            <div id="clients_box_2" class="col-xs-6 app-colum right-block">
+            	<div class="app-box" id="topbyusage_page">
+			        <div class="sysinfo-footer">
+		               <span class="title">Top 5 By Usage</span>
+			        </div>
+
+                   	<div class="text-right link-container">
+                      	<a type="button" class="link-detail active" id="UpStream">Up Stream</a>
+                      	&nbsp;|&nbsp;
+                      	<a type="button" class="link-detail" id="DownStream">Down Stream</a>
+                  	</div>
+				    <div class="row-nohover sysinfo-body" >
+		                <div id="TxTop5" class="simple-list"></div>
+		                <div id="RxTop5" class="simple-list hide"></div>
+				    </div>
+			 	</div>
+
+			 	<div class="app-box" id="clientstype_page">
+			        <div class="sysinfo-footer">
+			            <span class="title">Clients Type</span>
+			        </div>
+			        <div class="row-nohover sysinfo-body">
+                        <div id="deviceType" class="col-xs-12 myEchart"></div>
+                    </div>
+			 	</div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="clients_box_r1" class="col-xs-12 app-colum">
+            	<div class="app-box" id="clientlist_page">
+			        <div class="sysinfo-footer">
+			        	<div class="col-xs-12">
+			               	<span class="title">Clients list</span>
+			           	</div>
+			           	<div class="text-right link-container">
+                            <div>
+                                <a type="button" class="btn" id="Disconnect"><span class="">Disconnect</span></a>
+                            </div>
+                        </div> 
+			        </div>
+				    <div class="row-nohover sysinfo-body no-height" >
+				    	<div style="padding-bottom:8px;"></div>
+		                <div id="clientList" class="mlist"></div>
+				    </div>
+			 	</div>
+            </div>
+        </div>
+    </div>
+    <div id="client_detail_rc" class="rc-define"
+    	OTHERTYPE="Other Type"
+    	RX_HEADER="MAC Address,IP Address,Username,SSID,RxRate(Mbps)"
+    	TX_HEADER="MAC Address,IP Address,Username,SSID,TxRate(Mbps)"
+    	MODE=",802.11b(2.4GHz),802.11a(5GHz),802.11g(2.4GHz),802.11gn(2.4GHz),802.11an(5GHz),802.11ac(5GHz)"
+    	CLIENT_HEADER="MAC Address,IP Address,Username,SSID,AP Name,Wireless Mode,VLAN,Throughput(KB),Online Time"
+    ></div>
+</div>
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+	Utils.Pages.loadJS("WDashboard.Client_Detail");
+</script>

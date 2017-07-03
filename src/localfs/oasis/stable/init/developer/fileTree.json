@@ -1,0 +1,56 @@
+[
+  {
+    "name": "developer",
+    "children": [
+      {
+        "name": "controller",
+        "children": [
+          {
+            "name": "list.js"
+          },
+          {
+            "name": "modify.js"
+          }
+        ]
+      },
+      {
+        "name": "css",
+        "children": [
+          {
+            "name": "style.css"
+          },
+          {
+            "name": "style.less"
+          }
+        ]
+      },
+      {
+        "name": "views",
+        "children": [
+          {
+            "name": "cn",
+            "children": [
+              {
+                "name": "list.html"
+              },
+              {
+                "name": "modify.html"
+              }
+            ]
+          },
+          {
+            "name": "en",
+            "children": [
+              {
+                "name": "list.html"
+              },
+              {
+                "name": "modify.html"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+]

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+    </style>
+</head>
+<body>
+
+<div class="col-xs-15 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">短信配置</span>
+        </div>
+        <div id="chatToggle">
+            <form id="chattoggle_form" class="form edit">
+                <div class="col-sm-15 response-block">
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label"></label>
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>                 
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label"></label>
+                        <label class="col-sm-2 control-label required">序列号：</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="string big required" id="serialnaumber" maxlength="64" name = "serialnaumber" error_id="serialnaumber_error"/>
+                            <label class="error" id="serialnaumber_error"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label"></label>
+                        <label class="col-sm-2 control-label required">序列号Key：</label>
+                        <div class="col-sm-3">
+                            <input type="text" class="string big required" id="serialnaumberkey" maxlength="64" name = "serialnaumberkey" error_id="serialnaumberkey_error"/>
+                            <label class="error" id="serialnaumberkey_error"></label>
+                        </div>
+                    </div>                    
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label"></label>
+                        <label class="col-sm-2 control-label required">序列号密码：</label>
+                        <div class="col-sm-3">
+                            <input type="password" class="string big required" id="serialnaumberpwd" maxlength="64" name = "serialnaumberpwd" error_id="serialnaumberpwd_error"/>
+                            <label class="error" id="serialnaumberpwd_error"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label"></label>
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>                    
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label"></label>
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="col-sm-3">
+                            <a class="btn btn-cancel ">
+                                注册
+                            </a>
+                        </div>
+                    </div>                    
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label"></label>
+                        <label class="col-sm-2 control-label"></label>
+                        <div class="col-sm-3">
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<div id="ws_ssid_rc" class="rc-define"
+     SSID_HEADER = "认证模板,一键登录,短信认证,微信认证,固定账号认证"
+     AUTH_Status ="关闭,开启"
+     Page_HEADER = "页面模板,描述"
+     Chat_HEADER = "公众号名称,AppID,AppSECRET,TOKEN"
+     ADD_TITLE = "增加认证模板"
+     ADDPage_TITLE = "增加页面模板"
+     ADDChat_TITLE = "增加微信公众号"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_systemmanage.smsconfigure");
+</script>

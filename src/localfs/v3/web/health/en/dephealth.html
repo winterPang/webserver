@@ -1,0 +1,94 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="../health/css/dephealth.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+    <h3>Deep Examination Report</h3>
+</div>
+
+<div class="page-row hide" id="qualityReport">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box">
+            <div class="box-footer">
+                <div class="title">Radio Quality Report</div>
+            </div>
+            <div class="box-body no-height">
+                <div id="qualityReport_slist"  class="simple-list" ></div>
+             </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-row hide" id="interfereReport">
+    <div class="col-sm-12 app-colum">
+        <div class="app-box">
+            <div class="box-footer">
+                <div class="title big">Interference Report</div>
+            </div>
+            <div class="box-body no-height">
+                <div id="interfereReport_slist" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form class="form-horizontal form-bordered form edit" id="dep_health_form">
+    <div class="form-group" id="load">
+        <div id="loading" class="loadingDiv"><img src="../health/css/loading.png">Deep examination is in process. Please wait…</div>
+    </div>
+
+    <div class="form-group hide" id="btnCancel">
+        <div class="col-sm-12">
+            <a type="button" class="btn btn-primary" dlgtype="Close" data-dismiss="modal">Close</a>
+        </div>
+    </div>
+
+    <div class="form-group hide" id="dep_health_fail">
+        <div class="col-sm-12 checkagain">
+            <img src="../health/css/fail.png" style="width:130px;height:130px;">
+            <span class="status">Deep examination failed. Please check the connection between the device and the lvzhou platform.</span>
+            <span id="deepcheck">Reperform deep examination</span>
+        </div>
+    </div>
+
+    <div class="form-group hide" id="btnCancel_fail">
+        <div class="col-sm-12 cancel">
+            <a type="button" class="btn btn-primary" dlgtype="Close" data-dismiss="modal">Cancel</a>
+        </div>
+    </div>
+
+</form>
+</body>
+<div class="define_rc" id="dep_health_rc"
+     qualityReportTitle="AP, Radio, Channel, Quality, Adjust Reason, Adjustment Suggestions"
+     interfereReportTitle = "Interference Type, Signal Strength, Affected Channel, AP, Radio Type"
+     chl="Change channel to"
+     por="Change power to"
+     success="Deep examination completed successfully"
+     alert="Spectrum analysis completed. The system is making DFS and TPC suggestions, which may take a long time. You can view the result in the history record."
+     fail="Failed to obtain data."
+     fail2="Failed to obtain radio quality report."
+     ReasBitMap="None"
+     suggest="No need to adjust"
+     reason0="Others"
+     reason="802.11 interference"
+     reason1="Packet loss"
+     reason2="Retransmission"
+     reason3="Radar"
+     reason4="Power adjustment"
+     reason5="Others"
+     null="Failed to obtain statistics"
+     deviceError="Device connection error occurred."
+     deviceNoResponse="The device is not responding."
+     deepCheckOver="Spectrum analysis completed. The system is making DFS and TPC suggestions."
+     deepCheckOver2="Spectrum analysis completed. The system is making DFS and TPC suggestions, which may take a long time. You can view the result in the history record."
+     disabled="Failed to obtain data (the AP does not support spectrum analysis)"
+        >
+</div>
+</html>
+<script>
+    Utils.Pages.loadJS("health.dephealth");
+</script>

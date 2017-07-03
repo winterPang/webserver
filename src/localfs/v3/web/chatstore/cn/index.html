@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<div class="col-xs-12 app-colum">
+	        <div class="app-box no-height">
+	            <div class="box-footer">
+	                <span class="title">微信门店</span>
+					<!--<div class="text-right link-container">
+						<a type="button" class="filter" id="filter_weixinstore">
+							<i class="filter-icon icon"></i>
+						</a>
+						<div class="hide" id="weixinstore_block">
+							<div class="filter-container">
+								<label>选择公众微信号：</label>
+								<select id="PublicWeixin" name="SetfigUpport" class="singleSelect"big></select>
+							</div>
+						</div>
+					</div>-->
+				</div>
+	            <div class="box-body no-height">
+	                <div id="chatstoreList" class="simple-list"></div>
+	            </div>
+	        </div>
+    	</div>
+
+    	<div id="chatstore_rc" class="rc-define"
+    		chatStore_HEADER = "门店名称,所属公众号,SSID,当前状态,门店设置"
+    		redirectBtn = "导入门店"
+			available_state=",系统错误,审核中,审核通过,审核驳回"
+			del_statu="删除成功,删除失败"
+        ></div>
+    </body>
+</html>
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("chatstore.index");
+</script>

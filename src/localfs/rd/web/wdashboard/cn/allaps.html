@@ -1,0 +1,24 @@
+<html>
+<head>
+</head>
+<body>
+<dl class="headline wlan-headline">
+   <dt id="back_to_index"><a class="back" href="#M_AccessPoints"></a><span>AP</span></dt>
+    <span class="headbutton">
+        <div class="btn-group shortcut">
+            <a class="btn btn-default" href="#M_AccessPoints?np=apmgr.help" title="Help"><i class="icon-book"> </i></a>
+        </div>
+    </span>
+</dl>
+
+<div class="ui-widget-content body-cntr">
+    <div id="aps_all_list" class="mlist"></div>
+</div>
+<div id="aps_all_rc" class="rc-define"
+    LIST_MONITOR="设备名称,AP数"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("wdashboard.allaps");
+</script>

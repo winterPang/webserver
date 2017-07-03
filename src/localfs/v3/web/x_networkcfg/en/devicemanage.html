@@ -1,0 +1,103 @@
+<html>
+<head>
+</head>
+<body>
+
+<div class="col-xs-12 col-sm-12 app-colum hide xxb" id="verProgress">
+    <div class="app-box no-height edit">
+        <div class="box-footer">
+            <span class="title">Upgrading Progress</span>
+        </div>
+        <div class="progress showList">
+            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                 aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                <!--class="sr-only"-->
+                <span>0% Complete</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="app-colum xxb" debug="getPlaceInfo getApInfo getVerInfo">
+    <div class="app-box">
+        <div class="box-footer">
+            <span class="title">Device Management</span>
+        </div>
+        <div class="box-body no-height">
+            <div class="col-xs-9">
+                <label class="control-label">Scheduled restart:</label>
+                <div class="ctrl-btn openORclose open en status btn forbid" id="rebootBtn"></div>
+                <label class="control-label">Restart at:</label>
+                <div id="StartValidityDateTime1" style="display: inline-block;width:160px;">
+                    <div id="clocktime1" class="timewidget_nosecond"></div>
+                </div>
+                <button class="btn btn-primary btn_ok hidden forbid" id="comfire">OK</button>
+            </div>
+            <div class="space-44"></div>
+            <div class="col-xs-12">
+                <div id="WipsList" class="xxb-list simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hide modal fade" id="StatusDlg">
+    <form class="form-horizontal form" id="StatusForm">
+        <div class="form-group">
+            <label class="col-sm-9 control-label" id="ApText">Upgrade the device. Continue?</label>
+            <div class="col-sm-12 box-body no-height">
+                <div id="WipsList1" class="simple-list"></div>
+            </div>
+            <!--<label class="col-sm-9 control-label" id="ApName" name="ApName"></label>-->
+        </div>
+    </form>
+</div>
+
+<div class="hide modal fade" id="AddApDlg">
+    <div class="modal-body">
+        <form class="form edit" id="AddApForm">
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">Device name</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="ap_name" name ="ap_name" errid="ap_name_error" maxlength=64 />
+                    <label class="info-explain">(1-64 chars)</label>
+                    <label class="error" id="ap_name_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">Serial ID</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="ap_SN" name ="ap_SN" errid="ap_SN_error" maxlength=64 />
+                    <label class="info-explain">(1-64 chars)</label>
+                    <label class="error" id="ap_SN_error"></label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="ws_ssid_rc" class="rc-define"
+     LIST_TITLE = "Device Name,Serial ID,Firmware Version,Online Duration"
+     EDIT_TITLE = "Add,Upgrade,Restart,Delete"
+     WIPS_TITLE = "WIPS"
+     ON_OFF = "Disabled,Enabled"
+     WIPS_TYPE = "No,Wireless probing,Wireless intrusion prevention"
+     STATUS_TITLE="Status"
+     ADD_TITLE="Add"
+     CONFIRM_TITLE = "Confirmation"
+     VER_ERROR = "Downloading failed.,Insufficient space.,Failed to save configuration.,Other errors.,Upgrading succeeded.,Configuration issued successfully.,Failed to issue configuration."
+     MSG_INFO="Upgrading failed.,Failed to request for data.,Device restarted successfully.,Failed to restart the device.,Device deleted successfully.,Failed to delete the device."
+     MSG_INFO1="Already the most recent firmware version.,Failed to add the device.,Device added successfully."
+     TEXT="是否批量,设备,是否确定要"
+     BATCH_UPGRADE_TEXT="Upgrade the selected devices in batch. Continue?,Upgrade the device. Continue?"
+     BATCH_RESTART_TEXT="Restart the selected devices in batch. Continue?,Restart the device. Continue?"
+     BATCH_DELETE_TEXT="Delete the selected devices in batch. Continue?,Delete the device. Continue?"
+     TITLE_TEXT="Can be upgraded to the latest version"
+     PENDING_MSG="Restarting device…,Restarting device…,Upgrading firmware version…,Obtaining device list…"
+     FAIL_INFO ="Cloud has been configured successfully, device configuration failed"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_networkcfg.devicemanage");
+</script>

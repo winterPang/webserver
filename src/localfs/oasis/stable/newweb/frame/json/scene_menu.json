@@ -1,0 +1,230 @@
+{
+  "retCode":0,
+  "data":{
+    "menu": [
+      {
+        "name": "网络监控",
+        "id": "monitor",
+        "sref": "scene.monitor.dashboard",
+        "tabs": [
+          {
+            "name": "网络概览",
+            "id": "dashboard",
+            "sref": "scene.monitor.dashboard",
+            "tabs": [],
+            "icon": "fa fa-bar-chart",
+            "permission": [
+              "MONITOR_READ",
+              "MONITOR_WRITE",
+              "MONITOR_EXEC"
+            ]
+          },
+          {
+            "name": "关注统计",
+            "id": "public",
+            "sref": "scene.monitor.public",
+            "tabs": [],
+            "icon": "fa fa-cubes",
+            "permission": [
+              "MONITOR_READ",
+              "MONITOR_WRITE",
+              "MONITOR_EXEC"
+            ]
+          },
+          {
+            "name": "宾客信息",
+            "id": "customer",
+            "sref": "scene.monitor.customer",
+            "tabs": [],
+            "icon": "fa fa-users",
+            "permission": [
+              "MONITOR_READ",
+              "MONITOR_WRITE",
+              "MONITOR_EXEC"
+            ]
+          },
+          {
+            "name": "AP信息",
+            "id": "apinfo",
+            "sref": "scene.monitor.apinfo",
+            "tabs": [],
+            "icon": "fa fa-wifi",
+            "permission": [
+              "MONITOR_READ",
+              "MONITOR_WRITE",
+              "MONITOR_EXEC"
+            ]
+          },
+          {
+            "name": "无线安全",
+            "id": "wiresecurit",
+            "sref": "scene.monitor.wiresecurit",
+            "tabs": [],
+            "icon": "fa fa-info-circle",
+            "permission": [
+              "MONITOR_READ",
+              "MONITOR_WRITE",
+              "MONITOR_EXEC"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "网络部署",
+        "id": "netdeploy",
+        "sref": "scene.netdeploy.apBranch",
+        "tabs": [
+          {
+            "name": "分支管理",
+            "id": "wirelessconfig",
+            "sref": "scene.netdeploy.apBranch",
+            "tabs": [],
+            "icon": "fa fa-sitemap",
+            "permission": [
+              "CONFIG_READ",
+              "CONFIG_WRITE"
+            ]
+          },
+          {
+            "name": "无线配置",
+            "id": "",
+            "sref": "",
+            "icon": "fa fa-rss",
+            "tabs": [
+              {
+                "name": "服务配置",
+                "id": "serviceconfig",
+                "sref": "scene.netdeploy.serviceconfig",
+                "permission": [
+                  "CONFIG_READ",
+                  "CONFIG_WRITE"
+                ]
+              },
+              {
+                "name": "服务绑定",
+                "id": "servicebind",
+                "sref": "scene.netdeploy.servicebind",
+                "permission": [
+                  "CONFIG_READ",
+                  "CONFIG_WRITE"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "认证配置",
+            "id": "auth",
+            "sref": "",
+            "icon": "fa fa-video-camera",
+            "tabs": [
+              {
+                "name": "页面模板",
+                "id": "pagetemplate",
+                "sref": "scene.netdeploy.pagetemplate",
+                "permission": [
+                  "CONFIG_READ",
+                  "CONFIG_WRITE"
+                ]
+              },
+              {
+                "name": "公众号",
+                "id": "pubmessage",
+                "sref": "scene.netdeploy.pubmessage",
+                "permission": [
+                  "CONFIG_READ",
+                  "CONFIG_WRITE"
+                ]
+              },
+              {
+                "name": "微信门店",
+                "id": "chatstore",
+                "sref": "scene.netdeploy.chatstore",
+                "permission": [
+                  "CONFIG_READ",
+                  "CONFIG_WRITE"
+                ]
+              },
+              {
+                "name": "固定账号",
+                "id": "fixedaccount",
+                "sref": "scene.netdeploy.fixedaccount",
+                "permission": [
+                  "CONFIG_READ",
+                  "CONFIG_WRITE"
+                ]
+              },
+              {
+                "name": "黑名单",
+                "id": "blackname",
+                "sref": "scene.netdeploy.blackname",
+                "permission": [
+                  "CONFIG_READ",
+                  "CONFIG_WRITE"
+                ]
+              },
+              {
+                "name": "认证模板",
+                "id": "authtemplate",
+                "sref": "scene.netdeploy.auth_authtemplate",
+                "permission": [
+                  "CONFIG_READ",
+                  "CONFIG_WRITE"
+                ]
+              }
+            ]
+          },
+          {
+            "name": "安全策略",
+            "id": "securitpolicy",
+            "sref": "scene.netdeploy.securitpolicy",
+            "tabs": [],
+            "icon": "fa fa-unlock-alt",
+            "permission": [
+              "CONFIG_READ",
+              "CONFIG_WRITE"
+            ]
+          },
+          {
+            "name": "应用配置",
+            "id": "applyset",
+            "sref": "scene.netdeploy.applyset",
+            "tabs": [],
+            "icon": "fa fa-tasks",
+            "permission": [
+              "CONFIG_READ",
+              "CONFIG_WRITE"
+            ]
+          }
+        ]
+      },
+      {
+        "name": "应用管理",
+        "id": "manage",
+        "sref": "scene.manage.flowprobe",
+        "tabs": [
+          {
+            "name": "客流探针",
+            "id": "flowprobe",
+            "sref": "scene.manage.flowprobe",
+            "tabs": [],
+            "permission": [
+              "CONFIG_READ",
+              "CONFIG_WRITE"
+            ]
+          },
+          {
+            "name": "行为分析",
+            "id": "behavioranalysis",
+            "sref": "scene.manage.behavioranalysis",
+            "tabs": [],
+            "permission": [
+              "CONFIG_READ",
+              "CONFIG_WRITE"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+
+}

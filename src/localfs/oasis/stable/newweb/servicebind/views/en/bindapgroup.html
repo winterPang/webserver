@@ -1,0 +1,34 @@
+
+<div class="btn_h_return" ng-click ="return()"></div>
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">Bound Service Templates</span>
+        </div>
+        <div class="panel-body">
+            <button class="btn btn-cus" ng-click="unbind()" ng-disabled="bindBtnDisable">Unbind</button>
+            <div class="box-body no-height">
+                <div bs-Table="bindOptions"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">Service Templates To Be Bound</span>
+        </div>
+        <div class="panel-body">
+            <div class="btn btn-cus" ng-click="bind()" ng-disabled="unbindBtnDisable">Bind Service Template</div>
+            <div class="box-body no-height">
+                <div bs-Table="unbindOptions"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="apinfo_aplist_rc" class="rc-define"
+    	Bind_HEADER="Wireless Service Name,SSID,Description" 	
+        BIND_SUCCESS="Binding succeeded,Please first create AP models for AP groups."
+        UNBIND_SUCCESS ="Unbinding succeeded"
+></div>

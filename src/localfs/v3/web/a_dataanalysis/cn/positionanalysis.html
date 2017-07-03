@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style type="text/css">
+        html{height:100%}
+
+        body{height:100%; width:100%; overflow:hidden;}
+        #private_map_div{
+            /*width:1000px;
+            height:600px;*/
+            background: url(http://rbis.ruijie.com.cn/rbis_update/images/svg/xiamenzhonghuacheng_1_f1.svg)no-repeat;
+            position: relative;
+            border: 0px solid #999999;
+            overflow:hidden;
+        }
+        .anchorBL{
+            display:none;
+        }
+        #back_button{
+            cursor:pointer;
+            /*right:860px;*/
+            margin-left:860px;
+            display:none;
+            opacity:0.7;
+        }
+
+
+
+
+        #crumbs ul {
+            list-style: none;
+            display: inline-table;
+            margin:0;
+            padding:0
+        }
+
+        #crumbs ul li {
+            display: inline;
+        }
+
+        #crumbs ul li a {
+            display: block;
+            float: left;
+            height: 24px;
+            background: #4ec1b2;   /*绿洲的绿色*/
+            text-align: center;
+            padding: 4px 5px 0 14px;    /*上 右 下 左 内边距*/
+            position: relative;
+            margin: 0 3px 0 0;           /*上 右 下 左 外边距   两个面包屑之间的小空间*/
+            font-size: 8px;           /*内部字体大小*/
+            text-decoration: none;
+            color: #fff;                 /*白色*/
+        }
+        #crumbs ul li a:after {
+            content: "";
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            border-left: 12px solid #4ec1b2;        /*蓝色3498db  d4f2ff淡蓝色   绿洲绿4ec1b2*/
+            position: absolute;
+            right: -12px;
+            top: 0;
+            z-index: 1;
+        }
+
+        #crumbs ul li a:before {
+            content: "";    /*内容为空，只是为了用border画三角形*/
+            border-top: 12px solid transparent;   /*把上面的变透明，下面的元素就能显示*/
+            border-bottom: 12px solid transparent;
+            border-left: 12px solid #fff;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #crumbs ul li:first-child a {
+            border-top-left-radius: 10px; /*把第一个元素的左边变得圆滑*/
+            border-bottom-left-radius: 10px;
+        }
+        #crumbs ul li:first-child a:before {
+            display: none;
+        }
+        #crumbs ul li a:hover {
+            background: #fa5ba5;    /* 粉红色 */
+        }
+
+        #crumbs ul li a:hover:after {
+            border-left-color: #fa5ba5;
+        }
+        .img_cha{
+            background-position: 0 -20px;
+        }
+        .horizontal_rule{
+            size:20px;
+            height: 2px;
+            color:#C7B9B9;
+            border-top: 2px solid #E7E7E9;
+        }
+        .map_scope{
+            width:900px;
+            height:600px;
+        }
+        #map{
+            height:100%;
+        }
+        #province_info{
+            display: inline;
+            position:relative;
+            z-index: 2;
+        }
+        #city_info{
+            display:none;
+            position:relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="col-xs-12">
+        <div>
+            <div id="crumbs">
+                <ul id="crumbs_ul">
+                    <li><a href="#1">全国</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12">
+        <div class="col-xs-8" style="height:600px;border: 1px solid #e7e7e9;float:left;" id="container"></div>
+
+        <div class="col-xs-4" style="height:600px;border: 1px solid #e7e7e9;float:right;">
+            <div id="province_info">
+                <div style="padding-left: 12px;padding-top: 15px;">
+                    <div>
+                        <span>客流总量</span>
+                        <label class="input-label"></label>Top 5
+                    </div>
+                    <div>
+                        <hr class="horizontal_rule">
+                    </div>
+                </div>
+                <div style="height:200px;" id="rank"></div>
+
+                <div style="padding-left: 12px;padding-top: 30px;">
+                    <div>
+                        <span>场所数量排名</span>
+                    </div>
+                    <div>
+                        <hr class="horizontal_rule">
+                    </div>
+                </div>
+                <div style="height:300px;" id="areacount"></div>
+            </div>
+
+            <div class="col-xs-12" id="city_info">
+                <div style="text-align: center">
+                    <div style="margin-top: 50px;">
+                        <span style="font-size: 30px;padding: 20px">场所详情</span>
+                    </div>
+                </div>
+
+                <div class="col-xs-8 col-xs-offset-2" style="margin-top: 50px;">
+                    <div style="float:left;">
+                        <span><img src="css/image/place_dw.png"></span><br>
+                        <span style="font-size: 17px;color: #002137;">场所总数</span><br>
+                        <span style="font-size: 20px;color: #002137;">20</span><span>所</span>
+                    </div>
+                    <div  style="float:right;">
+                        <div>
+                            <span><img src="css/image/people_kl.png"></span><br>
+                            <span style="font-size: 17px;color: #002137;">客流总数</span><br>
+                            <span style="font-size: 20px;color: #002137;">20000</span><span>人次</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xs-12" style="margin-top: 50px;margin-bottom: 50px;">
+                    <hr class="horizontal_rule">
+                </div>
+
+                <div class="col-xs-8 col-xs-offset-2" style="margin-top: 20px;">
+                    <div style="float:left;">
+                        <span><img src="css/image/business_man.png"></span><br>
+                        <span style="font-size: 17px;color: #002137;">跨场所客户</span><br>
+                        <span style="font-size: 20px;color: #002137;">2700</span><span>人次</span>
+                    </div>
+                    <div style="float:right;">
+                        <div>
+                            <span><img src="css/image/man_xf.png"></span><br>
+                            <span style="font-size: 17px;color: #002137;">消费人群</span><br>
+                            <span style="font-size: 20px;color: #002137;">1890</span><span>人次</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hide modal" id="tableDlg3">
+        <div class="modal-header">
+            <button id="button_close" type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3>场所位置</h3>
+        </div>
+        <div class="modal-body" style="height:650px;">
+            <div id="map"></div>
+        </div>
+    </div>
+</body>
+</html>
+
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("a_dataanalysis.positionanalysis");
+</script>
+

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html  lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        div.smartschool .slist-link{
+            color:#4ec1b2;
+            margin-left:5px;
+            border-bottom: 1px solid #4ec1b2;
+        }
+        div.smartschool  .slist-link:hover, div.smartschool .slist-link:active, div.smartschool .slist-link:focus {
+            color: #4ec1b2;
+            border-bottom: 1px solid #4ec1b2;
+        }
+        .smartschool .stuType{
+            margin: 0px 0px 10px 0;
+        }
+        .smartschool .modal .select2-container {
+            width: 176px;
+        }
+        .smartschool .simple-list .oper-btn .icon.slist-detail {
+            background-position: -775px -61px;
+        }
+        .smartschool .simple-list .oper-btn .icon.slist-detail:hover {
+            background-position: -775px -61px;
+        }
+    </style>
+</head>
+<body>
+<div class="btn_h_return" id="return"></div>
+<div class="page-row smartschool">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box wrap_c">
+            <div class="box-footer">
+                <span class="title">班级学生列表</span>
+
+                <div class="text-right link-container">
+                    <!--<a type="button" class="link-receive" id="filter" href="javascript:;">-->
+                        <!--<span>当前班级</span>-->
+                    <!--</a>-->
+                    <!--：-->
+                    <!--<a type="button" class="link-receive" id="detail" href="javascript:;">-->
+                        <!--<span id="CurClass">301</span>-->
+                    <!--</a>-->
+                </div>
+
+            </div>
+            <div class="box-body no-height">
+                <div class="text-left link-container" style="margin-bottom:20px;">
+                    <a class="link-detail">
+                        当前班级
+                    </a>
+                    ：
+                    <div type="button" class="xb-link" id="CurClass" style="font-size:15px;display:inline-block;">
+                        <a id="CurGrade" style="color: inherit;">一年级</a>
+                        <a id="CurClass1" style="color: inherit;">1</a><a style="color: inherit;">班</a>
+                    </div>
+                </div>
+                <div id="studentList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="hide modal fade" id="StatuDlg">
+    <form id="Statu_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-2">学生姓名</div>
+            <div class="col-xs-7 stuType" id="studentName"></div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-2" style="margin-top:10px;">请假状态</div>
+            <div class="col-xs-7">
+                <select class="singleSelect stuType" id="stu-type"></select>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="hide modal fade" id="EditDlg">
+    <form id="addStudent_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">学号</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="stu_num" name="stu_num" errid="stu_num_error" maxlength="32">
+                <label class="info-explain"></label>
+                <label class="error" id="stu_num_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">学生姓名</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="stu_name" name="stu_name" errid="stu_name_error" maxlength="32">
+                <label class="info-explain"></label>
+                <label class="error" id="stu_name_error"></label>
+            </div>
+        </div>
+        <!--<div class="form-group">-->
+            <!--<label class="col-sm-3 control-label required">班级</label>-->
+            <!--<div class="col-sm-9">-->
+                <!--<input type="text" class="string big required" id="class_name" name="class_name" errid="classs_name_error" maxlength="32">-->
+                <!--<label class="info-explain">（1-32字符）</label>-->
+                <!--<label class="error" id="class_name_error"></label>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">生日</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="birthday" name="birthday" errid="birthday_error" maxlength="32">
+                <label class="info-explain"></label>
+                <label class="error" id="birthday_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">性别</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="sex" name="sex" errid="sex_error" maxlength="32">
+                <label class="info-explain"></label>
+                <label class="error" id="sex_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">手环id</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required"  id="hand_mac" name="hand_mac" errid="hand_mac_error" maxlength="32">
+                <label class="info-explain">（1-32字符）</label>
+                <label class="error" id="hand_mac_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-3 " style="margin-top:10px;">请假状态</div>
+            <div class="col-sm-9">
+                <select class="singleSelect stuType" id="stu_type"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">家长姓名</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="parent_name" name="parent_name" errid="parent_name_error" maxlength="32">
+                <label class="info-explain"></label>
+                <label class="error" id="parent_name_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required ">家长联系方式</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="parent_num" name="parent_num" errid="parent_num_error" maxlength="32">
+                <label class="info-explain">（1-32字符）</label>
+                <label class="error" id="parent_num_error"></label>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="hide modal fade" id="ContactParentDlg">
+    <form id="Parent_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <div class="col-xs-3">学生姓名</div>
+            <div class="col-xs-9" id="student"></div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-3">家长1</div>
+            <div class="col-xs-9" id="parent1"></div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-3">家长2</div>
+            <div class="col-xs-9" id="parent2"></div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-3">家长3</div>
+            <div class="col-xs-9" id="parent3"></div>
+        </div>
+    </form>
+</div>
+
+<div id="device_rc" class="rc-define"
+     STUDENT_LIST="学号,姓名,生日,性别,手环ID,是否请假,家长姓名,家长联系方式"
+     EDIT_TITLE="新增,删除,导出,报告,编辑学生信息,新增学生信息"
+     STU_STATU="修改状态"
+     STATU_NAME="在校状态"
+     CONTACT_NAME="查看信息"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.studentmanage");
+</script>

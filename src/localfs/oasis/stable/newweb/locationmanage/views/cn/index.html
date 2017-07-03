@@ -1,0 +1,106 @@
+<style>
+	.coinSty{
+		min-width: 40px !important;
+   	 	position: absolute;
+    	right: 20px;
+	}
+	.inputSty{
+		width: 179px !important;
+    	position: absolute;
+   		right: 67px;
+	}
+    .mgtop{
+        margin-top: -8px !important;
+        margin-bottom: -5px !important;
+
+    }
+    .listyle{
+        line-height: 33px !important;
+        margin-left: -46px !important;
+    }
+    li{
+        list-style:none;
+    }
+    .table>.nav{
+        margin-bottom: 16px;
+    }
+</style>
+
+<div>
+    <div class="panel panel-default">          
+        <div class="panel-heading">
+            <h3 class="panel-title">位置服务</h3>
+        </div>
+        <div class="panel-body" style="position:relative">
+            <bs-tabs init={{navInit}}>
+                <bs-pane tittle="探针定位">
+                    <!--<div class="btn btn-cus" ng-click="refresh()" style="margin-top:24px">刷新</div>-->
+                    <div bs-Table="probeOpt"></div>
+                </bs-pane>
+                <bs-pane tittle="云端定位">
+                    <!--<div class="btn btn-cus" ng-click="refresh()" style="margin-top:24px">刷新</div>-->
+                    <div bs-Table="locationTable"></div>
+                </bs-pane>
+            </bs-tabs>
+        </div>
+    </div>
+</div>
+
+<form novalidate role="form" name="cycleForm"  bs-modal="locationSetting_modal.options">
+    <h4>周期设置</h4>
+    <div class="form-group row">
+        <label class="col-sm-3 control-label required">获取定位结果周期</label>
+        <div class="col-sm-5">
+            <input type="number" id="cycle" name="cycle" class="string big form-control " required 
+            ng-model="cycleInfo.cycle" ng-pattern=/^[1-5]\d?$|^[6-9]$|^60$/ >
+            <label class="info-explain">1-60(秒)</label>                          
+        </div>
+
+        <button class="btn btn-cus " ng-disabled="cycleForm.$invalid" ng-click="submit()">确定</button>
+
+        <div class="col-sm-offset-4">
+            <label ng-if="cycleForm.cycle.$error.required && cycleForm.cycle.$touched"  style="color:red">该参数必须配置</label>
+            <label ng-if="cycleForm.cycle.$error.pattern && cycleForm.cycle.$dirty"  style="color:red">获取周期必须在1~60秒之间</label>
+        </div>            
+    </div>
+    <hr style="width:100%">
+    <h4>状态设置</h4>
+    <div  style="margin:10px 10px">
+        <button class="btn btn-cus" ng-click="refresh()">刷新</button>
+        <button class="btn btn-cus" id="open" ng-click="open()" ng-disabled="btndisabled">开启</button>
+        <button class="btn btn-cus" ng-click="close()" ng-disabled="btndisabled">关闭</button>
+    </div> 
+    <div bs-Table="deviceTable"></div>
+
+        <!-- <div align = "center" style="margin-top:30px">
+              <button class="btn btn-cus" ng-disabled="cycleForm.$invalid" 
+              ng-click="ssidUpdate()">确定</button>
+        </div> -->                            
+</form>
+<div bs-modal="probeModal">
+    <div class="form-group">
+        <button class="btn btn-cus" ng-click="switchProbeFun('on')" >开启</button>
+        <button class="btn btn-cus" ng-click="switchProbeFun('off')" >关闭</button>
+        <br/>
+        <label class="info-explain">说明：检测未接入本网络的周边无线终端</label>
+    </div>
+    <div bs-table="APListOpt"></div>
+</div>
+<div id="locationmanage_rc" class="rc-define"
+    LOCATION_TITLE="场所名,定位配置,地图编辑,地图个数,定位周期"	
+    MAPEDIT="地图编辑"
+    SETTING="定位设置"
+    OPERATION="地图编辑"
+    REMOVE="删除"
+    DEL_CON="确认删除该场所吗"
+    MODAL_TITLE="定位设置"
+    MODAL_TITLE2="获取定位周期设置"
+    DEVICE_TITLE="设备序列号,设备名称,定位状态"
+    STATE="开启,关闭"
+    NOTICE="配置下发成功，请稍后刷新页面查看结果"
+    NOTICE_FAIL="配置下发失败，请稍后尝试"
+    NO_PROMISSION="您的账号无权进行该操作"
+    MODIFY="修改成功，请刷新查看"
+    PROBECONFIG="探针配置"
+    APLISTTITLE = "AP名称,射频,无线探针"
+></div>

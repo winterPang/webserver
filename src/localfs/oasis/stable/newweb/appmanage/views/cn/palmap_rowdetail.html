@@ -1,0 +1,24 @@
+<div class="map-detail clearfix">
+    <div class="col-xs-3 map-info">
+        <p>地址：{{detail.address}}</p>
+        <p>经度：{{detail.longitude}}</p>
+        <p>经度：{{detail.latitude}}</p>
+        <p>比例尺：1：{{detail.scale}}</p>
+    </div>
+    <div class="col-xs-4 map-img">
+        <div style="position: relative">
+            <img ng-src="{{detail.path}}">
+            <div class="map-backdrop">
+                <div ng-if="detail.mapStatus==0">使用中...</div>
+                <div ng-if="detail.mapStatus==1">绘制中...</div>
+                <div ng-if="detail.mapStatus==2">请修改图片</div>
+                <div ng-if="detail.mapStatus==3">已失效</div>
+            </div>
+        </div>
+        <div class="map-name">{{detail.mapName}}</div>
+    </div>
+    <div class="col-xs-4 map-proto">
+        <img ng-src="{{detail.path}}">
+        <div class="map-name">{{detail.mapName}}</div>
+    </div>
+</div>

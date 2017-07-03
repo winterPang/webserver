@@ -1,0 +1,52 @@
+.change_scenes .form-group {
+    line-height: 40px;
+    margin-bottom: 0;
+}
+
+.change_scenes .change_scenes_trigger {
+    line-height: 30px;
+    height: 30px;
+    margin: 20px 5px 0 0;
+    padding: 0 10px;
+    cursor: pointer;
+    user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    -webkit-user-select: none !important;
+}
+.change_scenes .change_scenes_trigger .pos{
+    position: relative;
+    top: -3px;
+    display: inline-block;
+}
+.change_scenes .change_scenes_trigger span:first-child {
+    margin-top: 3px;
+    margin-right: 6px;
+    font-size: 18px;
+}
+
+.change_scenes .scenes_panel {
+    display: none;
+    width: 360px;
+    position: fixed;
+    top: 50px;
+    background: #fff;
+    border: 1px solid #E0E0E0;
+    right: 30px;
+    border-radius: 0 0 5px 5px;
+    z-index: 100;
+}
+
+.change_scenes .scenes_panel .scenes_panel_content {
+    padding: 10px 20px;
+}
+
+.change_scenes .scenes_panel .scenes_panel_footer {
+    text-align: center;
+    /*border-top: 1px solid #F0F0F0;*/
+    /*background-color: #F9F9F9;*/
+}
+
+.change_scenes .scenes_panel .control-label {
+    line-height: 42px;
+}

@@ -1,0 +1,236 @@
+<style>
+    .title-width {
+        width: 250px;
+    }
+
+    .left {
+        float: left;
+    }
+
+    .right {
+        float: right;
+    }
+
+    .both {
+        clear: both;
+    }
+
+
+    #fileSystemTable {
+        color: #000;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        position: relative;
+        table-layout: fixed;
+    }
+
+    .fileSys {
+        overflow: auto;
+        height: 450px;
+        margin-top: -1.6em;
+        border: 1px solid #DEDDDD;
+    }
+
+    #fileSystemTable th {
+        width: 20%;
+    }
+
+    #fileSystemTable th:first-child {
+        width: 40%;
+    }
+
+    #fileSystemTable td {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .title {
+        margin-bottom: 0;
+        font-size: 25px;
+        color: #000;
+    }
+
+    #fileSystemTable .bgcolor {
+        height: 450px;
+        background: rgba(0, 0, 0, 0.5);
+        line-height: 100%;
+        text-align: center;
+    }
+    #fileSystemTable{
+        border: 0;
+        margin-top: 0;
+    }
+    .iconall {
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        vertical-align: middle;
+        background: url(../filesystem/images/icon.png) no-repeat;
+    }
+    .icon1 {
+        background-position: -408px -18px;
+    }
+    .icon2 {
+        background-position: -446px -18px;
+    }
+    .icon3 {
+        background-position: -304px -18px;
+    }
+    .icon4 {
+        background-position: -337px -18px;
+    }
+    #uploadFileBtn,#downloadFileBtn {
+        background-color: #78cec3;
+    }
+    #uploadFileBtn:hover{
+        background-color: #4ec1b2;
+    }
+    #downloadFileBtn:hover {
+        background-color: #4ec1b2;
+    }
+    #renameFileBtn {
+        background-color: #e7e7e9;
+        color: #80878c!important;
+    }
+    #renameFileBtn:hover {
+        background-color: #dcdcdc;
+    }
+    #deleteFileBtn {
+        background-color: #ff9c9c;
+        min-width: 45px;
+    }
+    #deleteFileBtn:hover {
+        background-color: #FE808B;
+    }
+</style>
+<div>
+    <div>
+        <div>
+            <div>
+                <div class="form-group left title">
+                    <p>File System</p>
+                </div>
+                <div class="right">
+                    <button id="uploadFileBtn" class="btn btn-cus" ng-click="upload()" ng-disabled="Disabled">
+                        <i class="iconall icon1"></i><span>Send File to Device</span>
+                    </button>
+                    <button id="downloadFileBtn" class="btn btn-cus" ng-click="download()" ng-disabled="Disabled">
+                        <i class="iconall icon2"></i><span>Obtain File from Device</span>
+                    </button>
+                    <button id="renameFileBtn" class="btn btn-cus" ng-click="rename()" ng-disabled="Disabled">
+                        <i class="iconall icon3"></i><span>Rename File</span>
+                    </button>
+                    <button id="deleteFileBtn" class="btn btn-cus" ng-click="delete()" ng-disabled="Disabled">
+                        <i class="iconall icon4"></i>
+                    </button>
+                </div>
+                <div class="both"></div>
+            </div>
+            <div>
+                <table class="treetable">
+                    <thead>
+                    <tr>
+                        <th>File Name</th>
+                        <th>Type</th>
+                        <th>Size</th>
+                        <th>Modified At</th>
+                    </tr>
+                    </thead>
+                </table>
+                <div class="fileSys">
+                    <table id="fileSystemTable" class="treetable">
+                        <tbody id="fileSystemTableBdy" ng-hide="Disabled">
+                        </tbody>
+                        <tbody ng-show="SH">
+                        <tr class="bgcolor">
+                            <td colspan="4"><img src="../frame/images/grid-loading{{load}}.gif" alt=""></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-horizontal" bs-modal="renameOptions">
+                <div class="form-group">
+                    <label for="renameFile" class="col-xs-3 control-label">New name
+                        <span class="label-require">*</span></label>
+                    <div class="col-xs-6">
+                        <input id="renameFile" type="text" name="fileName" ng-model="filesystem.rename" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-horizontal" bs-modal="uploadOptions">
+                <form id="uploadForm" action="/v3/fs/uploadFile/" enctype="multipart/form-data" method="post" onsubmit="return false">
+                    <div class="form-group">
+                        <div class="col-xs-6" class="htmleaf-container" style="margin-left: 32%">
+                            <input id="uploadFile" type="file" required data-min-file-count="1" name="sysFile">
+                            <div>Note : The upload process cannot be interrupted.</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="form-horizontal" bs-modal="progressOptions">
+                <div class="form-group">
+                    <div style="color: #14A89D; font-size: 18px; text-align: center; margin: 6px;">
+                        <span id="sysprogressbar" class="title"></span>
+                    </div>
+                    <div id="systemfilebarrate" style="position: absolute;margin-top: 10px;margin-left: 36px;">
+                        <span>100KB/S</span>
+                    </div>
+                    <div class="progress" style="width: 66%; margin: auto; margin-bottom: 16px; margin-top: 16px">
+                        <div id="systemfilebar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                            <span class="sr-only">60% Complete</span>
+                        </div>
+                    </div>
+                    <div id="systemfilebarnum" style="position: absolute;margin-top: -35px;margin-left: 49%;">
+                        <span>0%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <iframe id="filerecive" name="filerecive" style="display: none"></iframe>
+</div>
+<div id="fileSystem_rc" class="rc-define"
+     NOTFOUND_LINK="Cannot find the connection to the device. Please check the connection between the device and the Oasis platform!"
+     NOOPERATE_ACCESS="You are not authorized to manage devices!"
+     OPERATE_FAILED="Operation failed!"
+     UPLOADING_FILE="The device is downloading or uploading files. Please wait…"
+     UPLOAD_SUCCESS="File uploaded successfully!"
+     NOENOUGH_SPACE="The device does not have sufficient space!"
+     EXIST_SAMEFILE="The file already exists on the device!"
+     DEVICEINIT_FAILED="Device initialization failed!"
+     LOCALFILETO_CLOUD="Upload local file to cloud"
+     LOCALFILETO_DEVICE="Upload file to device"
+     DEVICEFILETO_CLOUD="Upload device file to cloud"
+     CLOUDFILETO_DEVICE="Download cloud file to device"
+     MAKESURE_DELETE="The deleted file cannot be restored. Continue?"
+     FILE_NOTEXIST="The file doesn't exist!"
+     SYSTEM_IMPORTANTFILE="Cannot manage important system files!"
+     DELETE_FAILED="File deleting failed!"
+     DELETE_FOLDER="Cannot delete a folder!"
+     SELECT_FILE="Please select a file!"
+     OPERATEMAY_FAILED="The operation might fail!"
+     FILENAMEL="Up to 100 characters.Please rename the file."
+     CHINESE_CHATARATERS="A file name cannot contain Chinese characters or spaces."
+     FILENAME_ERROR="A string of up to 100 characters that contain only digits,letters,and special characters (._-)and that start with a letter or digit."
+     UPLOAD_EMPTYFILE="Do not upload empty files!"
+     ILLEGAL_FILENAME="Invalid file name!"
+     MODIFY_FILENAME="Change the file name?"
+     MODIFY_FOLDER="Cannot change the name of a folder!"
+     DOWNLOAD_FOLDER="Cannot download a folder!"
+     REQUEST_TIMEOUT="Device response timed out."
+     ERROR="Error"
+     SUCCESS="Success"
+     PROMPT="Note"
+     MAKESURE_DOWNLOADFILE="The file retrieval process cannot be interrupted.Continue?"
+     EMPTYFILE="You must enter a flie name."
+     UPLOADSUCCESS="File upload successfully."
+     FILEPROGRESS="Progress Bar"
+     CLOSEPROGRESS="Close"
+     RENAME_SUCCESSFULLY="File renamed successfully"
+     DELETE_SUCCESSFULLY="File deleted successfully"
+     SENDFILE2DEVICE="Upload file to device"
+     RENAMEFILE="Rename File">
+</div>

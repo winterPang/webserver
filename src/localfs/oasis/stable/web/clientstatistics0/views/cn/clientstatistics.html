@@ -1,0 +1,68 @@
+<div class="container-fluid">
+    <div class="page-row" id="Probe_Client_Sumary">
+        <div class="col-xs-12">
+            <div id="datechoice" class="col-xs-12 input-height probe-choice">
+                <select select2="options" ng-model="newName" class="choice_client" style="width: 200px;border-radius: 1px;">
+                    <option value="1">全部客户</option>
+                    <option value="2">新增客户</option>
+                    <option value="3">老客户</option>
+                </select>
+            </div>
+        </div>
+        <div id="probe_map" class="col-xs-12 new-posistion">
+            <div id="datechoice1" class="input-height probe-choice">
+                <div  class="choice-head" value="4" ng-click="showTime()">
+                    <span class="current-state" ng-model="time">{{time}}</span>
+                    <span  class="arrow-down"></span>
+                </div>
+                <div class="choice-show" ng-show="selectTime">
+                    <div class="time-zone" id="timezone">
+                        <input type="text" id="daterange" class="time-select" placeholder="选择日期" ctrl="daterang">
+                    </div>
+
+                    <div>
+                        <li value="1" ng-click="timeShow('day');dateOption()">今天</li>
+                        <li value="2" ng-click="timeShow('week');dateOption()">最近7天</li>
+                        <li value="3" ng-click="timeShow('month');dateOption()">最近30天</li>
+                        <li value="4" ng-click="timeShow('year');dateOption()">最近一年</li>
+                    </div>
+                </div>
+            </div>
+            <div id="analysize_choice" class="input-height probe-choice">
+                <div  class="choice-head" value="4" ng-click="showType()">
+                    <span class="current-state" ng-model="type">{{type}}</span>
+                    <span  class="arrow-down"></span>
+                </div>
+                <div class="choice-show" ng-show="chartType">
+                    <div>
+                        <li value="1" ng-click="chartShow('line');chartOption()">折线图</li>
+                        <li value="2" ng-click="chartShow('pie');chartOption()">饼图</li>
+                    </div>
+                </div>
+            </div>
+
+            <div id="probe_line" class="col-xs-12" style="height:350px;" ng-show="chartAnalyze"></div>
+            <div id="probe_drawpie" class="col-xs-12" ng-hide="chartAnalyze"> <!--hide-->
+                <div id="probe_sumary_pie" class="myEchart col-xs-4"></div>
+                <div id="probe_pie" class="myEchart col-xs-8"></div>
+                <div id="probe_Ssid" class="panel"></div>
+            </div>
+
+        </div>
+        <div id="probe_list" class="col-xs-12 new-posistion">
+            <!--<div id="probe_back" class="probe-back">-->
+            <!--<div><span>返回上一层</span><span class="icon-back"></span></div>-->
+            <!--</div>-->
+            <div bs-table="option"></div>
+        </div>
+    </div>
+</div>
+<div  id="visitor_analysis_rc"
+      LIST_HEADER="MAC地址,首次发现时间,最后发现时间,无线服务名称,设备厂商"
+      TIME_SHOW="今天,最近7天,最近30天,最近一年"
+      TYPE_SHOW="折线图,饼图"
+      CLIENT-TYPE="全部客户,新增客户,老客户"
+      QUEREN=" 确认"
+      QUXIAO="取消"
+      UNKNOW="未知">
+</div>

@@ -1,0 +1,118 @@
+<div bs-modal="changePhoneModal">
+    <form class="form-horizontal" name="CPM.changePhoneForm1" novalidate
+          ng-show="CPF1.step=='1'">
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="CPF1_phone">原手机号</label>
+            <div class="col-sm-5">
+                <input class="form-control" id="CPF1_phone" name="CPF1_phone" type="text" disabled
+                       style="width: 228px;"
+                       ng-model="IMFData.phone"/>
+            </div>
+            <label class="col-sm-4 control-label" style="text-align: left;font-size: 10px;padding-top: 12px;padding-left: 55px;">
+                <a id="phoneDisabled" href="javascript:void(0);"
+                   title="邮件至lvzhou@h3c.com进行申诉"><u>原手机不可用？</u></a>
+            </label>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="CPF1_code">验证码</label>
+            <div class="col-sm-3 pr-0">
+                <input class="form-control" id="CPF1_code" name="CPF1_code" type="text" required
+                       ng-model="CPF1.code"/>
+            </div>
+            <div class="col-sm-2">
+                <img height="32" width="80" ng-src="{{CPF1.codeImage}}" ng-click="getPin(CPF1)"/>
+            </div>
+            <div class="col-sm-4 ng-error" ng-show="CPF1.codeError.show">
+                <span ng-show="CPF1.codeError.error">验证码有误</span>
+                <span ng-show="CPF1.codeError.timeout">验证码已失效,请更换</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="CPF1_phoneCode">手机验证码</label>
+            <div class="col-sm-3 pr-0">
+                <input class="form-control" id="CPF1_phoneCode" name="CPF1_phoneCode" type="text" required
+                       ng-model="CPF1.phoneCode"/>
+            </div>
+            <div class="col-sm-3 pl-0">
+                <div class="col-sm-10 pl-0" ng-hide="CPF1.enabledSend">
+                    <button class="form-control btn btn-cus"
+                            ng-disabled="CPM.changePhoneForm1.CPF1_code.$invalid || CPM.changePhoneForm1.CPF1_phone.$invalid"
+                            ng-click="CPF1.sendPhoneCode(CPF1.code, IMFData.phone)">获取验证码</button>
+                </div>
+                <div class="col-sm-10 pl-0" ng-show="CPF1.enabledSend">
+                    <button class="form-control btn btn-cus sendCounter" disabled>重新发送（{{CPF1.enabledSendCounter}}）</button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4 col-md-offset-4 col-sm-offset-5">
+                <button class="btn btn-cus" type="button" style="color: #80878c !important;background: #e7e7e9;"
+                        ng-click="closeModal('CPM')">取消</button>
+                <button class="btn btn-cus" type="button"
+                        ng-disabled="CPM.changePhoneForm1.$invalid"
+                        ng-click="CPF1.next()">下一步</button>
+            </div>
+        </div>
+    </form>
+    <form class="form-horizontal" name="CPM.changePhoneForm2" novalidate
+          ng-show="CPF1.step=='2'">
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="CPF2_phone">新手机号</label>
+            <div class="col-sm-5">
+                <input class="form-control" id="CPF2_phone" name="CPF2_phone" type="tel" required
+                       style="width: 228px;"
+                       placeholder="请输入正确的手机号"
+                       ng-pattern="CPF2.telReg"
+                       ajax-valid="validPhone"
+                       ng-model="CPF2.phone"/>
+            </div>
+            <div class="col-sm-4 ng-error"
+                 ng-show="CPM.changePhoneForm2.CPF2_phone.$dirty"
+                 ng-messages="CPM.changePhoneForm2.CPF2_phone.$error">
+                <span ng-message="required">该值必须填写</span>
+                <span ng-message="pattern">请输入正确的手机号</span>
+                <span ng-message="ajaxValid">该手机号已注册</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="CPF2_code">验证码</label>
+            <div class="col-sm-3 pr-0">
+                <input class="form-control" id="CPF2_code" name="CPF2_code" type="text" required
+                       ng-model="CPF2.code"/>
+            </div>
+            <div class="col-sm-2">
+                <img height="32" width="80" ng-src="{{CPF2.codeImage}}" ng-click="getPin(CPF2)"/>
+            </div>
+            <div class="col-sm-4 ng-error" ng-show="CPF2.codeError.show">
+                <span ng-show="CPF2.codeError.error">验证码有误</span>
+                <span ng-show="CPF2.codeError.timeout">验证码已失效,请更换</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label" for="CPF2_phoneCode">手机验证码</label>
+            <div class="col-sm-3 pr-0">
+                <input class="form-control" id="CPF2_phoneCode" name="CPF2_phoneCode" type="text" required
+                       ng-model="CPF2.phoneCode"/>
+            </div>
+            <div class="col-sm-3 pl-0">
+                <div class="col-sm-10 pl-0" ng-hide="CPF2.enabledSend">
+                    <button class="form-control btn btn-cus"
+                            ng-disabled="CPM.changePhoneForm2.CPF2_code.$invalid || CPM.changePhoneForm2.CPF2_phone.$invalid"
+                            ng-click="CPF2.sendPhoneCode(CPF2.code, CPF2.phone)">获取验证码</button>
+                </div>
+                <div class="col-sm-10 pl-0" ng-show="CPF2.enabledSend">
+                    <button class="form-control btn btn-cus sendCounter" disabled>重新发送（{{CPF2.enabledSendCounter}}）</button>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4 col-md-offset-4 col-sm-offset-5">
+                <button class="btn btn-cus" type="button" style="color: #80878c !important;background: #e7e7e9;"
+                        ng-click="closeModal('CPM')">取消</button>
+                <button class="btn btn-cus" type="button"
+                        ng-disabled="CPM.changePhoneForm2.$invalid"
+                        ng-click="CPF2.submit()">确定</button>
+            </div>
+        </div>
+    </form>
+</div>

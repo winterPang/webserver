@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
+	<title></title>
+	<link id="favicon_link" rel="icon" href="static/image/h3clogo.png">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+	<link href="static/bootstrap.css" rel="stylesheet" type="text/css"/>
+	<link href="static/bootstrap-responsive.css" rel="stylesheet" type="text/css"/>
+	<link href="static/login.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+<div class="login-panel">
+</div>
+<div class="loginarea">
+	<div class="logo img-responsive"></div>
+	<form id="login-form" action="https://lvzhou.h3c.com/cas/login?service=https://oasis.h3c.com/v3/web&loginUrl=https://oasis.h3c.com/oasis/web/login.html" method="post">
+		<fieldset>
+			<div class="error" id="password_error" hidden>用户名或密码错误</div>
+		    <div class="username">
+				<label for="login" class="label_username"></label>
+				<input type="text" id="name" name="username"/>
+			</div>
+			<div>
+				<label for="password" class="label_password"></label>
+				<input type="password" id="password" name="password"/>
+				<input type="text" id="text" style="display:none" />
+				<span class="icon_eye" id="switch"></span>
+			</div>
+			<a><span id="remember_me" name="remember_me" class="remember_btn"></span></a>
+			<span class="remberpassword" style="background-color:#FFFFFF!important;">记住密码</span>
+			<input type="hidden" name="lt" id="lt" value=""/>
+			<input type="hidden" name="execution" id="execution" value=""/>
+			<input type="hidden" name="_eventId" id="_eventId" value="submit"/>
+			<input type="hidden" name="_submit" id="_submit" value="LOGIN"/>
+			<input type="button" id ="loginBtn" class="button" name="commit" value="登录"/>
+		</fieldset>
+	</form>
+
+	
+		<ul>
+			<li><div class="borderstyle"><a href="static/findpassword.html" class="cancelleft">忘记密码</a></div></li>
+			<li><div class="borderstyle"><a href="static/register.html" class="register" id="registerBtn">立即注册</a></div></li>
+			<li><a href="#" class="vistorlogin" id="visitorLoginBtn">访客登录</a></li>
+		</ul>
+
+</div>
+
+<div class="adv">
+	<!-- <div class="ad-block">
+		<div class="ad-panel" id="adPanel"> -->
+			<div class="advertisement" id="adPanel">
+				<ul>
+					<li>
+						<a href="#"></a>
+						<img src="static/image/ad-1.png" class="img-responsive">
+					</li>
+					<li>
+						<a href="#"></a>
+						<img src="static/image/ad-2.png"class="img-responsive">
+					</li>
+					<li>
+						<a href="#"></a>
+						<img src="static/image/ad-3.png" class="img-responsive">
+					</li>
+				</ul>
+			</div>
+		<!-- </div>
+		<div> -->
+		<ul class="menuposition">
+			<li><i class="menu-icon"></i></li>
+			<li><i class="menu-icon"></i></li>
+			<li><i class="menu-icon"></i></li>
+		</ul>
+		</div>
+	</div>
+</div>
+</body>
+<script src="static/jquery.js" type="text/javascript"></script>
+<!--<script src="//cdn.bootcss.com/jquery.form/3.51/jquery.form.js"></script>-->
+<!-- IMPORTANT! Load jquery-ui-1.10.1.custom.min.js before bootstrap.min.js to fix bootstrap tooltip conflict with jquery ui tooltip -->
+<!--<script src="static/jquery-ui.js" type="text/javascript"></script>-->
+<script src="static/bootstrap.min.js" type="text/javascript"></script>
+<!--[if lt IE 9]>
+<script src="static/excanvas.min.js"></script>
+<script src="static/respond.min.js"></script>
+<![endif]-->
+<script type="text/javascript" src="static/login.js"></script>
+<!--<script type="text/javascript" src="static/respond.js"></script>-->
+<script>
+	jQuery(document).ready(function() {
+		Login.init();
+	});
+</script>
+</html>
+

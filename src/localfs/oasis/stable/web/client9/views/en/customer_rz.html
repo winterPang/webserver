@@ -1,0 +1,29 @@
+<div class="container-fluid">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box">
+                <div class="select-footer">
+                    <div class="col-xs-4 ml20">
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <input type="radio" name="terminal" id="allterminal" value="1" ng-click="redirectCustomer()">
+                                <label for="allterminal">Associated clients</label>
+                            </div>
+                            <div class="col-xs-6">
+                                <input type="radio" name="terminal" id="terminal" value="2" checked="checked">
+                                <label for="terminal">Authenticated clients</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dashboard total_clients">
+        <xanthbyodrz sn="{{sceneInfo.sn}}"></xanthbyodrz>       
+        <xanthclientrz sn="{{sceneInfo.sn}}"></xanthclientrz>
+        <xanthcomerz sn="{{sceneInfo.sn}}"></xanthcomerz>
+        <xanthcountrz sn="{{sceneInfo.sn}}"></xanthcountrz>
+        <xanthportalrz sn="{{sceneInfo.sn}}"></xanthportalrz>       
+    </div>
+</div>

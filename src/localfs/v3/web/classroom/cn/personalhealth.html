@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html  lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <!--<link href="../../web/frame/css/h-plugin.css" rel="stylesheet" type="text/css"/>-->
+    <style type="text/css">
+        div.smartschool .slist-link{
+            color:#4ec1b2;
+            /*margin-left:5px;*/
+            border-bottom: 1px solid #4ec1b2;
+        }
+        /*div.smartschool  .slist-link:hover, div.smartschool .slist-link:active, div.smartschool .slist-link:focus {*/
+            /*color: #4ec1b2;*/
+            /*border-bottom: 1px solid #4ec1b2;*/
+        /*}*/
+        .app-box .top-box {
+            position:absolute;
+            right:45px;
+            width:750px;
+            display:none;
+        }
+        .app-box .form-actions.bottom {
+            margin: 80px 1px 0 0;
+        }
+        .app-box .form-actions.bottom {
+            margin: 6px -5px 0 0;
+            float: right;
+        }
+        .heartheight{
+        height: 154px;
+    }
+     .app-box .text-center.font{
+         font-size: 19px;
+     }
+     .refresh-icon{
+         position: relative;
+         top:3px;
+     }
+     .numberofstep-img{
+            background: url(css/image/smartschool.png) -310px -20px;
+            width: 85px;
+            height: 150px;
+            margin: 5px auto;
+     }
+      .distance-img{
+            background: url(css/image/distance1.png);
+            background-size: 100px 100px;
+            width: 100px;
+            height: 150px;
+            background-position: center center;
+            background-repeat:no-repeat;
+            margin: 5px auto;
+     }
+      .heartrate-img{
+        height: 150px;
+        background: url(css/image/smartschool.png) -38px -10px;
+         margin: 5px auto;
+     }
+     .Calorie-img{
+        height: 150px; 
+        background: url(css/image/chicken.png) -38px -10px;
+        background-size: 100px 100px;
+        width: 100px;
+        height: 150px;
+        background-position: center center;
+        background-repeat:no-repeat;
+        margin: 5px auto;
+     }
+    .basicdata{
+        height: 302px;
+    }
+    .titlefont{
+        font-size: 21px;
+    }
+    .datafont{
+        color: #4ec1b2;
+        font-size: 50px;
+    }
+    #HeartrateDate{
+        color: #4ec1b2;
+        font-size: 50px;
+    }
+    .unit{
+        position: relative;
+        top:8px;
+    }
+    .stiticUnit{
+        color: #4ec1b2;
+        font-size: 20px;
+    }
+    a.xx-link.active {
+    color: #4ec1b2;
+    }
+    </style>
+</head>
+<body>
+ <!--<div class="btn_h_return" id="return"></div>   -->
+<!--<div class="page-row smartschool">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box wrap_c">
+            <div class="box-footer">
+                <span class="title">个人健康信息</span>
+                
+                <div class="text-right link-container">
+                    <a type="button"  class="frash" id="frash">
+                        刷新<i class="refresh-icon icon "></i>
+                    </a>
+                </div>
+            </div>
+            <div class="box-body no-height">-->
+                <div class="page-row">
+                    <div class="col-xs-6 app-colum left-block">
+                        <div class="app-box no-bk-color sportDataDiv wrap_c">
+                            <div class="box-footer">
+                                <div class="col-xs-4">
+                                    <span class="title">实时运动数据</span>
+                                </div></br>
+                                <div class="col-xs-4">
+                                       <div class="numberofstep-img"></div>
+                                       <div class="numberofstep text-center font">步数:
+                                           <label id="stepnumber"></label>
+                                       </div>
+                                       
+                                </div>
+                                <!--<div class="numberofstep">图片1</div>-->
+                                <div class="col-xs-4">
+                                        <div class="distance-img"></div>
+                                       <div class="distance text-center font">距离:
+                                           <label id="distancedata"></label>
+                                       </div>
+                                </div>
+                                <div class="col-xs-4">
+                                        <div class="Calorie-img"></div>
+                                       <div class="Calorie text-center font">卡路里：
+                                           <label id="Caloriedata"></label>
+                                       </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 app-colum left-block">
+                        <div class="app-box no-bk-color wrap_c">
+                            <div class="box-footer">
+                                <div class="col-xs-4">
+                                    <span class="title">实时心率</span>
+                                </div></br>
+                                <div class="col-xs-offset-1 col-xs-4">
+                                        <div class="heartrate-img"></div>
+                                       <div class="heartrate text-center font"><span>&nbsp</span></div>
+                                </div></br>
+                                <div class="col-xs-7">
+                                    <div>
+                                        <div class="text-center heartratedate"><label align="center" id="HeartrateDate"></label><span class="unit">(次/每分钟)</span></div>
+                                        <label>小于40属于心率过缓，大于160属于心率过速</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="page-row">
+                    <div class="col-xs-6 app-colum left-block">
+                        <div class="app-box no-bk-color basicdata wrap_c">
+                            <div class="box-footer">
+                                <div class="col-xs-12 text-center">
+                                    <span class="title">基础数据</span>
+                                </div>
+                                <div class="col-xs-12">
+                                    <span class="12">&nbsp</span>
+                                </div>
+                                <div class="col-xs-1"></div>
+                                 <div class="col-xs-5">
+                                        <!--<div class="heartheight"></div>-->
+                                       <div class="text-left titlefont"> 身高</div>
+                                       <div class="text-center datafont" ><label id="stature"></label><span class="stiticUnit">cm</span></div>
+                                </div>
+                                <div class="col-xs-5">
+                                        <!--<div class="heartheight"></div>-->
+                                       <div class="text-left titlefont"> 体重</div>
+                                       <div class="text-center datafont"><label  id="weight"></label><span class="stiticUnit">kg</span></div>
+                                </div>
+                                <div class="col-xs-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 app-colum left-block">
+                        <div class="app-box no-bk-color wrap_c">
+                            <div class="box-footer">
+                                <div class="col-xs-4">
+                                    <span class="title">历史数据</span>
+                                </div>
+                                <div class="xxb text-right link-container">
+                                  <a id="STEPNUM" class="xx-link active">步数</a>&nbsp;&nbsp;
+                                  <!--<a id="CALORIE" class="xx-link">卡路里</a>&nbsp;&nbsp;|
+                                  <a id="STATURE" class="xx-link">身高</a>&nbsp;&nbsp;|
+                                  <a id="WEIGHT" class="xx-link">体重</a>&nbsp;&nbsp;|-->
+                                  <!--<a id="year" class="xx-link">1年</a>-->
+                               </div>
+                                <div class="box-body history-school echart-height col-xs-12" >
+                                      <div id="HistoryHealthMessage" class="myEchart col-xs-12"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            <!--</div>
+        </div>
+    </div>-->
+</div>
+
+
+<div id="healthMessage_rc" class="rc-define"
+    
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.personalhealth");
+</script>

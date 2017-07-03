@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+	<div style="border:1px solid #dedddd;margin:20px 5px 0px 5px;height:40px;">用户关注微信号时自动回复的消息
+	</div>
+	<div class="col-xs-12 app-colum" style="margin-top:12px;">
+    <div class="app-box no-height">
+        <div class="box-body no-height">
+            <div id="messageList" class="simple-list"></div>
+        </div>
+    </div>
+     <button class="btn btn-primary" id="registBtn2">返回</button>
+</div>
+<div id="sub_rc" class="rc-define"
+     SSID_HEADER = "认证模板,一键登录,短信认证,微信认证,固定账号认证"
+     Subscription_HEADER = "消息名称,消息类型"
+     Chat_HEADER = "公众号名称,AppID,AppSECRET,TOKEN"
+     ADD_TITLE = "增加认证模板"
+     ADDPage_TITLE = "增加页面模板"
+     ADDChat_TITLE = "增加微信公众号"
+        ></div>
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("auth.subscription");
+</script>

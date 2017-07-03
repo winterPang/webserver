@@ -1,0 +1,165 @@
+<html>
+
+<head>
+</head>
+
+<body>
+<div class="page-row dashboard">
+	<div class="col-xs-6 app-colum left-block">
+		<div class="app-box no-bk-color">
+			<div class="box-footer">
+				<span class="title">设备概览</span>
+			</div>
+				<div class="healthimgreen" id="health">
+					<span class="level" id="healthdegree">综合健康度</span>
+					<span class="number" id = "score" name = "score"></span>
+					<span class="number_href"></span>
+				</div>
+			<div class="box-body dashboard-height">
+				<div class="panel" id="topology"></div>
+				<!-- <canvas class="process" >
+				</canvas>
+				<div class="num"></div> -->
+				<div class="center-summary" style="margin-top:30px;">
+					<table class="table table-bordered">
+			            <tr>
+			              <th><label class="netinfo-basic">上行剩余带宽</label></th>
+			              <th><label class="netinfo-basic">AP在线率</label></th>
+			              <th><label class="netinfo-basic">终端速率</label></th>
+			            </tr>
+			            <tr>
+			              <th><label id="bandwidth" class="netinfo-bad" ></label></th>
+			              <th><label id="appercent"class="netinfo-bad" ></label></th>
+			              <th><label id="clientspeed" class="netinfo-bad"></label></th>
+			            </tr>
+			            <tr>
+			              <th><label class="netinfo-basic">安全评价</label></th>
+			              <th><label class="netinfo-basic">无线环境</label></th>
+			              <th><label class="netinfo-basic">系统健康度</label></th>
+			            </tr>
+			            <tr>
+			              <th>
+							  <label id="security" class="netinfo-bad"></label>
+						  </th>
+			              <th>
+							  <label id="wireless" class="netinfo-bad"></label>
+						  </th>
+			              <th>
+							  <label id="system" class="netinfo-bad"></label>
+						  </th>
+			            </tr>
+			        </table>
+			    </div>
+			</div>
+		</div>
+	</div>
+
+	<div class="col-xs-6 app-colum left-block">
+		<div class="app-box no-bk-color hide" id="charts">
+			<div class="box-footer">
+				<span class="title">出口速率</span>
+				<!-- 添加刷新按钮和过滤按钮 -->
+				<div class="text-right link-container">
+					<a type="button" class="refresh" id="refresh_usage"><i class="refresh-icon icon"></i></a>
+					<a type="button" class="filter" id="filter_usage"><i class="filter-icon icon"></i></a>
+					<div class="hide" id="usage_block">
+						<div class="filter-container">
+							<label>上行口：</label>
+							<select id="SetfigUpport" name="SetfigUpport" class="big singleSelect"></select>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="box-body echart-height form-group body-nopadding">
+				<div id="usage" class="col-xs-12 myEchart"></div>
+			</div>
+		</div>
+		<!-- 在没有wan口没有流量的时候，需要选择上行口-->
+		<div class="app-box no-bk-color" id="config">
+			<div class="box-footer" style="background:initial;">
+				<div class="col-xs-12">
+					<span class="title">出口速率</span>
+				</div>
+			</div>
+			<div  class="dashboard-usage-box echart-height" >
+				<div class="col-sm-12">
+					<label class="col-sm-3 control-label control_label_center">选择上行口</label>
+					<div class="col-sm-9">
+						<select id="ConfigUpport" name="ConfigUpport" class="big singleSelect"></select>
+						<a class="dashboard-button-row btn" id="submit">
+							<i class="icon-ok"></i>确定</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+		<div class="app-box no-bk-color">
+			<div class="box-footer">
+				<span class="title">应用流量</span>
+				<div class="text-right link-container">
+					<a type="button" class="link-send" id="sendmsg">
+					<span >发送</span>
+					</a>
+					|
+					<a type="button" class="link-receive" id="recvmsg">
+					<span >接收</span>
+					</a>
+				</div>
+			</div>
+			<div class="box-body mini-height form-group body-nopadding">
+				<div id="appflow" class="col-xs-12 myEchart"></div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="page-row">
+<!-- 页面中最顶级元素 类名：page-row-->
+	<div class="col-xs-6 app-colum left-block">
+		<div class="app-box no-bk-color">
+			<div class="box-footer">
+				<span class="title">接入终端</span>
+			</div>
+    		<div class="box-body body-nopadding">
+				<div class="align-right" id="terminalNum">
+					<span class="netinfo-basic">无线终端</span>
+					<span class="font-36" id="wlNum"></span>
+					<span class="netinfo-basic">有线终端</span>
+					<span class="font-36" id="wdNum"></span>
+				</div>
+				<div id="accessterminal" class="col-xs-12 myEchart" style="margin-top:20px;"></div>
+			    <div id="accessLegend" class="col-xs-6 panel"></div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xs-6 app-colum left-block">
+		<div class="app-box no-bk-color" id="terminaltype_block">
+			<div class="box-footer">
+				<span class="title">终端类型</span>
+			</div>
+			<div class="box-body">
+	          <div id="terminaltype" class="col-xs-12 myEchart"></div>
+	          <div id="myLegend" class="col-xs-6 panel"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<!--<canvas id="canvas" width="400" height="300"/>-->
+
+  <div id="dashboard_rc" class="rc-define"
+      APPINFO = "微信,qq,淘宝,App应用,百度,京东,凤凰网,其他"
+	   LABELS = "其他"
+      TIPS = "放行,丢弃"
+      SR = "发送,接收"
+      OUTLETFLOW = "联通,电信"
+      UP_DOWN = "上行流,下行流"
+	  UP_DOWN_WAN =  "G5上行流,G5下行流,G6上行流,G6下行流"
+      OTHERTYPE="Other Type"
+	  Connect_Sta="连接正常,连接中断"
+	  Envquality = "好,较好,一般,较差,差"
+    ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("dashboard.summary");
+</script>

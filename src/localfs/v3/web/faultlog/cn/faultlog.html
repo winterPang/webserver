@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+          #faultLog_block{          
+            margin-top:12px;            
+          }   
+        
+         
+        </style>
+    </head>
+    <body>
+    	<div class="col-xs-12 app-colum">
+	        <div class="app-box no-height">
+    			<!-- 表头 -->
+	            <div class="box-footer">
+	                <span class="title">认证故障日志</span>
+
+	             <!--   右侧按钮
+                                        <div class="text-right link-container">
+                                                       <a type="button" class="filter" id="filter_faultLog">
+                                                        <i class="filter-icon icon"></i>
+                                                      </a>
+                                                                   
+                                                         </div>   -->	                    	  
+	            </div>
+				<!-- 表框 -->
+              <div  id="faultLog_block" style="padding-left:14px">
+                 <div class="xb-input xb-radio">
+                    <input type="radio" id="failRecord" name="Type" value="0" checked="" class="input-element">
+                    <label for="failRecord">认证失败记录</label>
+                 </div>                           
+                 <div class="xb-input xb-radio" style="margin-left:15px;">
+                    <input type="radio" id="abnormalRecord" name="Type" value="1" class="input-element">
+                    <label for="abnormalRecord">认证错误记录</label>
+                 </div>                           
+              </div>
+	            <div class="box-body no-height">
+	                <div id="failRecordList" class="simple-list"></div>
+	                <div id="abnormalRecordList" class="simple-list"></div>
+	            </div>
+	        </div>
+    	</div>
+		
+    	<div id="faultLog_rc" class="rc-define" 
+    	faultLog_HEADER="IP地址,AP名称,SSID,MAC地址,用户名,认证失败时间,认证失败原因,"
+    	faultLog_HEADER2="IP地址,AP名称,SSID,MAC地址,认证错误时间,认证错误原因,">
+    	</div>   	
+    </body>
+</html>
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("faultlog.faultlog");
+</script>

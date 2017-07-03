@@ -1,0 +1,26 @@
+<form class="form-horizontal form model">
+    <div class="form-group">
+        <div class="col-sm-4 ml20 title-fontStyle">AP name</div>
+        <div class="col-sm-4"
+             ng-bind="data.name"></div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-4 ml20 title-fontStyle">Radio</div>
+        <div class="col-sm-4" ng-bind="data.radio"></div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4 ml20 title-fontStyle">Phishing detection</div>
+        <div class="col-sm-4" ng-bind="data.phishStatus"></div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4 ml20 title-fontStyle">Phishing countermeasures</div>
+        <div class="col-sm-4" ng-bind="data.ctmPhishStatus"></div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-4 ml20 title-fontStyle">Flood attack detection</div>
+        <div class="col-sm-4" ng-bind="data.floodStatus"></div>
+    </div>
+</form>

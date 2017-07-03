@@ -1,0 +1,77 @@
+.msgCfg a,a:hover{
+  color: #4ec1b2;
+}
+.msgCfg .tab-pages {
+  height: 40px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 1px;
+}
+.msgCfg .tab-pages li {
+  float: left;
+  list-style: none;
+  position: relative;
+}
+.msgCfg .tab-pages li:nth-child(2) {
+  left: -23px;
+}
+.msgCfg .tab-pages li:nth-child(3) {
+  left: -46px;
+}
+.msgCfg .tab-pages li:nth-child(4) {
+  left: -69px;
+}
+.msgCfg .tab-pages li .tab-content {
+  display: block;
+  float: left;
+  height: 40px;
+  line-height: 38px;
+  font-size: 14px;
+  color: #80878c;
+  box-sizing: border-box;
+  padding: 0 32px;
+  border-top: 1px solid #e7e7e9;
+  border-bottom: 1px solid #e7e7e9;
+  background-color: #edf9f7;
+}
+.msgCfg .tab-pages li .tab-content.tab-content-first {
+  border-left: 1px solid #e7e7e9;
+  border-top-left-radius: 4px;
+}
+.msgCfg .tab-pages li .tab-content:hover {
+  cursor: pointer;
+}
+.msgCfg .tab-pages li .tab-edging {
+  display: block;
+  float: left;
+  width: 23px;
+  height: 40px;
+  background: url('../images/icon.png') no-repeat;
+}
+.msgCfg .tab-pages li .tab-edging.tab-edging-left {
+  background-position: -116px -137px;
+}
+.msgCfg .tab-pages li .tab-edging.tab-edging-right {
+  position: relative;
+  z-index: 100;
+  background-position: -159px -137px;
+}
+.msgCfg .tab-pages li.active .tab-content {
+  color: #343e4e;
+  border-bottom: none;
+  background-color: #fff;
+}
+.msgCfg .tab-pages li.active .tab-edging.tab-edging-left {
+  position: relative;
+  z-index: 1000;
+  background-position: -22px -137px;
+}
+.msgCfg .tab-pages li.active .tab-edging.tab-edging-right {
+  background-position: -65px -137px;
+}
+.msgCfg .tab-container {
+  padding: 30px 18px;
+  border: 1px solid #e7e7e9;
+  border-radius: 0 4px 4px 4px;
+}

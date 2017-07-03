@@ -1,0 +1,51 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<div class="index-group hide" id="charts">
+	        <div class="box-footer" style="background: initial;">
+	            <span class="title">Traffic Monitoring</span>
+	            <div class="text-right link-container">
+	                <a type="button" class="refresh" id="refresh_usage"><i class="refresh-icon icon"></i></a>
+	                <a type="button" class="filter" id="filter_usage"><i class="filter-icon icon"></i></a>
+	                <div class"hide" id="usage_block">
+		            	<div class="filter-container">
+		            		<label>Uplink Interface:</label>
+		            		<select id="SetfigUpport" name="SetfigUpport" class="big singleSelect"></select>
+		            	</div>
+		            </div>
+	            </div>	            
+	       </div>
+		    <div class="sysinfo-body" >
+				<div id="usage" name="usage" class="myEchart dashboard-usage" debug="getUsage"></div>
+		    </div>
+		</div>
+		<div class="index-group" id="config">
+		    <div class="box-footer" style="background:initial;">
+				<div class="col-xs-12">
+				    <span class="title">Traffic Monitoring</span>
+				</div>
+		    </div>
+		    <div  class="dashboard-usage-box" >
+				<div class="col-sm-7">
+                    <label class="col-sm-3 control-label ">Select an uplink interface</label>
+                    <div class="col-sm-9">
+                        <select id="ConfigUpport" name="ConfigUpport" class="big singleSelect"></select>
+					        <a class="dashboard-button-row btn" id="submit">
+					        <i class="icon-ok"></i>OK</a>
+                    </div>
+                </div>
+                  
+		    </div>
+		</div>
+	<div id="app_usage_rc" class="rc-define"
+         STREAM="Upstream,Downstream"
+         STREAM_WAN="G5 Upstream,G5 Downstream,G6 Upstream,G6 Downstream"
+         FLOW="Traffic"
+         UNIT_TIME="Time"
+    ></div>
+	</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_dashboard.Usage");
+</script>

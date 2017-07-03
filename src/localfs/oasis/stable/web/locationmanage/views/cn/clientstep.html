@@ -1,0 +1,66 @@
+<div class="container-fluid col-md-12 col-lg-12">
+    <div id="editMapDiv">
+        <div class="showList">
+            <span class="spanList" ng-click="toClientMap()"><img src="../locationmanage/img/icon-back.png">返回</span>
+            <span class="spanList" ng-click="refreshLocationList()"><img src="../locationmanage/img/icon-refresh.png">刷新</span>
+            <div class="biliChi">
+                <label style="font-size: 14px;">比例尺： 1px&nbsp;：</label>&nbsp;<label id="scaleLbl" ng-bind="scale"></label><span>m</span>
+            </div>
+        </div>
+        <div class="right-list">
+            <form class="form-inline search-form">
+                <div class="form-group">
+                    <label class="sr-only" for="macAddress"></label>
+                    <div class="input-group">
+                        <div class="input-group-addon" style="padding-left: 33px"><img src="../locationmanage/img/icon-mac.png" alt=""></div>
+                        <input ng-model="macAddress" type="text" class="form-control" id="macAddress" style="height:37px;border:none;margin-right: 20px"  >
+                        <!--<div class="input-group-addon" style="width:33px;color:#4ec1b2;">
+                            <img id="queryRealityClients" src="../locationmanage/img/icon-search.png">
+                            <img class="imgBtn" src="../locationmanage/img/icon-clickDown.png" ng-click="toggleTable()">
+                            <a id="quxiao" class="btn btn-lvzhou btnClient"><span class="glyphicon glyphicon-resize-small"></span></a>
+                        </div>-->
+                    </div>
+                </div>
+            </form>
+            <div class="box" >
+                <form class="form-inline ">
+                    <div class="form-group">
+                        <label class="sr-only" for="start"></label>
+                        <div class="input-group" style="margin-top:20px;">
+                            <div class="input-group-addon" ><img src="../locationmanage/img/icon-start.png" alt=""></div>
+                            <input type="text" class="form-control" id="start" placeholder="请输入开始时间" style="border:none;">
+                        </div>
+
+                    </div>
+                    <div class="form-group">
+                        <label class="sr-only" for="end"></label>
+                        <div class="input-group" style="margin-top:10px;">
+                            <div class="input-group-addon" ><img src="../locationmanage/img/icon-end.png" alt=""></div>
+                            <input type="text" class="form-control" id="end" placeholder="请输入结束时间" style="border:none;">
+                        </div>
+                    </div>
+                </form>
+                <button class="btn btn-lvzhou btn-ChaXun" style="margin-bottom:20px;margin-top: 10px;width: 200px;" id="queryClient">历史查询</button>
+            </div>
+        </div>
+        <div id="editMapTitle" class="clearfix">
+            <div class="pull-left">
+                <p><a ui-sref="global.content.application.locationmanage({mode: mode})">{{modeName}}</a> > 终端轨迹</p>
+            </div>
+            <div class="toggleButton">
+                <span  id="queryRealityClients"  ng-click="toggleDateSelector('realSearch')">实时</span>
+                <span class="selected" ng-click="toggleDateSelector('history')">历史</span>
+            </div>
+            <div class="pull-right">
+                <!--<span style="background: #ccc" ng-click="changeCanvas()">热力图</span>-->
+                <a id="quanping" bs-full="fullOption" class="btn btn-lvzhou btnClient"><span class="glyphicon glyphicon-fullscreen"></span></a>
+            </div>
+        </div>
+    </div>
+    <div id="mapContain" scroll="no">
+        <div id="imageView_container" bs-drag="dragOption" scroll="no">
+            <canvas id="canvas" bs-scale ng-show="isClientMap"></canvas>
+            <!--<canvas id="heatMap" ng-hide="isClientMap"></canvas>-->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<html>
+<head>
+    <style>
+    
+    </style>
+</head>
+<body>
+<!--<div class="breadcrumbs" id="breadcrumbs">
+    <script type="text/javascript">
+        try{ace.settings.check('breadcrumbs' , 'fixed')}catch(e){}
+    </script>
+
+    <ul class="breadcrumb">
+        <li>
+            <i class="icon-home home-icon"></i>
+            <a href="#">物联校园</a>
+        </li>
+        <li>校园安全</li>
+        <li class="active">告警详情</li>
+    </ul>
+</div>-->
+<!--<div class="btn_h_return" id="iBack"></div>-->
+<div class="col-xs-12 app-colum" debug="getPlaceInfo getOnlineUser">
+    <div class="app-box no-height wrap_c">
+        <div class="box-footer">
+            <span class="title" id="title_id"></span>
+        </div>
+        <div class="box-body no-height">
+            <div id="alertList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+<!--modal-super page-->
+<div class="hide modal fade modal-small" id="live_video">
+    <form id="Statu_form" class="form-horizontal form edit">
+        <div class="form-group" style="text-align:center;" width="900" height="900">
+            <canvas id="videoCanvas" width="600" height="600">
+                <p>
+                    Please use a browser that supports the Canvas Element, like
+                    <a href="http://www.google.com/chrome">Chrome</a>,
+                    <a href="http://www.mozilla.com/firefox/">Firefox</a>,
+                    <a href="http://www.apple.com/safari/">Safari</a> or Internet Explorer 10
+                </p>
+            </canvas>
+        </div>
+    </form>
+</div>
+
+<div id="noticelist_rc" class="rc-define"
+     NOTICE = "突发时间,位置,描述,人数,实况视频"
+     STATU_NAME = '实况录像'
+        >
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.safenotice");
+</script>

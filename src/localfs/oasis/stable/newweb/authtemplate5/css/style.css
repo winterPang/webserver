@@ -1,0 +1,24 @@
+.authtemplate5 .del-icon {
+  display: inline-block;
+  height: 17px;
+  width: 17px;
+  background: url("../frame/images/xb-icons.png") no-repeat -456px -126px;
+  cursor: pointer;
+}
+.authtemplate5 .del-icon:hover {
+  background-position: -428px -126px;
+}
+.authtemplate5 .col-sm-3,
+.authtemplate5 .col-md-3,
+.authtemplate5 .col-sm-5,
+.authtemplate5 .col-sm-6,
+.authtemplate5 .col-md-6,
+.authtemplate5 .col-md-8,
+.authtemplate5 .col-sm-9,
+.authtemplate5 .col-md-9,
+.authtemplate5 .col-md-12 {
+  padding-left: 0;
+}
+.authtemplate5 .pr0 {
+  padding-right: 0;
+}

@@ -1,0 +1,78 @@
+.newdegin-menu {
+  margin-top: -30px;
+  width: 220px;
+  background-color: #2f3d46;
+  /*padding-left: 13px;
+  padding-right: 13px;*/
+  float: left;
+}
+.newdegin-menu .up {
+  margin-top: 23px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #4c5358;
+  padding-left: 13px;
+  padding-right: 13px;
+}
+.newdegin-menu .up .title {
+  font-size: 20px;
+  color: #a2a8ad;
+  line-height: 39px;
+  margin-left: 6px;
+}
+.newdegin-menu ul {
+  list-style: none;
+  margin: 0;
+  margin-top: 10px;
+  padding: 0;
+}
+.newdegin-menu ul li {
+  padding-left: 20px;
+  padding-right: 13px;
+}
+.newdegin-menu ul li a {
+  color: #a2a8ad;
+  font-size: 16px;
+  line-height: 34px;
+  cursor: pointer;
+}
+.newdegin-menu ul li:hover {
+  background-color: #3c4a53;
+}
+.newdegin-menu ul li:hover > a {
+  color: #ffffff;
+}
+.newdegin-menu .menu-active {
+  /*border-left: 2px solid #4188ce;*/
+  border-right: 4px solid #4188ce;
+  /*padding: 2px 0 2px 7px;*/
+  background-color: #28333a;
+}
+.newdegin-menu .menu-active a {
+  color: #f5f5f5;
+}
+.newdegin-menu .menu-active ul {
+  padding: 0;
+  margin: 0;
+}
+.newdegin-menu .menu-active ul a {
+  color: #a2a8ad;
+}
+.newdegin-menu .menu-active .menu-active {
+  border-right: none;
+  background: none;
+  color: #ffffff;
+}
+.newdesign-main-right {
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #e8e8ee;
+  padding: 20px;
+}
+/*
+.newdesign-icon{
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  margin-right: 10px;
+  background-image: url(../image/sprite.png);
+}*/

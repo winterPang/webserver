@@ -1,0 +1,89 @@
+<div>
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height default-bottom">
+            <div class="box-footer">
+                <span class="title">设备操作</span>
+            </div>
+            <div class="box-body no-height">
+                <div class="bodyContent" style="margin-top:20px;">
+                    <div class="form-group col-xs-12" id="Save">
+                        <div class="col-xs-7">
+                            <div class="col-xs-2 label_image save_config">
+                                <!--<div id="bgImgSave"></div>-->
+                            </div>
+                            <div class="col-xs-5">
+                                <div>
+                                    <h5>保存配置并重启</h5>
+                                    <p>保存配置并重启设备</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-5 rightContent">
+                            <div class="col-xs-1 middleLine">
+                                <span></span>
+                            </div>
+                            <div class="col-xs-4" id="btnSave">
+                                <button id="b_btnSave" class="btn" value="btnSave" ng-click="saveCfgRestart()" ng-if="permission.write">
+                                    保存配置并重启
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-xs-12" id="Reboot">
+                        <div class="col-xs-7">
+                            <div class="col-xs-2 label_image restart_device">
+                                <!--<div id="bgImgReboot"></div>-->
+                            </div>
+                            <div class="col-xs-5">
+                                <div>
+                                    <h5>直接重启</h5>
+                                    <p>直接重启设备</p>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="col-xs-5 rightContent">
+                            <div class="col-xs-1 middleLine">
+                                <span></span>
+                            </div>
+                            <div class="col-xs-4" id="btnReboot">
+                                <button class="btn" value="btnReboot" ng-click="restart()" ng-if="permission.write">
+                                    直接重启
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group col-xs-12" id="Disconnect">
+                        <div class="col-xs-7">
+                            <div class="col-xs-2 label_image link_reline">
+                                <!--<div id="bgImgDisconnect"></div>-->
+                            </div>
+                            <div class="col-xs-5 ">
+                                <div id="description_cy">
+                                    <h5>主链接重连</h5>
+                                    <p>强制断开并重新连接主链接</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-5 rightContent">
+                            <div class="col-xs-1 middleLine">
+                                <span></span>
+                            </div>
+                            <div class="col-xs-4" id="btnDisconnect">
+                                <button class="btn" value="btnDisconnect" ng-click="mainLinkReconnection()" ng-if="permission.write">
+                                    主链接重连
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="read_rc" id="tunneldevice_rc"
+     msgDialog-data="主链接没找到,成功,断开主链接失败,断开主链接成功，保存配置失败,重启失败,权限不足,其他错误"
+>
+</div>

@@ -1,0 +1,77 @@
+<div class="cell auto-size bg-white" id="cell-content">
+    <h4 class="text-light">
+        <span ng-bind="optType == 1 ? '增加页面模板' : '修改页面模板'"></span>
+    </h4>
+    <hr class="thin bg-grayLighter">
+
+    <form role="form" novalidate id="addform" name="addform" class="addform" method="post"
+        ng-submit="optType == 1 ? onAdd() : onModify()">
+        <input type="hidden" name="id" ng-bind="model.id" >
+        <br />
+        <div class="grid">
+            <div class="row cells12">
+                <div class="cell colspan5 input-control text" data-role="input"
+                    ng-class="{error : (addform.themeName.$dirty && addform.themeName.$invalid) || nameExistFlag, success : addform.themeName.$dirty && addform.themeName.$valid && !nameExistFlag}">
+                    <label for="themeName">页面名称<span style="color: red; padding-left: 5px;">*</span></label>
+                    <input type="text" name="themeName" ng-model="model.themeName" 
+                        placeholder="输入名称" required ng-maxlength="16" ng-blur="isExistName()" 
+                        ng-disabled="optType == 2">							
+                    <span class="input-state-error mif-warning"
+                        ng-if="(addform.themeName.$dirty && addform.themeName.$invalid) || nameExistFlag"></span>
+                    <span class="input-state-success mif-checkmark"
+                        ng-if="addform.themeName.$dirty && addform.themeName.$valid && !nameExistFlag"></span>
+                </div>
+                <div class="cell colspan7">
+                    <div class="hint2 validator-hint right red"
+                        ng-if="addform.themeName.$dirty && addform.themeName.$error.required"
+                        style="background-color: rgb(255, 252, 192); display: block">该值必须填写。</div>
+                    <div class="hint2 validator-hint right red"
+                        ng-if="addform.themeName.$dirty && addform.themeName.$error.maxlength"
+                        style="background-color: rgb(255, 252, 192); display: block">最多为16个字符。</div>
+                    <div class="hint2 validator-hint right red"
+                        ng-if="addform.themeName.$dirty && model.themeName!=null && nameExistFlag"
+                        style="background-color: rgb(255, 252, 192); display: block">页面名称已存在</div>
+                </div>
+            </div>
+        </div>
+
+        <br />
+        <div class="grid">
+            <div class="row cells12">
+                <div class="cell colspan5 input-control text" data-role="input"
+                    ng-class="{error : addform.description.$dirty && addform.description.$invalid, success : addform.description.$dirty && addform.description.$valid}">
+                    <label for="description">描述</label> 
+                    <input type="text" name="description" ng-model="model.description" placeholder="输入描述" ng-maxlength="128"> 
+                    <span class="input-state-error mif-warning"
+                        ng-if="addform.description.$dirty && addform.description.$invalid"></span>
+                    <span class="input-state-success mif-checkmark"
+                        ng-if="addform.description.$dirty && addform.description.$valid"></span>
+                </div>
+                <div class="cell colspan7">
+                    <div class="hint2 validator-hint right red"
+                        ng-if="addform.description.$dirty && addform.description.$error.maxlength"
+                        style="background-color: rgb(255, 252, 192); display: block">最多为128个字符。</div>
+                </div>
+            </div>
+        </div>
+         <br />
+        <div class="grid" ng-hide="optType == 2" 
+            style="border:1px solid;width:425px;padding:15px 15px 10px 15px">
+            <div><label>简约</label></div>
+            <div>
+              <img height="300" src="views/themepage/resources/images/model1.png"/>
+            </div>
+            <div style="float:right">
+              <img height="20" width="20" src="views/themepage/resources/images/finished-32.gif"/>
+            </div>
+         </div>
+
+        <br /> <br />
+        <div class="form-actions center">
+            <a ui-sref="auth.themepage.list" class="button cusbtn-default white">取消</a> 
+            <input class="button cusbtn-default" ng-disabled="addform.$invalid||nameExistFlag" type="submit" value="确定" />
+        </div>
+    </form>
+
+</div>
+

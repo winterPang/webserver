@@ -1,0 +1,92 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .intervalTime{
+            width:80px!important;
+        }
+        #err_intervalTime{
+            width:150px;
+            color: #47495d;
+            font-size: 14px;
+            font-weight: normal;
+            display: none;
+            background: #fce6e6;
+            padding: 0px 10px;
+            line-height: 22px;
+            border: 1px solid #df443e;
+            margin-top: 1px;
+            border-radius: 5px;
+            position:absolute;
+            bottom:-25px;
+            left:0;
+        }
+        .app-box .form-actions.top{
+            right:20px;
+            top:4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-row">
+        <div class="col-xs-7 app-colum left-block">
+            <div class="app-box">
+                <div class="box-footer" id="CupidBtn">
+                    <span class="title">无线定位</span>
+                </div>
+                <div class="box-body no-height">
+                    <form class="form-horizontal form" id="CupidForm">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">无线定位</label>
+                            <div class="col-sm-4">
+                               <div class="xb-input xb-checkbox" style="top: 0px;">
+                                   <input type="checkbox" class="switch input-element" id="Cupid" name="Cupid"  checked/>
+                                   <!--<span class="input-icon checkbox-icon switch checked"></span>-->
+                                   <label class="input-label" for="Cupid"></label>
+                               </div>
+                            </div>
+                            <label class="col-sm-2 control-label">轨迹存入间隔:</label>
+                            <div class="col-sm-4">
+                                <div style="top: 0px;">
+                                    <input type="number" class="intervalTime" id="intervalTime" name="intervalTime" min="10" value="10"/>
+                                    <label class="control-label">&nbsp;秒</label>
+                                    <!--<span class="input-icon checkbox-icon switch checked"></span>-->
+                                    <label class="input-label" id="err_intervalTime">间隔时间应大于10秒</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--yuzhiqiang 应用分析的配置开关-->
+        <div class="col-xs-7 app-colum left-block">
+            <div class="app-box">
+                <div class="box-footer" id="DrsBtn">
+                    <span class="title">应用分析</span>
+                </div>
+                <div class="box-body no-height">
+                    <form class="form-horizontal form" id="DrsidForm">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">应用分析</label>
+                            <div class="col-sm-9">
+                                <div class="xb-input xb-checkbox" style="top: 0px;">
+                                    <input type="checkbox" class="switch input-element" id="Drsid" name="Drsid"  checked/>
+                                    <!--<span class="input-icon checkbox-icon switch checked"></span>-->
+                                    <label class="input-label" for="Drsid"></label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="app_config_rc" class="rc-define"
+         ERRTIP= "连接异常,设置成功！,设备异常！" ></div>
+</body>
+</html>
+<script language="JavaScript" type="text/javascript">
+    Utils.Pages.loadJS("position.apply_config");
+</script>

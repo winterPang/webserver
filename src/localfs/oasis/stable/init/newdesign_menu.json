@@ -1,0 +1,162 @@
+﻿{
+  "menu":
+  {
+    "default":
+    [
+      {
+        "name": "首页",
+        "id": "newhome",
+        "sref": "newdesign.content.newhome"
+
+      },
+      {
+        "name": "设备",
+        "sref": "newdesign.content.equipment.devmanage",
+        "id":"equipment",
+        "tabs": [
+          {
+            "name": "设备",
+            "id": "site",
+            "sref": "newdesign.content.equipment.devmanage",
+            "tabs": []
+          },
+          {
+            "name": "分组",
+            "id": "message",
+            "sref": "newdesign.content.equipment.apBranchMng_demo",
+            "tabs": []
+          },
+          {
+            "name": "场所",
+            "id": "operate_log",
+            "sref": "newdesign.content.equipment.apsiteMng_demo",
+            "tabs": []
+          }
+        ]
+      },
+      {
+        "name": "工具",
+        "sref": "newdesign.content.tool.batchconf",
+        "id":"tool",
+        "tabs": [
+          {
+            "name": "配置中心",
+            "id": "site",
+            "sref": "newdesign.content.tool.batchconf",
+            "tabs": []
+          },
+          {
+            "name": "批量升级",
+            "id": "message",
+            "sref": "newdesign.content.tool.batchupgrade",
+            "tabs": []
+          },
+          {
+            "name": "批量重启",
+            "id": "operate_log",
+            "sref": "newdesign.content.tool.batchrestart",
+            "tabs": []
+          },
+          {
+            "name": "命令助手",
+            "id": "operate_log",
+            "sref": "newdesign.content.tool.commandline",
+            "tabs": []
+          },
+          {
+            "name": "文件系统",
+            "id": "filesystem",
+            "sref": "newdesign.content.tool.filesystem",
+            "tabs": []
+          },
+          {
+            "name": "配置还原",
+            "id": "operate_log",
+            "sref": "newdesign.content.tool.configrestore",
+            "tabs": []
+          },
+          {
+            "name": "报表管理",
+            "id": "reportmanage",
+            "sref": "newdesign.content.tool.reportmanage",
+            "tabs": []
+          },
+          {
+            "name": "数据下载",
+            "id": "operate_log",
+            "sref": "newdesign.content.tool.datacenter",
+            "tabs": []
+          },
+          {
+            "name": "操作日志",
+            "id": "operate_log",
+            "sref": "newdesign.content.tool.operate_log",
+            "tabs": []
+          }
+        ]
+      },
+      {
+        "name": "应用中心",
+        "id": "application",
+        "sref": "newdesign.content.application.appstore",
+        "tabs": [
+          {
+            "name": "应用中心",
+            "id": "site",
+            "sref": "newdesign.content.application.appstore",
+            "tabs": []
+          },
+          {
+            "name": "我的应用",
+            "id": "message",
+            "sref": "newdesign.content.application.appmanage",
+            "tabs": []
+          },
+          {
+            "name": "地图管理",
+            "id": "operate_log",
+            "sref": "newdesign.content.application.mapmanage_original",
+            "tabs": []
+          },
+          {
+            "name": "定位管理",
+            "id": "operate_log",
+            "sref": "newdesign.content.application.locationmanage",
+            "tabs": []
+          }
+        ]
+      },
+      {
+        "name": "设置",
+        "id": "set",
+        "sref": "newdesign.content.set.1",
+        "tabs": [
+          {
+            "name": "短信配置",
+            "id": "message",
+            "sref": "newdesign.content.set.1",
+            "tabs": []
+          },
+          {
+            "name": "数据设置",
+            "id": "operate_log",
+            "sref": "newdesign.content.set.sss",
+            "tabs": []
+          },
+          {
+            "name": "子账户管理",
+            "id": "operate_log",
+            "sref": "newdesign.content.set.account_list",
+            "tabs": []
+          },
+          {
+            "name": "开放平台",
+            "id": "operate_log",
+            "sref": "newdesign.content.set.9",
+            "tabs": []
+          }
+        ]
+      }
+    ]
+  }
+}

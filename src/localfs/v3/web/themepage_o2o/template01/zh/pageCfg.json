@@ -1,0 +1,12 @@
+{"index":
+{"image100":[["images/bgImg.png"]]}
+,
+"login":
+{"image100":[["images/logo-inverted.jpg"]]}
+,
+"loginSuccess":
+{"image100":[["images/loginSuccessBg.jpg"]]}
+,
+"home":
+{"image100":[["images/home.jpg"]],"image101":[["images/home2.jpg"]]}
+}

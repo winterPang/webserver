@@ -1,0 +1,332 @@
+<div class="oasis-main-home" ng-if="oasisType==1">
+    <div class="oasis-main-home-tree">
+        <div class="up">
+            <div class="title">我的分支</div>
+            <div class="search">
+                <input type="text" placeholder="请输入分支名称">
+                <span class="glyphicon glyphicon-search"></span>
+            </div>
+        </div>
+        <div class="oasis-home-ztree">
+            <ul id="treeDemo" class="ztree"></ul>
+        </div>
+        <div class="bottom-btn">
+            <div>编辑</div>
+        </div>
+    </div>
+    <div class="oasis-home-content">
+        <div class="home">
+            <ul class="nav nav-tabs" role="tablist">
+                <li ng-click="changeTab(1)" ng-class="{active:activeTab==1}"><a href="javascript:void(0)">分支概览</a></li>
+                <li ng-click="changeTab(2)" ng-class="{active:activeTab==2}"><a href="javascript:void(0)">我的设备</a></li>
+                <li ng-click="changeTab(3)" ng-class="{active:activeTab==3}"><a href="javascript:void(0)">我的应用</a></li>
+            </ul>
+            <div ng-show="activeTab==1">
+                <div class="clearfix">
+                    <div class="col-md-4">
+                        <div class="info" style="background-color: #34495e;">
+                            <div class="up">分支</div>
+                            <div class="down clearfix">
+                                <div>
+                                    <div>分支</div>
+                                    <div><span ng-bind="rightData.region"></span>个</div>
+                                    <div class="right-line"></div>
+                                </div>
+                                <div>
+                                    <div>场所</div>
+                                    <div><span ng-bind="rightData.shop"></span>个</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info" style="background-color: #4188ce;">
+                            <div class="up">设备：223台</div>
+                            <div class="down clearfix">
+                                <div>
+                                    <div>在线</div>
+                                    <div><span>108</span>台</div>
+                                    <div class="right-line"></div>
+                                </div>
+                                <div>
+                                    <div>AP</div>
+                                    <div><span>10060</span>台</div>
+                                </div>
+                                <!--<div class="four">
+                                    <div>交换机</div>
+                                    <div>15台</div>
+                                    <div class="right-line"></div>
+                                </div>
+                                <div class="four">
+                                    <div>路由器</div>
+                                    <div>18台</div>
+                                </div>-->
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="info mr0" style="background-color: #e1554c;">
+                            <div class="up">告警：209条</div>
+                            <div class="down clearfix">
+                                <div class="four">
+                                    <div>严重</div>
+                                    <div><span>3</span>条</div>
+                                    <div class="right-line"></div>
+                                </div>
+                                <div class="four">
+                                    <div>错误</div>
+                                    <div><span>1</span>条</div>
+                                    <div class="right-line"></div>
+                                </div>
+                                <div class="four">
+                                    <div>警告</div>
+                                    <div><span>15</span>条</div>
+                                    <div class="right-line"></div>
+                                </div>
+                                <div class="four">
+                                    <div>提示</div>
+                                    <div><span>212</span>条</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix mt20">
+                    <div class="col-md-6">
+                        <div class="pie">
+                            <div>告警</div>
+                            <dount-chart option='dountConfig'></dount-chart>
+                            <!--<div id="prof_warn" style="height: 250px"></div>-->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="pie mr0">
+                            <div>设备类型</div>
+                            <div id="prof_eqtype" style="height: 250px"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix mt20">
+                    <div class="col-md-6">
+                        <div class="pie">
+                            <div>CPU使用率</div>
+                            <div id="prof_cpu" style="height: 250px"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="pie mr0">
+                            <div>内存使用率</div>
+                            <div id="prof_memory" style="height: 250px"></div>
+                        </div>
+                    </div>
+                </div>
+                <!--<div class="clearfix mt15">
+                    <div class="col-md-6">
+                        <div class="pie">
+                            <div>场所告警数</div>
+                            <div id="pie5" style="height: 250px"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="pie mr0">
+                            <div>分组告警数</div>
+                            <div id="pie7" style="height: 250px"></div>
+                        </div>
+                    </div>
+                </div>-->
+                <div class="mt15">
+                    <div class="col-md-12">
+                        <div class="pie mr0">
+                            <div>设备在线率</div>
+                            <div id="prof_line" style="height: 250px"></div>
+                        </div>
+                    </div>
+                    <!--<div class="col-md-6">
+                        <div class="pie mr0">
+                            <div>设备类型</div>
+                            <div id="pie9" style="height: 250px"></div>
+                        </div>
+                    </div>-->
+                </div>
+            </div>
+            <div ng-show="activeTab==2">
+                <div class="other-info mt15">
+                    <a class="btn btn-cus" ui-sref="newdesign.content.equipment.devmanage">管理</a>
+                    <table bs-table="prof_equipmentTable"></table>
+                </div>
+            </div>
+            <div ng-show="activeTab==3">
+                <div class="oasis-home-myapp">
+                    <div>
+                        <img src="../home/img/yunwei.png">
+                        <div class="app-item-name">运维</div>
+                    </div>
+                    <div>
+                        <img src="../home/img/dingwei.png">
+                        <div class="app-item-name">定位</div>
+                    </div>
+                    <div>
+                        <img src="../home/img/ceo.png">
+                        <div class="app-item-name">CEO专栏</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="oasis-home-addBranch" bs-modal="tree.modal">
+        <div class="addBranch-group">
+            <div class="title">选择对象</div>
+            <div>
+                <select>
+                    <option value="local">分支</option>
+                    <option value="shop">场所</option>
+                </select>
+                <select>
+                    <option value="门头沟区">门头沟区</option>
+                    <option value="test">北京市昌平区龙冠</option>
+                </select>
+            </div>
+
+        </div>
+
+        <div class="addBranch-group">
+            <div class="title">选择操作</div>
+            <div class="addBranch-btn add" ng-click="tree.operate = 'add'" ng-class="{'active':tree.operate == 'add'}">添加</div>
+            <div class="addBranch-btn edit" ng-click="tree.operate = 'edit'" ng-class="{'active':tree.operate == 'edit'}">编辑</div>
+            <div class="addBranch-btn delete" ng-click="tree.operate = 'delete'" ng-class="{'active':tree.operate == 'delete'}">删除</div>
+        </div>
+        <div class="addBranch-group">
+            <div class="title">添加对象</div>
+            <div>
+                <select name="" id="">
+                    <option value="local">分支</option>
+                    <option value="shop">场所</option>
+                </select>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="oasis-main-home" ng-if="oasisType==0">
+    <div class="oasis-home-content-simple home">
+        <ul class="nav nav-tabs" role="tablist">
+            <li ng-click="changeTabSimple(1)" ng-class="{active:activeTabSimple==1}"><a href="javascript:void(0)">总网概览</a></li>
+            <li ng-click="changeTabSimple(2)" ng-class="{active:activeTabSimple==2}"><a href="javascript:void(0)">我的应用</a></li>
+        </ul>
+        <div ng-show="activeTabSimple==1">
+            <div class="clearfix">
+                <div class="col-md-4 all">
+                    <div style="margin-right: 15px;background-color: #FFFFFF;height: 66px">
+                        <div style="font-size: 18px;text-align: center;display: inline-block;height: 66px;line-height: 66px;width:80px;background-color: #3a4f66;vertical-align: middle;color: #f7f7f7;">终端</div>
+                        <div style="font-size: 24px;text-align: center;display: inline-block;color: #3a4f66;vertical-align: middle;height: 66px;line-height: 66px;margin-left: 30px">1</div>
+                        <div style="font-size: 14px;float: right;color: #999999;    height: 66px;
+line-height: 66px;
+margin-right: 20px;">个</div>
+                    </div>
+                </div>
+                <div class="col-md-4 all">
+                    <div style="margin-right: 15px;background-color: #FFFFFF;height: 66px">
+                        <div style="font-size: 18px;text-align: center;display: inline-block;height: 66px;line-height: 66px;width:80px;background-color: #4188ce;vertical-align: middle;color: #f7f7f7;">设备</div>
+                        <div style="font-size: 24px;text-align: center;display: inline-block;color: #4188ce;vertical-align: middle;height: 66px;line-height: 66px;margin-left: 30px">3</div>
+                        <div style="font-size: 14px;float: right;color: #999999;    height: 66px;
+line-height: 66px;
+margin-right: 20px;">台</div>
+                    </div>
+                </div>
+                <div class="col-md-4 all">
+                    <div style="background-color: #FFFFFF;height: 66px">
+                        <div style="font-size: 18px;text-align: center;display: inline-block;height: 66px;line-height: 66px;width:80px;background-color: #e1554c;vertical-align: middle;color: #f7f7f7;">告警</div>
+                        <div style="font-size: 24px;text-align: center;display: inline-block;color: #e1554c;vertical-align: middle;height: 66px;line-height: 66px;margin-left: 30px">5</div>
+                        <div style="font-size: 14px;float: right;color: #999999;    height: 66px;
+line-height: 66px;
+margin-right: 20px;">条</div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix mt20">
+                <div class="col-md-6">
+                    <div class="pie">
+                        <div>告警</div>
+                        <div id="simple_warn" style="height: 250px"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="pie mr0">
+                        <div>设备类型</div>
+                        <div id="simple-eqtype" style="height: 250px"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix mt20">
+                <div class="col-md-6">
+                    <div class="pie">
+                        <div>CPU使用率</div>
+                        <div id="simple-cpu" style="height: 250px"></div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="pie mr0">
+                        <div>内存使用率</div>
+                        <div id="simple-memory" style="height: 250px"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="other-info mt20">
+                <div style="padding-bottom: 15px;">设备信息</div>
+                <a class="btn btn-cus" ui-sref="newdesign.content.equipment.devmanage">管理</a>
+                <table bs-table="simple_equipmentTable"></table>
+            </div>
+        </div>
+        <div ng-show="activeTabSimple==2">
+            <div class="oasis-home-myapp">
+                <div>
+                    <img src="../home/img/yunwei.png">
+                    <div>运维</div>
+                </div>
+                <div>
+                    <img src="../home/img/dingwei.png">
+                    <div>定位</div>
+                </div>
+                <div>
+                    <img src="../home/img/ceo.png">
+                    <div>CEO专栏</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="oasis-home-equipment" bs-modal="equipment.modal">
+    <form name="eqform">
+        <div class="form-group">
+            <label>设备名称：</label><span class="mr30" ng-bind="equipment.detail.name"></span>
+            <label>设备类型：</label><span class="mr30" ng-bind="equipment.detail.type"></span>
+            <label>设备型号：</label><span class="mr30" ng-bind="equipment.detail.model"></span>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="eqLine">
+                        <div>CPU使用率</div>
+                        <div id="equipment-cpu" style="height: 200px"></div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="eqLine">
+                        <div>内存使用率</div>
+                        <div id="equipment-memory" style="height: 200px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="eqLine">
+                        <div>上下行流量</div>
+                        <div id="equipment-warn" style="height: 200px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

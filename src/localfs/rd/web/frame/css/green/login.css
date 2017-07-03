@@ -1,0 +1,403 @@
+/* logo page */
+.login {
+    background: #fff !important;
+    margin: 0;
+    padding: 0;
+    font-family: "HPSimplified","proxima-nova-1","proxima-nova-2", 'Helvetica Neue',Helvetica, verdana, sans-serif;
+}
+.login .header {
+    height: 52px;
+    padding-right: 60px;
+    background: #0096d6 !important;
+}
+.login .logo-wrap {
+    width: 1024px;
+    margin: 0 auto;
+    padding-left: 20px;
+    padding-top: 6px;
+}
+.login .logo-wrap .logo {
+    vertical-align: middle;
+}
+.login .logo-wrap span {
+    color: #FFF;
+    margin-left: 10px;
+    font-size: 14px;
+}
+.login .select-wrap {
+    position: absolute;
+    right: 100px;
+    top: 0;
+}
+.login .content {
+    width: 400px;
+    margin: 0 auto;
+}
+.login h3,
+.login h4 {
+    color: #eee;
+}
+.login .log {
+    position: absolute;
+    top: 31%;
+    float: left;
+    cursor: default;
+    width: 400px;
+}
+.login .log .formarea {
+    padding-left: 58px;
+    padding-right: 58px;
+    border: 1px solid #DFDFDF;
+}
+.logout .log .formarea {
+    border: 0;
+}
+.login .log input:focus {
+    outline: none;
+}
+.login .input-group input {
+    border: solid 1px #BABABA;
+    padding: 0 7px;
+    margin-top: 5px;
+    background: #FFF;
+    color: #666;
+    width: 180px;
+}
+.login .input-group span.text_lang {
+    width: 95px;
+    height: 23px;
+    color: #000;
+    display: inline-block;
+    text-align: left;
+    font-family: "HPSimplified";
+    font-size: 16px;
+    font-weight: bold;
+}
+.login .input-group input,
+.login .content .vcode-wrap {
+    height: 30px;
+    font-size: 20px;
+    margin-bottom: 2px;
+}
+.login .input-group input::-webkit-input-placeholder {
+    color: #5b6c8a;
+}
+.login ::-moz-placeholder{
+    color: #a1a1a1;
+}
+.login .formarea label {
+    display: block;
+    width: 100%;
+    min-height: 35px;
+    margin: 0;
+    padding: 0 0 4px;
+    cursor: pointer;
+}
+.login .form-group {
+    margin-bottom: 12px;
+	overflow: hidden;
+} 
+.login .form-group.form-action {
+    margin-top: 45px;
+}
+.login .formarea .login-btn {
+    float: right;
+    background: #d6410b;
+    color: #FFF;
+    width: 80px;
+    height: 30px;
+    line-height: 17px;
+    font-size: 12px;
+    -webkit-border-radius: 0 5px 0 5px;
+    -moz-border-radius: 0 5px 0 5px;
+    border-radius: 0 5px 0 5px !important;
+    text-shadow: none !important;
+}
+.logout .formarea .login-btn {
+    line-height: 31px;
+    text-decoration: none;
+    text-align: center;
+    margin-top: 173px;
+    float: left;
+    font-size: 20px;
+    border: none;
+    -webkit-border-radius: 0;
+ 	-moz-border-radius: 0;
+ 	border-radius: 0;
+}
+.login .formarea .login-btn:hover,
+.login .formarea .login-btn:focus{
+    background: #e24b14; 
+    outline: none;
+}
+.login .formarea .login-btn span {
+    font-size: 16px;
+}
+.login .formarea .alert-error {
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+.login .formarea .alert-error .msg {
+    display: none;
+}
+.login .formarea .remember {
+    padding: 0;
+    width: 177px;
+    border-bottom: none;
+    margin-top: 8px;
+    margin-bottom: 6px;
+    display: inline-block;
+}
+.login .formarea .remember span {
+    display: inline-block;
+}
+.login .formarea .remember .text_lang {
+	font-size: 16px;
+	font-weight: 500;
+}
+.login label .remember_user {
+	width: 18px;
+	height: 18px;
+	background: url(image/checkbox-login.png) no-repeat;
+	background-position: -18px 0;	
+	vertical-align: middle;
+	margin-right: 5px;
+}
+.login label .remember_user.checked {
+	background-position: 0 0;	
+}
+.login .login-form {
+    padding: 40px 0 40px;
+    margin: 0px;
+    border: none;
+}
+.login .title-content {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 30px;
+    font-family: "HPSimplified";
+    font-weight: bold;
+}
+.login .btn-wrap {
+    float: right;
+    display: inline-block;
+    margin-right: 5px;
+}
+.logout .login-form .login-btn {
+    margin: 100px 0;
+    width: 189px;
+    margin-left: 55px;
+}
+.login .content #vcode_cnt .m-wrap {
+    width: 111px;
+    border-right: 0;
+    display: inline-block;
+}
+.login .content .vcode-wrap {
+    display: inline-block;
+    height: 30px;
+    width: 69px;
+    border: solid 1px #BABABA;
+    border-left: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: -69px;
+}
+.login .content .vcode-wrap img {
+    float: left;
+    margin-top: 10px;
+    margin-left: 13px;
+}
+.login .content .input-icon .m-wrap {  
+    margin: 0px !important;
+}
+.login-form .input-icon input {
+	padding-right: 5px !important;
+}
+.login .input-icon.left i {
+	margin: 3px 2px 4px 82px;
+}
+.login .input-icon.left input {
+	padding-left: 25px !important;
+}
+.login .col-sm-10 label.help-inline {
+	width: 120px;
+}
+input[type="submit"] {
+    border: 0px outset buttonface;
+    border-image: initial;
+    background-color: none;
+    box-sizing: border-box;
+}
+input[type="text"], 
+input[type="password"],
+.login-btn
+{
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0;
+	-webkit-box-shadow: none !important;
+	-moz-box-shadow: none !important;
+	box-shadow: none !important;
+}
+.login .copy-right {
+    margin-top: 10px;
+}
+.login .box-select {
+    display: inline-block;
+    padding-top: 0;
+    padding-right: 10px;
+    font-size: 16px;
+    float: right;
+    margin-top: 15px;
+}
+.login .dropup, 
+.login .dropdown {
+    position: relative;
+}
+.custom-dropdown {
+    display: block;
+}
+.custom-dropdown .nav {
+	min-width: 30px;
+}
+.custom-dropdown a:hover,
+.custom-dropdown a:focus {
+	background-color: transparent;
+}
+.custom-dropdown .dropdown-menu {
+    background: #fff;
+    border: 1px solid #DFDFDF;
+    min-width: 150px;
+    color: #ccc;
+}
+.custom-dropdown .dropdown-menu li {
+	margin: 20px 0 20px 30px;
+}
+.dropdown-menu > li > a {
+	color: #666;
+}
+.dropdown-menu > li > a.selected {
+	text-decoration: underline;
+}
+.dropdown-menu > li > a:hover, .dropdown-menu > li > a:focus {
+	color: #999;
+	background-color: transparent;
+	outline: none;
+}
+.login .box-select .dropdown-toggle {
+    text-decoration: none;
+    padding: 2px 20px;
+    display: inline-block;
+    color: #fff;
+    border: 1px solid transparent;
+}
+.login .box-select .dropdown-toggle:focus {
+    outline: none;
+}
+.login .box-select .dropdown-toggle:hover {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 3px !important;
+}
+/* #lang_contrainer {
+    display: none;
+} */
+.box-select .dropdown-toggle .caret {
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-top: 9px;
+    vertical-align: top;
+    border-top: 5px solid #fff;
+    border-right: 5px solid transparent;
+    border-left: 5px solid transparent;
+    content: "";
+}
+.box-select .dropdown-toggle:hover .caret,
+.box-select.open .dropdown-toggle .caret,
+.box-select.open .dropdown-toggle:hover .caret {
+    border-top: 5px solid #fff;
+}
+.login .alert {
+	margin-bottom:0;
+	padding-left: 0;
+	min-height: 25px;
+	line-height: 25px;
+}
+.msg {
+	vertical-align: middle;
+	color: #000;
+	font-weight: normal;
+	line-height: 25px;
+	display: block;
+	margin-top: -1px;
+	padding-left: 31px;
+	padding-right: 5px;
+	border: 1px solid #dd3832;
+	background: url(image/error-icon.png) no-repeat 3px 1px #fce6e6;
+}
+.error {
+	color: #D14;
+}
+.hide {
+	display:none;
+}
+.browser_info {
+	text-align: center;
+	font-size: 16px;
+	line-height: 50px;
+}
+/* modal */
+.login .modal {
+    width: 580px;
+    border: 1px solid #ccc;
+}
+.login .modal-header {
+    padding: 4px 15px;
+    background: #1F83C6;    
+}
+.login .modal-header h3 span {
+    font-size: 18px;
+}
+.login .modal-header .close {
+    color: #fff;
+    opacity: 0.8;
+}
+.login .modal-footer {
+    padding: 19px 15px 19px;
+    border-top: 1px solid #EAEDEF;
+    background: #fff;
+}
+.login .modal-footer .btn {
+    background: #b0b0b0;
+    border: 0;
+    color: #fff;
+    min-width: 120px;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px;
+}
+.login .modal-footer .btn:hover, 
+.login .modal-footer .btn:focus {
+    background: #BEBDBD;
+    color: #fff;
+    outline: none;
+}
+.login .modal-footer .btn-primary {
+    background-color: #3898D8;
+    border: none;
+}
+.login .modal-footer .btn-primary.btn:hover, 
+.login .modal-footer .btn-primary.btn:focus {
+    background: #4CA1DA;
+    outline: none;
+}
+
+
+

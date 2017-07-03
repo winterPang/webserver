@@ -1,0 +1,36 @@
+#infoModifyModule input::-webkit-contacts-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+#infoModifyModule .required-sign:after {
+  content: " *";
+  color: red;
+}
+#infoModifyModule .phone-input-width {
+  width: 228px;
+}
+#infoModifyModule .phone-disabled-info {
+  padding-top: 12px;
+  padding-left: 55px;
+  font-size: 10px;
+  text-align: left;
+}
+#infoModifyModule .btn.btn-cus:focus {
+  background-color: #78cec3;
+}
+#infoModifyModule .pl-0 {
+  padding-left: 0;
+}
+#infoModifyModule .pr-0 {
+  padding-right: 0;
+}
+#infoModifyModule .modal-footer-line {
+  margin: 20px 0 10px;
+}
+#infoModifyModule .sendCounter {
+  font-size: 0.8rem;
+  padding-left: 0.55rem;
+}

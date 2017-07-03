@@ -1,0 +1,1392 @@
+/* jquery-ui */
+.ui-widget-content {
+    line-height: 20px;
+}
+.ui-state-highlight{background-color:transparent;}
+.ui-corner-top {-webkit-border-top-left-radius: 0px; border-top-left-radius: 0px;-webkit-border-top-right-radius: 0px; border-top-right-radius: 0px;}
+.ui-corner-bottom {-webkit-border-bottom-left-radius: 0px; border-bottom-left-radius: 0px;-webkit-border-bottom-right-radius: 0px; border-bottom-right-radius: 0px;}
+.ui-widget {line-height:20px;}
+.ui-icon, .ui-state-active .ui-icon {background-image: url(image/ui-icons.png);cursor: pointer;}
+.ui-icon-container .text-span {display: none;}
+/*.ui-state-hover {background-color:#EFF7FF;}*/
+/*.ui-state-disabled .ui-icon{background-image: url(images/ui-icons-disabled.png); cursor:default;}*/
+.ui-state-disabled .ui-widget-content{color:#c0c0c0;}
+.ui-icon:before{font-size:18px;}
+
+.ui-icon-carat-2-w {
+	background-position: -184px 0;
+}
+.ui-icon-carat-2-e {
+	background-position: -160px 0;
+}
+/* mlist */
+.slick-header-columns {
+	background: #2D3E46;
+}
+.mlist {
+	color: #e6e6e6;
+}
+.mlist-body {
+    border: 1px solid #71858e;
+    background: transparent;
+    clear: both;
+}
+.mlist .slick-column-name {
+	font-weight: normal;
+}
+.slick-header-column.ui-state-default {
+    border-right: 0px solid #d3d5d6;
+    padding: 5px 1px;
+    padding-left: 5px;
+    margin-left: 6px;
+}
+.mlist .status-bar {
+    border-width: 0;
+    display: block;
+    padding: 0px;
+    margin: 0px;
+	background: rgba(0, 0, 0, 0.2);	
+}
+.mlist-status-bar.status-bar {
+	padding:15px;
+}
+.mlist-status-bar
+{
+	border-width: 0;
+	padding: 0;
+	margin-top: 15px;
+}
+
+.mlist-status-bar .mlist-icon .icon{
+    width: 21px;
+    height: 21px;
+    background-image: url(image/icon.png);
+}
+.mlist-status-bar .mlist-icon .icon.fa-trash-o,
+.mlist-status-bar .mlist-icon i.fa-default{
+    width: 0;
+    height: 0;
+}
+.mlist-status-bar .mlist-icon .icon.fa-refresh{
+    background-position: -1330px -270px;
+}
+.mlist-status-bar .mlist-icon .icon.fa-refresh:hover{
+    background-position: -1330px -311px;
+}
+.mlist-status-bar .mlist-icon .icon.fa-plus{
+    background-position: -313px -164px;
+}
+.mlist-status-bar .mlist-icon .icon.fa-plus:hover{
+    background-position: -342px -164px;
+}
+.mlist-status-bar .mlist-icon .btn:hover{
+    color: #fff;
+}
+.mlist-status-bar.mlist-toolbar .mlist-icon i {
+    margin-right: 0;
+}
+.full-width .mlist-status-bar
+{
+	left: 0;
+}
+.mlist .custom-select {
+	padding-left: 0;
+}
+.mlist .custom-select .select2-container{
+	margin-top: 19px;
+}
+.mlist .status-bar .dropdown-contrainer {
+    position: relative;
+}
+.slick-header-columns {
+    color: #e6e6e6;
+}
+.slick-header-columns .ui-state-hover {
+    background-color: transparent;
+    color: #fff;
+}
+
+.slick-cell.selected {
+    background-color: #FFE8B4;
+}
+
+.slick-row.ui-state-hover {
+	color: #FFF;
+    background-color: #5e5d5d;
+}
+
+.slick-headerrow {
+    background: transparent;
+}
+.mlist {
+	position: relative;
+    margin-left: 18px; 
+}
+.mlist .status-bar .ui-widget-header{background:#E5ECF4; height:24px;}
+.ui-jqgrid .ui-jqgrid-hdiv{background:#EFF3F7; border-left-width:0; border-right-width:0; border-top:1px solid #3795D3; border-bottom:1px solid #E3EAEC;}
+.ui-jqgrid .ui-jqgrid-htable th.ui-th-column div{font-weight:normal; line-height:22px; padding-right: 2px;}
+.ui-jqgrid tr.jqgrow td {line-height:23px;}
+.ui-th-column, .ui-jqgrid .ui-jqgrid-htable th.ui-th-column{background:#EFF3F7; color:#124F98;}
+
+	/* button container */
+	.mlist .button-container {height:35px; margin:0; padding:0;}
+	.mlist .button-container a{color:black; display:block; padding:8px 10px; text-decoration: none;}
+	.mlist .button-container a:hover{background-color:#C0C0C0;}
+	.mlist .button-container .ui-icon {margin-right:5px;}
+
+	/* tool bar */
+	.mlist .mlist-toolbar {/*background-color: #FFFFFF;*/ height:35px; margin:0; padding:0; text-align:right;}
+	.mlist .mlist-toolbar .inner-box {padding-top:5px;}
+	.mlist .mlist-toolbar .search-container{
+	-webkit-border-radius: 3px; 
+	-webkit-transition: .3s ease-in-out;
+		display:inline-block;
+		float:right;
+		margin:0 5px 0 0;
+		padding: 1px 5px;
+		text-shadow: 0px 1px 0px #fff; 
+	}
+	.mlist .mlist-toolbar .search-container input{padding: 0;}
+	.mlist .mlist-toolbar .toolbar-icon {cursor:pointer; float:right; margin:5px;}
+
+	/* loading */
+    .mlist .mlist-loading {
+        position:absolute; 
+        top:180px; 
+        left:50%; 
+        padding-top: 40px;
+        margin-left:-50px;
+		font-size: 24px;
+		color: #FF0;
+    }
+    .mlist .mlist-status-bar{
+    	height: 30px;
+    	line-height: 25px;
+    }
+    .mlist .mlist-status-bar.mlist-page{
+        border: 0px solid #b9baba;
+        border-top: 0;
+    }
+	.mlist-status-bar.custom-bar {
+		padding-left: 5px;
+	}
+
+    .mlist-status-bar.custom-bar.custom-search{
+        height: auto;
+        line-height: 42px;
+    }
+	.mlist-status-bar.mlist-status .btn {
+		padding: 2px 12px;	
+        background: #0096d6;
+        color: #7FCAEA;
+        margin-left: 4px;
+	}
+    .mlist-status-bar.mlist-status .btn:hover{
+        color: #fff;
+    }
+	.mlist .mlist-status.mlist-status-bar.empty a{
+		display:none;
+	}
+	.mlist .mlist-status.mlist-status-bar .selector input[type="checkbox"] {
+		margin-right: 10px;
+		display: none;
+	}
+	.mlist .mlist-pages{background:transparent; display:block;}
+	.mlist .mlist-pages .page-number-item.ui-state-active {background-color:transparent; color:black; font-weight: bold;}
+	.mlist .mlist-pages .page-number-item {color:#1A60A8; font-weight: normal;}
+	.mlist .mlist-pages .summary{display:block;float:left;padding-top: 5px;}
+	.mlist .mlist-status.mlist-toolbar .search-container.focus{
+	     -webkit-box-shadow: 0px 0px 6px #007eff;
+	     -moz-box-shadow: 0px 0px 5px #007eff;
+	     box-shadow: 0px 0px 5px #007eff;
+	}
+	.mlist .slick-cell.editable input[type=text]{margin:0; padding:0; width:100%;}
+	.mlist .ui-button-text-icon-primary .ui-button-text, .ui-button-text-icons .ui-button-text, .ui-button-text-only .ui-button-text {padding:2px 5px}
+.mlist .toolbarline {border-right: 1px solid #ddd; height:34px;}
+
+.mlist .btn-group .mlist-icon,
+.mlist .mlist-icon.filter {
+    margin: 4px 1px 1px 1px;
+	padding: 7px 8px 3px 8px;
+}
+.mlist .mlist-toolbar a:hover {
+    background-color: transparent;
+    border: 1px solid transparent;
+}
+.mlist .mlist-toolbar a:hover i {
+    color: #fff;
+}
+.mlist .status-bar a:hover i {
+    color: #FFF;
+}
+.mlist .mlist-toolbar {
+	padding-bottom: 0;
+}
+.mlist .filter-div {
+	display: inline-block;
+	position: relative;
+	top: -10px;
+}
+.mlist .filter-div span {
+    margin-right: 4px;
+}
+.mlist .filter-div .btn{
+	position: relative;
+	top: 0px;
+}
+.mlist .filter-div select{
+    width: auto;
+    min-width: 150px;
+    margin: 5px 0 5px 0;
+}
+.mlist .filter-div.advance-search .mlist-icon .text {
+	display: none;
+}
+.mlist .mlist-toolbar .btn{
+    margin: 0 5px 20px 5px;
+    width: auto;
+    min-width: 20px;
+    background: none;
+	position: relative;
+	top: -1px;
+}
+.mlist .mlist-toolbar .btn[title="Clear"]
+{
+    width: 32px;
+    height: 32px;
+    padding: 5px 4px 2px 6px;
+}
+
+.mlist .mlist-toolbar .btn.btn-primary {
+    /*background: #0096d6;*/
+    border: none;
+}
+.mlist .mlist-toolbar .btn.btn-primary:hover {
+    /*background: #007dba;*/
+}
+.mlist .mlist-toolbar .btn.btn-primary i{
+    color: transparent;
+}
+.mlist .mlist-toolbar .btn.btn-primary:hover i {
+    color: transparent;
+}
+.mlist .mlist-toolbar .filter-div .btn {
+	background: #2d3e46;
+	border: 1px solid transparent;
+	margin-left: 10px;
+    margin-right: 0;
+	padding-left: 10px;
+	margin-bottom: 0;
+	top: 1px;
+    padding-top: 8px;
+    padding-bottom: 2px;
+}
+.mlist .mlist-toolbar .btn i {
+	color: #fff;
+}
+.mlist .mlist-toolbar .filter-div .btn i {
+	width: 19px;
+	height: 18px;
+	line-height: 22px;
+	display: inline-block;
+    background-image: url(image/icon.png);
+    background-position: -1259px -272px;
+    font-family: none;
+}
+.mlist .mlist-toolbar .filter-div .btn:hover i {
+    background-position: -1259px -313px;
+}
+.mlist .mlist-toolbar .btn-group a i.icon-remove {
+	width: 14px;
+	height: 14px;
+	display: inline-block;
+    background-image: url(image/mlist-icon.png);
+    background-position: 0 0;
+}
+.mlist .mlist-toolbar .btn-group a:hover i.icon-remove {
+    background-position: 0 -14px;
+}
+.mlist .mlist-toolbar .btn-group a i.icon-remove:before,
+.mlist .mlist-toolbar .btn-group a i.fa-refresh:before,
+.mlist .mlist-toolbar .btn-group a i.fa-plus:before,
+.mlist-status-bar .mlist-icon .icon.fa-trash-o:before,
+.mlist .mlist-toolbar .filter-div .btn i.fa-filter:before {
+    content: none;
+}
+
+.mlist .mlist-toolbar .btn-group{
+	font-size: 14px;
+	padding: 0;
+	white-space: normal;
+	float: left;
+	margin-top: 0px;
+	display: inline-block;
+	top: -6px;
+    left: 2px;
+	height: 35px;
+    border-radius: 2px;
+    background: #2d3e46;
+}
+.mlist .mlist-toolbar .filter{
+	padding-left: 0;
+}
+.mlist .mlist-toolbar .btn-group>.btn {
+	float: none;
+	-webkit-border-radius: 0;
+	-moz-border-radius: 0;
+	border-radius: 0 !important;
+}
+.mlist .mlist-toolbar .dropdown-menu.location {
+    left: auto;
+    top: 29px;
+}
+.mlist .custom-dropdown .dropdown-menu {
+	background: #fff;
+	border: 1px solid #b9b8bb;
+	min-width: 200px;
+	color: #000;
+}
+.mlist .mlist-toolbar .dropdown-menu>li>a:hover,
+.mlist .custom-dropdown.dropup .dropdown-menu li > a:hover {
+	background: #0096d6;
+	color: #fff;
+}
+.toolbar .select2-container{
+	margin: 4px 0 0px 1px;
+}
+.mlist .custom-dropdown.dropup .dropdown-menu {
+	position: absolute;
+	bottom: 42px;
+}
+.mlist .btn-group .mlist-icon:hover {
+}
+.mlist .filter-row {
+	background: transparent;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	overflow:hidden;
+	border-top: 1px solid #284d99;
+	border-bottom: 1px solid #284d99;
+}
+.mlist .filter-row select{
+	margin: 0;
+	margin-top: 19px;
+}
+/************************************
+ * mlist buttons
+************************************/
+.mlist .mlist-toolbar .icon{font-size: 16px;}
+.mlist .btn-group .text{display:none;}
+/*.mlist .btn-group .fa-remove+.text{display:inline-block;}
+*/
+.mlist .btn .searchbutton {margin-left: -40px; background-color: transparent;}
+.mlist .toolbar label{
+    line-height: 21px;
+    border:1px solid #CCC;
+    border-right:none;
+    padding-left: 10px;
+    padding-right: 10px;
+    display: inline-block;
+    float: left;
+    margin-top: 6px;
+}
+.mlist .toolbar {
+	vertical-align: middle;
+	padding-left: 10px;
+}
+.mlist .mlist-toolbar-btn {
+	text-shadow: none;
+	font-size: 12px;
+	margin: 4px 4px 1px 1px;
+	padding: 2px 8px 2px 8px;
+}
+.mlist .mlist-toolbar-btn[disabled],
+.mlist .mlist-toolbar-btn.disabled {
+	color: #AAA;
+	cursor: default;
+}
+
+.mlist .filter select,
+.mlist .filter .select2-container{
+	margin: 6px 2px 0px 0;
+	width: 100%;
+}
+
+.mlist select.mlist-editor {
+    margin-top: 0;
+}
+
+.mlist select.mlist-editor,
+.mlist input[type=text].edittable-element {
+    height: 23px;
+    min-height: 23px;
+}
+.mlist-context-btn {
+    border-width: 0;
+    position: absolute;
+    top: 12px;
+    right: 5px;
+    width: 15px;
+    height: 12px;
+    display: inline-block;
+    background: url(image/mlist-icon.png) no-repeat;
+    cursor: pointer;
+    background-position: -27px 0;
+}
+.mlist-context-btn:before {
+    content: "";
+}
+.mlist-context-btn:hover{
+    background-position: -27px -14px;
+}
+.mlist input[type="radio"], 
+.mlist input[type="checkbox"] {
+	margin: 0;
+}
+.mlist a.btn i.fa-remove, 
+.mlist .mlist-toolbar .btn-group a i.fa-remove {
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    background-image: url(image/mlist-icon.png);
+    background-position: -14px -1px;
+}
+/******edit 2015.4.9******/
+/*.mlist a.btn i.fa-remove, */
+.mlist .mlist-toolbar .btn-group a i.fa-remove {
+    background-image: url(image/dashboard-icon.png);
+    background-position: -571px -164px;
+}
+/*************/
+/*.mlist a.btn:hover i.fa-remove, */
+.mlist .mlist-toolbar .btn-group a:hover i.fa-remove {
+    background-position: -599px -164px;
+}
+
+/*****************************************/
+/* toggle icon for MList group           */
+
+.toggle.empty {
+background-position:0 0;
+}
+
+.toggle.collapse {
+background-position:-748px -57px;
+}
+
+.toggle.expand {
+background-position:-772px -59px;
+}
+
+.slick-cell .toggle {
+background-image: url(image/dashboard-icon.png);
+height: 18px;
+width: 18px;
+display: inline-block;
+}
+
+
+/*********************************/
+/* edittable */
+/* version: 0.1 */
+
+.edittable {
+    margin-bottom: 5px;
+}
+
+.edittable-header th {
+    padding: 1px 10px;
+    font-weight: normal;
+}
+.edittable-cell {
+    border-bottom: 1px solid #DDD;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.edittable-row td input[type="text"],
+.edittable-row td input[type="password"]{
+    margin: 0;
+    width: 100%;
+}
+.no-header .edittable-row td input[type="text"] {
+	width: 365px;
+}
+.modal .no-header .edittable-row td input[type="text"] {
+	width: 202px;
+}
+.edittable-row td select {
+    margin: 0;
+	width: 100%;
+}
+
+.edittable-row .error{
+    border: 1px solid #eb433a;
+    background: #ffe1db;
+}
+
+@media (max-width: 767px){
+.edittable-cell .input-append  input, 
+.edittable-cell .input-append  input[class*="span"] 
+{
+    width: 100%;
+}
+}
+
+/* end of edittable */
+/*********************************/
+
+/*********************************/
+/* contextMenu in mlist cell for edit mode */
+.contextMenu {
+  position: absolute;
+  background: #FFF;
+  border: 1px solid #7F9DB9;
+  padding: 2px 0;
+  display: inline-block;
+  min-width: 100px;
+  -moz-box-shadow: 2px 2px 2px silver;
+  -webkit-box-shadow: 2px 2px 2px silver;
+  z-index: 99999;
+  margin-left: 0;
+}
+.contextMenu li {
+  padding: 2px 4px 2px 14px;
+  list-style: none;
+  cursor: pointer;
+}
+.contextMenu li:hover {
+  background-color: #3399FF;
+  color: #FFF;
+}
+/* end of contextMenu */
+/*********************************/
+
+/*****************************************************************************
+Sub MList:
+The style of MList in setting page
+*****************************************************************************/
+
+.mlist.sub {
+    border-left: 1px solid #DDD;
+}
+.mlist.sub .mlist-toolbar {
+    padding-bottom: 2px;
+    border-left: 1px solid #FFF;
+    margin-left: -1px;
+    overflow: hidden;
+}
+.mlist.sub .slick-header-columns {
+	background: #F9F9F9 repeat-x center bottom;
+	height: 32px;
+}
+.mlist.sub .slick-pager {
+  	background: #F9F9F9;
+	border-bottom: 1px solid #DDD;
+	height: 37px;
+}
+.mlist.sub .mlist-status {
+	border-top: 1px solid transparent;
+}
+.mlist.sub .slick-row.even {
+	border-bottom: 1px solid #DDD;	
+	height: 32px;
+}
+.mlist.sub .slick-row.odd {
+	background: #FFF;
+	border-bottom: 1px solid #DDD;	
+	height: 32px;
+}
+.mlist.sub .slick-header-column.ui-state-default {
+    height: 22px;
+    line-height: 22px;
+    font-size: 16px;
+    font-weight: normal;
+}
+.mlist.sub .mlist-context-btn {
+    height: 30px;
+    background: url(image/mlist-sub-icon-align-justify.png);
+	border: 1px solid #F9F9F9;
+	border-right: 1px solid #DDD;
+    margin-right: 1px;
+}
+.mlist-context-btn {
+    border-width: 0;
+    position: absolute;
+    top: 9px;
+    right: 8px;
+    width: 15px;
+    height: 12px;
+    display: inline-block;
+    background: url(image/dashboard-icon.png) no-repeat;
+    cursor: pointer;
+    background-position: -186px -60px;
+}
+.mlist-context-btn:hover {
+    background-position: -186px -60px;
+}
+.mlist.sub .mlist-context-btn:hover {
+    background-position: -29px 0;
+}
+.mlist.sub .slick-pager .slick-pager-nav {
+    margin-top: 5px;
+}
+.mlist.sub .ui-widget-content {
+    line-height: 30px;
+}
+.mlist.sub .slick-pager .slick-pager-settings {
+    margin-top: 3px;
+}
+.mlist.sub .slick-pager .slick-pager-nav .ui-state-default {
+    border: 1px solid #DDD;
+    padding: 0 5px;
+    height: 25px;
+    line-height: 25px;
+    background: #FFF;
+    border-right: none;
+    color: #4D7496;
+    text-align: left;
+    cursor: pointer;
+}
+.mlist.sub .slick-pager .slick-pager-nav .ui-state-default.ui-state-disabled {
+    color: #999;
+    cursor: not-allowed !important;
+}
+.mlist.sub .slick-pager .slick-pager-nav .ui-state-default.ui-state-disabled.ui-state-hover {
+    background: #FFF;
+}
+.mlist.sub .ui-icon-seek-first,
+.mlist.sub .ui-icon-seek-prev,
+.mlist.sub .ui-icon-seek-next,
+.mlist.sub .ui-icon-seek-end {
+    float: left;
+    margin: 3px;   
+}
+.mlist.sub .ui-icon-seek-next,
+.mlist.sub .ui-icon-seek-end {
+    float: right;
+}
+.mlist.sub .slick-pager .slick-pager-nav .ui-state-default:last-child {
+    border: 1px solid #DDD;
+}
+.mlist.sub .slick-pager .slick-pager-nav .ui-state-hover,
+.mlist.sub .slick-pager .slick-pager-settings .ui-state-hover {
+	background: #EFEFEF;
+}
+.mlist.sub .slick-cell.selected {
+    background-color: #FFE8B4;
+    height: 30px;
+}
+.mlist.sub .slick-cell.editable input[type=text] {
+   height: 29px;
+   margin-top: -2px;
+}
+.mlist.sub .slick-cell, .slick-headerrow-column {
+	border-right: 1px solid #EEE;
+}
+.mlist.sub .slick-header-columns .ui-state-hover {
+	background-color: #EAEAEA;
+	height: 32px;
+}
+.mlist.sub .slick-pager .ui-icon-container {
+    margin: 0;
+}
+.mlist.sub  .ui-icon-container .text-span {
+    width: 30px;
+    margin: 0;
+    display: inline-block;
+}
+.mlist.sub .slick-pager .slick-pager-status {
+  padding: 9px 6px 8px 6px;
+  border-right: 1px solid #DDD;
+}
+.mlist.sub .slick-pager .slick-pager-nav {
+  padding: 0 2px 0 2px;
+}
+
+/*****************************************************************************
+Small MList:
+The style of MList for mobile, pad
+*****************************************************************************/
+
+.mlist.mobile {
+	font-size: 16px;
+}
+	
+.mlist.mobile a{
+	font-size: 16px;
+}
+
+.mlist.mobile.multi-select .checkbox-row{
+	float: left;
+	padding: 5px 0px;
+}
+.mlist.mobile.multi-select .cells{
+	margin-left: 10px;
+}
+.mlist.mobile .cell-row{
+	padding: 5px;
+}
+
+.mlist .slick-row{background-color: transparent;font-size: 14px;}
+.mlist .slick-cell{border-bottom:1px solid #E5E8E8; background-color: transparent;padding: 11px 3px 0px 13px;cursor: pointer;}
+
+.mlist .slick-cell a,
+.mlist .slick-row.ui-state-hover  a,
+.mlist .slick-cell.selected a {
+	color: #008aea;
+}
+.mlist .slick-row.ui-state-hover .slick-cell{
+    background-color: #65c9bf;
+    color: #e6e6e6;
+}
+.mlist .slick-cell.slick-cell-checkboxsel{
+    padding-left: 10px;
+}
+.mlist .slick-row.ui-state-hover .slick-cell.selected,
+.mlist .slick-cell.selected
+{
+	background-color: #65c9bf;
+    opacity: 0.2;
+    border-bottom: 1px solid #71858e;
+}
+.search-bar {
+	border-top: 1px solid #d8d8d8;
+	padding: 5px 0;
+	background: #e7e7e7;
+	clear: both;
+}
+
+input[type="text"].search {
+	display:inline-block;
+    background: url(image/search.png) no-repeat center right;
+	padding-right:33px;
+}
+.mlist input[type="text"].search {
+	width: 280px;
+	height: 35px;
+	margin: 0;
+    border: 0;
+    margin-top: 4px;
+    border: 1px solid #71858e;
+    color: #e6e6e6;
+}
+.ie8 .search {
+	width:300px;
+	padding-left: 9px;
+    border: 1px solid #9a9a9a;
+}
+.mlist-status.toolbar .btn {
+	margin:0 10px 0 0;
+	padding: 6px;
+	min-width: 70px;
+    background: #eff8fd;
+	border: 1px solid #c7d3e3;
+	color: #144893;
+}
+.mlist-status.toolbar .btn:hover{
+    background: #eff8fd;
+	border: 1px solid #a2acd2;
+}
+.mlist-status.toolbar .btn i {
+	color: #144893;
+}
+.mlist-status.toolbar .btn:hover i {
+	color: #0d3970;
+}
+.mlist-status.toolbar .btn.transparent{
+    background: #162a54;
+	border: 1px solid #5b6986;
+	background: rgba(0, 0, 0, 0.15);
+	border: 1px solid rgba(255, 255, 255, 0.3);
+	color: #bec8dd;
+}
+.mlist-status.toolbar .btn.transparent:hover{
+    background: #13254a;
+	border: 1px solid #8891a4;
+	background: rgba(0, 0, 0, 0.3);
+	border: 1px solid rgba(255, 255, 255, 0.5);
+    color: #fff;
+}
+.mlist-status.toolbar .btn.transparent.disabled {
+    background: #1c356a;
+	background: rgba(0, 0, 0, 0);
+	cursor: not-allowed;
+}
+
+.mlist .row-toolbar {
+	position: absolute; right: 0; top:0;
+	z-index: 1;
+	background: #eaeeee;
+/*  padding-left: 20px; */
+    opacity: .9;
+    filter: progrid:DXImageTransform.Microsoft.Alpha(opacity=90); 
+}
+.mlist .row-toolbar:hover {
+	background: #eaf5ff;
+}
+.mlist .row-toolbar .text {
+    display: none;
+}
+.mlist .row-toolbar .btn {
+	background: transparent;
+	padding: 0;
+	min-width: 10px;
+	width: 24px;
+	height: 24px;
+	margin-right: 12px;
+	margin-top: 9px;
+	-webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+}
+.mlist .row-toolbar .btn.disabled {
+	display: none;
+}
+.mlist .row-toolbar .btn:hover {
+}
+.mlist .row-toolbar .btn i {
+    color: #0096d6;
+}
+.mlist .row-toolbar .btn:hover i {
+    color: #007dba;
+}
+.mlist .row-toolbar .btn i.fa-pencil {
+    margin-top: -1px;
+    background-image: url(image/mlist-icon.png);
+    background-position: -28px -1px;
+    width: 12px;
+    height: 12px;
+    display: inline-block;
+    vertical-align: middle;
+}
+.mlist .row-toolbar .btn i.fa-pencil:before {
+    content: none;
+}
+.mlist .row-toolbar .btn:hover i.fa-pencil {
+    background-position: -28px -26px;
+}
+/* ************wkf5041--Begin******************** */
+.mlist .row-toolbar .btn-list{
+    float: right;
+}
+
+.mlist .row-toolbar ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mlist .row-toolbar ul>li>a{
+    text-decoration: none;
+    display: block;
+    padding: 0px 10px 0px 10px;
+    color: #6D7E8B;
+    line-height: 24px;
+    background: #eaf5ff;
+    width: 60px;
+    height: 24px;
+    border-radius: 0 5px 5px 0;
+}
+
+.mlist .row-toolbar ul>li>a:hover{
+    background: #7bb3ff;
+}
+.mlist .row-toolbar ul.btn-horizontal{
+    display: inline-block !important;
+    float: right;
+}
+
+.mlist .row-toolbar ul.btn-horizontal>li{
+    float: right;
+}
+.mlist .row-toolbar ul.btn-horizontal>li>a{
+    margin-top: 9px;
+}
+
+/* *************wkf5041--End******************* */
+.mlist .toggle-bar {
+	display: none;
+	cursor: pointer;
+	margin: 0;
+}
+.mlist .toggle-bar .custom-icon{
+	width: 24px;
+	height: 26px;
+	background-image: url(image/ui-icon.png);
+	background-position: -15px 0;
+}
+.status-bar .mlist-icon i {
+	margin-right: 3px;
+	color: #bec8dd;
+}
+.status-bar .mlist-icon .text {
+	color: #bec8dd;
+}
+.status-bar .mlist-icon:hover .text {
+    color: #FFF;
+}
+.modal .filter .row {
+	padding: 0 20px;
+}
+.modal .filter .row:hover {
+	/*background: #fff;*/
+}
+
+/*****************************************************************************
+ EditList
+*****************************************************************************/
+
+.edit-list {
+	color: #47495d;
+}
+.edit-list table {
+    border: 1px solid #e5e8e8;
+    margin-bottom: 15px;
+}
+.edit-list .header-columns {
+	color: #FFF;
+    background: #7FCAEA;
+}
+.edit-list .ui-state-default {
+
+}
+.edit-list .ui-state-default .column-name {
+    padding: 10px 10px;
+    font-weight: normal;
+}
+.btn.link{
+    text-decoration: none;
+}
+.edit-list .mlist-row .cell {
+	padding: 0 1px 0 10px;
+	border-bottom: 1px solid #e5e8e8;
+	line-height: 42px;
+	height: 42px;
+	text-align: left;
+}
+.edit-list .mlist-row:last-child .cell {
+	border-bottom: 0px solid #eaeaea;
+}
+.edit-list .mlist-row .index-cell {
+    vertical-align: top;
+}
+.edit-list .mlist-row div.cell {
+    width: 320px;
+    float: left;
+    height: 80px;
+}
+.edit-list .mlist-row select,
+.edit-list .mlist-row input[type=text] {
+    padding: 0px 5px;
+    /*border: 1px solid #eaedef;*/
+    width: 100%;
+    margin: 0;
+}
+.edit-list .filter-div {
+	display: inline-block;
+	position: relative;
+	top: -10px;
+}
+.edit-list .tool-bar .btn-group {
+	float: right;
+}
+.edit-list .header-columns .icon-question-sign {
+	float: right;
+	margin-top: -11px;
+}
+.edit-list .mlist-row .list-row-btn {
+	display: none;
+}
+.edit-list .mlist-row .btn{
+    background: #0096d6;
+    color: #fff;
+}
+.spencial-editlist .edit-list .search {
+	position: relative;
+}
+.spencial-editlist .edit-list {
+	position: relative;
+}
+.spencial-editlist .edit-list .tool-bar {
+    position: absolute;
+    left: 410px;
+    top: -46px;
+}
+
+.help-container.dropdown-contrainer {
+	float: right;
+	height: 20px;
+	position: relative;
+	top: -20px;
+	line-height: 24px;
+}
+.help-container.custom-dropdown .dropdown-menu {
+	position: absolute;
+	right: 43px;
+	top: -4px;
+	padding: 10px 20px;
+	color: #000;
+	font-size: 12px;
+	background: #fff;
+	-webkit-box-shadow: 0 1px 10px rgba(0,0,0,0.5);
+	-moz-box-shadow: 0 1px 10px rgba(0,0,0,0.5);
+	box-shadow: 0 1px 10px rgba(0,0,0,0.5);
+	min-width: 300px;
+	border: 1px solid #b9b8bb;
+}
+.help-container.custom-dropdown .dropdown {
+	position: relative;
+	top: 15px;
+	height: 30px;
+}
+.help-container.custom-dropdown .custom-toggle {
+	padding: 15px;
+}
+.help-container.custom-dropdown .nav .open>a, 
+.help-container.custom-dropdown .nav .open>a:hover, 
+.help-container.custom-dropdown .nav .open>a:focus {
+	background: transparent;
+}
+.help-container.custom-dropdown .custom-dropdown-arrow {
+	border-left: 8px solid #fff;
+	border-top: 8px solid transparent;
+	border-bottom: 8px solid transparent;
+	position: relative;
+	right: -28px;
+	float: right;
+	top: -2px;
+}
+.help-container.dropdown-contrainer .help .info {
+	color: #000;
+}
+.operator-colum{
+	text-align: right;
+}
+.slick-header-columns, .slick-headerrow-columns {
+  border-bottom: 0px solid #b9baba;
+}
+.slick-sort-indicator-desc {
+  background-position:-591px -107px;
+}
+
+.slick-sort-indicator-asc {
+  background-position:-615px -107px;
+}
+.slick-sort-indicator{
+    width: 10px;
+    height: 6px;
+    margin-left: 10px;
+    background-image: url(image/dashboard-icon.png);
+}
+.slick-columnpicker {
+     border: 1px solid #b9b8bb;
+	 background: #fff;
+     color: #000;
+}
+.slick-columnpicker li:hover {
+	color: #666;
+}
+.slick-columnpicker li {
+	border-bottom: 1px solid #dedede;
+}
+.slick-pager {
+  background: #2d3e46;
+  /*border-left: 1px solid #b9baba;
+  border-right: 1px solid #b9baba;*/
+}
+.slick-cell-checkboxsel input[type="checkbox"]{
+    background-color: #d7dde4;
+}
+
+.mlist .oper-btn .text{
+    display: none;
+}
+.mlist .oper-btn .icon{
+    width: 15px;
+    height: 15px;
+    margin-top: 2px;
+    margin-right: 8px;
+    background-image: url(image/dashboard-icon.png);
+}
+.mlist .oper-btn .icon.fa-detail{
+    background-position: -600px -61px;
+}
+.mlist .oper-btn .icon.fa-detail:hover{
+    background-position: -629px -61px;
+}
+.mlist .oper-btn .icon.fa-pencil{
+    background-position: -701px -61px;
+}
+.mlist .oper-btn .icon.fa-pencil:hover{
+    background-position: -726px -61px;
+}
+.mlist .oper-btn .icon.fa-remove{
+    background-position: -657px -61px;
+}
+.mlist .oper-btn .icon.fa-remove:hover{
+    background-position: -676px -61px;
+}
+
+/* ---------for simple-list---begin--------- */
+/* ---------modify by wangbingzhi--------- */
+
+.simple-list .slist-body{
+    position: relative;
+    width: 100%;
+    /*border-bottom: 1px solid #E5E8E8;*/
+}
+.simple-list .slist-body.with-button{
+    padding-top: 40px;
+}
+.simple-list .slist-toolbar-top{
+    position: absolute;
+    top: 0;
+}
+.simple-list .slist-button{
+    display: block;
+    height: 32px;
+    margin-right: 10px;
+    float: left;
+    background: #69C4C5;
+    color: #FFF;
+    line-height: 32px;
+    padding: 0 10px 0 12px;
+}
+.simple-list .slist-button:hover{
+    background: #31ADB4;
+}
+.simple-list .slist-button i.btn-icon{
+    width: 16px;
+    height: 16px;
+    display: inline-block;
+    background: url(image/xb-icons.png) no-repeat;
+    margin: 8px 8px 0 0;
+    float: left;
+}
+.simple-list .slist-button i.btn-icon.slist-add{
+    background-position: -680px -126px;
+}
+.simple-list .slist-button i.btn-icon.slist-del{
+    background-position: -643px -126px;
+}
+.simple-list .slist-button i.btn-icon.slist-open{
+    background-position: -719px -126px;
+}
+.slist-body .slist-head{
+    width: 100%;
+    background: #2D3E46;
+    color: #e6e6e6;
+    position: relative;
+    height: 25px;
+    line-height: 25px;
+    border: 1px solid #71858e;
+}
+.slist-body .head-column{
+    display: inline-block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: relative;
+}
+.slist-body .head-column.head-hover:hover{
+    color: #424141;
+    cursor: pointer;
+}
+.slist-body .check-column {
+  width: 20px;
+}
+.head-check.check-column {
+    border-right: 1px solid #B2DEF0;
+    text-align: center;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.slist-body .slist-resize-handle{
+    border-left: 1px solid #B2DEF0;
+    display: block;
+    height: 25px;
+    width: 4px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: none;
+}
+.slist-body .search-column{
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    right: 0px;
+    top : 0px;
+    cursor: pointer;
+}
+.slist-body .search-column .search-icon{
+    background: url(image/dashboard-icon.png) no-repeat -304px -102px;
+    display: block;
+    height: 18px;
+    width: 18px;
+    margin: 4px 0 0 3px;
+}
+
+.slist-body .slist-search{
+    /*background: #7FCAEA;*/
+    height: 25px;
+    position: relative;
+}
+.slist-body .head-search
+{
+    text-align: center;
+    display: inline-block;
+    position: relative;
+}
+.slist-body .slist-search input.search-input{
+    margin-top: 2px;
+    width: 80%;
+    height: 21px;
+    background-color: #172023;
+    color: #e6e6e6;
+    border: 2px solid #b9b8bb;
+    box-shadow: 0 0 5px rgba(255,255,200,0.5);
+    -webkit-box-shadow: 0 0 5px rgba(255,255,200,0.5);
+}
+.slist-body .cancel-column{
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    right: 0px;
+    top : 0px;
+    cursor: pointer;
+}
+.slist-body .slist-search .cancel-icon{
+    background: url(image/dashboard-icon.png) no-repeat;
+    display: block;
+    height: 16px;
+    width: 16px;
+    margin: 5px 0 0 5px;
+    background-position: -424px -102px;
+}
+
+.slist-body .head-column .sort-icon{
+    display: inline-block;
+    height: 16px;
+    width: 16px;
+    position: relative;
+    top: 4px;
+}
+.slist-body .head-column .sort-asc{
+    background: url(image/dashboard-icon.png) no-repeat;
+    background-position: -462px -102px;
+}
+.slist-body .head-column .sort-desc{
+    background: url(image/dashboard-icon.png) no-repeat;
+    background-position: -444px -102px;
+}
+
+.slist-body .slist-center.scroll-able{
+    overflow-y:hidden; 
+    overflow-x:hidden;
+}
+.slist-body .slist-center .slist-row {
+    position: relative;
+    height: 25px;
+    line-height: 25px;
+}
+.slist-body .slist-center .slist-row.odd {
+    /*background: #F6F7F8;*/
+}
+.slist-body .slist-center .slist-row:hover {
+    background: #65c9bf;
+    opacity: 0.8;
+}
+.slist-body .slist-center .slist-cell {
+    display: inline-block;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+.slist-body .slist-cell.toggle-column{
+    position: absolute;
+    height: 100%;
+    width: 25px;
+}
+.slist-body .toggle-column .toggle-btn{
+    display: inline-block;
+    margin: 3px 4px 0 0;
+    width: 14px;
+    height: 10px;
+    cursor: pointer;
+    background: url(image/xb-icons.png) no-repeat -511px -130px;
+}
+.slist-body .toggle-column .toggle-btn.row-open{
+    background-position: -485px -130px;
+}
+.slist-body .slist-center .toggle-block{
+    border: 1px solid #E5E8E8;
+    padding: 10px 20px;
+}
+.slist-center .toggle-block .tool-bar{
+    height: 25px;
+}
+.slist-center .toggle-block .tool-bar .del-icon{
+    display: inline-block;
+    height: 17px;
+    width: 17px;
+    background: url(image/xb-icons.png) no-repeat;
+    background-position: -456px -126px;
+    cursor: pointer;
+}
+.slist-center .toggle-block .tool-bar .del-icon:hover{
+    background-position: -428px -126px;
+}
+.simple-list .page-bar{
+    height: 25px;
+    /*background: #F6F7F8;*/
+    position: absolute;
+    bottom: -25px;
+    width: 100%;
+    /*border-top: 1px solid #E5E8E8;*/
+}
+.simple-list .page-bar .page-status{
+    line-height: 24px;
+    margin-left: 10px;
+    float: left;
+}
+.simple-list .page-bar .page-btn{
+    list-style: none;
+    margin: 0 10px 0 0;
+    line-height: 24px;
+    float: right;
+    padding-top: 3px;
+}
+.simple-list .page-bar .page-btn .btn-item{
+    float: left;
+    cursor: pointer;
+}
+.simple-list .page-bar .btn-item>i{
+    background-image: url(../../libs/css/images/ui-icons_999999_256x240.png);
+    display: block;
+    height: 16px;
+    width: 16px;
+}
+.simple-list .page-bar .btn-active>i{
+    background-image: url(image/ui-icons.png);
+    display: block;
+    height: 16px;
+    width: 16px;
+}
+.simple-list .page-bar .page-first>i{
+    background-position: -80px -160px;
+}
+.simple-list .page-bar .page-prev>i{
+    background-position: -48px -160px;
+}
+.simple-list .page-bar .page-next>i{
+    background-position: -32px -160px;
+}
+.simple-list .page-bar .page-last>i{
+    background-position: -64px -160px;
+}
+/* ---------for simple-list---end--------- */

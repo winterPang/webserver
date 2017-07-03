@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="cn">
+    <head>
+        <meta charset="UTF-8">  
+        <style type="text/css">
+        </style>
+    </head>
+    <body>
+    <div class="hide modal fade" id="showDeviceDlg">
+        <form id="device_form" class="form edit">
+            <div id="deviceList" class="simple-list" style="margin:10px 10px;"></div>
+        </form>
+    </div>
+      <div class="page-row bussiness-wifi-ap-config">
+            <div class="col-xs-12 app-colum">
+                <div class="app-box" style="overflow:hidden">
+                    <div class="box-footer">
+                        <span class="title">设备列表</span>
+                        <div class="text-right link-container">
+                        </div>
+                    </div>  
+                    <div class="col-xs-12" id="device" style='margin-left:30px;margin-bottom:-30px;margin-top:10px'>
+                            <input type="radio" id="devicegrp" name="devVer" value="0" checked class="input-element">
+                            <label for="newestversion">设备组</label>
+                            <input type="radio" id="singledevice" name="devVer" value="1" class="input-element">
+                            <label for="allversion">设备</label>
+                    </div>     
+                    <div class="box-body no-height" style="padding: 0 30px 25px;">
+                        <div id="wifiList_g" class="simple-list"></div>
+                        <div id="wifiList_s" class="simple-list hide"></div>
+                    </div>
+                </div>
+            </div>
+      </div>
+        
+      <div id="ap_manage_rc" class="rc-define"
+            BASE_HEADER_S="设备名称,内部Wi-Fi,商业Wi-Fi1,商业Wi-Fi2,商业Wi-Fi3"
+            BASE_HEADER_G="设备组名称,内部Wi-Fi,商业Wi-Fi1,商业Wi-Fi2,商业Wi-Fi3"
+            MODIFY="关联无线服务"
+            UNIT_DETAIL="详情"
+            DEVICE_GROUP="无线服务,设备组"
+            VIEW="查看"
+            INFO="信息"
+            DEVICE_LIST="无线服务,绑定设备组,终端数"
+
+      ></div>
+    </body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("b_manage.ap_config");
+</script>    
+		

@@ -1,0 +1,57 @@
+  <html>
+  <head>
+  </head>
+  <body>
+     <div class="btn_h_return" id="return"></div>
+     <div class = " toggle-body setting app-box">
+       <form class="form-horizontal form" id="view_client_form">
+           <!-- <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                 <h3 class="modal-title">详情列表</h3>
+           </div>  -->
+            <div class="box-footer"> 
+                  <span class="title">详情</span>
+              </div>
+           <div class="col-sm-12">
+               <div class="form-group">
+                     <label class="col-sm-5 control-label info-explain" for="apName">无线服务名称</label>
+                    <span class="label form-if-setHtml" id="apName" name = "apName">--</span>
+               </div>
+               <div class="form-group">
+                     <label class="col-sm-5 control-label info-explain">SSID</label>
+                     <span class="label form-if-setHtml" id="apModel">--</span>
+               </div>
+               <div class="form-group">
+                     <label class="col-sm-5 control-label info-explain">认证方式</label>
+                     <span class="label form-if-setHtml" id="apSN">--</span>
+               </div>
+               <div class="form-group">
+                     <label class="col-sm-5 control-label info-explain">状态</label>
+                     <span class="label form-if-setHtml"  id="apGroupName">--</span>
+               </div>
+               <div class="form-group">
+                     <label class="col-sm-5 control-label info-explain">绑定AP</label>
+                     <span class="label form-if-setHtml" id="radioList1">--</span>
+               </div>
+               <div class="form-group">
+                     <label class="col-sm-5 control-label info-explain">绑定AP组</label>
+                     <span class="label form-if-setHtml" id="onlineTime1">--</span>
+               </div>
+           </div>
+       </form>
+     </div>
+    <div id="h_wireless_indexDetial" class="rc-define"
+              ALLAP_HEADER2="无线服务名称,SSID,认证方式,状态,绑定AP,绑定AP组,操作"
+              STATUS=",在线,离线,正在下载版本"
+              TERINFO="AP列表"
+              TITLE_TERINFO="AP详情"
+              APGROUP="AP组"
+              ALLAP_HEADER3="AP名称,SN,AP型号,绑定"
+              ALLAP_HEADER4="AP组名称,绑定">
+       
+     </div>
+  </body>
+  </html>
+  <script language="javascript" type="text/javascript">
+  	Utils.Pages.loadJS("h_wireless.index_detial");
+  </script>

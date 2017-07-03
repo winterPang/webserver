@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="dashboard">
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">用户好友数量分布</span>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div class="myEchart" id="userFriends" style="height:280px"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">用户添加好友统计</span>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div class="myEchart" id="addFriends" style="height:280px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">用户聊天统计</span>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div class="myEchart" id="chatCount" style="height:280px"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">用户消息统计</span>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div class="myEchart" id="messageCount" style="height:280px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">每日活跃用户</span>
+                </div>
+                <div class="box-body" style="height:300px">
+                    <div class="myEchart" id="activeUser" style="height:280px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    Utils.Pages.loadJS("maintain.analyse_friend");
+</script>

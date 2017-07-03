@@ -1,0 +1,142 @@
+<div class="home-site-container" rc="<<,<,>,>>,失败,未知,无设备" score="分"
+     statefail="失败"
+     statesuccess="成功"
+     statenodevice="无设备"
+     stateoffline="离线">
+    <!-- 2017.04.12 by kf6859 start - 完善信息 -->
+    <style>
+        .informational-module {
+            position: relative;
+        }
+
+        .informational-module > span {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+        }
+
+        .informational-module a {
+            padding-left: 10px;
+            font-weight: bold;
+            color: #000;
+        }
+
+        .informational-module a:hover {
+            color: #4ec1b2;
+        }
+    </style>
+    <div class="row ng-hide informational-module" ng-show="unCompleted">
+        <span>
+            您好，请先完善信息
+            <a ui-sref="global.content.user.information">去完善 <span class="fa fa-chevron-circle-right"></span></a>
+        </span>
+    </div>
+    <!-- 2017.04.12 by kf6859 end -->
+    <div class="row">
+        <div class="text-center paging-contain">
+            <div bs-pager="pagination" ng-model="page"></div>
+            <select class="home-page-size" ng-model="pageSize" title="page" style="border-color: #ccc !important;"
+                    ng-options="p for p in [3, 6, 9, 12]" ng-show="total"></select>
+        </div>
+    </div>
+    <div class="shop-block-list row echarts_view">
+        <div ng-repeat="site in sites" class="shop-block-box col-lg-4 col-md-6 col-sm-12">
+            <div class="shop-block-item">
+                <div class="shop-block-header">
+                    <div>
+                        <span ng-bind="site.display.name" class="site-name" title="{{site.display.name}}"></span>
+                        <a ng-show="!flags.is_branch_user || (flags.is_branch_user && site.is_branch_shop)"
+                           class="btn btn-cus" href="javascript:void(0)" ng-click="manage(site)">管理</a>
+                        <a class="btn btn-cus" ng-show="!flags.is_branch_user && site.showPeration"
+                           href="{{site.perationUrl}}">运维(Beta)</a>
+                    </div>
+                </div>
+                <div class="shop-block-charts">
+                    <div class="home-charts"></div>
+                </div>
+                <div ng-show="site.showApStatus" class="shop-block-detail-box"
+                     ng-mouseenter="toggle_show_detail($event)"
+                     ng-mouseleave="toggle_hide_detail($event)">
+                    <div class="shop-block-detail shop-block-detail-rate">
+                        <div class="col-xs-4">
+                            <p class="shop-detail-title">在线终端</p>
+                            <p class="shop-detail-value">
+                                <span ng-bind="site.display.clientnum"></span>
+                            </p>
+                        </div>
+                        <div class="col-xs-4">
+                            <p class="shop-detail-title">在线AP</p>
+                            <p class="shop-detail-value">
+                                <span ng-bind="site.display.online"></span>
+                            </p>
+                        </div>
+                        <div class="col-xs-4">
+                            <p class="shop-detail-title">离线AP</p>
+                            <p class="shop-detail-value">
+                                <span ng-bind="site.display.offline"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="shop-block-detail shop-block-detail-hover">
+                        <div class="col-xs-6">
+                            <p class="shop-detail-title">上行速率</p>
+                            <p class="shop-detail-value">
+                                <span ng-bind="site.display.up"></span>
+                                <small>{{site.display.upUnit}}bps</small>
+                            </p>
+                        </div>
+                        <div class="col-xs-6">
+                            <p class="shop-detail-title">下行速率</p>
+                            <p class="shop-detail-value">
+                                <span ng-bind="site.display.down"></span>
+                                <small>{{site.display.downUnit}}bps</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div ng-hide="site.showApStatus===undefined||site.showApStatus" class="shop-block-detail-box"
+                     ng-mouseenter="toggle_show_detail($event)" ng-mouseleave="toggle_hide_detail($event)">
+                    <div class="shop-block-detail shop-block-detail-rate">
+                        <div class="col-xs-6">
+                            <p class="shop-detail-title">在线交换机</p>
+                            <p class="shop-detail-value">
+                                <span ng-bind="site.display.online"></span>
+                            </p>
+                        </div>
+                        <div class="col-xs-6">
+                            <p class="shop-detail-title">离线交换机</p>
+                            <p class="shop-detail-value">
+                                <span ng-bind="site.display.offline"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="shop-block-detail shop-block-detail-hover">
+                        <div class="col-xs-6">
+                            <p class="shop-detail-title">上行速率</p>
+                            <p class="shop-detail-value">
+                                <span ng-bind="site.display.up"></span>
+                                <small>{{site.display.upUnit}}bps</small>
+                            </p>
+                        </div>
+                        <div class="col-xs-6">
+                            <p class="shop-detail-title">下行速率</p>
+                            <p class="shop-detail-value">
+                                <span ng-bind="site.display.down"></span>
+                                <small>{{site.display.downUnit}}bps</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="shop-block-list row  table_view" style="display:none;">
+        <div bs-table="home_page_option"></div>
+    </div>
+    <div class="read_rc" id="listView_rc"
+         table-data="场所名称,跑分,在线终端,上行速率,下行速率,在线AP,离线AP,管理,分,在线交换机,离线交换机,运维(Beta)"
+         tipforno-devices="该场所下没有设备！"
+         first-complete="您的基本信息还未完善，是否跳转信息修改页面进行完善？">
+    </div>
+</div>
+

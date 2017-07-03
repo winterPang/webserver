@@ -1,0 +1,105 @@
+{"Method":"GetClient",
+  "Message":
+  [
+    {
+      "_id":"5644c2aa0896a101009ebedb",
+      "Vendor":"METIER MANAGEMENT SYSTEMS LTD.",
+      "RssiMax":10,
+      "ACSN":"210235A1AMB143000025",
+      "RssiMin":10,
+      "ReportSensorNum":1,
+      "LastReportTime":"1447346699",
+      "DissociativeStatus":true,
+      "Status":true,
+      "StatusDurationTime":107,
+      "Ssid":"",
+      "Sign":1447346806,
+      "FirstReportTime":"1447346636",
+      "MacAddress":"0000-42ab-ecef"
+    ,"Channel":13,
+      "Rssi":0,
+      "__v":0
+    },
+    {
+      "_id":"5644c2aa0896a101009ebee4",
+      "Vendor":"Not found",
+      "RssiMax":63,
+      "ACSN":"210235A1AMB143000025",
+      "RssiMin":15,
+      "ReportSensorNum":1,
+      "LastReportTime":"1447346694",
+      "DissociativeStatus":true,
+      "Status":true,
+      "StatusDurationTime":112,
+      "Ssid":"",
+      "Sign":1447346806,
+      "FirstReportTime":"1447346425",
+      "MacAddress":"f4e3-fbb5-321c",
+      "Channel":13,
+      "Rssi":0,
+      "__v":0
+    },
+    {"_id":"5644c2aa0896a101009ebedc","Vendor":"TP-LINK Technologies Co., Ltd.","RssiMax":34,"ACSN":"210235A1AMB143000025","RssiMin":6,"ReportSensorNum":1,"LastReportTime":"1447346774","DissociativeStatus":true,"Status":false,"StatusDurationTime":94,"Ssid":"","Sign":1447346806,"FirstReportTime":"1447346144","MacAddress":"001d-0f31-f657","Channel":1,"Rssi":0,"__v":0},
+    {
+      "_id":"5644c2aa0896a101009ebee4",
+      "Vendor":"Not found",
+      "RssiMax":63,
+      "ACSN":"210235A1AMB143000025",
+      "RssiMin":15,
+      "ReportSensorNum":1,
+      "LastReportTime":"1447346694",
+      "DissociativeStatus":true,
+      "Status":true,
+      "StatusDurationTime":112,
+      "Ssid":"",
+      "Sign":1447346806,
+      "FirstReportTime":"1447346425",
+      "MacAddress":"f4e3-fbb5-321c",
+      "Channel":13,
+      "Rssi":0,
+      "__v":0
+    },
+    {"_id":"5644c2aa0896a101009ebedd","Vendor":"BYD Precision Manufacture Company Ltd.","RssiMax":63,"ACSN":"210235A1AMB143000025","RssiMin":0,"ReportSensorNum":1,"LastReportTime":"1447346724","DissociativeStatus":false,"Status":true,"StatusDurationTime":82,"Ssid":"h3c","Sign":1447346806,"FirstReportTime":"1447346662","MacAddress":"183b-d264-8a64","Channel":13,"Rssi":0,"__v":0},{"_id":"5644c2aa0896a101009ebede","Vendor":"Intel Corporate","RssiMax":62,"ACSN":"210235A1AMB143000025","RssiMin":0,"ReportSensorNum":1,"LastReportTime":"1447346762","DissociativeStatus":false,"Status":false,"StatusDurationTime":46,"Ssid":"H3C_WLAN_2G","Sign":1447346806,"FirstReportTime":"1447346134","MacAddress":"2477-035d-bde4","Channel":1,"Rssi":0,"__v":0},{"_id":"5644c2aa0896a101009ebedf","Vendor":"Intel Corporate","RssiMax":56,"ACSN":"210235A1AMB143000025","RssiMin":8,"ReportSensorNum":1,"LastReportTime":"1447346804","DissociativeStatus":true,"Status":false,"StatusDurationTime":5,"Ssid":"","Sign":1447346806,"FirstReportTime":"1447346106","MacAddress":"2477-0378-6a64","Channel":1,"Rssi":0,"__v":0},{"_id":"5644c2aa0896a101009ebee0","Vendor":"Intel Corporate","RssiMax":17,"ACSN":"210235A1AMB143000025","RssiMin":8,"ReportSensorNum":1,"LastReportTime":"1447346799","DissociativeStatus":true,"Status":true,"StatusDurationTime":7,"Ssid":"","Sign":1447346806,"FirstReportTime":"1447346110","MacAddress":"3ca9-f410-5434","Channel":13,"Rssi":0,"__v":0},{"_id":"5644c2aa0896a101009ebee1","Vendor":"BBK Electronics Corp., Ltd.,","RssiMax":35,"ACSN":"210235A1AMB143000025","RssiMin":0,"ReportSensorNum":1,"LastReportTime":"1447346754","DissociativeStatus":false,"Status":true,"StatusDurationTime":52,"Ssid":"H3C-iMC-BYOD","Sign":1447346806,"FirstReportTime":"1447346654","MacAddress":"8041-4e84-35fb","Channel":11,"Rssi":0,"__v":0},{"_id":"5644c2aa0896a101009ebee2","Vendor":"Not found","RssiMax":22,"ACSN":"210235A1AMB143000025","RssiMin":18,"ReportSensorNum":1,"LastReportTime":"1447346774","DissociativeStatus":false,"Status":true,"StatusDurationTime":32,"Ssid":"H3C-iMC-BYOD","Sign":1447346806,"FirstReportTime":"1447346654","MacAddress":"b8bc-1b1a-ec36","Channel":11,"Rssi":0,"__v":0},{"_id":"5644c2aa0896a101009ebee3","Vendor":"Not found","RssiMax":30,"ACSN":"210235A1AMB143000025","RssiMin":7,"ReportSensorNum":1,"LastReportTime":"1447346799","DissociativeStatus":true,"Status":false,"StatusDurationTime":705,"Ssid":"","Sign":1447346806,"FirstReportTime":"1447346101","MacAddress":"ec26-ca9f-f234","Channel":161,"Rssi":0,"__v":0},
+    {
+      "_id":"5644c2aa0896a101009ebee4",
+      "Vendor":"Not found",
+      "RssiMax":63,
+      "ACSN":"210235A1AMB143000025",
+      "RssiMin":15,
+      "ReportSensorNum":1,
+      "LastReportTime":"1447346694",
+      "DissociativeStatus":true,
+      "Status":true,
+      "StatusDurationTime":112,
+      "Ssid":"",
+      "Sign":1447346806,
+      "FirstReportTime":"1447346425",
+      "MacAddress":"f4e3-fbb5-321c",
+      "Channel":13,
+      "Rssi":0,
+      "__v":0
+    }
+  ],
+  "apList":
+  [
+    {"apName":"wa2620i","apSN":"219801A0CNC123001072","status":2,"macAddr":"0000-0000-0000","ipv4Addr":"","ipv6Addr":"","onlineTime":0,
+      "radioList":
+      [
+        {"radioPower":20,"radioChannel":153,"radioStatus":0,"radioMode":"5G","radioId":1,"_id":"5644453fb91daa01002bbbad"}
+      ,{"radioPower":20,"radioChannel":13,"radioStatus":0,"radioMode":"2.4G","radioId":2,"_id":"5644453fb91daa01002bbbae"}
+      ]
+    },
+    {"apName":"wa4320i","apSN":"210235A1GQC14A001404","status":1,"macAddr":"70f9-6dd7-cea0","ipv4Addr":"192.168.0.123","ipv6Addr":"","onlineTime":1525,
+      "radioList":
+      [
+        {"radioPower":20,"radioChannel":40,"radioStatus":1,"radioMode":"5G","radioId":1,"_id":"5644453fb91daa01002bbbb0"}
+      ,{"radioPower":20,"radioChannel":13,"radioStatus":1,"radioMode":"2.4G","radioId":2,"_id":"5644453fb91daa01002bbbb1"}
+      ]
+    }
+  ],
+  "clientList":
+  [
+    {"clientMAC":"c81e-e796-d11b","clientIP":"192.168.110.146","clientName":"Apple","ApName":"wa4320i","clientSSID":"hz-wlan-zhangbing","clientChannel":40,"clientRadioMode":1}
+  ,{"clientMAC":"3848-4cbe-ef40","clientIP":"192.168.110.142","clientName":"Apple iPod, iPhone or iPad","ApName":"wa4320i","clientSSID":"hz-wlan-zhangbing","clientChannel":13,"clientRadioMode":1},{"clientMAC":"2c1f-2351-6585","clientIP":"192.168.110.112","clientName":"Apple","ApName":"wa4320i","clientSSID":"hz-wlan-zhangbing","clientChannel":40,"clientRadioMode":1}
+  ]
+}

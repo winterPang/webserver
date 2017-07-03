@@ -1,0 +1,66 @@
+<style>
+    .qrcode-contain {
+        height: 150px;
+        width: 150px;
+        /*background: rgba(0, 0, 0, 0.06);*/
+        margin: 0 auto 10px auto;
+        line-height: 150px;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .qrcode-contain img {
+        vertical-align: top;
+    }
+</style>
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">微信门店</h3>
+        </div>
+        <div class="panel-body">
+            <div class="lead" ng-show="permission.write">
+                <a class="btn btn-cus" ui-sref="scene.content.netdeploy.chatstore5_import">导入门店</a>
+            </div>
+            <table bs-table="options"></table>
+        </div>
+    </div>
+</div>
+<div bs-modal="qrCodeModal.modal">
+    <div class="row form-group">
+        <div class="col-xs-offset-1 col-xs-2">门店名称：</div>
+        <div class="col-xs-4">{{row.shop_name}}</div>
+    </div>
+    <div class="row form-group">
+        <div class="col-xs-offset-1 col-xs-2" style="line-height: 32px;">SSID：</div>
+        <div class="col-xs-4">
+            <select class="form-control" ng-model="qrCodeModal.ssid_name"
+                    ng-options="s as s for s in row.ssid_list"></select>
+        </div>
+        <div class="col-xs-2 text-center">
+            <button class="btn btn-cus" ng-disabled="qrCodeModal.btnView || !qrCodeModal.ssid_name" ng-click="qrCodeModal.click()">查看</button>
+        </div>
+        <!--<div class="col-xs-2 text-center" style="line-height: 32px;">-->
+            <!--点击查看二维码-->
+        <!--</div>-->
+    </div>
+    <div class="row form-group" style="margin-top: 20px;">
+        <div class="col-xs-6 text-center">
+            <div class="qrcode-contain">
+                <img ng-show="qrCodeModal.qucodeImg0" height="100%" ng-src="{{qrCodeModal.qucodeImg0}}" alt="">
+            </div>
+            <div>普通二维码</div>
+        </div>
+        <div class="col-xs-6 text-center">
+            <div class="qrcode-contain">
+                <img ng-show="qrCodeModal.qucodeImg1" height="100%" ng-src="{{qrCodeModal.qucodeImg1}}" alt="">
+            </div>
+            <div>物料二维码</div>
+        </div>
+    </div>
+</div>
+<div class="read_rc" id="model_rc"
+     export-text="导出"
+     bind-error="门店被认证模板引用，请先解除引用再删除"
+     table-title="门店名称,所属公众号,SSID,当前状态,查看二维码,操作,是否导出门店?,该门店不存在ssid,微信门店导出成功！,微信门店导出失败！,查看二维码,关闭,二维码加载失败">
+</div>

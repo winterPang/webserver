@@ -1,0 +1,30 @@
+<div id="listView" class="site">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">Sites</h3></div>
+        <div class="panel-body">
+            <div class="btn btn-cus" ng-click="addSite()" ng-if="showHide.write">Add</div>
+            <div class="btn btn-cus" ng-click="refresh()">Refresh</div>
+            <div class="form-group zeromargin pull-right">
+                <button class="btn btn-cus" ng-click="search()">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </div>
+            <div class="form-group pull-right input-group">
+                <input id="sitename_search" type="text" ng-model="sitename" class="form-control"
+                       placeholder="Site name">
+            </div>
+            <table bs-table="options"></table>
+        </div>
+    </div>
+    <div class="read_rc" id="listView_rc"
+         error="Request error ~"
+         table-data="Site Name,Creator,Address,Description,Area,Scenario,Manage,Decives,Modify,Delete,Maintenance"
+         sure-delete="Are you sure you want to delete the site?"
+         delete-site="Delete site"
+         success="Successfully"
+         tipforno-devices="There are no devices in this shop!"
+         modify="Modify"
+         delete="Delete"
+    >
+    </div>
+</div>

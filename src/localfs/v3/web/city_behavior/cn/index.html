@@ -1,0 +1,30 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        html{height:100%}
+        body{height:100%;margin:0px;padding:0px;font-family:"微软雅黑";}
+    </style>
+</head>
+<body>
+<div class="dashboard " id="dev_location">
+    <div class="page-row">
+        <div class=" col-xs-12 col-sm-12 app-colum left-block">
+            <div class ="app-box " id="container" style="height:600px;"></div>
+        </div>
+
+        <div id="location_rc" class="rc-define"
+             ALLAPLIST_HEADER2="AP名称,序列号,MAC地址,IP地址,所属AP组"
+             WEEK="星期日,星期一,星期二,星期三,星期四,星期五,星期六"
+             ON_LINE="查看在线设备"
+             OUT_LINE="查看离线设备"
+             DEVICE_LIST="设备名,位置,SN,设备组,在线时长,评分">
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("city_behavior.index");
+</script>

@@ -1,0 +1,94 @@
+<style>
+	.coinSty{
+		min-width: 40px !important;
+   	 	position: absolute;
+    	right: 20px;
+	}
+	.inputSty{
+		width: 179px !important;
+    	position: absolute;
+   		right: 67px;
+	}
+    .mgtop{
+        margin-top: -8px !important;
+        margin-bottom: -5px !important;
+
+    }
+    .listyle{
+        line-height: 33px !important;
+        margin-left: -46px !important;
+    }
+    li{
+        list-style:none;
+    }
+</style>
+
+<div>
+    <div class="panel panel-default">          
+        <div class="panel-heading">
+            <h3 class="panel-title">定位管理2</h3>
+        </div>
+                   
+        <div class="panel-body" style="position:relative">
+            
+            <div class="btn btn-cus" ng-click="refresh()">刷新</div>
+            <div class="btn btn-cus" ng-click="datails()" ng-disabled="detailsDisabled">详情</div>
+            <div class="btn btn-cus" ng-click="mapEdit()" ng-disabled="mapEditDisabled">地图编辑</div>
+            <div class="btn btn-cus" ng-click="positionSetting()" ng-disabled="positionSettingDisabled">定位设置</div>
+
+            <button class="btn btn-cus coinSty">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+          
+            <input class="inputSty" type="text"  placeholder="场所名">
+
+            <div bs-Table="locationTable"></div>             
+        </div>  
+
+    </div>
+</div>
+
+<form novalidate role="form" name="cycleForm" bs-modal="cycleModal.options">          
+    <div class="form-group row">
+        <label class="col-sm-2 control-label required">周期</label>
+        <div>
+            <input type="number" id="cycle" name="cycle" class="string big form-control " required 
+            ng-model="cycleInfo.cycle" ng-minlength="1" ng-maxlength="600">
+            <label class="info-explain">1-600(秒)</label>
+
+            <label ng-if="cycleInfo.cycle.$error.required && cycleInfo.cycle.$touched"  style="color:red">该参数必须配置</label>
+            <label ng-if="cycleInfo.cycle.$error.pattern && cycleInfo.cycle.$dirty"  style="color:red">参数必须为数字或英文字符</label>               
+        </div>
+    </div>
+
+
+    <h4>设备定位状态</h4>
+    
+    <!-- <ul id="devsnState">
+        <li name="devsn" class="listyle" ng-repeat="x in devsnDatas" >
+            <label class="col-sm-5" style="width:350px">{{x.devsn}}</label>
+            <div class="xb-input">
+                <div class="input-icon checkbox-icon switch {{x.state}}"></div>
+            </div> 
+        </li>      
+    </ul> -->
+
+    <div bs-Table="deviceTable"></div>  
+    
+
+            
+    <div align = "center" style="margin-top:20px">
+        <button class="btn btn-cus" ng-disabled="cycleForm.$invalid" 
+        ng-click="ssidUpdate()">确定</button>
+    </div>
+</form>  
+
+<div id="locationmanage_rc" class="rc-define"
+    LOCATION_TITLE="场所名,地图个数,设备个数"	
+    MAPEDIT="地图编辑"
+    REMOVE="删除"
+    DEL_CON="确认删除该场所吗"
+    MODAL_TITLE="定位设置"
+    DEVICE_TITLE="设备序列号,设备名称,定位状态"
+    STATE="开启,关闭"
+></div>

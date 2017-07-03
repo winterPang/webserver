@@ -1,0 +1,236 @@
+<html>
+<head>
+	<style type="text/css">
+		.dashboard .sysinfo-footer {
+			line-height: 32px;
+			height: 32px;
+			margin-bottom: 4px;
+		}
+		.dashboard .sysinfo-body {
+			height: 205px;
+		}
+		.dashboard .sysinfo-footer .title {
+			color: #47495d;
+			font-size: 18px;
+			font-weight: normal;
+			margin-left: 8px;
+			display: block;
+			line-height: 30px;
+		}
+		.summary-view .sum-title {
+			color: #47495d;
+			font-size: 16px;
+			padding-left: 10px;
+			margin-bottom: 10px;
+			display: inline-block;
+		}
+
+	</style>
+</head>
+<body>
+<div>
+    <div class="dashboard" id="ap_container">
+    	<div class="btn_h_return" id="return_to_dashboard"></div>
+        <div class="page-row">
+            <div id="aps_box_1" class="col-xs-6 app-colum">
+            	<div class="app-box" id="ap_performance">
+			        <div class="box-footer background">
+			           <div class="col-xs-12">
+			               <span class="title">性能</span>
+			           </div>
+			        </div>
+				    <div class="box-body dhcp-height" id="performance_page">
+					    <div class="form-group summary-view">
+					        <div class="col-sm-3">
+					            <span class="sum-title">AP数量</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="sum-content" id="ApNum">0</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="sum-title">AP数量</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="sum-content" id="RadioNum">0</span>
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11b(2.4GHz)</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="rm1">0</strong></span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11a(5GHz)</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="rm2">0</strong></span>
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11n(2.4GHz)</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="rm4">0</strong></span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11n(5GHz)</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="rm5">0</strong></span>
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <!-- <div class="col-sm-3">
+					            <span class="type-title">802.11ac(2.4GHz)</span>
+					        </div> -->
+					        <!-- <div class="col-sm-3">
+					            <span class="type-num"><strong id="rm6">300</strong></span>
+					        </div> -->
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11g(2.4GHz)</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="rm3">0</strong></span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11ac(5GHz)</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="rm7">0</strong></span>
+					        </div>
+					    </div>
+					    <!-- <div class="form-group">
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11g(2.4GHz)</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="rm3">300</strong></span>
+					        </div>
+					    </div> -->
+					    <div class="form-group summary-view">
+					    	<div class="echart" >
+						    	<div class="form-group col-sm-12" style="margin-top:30px">
+							        <span class="sum-title">噪声基底（dBm）</span>
+								</div>
+				                <div>
+				                    <div id="noise" class="col-sm-12 myEchart" style="height:25px"></div>
+				                    <div id="noiseLabel" style="background: transparent;width: 100%;height:25px;margin-left:-20px;"></div>
+				                </div>
+			                </div>
+					    </div>
+					    <div class="form-group summary-view">
+					    	<div class="echart">
+						    	<div class="form-group col-sm-12" style="margin-top:30px">
+							        <span class="sum-title">信道利用率（%）</span>
+								</div>
+				                <div>
+				                    <div id="channel" class="col-sm-12 myEchart"></div>
+				                    <div id="channelLabel" style="background: transparent;width: 100%;height:25px;margin-left:-20px;"></div>
+				                </div>
+			                </div>
+					    </div>
+					    <div class="form-group summary-view">
+					    	<div class="echart">
+						    	<div class="form-group col-sm-12" style="margin-top:30px">
+							        <span class="sum-title">干扰（%）</span>
+								</div>
+				                <div>
+				                    <div id="interface" class="col-sm-12 myEchart"></div>
+				                    <div id="interfaceLabel" style="background: transparent;width: 100%;height:25px;margin-left:-20px;"></div>
+				                </div>
+			                </div>
+					    </div>
+					</div>
+				</div>
+	        </div>
+
+            <div id="aps_box_2" class="col-xs-6 app-colum right-block">
+            	<div class="app-box" id="apTopUsage">
+			        <div class="box-footer">
+			           <div class="col-xs-12">
+			               <span class="title">使用率前五</span>
+			                <div class="text-right link-container">
+		                	<div class="btn-group">
+			                    <a type="button" id="Download" class="link-detail active top5" val=".rate-top">吞吐量</a>
+			                    &nbsp;|&nbsp;
+                        		<a type="button" id="Upload" class="link-detail top5" val=".num-top">吞吐量</a>
+			                </div>
+			           </div> 
+			           </div>
+		               
+			       </div>
+				    <div class="no-height box-body" >
+		                <div class="col-xs-5">
+		                    <div id="RxList" class="simple-list rate-top"></div>
+		                    <div id="G5List" class="simple-list num-top hide"></div>
+		                </div>
+		                <div class="col-xs-1">
+		                </div>
+		                <div class="col-xs-5">
+		                    <div id="TxList" class="simple-list rate-top"></div>
+		                    <div id="G2List" class="simple-list num-top hide"></div>
+		                </div>
+				    </div>
+			    </div>
+
+			    <div class="app-box">
+			        <div class="box-footer">
+			           <div class="col-xs-12">
+			               <span class="title">AP组</span>
+				           <div class="text-right">
+	                            <a type="button" class="filter" id="filter_group">
+	                                <i class="filter-icon icon"></i>
+	                            </a>
+	                            <div class="hide" id="group_block">
+	                                <div class="filter-container">
+	                                    <span>AP组名称</span>
+	                                    <select class="singleSelect big" id="ApNameSelect"></select>
+	                                </div>
+	                            </div>
+	                       </div> 			               
+			           </div>
+
+			        </div>
+		            <div class="no-height box-body">
+		               <div id="GroupList" class="simple-list"></div>
+				    </div>
+			    </div>
+            </div>
+        </div>
+        <!-- <div class="page-row">
+            <div id="aps_box_r1" class="col-xs-12 app-colum">
+            	<div class="app-box" id="aplist_page">
+			        <div class="sysinfo-footer">
+			            <div class="col-xs-12">
+			                <span class="title">在线AP列表</span>
+			            </div>
+			        </div>
+				    <div class="row-nohover sysinfo-body no-height" >				    	
+				    	<div style="padding-bottom:8px;"></div>
+		                <div id="AllApList" class="mlist"></div>
+				    </div>
+			    </div>
+            </div>
+        </div> -->
+    </div>
+    <div id="aps_detail_rc" class="rc-define"
+    	TX_HEADER="AP名称,发送速率（Kbps）"
+        RX_HEADER="AP名称,接收速率（Kbps）"
+        G5_HEADER="AP名称,5GHz客户端数量"
+        G2_HEADER="AP名称,2.4GHz客户端数量"
+        GROUP_HEADER="AP名称,AP型号,状态,序列号,IP地址"
+        MODE=",802.11b,802.11a,802.11g,802.11n(2.4GHz),802.11n(5GHz),802.11ac(2.4GHz),802.11ac(5GHz)"
+        ALLAP_HEADER1="AP名称,模式,IP地址,序列号, 射频单元,AP组名称,客户端数量,吞吐量(KB),在线时长"
+        ALLAP_HEADER="AP名称,AP型号,IP地址,序列号, 射频信息,AP组名称,客户端数量,吞吐量（发送/接收，KB）,在线时长（天:时:分:秒）"
+        DISCONNECT="断开连接"
+        STATUS=",在线,离线,正在下载版本"
+    ></div>
+</div>
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+	Utils.Pages.loadJS("city_dashboard.aps_detail");
+</script>

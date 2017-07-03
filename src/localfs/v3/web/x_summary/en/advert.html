@@ -1,0 +1,128 @@
+<html>
+
+<head>
+</head>
+<!--//    ,-->
+<!--//        "X_xAdAnalysis": {-->
+<!--//            "getAdMessage": {-->
+<!--//                "name": "getAdMessage",-->
+<!--//                "type": "GET",-->
+<!--//                "url": "/v3/ace/o2oportal/advertisement/query?ownerName=liuchao&storeId=111&startRowIndex=0&maxItems=20",-->
+<!--//                "author": "dengwenxin"-->
+<!--//            }-->
+<!--//        }-->
+
+<body>
+<div class="page-row xxb">
+    <div class="col-xs-12 app-colum" debug="getAdMessage">
+        <div class="app-box no-height default-bottom">
+            <div class="box-footer">
+                <span class="title">Overview</span>
+                <div class="text-right link-container">
+                    <a type="button" class="link-send hidemodify" id="a_history">
+                        <span>Export</span>
+                    </a>
+                </div>
+            </div>
+            <div class="box-body no-height">
+                <div id="basic_slist" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="page-row xxb">
+    <div class="col-xs-12 app-colum" debug="getAdvertBySpan">
+        <div class="app-box">
+            <div class="box-footer">
+                <span class="title">Advertisement Statistics</span>
+                <div class="text-right link-container">
+                    <a type="button" class="link-send" id="todayAd">
+                        <span>Today</span>
+                    </a>
+                    <span>|</span>
+                    <a type="button" class="link-receive" id="yesterdayAd">
+                        <span>Yesterday</span>
+                    </a>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="form-group col-sm-12">
+                    <div class="radio_styles radio-group">
+                        <div class="col-sm-1">
+                            <input type="radio" name="advert-info" id="pv" checked>
+                            <label for="pv">Page views</label>
+                        </div>
+                        <div class="col-sm-1">
+                            <input type="radio" name="advert-info" id="pu">
+                            <label for="pu">Visitors</label>
+                        </div>
+                        <div class="col-sm-1">
+                            <input type="radio" name="advert-info" id="clickCount">
+                            <label for="clickCount">Clicks</label>
+                        </div>
+                        <div class="col-sm-1">
+                            <input type="radio" name="advert-info" id="ctr">
+                            <label for="ctr">Click rate</label>
+                        </div>
+                    </div>
+                    <div id="adShowCount" class="myEchart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-row xxb">
+    <div class="col-xs-12 app-colum" debug="getAdMessage">
+        <div class="app-box no-height default-bottom">
+            <div class="box-footer">
+                <span class="title">Visited Pages</span>
+                <div class="text-right link-container">
+                    <a type="button" class="link-send" id="todayPage">
+                        <span>Today</span>
+                    </a>
+                    <span>|</span>
+                    <a type="button" class="link-receive" id="yesterdayPage">
+                        <span>Yesterday</span>
+                    </a>
+                </div>
+            </div>
+            <div class="box-body no-height">
+                <div id="detail_slist" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<form class="modal fade modal-super dashboard in hide" id="history_details" debug="getAdMessage">
+    <div class="modal-header">
+        <button id="his_close" type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">History</h3>
+    </div>
+    <div class="modal-body">
+        <div class="box" id="wifi-terminal">
+            <div class="box-body no-height">
+                <div id="history_slist" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+    <iframe id="exportFile" name="exportFile" class="hide"></iframe>
+</form>
+
+
+<div id="x_adAnalysisi_rc" class="rc-define" BASIC_ITEM=" ,Page Views,Visitors,Clicks,Click Rate,Average Stay Length"  HISTORY_ITEM=" Date,Page Views,Visitors,Clicks,Click Rate" DETAIL_ITEM="URL,Page Views,Visitors,Clicks,Click Rate,Average Stay Length"
+     TODAY="Today" YESTERDAY="Yesterday" TIME='Today,Yesterday' HISTORYAVG="Average" OTHER="Others" TOTAL="Total" EXPORT="Export" EXPORT1="Import"
+     pv="Page views"
+     pu="Visitors"
+     clickCount="Clicks"
+     ctr="Click rate"
+     DRAW_AD_SHOW_NAME="Ad display"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_summary.advert");
+</script>

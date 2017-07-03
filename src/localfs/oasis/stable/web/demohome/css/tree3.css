@@ -1,0 +1,185 @@
+/*ztree*/
+
+.ztree li span.button.roots_open,
+.ztree li span.button.center_open,
+.ztree li span.button.bottom_open {
+    background: url("../img/1_open.png") no-repeat;
+}
+
+.ztree li span.button.roots_close,
+.ztree li span.button.center_close,
+.ztree li span.button.bottom_close {
+    background: url("../img/1_close.png") no-repeat;
+}
+
+.tree3 .ztree li a:hover{
+  text-decoration: none;
+}
+
+.ztree li span.button.ico_open {
+    margin-top: 4px;
+    /*background: url("../img/1_open.png") no-repeat !important;*/
+}
+
+.ztree li span.button.ico_close, .ztree li span.button.ico_docu {
+    margin-top: 4px;
+    /*background: url("../img/1_close.png") no-repeat !important;*/
+}
+
+.ztree li span.button.add {
+    background: url("../../home/img/add.png") no-repeat;
+}
+
+.ztree li span.button.edit {
+    margin-left: 4px;
+    background: url("../../home/img/edit.png") no-repeat;
+}
+
+.ztree li span.button.remove {
+    margin-top: 4px;
+    margin-left: 2px;
+    background: url("../../home/img/remove.png") no-repeat;
+}
+/*wuchengcheng*/
+.tree3 .ztree .ico_docu,
+.tree3 .ztree .ico_close,
+.tree3 .ztree .ico_open{
+  background: url(../img/build.png)
+}
+/*.tree3 .ztree .level0 .ico_docu,
+.tree3 .ztree .level0 .ico_close,
+.tree3 .ztree .level0 .ico_open{
+  background: url(../img/1_close.png)
+}*/
+
+/*.tree3 .ztree .level0 .ico_docu,
+.tree3 .ztree .level0 .ico_close{
+  background: url(../img/1_close.png)
+}
+
+.tree3 .ztree .level0 .ico_open{
+  background: url(../img/1_open.png)
+}
+
+
+
+.tree3 .ztree .level1 .ico_docu,
+.tree3 .ztree .level1 .ico_close{
+  background: url(../img/1_b.png)
+}
+
+.tree3 .ztree .level1 .ico_open{
+  background: url(../img/1_h.png)
+}
+
+
+
+.tree3 .ztree .level2 .ico_docu,
+.tree3 .ztree .level2 .ico_close{
+  background: url(../img/2_b.png)
+}
+
+.tree3 .ztree .level2 .ico_open{
+  background: url(../img/2_h.png)
+}
+
+
+
+.tree3 .ztree .level3 .ico_docu,
+.tree3 .ztree .level3 .ico_close{
+  background: url(../img/3_b.png)
+}
+
+.tree3 .ztree .level3 .ico_open{
+  background: url(../img/3_h.png)
+}*/
+/*wuchengcheng*/
+
+#add_div {
+    width: 112px;
+    height: 112px;
+    cursor: pointer;
+    margin-left: 410px;
+}
+
+
+ul.text-center {
+    list-style: none;
+    font-size: 14px;
+}
+
+ul.text-center li span {
+    margin-right: 8px;
+}
+
+#cmbProvince, #cmbCitys, #cmbArea {
+    width: 90px;
+}
+
+#add_img {
+    margin-left: 121px;
+}
+
+/*wuchengcheng*/
+.tree3.ztree-container {
+  position: static;
+  z-index: 1;
+  height:100%;
+  border: 1px solid #e7e7e9;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+.tree3 .ztree li{line-height: 25px;}
+.tree3 .ztree li a.curSelectedNode{
+    padding: 4px 9px;
+    background-color: #FFE6B0;
+    color: black;
+    height: 35px;
+    border: 1px #FFB951 solid;
+    /*border: 1px #000 solid;*/
+    opacity: 0.8;
+}
+
+.tree3 span{
+    padding-left: 10px;
+    /*color: #939da8;*/
+    color: #000;
+    font-family: Arial, "Microsoft YaHei", Helvetica, sans-serif;
+    font-size:14px;
+    font-weight: 900;
+}
+.tree3 .ztree{
+    padding-left:15px;
+}
+.tree3 .ztree li ul{
+    padding-left:40px;
+}
+.tree3.ztree-container{
+    padding:30px 0 0 0;
+}
+.tree3 .ztree li a,.l-left .ztree li a.curSelectedNode{
+    padding: 5px 10px;
+    width: 180px;
+    height: 35px;
+}
+
+/*.tree3 .ztree li a.level0{background-color: rgba(29,41,57,0.6);}
+.tree3 .ztree li a.level1{background-color: rgba(29,41,57,0.7);}
+.tree3 .ztree li a.level2{background-color: rgba(29,41,57,0.8);}
+.tree3 .ztree li a.level3{background-color: rgba(29,41,57,0.9);}*/
+.tree3 .ztree li a.curSelectedNode{
+  background-color: #1caf9a;
+}
+.tree3 .ztree li a.curSelectedNode span{
+  color: #fff;
+}
+
+.tree3 .ztree li span.button.switch{display:none;}
+.ztree li span.button.ico_docu{
+
+}
+.tree3 .l-first > li{
+  border: none;
+}
+/*wuchengcheng

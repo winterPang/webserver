@@ -1,0 +1,47 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 9,
+  "rows": [
+    {
+      "abnormal_cate": "code异常",
+      "abnormal_num":107,
+      "abnormal_desc":"code认证失败"
+    },{
+      "abnormal_cate": "AccessToken异常",
+      "abnormal_num":96,
+      "abnormal_desc":"AccessToken获取失败"
+    },
+    {
+      "abnormal_cate": "UserInfo异常",
+      "abnormal_num":87,
+      "abnormal_desc":"UserInfo不存在"
+    },{
+      "abnormal_cate": "ACK异常",
+      "abnormal_num":86,
+      "abnormal_desc":"ACK"
+    },{
+      "abnormal_cate": "重认证异常",
+      "abnormal_num":79,
+      "abnormal_desc":"认证失败"
+    },
+    {
+      "abnormal_cate": "code异常",
+      "abnormal_num":63,
+      "abnormal_desc":"code认证失败"
+    },{
+      "abnormal_cate": "AccessToken异常",
+      "abnormal_num":35,
+      "abnormal_desc":"AccessToken获取失败"
+    },
+    {
+      "abnormal_cate": "UserInfo异常",
+      "abnormal_num":20,
+      "abnormal_desc":"UserInfo不存在"
+    },{
+      "abnormal_cate": "ACK异常",
+      "abnormal_num":15,
+      "abnormal_desc":"ACK"
+    }
+  ]
+}

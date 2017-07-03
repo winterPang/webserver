@@ -1,0 +1,138 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">修改地图</h3>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" name="addMap" novalidate onsubmit="return false;">
+                <div class="row mb15">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">地图名</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control " ng-model="map.imageName" name="imageName" required>
+                            </div>
+                            <div class="col-sm-4 ang-error" ng-show="addMap.imageName.$dirty"
+                                 ng-messages="addMap.imageName.$error">
+                                <label ng-message="required" class="error" style="display: inline-block;">地图名不能为空</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">描述</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" ng-model="map.breif" name="breif">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="shop" class="col-sm-2 control-label">应用场所</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" ng-model="map.shopName" name="shopName" id="shop" required readonly ng-click="modal.shopModalOpen()">
+                            </div>
+                            <div class="col-sm-4 ang-error" ng-show="addMap.shopName.$dirty"
+                                 ng-messages="addMap.shopName.$error">
+                                <label ng-message="required" class="error" style="display: inline-block;">场所不能为空</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="shop" class="col-sm-2 control-label">地址</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" ng-model="map.address" name="address" required>
+                            </div>
+                            <div class="col-sm-4 ang-error" ng-show="addMap.address.$dirty"
+                                 ng-messages="addMap.address.$error">
+                                <label ng-message="required" class="error" style="display: inline-block;">地址不能为空</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="shop" class="col-sm-2 control-label">经纬度</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" ng-model="doubleTude" name="doubleTude" required ng-click="modal.open()" readonly>
+                            </div>
+                            <div class="col-sm-4 ang-error" ng-show="addMap.doubleTude.$dirty"
+                                 ng-messages="addMap.doubleTude.$error">
+                                <label ng-message="required" class="error" style="display: inline-block;">经纬度不能为空</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">比例尺</label>
+                            <div class="col-sm-3" style="position: relative">
+                                <input type="text" class="form-control" ng-model="map.scale" name="scale"
+                                        required style="padding-left: 30px;" maxlength='7'>
+                                <span style="position: absolute;top: 5px;left: 20px;">1：</span>
+                                <span style="position: absolute;top: 5px;right: 20px;">px / m（像素/米）</span>
+                            </div>
+                            <div class="col-sm-4 ang-error" ng-show="addMap.scale.$dirty"
+                                 ng-messages="addMap.scale.$error">
+                                <label ng-message="required" class="error" style="display: inline-block;">比例尺不能为空</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="file" class="col-sm-2 control-label">上传图片</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" ng-model="fileName" readonly ng-click="uploadMap()" placeholder="点击上传图片">
+                                <input id="file" type="file" required name="file" style="display: none">
+                                <div style="min-height: 150px;border: 1px solid #e1e1e1;border-radius: 5px;margin-top: 15px">
+                                    <div ng-if="!map.path" style="height: 150px;line-height: 150px;font-size: 24px;text-align: center">图片预览</div>
+                                    <img ng-src="{{map.path}}" width="100%"/>
+                                </div>
+                            </div>
+                            <div class="col-sm-1">
+                                <button ng-click="uploadMap()" class="btn btn-cus">上传图片</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-cus" ng-disabled="addMap.$invalid" ng-click="submitModify()">确定</button>
+                    <button class="btn btn-cus" ui-sref="global.content.application.mapmanage_original">取消</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div id="modifyRc"
+         longitude="经度："
+         latitude="纬度："
+         picture-format="图片限于bmp,png,gif,jpeg,jpg,dwg格式"
+         picture-size="上传的文件大小不能超过2M！"
+         modify-success="修改成功"
+         please-choice-picture="请选择图片"
+         choice-address="选择地址"
+         set-current-city="北京"
+         longitude-and-latitude="经纬度："
+         choice-shop="选择场所"
+         please-choice-shop="请选择场所"
+         shops-table-header="场所名称,场所（总部）地址,描述,所属区域">
+    </div>
+</div>
+<div class="container-fluid" bs-modal="modal.option">
+    <div class="form-group">
+        <label class="col-sm-1 control-label">地址</label>
+        <div class="col-md-3">
+            <input type="text" class="form-control" ng-model="map.address">
+        </div>
+        <div class="col-md-2">
+            <button class="btn bn-cus" ng-click="modal.search()">搜索</button>
+        </div>
+        <label class="col-md-1 control-label">经纬度</label>
+        <div class="col-md-3">
+            <input type="text" class="form-control" ng-model="doubleTude2">
+        </div>
+    </div>
+    <div class="row">
+        <div id="map" class="col-md-12" style="height: 300px;display: block;margin: 0 auto"></div>
+    </div>
+</div>
+<div class="container-fluid" bs-modal="modal.shopOption">
+        <!--<div class="btn btn-cus" ng-click="refresh()">刷新</div>
+        <div class="form-group pull-right">
+            <button class="btn btn-cus" ng-click="search()">
+                <span class="glyphicon glyphicon-search"></span>
+            </button>
+        </div>
+        <div class="form-group pull-right input-group">
+            <input type="text" ng-model="sitename" class="form-control" placeholder="场所名称">
+        </div>-->
+        <div bs-table="shops.table"></div>
+</div>
+

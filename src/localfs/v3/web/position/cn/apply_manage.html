@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html>
+
+<head> 
+    <meta charset="utf-8">
+    <link href="../position/css/page.css" rel="stylesheet" type="text/css" />
+    <link href="../position/css/position.css" rel="stylesheet" type="text/css" />
+    <!--<script type="text/javascript" src="../position/cocos/cocos2d-js-v3.9.js" charset="UTF-8"></script>-->
+    <style>
+        body{
+            -moz-user-select: none; /*火狐*/
+            -webkit-user-select: none; /*webkit浏览器*/
+            -ms-user-select: none; /*IE10*/
+            -khtml-user-select: none; /*早期浏览器*/
+            user-select: none;
+        }
+        .link-container {
+            position: absolute;
+            right: 5px;
+        }
+
+        a {
+            cursor: pointer;
+        }
+
+        #box-body2015 {
+            height: auto!important;
+        }
+
+        #Cocos2dGameContainer {
+            border: 1px solid grey;
+            position:relative;
+        }
+
+        .simple-list .slist-body {
+            border: 1px solid #dedddd;
+        }
+
+        .app-box .box-body {
+            padding: 15px;
+            height: auto;
+        }
+
+        .add_icon {
+            background: url(css/image/xiaoxiaobei1.png) no-repeat -435px -476px;
+            display: inline-block;
+            width: 150px;
+            height: 150px;
+            margin-left: 40%;
+        }
+
+        #canvas {
+            margin-top: 10px;
+        }
+
+        .slist-center{
+            width:514px;
+            height:257px;
+            overflow-y: hidden!important;
+            margin:0 auto;
+        }
+
+        .slist-center{
+            width:514px;
+            height:257px;
+            overflow-y: hidden!important;
+            margin:0 auto;
+        }
+
+        .add-ap-btn {
+            /*background: url(../position/cocos/res/icon.png) no-repeat -382px -225px;*/
+            background: url(../position/cocos/res/icon.png) no-repeat -382px -299px;
+            width: 31px;
+            height: 31px;
+            position: absolute;
+            top: 11px;
+            left: 557px;
+            z-index: 100;
+        }
+
+        .add-ap-btn:hover {
+            background: url(../position/cocos/res/icon.png) no-repeat -382px -224px;
+        }
+
+        .add-wall-btn {
+            /*background: url(../position/cocos/res/icon.png) no-repeat -431px -225px;*/
+            background: url(../position/cocos/res/icon.png) no-repeat -431px -299px;
+            width: 31px;
+            height: 31px;
+            position: absolute;
+            top: 11px;
+            left: 596px;
+            z-index: 100;
+        }
+
+        .add-wall-close-btn {
+            /*background: url(../position/cocos/res/icon.png) no-repeat -431px -141px;*/
+            background: url(../position/cocos/res/icon.png) no-repeat -431px -224px;
+            width: 31px;
+            height: 31px;
+            position: absolute;
+            top: 11px;
+            left: 596px;
+            z-index: 100;
+        }
+
+        .scale-big-btn {
+            background: url(../position/cocos/res/icon.png) no-repeat -480px -299px;
+            width: 31px;
+            height: 31px;
+            position: absolute;
+            top: 11px;
+            left: 637px;
+            z-index: 100;
+        }
+
+        .scale-big-btn:hover {
+            background: url(../position/cocos/res/icon.png) no-repeat -480px -224px;
+
+        }
+
+        .scale-small-btn {
+            background: url(../position/cocos/res/icon.png) no-repeat -529px -299px;
+            width: 31px;
+            height: 31px;
+            position: absolute;
+            top: 11px;
+            left: 681px;
+            z-index: 100;
+        }
+
+        .scale-small-btn:hover {
+            background: url(../position/cocos/res/icon.png) no-repeat -529px -224px;
+        }
+
+        .set-scale-btn {
+            background: url(../position/cocos/res/icon.png) no-repeat -581px -299px;
+            width: 31px;
+            height: 31px;
+            position: absolute;
+            top: 11px;
+            left: 723px;
+            z-index: 100;
+        }
+
+        .set-scale-btn:hover {
+            background: url(../position/cocos/res/icon.png) no-repeat -581px -222px;
+        }
+
+        .add-ap-btn .add-wall-btn .set-scale-btn .scale-big-btn .scale-small-btn {
+            cursor:pointer;
+        }
+
+        .delete,.delete_Wall{
+            width: 50px;
+            height: 30px;
+            position: absolute;
+            left: 0;
+            top: 0;
+            background: #fff;
+            display :none;
+            border: solid 1px grey;
+            text-align: center;
+        }
+        .delete a,.delete_Wall a{
+            text-decoration: underline;
+            font-size:13px;
+            text-align: center;
+        }
+        .delete_Wall{
+            width: 65px;
+        }
+        .top{
+            text-align:center;
+        }
+        .top img{
+            vertical-align: middle;
+            margin-top:-3px;
+        }
+        .top span{
+            /*display:inline-block;*/
+            height:20px;
+            box-sizing: border-box;
+            padding:0 2px;
+        }
+        #picture{
+            width: 535px;
+            height: 400px;
+            margin: 0 auto;
+            border: solid 1px grey;
+            box-sizing: border-box;
+            margin-top:10px;
+        }
+        #picture img{
+            width: 535px;
+            height: 400px;
+        }
+        #scaleValue{
+            width:187px;
+        }
+        .pagination{
+            position: absolute;
+            top: -13px;
+            right: 30px;
+        }
+        #detect_container7{
+            height:785px;
+            position:relative;
+        }
+        .page{
+            width:100%;
+            position:absolute;
+            bottom:0px;
+            left:0;
+            overflow:hidden;
+        }
+        #upload_file{
+            width: 95px;
+            height: 32px;
+            position:absolute;
+            left:0;
+            top:0;
+            display:block;
+            opacity:0;
+            cursor:pointer;
+        }
+        #refresh,#addMapBtn{
+            cursor:pointer;
+        }
+
+    </style>
+
+</head>
+
+<body>
+<div class="page-row">
+    <div class="col-xs-12 app-colum left-block">
+        <div class="app-box default-height">
+            <div id="detect_container7">
+                <div class="box-footer">
+                    <div class="col-xs-12">
+                        <div class="col-xs-1 top">
+                            <span>地图列表</span>
+                        </div>
+                        <div class="col-xs-1 top" id="refresh">
+                            <img src="../position/cocos/res/icon-refresh.png" />
+                            <span>刷新</span>
+                        </div>
+                        <div class="col-xs-1 top" id="addMapBtn">
+                            <img src="../position/cocos/res/icon-addMap.png" />
+                            <span>新增地图</span>
+                        </div>
+                        <!--<div class="pagination" id="pagination"></div>-->
+                    </div>
+                </div>
+                <div class="box-body" id="MapList" >
+                    <div class="add">
+                        <a href="#" class="add_icon" data-toggle="modal" data-target="#foraddicon"></a>
+                    </div>
+                </div>
+                <div class="page">
+                    <hr/>
+                    <div class="tcdPageCode"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- use this for test-->
+<div class="hide modal fade" id="tableDlg">
+    <form class="form-horizontal form" id="verlist" onsubmit="return false">
+        <div class="form-group">
+            <div style="margin: 0px auto; width:800px;">
+                <label class="col-xs-2 control-label required">地图名</label>
+                <div class="col-xs-10">
+                    <input type="text" class="string required" id="mapName" maxlength="32"/>
+                    <label class="info-explain">（英文：1-32字符&nbsp;&nbsp;中文：1-10字符）</label>
+                    <label class="error" id="mapName_error"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div style="margin: 0px auto; width:800px;">
+                <label class="col-sm-2 control-label required">比例尺</label>
+
+                <div class="col-sm-10">
+                    1px &nbsp; : &nbsp;
+                    <input type="number" class="required" id="scaleValue" errid="mapScale_error" placeholder="请输入大于0的数">&nbsp; (米)
+                    <label class="error" id="mapScale_error"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div style="margin: 0px auto; width: 800px;position:relative">
+                <label class="col-xs-2 control-label" style="margin-top: 10px;">图片</label>
+                <div class="col-xs-10 file"  style="margin-top: 10px;">
+                    <a class="btn">Browse</a><br/>
+                    <label class="info-explain">（仅支持JPG/GIF/PNG/BMP模式，且不超过2M）</label>
+                    <label class="error" id="file_error"></label>
+                    <input type="file" name="photo" id="upload_file">
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div id="picture">
+                <!--<canvas id="gameCanvas" width="800" height="450"></canvas>-->
+            </div>
+        </div>
+        <input type="checkbox" class="hide" id="test">
+    </form>
+</div>
+<!--删除地图弹窗-->
+<form class="form-horizontal form hide" id="deleteMapForm">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">确认提示</h3>
+    </div>
+    <div class="modal-body">
+        确定要删除选中的数据吗？
+    </div>
+    <div class="modal-footer form-actions">
+        <a id="deleteMapOK" class="btn btn-primary" dlgtype="OK" data-dismiss="modal">是</a>
+        <a href="#" class="btn" dlgtype="Cancel" data-dismiss="modal">否</a>
+    </div>
+</form>
+<div id="apply_manage_rc" class="rc-define" title="地图详情" addMapTitle="添加地图" scaleSmallBtn="缩小"
+     scaleBigBtn="放大" addApBtn="增加AP" addWallBtn="增加墙体" setScaleBtn="设置比例尺">
+</div>
+
+</body>
+
+</html>
+
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("position.page");
+    Utils.Pages.loadJS("position.apply_manage");
+
+</script>

@@ -1,0 +1,32 @@
+.app-manager .tabs-body {
+  padding: 20px 0;
+}
+.app-manager .btn-group .btn-cus {
+  margin-right: 0;
+}
+.app-manager .btn-group .btn-cus.active {
+  background-color: #4ec1b2;
+}
+.app-manager [treenode] [treenode_switch] {
+  display: inline-block;
+}
+.app-manager [treenode] [treenode_a] {
+  width: 100%;
+  display: inline-block;
+}
+.app-manager [treenode] [treenode_switch],
+.app-manager [treenode] [treenode_ico],
+.app-manager [treenode] [treenode_edit],
+.app-manager [treenode] [treenode_remove] {
+  margin: 4px;
+}
+.app-manager [treenode_edit] {
+  float: right;
+  display: inline-block;
+  background-position: -109px -49px;
+}
+.app-manager [treenode_remove] {
+  float: right;
+  display: inline-block;
+  background-position: -109px -65px;
+}

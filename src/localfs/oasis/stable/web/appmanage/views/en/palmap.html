@@ -1,0 +1,71 @@
+<div class="global-appstore">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Palmap</h3>
+        </div>
+        <div class="panel-body">
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li ng-click="changeTab(0)" ng-class="{active:activeTab==0}"><a>Map Management</a></li>
+                <li ng-click="changeTab(1)" ng-class="{active:activeTab==1}"><a>License Management</a></li>
+                <li ng-click="changeTab(2)" ng-class="{active:activeTab==2}"><a>Vector Drawing</a></li>
+            </ul>
+            <div style="margin: 10px 0" ng-if="activeTab==0">
+                <table bs-table="bitmapTable"></table>
+            </div>
+            <div style="margin: 10px 0" ng-if="activeTab==1">
+                <a class="btn btn-cus" ng-href="{{btnUrl}}" target="_blank">Purchase</a>
+                <table bs-table="licenseTable"></table>
+            </div>
+            <div style="margin: 10px 0" ng-if="activeTab==2">
+                <div class="form-group zeromargin">
+                    <button class="btn btn-cus" ui-sref="global.content.application.mapmanage_add({appId:drawAppId})">Add Original Map</button>
+                </div>
+                <div>
+                    <table bs-table="original.table"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="palmapRc"
+         get-buy-link-failed="Failed to obtain the purchase link."
+         draw-manage-table-header="Map Name,Status,Applied Site,Expiration Date,Remaining Days"
+         draw-status="In use,In progress,Please modify the picture.,Invalid"
+         table-opt-charge="Renew"
+         table-opt-edit="Modify picture"
+         modify-bitmap-title="Modify original map"
+         modify-success="Picture modified successfully."
+         choice-picture="Please select a picture."
+         picture-format="Valid format:BMP,PNG,GIF,JPEG,JPG,DWG."
+         picture-size="The size of the file to upload cannot exceed 2 M."
+         license-table-header="Validity Period,Purchase Date,State,Remaining Days,Expiration Date"
+         license-table-used="Not Used,Used,In use,Invalid"
+         vectorgraph-table-header="Map Name,Description,Scale,Address,Applied Site,Bind License"
+         choice-license="Select License"
+         bind-success="Binding succeeded."
+         bind-fail="Binding failed."
+         choice-license-tip="Please select a license."
+         choice-license-table-header="Validity Period,Purchase Date,State,Remaining Days,Expiration Date">
+    </div>
+</div>
+<div bs-modal="license.modal">
+    <a class="btn btn-cus" ng-href="{{btnUrl}}" target="_blank" style="margin-bottom: 15px">Purchase</a>
+    <table bs-table="license.table"></table>
+</div>
+<div bs-modal="modifyBitmap.modal">
+    <div class="row mb15">
+        <label for="file" class="col-sm-2 control-label">Upload picture</label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control" ng-model="modifyBitmap.fileName" readonly>
+            <input id="file" type="file" required name="file" style="display: none">
+            <div style="min-height: 150px;border: 1px solid #e1e1e1;border-radius: 5px;margin-top: 15px">
+                <div ng-if="!modifyBitmap.data.path" style="height: 150px;line-height: 150px;font-size: 24px;text-align: center">Preview</div>
+                <img ng-src="{{modifyBitmap.data.path}}" width="100%"/>
+            </div>
+        </div>
+        <div class="col-sm-1">
+            <button id="btnUpload" class="btn btn-cus">Upload picture</button>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,87 @@
+<div ng-init="
+    STATUS_onoff='关闭,开启';
+    SECURITYIE='未配置,WPA,RSN,OSEN';
+    CIPHERSUITE='未配置,WEP40,TKIP,CCMP,TKIP/CCMP,WEP104,WEP128';
+    AUTHLOCATION=',Central-AC,AC,,AP,,,,Other';
+    AKMMODE='未配置,DOT1X,PSK,FT-OVER-DOT1X,FT—USING-PSK,DOT1X-256,PSK-256, PRIVATE-PSK,DOT1X-WFA';
+    HIDE_SSID = '不隐藏,隐藏';
+    
+    getDataFailed = '数据获取失败';
+    ">
+
+    
+    <!--注释 -->
+    <!-- <div ng-init='
+    STATUS_onoff="0,1"
+    SECURITYIE="0,1,2,3"
+
+    CIPHERSUITE="0,2,4,16,24,32,128"
+    AUTHLOCATION=",1,2,,4,,,,8"    
+    AKMMODE="0,1,2,4,8,16,32,64,128"
+
+    HIDE_SSID = "0,1"
+'> -->
+
+    
+    <!--信息-->
+    <div class="page-row">        
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">无线服务名称</label>
+                <span class="label form-if-setHtml" ng-bind="data.stName">--</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">SSID</label>
+                <span class="label form-if-setHtml" ng-bind="data.ssidName">--</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">状态</label>
+                <span class="label form-if-setHtml" ng-bind="data.status">--</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">安全IE类型</label>
+                <span class="label form-if-setHtml" ng-bind="data.securityIE">--</span>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">加密套件</label>
+                <span class="label form-if-setHtml"  ng-bind="data.cipherSuite">--</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">认证位置</label>
+                <span class="label form-if-setHtml" ng-bind="data.authLocation">--</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">客户端数量</label>
+                <span class="label form-if-setHtml" ng-bind="data.clinetCount">--</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">身份认证与秘钥管理模式</label>
+                <span class="label form-if-setHtml" ng-bind="data.akmMode">--</span>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">隐藏SSID</label>
+                <span class="label form-if-setHtml" ng-bind="data.hideSSID">--</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">最大上线终端个数</label>
+                <span class="label form-if-setHtml" ng-bind="data.maxClients">--</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">最大接收速率（Kbps）</label>
+                <span class="label form-if-setHtml" ng-bind="data.maxReceiveRatio">--</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">最大发送速率（Kbps）</label>
+                <span class="label form-if-setHtml" ng-bind="data.maxSendRatio">--</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">VLAN ID</label>
+                <span class="label form-if-setHtml" ng-bind="data.vlanId">--</span>
+            </div>
+        </div>  
+                                   
+    </div>                          
+
+</div>

@@ -1,0 +1,8 @@
+{
+  "Class": "3" ,
+  "DeviceNode": {"CPUID": "0", "Chassis": "0", "Slot": "2"},
+  "Name": "HP 870",
+  "PhysicalIndex": "2",
+  "Role": "2",
+  "VendorType": "1.3.6.1.4.1.25506.1.951"
+}

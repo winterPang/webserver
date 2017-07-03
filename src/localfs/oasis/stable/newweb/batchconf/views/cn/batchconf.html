@@ -1,0 +1,190 @@
+<div class="newdevmanage batchconf">
+    <div class="panel">
+        <div class="panel-body">
+            <div class="operates">
+                <i class="ret-mould" title="点击返回设备模板" ng-click="evts.retMould()"
+                   ng-show="flags.show_mould_li_table!='false'"></i>
+                <button type="button" class="btn-customer his-log pull-right" ng-hide="flags.currentStep==3"
+                        ng-click="evts.showHisConfListModal()">
+                    历史下发配置记录
+                </button>
+            </div>
+            <ul class="conf-mould" ng-show="flags.show_mould_li_table=='false'">
+                <li class="common-conf" ng-repeat="mould in moulds" ng-class="{disabled:!mould.is_open}"
+                    ng-click="evts.showMouldLiTable(mould.is_open)">
+                    <div class="mould-name">
+                        <h3 ng-bind="mould.mould_name"></h3>
+                    </div>
+                    <div class="mould-info">
+                        <span ng-bind="mould.mould_brief"></span>
+                        <span class="badge pull-right" ng-show="mould.mould_li.count!==undefined"
+                              ng-class="{warning:mould.mould_li.count<3,greate:mould.mould_li.count>4}"
+                              ng-bind="mould.mould_li.count"></span>
+                    </div>
+                </li>
+            </ul>
+            <div ng-show="flags.show_mould_li_table=='true'">
+                <div class="operates">
+                    <button type="button" class="btn-customer" ng-click="evts.showAddBaseMouldModal()">
+                        <i class="btn-icon icon-add"></i>增加
+                    </button>
+                    <button type="button" class="btn-customer" ng-click="evts.delLot()">
+                        <i class="btn-icon icon-add"></i>批量删除
+                    </button>
+                    <div class="pull-right">
+                        <input class="search-box" type="text" placeholder="search">
+                        <button class="btn-customer btn-search" ng-click="search()">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                </div>
+                <div bs-table="mouldLiTable"></div>
+            </div>
+            <div class="step3" ng-show="flags.currentStep==3">
+                <div class="operates" ng-if="flags.currentStep==3">
+                    <button type="button" class="btn-customer" ng-click="evts.sureConf()">
+                        <i class="btn-icon icon-add"></i>确认下发
+                    </button>
+                    <div class="pull-right">
+                        <input class="search-box" type="text" placeholder="search">
+                        <button class="btn-customer btn-search" ng-click="search()">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                </div>
+                <div bs-table="confList"></div>
+            </div>
+        </div>
+    </div>
+    <div bs-modal="addBaseMouldModal">
+        <form class="form-horizontal">
+            <div class="form-group">
+                <button type="button" class="btn-customer pull-right" style="margin-right:0;"
+                        ng-click="evts.jumpHighConf()">高级设置
+                </button>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">配置模板名称 <span
+                        class="label-require">*</span></label>
+                <div class="col-xs-7">
+                    <input class="form-control" placeholder="1-63个字符">
+                </div>
+            </div>
+            <div class="form-group">
+                <h4 class="col-xs-11">基础设置</h4>
+                <hr class="col-xs-11" style="margin:0;">
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">服务模板名称 <span
+                        class="label-require">*</span></label>
+                <div class="col-xs-7">
+                    <input class="form-control" placeholder="1-63个字符">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">SSID <span
+                        class="label-require">*</span></label>
+                <div class="col-xs-7">
+                    <input class="form-control" placeholder="1-32个字符">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">缺省VLAN</label>
+                <div class="col-xs-7">
+                    <input class="form-control" placeholder="1-4094，缺省为1">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">最大客户端数量</label>
+                <div class="col-xs-7">
+                    <input class="form-control" placeholder="1-2007">
+                </div>
+            </div>
+            <div class="form-group">
+                <h4 class="col-xs-11">业务设置</h4>
+                <hr class="col-xs-11" style="margin:0;">
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">服务模板状态</label>
+                <label class="col-xs-2 text-left control-label"><input type="radio" name="mou_sta">开启</label>
+                <label class="col-xs-2 text-left control-label"><input type="radio" name="mou_sta">关闭</label>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">隐藏SSID</label>
+                <label class="col-xs-2 text-left control-label"><input type="radio"
+                                                                       name="hide_ssid">开启</label>
+                <label class="col-xs-2 text-left control-label"><input type="radio"
+                                                                       name="hide_ssid">关闭</label>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">探针</label>
+                <label class="col-xs-2 text-left control-label"><input type="radio" name="probe">开启</label>
+                <label class="col-xs-2 text-left control-label"><input type="radio" name="probe">关闭</label>
+            </div>
+        </form>
+    </div>
+    <div bs-modal="hisConfListModal">
+        <div bs-table="hisConfListTable"></div>
+    </div>
+    <form class="form-horizontal" bs-modal="screenMore">
+        <div class="form-group">
+            <label>设备类型：</label>
+            <select>
+                <option value="wireless-controller">无线控制器</option>
+                <option value="wireless-access-point">交换机</option>
+                <option value="router">路由器</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="label-select"><input ng-model="screen_method" type="radio" value="lb"
+                                               name="screen">按标签筛选</label>
+            <label class="branch"><input ng-model="screen_method" type="radio" value="br"
+                                         name="screen">按分支筛选</label>
+        </div>
+        <div class="form-group">
+            <div class="label-opt" ng-show="screen_method=='lb'">
+                <li class="c1">label1</li>
+                <li class="c2">label2</li>
+                <li class="c3">label3</li>
+                <li class="c4">label4</li>
+                <li class="c5">label5</li>
+            </div>
+            <div class="branch-opt" ng-show="screen_method=='br'">
+                <ul id="branchTree" class="ztree"></ul>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="un-select-all btn-customer pull-right" ng-click="evts.unSelectAll()"
+                    ng-show="screen_method=='lb'">取消选择
+            </button>
+        </div>
+    </form>
+    <div bs-modal="confInfoModal">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-xs-4 control-label">配置模板名称</label>
+                <span class="col-xs-7">无线配置1</span>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-4 control-label">无线探针</label>
+                <span class="col-xs-7">关闭</span>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-4 control-label">SSID</label>
+                <span class="col-xs-7">xiaocaiwifi</span>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-4 control-label">无线服务状态</label>
+                <span class="col-xs-7">开启</span>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-4 control-label">加密</label>
+                <span class="col-xs-7">加密</span>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-4 control-label">认证</label>
+                <span class="col-xs-7">不认证</span>
+            </div>
+        </div>
+    </div>
+</div>

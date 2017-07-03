@@ -1,0 +1,68 @@
+<div ng-init="
+    header_1='MAC地址';
+    header_2='IP地址';
+    header_3='终端厂商';
+    header_4='AP';
+    header_5='SSID'; 
+    header_6='未知';
+    apGroupName='AP名称';
+    clientCount_5='5 GHz客户端数量';
+    clientCount_2='2.4 GHz客户端数量';
+    ssidName='SSID';
+    modal_title='客户端统计';
+    modal_okText='关闭';
+    todayFlowHeader='MAC地址,用户名,流量';
+    ">
+    <div class="page-row">
+        <div class="col-xs-6 app-colum left-block"> 
+            <div class="app-box no-bk-color  app-box-slist custom-height" debug="byApList ap">
+                <div class="box-footer"> 
+                    <span class="title" ng-show="show.APList">基于AP统计</span>
+                    <span class="title" ng-show="!show.APList">基于SSID统计</span>
+                    <div class="pull-right">
+                        <button class="btn btn-cus"
+                                ng-click="leftSwitch('SSID')"
+                                ng-show="show.APList">基于SSID统计</button>
+                        <button class="btn btn-cus"
+                                ng-click="leftSwitch('AP')"
+                                ng-show="!show.APList">基于AP统计</button>
+                    </div>
+                </div> 
+                <div class="sysinfo-body" ng-show="show.APList">
+                    <div bs-table="options"></div>
+                </div>
+                <div class="sysinfo-body" ng-show="!show.APList">
+                    <div bs-table="ssidoptions"></div>
+                </div>
+            </div> 
+        </div>
+        <div class="col-xs-6 app-colum left-block"> 
+            <div class="app-box no-bk-color  app-box-slist custom-height" debug="bySsidList ssid">
+                <div class="box-footer">
+                    <span class="title" ng-show="show.today">今日流量排行 TOP5</span>
+                    <!--<span class="title" ng-show="!show.today">一周流量排行 TOP5</span>-->
+                    <div class="pull-right">
+                        <button class="btn btn-cus"
+                                ng-click="rightSwitch('today')"
+                                ng-show="!show.today">今日流量排行</button>
+                        <!--<button class="btn btn-cus"-->
+                                <!--ng-click="rightSwitch('week')"-->
+                                <!--ng-show="show.today">一周流量排行</button>-->
+                    </div>
+                </div> 
+                <div class="sysinfo-body" ng-show="show.today">
+                    <div bs-table="todayFlow"></div>
+                </div>
+                <!--<div class="sysinfo-body" ng-show="!show.today">-->
+                    <!--<div bs-table="weekFlow"></div>-->
+                <!--</div>-->
+            </div>     
+        </div>
+    </div>
+    <div bs-modal="maoxian1">
+        <div bs-table="maoxian"></div>
+    </div>
+    <div bs-modal="feifei">
+        <div bs-table="houzi"></div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+@import "../../frame/less/$variable";
+
+.app-manager {
+  .tabs-body {
+    padding: 20px 0;
+  }
+  .btn-group {
+    .btn-cus {
+      margin-right: 0;
+      &.active {
+        background-color: @btn-base-hover-bg;
+      }
+    }
+  }
+  [treenode] {
+    [treenode_switch] {
+      display: inline-block;
+    }
+    [treenode_a] {
+      width: 100%;
+      display: inline-block;
+    }
+    [treenode_switch],
+    [treenode_ico],
+    [treenode_edit],
+    [treenode_remove] {
+      margin: 4px;
+    }
+
+  }
+  [treenode_edit] {
+    float: right;
+    display: inline-block;
+    background-position: -109px -49px;
+  }
+  [treenode_remove] {
+    float: right;
+    display: inline-block;
+    background-position: -109px -65px;
+  }
+}

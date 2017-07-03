@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		
+		<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<link href="/v3/web/frame/css/register.css" rel="stylesheet" type="text/css"/>
+		
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+	<div class="backgroud_image">
+		<div class="register">
+			<form class="form-horizontal form-bordered form edit " onsubmit="return false">
+				<div class="register_page">
+					<ul class="nav sub-nav nav-tabs">
+						<li>
+							<a href="#phone" data-toggle="tab" class="phone_register"><span class="phone_icon"></span>注册新账号</a>
+						</li>
+					</ul>
+				</div>
+				<div class="tab-content" id="tabContent">
+					<div class="tab-pane fade in active" id="phone">
+						<form id = "registerFrom" class="form-horizontal form">
+							<div class="form-group">
+								<label class="col-sm-offset-1 col-sm-2 control-label required"><span class="emphsis"></span>邮箱地址</label>
+								<div class="col-sm-9">
+									<input type="text" class="string required" errid="mail_err" maxlength=32 id="email" name="email">
+									<br/>
+									<span class="error" id="mail_err" hidden>邮箱格式错误</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-offset-1 col-sm-2 control-label required"><span class="emphsis"></span>手机号码</label>
+								<div class="col-sm-9">
+									<input type="text" class=" string required" errid="telephone_error" maxlength=32 id="telephone" name="telephone">
+									<button class="send" hidden>发送验证码</button>
+									<!--<br/>-->
+									<span class="error" id="telephone_error" hidden>手机格式错误</span>
+								</div>
+							</div>
+							<div class="form-group" hidden>
+								<label class="col-sm-offset-1 col-sm-2  control-label required"><span class="emphsis"></span>验证码</label>
+								<div class="col-sm-9">
+									<input type="text" class=" string required" errid="identify_error" maxlength=32 id="identify" name="identify">
+									<br/>
+									<span class="error" id="identify_error" hidden></span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-offset-1 col-sm-2  control-label required"><span class="emphsis"></span>昵称</label>
+								<div class="col-sm-9">
+									<input type="text" class=" string required" errid="hname_error" maxlength=32 id="hname" name="hname">
+									<br/>
+									<span class="error" id="hname_error" hidden>昵称不能为空</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-offset-1 col-sm-2   control-label required"><span class="emphsis"></span>登录密码</label>
+								<div class="col-sm-9">
+									<input type="password" class=" string required" errid="password_error" maxlength=32 id="password" name="password">
+									<!--<br/>-->
+									<span class="error" id="password_error" hidden>密码长度不足</span>
+								</div>
+							</div>
+							<div class="form-group">
+								<label class="col-sm-offset-1 col-sm-2   control-label required"><span class="emphsis"></span>确认密码</label>
+								<div class="col-sm-9">
+									<input type="password" class=" string required" errid="conpassword_error" maxlength=32 id="conpassword" name="conpassword">
+									<!--<br/>-->
+									<span class="error" id="conpassword_error" hidden>两次密码不一致</span>
+								</div>
+							</div>
+							</form>
+							<div class="modal-footer">
+								<button class="btn btn-primary" id="registBtn">注册</button>
+							</div>
+					</div>
+				</div>
+				<div class="protocol">《绿洲》用户协议</div>
+			</form>
+		</div>
+	</div>
+	</body>
+</html>

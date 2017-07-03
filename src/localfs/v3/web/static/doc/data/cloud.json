@@ -1,0 +1,377 @@
+{
+	"doclist":[
+		{"Name":"文档1","Docindex":"1"}
+	]
+	,"AllItems" : [
+		{
+			"ItemName" : "认证设置"
+			,"SubItem":"查询认证模板(分页)"
+			,"Path":"/authcfg/query"
+			,"Method":"GET"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><authCfgTemplateName>模板名称，模糊匹配</authCfgTemplateName><startRowIndex>查询起始行号，从0开始</startRowIndex><maxItems>单页最大显示数量，默认50</maxItems><sortColumn>排序列名</sortColumn><ascending>是否升序，true：是；false：否</ascending>"
+			,"Error":"<e1001/>"
+			,"Return":"<authCfgTemplateName>name</authCfgTemplateName><authType>0</authType><isEnableSms>0</isEnableSms><isEnableAli>0</isEnableAli><isEnableWeixin>0</isEnableWeixin><isEnableAccount>1</isEnableAccount><isEnableQQ>0</isEnableQQ><uamAuthParamList><authParamName>ONLINE_MAX_TIME</authParamName><authParamValue>21600</authParamName></uamAuthParamList>"
+		},
+		{
+			"ItemName" : "认证设置"
+			,"SubItem":"增加认证模板"
+			,"Path":"/authcfg/add"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><authCfgTemplateName>模板名称，非空，不可修改，最大长度64</authCfgTemplateName><authType>认证类型，1：一键登录；2：帐号登录。非空</authType><isEnableSms>是否启用短信认证，0：否，1：是。默认0。非空</isEnableSms><isEnableWeixin>是否启用微信公众号认证，0：否，1：是。默认0。非空</isEnableWeixin><isEnableAli>是否启用支付宝认证，0：否，1：是。默认0。非空（暂不支持）</isEnableAli><isEnableAccount>是否启用固定帐号认证，0：否，1：是。默认1。非空</isEnableAccount><isEnableQQ>是否启用QQ认证，0：否，1：是。默认0。</isEnableQQ><uamAuthParamList><authParamName>ONLINE_MAX_TIME//每次认证允许上网时长（秒），整数类型，默认21600，非空</authParamName><authParamValue>21600</authParamValue><authParamName>URL_AFTER_AUTH//认证成功后跳转URL</authParamName><authParamValue/><authParamName>IDLE_CUT_TIME//闲置切断时长（分钟），整数类型，默认30，非空</authParamName><authParamValue>30</authParamValue><authParamName>IDLE_CUT_FLOW//闲置切断流量（字节），整数类型，默认10240，非空</authParamName><authParamValue>10240</authParamValue><authParamName>NO_SENSATION_TIME//无感知时长(天) ，整数类型，默认0（不启用），启用后取值范围为1-30，非空</authParamName><authParamValue>7</authParamValue></uamAuthParamList>"
+			,"Error":"<e1001/><e1003/><e1004/><e1101>允许上网时长必须为纯数字且在60-86400之间。</e1101><e1102>url格式为http://something 或 https://somthing。</e1102><e1103>闲置切断时长(分)不得超过上网时长(秒)且为纯数字。</e1103><e1104>闲置切断流量为纯数字且在1-1024000k之间。</e1104><e1105>认证模板“{0}”已存在。</e1105><e1107>无感知时长启用后取值范围为1-30.</e1107>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "认证设置"
+			,"SubItem":"修改认证模板"
+			,"Path":"/authcfg/modify"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><authCfgTemplateName>模板名称，非空，不可修改，最大长度64</authCfgTemplateName><authType>认证类型，1：一键登录；2：帐号登录。非空</authType><isEnableSms>是否启用短信认证，0：否，1：是。默认0。非空</isEnableSms><isEnableWeixin>是否启用微信公众号认证，0：否，1：是。默认0。非空</isEnableWeixin><isEnableAli>是否启用支付宝认证，0：否，1：是。默认0。非空（暂不支持）</isEnableAli><isEnableAccount>是否启用固定帐号认证，0：否，1：是。默认1。非空</isEnableAccount><isEnableQQ>是否启用QQ认证，0：否，1：是。默认0。</isEnableQQ><uamAuthParamList><authParamName>ONLINE_MAX_TIME//每次认证允许上网时长（秒），整数类型，默认21600，非空</authParamName><authParamValue>21600</authParamValue><authParamName>URL_AFTER_AUTH//认证成功后跳转URL</authParamName><authParamValue/><authParamName>IDLE_CUT_TIME//闲置切断时长（分钟），整数类型，默认30，非空</authParamName><authParamValue>30</authParamValue><authParamName>IDLE_CUT_FLOW//闲置切断流量（字节），整数类型，默认10240，非空</authParamName><authParamValue>10240</authParamValue><authParamName>NO_SENSATION_TIME//无感知时长(天) ，整数类型，默认0（不启用），启用后取值范围为1-30，非空</authParamName><authParamValue>7</authParamValue></uamAuthParamList>"
+			,"Error":"<e1001/><e1003/><e1004/><e1101>允许上网时长必须为纯数字且在60-86400之间。</e1101><e1102>url格式为http://something 或 https://somthing。</e1102><e1103>闲置切断时长(分)不得超过上网时长(秒)且为纯数字。</e1103><e1104>闲置切断流量为纯数字且在1-1024000k之间。</e1104><e1105>认证模板“{0}”已存在。</e1105><e1107>无感知时长启用后取值范围为1-30.</e1107>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "认证设置"
+			,"SubItem":"删除认证模板"
+			,"Path":"/authcfg/delete"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><authCfgTemplateName>模板名称，非空</authCfgTemplateName>"
+			,"Error":"<e1001/><e1106>认证模板“{0}”不存在。</e1106><e1109>认证模板已被发布管理使用，不能删除。</e1109>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "认证设置"
+			,"SubItem":"查询认证模板详细信息"
+			,"Path":"/authcfg/querybyname"
+			,"Method":"GET"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><authCfgTemplateName>模板名称，精确匹配，非空</authCfgTemplateName>"
+			,"Error":"<e1001/><e1106>认证模板“{0}”不存在。</e1106>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "页面模板"
+			,"SubItem":"查询页面模板（分页）"
+			,"Path":"/themetemplate/query"
+			,"Method":"GET"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><startRowIndex>查询起始行号，从0开始</startRowIndex><maxItems>单页最大显示数量，默认50</maxItems><sortColumn>排序列名</sortColumn><ascending>是否升序，true：是；false：否</ascending>"
+			,"Error":"<e1001/>"
+			,"Return":"<id>553</id><themeName>name</themeName><description>0</description><pathname>20151203094201</pathname>"
+		},
+		{
+			"ItemName" : "页面模板"
+			,"SubItem":"增加页面模板"
+			,"Path":"/themetemplate/add"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><themeName>模板名称，非空，最大长度32</themeName><description>描述，最大长度128</description>"
+			,"Error":"<e1001/><e1003/><e1201>页面模板“{0}”已存在。</e1201>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "页面模板"
+			,"SubItem":"修改页面模板"
+			,"Path":"/themetemplate/modify"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><themeName>模板名称，非空，不可修改，最大长度32</themeName><description>描述，最大长度128</description>"
+			,"Error":"<e1001/><e1003/><e1202>页面模板“{0}”不存在。</e1202>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "页面模板"
+			,"SubItem":"删除页面模板"
+			,"Path":"/themetemplate/delete"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><themeName>模板名称，非空</themeName>"
+			,"Error":"<e1001/><e1202>页面模板“{0}”不存在。</e1202>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "页面模板"
+			,"SubItem":"查询页面模板详细信息"
+			,"Path":"/themetemplate/ querybyname"
+			,"Method":"GET"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><themeName>模板名称，精确匹配，非空</themeName>"
+			,"Error":"<e1001/><e1201>页面模板“{0}”不存在。</e1201><e60015>模板被发布管理所使用不得删除</e60015><e70004>发布文件网络异常</e70004>"
+			,"Return":"<themeName>name</themeName><description>0</description>"
+		},
+		{
+			"ItemName" : "发布管理"
+			,"SubItem":"查询发布管理（分页）"
+			,"Path":"/pubmng/query"
+			,"Method":"GET"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><searchKey>名称、店铺名称、SSID、微信公众号、认证模板名称或页面模板名称中的一种，模糊匹配</searchKey><startRowIndex>查询起始行号，从0开始</startRowIndex><maxItems>单页最大显示数量，默认50</maxItems><sortColumn>排序列名</sortColumn><ascending>是否升序，true：是；false：否</ascending>"
+			,"Error":"<e1001/><e1005>startRowIndex和maxItems 必须为数字，需同时为空或非空。</e1005><e1007/>"
+			,"Return":"<shopName>shopName</shopName><ssidName>ssidName</ssidName><weixinAccountName>weixinAccountName</weixinAccountName><authCfgName>authCfgName</authCfgName><themeTemplateName>themeTemplateName</themeTemplateName><description>description</description><isPublished> 0 //0：未发布，1：已发布</isPublished>"
+		},
+		{
+			"ItemName" : "发布管理"
+			,"SubItem":"增加发布管理"
+			,"Path":"/pubmng/add"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><name>发布管理名称，非空，最大长度64</name><shopName>场所名称，非空，最大长度32</shopName><ssidName>SSID名称，最大长度32</ssidName><weixinAccountName>微信公众号名称，最大长度128</weixinAccountName><authCfgName>认证配置名称，非空，最大长度64</authCfgName><themeTemplateName>页面模板名称，非空，最大长度32</themeTemplateName><description>描述，最大长度256</description>"
+			,"Error":"<e1001/><e1003/><e1007/><e1301>场所“{0}”不存在。</e1301><e1302>SSID“{0}”不存在。</e1302><e1303>微信公众号“{0}”不存在。</e1303><e1304>认证配置“{0}”不存在。</e1304><e1305>页面模板“{0}”不存在。</e1305><e1306>发布管理“{0}”已存在。</e1306>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "发布管理"
+			,"SubItem":"修改发布管理"
+			,"Path":"/pubmng/modify"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><name>发布管理名称，非空，最大长度64</name><weixinAccountName>微信公众号名称，最大长度128</weixinAccountName><authCfgName>认证配置名称，非空，最大长度64</authCfgName><themeTemplateName>页面模板名称，非空，最大长度32</themeTemplateName><description>描述</description>"
+			,"Error":"<e1/><e1001/><e1003/><e1007/><e1303>微信公众号“{0}”不存在。</e1303><e1304>认证配置“{0}”不存在。</e1304><e1305>页面模板“{0}”不存在。</e1305><e1307>发布管理“{0}” 不存在。</e1307>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "发布管理"
+			,"SubItem":"删除发布管理"
+			,"Path":"/pubmng/delete"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><name>发布管理名称，非空，最大长度64</name>"
+			,"Error":"<e1/><e1001/><e1003/><e1007/><e1307>发布管理“{0}” 不存在。</e1307>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "发布管理"
+			,"SubItem":"发布/取消发布"
+			,"Path":"/pubmng/publish"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><name>发布管理名称，非空, 最大长度64</name><isPublish>是否发布，true:发布;false:取消发布</isPublish>"
+			,"Error":"<e1001/><e1003/><e1007/><e1307>发布管理“{0}” 不存在。</e1307>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "发布管理"
+			,"SubItem":"查询发布管理详细信息"
+			,"Path":"/pubmng/querybyname"
+			,"Method":"GET"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><name>发布管理名称，非空, 最大长度64</name>"
+			,"Error":"<e1001/><e1003/><e1007/><e1307>发布管理“{0}” 不存在。</e1307>"
+			,"Return":"<shopName>shopName</shopName><ssidName>ssidName</ssidName><weixinAccountName>weixinAccountName</weixinAccountName><authCfgName>authCfgName</authCfgName><themeTemplateName>themeTemplateName</themeTemplateName><description>description</description><isPublished> 0 //0：未发布，1：已发布</isPublished>"
+		},
+		{
+			"ItemName" : "访客列表"
+			,"SubItem":"查询访客（分页）"
+			,"Path":"/registuser/query"
+			,"Method":"GET"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><userType>用户类型，1：一键认证；2：短信认证；3：微信客户端认证（暂不支持）；4支付宝认证（暂不支持）；5：QQ认证；6：微信公众号认证；100：固定账号认证。精确匹配</userType><userName>访客名称，模糊匹配</userName><storeName>场所名称，精确匹配</storeName><startRowIndex>查询起始行号，从0开始</startRowIndex><maxItems>单页最大显示数量，默认50</maxItems><sortColumn>排序列名</sortColumn><ascending>是否升序，true：是；false：否</ascending>"
+			,"Error":"<e1001/><e1005>startRowIndex和maxItems 必须为数字，需同时为空或非空。</e1005><e1007/>"
+			,"Return":"<userName>dlc</userName><userType>100</userType><loginTime>1448327789670</loginTime><storeName>七天酒店</storeName><isBlackUse>false</isBlackUse>"
+		},
+		{
+			"ItemName" : "访客列表"
+			,"SubItem":"增加固定账号"
+			,"Path":"/registuser/add"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><userName>访客名称，非空，最大长度128</userName><userPassword>密码，非空，最大长度32</userPassword><passwordConform>确认密码，非空</passwordConform><storeName>场所名称，非空</storeName>"
+			,"Error":"<e1001/><e1003/><e1007/><e1401>两次输入的密码不一致。</e1401><e1402>场所“{0}”不存在。</e1402><e1403>访客“{0}”已存在。</e1403><e1405>访客“{0}”增加失败，缓存消息发送失败</e1405>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "访客列表"
+			,"SubItem":"修改固定账号密码"
+			,"Path":"/registuser/modify"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><userName>访客名称，不可修改，最大长度128</userName><userPassword>密码，非空，最大长度32</userPassword><passwordConform>确认密码，非空</passwordConform><storeName>场所名称，非空</storeName>"
+			,"Error":"<e1001/><e1003/><e1007/><e1401>两次输入的密码不一致。</e1401><e1404>访客“{0}”不存在。</e1404>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "访客列表"
+			,"SubItem":"删除访客"
+			,"Path":"/registuser/delete"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><userName>访客名称，非空</userName><storeName>场所名称，非空</storeName>"
+			,"Error":"<e1001/><e1007/><e1404>访客“{0}”不存在。</e1404>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "访客列表"
+			,"SubItem":"查询访客详细信息"
+			,"Path":"/registuser/ querybyname"
+			,"Method":"GET"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><userName>访客名称，非空</userName><storeName>场所名称，非空</storeName>"
+			,"Error":"<e1001/><e1007/><e1404>访客“{0}”不存在。</e1404>"
+			,"Return":"<userName>dlc</userName><userType>100</userType><loginTime>1448327789670</loginTime><storeName>七天酒店</storeName><isBlackUse>false</isBlackUse>"
+		},
+		{
+			"ItemName" : "访客列表"
+			,"SubItem":"加入黑名单"
+			,"Path":"/registuser/addtoblackList"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><userName>访客名称，非空</userName><storeName>场所名称，非空</storeName>"
+			,"Error":"<e1001/><e1007/><e1405>访客“{0}”增加失败，缓存消息发送失败</e1405><e1406>黑名单用户“{0}”已存在</e1406>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "访客列表"
+			,"SubItem":"解除黑名单"
+			,"Path":"/registuser/removefromblackList"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><userName>访客名称，非空</userName><storeName>场所名称，非空</storeName>"
+			,"Error":"<e1001/><e1007/><e1404>场所“{0}”不存在。</e1404><e1407>黑名单用户“{0}”不存在。</e1407>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "微信公众号"
+			,"SubItem":"查询微信公众号（分页）"
+			,"Path":"/weixinaccount/query"
+			,"Method":"GET"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><name>公众号名称，模糊匹配</name><appId>AppID，模糊匹配</appId><startRowIndex>查询起始行号，从0开始</startRowIndex><maxItems>单页最大显示数量，默认50</maxItems><sortColumn>排序列名</sortColumn><ascending>是否升序，true：是；false：否</ascending>"
+			,"Error":"<e1001/>"
+			,"Return":"<name>dlc123</name><appId>APPID</appId><appSecret>APPSECRET</appSecret><token>DF5K4RG6</token>"
+		},
+		{
+			"ItemName" : "微信消息"
+			,"SubItem":"增加微信消息"
+			,"Path":"/custommsg/add"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><name>消息名称，非空，最大长度128</name><messageType>消息类型，1：文字消息；2：图文消息。默认2，非空</messageType><customMessageSubList><title>a // 图文消息标题，最大长度128，非空，允许重复</title><imgFilePath>/web/apps/o2o/message/uam/custom/ // 图片路径，最大长度256</imgFilePath><imgFileName>282541a50d923a1bc5850e1244e0a834.jpg // 图片名称，最大长度256</imgFileName><messageUrl>abc.com // 图文链接，最大长度256</messageUrl><content> // 文字消息内容，当类型为文字消息时非空，最大长度512</content><priority>1 //图文消息优先级</priority></customMessageSubList>"
+			,"Error":"<e1001/><e1003/><e1601>微信消息“{0}”已存在。</e1601>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "微信消息"
+			,"SubItem":"修改微信消息"
+			,"Path":"/custommsg/modify"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><name>消息名称，非空，不可修改，最大长度128</name><messageType>消息类型，1：文字消息；2：图文消息。默认2，非空，不可修改</messageType><customMessageSubList><title>a // 图文消息标题，最大长度128，</title><imgFilePath>/web/apps/o2o/message/uam/custom/ // 图片路径，最大长度256</imgFilePath><imgFileName>282541a50d923a1bc5850e1244e0a834.jpg // 图片名称，最大长度256</imgFileName><messageUrl>abc.com // 图文链接，最大长度256</messageUrl><content> // 文字消息内容，当类型为文字消息时非空，最大长度512</content><priority>1 //图文消息优先级</priority></customMessageSubList>"
+			,"Error":"<e1001/><e1003/><e1602>微信消息“{0}”已存在。</e1602>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "微信公众号"
+			,"SubItem":"增加微信公众号"
+			,"Path":"/weixinaccount/add"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><name>公众号名称，非空，最大长度128</name><appId>AppID ，非空，最大长度64</appId><type>公众号类型，1：订阅号；2：服务号；3企业号。默认1，非空</type><appSecret>APPSECRET，非空，最大长度64</appSecret><encodingAesKey>加密密钥，非空</encodingAesKey><cipherMode>加解密类型，1：明文模式；2：兼容模式；3：安全模式。默认2，非空</cipherMode><token>TOKEN，非空</token><ifWeixinAuth>是否经过腾讯认证，0：否；1：是。默认0，非空</ifWeixinAuth><url>微信公众平台访问公众号服务器的路径，此路径需要配置到微信公众平台上，非空，最大长度64</url><description> 描述，最大长度256</description>"
+			,"Error":"<e1001/><e1003/><e1501>公众号名称仅支持6-20个字母、数字、下划线或减号的组合，必须以字母开头。</e1501><e1502>TOKEN必须为英文或数字，长度为3-32个字符。</e1502><e1503>消息加密密钥由43位字符组成，可以是数字或字母。</e1503><e1504>公众号名称“{0}”已存在。</e1504>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "微信公众号"
+			,"SubItem":"修改微信公众号"
+			,"Path":"/weixinaccount/modify"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><name>公众号名称，非空，不可修改，最大长度128</name><appId>AppID ，非空，最大长度64</appId><type>公众号类型，1：订阅号；2：服务号；3企业号。默认1，非空</type><appSecret>APPSECRET，非空，最大长度64</appSecret><encodingAesKey>加密密钥，非空，最大长度32</encodingAesKey><cipherMode>加解密类型，1：明文模式；2：兼容模式；3：安全模式。默认2，非空</cipherMode><token>TOKEN，非空，最大长度256</token><ifWeixinAuth>是否经过腾讯认证，0：否；1：是。默认0，非空</ifWeixinAuth><url>微信公众平台访问公众号服务器的路径，此路径需要配置到微信公众平台上，非空，不可修改，最大长度64</url><description> 描述，最大长度256</description>"
+			,"Error":"<e1001/><e1003/><e1501>公众号名称仅支持6-20个字母、数字、下划线或减号的组合，必须以字母开头。</e1501><e1502>TOKEN必须为英文或数字，长度为3-32个字符。</e1502><e1503>消息加密密钥由43位字符组成，可以是数字或字母。</e1503><e1505>公众号名称“{0}”已存在。</e1505>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "微信公众号"
+			,"SubItem":"删除微信公众号"
+			,"Path":"/weixinaccount/delete"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><name>公众号名称，非空</name>"
+			,"Error":"<e1001/><e1505>公众号名称“{0}”不存在。</e1505><e1506>公众号已被发布管理使用，不能删除。</e1506>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "微信公众号"
+			,"SubItem":"查询公众号详细信息"
+			,"Path":"/weixinAccount/ querybyname"
+			,"Method":"GET"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><name>公众号名称，非空</name>"
+			,"Error":"<e1001/><e1505>公众号名称“{0}”不存在。</e1505>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "微信消息"
+			,"SubItem":"查询微信消息（分页）"
+			,"Path":"/custommsg/query"
+			,"Method":"GET"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><name>消息名称，模糊匹配</name><messageType>消息类型，1：文字消息；2：图文消息</messageType><startRowIndex>查询起始行号，从0开始</startRowIndex><maxItems>单页最大显示数量，默认50</maxItems><sortColumn>排序列名</sortColumn><ascending>是否升序，true：是；false：否</ascending>"
+			,"Error":"<e1001/>"
+			,"Return":"<name>dlc123</name><messageType>1</messageType>"
+		},
+		{
+			"ItemName" : "微信消息"
+			,"SubItem":"删除微信消息"
+			,"Path":"/custommsg/delete"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><name>消息名称</name>"
+			,"Error":"<e1001/><e1602>微信消息“{0}”不存在。</e1602>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "微信消息"
+			,"SubItem":"查询微信消息详细信息"
+			,"Path":"/custommsg/ querybyname"
+			,"Method":"GET"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><name>消息名称</name>"
+			,"Error":"<e1001/><e1602>微信消息“{0}”不存在。</e1602>"
+			,"Return":""
+		},
+		{
+			"ItemName" : "请求数据列表"
+			,"SubItem":"请求场所名称列表"
+			,"Path":"/shop/ queryshopnames"
+			,"Method":"GET"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName>"
+			,"Error":""
+			,"Return":"<longze/><huilongguan/>"
+		},
+		{
+			"ItemName" : "请求数据列表"
+			,"SubItem":"请求SSID名称列表"
+			,"Path":"/ssid/ queryssidnames"
+			,"Method":"GET"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName>"
+			,"Error":""
+			,"Return":"<longze/><huilongguan/>"
+		},
+		{
+			"ItemName" : "请求数据列表"
+			,"SubItem":"请求微信公众号名称列表"
+			,"Path":"/weixin/ queryweixinnames"
+			,"Method":"GET"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName>"
+			,"Error":""
+			,"Return":"<h3c/><baidu/>"
+		},
+		{
+			"ItemName" : "请求数据列表"
+			,"SubItem":"请求认证模板名称列表"
+			,"Path":"/authcfg/ queryauthcfgnames"
+			,"Method":"GET"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName>"
+			,"Error":""
+			,"Return":"<h3c/><baidu/>"
+		},
+		{
+			"ItemName" : "请求数据列表"
+			,"SubItem":"请求页面模板名称列表"
+			,"Path":"/theme/ querythemenames"
+			,"Method":"GET"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName>"
+			,"Error":""
+			,"Return":"<h3c/><baidu/>"
+		},
+		{
+			"ItemName" : "在线访客"
+			,"SubItem":"查询在线访客（分页）"
+			,"Path":"/onlineuser/query"
+			,"Method":"GET"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><userName>访客名称，模糊匹配</userName><userType>访客类型，1：一键认证；2：短信认证；3：微信认证（暂不支持）；4：支付宝认证（暂不支持）；5：QQ认证（暂不支持）；6：微信公众号认证；100：固定账号认证</userType><ipFrom>起始查询ip地址</ipFrom><ipTo>终止查询ip地址</ipTo><mobileNo>手机号码，模糊匹配</mobileNo><mac>Mac地址，模糊匹配</mac><storeName>场所名称，精确匹配，非空</storeName><startRowIndex>查询起始行号，从0开始</startRowIndex><maxItems>单页最大显示数量，默认50</maxItems><sortColumn>排序列名</sortColumn><ascending>是否升序，true：是；false：否</ascending>"
+			,"Error":"<e1001/><e1801>场所“{0}”不存在。</e1801>"
+			,"Return":"<userName>dlc123</userName><userType>1</userType><accessStartTime>1449554306327 // 单位：毫秒</accessStartTime><accessDuration>10 // 单位：秒</accessDuration><accessAcIp>10.152.3.30</accessAcIp><accessSsid>ssi</accessSsid><userIp>172.10.2.54</userIp><userMac>aa:bb:cc:dd:ee:ff</userMac><devManufacture>lenovo</devManufacture><devOsType>android</devOsType><storeName>macdownload</storeName>"
+		},
+		{
+			"ItemName" : "在线访客"
+			,"SubItem":"强制下线"
+			,"Path":"/onlineuser/kickout"
+			,"Method":"POST"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><storeName>场所名称，非空</storeName><data><userIp>访客IP地址，非空</userIp><userName>访客名称，非空</userName></data>"
+			,"Error":"<e1001/><e1801>场所“{0}”不存在。</e1801><e1802>场所名称不能为空</e1802><e1803>访客IP不能为空</e1803><e1804>访客名称不能为空</e1804>"
+			,"Return":"<success><zhangsan/><Lisi/></success><failed><userName>Wangwu</userName><message>Online user {0} not exist</message><userName>maliu</userName><message>Interval server error</message></failed>"
+		},
+		{
+			"ItemName" : "历史明细"
+			,"SubItem":"查询历史明细（分页）"
+			,"Path":"/accessdetail/query"
+			,"Method":"GET"
+			,"Parameters":"<ownerName>用户名称，精确匹配，非空</ownerName><userName>访客名称，模糊匹配</userName><userType>访客类型，1：一键认证；2：短信认证；3：微信认证（暂不支持）；4：支付宝认证（暂不支持）；5：QQ认证（暂不支持）；6：微信公众号认证；100：固定账号认证</userType><ipFrom>场所名称，非空</ipFrom><ipTo>终止查询ip地址</ipTo><mobileNo>手机号码，模糊匹配</mobileNo><mac> Mac地址，模糊匹配</mac><storeName>场所名称，精确匹配，非空</storeName><startRowIndex>查询起始行号，从0开始</startRowIndex><maxItems>单页最大显示数量，默认50</maxItems><sortColumn>排序列名</sortColumn><ascending>是否升序，true：是；false：否</ascending>"
+			,"Error":"<e1001/><e1901>场所“{0}”不存在。</e1901>"
+			,"Return":"<userName>dlc123</userName><userType>1</userType><accessStartTime>1970-01-01 08:00:00</accessStartTime><accessDuration>10秒</accessDuration><accessEndTime>1978-04-01 02:00:00</accessEndTime><accessAcIp>10.152.3.30</accessAcIp><accessSsid>ssid</accessSsid><userIp>172.10.2.54</userIp><userMac>aa:bb:cc:dd:ee:ff</userMac><devManufacture>lenovo</devManufacture><devOsType>android</devOsType><storeName>macdownload</storeName>"
+		}
+	]
+	
+}

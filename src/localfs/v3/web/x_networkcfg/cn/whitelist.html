@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .mb20 {
+            margin-bottom: 20px;
+        }
+        .title {
+            color: #323232;
+            font-size: 14px;
+            font-weight: 900;
+        }
+        /* 未被访问的链接 */
+        .bac{
+            background:url(../frame/images/grid-loading.gif) no-repeat;
+            width:60px;
+            height:60px;
+            background-size:60px 60px;
+            top:50%;
+            left:50%;
+            margin-left:-30px;
+            margin-top:-30px;
+        }
+        #btNone{
+            border-top:none !important;
+        }
+        .pos-abs{
+            position:absolute;
+        }
+        .pos-rel{
+            position:relative;
+        }
+        .fullSpace{
+            width:100%;
+            height:100%;
+        }
+        .stOnline{
+            width:0;
+            height:0;
+            top:50%;
+            left:50%;
+            margin-top:-6px;
+            margin-left:-6px;
+            border:6px solid #4ec1b2;
+            border-radius:50%;
+            -webkit-border-radius:50%;
+            -ms-border-radius:50%;
+        }
+        .stOffline{
+            width:0;
+            height:0;
+            top:50%;
+            left:50%;
+            margin-top:-6px;
+            margin-left:-6px;
+            border:6px solid #ccc;
+            border-radius:50%;
+            -webkit-border-radius:50%;
+            -ms-border-radius:50%;
+        }
+        .mp{
+            margin-top:3px;
+        }
+        .box-body {
+            height:100% !important;
+        }
+        .pos-rel{
+            position:relative;
+        }
+        .pos-abs{
+            position:absolute;
+        }
+        .yd1{
+            height:17px;
+            width:5px;
+            background:#4ec1b2;
+            left:16px;;
+            top:26px;
+        }
+        .space-22{
+            height:40px;
+        }
+        .operateBtn{
+            width:150px;
+            height:20px;
+            right:-150px;
+            top:8px;
+            text-align:center;
+            line-height:20px;
+            color:#4ec1b2;
+            cursor:pointer;
+            transition:.1s all ease-out;
+            -webkit-transition:.1s all ease-out;
+            -o-transition:.1s all ease-out;
+            -ms-transition:.1s all ease-out;
+        }
+        .operateBox{
+            width:75px;
+            height:20px;
+            text-align:center;
+            line-height:20px;
+            color:#4ec1b2;
+            cursor:pointer;
+            transition:.1s all ease-out;
+            -webkit-transition:.1s all ease-out;
+            -o-transition:.1s all ease-out;
+            -ms-transition:.1s all ease-out;
+            float:left;
+        }
+        .operateBtn .delBtn:hover{
+            font-size:18px;
+        }
+        .operateBtn .addBtn:hover{
+            font-size:18px;
+        }
+        .errVal{
+            background:#f2caca !important;
+        }
+        .tips{
+            padding: 10px 20px 0px 20px;margin-bottom: -10px;color: #000
+          }
+    </style>
+<body>
+
+<div class="dashboard">
+    <div class="page-row custom xxb app-colum">
+        <div class="app-box">
+            <div class="box-footer">
+                <span class="title">设置白名单</span>
+            </div>
+            <div class="col-xs-12">
+                <div class="box-body no-height">
+                    <div claa="content-title pos-rel"><div class="pos-abs yd1"></div>添加白名单</div>
+                    <div class="space-22"></div>
+                    <div class="col-xs-4 addBox">
+                        <div class="col-xs-12 pos-rel addLine">
+                            <input class="form-control  addData" value="" type="text">
+                            <div class="operateBtn pos-abs">
+                                <div class="delBtn  operateBox">删除</div>
+                                <div class="addBtn  operateBox">继续添加</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 space-22"></div>
+                    <!--提交按钮-->
+                    <div class="col-xs-12">
+                        <button class="btn btn-primary btn_ok hidemodify" id="urlChange">提交修改</button>
+                    </div>
+                    <div class="col-xs-12 space-22"></div>
+                    <div class="page-row">
+                        <!--配置表格-->
+                        <div class="col-xs-7">
+                            <div id="identification" class="simple-list"></div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="col-xs-12">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hide modal fade" id="failcfgDlg">
+    <div id="client_diag">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="closeX"></button>
+            <h3 class="modal-title">配置失败列表</h3>
+        </div>
+        <!-- <span id="tip" style=" color:red; display: none;">下发失败的原因是设备离线</span> -->
+        <div style="padding: 10px 20px 0px 20px;margin-bottom: -10px;color: #000">
+              <strong>Tips：设备版本低不支持此配置，请先升级设备版本</strong> 
+            </div>
+        <div class="modal-body">
+            <form class="form edit" id="sign">
+            </form>
+            <div id="failList" class="simple-list showList"></div>
+        </div>
+        <div class="modal-footer form-actions">
+            <!-- <a class="btn btn-primary" id="failConform">确定</a> <a class="btn btn-primary" id="failClose">关闭</a> -->
+        </div>
+    </div>
+</div>
+
+
+<div class="rc-define" id="auth_rc"
+     LIST_TITLE="域名,"
+     ID_STOP=""
+     PENDING_MSG="配置下发中,云端配置下发成功,白名单列表获取中,白名单删除成功,白名单删除失败,白名单添加成功,白名单添加失败"
+     ID_OPERATION="删除,继续添加"
+     ID_MSG="请输入有效的URL,白名单总量请不要超过10条,批量删除"
+     STATE="在线,离线"
+     DEV_LIST="设备序列号,状态"
+
+
+     CONFIRM_TITLE = "确认提示"
+     RADIO_CHANGE="修改"
+     RADIO_LIST="关闭,开启"
+     RADIO_STATUES="在线,离线"
+     RADIO_NULL="配置未修改"
+     RADIO_CODE="成功,格式错误,权限问题,设备端超时,主链接问题,webserver内部逻辑错误,webserver与设备端同学异常,微服务消息处理异常"
+     RADIO_SLIST="设备序列号,状态"
+     QUE_SUCC="配置成功"
+
+></div>
+</body>
+</html>
+<script type="text/javascript">
+    Utils.Pages.loadJS("x_networkcfg.whitelist");
+</script>

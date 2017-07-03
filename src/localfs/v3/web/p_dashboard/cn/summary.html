@@ -1,0 +1,525 @@
+<html>
+<head>
+</head>
+<body>
+<div class="dashboard">
+	<div class="page-row" style="background:initial;" id="level" debug="getLogStats">
+		<div class="col-xs-12 app-colum left-block">
+			<div class="app-box no-bk-color">
+				<div class="box-footer">
+					<div class="col-xs-10">
+						<span class="title">日志信息</span>
+					</div>
+					<div class="text-right link-container">
+						<a type="button" class="link-detail" id="submit_scan" href="waring.index" title="详情">
+							<i class="detail-icon icon"></i>
+						</a>
+					</div> 
+				</div>
+				<div class="col-xs-12 middle-cell">
+					<div id="emergency" value="0" class="col-xs-6 col-xs-3">
+						<div class="syslog-info bg-transparent" style="margin-left:10px;">	
+							<div class="icon-container">
+								<i class="syslog-icon emergency-icon"></i>					
+							</div>							
+							<div class="text-right syslog-value">
+								<div class="log-count number color_emergency" value="0"></div>
+								<div class="log-title">紧急</div>
+							</div>
+							<div class="form-label hide">紧急 / 注意</div>								
+						</div>
+					</div>
+
+					<div id="alert" value="1" class="col-xs-6 col-xs-3">
+						<div class="syslog-info bg-transparent " style="margin-left:10px;">
+							<div class="icon-container">
+								<i class="syslog-icon critical-icon"></i>					
+							</div>								
+							<div class="text-right syslog-value">
+								<div class="log-count number color_critical" value="1"></div>
+								<div class="log-title">危险</div>
+							</div>
+							<div class="form-label hide">危险 / 错误</div>
+						</div>									
+					</div>
+
+					<div id="critical" value="2" class="col-xs-6 col-xs-3">
+						<div class="syslog-info bg-transparent" style="margin-left:10px;">
+							<div class="icon-container">
+								<i class="syslog-icon warning-icon"></i>					
+							</div>								
+							<div class="text-right syslog-value">
+								<div class="log-count number color_warning"value="2"></div>
+								<div class="log-title">警告</div>
+							</div>
+							<div class="form-label hide">警告 / 通知</div>
+						</div> 
+					</div>
+
+					<div id="error" value="3" class="col-xs-6 col-xs-3">
+						<div class="syslog-info last-child bg-transparent" style="margin-left:10px;">
+							<div class="icon-container">
+								<i class="syslog-icon info-icon"></i>					
+							</div>							
+							<div class="text-right syslog-value">
+								<div class="log-count number color_info" value="3"></div>
+								<div class="log-title">报告</div>
+							</div>
+							<div class="form-label hide">报告 / 调试</div>
+						</div>
+					</div>			
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="page-row xxb">
+	    <div class="col-xs-6 app-colum left-block" debug="getClientCount initApTraffic">
+	        <div class="app-box no-bk-color">
+	            <div class="box-body midl-height">
+                <div class="index_inner_div index_inner_div_left_top">
+                    <div class="col-xs-6 index_div_wrapper_multiple"style="padding:0px;">
+                        <div id="client-count" class="index_div_lu" style="color: #343e4e;margin-top:18px;"></div>
+                        <p class="index_div_lu_desc">当前回头客</p>
+                    </div>
+                    <div class="col-xs-6 returning-customer">
+                        <div class="returning-icon returning-position"></div>
+                    </div>
+                </div>
+
+                <div class="index_inner_div index_inner_div_right_top">
+                    <div class="col-xs-6 index_div_wrapper_multiple"style="padding:0px;">
+                        <div id="online_new_user" class="index_div_lu" style="color: #343e4e;margin-top:18px;"></div>
+                        <p class="index_div_lu_desc">当前新宾客</p>
+                    </div>
+                    <div class="col-xs-6 returning-customer">
+                        <div class="returning-icon new-customer"></div>
+                    </div>
+                </div>
+                <div class="index_inner_div index_inner_div_left_bottom">
+                    <div class="col-xs-6 ad_view">
+                        <div class="click-img view"></div>
+                    </div> 
+                    <div class="col-xs-6 ad_view ml7">
+                     	<!-- <div id="client-count" class="click-num">0</div> -->
+                     	<div id="ad-count" class="click-num"></div>
+                        <p class="margin-tl">广告浏览量</p>
+                    </div>   
+                </div>
+
+                <div class="index_inner_div index_inner_div_right_bottom">
+                    <div class="col-xs-6 ad_view">
+                        <div class="click-img num"></div>
+                    </div> 
+                    <div class="col-xs-6 ad_view ml7">
+                        <!-- <div id="clickCount" class="click-num">0</div> -->
+                        <div id="clickCount" class="click-num"></div>
+                        <p class="margin-tl">广告点击数</p>
+                    </div>
+                </div>
+            </div>
+	        </div>
+	    </div>
+	    <div class="col-xs-6 app-colum left-block" debug="getUserChange">
+	        <div class="app-box no-bk-color">
+	            <div class="box-footer">
+	                <div class="col-xs-4">
+	                    <span class="title">在线宾客变化</span>
+	                </div>
+	                <div class="time-change">
+	                    <a id="days" class="time-link active">一天</a>
+	                    <a id="weeks" class="time-link">一周</a>
+	                    <a id="mounth" class="time-link">一月</a>
+	                </div>
+	            </div>
+	            <div class="box-body echart-height form-group body-nopadding">
+
+	                <div id="userchange" class="col-xs-12 myEchart"></div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<div class="page-row">
+		<div class="col-xs-12 app-colum left-block">
+			<div class="app-box no-bk-color">
+				<div class="col-sm-4 col-xs-4">
+					<div class="box-footer align-center">
+						<span class="c-title">认证终端</span>
+					</div>
+					<div class="box-body echart-height form-group">
+						<div id="pie_terminal" class="col-xs-12 myEchart"></div>
+					</div>
+				</div>
+				<div class="col-sm-4 col-xs-4">
+					<div class="box-footer align-center">
+						<span class="c-title">终端类型</span>
+					</div>
+					<div class="box-body echart-height form-group" style="padding-top:0px;">
+						<div id="Terminal_type" class="col-xs-12 myEchart"></div>
+					</div>
+					
+				</div>
+				<div class="col-sm-4 col-xs-4">
+					<div class="box-footer align-center">
+						<span class="c-title">终端厂商</span>
+					</div>
+					<div class="box-body echart-height form-group" style="padding-top:0px;">
+						<div id="Terminal_firm" class="col-xs-12 myEchart"></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="page-row">
+		<div class="col-xs-6 app-colum left-block">
+			<div class="app-box no-bk-color" style="height:300px;">
+				<div class="box-footer ">
+			        <div class="col-xs-3">
+          				<span class="title">AP</span>
+      				</div>
+      				<div class="text-right link-container">
+        				<a type="button" class="refresh" id="refresh_ssid">
+            			<i class="refresh-icon icon"></i>
+        				</a>
+     				</div> 
+			    </div>
+				
+                <span class="client-title online-ap">在线AP数</span>
+                <span id="Current" class="client-count online-ap online-ap-num"></span>
+                <span class="client-title total-ap">AP总数</span>
+                <span id="totalAp" class="client-count  total-ap total-ap-num"></span>
+			
+				<div class="box-body echart-height form-group">
+					<div id="pie_aps" class="col-xs-12 myEchart"></div>
+				</div>
+			</div>
+		</div>
+		<div class="col-xs-6 app-colum left-block"id="aps_page" debug="getHealth">
+			<div class="app-box no-bk-color" style="height:300px">
+				<div class="box-footer">
+					<div class="col-xs-3">
+						<span class="title">综合健康度</span>
+					</div>
+					<div class="text-right link-container">
+						<a type="button" class="link-detail" tab="0" id="system">系统信息</i></a>
+					</div> 
+				</div>
+		
+				<div class="box-body echart-height form-group col-xs-12">
+					<div class="col-xs-6">
+						<div class="row-nohover row-clear padding0" style="padding: 0px;">
+							<div id="score-pie" class="myEchart chartStyle"></div> 
+						</div>
+						<div style="color: #ffa5af;position:absolute;  top: 160px;" id="terminalMessage" debug='["getHealthScore"]'></div>
+						<!-- <div style="color: #ffa5af;position:absolute;  top: 170px;" id="terminalMessage" debug='["getHealthScore"]'>打败了全国<span>0</span>%的用户，需要看病啦~(&gt;o&lt;)</div> -->
+					</div>
+					<div class="col-xs-6 right01">
+						<div class="row-clear padding0">
+							<!-- <div id="apphealth" class="myEchart chartStyle"></div> -->
+							<div class="right_health">
+								<div class="health_title">
+									<div>上行剩余带宽</div>
+									<div id="raty_score_1" class="health_value"></div>
+								</div>
+								<div class="health_title">
+									<div>AP在线率</div>
+									<div id="raty_score_2" class="health_value"></div>
+								</div>
+								<div class="health_title">
+									<div>终端速率</div>
+									<div id="raty_score_3" class="health_value"></div>
+								</div>
+								<div class="health_title">
+									<div >安全评价</div>
+									<div id="raty_score_4" class="health_value"></div>
+								</div>
+								<div class="health_title">
+									<div >无线环境</div>
+									<div id="raty_score_5" class="health_value"></div>
+								</div>
+								<div class="health_title">
+									<div >系统健康度</div>
+									<div id="raty_score_6" class="health_value"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="page-row">
+		<div class="col-xs-12 app-colum left-block">
+			<div class="app-box no-bk-color no-height default-bottom">
+					<div class="box-footer ">
+						<span class="title">无线服务</span>
+					</div>
+					<div class="sysinfo-body no-height">
+						<div id="slist_one_list" class="simple-list"></div>
+					</div>
+			</div>
+		</div>
+	</div>
+	<div class="page-row">
+		<div class="col-xs-12 app-colum left-block">
+			<div class="app-box no-bk-color">
+				<div class="index-group hide" id="charts">
+					<div class="col-sm-12">
+						<div class="box-footer ">
+							<span class="title">流量监控</span>
+							<div class="text-right link-container">
+				                <a type="button" class="refresh" id="refresh_usage"><i class="refresh-icon icon"></i></a>
+				                <a type="button" class="filter" id="filter_usage"><i class="filter-icon icon"></i></a>
+				                <div class"hide" id="usage_block">
+					            	<div class="filter-container">
+					            		<label>上行口：</label>
+					            		<select id="SetfigUpport" name="SetfigUpport" class="big singleSelect"></select>
+					            	</div>
+					            </div>
+		            		</div>
+						</div>
+						<div class="sysinfo-body" >
+							<div id="usage" name="usage" class="myEchart dashboard-usage" debug="getUsage"></div>
+			    		</div>
+			    	</div>
+			    </div>
+					<div class="index-group" id="config">
+					    <div class="box-footer" style="background:initial;">
+							<div class="col-xs-12">
+							    <span class="title">流量监控</span>
+							</div>
+					    </div>
+					    <div  class="dashboard-usage-box" >
+							<div class="col-sm-7">
+			                    <label class="col-sm-3 control-label ">请选择上行口</label>
+			                    <div class="col-sm-9">
+			                        <select id="ConfigUpport" name="ConfigUpport" class="big singleSelect"></select>
+								        <a class="dashboard-button-row btn" id="submit">
+								        <i class="icon-ok"></i>确定</a>
+			                    </div>
+			                </div>
+			                  
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="hide modal fade" id="AddApDlg">
+    <div class="modal-body">
+        <form class="form edit addInternet" id="AddInternetForm">
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">上行带宽:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="upband_id" name ="ap_name" errid="ap_name_error" maxlength=3 onKeyUp="this.value=this.value.replace(/\D/g,'')"/>
+                    <label class="info-explain">Mbps</label>
+                    <!-- <label class="info-explain">（1-64字符）</label> -->
+                    <label class="error" id="ap_name_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">下行带宽:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="downband_id" name ="ap_SN" errid="ap_SN_error" maxlength=3 onKeyUp="this.value=this.value.replace(/\D/g,'')"/>
+                    <label class="info-explain">Mbps</label>
+                    <label class="error" id="ap_SN_error"></label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div id="client_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">客户端统计</h3>
+    </div>
+    <div class="modal-body">
+        <div id="popList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">关闭</a>
+    </div>
+</div>
+<div id="ByPortal_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">认证终端</h3>
+    </div>
+    <div class="modal-body">
+        <div id="ByPortalPopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+<div id="ByType_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">终端类型</h3>
+    </div>
+    <div class="modal-body">
+        <div id="ByTypePopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+<div id="ByFirm_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">终端厂商</h3>
+    </div>
+    <div class="modal-body">
+        <div id="ByFirmPopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+<div class="hide modal fade"id="devDlg">
+	<form class="form edit" id="system_form">
+		<div class="row-clear padding0" debug="getGaugeCpu">
+			<div class="col-xs-6 file-container" style="margin-left: -15px;">
+				<div id="flash" class="col-xs-6">
+					<div id="gauge_cpu" class="myEchart"></div>
+				</div>
+				<div id="cfcardA" class="col-xs-6">
+					<div id="gauge_mem" class="myEchart"></div>
+				</div>
+			</div>
+			<div class="col-xs-6">
+				<div class="app-content"  style="color:#80878c;" id="version_block">
+					<div class="page-row odd">
+						<div class="utilization-height">
+							<div class="col-xs-5">
+								<span class="form-label">设备型号：</span>
+							</div>
+							<div class="col-xs-7 text-left">
+								<span id="devMode"></span>
+							</div>
+						</div>
+					</div>
+					<div class="page-row odd">
+						<div class="utilization-height">
+							<div class="col-xs-5">
+								<span class="form-label">序列号：</span>
+							</div>
+							<div class="col-xs-7 text-left">
+								<span id="SerialNumber"></span>
+							</div>
+						</div>
+					</div>
+					<div class="page-row even">
+						<div class="utilization-height">
+							<div class="col-xs-5">
+								<span class="form-label">基线版本：</span>
+							</div>
+							<div class="col-xs-7 text-left">
+								<span id="devSoftVersion"></span>
+							</div>
+						</div>
+					</div>
+					<div class="page-row even">
+						<div class="utilization-height">
+							<div class="col-xs-5">
+								<span class="form-label">软件版本：</span>
+							</div>
+							<div class="col-xs-7 text-left">
+								<span id="devHardVersion"></span>
+							</div>
+						</div>
+					</div>
+					<div class="page-row odd">
+						<div class="utilization-height">
+							<div class="col-xs-5">
+								<span class="form-label">Bootrom版本：</span>
+							</div>
+							<div class="col-xs-7 text-left">
+								<span id="devBootWare"></span>
+							</div>
+						</div>
+					</div>     
+						<div class="page-row odd">
+						<div class="utilization-height">
+							<div class="col-xs-5">
+								<span class="form-label">V2连接状态：</span>
+							</div>
+							<div class="col-xs-7 text-left">
+								<span id="devCloudConnectionState"></span>
+							</div>
+						</div>
+					</div> 
+						<div class="page-row odd">
+						<div class="utilization-height">
+							<div class="col-xs-5">
+								<span class="form-label">V3连接状态：</span>
+							</div>
+							<div class="col-xs-7 text-left">
+								<span id="devv3CloudConnectionState"></span>
+							</div>
+						</div>
+					</div>               
+				</div>
+			</div>
+		</div>
+	</form>
+</div>
+<div id="app_syslog_rc" class="rc-define"
+	HEADER_SYSLOG="日志信息"
+	level_0 ="紧急"
+	level_1 ="警报"
+	level_2 ="危险"
+	level_3 ="错误"
+	level_4 ="警告"
+	level_5 ="通知"
+	level_6 ="报告"
+	level_7 ="调试"
+	VIEW_DETAILS="详细信息"
+	SLIST_ONE_LABELS="SSID,SSID状态,SSID类型,认证方式,客户端数,绑定AP数,绑定AP组数"
+	STREAM="上行流,下行流"
+	STREAM_WAN="G5上行流,G5下行流,G6上行流,G6下行流"
+	STATUS = "开启,关闭"
+	PORTALSTA="认证终端,非认证终端"
+	UNIT_STREAM="流量"
+	UNIT_TIME="时间"
+	ADD_TITLE = "Internet带宽设置"
+	TIP_PROFIX1 = "被"
+	TIP_PROFIX2 = "打败了"
+	TIP1 = "%的绿洲用户打败，累觉不爱... ..."
+	TIP2 = "%的绿洲用户，设备需要体检啦~~"
+	TIP3 = "%的绿洲用户，还可以更棒呦~"
+	TIP4 = "%的绿洲用户，觉着自己萌萌哒~"
+	TIP5 = "%的绿洲用户，简直~太~赞~啦！"
+    TX = "提醒："
+    JY = "建议："
+    WIFI_TERMINAL = "您的设备关联较多的终端,为客流较大的区域增加设备，以提供足够的网络服务,优质终端比例无问题"
+    CPU_TILIZATION ="您的设备CPU占用率较高,请尝试重启设备，并检查是否有软件版本可升级,系统运行状态无问题"
+    MEMORY_UTLIZATION = "--,--,设备疲劳度无问题"
+    SAFE_VALUATION= "改为内部Wi-Fi,配置加高,设备在线率无问题"
+    BANDWIDTH_SPEED= "您的宽带使用已达极限,开启宾客限速功能或运营商购买更多带宽,Internet带宽无问题"
+    WiFi_ENVIROMENT = "请执行无线环境优化,-- ,环境无线干扰无问题"
+    PORTAL_TERMINAL = "MAC地址,IP地址,终端厂商,AP,SSID"
+	FORM_TITLE="系统利用率"
+	cpu="CPU"
+	memory="内存"
+	Connect_Sta="已连接,连接中断"
+	Connect_Stav3="已连接,连接中断"
+	WL_SSID_TYPE = "内部Wi-Fi,商业Wi-Fi"
+	WL_AUTH_TYPE = "不认证,一键认证,账号认证"
+	CLINUM = "终端数"
+	PEOPLE = "人"
+	OTHER = "其他"
+	LEAVE = "离开"
+	HUAWENXIHEI = "华文细黑"
+	ERROR = "连接错误"
+	ONLINEAP = "在线AP"
+	OFFLINEAP= "离线AP"
+	ZONGLIANG = "总量"
+	LIULIANG = "流量"
+	WEIZHI = "未知"
+    ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("p_dashboard.summary");
+</script>

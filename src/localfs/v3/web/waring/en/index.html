@@ -1,0 +1,66 @@
+<html>
+
+<head>
+    <link href="../waring/warning.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height default-bottom">
+            <div class="box-footer">
+                <span class="title">Alert Log</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="waring_list" class="simple-list">
+                    <div id="warn_check">
+                        <input type="checkbox" id="all">
+                        <label for="all">All</label>
+
+                        <input type="checkbox" id="jinji">
+                        <label for="jinji">Emergency</label>
+
+                        <input type="checkbox" id="yanzhong">
+                        <label for="yanzhong">Critical</label>
+
+                        <input type="checkbox" id="jinggao">
+                        <label for="jinggao">Warning</label>
+
+                        <input type="checkbox" id="tishi">
+                        <label for="tishi">Informational</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<iframe id="exportFile" name="exportFile" style="display: none"></iframe>
+
+<div id="waring_rc" class="rc-define"
+     WARING_ITEM = "Source, Module, Level, Message, Time"
+     ONLINE = "Online"
+     OFFLINE = "Offline"
+     UN_OPERATION = "Unprocessed"
+     SYNC_NOW = "Synchronize Now"
+     EXPORT_LOG = "Export Log"
+     LOGLEVEL = "Emergency, Emergency, Critical, Critical, Warning, Warning, Informational, Informational"
+     TRYAGAIN = "Please try again"
+     TODAY = "Today"
+     UNSYNC = "Not synchronized"
+     LASTSYNC = "Last synchronization at:"
+     NOLOGFILE = "No log file for the device."
+     NOAUTHORITY = "You are not authorized to manage the device."
+     CONNFAILED = "Cannot connect to"
+     PLEASEWAIT = "Synchronizing. Please wait…"
+     DEVBUSY = "The device is busy. Please try again."
+     NOLOGEXPORT = "No alert event to be exported."
+     GETTINGDATA = "Obtaining data. Please wait…"
+	 NOWARNING = "No matching warning info found"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("waring.index");
+</script>

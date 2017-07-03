@@ -1,0 +1,133 @@
+<div class="liveness js-apinfo">
+  <!--  <div class="page-row" style="margin-top:-30px">
+       <div class="col-xs-12 app-colum left-block">
+           <button type="button" ng-click ="linkToDetail($event)" class="btn btn-default pull-right link-btn" title="详情">
+            <span class="glyphicon glyphicon-th-list" style="margin-right: 10px;"></span>终端详情
+           </button>
+       </div>
+    </div> -->
+     <div class="dashboard total_clients">
+        <wirelesscount sn="{{sceneInfo.sn}}"></wirelesscount> 
+        <xanthcount sn="{{sceneInfo.sn}}"></xanthcount>
+        <noiserate sn="{{sceneInfo.sn}}"></noiserate>  
+        <div class="page-row">
+            <div class="col-xs-6 app-colum left-block">
+                <div class="app-box no-bk-color">
+                    <div class="box-footer">
+                        <span class="title">在线时长分布与排行（天）</span>
+                    </div>
+                    <div class="box-body no-height table-padding">
+                        <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+                        <div class="col-xs-7">
+                            <div ng-show="!showOnlineTimeNodataFlag" id="online_time" style="width: 99%;height:200px;"></div>
+                            <echart-nodata-pie ng-if="showOnlineTimeNodataFlag" style="width: 99%;height:200px;" id='online_time_nodata'></echart-nodata-pie>
+                            <div style="height:100px">
+                                <div class="value-ui">
+                                    <span class="value-ui-font" ng-bind="maxOnlinetimeVal"></span>
+                                    <span  class="value-ui-unit" ng-bind="maxOnlinetimeUnit"></span>
+                                    <span class="value-ui-fontSize">最大值</span>
+                                </div>
+                                <div class="value-ui">
+                                    <span  class="value-ui-font" ng-bind="averageOnlinetimeVal"></span>
+                                    <span  class="value-ui-unit" ng-bind="averageOnlinetimeUnit"></span>
+                                    <span class="value-ui-fontSize">平均值</span>
+                                </div>
+                                <div class="value-ui">
+                                    <span  class="value-ui-font" ng-bind="minOnlinetimeVal"></span>
+                                    <span  class="value-ui-unit" ng-bind="minOnlinetimeUnit"></span>
+                                    <span class="value-ui-fontSize">最小值</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-5">
+                            <span class="top-title">终端在线时长TOP7(小时)</span>
+                            <div class="top-progress-block" ng-repeat = "v in onlineTimeTop">
+                                <span  ng-bind="v.titleText"></span>
+                                <span  class="topUnit" ng-bind="v.titleValue"></span>
+                                <div class="progress top-progress">
+                                    <div class="progress-bar progress-bar-success" 
+                                    ng-class="v.color"
+                                    role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" 
+                                ng-style="{width: v.percent}">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 app-colum left-block">
+                <div class="app-box no-bk-color">
+                    <div class="box-footer">
+                        <span class="title">终端流量分布与排行（天）</span>
+                    </div>
+                    <div class="box-body no-height table-padding">
+                        <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+                       <div class="col-xs-7">
+                            <div ng-show="!showTeminalFlowNodataFlag" id="teminal_flow" style="width:99%;height:200px;"></div>
+                            <echart-nodata-pie ng-if="showTeminalFlowNodataFlag" style="width: 99%;height:200px;" id='teminal_flow_nodata'></echart-nodata-pie>
+                            <div style="height:100px">
+                                <div class="value-ui">
+                                    <span class="value-ui-font" ng-bind="maxTeminalFlowVal"></span>
+                                    <span  class="value-ui-unit" ng-bind="maxTeminalFlowUnit"></span>
+                                    <span class="value-ui-fontSize">最大值</span>
+                                </div>
+                                <div class="value-ui">
+                                    <span  class="value-ui-font" ng-bind="averageTeminalFlowVal"></span>
+                                    <span  class="value-ui-unit" ng-bind="averageTeminalFlowUnit"></span>
+                                    <span class="value-ui-fontSize">平均值</span>
+                                </div>
+                                <div class="value-ui">
+                                    <span  class="value-ui-font" ng-bind="minTeminalFlowVal"></span>
+                                    <span  class="value-ui-unit" ng-bind="minTeminalFlowUnit"></span>
+                                    <span class="value-ui-fontSize">最小值</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-5">
+                            <span class="top-title">终端流量TOP7</span>
+                            <div class="top-progress-block" ng-repeat = "v in terminalFlowTop">
+                                <span  ng-bind="v.titleText"></span>
+                                <span class="topUnit" ng-bind="v.titleValue"></span>
+                                <div class="progress top-progress">
+                                    <div class="progress-bar progress-bar-success" 
+                                        ng-class="v.color"
+                                        role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" 
+                                    ng-style="{width: v.percent}">
+                                    </div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+    
+    <div bs-modal="clientByTimeOption" >
+        <div bs-table="clientByTimeList"></div>
+    </div>
+
+    <div bs-modal="clientByFlowOption" >
+        <div bs-table="clientByFlowList"></div>
+    </div>
+    <div bs-modal="clientByNoiseOption" >
+        <div bs-table="clientByNoiseTable"></div>
+    </div>
+    <div bs-modal="clientByRateOption" >
+        <div bs-table="clientByRateTable"></div>
+    </div>
+    <div class="read_rc" id="liveness88_index"
+        TimeUnit="天,小时,分钟"
+        ClientByTimeOption = "终端详情列表"
+        clientByTimeListCols= "MAC,IP地址,在线时长,厂商,关联AP名称"
+        clientByFlowOption = "终端流量列表"
+        teminalFlowFormatPie = "终端数"
+        teminalFlowPieName = "终端流量"
+        clientByFlowListCols = "MAC,IP地址,流量,厂商,关联AP名称"
+        NoiseInfo = "MAC地址,信噪比"
+        rateInfo ="MAC地址,协商速率"
+    >       
+    </div>
+</div>

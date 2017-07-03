@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <!--小贝->终端信息页面->终端上下线历史模块-->
+    <!--负责人：jinfeng kf6102-->
+    <div class='app-box'>
+        <div class="box-footer">
+            <div class="title">Client Online Offline History</div>
+        </div>
+        <div class="box-body no-height">
+            <div id="clientHistory_slist" class="simple-list"></div>
+        </div>
+    </div>
+<div id="terminal_rc" class="rc-define"
+     clientHistory="Time, MAC, IP, SSID, AP, Type, Reason"
+        ></div>
+</body>
+</html>
+<script>
+    Utils.Pages.loadJS("health.clienthistory");
+</script>

@@ -1,0 +1,68 @@
+<html>
+<head>
+<style type="text/css">
+.c-infor-text{
+    font-size: 36px;
+    color: #4EC1B2;
+    margin-left: 10px;
+}
+.c-infor-explain{
+    font-size: 16px;
+    color: #8B9E9C;
+}
+.change-range{
+    cursor: pointer;
+    font-size: 16px;
+        margin-right: 5px;
+    margin-left: 2px;
+}
+.change-range:hover{
+    color: #4EC1B2;
+}
+.change-range.active{
+    color: #4EC1B2;
+}
+#clear{
+    display: inline-block;
+    height: 17px;
+    width: 17px;
+    background: url(../../web/frame/css/image/xb-icons.png) no-repeat;
+    background-position: -456px -126px;
+    cursor: pointer;
+    margin-top: 16px;
+    float: left;
+}
+#clear:hover{
+    background-position: -428px -126px;
+}
+</style>
+</head>
+<body>
+
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">手环监控</span>
+            <span id="clear" title="清空数据"></span>
+            <div class="text-right link-container">
+               <a type="button" class="change-range active" range="0">一周</a>|
+               <a type="button" class="change-range"  range="1">一天</a>|
+               <a type="button" class="change-range"  range="2">一小时</a>
+            </div>
+        </div>
+        <div class="box-body no-height">
+            <div id="InforList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+    
+<div id="c_infor_rc" class="rc-define"
+    INFOR_HEAD="MAC,学生姓名,最近连接时间,举手次数,剩余电量,计步,卡路里(Kcal),距离(Km)"
+    TIME="天,小时,分钟,秒"
+    REQ_ERROR="数据请求错误，请您刷新页面重试。"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.bracelet");
+</script>

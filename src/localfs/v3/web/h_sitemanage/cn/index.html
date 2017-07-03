@@ -1,0 +1,69 @@
+<html>
+<head>
+</head>
+
+<body>
+	<div class="page-row">
+	    <div class="col-xs-12 app-colum">
+	        <div class="app-box no-height">
+	            <div class="box-footer">
+	                <span class="title">场所列表</span>
+	            </div>
+	            <div class="box-body no-height">
+	                <div id="site_list" class="simple-list"></div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<div id="guest_rc" class="rc-define"
+	    GUEST_HEAD = "场所名称,关联设备,设备类型,场所地址,联系电话,操作列"
+	    ADD_FORM_TITLE = "增加固定账户"
+	    EDIT_FORM_TITLE = "修改密码"
+	    ADD_BLACK = "加入黑名单"
+	    DEL_BLACK = "解除黑名单"
+	    PUTOUT = "导出"
+	    CHECK_PUTOUT = "查看导出结果"
+	    DELETE = "删除"
+	    REFRESH = "刷新"
+	    test1 = "固定账号认证"
+	    NAME ="龙冠N103外网实验室"
+	    LOCATION = "北京市昌平区298#"
+	        >
+	</div>
+
+
+
+	<div class="modal fade modal-super" id="flowdetailDlg" tabindex="-1" aria-hidden="true" style="margin-top: -148px; display: none;">
+	    <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+	        <h3>场所管理</h3>
+	    </div>
+	    <form class="form-horizontal form" id="flowdetail_form">
+	        <div class="box-body no-height form-group">
+	            <div class="page-row">
+	                <div class="col-xs-12 app-colum">
+	                    <div class="app-box no-height default-bottom">
+	                        <div class="box-footer">
+	                            <span class="title">场所详细信息</span>
+	                        </div>
+	                        <div class="box-body no-height">
+	                            <div id="flowdetail_list" class="simple-list" style=""></div>
+	                        </div>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	        <div class="modal-footer form-actions"></div>
+	    </form>
+	    <div class="editor-alert">
+
+	    </div>
+	</div>
+
+
+</body>
+</html>
+
+<script type="text/javascript">
+	Utils.Pages.loadJS("h_sitemanage.index");
+</script>

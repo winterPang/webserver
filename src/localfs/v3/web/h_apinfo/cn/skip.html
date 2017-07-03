@@ -1,0 +1,29 @@
+<html>
+
+<head>
+</head>
+
+<body>
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height default-bottom">
+            <div class="box-footer">
+                <span class="title">无线服务</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="skip_list" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="skip_rc" class="rc-define"
+     SKIP_ITEM = "AP名称,AP型号,序列号,MAC地址,AP组名称,射频信息,AP状态"
+     FRESH = "刷新"
+        ></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_apinfo.skip");
+</script>

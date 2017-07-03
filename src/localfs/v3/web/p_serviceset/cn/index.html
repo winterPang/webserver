@@ -1,0 +1,419 @@
+<html>
+<head>
+<link href="../../web/wireless/wireless.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">无线服务配置</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="ssidList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade modal-super" id="TerminalInfoDlgAP" tabindex="-1" aria-hidden="true">
+   <!--  下面的表单是用来弹窗的,弹出的窗是具体的信息 -->
+    <form class="form-horizontal form" id="view_client_form">
+        <div class="box-body no-height form-group">
+            <div class="page-row">
+                <div class="col-xs-12 app-colum">
+                    <div class="app-box no-height default-bottom">
+                        <div class="box-body no-height" id="frameList">
+                        <!-- 这个div就是和下面的div有一个间距而已 -->
+                            <div id="flowdetail_listAP" class="simple-list"></div>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer form-actions"></div><!-- 这里是用来绑定取消按钮的 -->
+    </form>
+    <div class="editor-alert">
+    </div>
+</div>
+<div class="modal fade modal-super" id="TerminalInfoDlgAPGroup" tabindex="-1" aria-hidden="true" style="margin-top: -148px; display: none;">
+   <!--  下面的表单是用来弹窗的,弹出的窗是具体的信息 -->
+    <form class="form-horizontal form" id="view_client_form1">
+        <div class="box-body no-height form-group">
+            <div class="page-row">
+                <div class="col-xs-12 app-colum">
+                    <div class="app-box no-height default-bottom">
+                        <div class="box-body no-height" id="frameList"><!-- 这个div就是和下面的div有一个间距而已 -->
+                            <div id="flowdetail_listAPGroup" class="simple-list" style=""></div><!-- 所有的弹框信息，每条数据都在这个div里呢 -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer form-actions"></div><!-- 这里是用来绑定取消按钮的 -->
+    </form>
+    <div class="editor-alert">
+    </div>
+</div>
+
+
+
+
+<div class="hide" id="ssidToggle">
+    <form id="toggle_form" class="form edit">
+        <div class="col-sm-6 response-block">
+            <div class="form-group" hidden>
+                <label class="col-sm-3 control-label">服务类型</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-3">
+                        <input type="radio" id="STT1" name="StType" value="1" ctrlBlock=".st-type" content="#StaffBlock,#WeixinBlock,#MailBlock" checked/>
+                        <label for="STT1">企业员工</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="radio" id="STT2" name="StType" value="2" ctrlBlock=".st-type" content="#WeixinBlock,#PwdBlock" />
+                        <label for="STT2" >企业访客</label>
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="radio" id="STT3" name="StType" value="3" ctrlBlock=".st-type" content="#CorpoBlock,#WeixinBlock,#PwdBlock" />
+                        <label for="STT3">商业免费无线</label>
+                    </div>
+                </div>
+            </div>
+
+             <div class="form-group">
+                <label class="col-sm-3 control-label required">SSID</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="SSID" readonly/>
+                    <label class="info-explain">（1-32字符）</label>
+                    <label class="error" id="SSID_error"></label>
+                </div>
+            </div>
+
+            <div class="form-group" hidden>
+                <label class="col-sm-3 control-label required">接入密码</label>
+                <div class="col-sm-9">
+                    <div class="st-type" id="StaffBlock">
+                        <div class="col-sm-3">
+                            <input type="radio" id="APS1" name="AccPwdStaff" value="2" checked  ctrlBlock=".pwd-block" content="#PwdBlock"/>
+                            <label for="APS1">静态密码</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="radio" id="APS2" name="AccPwdStaff" value="1"  ctrlBlock=".pwd-block"/>
+                            <label for="APS2">企业个人密码</label>
+                            <label class="info-explain">(802.1X)</label>
+                        </div>
+                    </div>
+
+                    <div class="st-type hide" id="CorpoBlock">
+                        <div class="col-sm-3">
+                            <input type="radio" id="APC1" name="AccPwdCorpo" value="2" checked/>
+                            <label for="APC1">使用密码</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="radio" id="APC2" name="AccPwdCorpo" value="0" />
+                            <label for="APC2">不使用密码</label>
+                        </div>
+                    </div>
+
+                    <div class="pwd-block" id="PwdBlock">
+                        <input type="text" class="anumber big required" id="PskPassPhraseKey" min=8 maxlength=63 placeholder="*********"/>
+                        <label class="error" id="PskPassPhraseKey_error"></label>
+                        <br/>
+                        <label class="info-explain">说明：密码由8～63位数字和（或）字母组成</label>
+                        <label class="info-explain hide">说明：可能存在安全隐患，请谨慎选择</label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group" hidden>
+                <label class="col-sm-3 control-label">二层隔离</label>
+                <div class="col-sm-9">
+                    <input type="checkbox" class="switch" id="UserIsolation" name="UserIsolation"/>
+                    <br/>
+                    <label class="info-explain">说明：开启后，无线接入用户间无法互访</label>
+                </div>
+            </div>
+
+            <div class="form-group" hidden>
+                <label class="col-sm-3 control-label">最大带宽占比</label>
+                <div class="col-sm-9">
+                    <input type="text" class="digits big" id="Percent" min=1 max=100 maxlength=3/>
+                    <label class="info-explain">（1-<span id="percentMax">100</span>）%</label>
+                    <label class="error" id="Percent_error"></label>
+                    <br/>
+                    <label class="info-explain">说明：配置该无线服务占用出口总带宽的最大百分比</label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 response-block">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">认证方式</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-12">
+                        <input type="radio" value="AT1" id="AT1" name="AuthenType" ctrlBlock=".ath-type" content="" checked/>
+                        <label for="AT1">不认证</label>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <input type="radio" value="AT2" id="AT2" name="AuthenType" ctrlBlock=".ath-type" content="" />
+                        <label for="AT2" >一键上网</label>
+                    </div>
+
+                    <div class="col-sm-12 st-type" id="MailBlock" >
+                        <input type="radio" value="AT3" id="AT3" name="AuthenType" ctrlBlock=".ath-type" content="#LoginWays" />
+                        <label for="AT3">账号登录</label>
+                        <div id="LoginWays" class="ath-type hide">
+                            <div class="col-sm-2">
+                                <input type="checkbox" value="短信认证" id="Message" name="LoginWays"/>
+                                <label for="Message">短信</label>
+                            </div>
+                            <div class="col-sm-3 account_style">
+                                <input type="checkbox" id="WeChart" name="LoginWays"/>
+                                <label for="WeChart">微信公众号</label>
+                            </div>
+                            <div class="col-sm-3 account_style">
+                                <input type="checkbox" id="FixAccount" name="LoginWays"/>
+                                <label for="FixAccount">固定账号</label>
+                            </div>
+                            <div class="col-sm-3 account_style">
+                                <input type="checkbox" id="isWeChatWifi" name="LoginWays"/>
+                                <label for="isWeChatWifi">微信连WIFI</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 st-type" id="WeixinBlock" >
+                        <input type="radio" value="AT4" id="AT4" name="AuthenType" ctrlBlock=".ath-type" content="#ModelSelect"/>
+                        <label for="AT4">选择认证模板</label>
+                        <div class="ath-type hide" id="ModelSelect">
+                            <!-- -->
+                            <select class="singleSelect"  allowClear="true" id="AuthCfgList" name="AuthCfgList">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">登录页面</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-12">
+                        <div class="col-sm-3">
+                            <input type="radio" id="LP1" value="LP1" name="LoginPage" value="1" ctrlBlock=".lg-page"/>
+                            <label for="LP1">简约</label>
+                        </div>
+                        <!--<div class="col-sm-2">-->
+                            <!--<a class="xb-link" id ="simpledraw">预览</a>-->
+                        <!--</div>-->
+                    </div>
+                    <!--
+                    <div class="col-sm-12">
+                        <div class="col-sm-3">
+                            <input type="radio" id="LP2" value="LP2" name="LoginPage" value="2" ctrlBlock=".lg-page"/>
+                            <label for="LP2">经典</label>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="xb-link">预览</a>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="col-sm-3">
+                            <input type="radio" id="LP3" value="LP3" name="LoginPage" value="3" ctrlBlock=".lg-page"/>
+                            <label for="LP3">自定义</label>
+                        </div>
+                        <div class="col-sm-2">
+                            <a class="xb-link" id = "">绘制</a>
+                        </div>
+                    </div>
+                    -->
+                    <div class="col-sm-12">
+                        <input type="radio" id="LP4" value="LP4" name="LoginPage" ctrlBlock=".lg-page" content="#LoginPageSelect">
+                        <label for="LP4">选择页面模板</label>
+                        <div class="lg-page hide" id="LoginPageSelect">
+                            <!--allowClear="false" 属性-->
+                            <select class="singleSelect"  id="LoginPageList" name="LoginPageList">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">微信公众号</label>
+                <div class="col-sm-9" id="WeChartSelect">
+                    <select class="singleSelect"  id="WeChartList" name="WeChartList">
+                    </select>
+                    <!--&nbsp;&nbsp;-->
+                    <!--<a class="xb-link">新建</a>-->
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">免认证</label>
+                <div class="col-sm-9">
+                    <input type="checkbox" class="switch" id="auto_study_enable" name="auth_study_group" checked ctrlBlock=".Learn-MAC"/>
+                    <div class="Learn-MAC">
+                        <!--<input type="checkbox" id="impose_auth" checked ctrlBlock=".Learn-Time" hidden/>
+                        <label for="impose_auth" hidden>限制免认证时长</label>
+                        <br>-->
+                        <div class="Learn-Time">
+                            <input type="text" class="string big" id="impose_auth_time" value="7"/>
+                            <label class="info-explain">(1-30)天</label>
+                        </div>
+                        <label class="info-explain">说明：通过认证的用户在免认证期内上线无需重复认证</label>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </form>
+</div>
+
+<div class="hide modal fade" id="AddSsidDlg">
+    <div class="modal-body">
+        <form class="form edit" id="AddSsidForm">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">服务类型</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-3">
+                        <input type="radio" id="STT1" name="StType" value="1" ctrlBlock=".st-type" content="#StaffBlock,#WeixinBlock,#MailBlock" checked/>
+                        <label for="STT1">企业员工</label>
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="radio" id="STT2" name="StType" value="2" ctrlBlock=".st-type" content="#WeixinBlock,#PwdBlock" />
+                        <label for="STT2" >企业访客</label>
+                    </div>
+                    <div class="col-sm-5">
+                        <input type="radio" id="STT3" name="StType" value="3" ctrlBlock=".st-type" content="#CorpoBlock,#WeixinBlock,#PwdBlock" />
+                        <label for="STT3">商业免费无线</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">SSID</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="ssid_name" name ="ssid_name" errid="ssid_name_error" maxlength=32 />
+                    <label class="info-explain">（1-32字符）</label>
+                    <label class="error" id="ssid_name_error"></label>
+                </div>
+            </div>
+
+            <div class="form-group" >
+                <label class="col-sm-3 control-label required">接入密码</label>
+                <div class="col-sm-9">
+                    <div class="st-type" id="StaffBlock">
+                        <div class="col-sm-3">
+                            <input type="radio" id="APS1" name="AccPwdStaff" value="2" checked  ctrlBlock=".pwd-block" content="#PwdBlock"/>
+                            <label for="APS1">静态密码</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="radio" id="APS2" name="AccPwdStaff" value="1"  ctrlBlock=".pwd-block"/>
+                            <label for="APS2">企业个人密码</label>
+                            <label class="info-explain">(802.1X)</label>
+                        </div>
+                    </div>
+
+                    <div class="st-type hide" id="CorpoBlock">
+                        <div class="col-sm-3">
+                            <input type="radio" id="APC1" name="AccPwdCorpo" value="2" checked/>
+                            <label for="APC1">使用密码</label>
+                        </div>
+                        <div class="col-sm-9">
+                            <input type="radio" id="APC2" name="AccPwdCorpo" value="0" />
+                            <label for="APC2">不使用密码</label>
+                        </div>
+                    </div>
+
+                    <div class="pwd-block" id="PwdBlock">
+                        <input type="password" class="anumber big required" id="PskPassPhraseKey" min="8" maxlength="63" />
+                        <input type="text" class="hide anumber big required" min="8" maxlength="63" errid="PskPassPhraseKey_error" id="PskPassPhraseText" style="display: none;">
+                        <span class="icon_eye" id="switch"></span>
+                        <label class="error" id="PskPassPhraseKey_error"></label>
+                        <br/>
+                        <label class="info-explain">说明：密码由8～63位数字和（或）字母组成</label>
+                        <label class="info-explain hide">说明：可能存在安全隐患，请谨慎选择</label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">二层隔离</label>
+                <div class="col-sm-9">
+                    <input type="checkbox" class="switch" id="UserIsolation" name="UserIsolation"/>
+                    <br/>
+                    <label class="info-explain">说明：开启后，无线接入用户间无法互访</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">最大带宽占比</label>
+                <div class="col-sm-9">
+                    <input type="text" class="digits big" id="Percent" min=1 max=100 maxlength=3/>
+                    <label class="info-explain">（1-<span id="percentMax">100</span>）%</label>
+                    <label class="error" id="Percent_error"></label>
+                    <br/>
+                    <label class="info-explain">说明：配置该无线服务占用出口总带宽的最大百分比</label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--<div class="hide modal fade" id="AddSsidDlg">-->
+    <!--<div class="modal-body">-->
+        <!--<form class="form edit" id="AddSsidForm">-->
+            <!--<div class="form-group">-->
+                <!--<label class="col-sm-3 control-label required">SSID</label>-->
+                <!--<div class="col-sm-9">-->
+                    <!--<input type="text" class="string big required" id="ssid_name" name ="ssid_name" errid="ssid_name_error" maxlength=32 />-->
+                    <!--<label class="info-explain">（1-32字符）</label>-->
+                    <!--<label class="error" id="ssid_name_error"></label>-->
+                <!--</div>-->
+            <!--</div>-->
+        <!--</form>-->
+    <!--</div>-->
+<!--</div>-->
+<div id="ws_ssid_rc" class="rc-define"
+     ALLAP_HEADER2="无线服务名称,SSID,认证方式,状态,绑定AP组,绑定AP"
+     SSID_HEADER = "SSID,认证方式"
+     ADD_TITLE = "增加服务"
+     AUTH_CFG = "不认证,微信认证,短信认证,一键上网,选择页面模板"
+     DEL_AUTH_FAIL = "删除发布模板失败"
+     DEL_PUB_SUCC = "取消发布成功"
+     PUB_SUCC = "发布成功"
+     ADD_SUCCESS = "添加成功"
+     ADD_FAIL = "添加失败"
+     ADD_NULL_SSID = "SSID不能为空"
+     DEL_SUCCESS = "删除成功"
+     DEL_FAIL = "删除失败"
+     AUTHEN_TYPE="不认证,一键上网,账号认证"
+     SYN="同步",
+     LINK="主连接已断开,添加失败",
+     LINK_delete="主连接已断开,删除失败",
+     ADD_Limit="服务模版已达到上限，添加失败"
+     TERINFO = "AP列表"
+     APGROUP = "AP组"
+     ALLAP_HEADER3="AP,描述,绑定"
+     ALLAP_HEADER4="AP组,描述,绑定"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("p_serviceset.index");
+</script>
+
+
+
+
+
+
+
+
+

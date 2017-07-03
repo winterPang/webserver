@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /*周期选择*/
+        .time-zone{
+            display: inline-block;
+        }
+
+        /*slist 调整*/
+        .slist-body .slist-head,.slist-body .slist-center .slist-row.even{
+            background-color: #EDF0F2;
+            transition:background 0.5s;
+            -moz-transition:background 0.5s; /* Firefox 4 */
+            -webkit-transition:background 0.5s; /* Safari and Chrome */
+            -o-transition:background 0.5s; /* Opera */
+        }
+
+        .slist-body .slist-center .slist-row.odd{
+            background-color: #ffffff;
+            transition:background 0.5s;
+            -moz-transition:background 0.5s; /* Firefox 4 */
+            -webkit-transition:background 0.5s; /* Safari and Chrome */
+            -o-transition:background 0.5s; /* Opera */
+        }
+
+        .slist-body .slist-center .slist-row:hover{
+            color:white;
+            background: #4ec1b2;
+        }
+
+        .daterange{
+            width: 200px;
+            height: 33px;
+            padding-left: 20px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border: #ccc solid 1px;
+
+        }
+
+        .radio-name{
+            display: inline-block;
+            margin: 0 20px 0 0;
+        }
+
+        .app-box .top-box{
+            border-bottom: #dedddd solid 1px;
+            padding: 10px 0 10px 28px;
+            box-shadow: 1px 1px 3px #dedddd;
+        }
+
+        .set-background{
+            background: url(./css/image/calendar.jpg) 10px 10px;
+            background-repeat: no-repeat;
+            font-weight: bolder;
+        }
+        .width-style{
+            width: 20%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="col-xs-12 box-footer">
+            <div class="col-xs-8">
+                <div class="set-background col-md-1" id="calendar"></div>
+                <div class="col-md-4" id="cycle_date" style="margin-left: -2.5%">（今天）</div>
+            </div>
+            <div class="col-xs-3">
+                <select id="changshuoselect"  allowClear="false" name="changshuoselect" class="singleSelect" style="width: 80%;margin-left: 42%;"></select>
+            </div>
+            <div class="text-right">
+                <a type="button" class="refresh" id="refresh_flow">
+                    <i class="refresh-icon icon" style="margin-top: 1.5%"></i>
+                </a>
+            </div>
+        </div>
+        <div class="top-box hide">
+            <div class="time-zone">
+                <span class="radio-name">周期</span>
+                <div class="radio-name">
+                    <input type="radio" id="WT1" name="WipsType" value="today" checked/>
+                    <label for="WT1">今天</label>
+                </div>
+                <div class="radio-name">
+                    <input type="radio" id="WT2" name="WipsType" value="oneWeek"/>
+                    <label for="WT2">七天</label>
+                </div>
+                <div class="radio-name">
+                    <input type="radio" id="WT3" name="WipsType" value="oneMonth"/>
+                    <label for="WT3">一月</label>
+                </div>
+                <div class="radio-name">
+                    <input type="radio" id="WT4" name="WipsType" value="oneYear"/>
+                    <label for="WT4">一年</label>
+                </div>
+                <div class="radio-name">
+                    <input type="radio" id="WT5" name="WipsType" value="custom"/>
+                    <label for="WT5">自定义</label>
+                </div>
+            </div>
+            <div class="time-zone hide" id="timezone">
+                <input id="daterange" class="daterange hide" placeholder="选择日期">
+            </div>
+        </div>
+
+        <div class="col-xs-12 box-body no-height">
+            <div class="col-xs-12 app-box" style="background: #F7F5F5; height: 140px">
+                <div class="col-xs-3 width-style">
+                    <div class="col-md-12" style="margin-top:35px">
+                        <div class="col-md-3"></div>
+                        <div>
+                            <span class="data-title">实时到访客流量</span>
+                            <img class="help_img" style="margin-top: -3px" src="../../web/soon/image/help.png"
+                                    title="指定场所当前一个小时内到访顾客人次"/>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-3"></div>
+                        <div>
+                            <span class="view-font" id="current_traffic_count">0</span>
+                            <span id = "unit_current_traffic">人次</span>
+                            <img id="current_traffic_count_img" />
+                            <span id="current_traffic_count_than">0</span>
+                            <span id="unit_current_traffic_than">人次</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 width-style">
+                    <div class="col-md-12" style="margin-top:35px">
+                        <div class="col-md-1"></div>
+                        <div>
+                            <span class="data-title">总到访客流量</span>
+                            <img class="help_img" style="margin-top: -3px;" src="../../web/soon/image/help.png"
+                                    title="指定场所指定日期内到访顾客人次"/>
+                            <br/>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-1"></div>
+                        <div>
+                            <span class="view-font" id="into_shop_count">0</span>
+                            <span id="unit_into_shop">人次</span>
+                            <img id="into_shop_count_img" />
+                            <span id="into_shop_count_than">0</span>
+                            <span id="unit_into_shop_than">人次</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 width-style">
+                    <div class="col-md-12" style="margin-top:35px">
+                        <div class="col-md-1"></div>
+                        <div>
+                            <span class="data-title">到访客流峰值</span>
+                            <img class="help_img" style="margin-top: -3px" src="../../web/soon/image/help.png"
+                                    title="指定场所指定日期某一个小时的时间内到访客流量的最大值"/>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-1"></div>
+                        <div>
+                            <span class="view-font" id="into_shop_top">0</span>
+                            <span id="unit_into_shop_top">人次</span>
+                            <img id="into_shop_top_img" />
+                            <span id="into_shop_top_than">0</span>
+                            <span id="unit_into_shop_top_than">人次</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 width-style">
+                    <div class="col-md-12" style="margin-top:35px">
+                        <div class="col-md-1"></div>
+                        <div>
+                            <span class="data-title">总客流量</span>
+                            <img class="help_img" style="margin-top: -3px" src="../../web/soon/image/help.png"
+                                    title="指定场所指定日期内顾客总人次"/>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-1"></div>
+                        <div>
+                            <span class="view-font" id="total_traffic_count">0</span>
+                            <span id="unit_total_traffic">人次</span>
+                            <img id="total_traffic_count_img" />
+                            <span id="total_traffic_count_than">0</span>
+                            <span id="unit_total_traffic_than">人次</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 width-style">
+                    <div class="col-md-12" style="margin-top:35px">
+                        <div class="col-md-2"></div>
+                        <div>
+                            <span class="data-title">平均到访次数</span>
+                            <img class="help_img" style="margin-top: -3px;" src="../../web/soon/image/help.png"
+                                    title="指定场所指定日期内顾客平均到访次数"/>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-2"></div>
+                        <div>
+                            <span class="view-font" id="average_into_count">0</span>
+                            <span id="unit_average_into">次</span>
+                            <img id="average_into_count_img" />
+                            <span id="averge_into_count_than">0</span>
+                            <span id="unit_average_into_than">次</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 app-colum" id="content">
+                <div id="local-model" class="cont">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="active"><a href="#rank" data-toggle="tab" ><span class="nav-cont">指标分析</span></a></li>
+                        <li role="presentation"><a href="#detaillist" data-toggle="tab">详细统计</a></li>
+                    </ul>
+                    <div class="tab-content tabstyle">
+                        <div class="tab-pane active" id="rank" style="margin: 0px -40px 0px -40px; border:1px solid #ddd;">
+                            <div class="row">
+                                <div class="col-xs-12" style="width: 97.2%; margin-left: 15px;">
+                                    <div class="col-xs-3">
+                                        <div style="padding-left: 12px;padding-top: 25px;">
+                                            <span>平均到访率</span>
+                                            <img class="help_img" src="../../web/soon/image/help.png"
+                                                    title="到访率 = 总到访客流量/总客流量"/>
+                                            <div>
+                                                <HR width="100%"   style="border-top: 1px solid #E7E7E9;margin: 5px 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+                                            </div>
+                                        </div>
+                                        <div class="box-body echart-height body-padding" style="margin-top: 5%;">
+                                            <div id="into_shop_rate" class="myEchart"></div>
+                                            <div id="into_shop_rate_message" class="panel leg-panel hide"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-3">
+                                        <div style="padding-left: 12px;padding-top: 25px;">
+                                            <span>平均到访次数</span>
+                                            <img class="help_img" src="../../web/soon/image/help.png"
+                                                    title="平均到访次数 = 总到访客流量/总顾客人数"/>
+                                            <div>
+                                                <HR width="100%"   style="border-top: 1px solid #E7E7E9;margin: 5px 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+                                            </div>
+                                        </div>
+                                        <div class="box-body echart-height body-padding" style="margin-top: 5%">
+                                            <div id="average_into_many" class="myEchart"></div>
+                                            <div id="average_into_many_message" class="panel leg-panel hide"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6" style="height: 275px">
+                                        <div style="padding-left: 12px;padding-top: 15px;">
+                                            <span>排名</span>
+                                            <div class="radio-name" style="margin-left: 10px;">
+                                                <input type="radio" id="rank_top5" checked name="rank" value="0" style="cursor:pointer;">
+                                                <img src="../soon/image/up.png"/>
+                                                <label for="rank_top5">Top5</label>
+                                                &nbsp;&nbsp;
+                                                <input type="radio" id="rank_bottom5" name="rank" value="1" style="cursor:pointer;">
+                                                <img src="../soon/image/down.png"/>
+                                                <label for="rank_bottom5">Top5</label>
+                                            </div>
+                                            <div>
+                                                <HR width="100%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+                                            </div>
+                                        </div>
+                                        <div id="total_rank_analysis" class="myEchart" style="margin-top: 5%"></div>
+                                        <div class="radio-name" style="margin-left: 160px; padding-bottom: -15px">
+                                            <input type="radio" id="total_traffic_rank" checked name="Linger" value="0" style="cursor:pointer;">
+                                            <label for="total_traffic_rank" style="color: #0087d7">总客流量</label>
+                                            <img class="help_img" id="rank_total_help" src="../../web/soon/image/help.png" />
+                                            &nbsp;&nbsp;
+                                            <input type="radio" id="into_shop_rank" name="Linger" value="1" style="cursor:pointer;">
+                                            <label for="into_shop_rank" style="color: #0087d7">到访客流量</label>
+                                            <img class="help_img" id="rank_into_shop_help" src="../../web/soon/image/help.png" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div  class="col-xs-12" style="border-bottom: 1px solid #ddd">
+                                    <br/><br/>
+                                </div>
+                                <div class="col-xs-12" style="margin-left: 15px; width: 97.2%; height: 350px;">
+                                    <div style="padding-left: 12px;padding-top: 20px;">
+                                        <span>客流趋势</span>
+                                        <img class="help_img" src="../../web/soon/image/help.png" title="客流趋势" />
+                                        <div class="radio-name" style="margin-left: 33%">
+                                            <input type="radio" id="total_traffic_line" checked name="zhibiao" value="0" style="cursor:pointer;">
+                                            <label for="total_traffic_line" style="color: #0087d7">总客流量</label>
+                                            <img class="help_img" id="line_total_help" src="../../web/soon/image/help.png" />
+                                            &nbsp;&nbsp;
+                                            <input type="radio" id="into_shop_line" name="zhibiao" value="1" style="cursor:pointer;">
+                                            <label for="into_shop_line" style="color: #0087d7">到访客流量</label>
+                                            <img class="help_img" id="line_into_shop_help" src="../../web/soon/image/help.png" />
+                                        </div>
+                                    </div>
+                                    <div class="box-body echart-height body-nopadding" style="margin-left: -60px">
+                                        <div id="trend_analysis" style="width: 107.5%;" class="myEchart"></div>
+                                    </div>
+                                    <div style="margin-left: 35%;" id="cycle_than">
+                                        <span>对比：</span>
+                                        <input type="checkbox" id="yesterday_than" name="compare" value="0" style="cursor:pointer;">
+                                        <label for="yesterday_than">昨天</label>&nbsp;&nbsp;&nbsp;
+                                        <input type="checkbox" id="week_same_than" name="compare" value="1" style="cursor:pointer;">
+                                        <label for="week_same_than">上周同期</label>&nbsp;&nbsp;&nbsp;
+                                        <input type="checkbox" id="month_same_than" name="compare" value="2" style="cursor:pointer;">
+                                        <label for="month_same_than">上月同期</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="detaillist" style="margin: 0px -40px 0px -40px">
+                            <div class="col-xs-12">
+                                <div class="simple-list" id="detail_statics_list" style="margin-top: 2%;"></div>
+                                <br/>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="flowtotal_rc" class="rc-define"  DATE_CYCLE="（今天）,（七天）,（一月）,（一年）">
+</div>
+</body>
+</html>
+<script>
+    Utils.Pages.loadJS("a_dataanalysis.flowtotal");
+</script>

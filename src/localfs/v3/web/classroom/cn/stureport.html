@@ -1,0 +1,410 @@
+<html>
+<head>
+</head>
+<style>
+    @media print{
+       #printArea{
+            overflow-y:visible;
+            width: 100%;
+            border-top: none;
+            border-right: none;
+            border-bottom: none;
+            border-left: none;
+        }
+    }
+    div.xb-link {
+        color: #2E8BB3;
+        text-decoration: underline;
+        cursor: pointer;
+        line-height: 35px;
+        margin-right:10px;
+    }
+
+    a.xb-link.active, a.xb-link:hover {
+        color: #4ec1b2;
+        text-decoration: none;
+    }
+
+    a.xb-link{
+        color: #2E8BB3;
+        text-decoration: underline;
+        cursor: pointer;
+        line-height: 35px;
+    }
+
+    .app-colum.left-block {
+         padding-right: 0px;
+    }
+
+    .baseInfo{
+        font-size: 18px;
+        color: #343e4e;
+        display: inline;
+    }
+
+    .dashboard .counter {
+        color: #4ec1b2;
+    }
+
+    .col-xs-12.restoreline {
+        margin: 10px 0 10px 0;
+    }
+
+    .dashboard .counter {
+         margin-left:0;
+    }
+
+    .app-box .box-footer {
+        height: 40px;
+        line-height: 40px;
+    }
+
+    span.new-title {
+        color: #343e4e;
+        margin-left: 10px;
+        font-size:15px;
+    }
+    .baseInfo {
+        font-size: 15px;
+        color: #343e4e;
+        display: inline;
+        margin-left: 15px;
+    }
+
+    .app-box .box-height {
+        height: 148px;
+    }
+
+    #health-detail .app-box .box-body {
+        overflow: hidden;
+        height: 340px!important;
+        padding: 0px 30px;
+    }
+
+    .number-title {
+        font-size: 17px;
+    }
+
+    .ant-radio{
+        margin:0 8px 0px 8px;
+        min-width: 30px;
+        min-height: 23px;
+        position: relative;
+        display: inline-block;
+        line-height: 23px;
+        color: #343E4E;
+    }
+    .ant-radio-label{
+        min-height: 23px;
+        position: relative;
+        display: inline-block;
+        line-height: 23px;
+        color: #343E4E;
+        margin:0 0px 0px 16px;
+    }
+    .ant-radio label{
+        width: 100%;
+        height: 100%;
+        line-height: inherit;
+        text-align: center;
+    }
+    .ant-radio input:hover+label,.ant-radio label:hover:not(:last-child){
+        color: #4ec1b2;
+        cursor: pointer;
+    }
+    .ant-radio input:hover:not(:last-child){
+        cursor: pointer;
+    }
+    .ant-radio input{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        filter:alpha(opacity=0);
+        -moz-opacity:0;
+        -khtml-opacity: 0;
+        opacity: 0;
+        z-index: -1;
+
+    }
+    .ant-radio input:checked+label{
+        color: #4ec1b2;
+        text-decoration: underline;
+    }
+
+    .ant-head-pannel{
+        height: 42px;
+    }
+    .ant-head-pannel.ant-color{
+        background-color: #edf9f7;
+    }
+    .ant-head-pannel .ant-pannel-v-center{
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        display: table;
+    }
+    .ant-border{
+        border:#e7e7e9 solid 1px;
+    }
+    .ant-size-input-height{
+        height: 26px;
+    }
+
+    .daterangepicker.opensright:after {
+        top: -6px;
+        left: 266px;
+    }
+
+    .daterangepicker.opensright:before {
+        top: -7px;
+        left: 265px;
+    }
+
+    span#TimeUnit {
+        padding: 5px;
+    }
+
+    div#s2id_MapSelect {
+        margin: 0 20px 0 0;
+    }
+
+    .app-box .box-height-static {
+        height: 100px;
+    }
+
+    .dashboard .counter {
+        font-size: 35px;
+    }
+
+    .pad-top{
+        padding-top:10px;
+    }
+
+    .ss-box-body{
+        padding: 0px 30px 25px;
+    }
+
+    .col-self-1 {
+        position: relative;
+        min-height: 1px;
+        width:14.2857143%;
+        float: left;
+        padding: 0;
+        text-align: center;
+    }
+
+    .stu-info{
+        color: #333e4e;
+        font-size: 20px;
+        font-weight: 400;
+    }
+
+    span.cn-formart {
+        font-size: 17px;
+        padding-left: 50px;
+    }
+
+    .heart{
+        background: url(css/image/smartschool.png) -59px -370px;
+        width: 150px;
+        height: 120px;
+        margin: 100px auto;
+    }
+
+    .foot{
+        background: url(css/image/smartschool.png) -310px -20px;
+        width: 85px;
+        height: 150px;
+        margin: 73px auto;
+    }
+
+    .station-change {
+        float: right;
+        margin-right: 38px;
+    }
+</style>
+<body>
+    <!--<div class="btn_h_return" id="return"></div>-->
+    <div id="printArea">
+        <!--startprint-->
+        <div class="page-row smartschool">
+            <div class="col-xs-12 app-colum">
+                <div class="app-box no-bk-color wrap_c">
+                    <div class="box-footer">
+                        <span class="title">学生基本信息</span>
+                    </div>
+
+                    <div class="box-body no-height">
+                        <div class="col-xs-12">
+                            <div class="col-xs-12">
+                                <div class="col-xs-4">
+                                    <div class="col-xs-12">
+                                        <span class="cn-formart"> 学号</span>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span class="stu-info" id="stuNum"></span>
+                                    </div>
+                                    <div class="col-xs-12"><br></div>
+                                    <div class="col-xs-12">
+                                        <span class="cn-formart"> 姓名</span>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span class="stu-info" id="stuName"></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="col-xs-12">
+                                        <span class="cn-formart"> 年级</span>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span class="stu-info" id="gradeId"></span>
+                                        <span class="stu-info" id="years"></span>
+                                    </div>
+                                    <div class="col-xs-12"><br></div>
+                                    <div class="col-xs-12">
+                                        <span class="cn-formart"> 班级</span>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span class="stu-info" id="classId"></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-4">
+                                    <div class="col-xs-12">
+                                        <span class="cn-formart"> 性别</span>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span class="stu-info" id="stuSex"></span>
+                                    </div>
+                                    <div class="col-xs-12"><br></div>
+                                    <div class="col-xs-12">
+                                        <span class="cn-formart"> 生日</span>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <span class="stu-info" id="handMac"></span>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12"><br></div>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+        <div id="health-detail">
+        <div class="col-xs-12 app-colum">
+            <div class="app-box no-bk-color wrap_c">
+                <div class="box-footer">
+                    <span class="title">课堂活跃度</span>
+                    <div class="station-change" id="handup-date">
+                        <a id="handupdays" class="xb-link active">一天</a>
+                        <a id="handupweeks" class="xb-link">一周</a>
+                        <a id="handupmounth" class="xb-link">一月</a>
+                        <a id="handupyears" class="xb-link">一年</a>
+                    </div>
+                </div>
+                <div class="box-body no-height healthbody">
+                    <!--<div class="col-xs-2 text-center" style="margin-top:50px;">-->
+                        <!--<div class="col-xs-12 lh1-5 ">-->
+                            <!--<div>-->
+                                <!--<div class="index_div_lu" style="color: #343e4e;font-size:29px;" id="grade-range">0</div>-->
+                                <!--<p class="index_div_lu_desc">年级排名</p>-->
+                            <!--</div>-->
+                            <!--<div style="margin-top: 60px;">-->
+                                <!--<div class="index_div_lu" style="color: #343e4e;font-size:29px;" id="class-range">0</div>-->
+                                <!--<p class="index_div_lu_desc">班级排名</p>-->
+                            <!--</div>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <div class="col-xs-12 echart-height myEchart" id="activeData">
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-row">
+            <div class="col-xs-12 app-colum left-block" debug="">
+                <div class="app-box no-bk-color wrap_c">
+                    <div class="box-footer">
+                        <div class="col-xs-3">
+                            <span class="title">心率</span>
+                        </div>
+                        <div class="station-change" id="heart-date">
+                            <a id="hearthours" class="xb-link">一小时</a>
+                            <a id="heartdays" class="xb-link active">一天</a>
+                            <a id="heartweeks" class="xb-link">一周</a>
+                            <a id="heartmounth" class="xb-link">一月</a>
+                            <a id="heartyears" class="xb-link">一年</a>
+                        </div>
+                    </div>
+                    <div class="box-body userflow-height form-group body-nopadding">
+                        <div class="col-xs-12 echart-height myEchart" id="heartRateData">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-row">
+            <div class="col-xs-12 app-colum left-block" debug="">
+                <div class="app-box no-bk-color wrap_c">
+                    <div class="box-footer">
+                        <div class="col-xs-4">
+                            <span class="title">步数</span>
+                        </div>
+                        <div class="station-change" id="step-date">
+                            <a id="stepdays" class="xb-link active">一天</a>
+                            <a id="stepweeks" class="xb-link">一周</a>
+                            <a id="stepmounth" class="xb-link">一月</a>
+                            <a id="stepyears" class="xb-link">一年</a>
+                        </div>
+                    </div>
+                    <div class="box-body userflow-height form-group body-nopadding">
+                        <div class="col-xs-12 echart-height myEchart" id="printStep">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-row">
+            <div class="col-xs-12 app-colum left-block" debug="">
+                <div class="app-box no-bk-color wrap_c">
+                    <div class="box-footer">
+                        <div class="col-xs-3">
+                            <span class="title">体质比</span>
+                        </div>
+                        <div class="station-change" id="bmi-date">
+                            <a id="healthdays" class="xb-link active">一天</a>
+                            <a id="healthweeks" class="xb-link">一周</a>
+                            <a id="healthmounth" class="xb-link">一月</a>
+                            <a id="healthyears" class="xb-link">一年</a>
+                        </div>
+                    </div>
+                    <div class="box-body userflow-height form-group body-nopadding">
+                        <div class="col-xs-10 echart-height myEchart" id="healthData">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <!--endprint-->
+    </div>
+
+    <div class="page-row dashboard" style="text-align:center;">
+        <button  class="btn btn-ok" id="down-load" style="color:#FFF;">
+            下载学生报告
+        </button>
+    </div>
+
+
+    <div id="c_stureport_rc" class="rc-define"
+         AXIS="时间,举手次数(次),体质比(kg/cm^2),步数(步),心率(次/min)"
+        ></div>
+</body>
+</html>
+<script type="text/javascript" src="../print.js"></script>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.stureport");
+    Utils.Pages.loadJS("classroom.printThis");
+</script>

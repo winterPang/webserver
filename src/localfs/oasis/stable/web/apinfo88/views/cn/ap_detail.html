@@ -1,0 +1,185 @@
+<div class="btn_h_return" ng-click="onReturn();"></div>
+
+    <div class="col-xs-12 app-colum">
+
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">AP列表</span>
+            </div>
+            <div class="box-body no-height" style="padding:0px 20px;">
+                <div class="form-group col-sm-12" id="anniumen">
+                    <div class="radioAnNiu" style="margin-top:10px;">
+                        <input type="radio" name="sanzhong-info" id="base" checked
+                               ng-click="bindCheck($event)">
+                        <label for="base" style="margin-right:30px;">基本信息</label>
+                        
+                        <input type="radio" name="sanzhong-info" id="radio"
+                               ng-click="bindCheck($event)">
+                        <label for="radio" style="margin-right:30px;">射频信息</label>
+                       
+                        <input type="radio" name="sanzhong-info" id="link"
+                               ng-click="bindCheck($event)">
+                        <label for="link" style="margin-right:30px;">连接信息</label>
+
+                        <input type="radio" name="sanzhong-info" id="client"
+                               ng-click="bindCheck($event)">
+                        <label for="client" style="margin-right:30px;">客户端信息</label>
+
+                    </div>
+                </div>
+                <br /><br /><br />
+                <div class="btn btn-cus" ng-click="refresh()">刷新</div>
+                <!--<div class="btn btn-cus" ng-show="exportBtn" ng-click="export()">导出</div>-->
+                <br /><br />
+                <div bs-table="clients_list_jb" ></div>
+                <!--<div ng-show="butshow1"></div>
+                <div ng-show="butshow2">
+                    <div bs-table="clients_list_sp" ></div>
+                </div>
+                <div ng-show="butshow3">
+                    <div bs-table="clients_list_lj"></div>
+                </div>
+                <div ng-show="butshow4">
+                    <div bs-table="clients_list_kh"></div>
+                </div>-->
+            </div>
+        </div>
+    </div>
+
+    <!-- 弹出框 -->
+    <div class="hide modal fade" id="flowdetailDlg">
+      <form class="form-horizontal form" id="flowdetail_form">
+            
+            <!-- 弹出框的数据显示 -->
+            <div class="col-sm-12">
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label"><strong>MAC地址</strong></label>
+                    <span id="clientMAC"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>IP地址</strong></label>
+                    <span id="clientIP"></span>
+                </div>
+                <!-- <div class="form-group">
+                    <label class="col-sm-2  control-label "><strong>终端名称</strong></label>
+                    <span id="clientName"></span>
+                </div> -->
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>终端厂商</strong></label>
+                    <span id="clientVendor"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>AP</strong></label>
+                    <span id="ApName"></span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>SSID</strong></label>
+                    <span id="clientSSID"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>终端信号强度</strong></label>
+                    <span id="signalStrength"></span>
+                    <span> db</span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>终端发送速率</strong></label>
+                    <span id="clientTxRate"></span>
+                    <span> Kbps</span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>终端接收速率</strong></label>
+                    <span id="clientRxRate"></span>
+                    <span> Kbps</span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>终端关联的Radio类型</strong></label>
+                    <span id="clientRadioMode"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>终端模式</strong></label>
+                    <span id="clientMode"></span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>终端关联的Radio信道</strong></label>
+                    <span id="clientChannel"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>用户名</strong></label>
+                    <span id="portalUserName"></span>
+                </div>     
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>认证方式</strong></label>
+                    <span id="portalAuthType"></span>
+                </div>  
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>portal 上线时间</strong></label>
+                    <span id="portalOnlineTime"></span>
+                </div> 
+            
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>终端发送报文字节数</strong></label>
+                    <span id="clientTxBytes">无</span><span> B</span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>终端接收报文字节数</strong></label>
+                    <span id="clientRxBytes">无</span>
+                    <span> B</span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>终端发送报文数</strong></label>
+                    <span id="clientTxPackets">无</span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>终端接收报文数</strong></label>
+                    <span id="clientRxPackets">无</span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>协商速率</strong></label>
+                    <span id="NegoMaxRate"></span><span> Mbps</span>
+                </div>                
+            </div>
+      </form>
+
+        <!-- 弹出框的返回按钮 -->
+       <!--  <div class="modal-footer form-actions">
+            <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+                关闭
+            </a>
+        </div> -->
+
+    </div>   
+
+
+    <!-- 弹出框：认证 -->
+
+<iframe id="exportFile" name="exportFile" style="display: none" ng-src="{{exportUrl}}"></iframe>
+<div id="clients_rc" class="rc-define"
+     BUTTON_CANCEL="返回"
+     EXPORT_LOG="导出"
+
+     KICKOUT_renzheng="注销绿洲用户"
+     KICKOUT_ALL="注销所有绿洲用户"
+     
+     KICKOUT_lixian="清除在线状态"
+     
+     LIST_HEADER="AP名称,AP型号,序列号,AP组名称,MAC地址,IP地址"
+     LIST_HEADER_SP="AP名称,AP型号,序列号,AP射频,信道,功率"
+     LIST_HEADER_TJ="AP名称,AP型号,序列号,在线时长,MAC地址,IP地址"
+     LIST_HEADER_YH="AP名称,AP型号,序列号,5G客户端数量,2.4客户端数量"
+     LIST_HEADER_LX="MAC地址,IP地址,用户名,认证方式,portal 上线时间"
+
+     USER_TYPE="一键认证,短信认证,微信客户端认证,支付宝认证,QQ认证,微信公众号认证,固定账号认证"
+
+     LIST_POWERSAVEMODE="激活,休眠"
+     LIST_QOSMODE="N/A,WMM,11e,WMM and 11e"
+     SEC_TYPE="不认证,802.1X认证,静态PSK密钥,静态WEP密钥,MAC地址认证,Portal认证,动态WEP密钥,802.1X 认证（不加密）"
+
+
+    TITLE_FLOWINFO="终端详情"
+    TITLE_RenZhengINFO="已认证终端详情"
+    FRESH="刷新"
+    STATUS=",在线,离线,正在下载版本"
+     ></div>
+
+

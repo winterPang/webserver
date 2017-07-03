@@ -1,0 +1,130 @@
+/**
+ * Created by liuyanping lkf6877 on 2017/6/05.
+ */
+
+.oasis-menu{
+  position: absolute;
+  margin-top: -28px;
+  width: 220px;
+  background-color: #31495a;
+  overflow: auto;
+  .oasis-menu-title{
+    width:220px;
+    height: 56px;
+    color: #c4cebd;
+    line-height: 56px;
+    font-size: 20px;
+    background-color: #2c4251;
+    padding-left: 30px;
+  }
+  .menu-second {
+    width:220px;
+    font-size: 16px;
+    color: #c4cebd;
+    >li{
+      &:not(:first-child){
+        border-top: 1px solid rgba(196,206,189,0.2);
+      }
+      border-bottom: 1px solid #293e4c;
+
+      div{
+        padding-left: 18px;
+        height: 46px;
+        line-height: 46px;
+        cursor: pointer;
+        i{
+          display: inline-block;
+          width: 16px;
+          height: 16px;
+          margin-right: 14px;
+          &:nth-child(3){
+            float: right;
+            font-size: 14px;
+            line-height: 48px;
+          }
+          /*&.l-open{
+            display: inline-block;
+            height: 8px;
+            width: 8px;
+            background: url("../img/icon-jian.png");
+            float: right;
+            margin-right: 12px;
+            margin-top: 15px;
+          }
+          &.l-close{
+            display: inline-block;
+            height: 8px;
+            width: 8px;
+            background: url("../img/icon-jia.png");
+            float: right;
+            margin-right: 12px;
+            margin-top: 15px;
+          }*/
+        }
+        &:hover{
+
+          color: #f27935;
+        }
+        &.active{
+          background-color: #243542;
+          color: #f27935;
+        }
+        &.open{
+          background-color: #2a3e4d;
+        }
+      }
+    }
+  }
+  .menu-third {
+    background-color: #2a3e4d;
+    font-size: 14px;
+    padding: 0;
+    li{
+      height: 48px;
+      line-height: 48px;
+      padding-left: 48px;
+      cursor: pointer;
+      i{
+        margin-right: 14px;
+      }
+      &.active{
+        background-color: #243542;
+        color: #f27935;
+      }
+      &:hover{
+        background-color: #2a3e4d;
+        color: #f27935;
+      }
+    }
+    /*>li{
+      >div{
+        i{
+          &.l-open{
+            display: inline-block;
+            height: 8px;
+            width: 8px;
+            background: url("../img/icon-jian.png");
+            float: right;
+            margin-right: 12px;
+            margin-top: 15px;
+          }
+          &.l-close{
+            display: inline-block;
+            height: 8px;
+            width: 8px;
+            background: url("../img/icon-jia.png");
+            float: right;
+            margin-right: 12px;
+            margin-top: 15px;
+          }
+        }
+      }
+    }*/
+  }
+
+}
+.oasis-main-content{
+  margin-left: 220px;
+  padding: 20px;
+  overflow: auto;
+}

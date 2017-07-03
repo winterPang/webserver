@@ -1,0 +1,35 @@
+.device-picker {
+    display: inline-block;
+    position: relative;
+}
+
+.device-picker [readonly] {
+    background: #fff;
+}
+
+.device-picker .form-control {
+    width: auto;
+}
+
+.device-picker label {
+    font-weight: lighter;
+    text-align: right;
+}
+
+.device-picker label::after {
+    content: ":"
+}
+
+.device-picker .tree-dropdown {
+    border: 1px solid #ccc;
+    background: #fff;
+    position: absolute;
+    width: 300px;
+    height: auto;
+    z-index: 999;
+}
+
+.device-picker .tree-dropdown .ztree {
+    height: 300px;
+    overflow: auto
+}

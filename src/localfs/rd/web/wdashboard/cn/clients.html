@@ -1,0 +1,26 @@
+<html>
+<head>
+</head>
+<body>
+	<div class="sysinfo-footer" id="clients_page">
+		<div class="col-xs-12">
+			<span class="title">设备个数</span>
+		</div>
+		<div class="text-right link-container">
+			<a type="button" class="refresh" id="refresh_client">
+                <i class="refresh-icon icon"></i>
+            </a>
+			<a type="button" class="link-detail" id="2" title="更多"><i class="detail-icon icon"></i></a>
+		</div>
+	</div>
+ 	<div class="row-nohover echart-height padding0">
+		<div id="client" name="client" class="myEchart"></div>
+	</div>
+	<div id="app_client_rc" class="rc-define"
+         CLIENT_NUMBER=" 客户端数量"
+    ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+	Utils.Pages.loadJS("WDashboard.Clients");
+</script>

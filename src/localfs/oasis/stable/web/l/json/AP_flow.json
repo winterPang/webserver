@@ -1,0 +1,13 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 30,
+  "rows": [
+    {"AP_name":"AP1","flow":"360G"},
+    {"AP_name":"AP2","flow":"300G"},
+    {"AP_name":"AP3","flow":"298G"},
+    {"AP_name":"AP4","flow":"288G"},
+    {"AP_name":"AP5","flow":"266G"},
+    {"AP_name":"AP6","flow":"264G"}
+  ]
+}

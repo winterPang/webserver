@@ -1,0 +1,593 @@
+{
+  "routes": [
+    {
+      "appId": "homepage",
+      "state": "homepage",
+      "url": "/homepage",
+      "templateUrl": "homepage/views/home.html",
+      "controller": "homepage/controller/home",
+      "dependencies": []
+    },
+    {
+      "appId": "frame",
+      "state": "global",
+      "url": "/global",
+      "templateUrl": "frame/views/header.html",
+      "controller": "frame/controller/header",
+      "dependencies": []
+    },
+    {
+      "appId": "home",
+      "state": "global.home",
+      "url": "/home",
+      "templateUrl": "home/views/home.html",
+      "controller": "home/controller/home",
+      "dependencies": []
+    },
+    {
+      "appId": "information",
+      "state": "global.setup.information",
+      "url": "/information",
+      "templateUrl": "information/views/information.html",
+      "controller": "information/controller/information",
+      "dependencies": []
+    },
+    {
+      "appId": "notification",
+      "state": "global.notification",
+      "url": "/notification",
+      "templateUrl": "frame/views/menu.html",
+      "controller": "frame/controller/menu",
+      "dependencies": []
+    },
+    {
+      "appId": "warnmessage",
+      "state": "global.notification.warnmessage",
+      "url": "/warnmessage",
+      "templateUrl": "warnmessage/views/detail.html",
+      "controller": "warnmessage/controller/detail",
+      "dependencies": []
+    },
+    {
+      "appId": "sysMessage",
+      "state": "global.notification.sysMessage",
+      "url": "/sysMessage",
+      "templateUrl": "systemnotice/views/detail.html",
+      "controller": "systemnotice/controller/detail",
+      "dependencies": []
+    },
+    {
+      "appId": "operationlogs",
+      "state": "global.notification.operate_log",
+      "url": "/operate_log",
+      "templateUrl": "operationlogs/views/operate_log.html",
+      "controller": "operationlogs/controller/operate_log",
+      "dependencies": []
+    },
+
+
+    {
+      "appId": "tool",
+      "state": "global.tool",
+      "url": "/tool",
+      "templateUrl": "frame/views/menu.html",
+      "controller": "frame/controller/menu",
+      "dependencies": []
+    },
+    {
+      "appId": "batchconf",
+      "state": "global.tool.batchconf",
+      "url": "/batchconf",
+      "templateUrl": "batchconf/views/batchconf.html",
+      "controller": "batchconf/controller/batchconf",
+      "dependencies": []
+    },
+    {
+      "appId": "batchupgrade",
+      "state": "global.tool.batchupgrade",
+      "url": "/batchupgrade",
+      "templateUrl": "versionupdate9/views/versionupdate.html",
+      "controller": "versionupdate9/controller/versionupdate",
+      "dependencies": []
+    },
+    {
+      "appId": "batchupgrade",
+      "state": "global.tool.versionupdate",
+      "url": "/versionupdate:shopId/:model",
+      "templateUrl": "versionupdate9/views/update_apmodel.html",
+      "controller": "versionupdate9/controller/update_apmodel",
+      "dependencies": []
+    },
+    {
+      "appId": "batchrestart",
+      "state": "global.tool.batchrestart",
+      "url": "/batchrestart",
+      "templateUrl": "batchrestart/views/batchrestart.html",
+      "controller": "batchrestart/controller/batchrestart",
+      "dependencies": []
+    },
+    {
+      "appId": "commandline",
+      "state": "global.tool.commandline",
+      "url": "/commandline",
+      "templateUrl": "commandline/views/commandline.html",
+      "controller": "commandline/controller/commandline",
+      "dependencies": []
+    },
+    {
+      "appId": "filesystem",
+      "state": "global.tool.filesystem",
+      "url": "/filesystem",
+      "templateUrl": "filesystem/views/index.html",
+      "controller": "filesystem/controller/index",
+      "dependencies": []
+    },
+    {
+      "appId": "configrestore",
+      "state": "global.tool.configrestore",
+      "url": "/configrestore",
+      "templateUrl": "configrestore/views/detail.html",
+      "controller": "configrestore/controller/detail",
+      "dependencies": []
+    },
+    {
+      "appId": "reportmanage",
+      "state": "global.tool.reportmanage",
+      "url": "/reportmanage",
+      "templateUrl": "reportmanage/views/index.html",
+      "controller": "reportmanage/controller/index",
+      "dependencies": []
+    },
+    {
+      "appId": "datacenter",
+      "state": "global.tool.datacenter",
+      "url": "/datacenter",
+      "templateUrl": "datacenter/views/batchconf.html",
+      "controller": "datacenter/controller/batchconf",
+      "dependencies": []
+    },
+    {
+      "appId": "warning",
+      "state": "global.tool.warning",
+      "url": "/warning",
+      "templateUrl": "warning/views/detail.html",
+      "controller": "warning/controller/detail",
+      "dependencies": []
+    },
+
+    {
+      "appId": "application",
+      "state": "global.application",
+      "url": "/application",
+      "templateUrl": "frame/views/menu.html",
+      "controller": "frame/controller/menu",
+      "dependencies": []
+    },
+    {
+      "appId": "appstore",
+      "state": "global.application.appstore",
+      "url": "/appstore",
+      "comment": "应用商城",
+      "templateUrl": "appstore/views/newList.html",
+      "controller": "appstore/controller/newList",
+      "dependencies": []
+    },
+    {
+      "appId": "appmanage",
+      "state": "global.application.appmanage",
+      "url": "/appmanage",
+      "comment": "我的应用",
+      "templateUrl": "appmanage/views/detail.html",
+      "controller": "appmanage/controller/detail",
+      "dependencies": []
+    },
+    {
+      "appId": "mapmanage",
+      "state": "global.application.mapmanage_original",
+      "url": "/original",
+      "templateUrl": "mapmanage/views/originalList.html",
+      "controller": "mapmanage/controller/originalList",
+      "dependencies": []
+    },
+    {
+      "appId": "mapmanage",
+      "state": "global.application.mapmanage_bitmap",
+      "url": "/bitmap",
+      "templateUrl": "mapmanage/views/bitmapList.html",
+      "controller": "mapmanage/controller/bitmapList",
+      "dependencies": []
+    },
+    {
+      "appId": "mapmanage",
+      "state": "global.application.mapmanage_vectorgram",
+      "url": "/vectorgram",
+      "templateUrl": "mapmanage/views/vectorgramList.html",
+      "controller": "mapmanage/controller/vectorgramList",
+      "dependencies": []
+    },
+    {
+      "appId": "mapmanage",
+      "state": "global.application.mapmanage_add",
+      "url": "/addOriginal/:appId/:shopId/:mode",
+      "templateUrl": "mapmanage/views/add.html",
+      "controller": "mapmanage/controller/add",
+      "dependencies": []
+    },
+    {
+      "appId": "mapmanage",
+      "state": "global.application.mapmanage_modify",
+      "url": "/modifyOriginal:imageId",
+      "templateUrl": "mapmanage/views/modify.html",
+      "controller": "mapmanage/controller/modify",
+      "dependencies": []
+    },
+    {
+      "appId": "locationmanage",
+      "state": "global.application.locationmanage",
+      "url": "/locationmanage:mode",
+      "templateUrl": "locationmanage/views/index.html",
+      "controller": "locationmanage/controller/index",
+      "dependencies": []
+    },
+    {
+      "appId": "locationmanage",
+      "state": "global.application.locationmanage2",
+      "url": "/locationmanage2",
+      "templateUrl": "locationmanage/views/index2.html",
+      "controller": "locationmanage/controller/index2",
+      "dependencies": []
+    },
+    {
+      "appId": "locationmanage",
+      "state": "global.application.maplist",
+      "url": "/maplist/:mode/:shopId",
+      "templateUrl": "locationmanage/views/maplist.html",
+      "controller": "locationmanage/controller/maplist",
+      "dependencies": []
+    },
+    {
+      "appId": "locationmanage",
+      "state": "global.application.mapsetting",
+      "url": "/mapsetting/:mode/:shopId",
+      "templateUrl": "locationmanage/views/mapsetting.html",
+      "controller": "locationmanage/controller/mapsetting",
+      "dependencies": []
+    },
+    {
+      "appId": "locationmanage",
+      "state": "global.application.editmap",
+      "url": "/editmap/:mode/:shopId/:locationId",
+      "templateUrl": "locationmanage/views/editmap.html",
+      "controller": "locationmanage/controller/editmap",
+      "dependencies": []
+    },
+    {
+      "appId": "locationmanage",
+      "state": "global.application.clientmap",
+      "url": "/clientmap/:mode/:shopId/:locationId",
+      "templateUrl": "locationmanage/views/clientmap.html",
+      "controller": "locationmanage/controller/clientmap",
+      "dependencies": []
+    },
+    {
+      "appId": "locationmanage",
+      "state": "global.application.clientstep",
+      "url": "/clientstep/:mode/:shopId/:locationId/:macAddress",
+      "templateUrl": "locationmanage/views/clientstep.html",
+      "controller": "locationmanage/controller/clientstep",
+      "dependencies": []
+    },
+    {
+      "appId": "setup",
+      "state": "global.setup",
+      "url": "/setup",
+      "templateUrl": "frame/views/menu.html",
+      "controller": "frame/controller/menu",
+      "dependencies": []
+    },
+    {
+      "appId": "devmanage",
+      "state": "global.setup.devmanage",
+      "url": "/devmanage",
+      "templateUrl": "devmanage/views/devmanage.html",
+      "controller": "devmanage/controller/devmanage",
+      "dependencies": []
+    },
+    {
+      "appId": "apsiteMng",
+      "state": "global.setup.apsiteMng",
+      "url": "/apsiteMng",
+      "templateUrl": "apsitemng/views/detail.html",
+      "controller": "apsitemng/controller/detail",
+      "dependencies": []
+    },
+    {
+      "appId": "apsiteMng",
+      "state": "global.setup.site_new_log",
+      "url": "/apsiteMng/new_log",
+      "templateUrl": "apsitemng/views/new_log.html",
+      "controller": "apsitemng/controller/new_log",
+      "dependencies": []
+    },
+    {
+      "appId": "apsiteMng",
+      "state": "global.setup.site_new_log_detail",
+      "url": "/apsiteMng/new_log_detail/:pathid",
+      "templateUrl": "apsitemng/views/new_log_detail.html",
+      "controller": "apsitemng/controller/new_log_detail",
+      "dependencies": []
+    },
+    {
+      "appId": "message",
+      "state": "global.setup.message",
+      "url": "/message",
+      "templateUrl": "message/views/index.html",
+      "controller": "message/controller/index",
+      "dependencies": []
+    },
+    {
+      "appId": "message",
+      "state": "global.setup.emay",
+      "url": "/emay",
+      "templateUrl": "message/views/emay.html",
+      "controller": "message/controller/emay",
+      "dependencies": []
+    },
+    {
+      "appId": "message",
+      "state": "global.setup.greentown",
+      "url": "/greentown",
+      "templateUrl": "message/views/greentown.html",
+      "controller": "message/controller/greentown",
+      "dependencies": []
+    },
+    {
+      "appId": "dataset",
+      "state": "global.setup.dataset",
+      "url": "/dataset",
+      "templateUrl": "dataset/views/detail.html",
+      "controller": "dataset/controller/detail",
+      "dependencies": []
+    },
+    {
+      "appId": "account",
+      "state": "global.setup.account_list",
+      "url": "/account/list/{name}/{id}/{number}",
+      "templateUrl": "account/views/list.html",
+      "controller": "account/controller/list",
+      "dependencies": []
+    },
+    {
+      "appId": "account",
+      "state": "global.setup.account_add",
+      "url": "/account/add/{parentName}/{parentId}",
+      "templateUrl": "account/views/add.html",
+      "controller": "account/controller/add",
+      "dependencies": []
+    },
+    {
+      "appId": "account",
+      "state": "global.setup.account_modify",
+      "url": "/account/modify/{parentName}/{parentId}/{name}/{number}",
+      "templateUrl": "account/views/modify.html",
+      "controller": "account/controller/modify",
+      "dependencies": []
+    },
+    {
+      "appId": "account",
+      "state": "global.setup.account_authorization",
+      "url": "/account/authorization/{parentName}/{parentId}/{name}/{id}/{number}",
+      "templateUrl": "account/views/authorization.html",
+      "controller": "account/controller/authorization",
+      "dependencies": []
+    },
+
+
+
+
+
+
+    {
+      "appId": "scene",
+      "state": "scene",
+      "url": "/scene:model/nasid:nasid/devsn:sn",
+      "templateUrl": "frame/views/header.html",
+      "controller": "frame/controller/scene_header",
+      "dependencies": []
+    },
+    {
+      "appId": "monitor",
+      "state": "scene.monitor",
+      "url": "/monitor",
+      "templateUrl": "frame/views/menu.html",
+      "controller": "frame/controller/menu",
+      "dependencies": []
+    },
+    {
+      "appId": "dashboard",
+      "state": "scene.monitor.dashboard",
+      "url": "/dashboard",
+      "templateUrl": "dashboard5/views/detail.html",
+      "controller": "dashboard5/controller/detail",
+      "dependencies": []
+    },
+    {
+      "appId": "public",
+      "state": "scene.monitor.public",
+      "url": "/public",
+      "templateUrl": "public/views/public.html",
+      "controller": "public/controller/public",
+      "dependencies": []
+    },
+    {
+      "appId": "customer",
+      "state": "scene.monitor.customer",
+      "url": "/customer",
+      "templateUrl": "customer5/views/customer.html",
+      "controller": "customer5/controller/customer",
+      "dependencies": []
+    },
+    {
+      "appId": "apinfo",
+      "state": "scene.monitor.apinfo",
+      "url": "/apinfo",
+      "templateUrl": "apinfo5/views/detail.html",
+      "controller": "apinfo5/controller/detail",
+      "dependencies": []
+    },
+    {
+      "appId": "wiresecurit",
+      "state": "scene.monitor.wiresecurit",
+      "url": "/wiresecurit",
+      "templateUrl": "wiresecurit5/views/wiresecurit.html",
+      "controller": "wiresecurit5/controller/wiresecurit",
+      "dependencies": []
+    },
+    {
+      "appId": "netdeploy",
+      "state": "scene.netdeploy",
+      "url": "/netdeploy",
+      "templateUrl": "frame/views/menu.html",
+      "controller": "frame/controller/menu",
+      "dependencies": []
+    },
+    {
+      "appId": "apBranch",
+      "state": "scene.netdeploy.apBranch",
+      "url": "/apBranch",
+      "templateUrl": "apbranch5/views/index.html",
+      "controller": "apbranch5/controller/index",
+      "dependencies": []
+    },
+    {
+      "appId": "serviceconfig",
+      "state": "scene.netdeploy.serviceconfig",
+      "url": "/serviceconfig",
+      "templateUrl": "serviceconfig/views/detail.html",
+      "controller": "serviceconfig/controller/detail",
+      "dependencies": []
+    },
+    {
+      "appId": "servicebind",
+      "state": "scene.netdeploy.servicebind",
+      "url": "/servicebind",
+      "templateUrl": "servicebind/views/detail.html",
+      "controller": "servicebind/controller/detail",
+      "dependencies": []
+    },
+    {
+      "appId": "pagetemplate",
+      "state": "scene.netdeploy.pagetemplate",
+      "url": "/pagetemplate",
+      "templateUrl": "pagetemplate5/views/detail.html",
+      "controller": "pagetemplate5/controller/detail",
+      "dependencies": []
+    },
+    {
+      "appId": "pubmessage",
+      "state": "scene.netdeploy.pubmessage",
+      "url": "/pubmessage",
+      "templateUrl": "pubmessage/views/detail.html",
+      "controller": "pubmessage/controller/detail",
+      "dependencies": []
+    },
+    {
+      "appId": "chatstore",
+      "state": "scene.netdeploy.chatstore",
+      "url": "/chatstore",
+      "templateUrl": "chatstore/views/detail.html",
+      "controller": "chatstore/controller/detail",
+      "dependencies": []
+    },
+    {
+      "appId": "fixedaccount",
+      "state": "scene.netdeploy.fixedaccount",
+      "url": "/fixedaccount",
+      "templateUrl": "fixedaccount/views/detail.html",
+      "controller": "fixedaccount/controller/detail",
+      "dependencies": []
+    },
+    {
+      "appId": "blackname",
+      "state": "scene.netdeploy.blackname",
+      "url": "/blackname",
+      "templateUrl": "blackname/views/detail.html",
+      "controller": "blackname/controller/detail",
+      "dependencies": []
+    },
+    {
+      "appId": "authtemplate",
+      "state": "scene.netdeploy.auth_authtemplate",
+      "url": "/authtemplate",
+      "templateUrl": "authtemplate5/views/detail.html",
+      "controller": "authtemplate5/controller/detail_new",
+      "dependencies": []
+    },
+    {
+      "appId": "securitpolicy",
+      "state": "scene.netdeploy.securitpolicy",
+      "url": "/securitpolicy",
+      "templateUrl": "securitpolicy/views/detail.html",
+      "controller": "securitpolicy/controller/detail",
+      "dependencies": []
+    },
+    {
+      "appId": "applyset",
+      "state": "scene.netdeploy.applyset",
+      "url": "/applyset",
+      "templateUrl": "applyset/views/applycfg.html",
+      "controller": "applyset/controller/applycfg",
+      "dependencies": []
+    },
+
+    {
+      "appId": "manage",
+      "state": "scene.manage",
+      "url": "/manage",
+      "templateUrl": "frame/views/menu.html",
+      "controller": "frame/controller/menu",
+      "dependencies": []
+    },
+    {
+      "appId": "flowprobe",
+      "state": "scene.manage.flowprobe",
+      "url": "/flowprobe",
+      "templateUrl": "flowprobe/views/flowprobe.html",
+      "controller": "flowprobe/controller/flowprobe",
+      "dependencies": []
+    },
+    {
+      "appId": "behavioranalysis",
+      "state": "scene.manage.behavioranalysis",
+      "url": "/behavioranalysis",
+      "templateUrl": "behavioranalysis/views/behavior.html",
+      "controller": "behavioranalysis/controller/behavior",
+      "dependencies": []
+    },
+
+    {
+      "appId": "maintenance",
+      "state": "scene.maintenance",
+      "url": "/maintenance",
+      "templateUrl": "frame/views/menu.html",
+      "controller": "frame/controller/menu",
+      "dependencies": []
+    },
+    {
+      "appId": "tunneldevice",
+      "state": "scene.maintenance.tunneldevice",
+      "url": "/tunneldevice",
+      "templateUrl": "tunneldevice/views/detail.html",
+      "controller": "tunneldevice/controller/detail",
+      "dependencies": []
+    },
+    {
+      "appId": "maintainlog",
+      "state": "scene.maintenance.maintainlog",
+      "url": "/maintainlog",
+      "templateUrl": "maintainlog/views/maintainlog.html",
+      "controller": "maintainlog/controller/maintainlog",
+      "dependencies": []
+    }
+  ]
+}

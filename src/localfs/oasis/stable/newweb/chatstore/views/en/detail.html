@@ -1,0 +1,66 @@
+<style>
+    .qrcode-contain {
+        height: 150px;
+        width: 150px;
+        /*background: rgba(0, 0, 0, 0.06);*/
+        margin: 0 auto 10px auto;
+        line-height: 150px;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    .qrcode-contain img {
+        vertical-align: top;
+    }
+</style>
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">WeChat Store</h3>
+        </div>
+        <div class="panel-body">
+            <div class="lead" ng-show="permission.write">
+                <a class="btn btn-cus" ui-sref="scene.content.netdeploy.chatstore5_import">import</a>
+            </div>
+            <table bs-table="options"></table>
+        </div>
+    </div>
+</div>
+<div bs-modal="qrCodeModal.modal">
+    <div class="row form-group">
+        <div class="col-xs-offset-1 col-xs-2">Store Name：</div>
+        <div class="col-xs-4">{{row.shop_name}}</div>
+    </div>
+    <div class="row form-group">
+        <div class="col-xs-offset-1 col-xs-2" style="line-height: 32px;">SSID：</div>
+        <div class="col-xs-4">
+            <select class="form-control" ng-model="qrCodeModal.ssid_name"
+                    ng-options="s as s for s in row.ssid_list"></select>
+        </div>
+        <div class="col-xs-2 text-center">
+            <button class="btn btn-cus" ng-disabled="qrCodeModal.btnView || !qrCodeModal.ssid_name" ng-click="qrCodeModal.click()">Show</button>
+        </div>
+        <!--<div class="col-xs-2 text-center" style="line-height: 32px;">-->
+            <!--Click to show-->
+        <!--</div>-->
+    </div>
+    <div class="row form-group" style="margin-top: 20px;">
+        <div class="col-xs-6 text-center">
+            <div class="qrcode-contain">
+                <img ng-show="qrCodeModal.qucodeImg0" height="100%" ng-src="{{qrCodeModal.qucodeImg0}}" alt="">
+            </div>
+            <div>QR code</div>
+        </div>
+        <div class="col-xs-6 text-center">
+            <div class="qrcode-contain">
+                <img ng-show="qrCodeModal.qucodeImg1" height="100%" ng-src="{{qrCodeModal.qucodeImg1}}" alt="">
+            </div>
+            <div>Decorated QR code</div>
+        </div>
+    </div>
+</div>
+<div class="read_rc" id="model_rc"
+     export-text="Export"
+     bind-error="Authentication template bound on the store, please delete it first."
+     table-title="Store Name,Official,SSID,Status,QR Code,Operation,Are you sure you want to export the selected data?,ssid not exist,Store exported successfully！,Failed to export the store！,QR Code,Close,QR code load error">
+</div>

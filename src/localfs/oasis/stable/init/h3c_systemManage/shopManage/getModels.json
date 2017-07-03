@@ -1,0 +1,54 @@
+{
+  "code": 0,
+  "message": "??",
+  "data": {
+    "rowCount": 7,
+    "data": [
+      {
+        "id": 17,
+        "bom": "45454545",
+        "dModel": "54545",
+        "dStr": "545454.",
+        "showEdit": true,
+        "showDelete": true,
+        "showCheckbox": true
+      },
+      {
+        "id": 18,
+        "bom": "56565656",
+        "dModel": "565",
+        "dStr": "656565",
+        "showEdit": true,
+        "showDelete": true,
+        "showCheckbox": true
+      },
+      {
+        "id": 19,
+        "bom": "23232323",
+        "dModel": "232",
+        "dStr": "32323",
+        "showEdit": true,
+        "showDelete": true,
+        "showCheckbox": true
+      },
+      {
+        "id": 20,
+        "bom": "58585858",
+        "dModel": "554",
+        "dStr": "54545",
+        "showEdit": true,
+        "showDelete": true,
+        "showCheckbox": true
+      },
+      {
+        "id": 21,
+        "bom": "0235A35J",
+        "dModel": "WX5004",
+        "dStr": null,
+        "showEdit": true,
+        "showDelete": true,
+        "showCheckbox": true
+      }
+    ]
+  }
+}

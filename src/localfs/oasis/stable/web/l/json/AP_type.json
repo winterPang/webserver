@@ -1,0 +1,13 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 30,
+  "rows": [
+    {"AP_typeName":"WC350","number":"2000"},
+    {"AP_typeName":"WAC360","number":"1800"},
+    {"AP_typeName":"4420","number":"1666"},
+    {"AP_typeName":"4330","number":"8888"},
+    {"AP_typeName":"2610","number":"6666"},
+    {"AP_typeName":"2620","number":"2888"}
+  ]
+}

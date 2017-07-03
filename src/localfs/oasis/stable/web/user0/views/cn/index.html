@@ -1,0 +1,92 @@
+<style>
+    .form-horizontal .control-label {
+        text-align: left !important;
+        padding-top: 2px;
+    }
+    .form-group {
+        margin-bottom:0px;
+    }
+    .form-horizontal [class^="col-md-"], 
+    .form-horizontal [class*="col-md-"],
+    .form-horizontal [class^="col-xs-"],
+    .form-horizontal [class*="col-xs-"],
+    .form-horizontal [class^="col-sm-"], 
+    .form-horizontal [class*="col-sm-"] {
+        line-height: 30px;
+    }
+    .black {
+        background: url("images/black.png") no-repeat;
+        padding-left: 20px;
+    }
+</style>
+<div class="col-xs-12 app-colum">
+    <div id='listView' class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">访客列表</span>
+        </div>
+        <div class="panel-body"
+            <div class="box-body no-height">
+                <div bs-table="userOption"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="form-horizontal form" bs-modal="userDetail.options" id='view_detail_form'>
+    <div class="col-sm-12">
+        <div class="form-group">
+                <label class="col-sm-5 control-label info-explain">头像</label>
+                <img class="label form-if-setHtml" id="headimgurl" src='' alt='-' style="display: block;"></img>
+                <span class="label form-if-setHtml" id="headimgurl1" src='' alt='-' style="display: none;">-</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-5 control-label info-explain">手机号</label>
+                <span class="label form-if-setHtml" id="phoneNum">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-5 control-label info-explain">昵称</label>
+                <span class="label form-if-setHtml" id="nickname">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-5 control-label info-explain">性别</label>
+                <span class="label form-if-setHtml" id="sex">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-5 control-label info-explain">openid</label>
+                <span class="label form-if-setHtml" id="openid">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-5 control-label info-explain">运营商</label>
+                <span class="label form-if-setHtml" id="carrier">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-5 control-label info-explain">归属地</label>
+                <span class="label form-if-setHtml"  id="phoneProvince">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-5 control-label info-explain">区域</label>
+                <span class="label form-if-setHtml" id="areaName">--</span>
+        </div>
+        <!--<div class="form-group">
+                <label class="col-sm-5 control-label info-explain">省</label>
+                <span class="label form-if-setHtml" id="province">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-5 control-label info-explain">市</label>
+                <span class="label form-if-setHtml" id="city">--</span>
+        </div>-->
+    </div>
+</div>
+<div id="user_rc" class="rc-define"
+    USER_LIST_HEADER="MAC地址,用户名,认证方式,上网次数,累计上网时长,最后一次上线时间,操作"
+    USER_TYPE="一键认证,短信认证,微信客户端认证,支付宝认证,QQ认证,微信公众号认证,微信连Wi-Fi认证,app认证,腾讯安全Wi-Fi认证,人脸识别认证,固定账号认证"
+    USER_HEADER="MAC地址,添加时间"
+    INFO="查询数据异常,操作下发成功稍后请刷新页面"
+    TIME="毫秒,秒,分,小时,天"
+    Title="添加MAC,详情,加入黑名单"
+    ADD_SUCCESS ="成功加入黑名单"
+    ADD_ERROR ="已经加入黑名单"
+    MAC_ERROR = "MAC地址为空，无法加入黑名单"
+    SEX = "未设置,男,女"
+    CONFIRM = "确认加入黑名单吗？"
+>
+</div>

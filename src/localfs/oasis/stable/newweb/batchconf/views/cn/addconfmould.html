@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="cn" ng-app="myApp">
+<head>
+    <meta charset="UTF-8">
+    <title>增加配置模板</title>
+    <link rel="stylesheet" href="../../../frame/libs/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../../../devmanage/css/newdevmanage.css">
+    <link rel="stylesheet" href="../../css/addconfmould.css">
+    <script src="../../../frame/libs/jquery/jquery-1.11.3.js"></script>
+    <script src="../../../frame/libs/bootstrap/js/bootstrap.js"></script>
+    <script src="../../../frame/libs/angularjs/angular.js"></script>
+    <script src="../../controller/addconfmould.js"></script>
+</head>
+<body ng-controller="myCtr">
+<div class="newdevmanage addconfmould">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active" name="baseconf"><a href="javascript:void(0)">基础设置</a></li>
+                    <li name="safeauth"><a href="javascript:void(0)">安全认证</a></li>
+                    <li name="authorize"><a href="javascript:void(0)">授权</a></li>
+                    <li name="intrudetest"><a href="javascript:void(0)">入侵检测</a></li>
+                    <li name="keymanage"><a href="javascript:void(0)">密钥管理</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <button type="button" class="btn-customer" ng-click="evts.retMould()">返回配置中心</button>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <div class="add-conf-mould">
+        <form class="form-horizontal" ng-show="flags.cur_conf=='baseconf'">
+            <div class="form-group">
+                <div class="col-xs-6">
+                    <label class="col-xs-5 control-label">配置模板名称 <span
+                            class="label-require">*</span></label>
+                    <div class="col-xs-5">
+                        <input class="form-control" placeholder="1-63个字符">
+                    </div>
+                </div>
+            </div>
+            <div class="clear-both">
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <h4 class="col-xs-10">基础设置</h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-5 control-label">服务模板名称 <span class="label-require">*</span></label>
+                        <div class="col-xs-5">
+                            <input class="form-control" placeholder="1-63个字符">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-5 control-label">SSID <span class="label-require">*</span></label>
+                        <div class="col-xs-5">
+                            <input class="form-control" placeholder="1-32个字符">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-5 control-label">缺省VLAN</label>
+                        <div class="col-xs-5">
+                            <input class="form-control" placeholder="1-4094，缺省为1">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-5 control-label">创建mac-trigger</label>
+                        <div class="col-xs-5">
+                            <input class="form-control" placeholder="">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-5 control-label">最大客户端数量</label>
+                        <div class="col-xs-5">
+                            <input class="form-control" placeholder="1-2007">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-5 control-label">终端上行速率限制（kbps）</label>
+                        <div class="col-xs-5">
+                            <input class="form-control" placeholder="1-4069">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-5 control-label">终端下行速率限制（kbps）</label>
+                        <div class="col-xs-5">
+                            <input class="form-control" placeholder="1-4069">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <h4 class="col-xs-10">业务设置</h4>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-4 control-label">服务模板状态</label>
+                        <label class="col-xs-2 text-left"><input type="radio" name="mou_sta">开启</label>
+                        <label class="col-xs-2 text-left"><input type="radio" name="mou_sta">关闭</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-4 control-label">隐藏SSID</label>
+                        <label class="col-xs-2 text-left"><input type="radio" name="hide_ssid">开启</label>
+                        <label class="col-xs-2 text-left"><input type="radio" name="hide_ssid">关闭</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-4 control-label">portal认证</label>
+                        <label class="col-xs-2 text-left"><input type="radio" name="por_auth_switch">开启</label>
+                        <label class="col-xs-2 text-left"><input type="radio" name="por_auth_switch">关闭</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-4 control-label">captive弹框</label>
+                        <label class="col-xs-2 text-left"><input type="radio" name="captive_switch">开启</label>
+                        <label class="col-xs-2 text-left"><input type="radio" name="captive_switch">关闭</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-4 control-label">DPI</label>
+                        <label class="col-xs-2 text-left"><input type="radio" name="dpi">开启</label>
+                        <label class="col-xs-2 text-left"><input type="radio" name="dpi">关闭</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-4 control-label">探针</label>
+                        <label class="col-xs-2 text-left"><input type="radio" name="probe">开启</label>
+                        <label class="col-xs-2 text-left"><input type="radio" name="probe">关闭</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-4 control-label">快速关联</label>
+                        <label class="col-xs-2 text-left"><input type="radio" name="fast_related">开启</label>
+                        <label class="col-xs-2 text-left"><input type="radio" name="fast_related">关闭</label>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-4 control-label">用户隔离</label>
+                        <label class="col-xs-2 text-left"><input type="radio" name="user_iso_related">开启</label>
+                        <label class="col-xs-2 text-left"><input type="radio" name="user_iso_related">关闭</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="ctrs">
+                    <button class="btn-customer">完成</button>
+                    <button class="btn-customer">重置</button>
+                </div>
+            </div>
+        </form>
+        <form class="form-horizontal" ng-show="flags.cur_conf=='safeauth'">
+            <div class="form-group">
+                <h4 class="col-xs-offset-1 col-xs-10">基本设置</h4>
+            </div>
+            <div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">认证模式</label>
+                    <div class="col-xs-4">
+                        <label><input type="radio" name="auth_model_opt" value="no_auth"
+                                      ng-model="auth_model_opt">不认证</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-3 col-xs-4">
+                        <label><input type="radio" name="auth_model_opt" value="sta_psk_key" ng-model="auth_model_opt">静态PSK密钥</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-3 col-xs-4">
+                        <label><input type="radio" name="auth_model_opt" value="802_auth" ng-model="auth_model_opt">802.1X认证</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-3 col-xs-4">
+                        <label><input type="radio" name="auth_model_opt" value="802_auth_nopwd"
+                                      ng-model="auth_model_opt">802.1X认证（不加密）</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-3 col-xs-4">
+                        <label><input type="radio" name="auth_model_opt" value="sta_wep_key" ng-model="auth_model_opt">静态WEP密钥</label>
+                    </div>
+                </div>
+                <div ng-show="auth_model_opt=='no_auth'||auth_model_opt=='sta_psk_key'">
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-4">
+                            <label><input type="checkbox" name="mac_auth_opt" value="mac_auth" ng-model="mac_auth_opt">MAC地址认证</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-4">
+                            <label><input type="checkbox" name="por_auth_opt" value="por_auth" ng-model="por_auth_opt">portal认证</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div ng-show="auth_model_opt=='sta_psk_key'||auth_model_opt=='802_auth'">
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">安全模式</label>
+                    <label class="col-xs-1 text-left"><input type="radio" name="safe_model_opt">WPA</label>
+                    <label class="col-xs-2 text-left"><input type="radio" name="safe_model_opt">WPA2</label>
+                    <label class="col-xs-2 text-left"><input type="radio" name="safe_model_opt">WPA或WPA2</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">加密套件</label>
+                    <label class="col-xs-1 text-left"><input type="radio" name="sec_external_opt">TKIP</label>
+                    <label class="col-xs-2 text-left"><input type="radio" name="sec_external_opt">CCMP</label>
+                    <label class="col-xs-2 text-left"><input type="radio" name="sec_external_opt">TKIP或CCMP</label>
+                </div>
+            </div>
+            <div ng-show="auth_model_opt=='sta_psk_key'">
+                <div class="form-group">
+                    <h4 class="col-xs-offset-1 col-xs-10">静态PSK密钥</h4>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">密钥类型</label>
+                    <label class="col-xs-2 text-left"><input type="radio" value="passphrase" name="key_type_opt"
+                                                             ng-model="key_type_opt">Passphrase</label>
+                    <label class="col-xs-2 text-left"><input type="radio" value="rawkey" name="key_type_opt"
+                                                             ng-model="key_type_opt">Rawkey</label>
+                </div>
+                <div class="form-group" ng-show="key_type_opt">
+                    <label class="col-xs-3 control-label">密钥<span ng-show="key_type_opt=='rawkey'"
+                                                                  class="label-require"> *</span></label>
+                    <div class="col-xs-4">
+                        <input ng-show="key_type_opt=='passphrase'" class="form-control" placeholder="8-63位字符的字符串">
+                        <input ng-show="key_type_opt=='rawkey'" class="form-control" placeholder="64个十六进制数">
+                    </div>
+                </div>
+            </div>
+            <div ng-show="auth_model_opt=='802_auth'||auth_model_opt=='802_auth_nopwd'">
+                <div class="form-group">
+                    <h4 class="col-xs-offset-1 col-xs-10">802.1X认证</h4>
+                </div>
+                <div class="form-group" ng-show="auth_model_opt=='802_auth'">
+                    <label class="col-xs-3 control-label">动态WEP</label>
+                    <label class="col-xs-1 text-left"><input type="radio" value="act_wep_open" name="act_wep_switch"
+                                                             ng-model="act_wep_switch">开启</label>
+                    <label class="col-xs-1 text-left"><input type="radio" value="act_wep_close" name="act_wep_switch"
+                                                             ng-model="act_wep_switch">关闭</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">握手功能</label>
+                    <label class="col-xs-1 text-left"><input type="radio" value="shake_open" name="shake_switch"
+                                                             ng-model="shake_switch">开启</label>
+                    <label class="col-xs-1 text-left"><input type="radio" value="shake_close" name="shake_switch"
+                                                             ng-model="shake_switch">关闭</label>
+                </div>
+                <div class="form-group" ng-show="shake_switch=='shake_open'">
+                    <label class="col-xs-offset-3 col-xs-4 text-left"><input type="checkbox" name="safe_shake"
+                                                                             ng-model="safe_shake">安全握手功能</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">重认证功能</label>
+                    <label class="col-xs-1 text-left"><input type="radio" value="re_auth_open" name="re_auth_switch"
+                                                             ng-model="re_auth_switch">开启</label>
+                    <label class="col-xs-1 text-left"><input type="radio" value="re_auth_close" name="re_auth_switch"
+                                                             ng-model="re_auth_switch">关闭</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">域名</label>
+                    <div class="col-xs-4">
+                        <input class="form-control" placeholder="1-255字符">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">最大用户数目</label>
+                    <div class="col-xs-4">
+                        <input class="form-control" placeholder="1-4096个字符，缺省为4096">
+                    </div>
+                </div>
+            </div>
+            <div ng-show="auth_model_opt=='sta_wep_key'">
+                <div class="form-group">
+                    <h4 class="col-xs-offset-1 col-xs-10">静态WEP密钥</h4>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">密钥ID</label>
+                    <div class="col-xs-4">
+                        <select class="form-control" name="key_id">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">密钥类型</label>
+                    <div class="col-xs-4">
+                        <select class="form-control" name="key_type">
+                            <option value="passphrase">Passphrase</option>
+                            <option value="rawkey">Rawkey</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">加密套件</label>
+                    <div class="col-xs-4">
+                        <select class="form-control" name="sec_external">
+                            <option value="wep40">WEP 40</option>
+                            <option value="wep104">WEP 104</option>
+                            <option value="wep128">WEP 128</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">密钥 <span class="label-require">*</span></label>
+                    <div class="col-xs-4">
+                        <input class="form-control" placeholder="5个字符的字符串">
+                    </div>
+                </div>
+            </div>
+            <div ng-show="mac_auth_opt&&(auth_model_opt=='no_auth'||auth_model_opt=='sta_psk_key')">
+                <div class="form-group">
+                    <h4 class="col-xs-offset-1 col-xs-10">MAC认证</h4>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">域名</label>
+                    <div class="col-xs-4">
+                        <input class="form-control" placeholder="1-255字符">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">最大用户数目</label>
+                    <div class="col-xs-4">
+                        <input class="form-control" placeholder="1-4096个字符，缺省为4096">
+                    </div>
+                </div>
+            </div>
+            <div ng-show="por_auth_opt&&(auth_model_opt=='no_auth'||auth_model_opt=='sta_psk_key')">
+                <div class="form-group">
+                    <h4 class="col-xs-offset-1 col-xs-10">portal认证</h4>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">域名</label>
+                    <div class="col-xs-4">
+                        <input class="form-control" placeholder="1-255字符">
+                    </div>
+                </div>
+                <div>
+                    <div class="form-group">
+                        <label class="col-xs-3 control-label">portal认证相关配置</label>
+                        <div class="col-xs-4">
+                            <label><input type="checkbox" name="por_auth" ng-model="por_auth">a)引用portal domain</label>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-show="por_auth">
+                        <div class="col-xs-offset-3 col-xs-4">
+                            <input class="form-control" type="text" name="por_domain" placeholder="1-255字符">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-4">
+                            <label><input type="checkbox" name="por_web" ng-model="por_web">b)引用portal
+                                web-server</label>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-show="por_web">
+                        <div class="col-xs-offset-3 col-xs-4">
+                            <input class="form-control" type="text" name="por_web_ser" placeholder="1-32字符">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-offset-3 col-xs-4">
+                            <label><input type="checkbox" name="int_pa" ng-model="int_pa">c)临时放行</label>
+                        </div>
+                    </div>
+                    <div class="form-group" ng-show="int_pa">
+                        <label class="col-xs-offset-3 col-xs-2 text-left"><input type="radio" name="int_pass">开启</label>
+                        <label class="col-xs-2 text-left"><input type="radio" name="int_pass">关闭</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">逃生功能</label>
+                    <label class="col-xs-1 text-left"><input type="radio" name="por_escape_switch">开启</label>
+                    <label class="col-xs-1 text-left"><input type="radio" name="por_escape_switch">关闭</label>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">Web服务器名称 <span class="label-require">*</span></label>
+                    <div class="col-xs-4">
+                        <input class="form-control" placeholder="1-32字符">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">最大用户数目</label>
+                    <div class="col-xs-4">
+                        <input class="form-control" placeholder="1-4294967295">
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="ctrs">
+                    <button class="btn-customer">完成</button>
+                    <button class="btn-customer">重置</button>
+                </div>
+            </div>
+        </form>
+        <form class="form-horizontal" ng-show="flags.cur_conf=='authorize'">
+            <div class="form-group">
+                <label class="col-xs-3 control-label">忽略授权</label>
+                <label class="col-xs-1 text-left"><input type="radio" name="ign_auth">开启</label>
+                <label class="col-xs-1 text-left"><input type="radio" name="ign_auth">关闭</label>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">失败动作</label>
+                <label class="col-xs-4 text-left"><input type="checkbox" name="err_action">授权失败强制用户下线</label>
+            </div>
+            <div class="form-group">
+                <div class="ctrs">
+                    <button class="btn-customer">完成</button>
+                    <button class="btn-customer">重置</button>
+                </div>
+            </div>
+        </form>
+        <form class="form-horizontal" ng-show="flags.cur_conf=='intrudetest'">
+            <div class="form-group">
+                <label class="col-xs-3 control-label">入侵检测</label>
+                <label class="col-xs-1 text-left"><input type="radio" name="intrude_test" value="intrude_test_open"
+                                                         ng-model="intrude_test">开启</label>
+                <label class="col-xs-1 text-left"><input type="radio" name="intrude_test" value="intrude_test_close"
+                                                         ng-model="intrude_test">关闭</label>
+            </div>
+            <div ng-show="intrude_test=='intrude_test_open'">
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">入侵检测模式</label>
+                    <div class="col-xs-4">
+                        <label><input type="radio" name="intrude_test_model" value="stop_mac"
+                                      ng-model="intrude_test_model">将用户MAC地址加入到阻止MAC地址列表</label>
+                    </div>
+                </div>
+                <div class="form-group" ng-show="intrude_test_model=='stop_mac'">
+                    <label class="col-xs-3">阻塞时长</label>
+                    <div class="col-xs-3">
+                        <input class="form-control" type="text" placeholder="60-300，缺省为180">
+                    </div>
+                    <label class="col-xs-1 text-left">秒</label>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-3 col-xs-4">
+                        <label><input type="radio" name="intrude_test_model" value="clo_ill_mess"
+                                      ng-model="intrude_test_model">关闭收到非法报文的无线服务</label>
+                    </div>
+                </div>
+                <div class="form-group" ng-show="intrude_test_model=='clo_ill_mess'">
+                    <label class="col-xs-3">无线服务的关闭时间</label>
+                    <div class="col-xs-3">
+                        <input class="form-control" type="text" placeholder="10-300，缺省为20">
+                    </div>
+                    <label class="col-xs-1 text-left">秒</label>
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-offset-3 col-xs-4">
+                        <label><input type="radio" name="intrude_test_model" value="clo_all"
+                                      ng-model="intrude_test_model">关闭所有无线服务</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-xs-3 control-label">TKIP反制时间</label>
+                    <div class="col-xs-3">
+                        <input type="text" class="form-control" placeholder="0-3600，缺省为0">
+                    </div>
+                    <label class="col-xs-1 text-left">秒</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="ctrs">
+                    <button class="btn-customer">完成</button>
+                    <button class="btn-customer">重置</button>
+                </div>
+            </div>
+        </form>
+        <form class="form-horizontal" ng-show="flags.cur_conf=='keymanage'">
+            <div class="form-group">
+                <label class="col-xs-3 control-label">PTK的生存时间</label>
+                <div class="col-xs-3">
+                    <input type="text" class="form-control" placeholder="180-604800，缺省为43200">
+                </div>
+                <label class="control-label col-xs-1 text-left">秒</label>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">GTK更新</label>
+                <label class="col-xs-1 text-left"><input type="radio" name="gtk_renew" value="gtk_renew_open"
+                                                         ng-model="gtk_renew">开启</label>
+                <label class="col-xs-1 text-left"><input type="radio" name="gtk_renew" value="gtk_renew_close"
+                                                         ng-model="gtk_renew">关闭</label>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">客户端离线更新</label>
+                <label class="col-xs-1 text-left"><input type="radio" name="cus_offline_renew"
+                                                         value="cus_offline_renew_open"
+                                                         ng-model="cus_offline_renew">开启</label>
+                <label class="col-xs-1 text-left"><input type="radio" name="cus_offline_renew"
+                                                         value="cus_offline_renew_close"
+                                                         ng-model="cus_offline_renew">关闭</label>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">GTK更新方式</label>
+                <div class="col-xs-4">
+                    <label><input type="radio" name="gtk_renew_method" value="base_time"
+                                  ng-model="gtk_renew_method">基于时间</label>
+                </div>
+            </div>
+            <div class="form-group" ng-show="gtk_renew_method=='base_time'">
+                <label class="col-xs-3">更新周期</label>
+                <div class="col-xs-3">
+                    <input class="form-control" type="text" placeholder="180-604800，缺省为86400">
+                </div>
+                <label class="col-xs-1 text-left">秒</label>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-offset-3 col-xs-4">
+                    <label><input type="radio" name="gtk_renew_method" value="base_data"
+                                  ng-model="gtk_renew_method">基于数据包</label>
+                </div>
+            </div>
+            <div class="form-group" ng-show="gtk_renew_method=='base_data'">
+                <label class="col-xs-3">数据包个数（包括组播和广播）</label>
+                <div class="col-xs-4">
+                    <input class="form-control" type="text" placeholder="5000-4294967295，缺省为10000000">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="ctrs">
+                    <button class="btn-customer">完成</button>
+                    <button class="btn-customer">重置</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<body>
+<div class="page-row">
+    <div class="col-xs-12 app-colum" debug="getLogMessage">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">Maintenance Logs</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="log_list" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="log_monitor_rc" class="rc-define"
+     LOG_HEADER="User,IP Address,Time,Operation"
+     LOG_LEVEL="Dangerous,Severe,Common"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("x_datastatistic.maintainlog");
+</script>

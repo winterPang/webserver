@@ -1,0 +1,24 @@
+<div class="map-detail clearfix">
+    <div class="col-xs-3 map-info">
+        <p>Address:{{detail.address}}</p>
+        <p>Longitude:{{detail.longitude}}</p>
+        <p>Latitude:{{detail.latitude}}</p>
+        <p>Scale:1:{{detail.scale}}</p>
+    </div>
+    <div class="col-xs-4 map-img">
+        <div style="position: relative">
+            <img ng-src="{{detail.path}}">
+            <div class="map-backdrop">
+                <div ng-if="detail.mapStatus==0">In use...</div>
+                <div ng-if="detail.mapStatus==1">In progress...</div>
+                <div ng-if="detail.mapStatus==2">Please select a picture.</div>
+                <div ng-if="detail.mapStatus==3">Invalid</div>
+            </div>
+        </div>
+        <div class="map-name">{{detail.mapName}}</div>
+    </div>
+    <div class="col-xs-4 map-proto">
+        <img ng-src="{{detail.path}}">
+        <div class="map-name">{{detail.mapName}}</div>
+    </div>
+</div>

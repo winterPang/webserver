@@ -1,0 +1,18 @@
+<div class="btn_h_return" ng-click="onReturn();" style="margin-top:-6px;"></div>
+<div  style="padding-top:45px;">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">导入场所日志</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group zeromargin">
+                <div class="btn btn-cus" ng-click="refresh()">刷新</div>
+            </div>
+            <table bs-table="options"></table>
+        </div>
+    </div>
+    <div class="read_rc" id="leading_in_rc"
+         table-data="操作员,操作时间,IP地址,模块名称,操作描述,操作结果,失败原因"
+    >
+    </div>
+</div>

@@ -1,0 +1,164 @@
+      <html>
+      <head>
+      </head>
+      <body>
+        <div class="btn_h_return" id="return"></div>
+        <div class="tab-content row-fluid sub-page portlet page" >
+        <div class = "setting toggle-body app-box">
+         <form class="form-horizontal form-bordered form edit" id="view_client_form">
+             
+             <div class="box-footer"> 
+                      <span class="title">添加无线服务模板</span>
+                  </div>
+             <div class="col-sm-6 response-block">
+                 <div class="form-group">
+                       <label class="col-sm-3" for="apName">无线服务名称</label>
+                   <div class="col-sm-9 string big">   
+                   <input  name = "apName"  id="apName" maxlength="63" required type="text"/>
+                   </div> 
+                 </div>
+                 <div class="form-group">
+                       <label class="col-sm-3" for="apModel">SSID</label>
+                       <div class="col-sm-9 string big">
+                       <input name = "apModel"  id="apModel" maxlength="63" type="text" />
+                       </div> 
+                 </div>
+                
+                 <div class="form-group">
+                       <label class="col-sm-3 control-label info-explain" for="apGroupName">状态</label>
+                        <div class="col-sm-9 string big">
+                        <input type="radio" id="apGroupName" name = "apGroupName" value="使能"/>
+                         <label class=" control-label info-explain" for="apGroupName">使能</label>
+                        <input type="radio" id="ahbbdgf" name = "apGroupName" value="去使能"/>
+                         <label class=" control-label info-explain" for="apGroupName">去使能</label>
+                      <!--  <input name = "apGroupName"  id="apGroupName" maxlength="63" type="text" /> -->
+                       </div> 
+                 </div>
+             </div>
+
+               <div class="col-sm-6 response-block">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">认证方式</label>
+                    <div class="col-sm-9">
+                        <div class="col-sm-12">
+                            <input type="radio" value="AT1" id="AT1" name="AuthenType" ctrlBlock=".ath-type" content="" checked/>
+                            <label for="AT1">不认证</label>
+                        </div>
+
+                        <div class="col-sm-12">
+                            <input type="radio" value="AT2" id="AT2" name="AuthenType" ctrlBlock=".ath-type" content="" />
+                            <label for="AT2" >一键上网</label>
+                        </div>
+
+                        <div class="col-sm-12 st-type" id="MailBlock" >
+                            <input type="radio" value="AT3" id="AT3" name="AuthenType" ctrlBlock=".ath-type" content="#LoginWays" />
+                            <label for="AT3">账号登录</label>
+                            <div id="LoginWays" class="ath-type hide">
+                                <div class="col-sm-2">
+                                    <input type="checkbox" value="短信认证" id="Message" name="LoginWays"/>
+                                    <label for="Message">短信</label>
+                                </div>
+                                <div class="col-sm-3 account_style">
+                                    <input type="checkbox" id="WeChart" name="LoginWays"/>
+                                    <label for="WeChart">微信公众号</label>
+                                </div>
+                                <div class="col-sm-3 account_style">
+                                    <input type="checkbox" id="FixAccount" name="LoginWays"/>
+                                    <label for="FixAccount">固定账号</label>
+                                </div>
+                                <div class="col-sm-3 account_style">
+                                    <input type="checkbox" id="isWeChatWifi" name="LoginWays"/>
+                                    <label for="isWeChatWifi">微信连WIFI</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-12 st-type" id="WeixinBlock" >
+                            <input type="radio" value="AT4" id="AT4" name="AuthenType" ctrlBlock=".ath-type" content="#ModelSelect"/>
+                            <label for="AT4">选择认证模板</label>
+                            <div class="ath-type hide" id="ModelSelect">
+                               
+                                <select class="singleSelect"  allowClear="true" id="AuthCfgList" name="AuthCfgList">
+                                <option>--</option>
+                                <option>gd</option>
+                                <option>sdf</option>
+                                <option>fgf</option>
+                                <option>dgfdg</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">登录页面</label>
+                    <div class="col-sm-9">
+                        <div class="col-sm-12">
+                            <div class="col-sm-3">
+                                <input type="radio" id="LP1" value="LP1" name="LoginPage" value="1" ctrlBlock=".lg-page"/>
+                                <label for="LP1">简约</label>
+                            </div>
+                           
+                        </div>
+                      
+                        <div class="col-sm-12">
+                            <input type="radio" id="LP4" value="LP4" name="LoginPage" ctrlBlock=".lg-page" content="#LoginPageSelect">
+                            <label for="LP4">选择页面模板</label>
+                            <div class="lg-page hide" id="LoginPageSelect">
+                          
+                                <select class="singleSelect"  id="LoginPageList" name="LoginPageList">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">微信公众号</label>
+                    <div class="col-sm-9" id="WeChartSelect">
+                        <select class="singleSelect"  id="WeChartList" name="WeChartList">
+                        </select>
+                
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">免认证</label>
+                    <div class="col-sm-9">
+                        <input type="checkbox" class="switch" id="auto_study_enable" name="auth_study_group" checked ctrlBlock=".Learn-MAC"/>
+                        <div class="Learn-MAC">
+                            
+                            <div class="Learn-Time">
+                                <input type="text" class="string big" id="impose_auth_time" value="7"/>
+                                <label class="info-explain">(1-30)天</label>
+                            </div>
+                            <label class="info-explain">说明：通过认证的用户在免认证期内上线无需重复认证</label>
+                        </div>
+                    </div>
+                </div>
+                
+              <div class="form-actions bottom">
+              <a class="btn btn-apply" id="go_next">下一步</a>
+              <a class="btn btn-cancel">取消</a>
+              </div>
+            </div>
+             
+         </form>
+         </div>
+         </div>
+        <div id="h_wireless_indexAdd" class="rc-define"
+                  SSID_HEADER = "SSID,认证方式"
+                  ALLAP_HEADER2="无线服务名称,SSID,认证方式,状态,绑定AP,绑定AP组,操作"
+                  STATUS=",在线,离线,正在下载版本"
+                  TERINFO="AP列表"
+                  TITLE_TERINFO="AP详情"
+                  APGROUP="AP组"
+                  ALLAP_HEADER3="AP名称,SN,AP型号,绑定"
+                  ALLAP_HEADER4="AP组名称,绑定">
+           
+         </div>
+      </body>
+      </html>
+      <script language="javascript" type="text/javascript">
+      	Utils.Pages.loadJS("h_wireless.index_add");
+      </script>

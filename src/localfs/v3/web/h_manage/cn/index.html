@@ -1,0 +1,97 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height default-bottom">
+            <div class="box-footer">
+                <span class="title">设备管理</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="manage_list1" class="simple-list"></div>
+            </div>
+            <div class="box-body no-height">
+                <div id="manage_list2" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="manage_rc" class="rc-define"
+     MANAGE_ITEM1 = "状态,序列号,设备名称,型号,IP,在线时长,关联场所,所属用户"
+     MANAGE_ITEM2 = "状态,序列号,设备名称,型号,在线时长,关联场所,所属用户"
+     INFORMATION = "状态,序列号,设备名称,型号,IP,在线时长,OUI,硬件版本,软件版本"
+     ONLINE = "在线"
+     OFFLINE = "下线"
+     TIME = "00天04小时30分39秒"
+     TIME1 = "05天02小时55分28秒"
+     LOCATION = "东电B1实验局"
+     FRESH = "刷新"
+     NAME = "CPU利用率"
+     NAME2 = "内存利用率"
+        ></div>
+
+<div class="modal fade modal-super" id="flowdetailDlg" tabindex="-1" aria-hidden="true" style="margin-top: -148px; display: none;">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3>210235A1AMB159000008</h3>
+    </div>
+    <form class="form-horizontal form" id="flowdetail_form">
+        <div class="box-body no-height form-group">
+            <div class="page-row">
+                <div class="col-xs-12 app-colum">
+                    <div class="app-box no-height default-bottom">
+                        <div class="box-footer">
+                            <span class="title">基本信息</span>
+                        </div>
+                        <div class="box-body no-height">
+                            <div id="flowdetail_list" class="simple-list" style=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+  <!------------------------------------- --------------------------------- -->
+    <div class="col-xs-12 app-colum">
+            <div class="app-box no-bk-color">
+                <!-- <div class="box-footer">
+                </div> -->
+                <div class="box-footer">
+                    <div class="col-xs-3">
+                        <span class="title">设备运行信息</span>
+                    </div>
+                    <div class="index_out_div">
+                        <a id="hours1" href="#" class="xx-link">一小时</a>
+                        <a id="days1" href="#" class="xx-link">一天</a>
+                        <a id="weeks1" href="#" class="xx-link">一周</a>
+                        <!-- <a id="mounth" href="#" class="xx-link">一月</a> -->
+                        <!-- <a id="years" href="#" class="xx-link">一年</a> -->
+                        <!-- <a id="zidingyi" href="#" class="xx-link">自定义</a> -->
+                    </div>                  
+                </div>
+                <div class="box-body echart-height form-group body-nopadding">
+                    <div id="flowdetail_list2" class="col-xs-12 myEchart"></div>
+                </div>
+            </div>
+    </div>
+
+     <!------------------------------------------ ------------------------------------- -->
+
+
+        </div>
+        <div class="modal-footer form-actions"></div>
+    </form>
+    <div class="editor-alert">
+
+    </div>
+</div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_manage.index");
+</script>

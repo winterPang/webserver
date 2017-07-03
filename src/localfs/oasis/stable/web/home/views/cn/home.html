@@ -1,0 +1,292 @@
+<div ng-show="REGION_READ && !NO_PERMISSION">
+    <div class="storeGroup">
+        <h4 class="pull-left">门店分组</h4>
+        <div class="pull-right" style="margin-top:20px;">
+            <img class="echratsImg" src="../home/images/icon-dtc.png" ng-click="echratsView($event)" style="cursor:pointer">
+            <img class="tableImg" src="../home/images/icon-lbn.png" style="margin-right:15px;" ng-click="tableView($event)">
+            <!--<img src="../home/images/icon-mn.png">-->
+        </div>
+        <!--<hr class="clearfix">-->
+        <div class="pull-left" id="divInput">
+            <form class="form-inline" role="form">
+                <div class="form-group has-feedback">
+                    <input type="text" class="form-control" id="search" ng-model="searchText" autocomplete="false">
+                    <span class="glyphicon glyphicon-search form-control-feedback" id="btnSearch"></span>
+                </div>
+            </form>
+        </div>
+        <div class="ztree-container pull-left">
+            <ul id="treeDemo" class="ztree"></ul>
+        </div>
+        <button type="button" ng-click="expand=!expand" class="btn btn-default" id="right" ng-init="expand=true">
+            <span class="glyphicon  glyphicon-chevron-left" ng-class="{true:'glyphicon-chevron-left',false:'glyphicon-chevron-right'}[expand]"></span>
+        </button>
+    </div>
+
+    <div home-site="region"></div>
+    <div class="container" ng-show="SHOP_WRITE">
+        <div class="row">
+            <div class="text-center" id="add_div" ng-click="addSite()">
+                <img src="../home/img/icon_homepage_add.png" id="add_img">
+            </div>
+        </div>
+    </div>
+
+    <div bs-modal="form.option" class="guideModal" id="homeAddShopForm">
+        <!--显示在上面的一条条-->
+        <div class="clearfix clearfix2">
+            <ul class="text-center">
+                <li class="col-xs-3 pull-left">
+                    <span><img src="../home/img/one{{form.showForm==1?'_active':''}}.png"></span><span>增加场所</span>
+                </li>
+                <li class="col-xs-3 pull-left">
+                    <span><img src="../home/img/two{{form.showForm==2?'_active':''}}.png"></span><span>选择场景</span>
+                </li>
+                <li class="col-xs-3 pull-left">
+                    <span><img src="../home/img/three{{form.showForm==3?'_active':''}}.png"></span><span>增加设备</span>
+                </li>
+                <li class="col-xs-3 pull-left">
+                    <span><img src="../home/img/four{{form.showForm===4?'_active':''}}.png"></span><span>摘要</span>
+                </li>
+            </ul>
+        </div>
+        <!--TODO  需要修改回来-->
+        <form novalidate class="form-horizontal" name="forms.form1" ng-show="form.showForm==1">
+            <div class="form-group">
+                <label class="col-xs-3 control-label">场所名称 <span class="label-require">*</span></label>
+                <div class="col-xs-4">
+                    <input class="form-control" name="shopName" type="text" ng-model="row.shopName" required
+                           ajax-valid="validShopName" ng-pattern="/^[^0-9]/" ng-maxlength="20">
+                </div>
+                <div class="ng-error col-xs-4" ng-show="forms.form1.shopName.$dirty" ng-messages="forms.form1.shopName.$error">
+                    <div ng-message="required">请输入场所名称！</div>
+                    <div ng-message="maxlength">最多不能超过20位！</div>
+                    <div ng-message="pattern">不能以数字开头！</div>
+                    <div ng-message="ajaxValid-2">场所已存在</div>
+                    <div ng-message="ajaxValid-3">请求参数不合法</div>
+                    <div ng-message="ajaxValid-4">网络异常</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">所属行业<span class="label-require">*</span></label>
+                <div class="col-xs-4">
+                    <select name="owned_industry" required class="form-control" ng-model="row.owned_industry" ng-options="a.id as a.industryName for a in industry">
+                    </select>
+                </div>
+                <div class="ng-error col-xs-4" ng-show="forms.form1.owned_industry.$dirty" ng-messages="forms.form1.owned_industry.$error">
+                    <div ng-message="required">请选择所属行业</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">场所(总部)地址<span class="label-require">*</span></label>
+                <div class="col-xs-7">
+                    <select id="cmbProvince" class="form-control" name="province" required> </select>
+                    <select id="cmbCitys" class="form-control" name="city" required> </select>
+                    <select id="cmbArea" class="form-control" name="area" required> </select>
+                    <span ng-show="form1.province.$invalid||form1.city.$invalid||form1.area.$invalid" style="color:red;font-size:12px;">请选择省市区</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">详细地址</label>
+                <div class="col-xs-4">
+                    <input class="form-control" name="address" type="text" ng-model="row.address" ng-maxlength="150">
+                </div>
+                <div class="col-xs-4 ng-error" ng-show="forms.form1.address.$dirty" ng-messages="forms.form1.address.$error">
+                    <div ng-message="maxlength">最多不能超过150位！</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">联系电话</label>
+                <div class="col-xs-4">
+                    <input class="form-control" name="phone" type="text" ng-model="row.phone"
+                           ng-pattern="/^((0086|\+86)?\s*1[34578]\d{9}|(\d{3,4}-)?\d{7,8})$/">
+                </div>
+                <div class="col-xs-4 ng-error" ng-show="forms.form1.phone.$dirty" ng-messages="forms.form1.phone.$error">
+                    <div ng-message="pattern">电话号码格式不正确！</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">场所简介</label>
+                <div class="col-xs-4">
+                    <textarea class="form-control" name="shopProfile" type="text" ng-model="row.shopDesc" ng-maxlength="500"></textarea>
+                </div>
+                <div class="col-xs-4 ng-error" ng-show="forms.form1.shopProfile.$dirty" ng-messages="forms.form1.shopProfile.$error">
+                    <div ng-message="maxlength">最多不能超过500位！</div>
+                </div>
+            </div>
+        </form>
+        <form novalidate class="form-horizontal" name="forms.form2" ng-show="form.showForm==2">
+            <div class="form-group">
+                <label class="col-xs-3 control-label">场景分类<span class="label-require">*</span></label>
+                <div class="col-xs-5">
+                    <select name="scenario_category_name" class="form-control" ng-model="row.scenario_category_name"
+                            ng-options="scen.id as scen.namedesc for scen in scens">
+                    </select>
+                </div>
+            </div>
+            <table bs-table="options"></table>
+        </form>
+        <!--TODO 需要修改回来-->
+        <form novalidate class="form-horizontal" name="forms.form3" ng-show="form.showForm==3">
+            <!--<form novalidate class="form-horizontal" name="forms.form3">-->
+            <div class="form-group">
+                <label class="col-xs-3 control-label">设备别名 <span class="label-require">*</span></label>
+                <div class="col-xs-5">
+                    <input class="form-control" name="devAlias" type="text" ng-model="addDev.devAlias" placeholder="请输入设备别名" ng-maxlength="30" required>
+                </div>
+                <div class="col-xs-3 ng-error" ng-show="forms.form3.devAlias.$dirty" ng-messages="forms.form3.devAlias.$error">
+                    <div ng-message="required">请输入设备别名！</div>
+                    <div ng-message="maxlength">不能超过30位！</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">设备类型 </label>
+                <div class="col-xs-3">
+                    <select name="" class="form-control" ng-model="addDev.devType">
+                        <option value="1" selected>物理设备</option>
+                        <option value="4">虚拟设备</option>
+                    </select>
+                </div>
+                <div class="col-xs-2 text-right irf-field">
+                    <span><input type="checkbox" ng-model="addDev.isIRF"></span>
+                    <span>IRF设备</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">设备序列号 <span class="label-require">*</span></label>
+                <div class="col-xs-5">
+                    <input class="form-control" name="devSn" type="text" ng-model="addDev.devSn" placeholder="请输入设备序列号" ng-pattern="/^[0-9a-zA-Z]{9,64}$/" ajax-valid="validDevSn" required>
+                </div>
+                <div class="col-xs-3 ng-error" ng-show="forms.form3.devSn.$dirty" ng-messages="forms.form3.devSn.$error">
+                    <div ng-message="required">请输入设备序列号！</div>
+                    <div ng-message="pattern">包含数字或字母,长9-64位</div>
+                    <div ng-message="ajaxValid-1">设备序列号已存在！</div>
+                </div>
+            </div>
+            <div class="form-group" ng-show="addDev.isIRF">
+                <label class="col-xs-3 control-label">分组名称 <span class="label-require">*</span></label>
+                <div class="col-xs-5">
+                    <select ng-model="addDev.groupId" class="form-control">
+                        <option value="-1">新建分组</option>
+                        <option ng-repeat="name in groupNameList" value="{{name}}" ng-bind="name"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group" ng-show="addDev.isIRF && addDev.groupId==-1">
+                <label class="col-xs-3 control-label">新分组名称 <span class="label-require">*</span></label>
+                <div class="col-xs-5">
+                    <input class="form-control" name="groupName" type="text" ng-model="addDev.groupName" placeholder="请输入分组名称">
+                </div>
+            </div>
+            <div>
+                <div class="col-xs-2 pull-right" style="margin-bottom:20px;">
+                    <button class="btn btn-cus" ng-disabled="addDev.devAddBtnDisabled" ng-click="addDevModel()">添加</button>
+                </div>
+                <table bs-table="addOptions"></table>
+            </div>
+        </form>
+        <form novalidate class="form-horizontal" name="forms.form4" ng-show="form.showForm==4">
+            <div class="form-group">
+                <label class="col-xs-3 control-label">场所名称 <span class="label-require">*</span></label>
+                <div class="col-xs-5 text-center" style="padding-top:7px;">
+                    {{row.shopName}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">场所简介</label>
+                <div class="col-xs-5 text-center" style="padding-top:7px;">
+                    {{row.shopDesc}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">场所(总部)地址<span class="label-require">*</span></label>
+                <div class="col-xs-5 text-center" style="padding-top:7px;" ng-bind="row.addr">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">详细地址</label>
+                <div class="col-xs-5 text-center" style="padding-top:7px;" ng-bind="row.addr+row.address">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">联系电话</label>
+                <div class="col-xs-5 text-center" style="padding-top:7px;">
+                    {{row.phone}}
+                </div>
+            </div>
+            <div style="margin-bottom:20px;">
+                <table bs-table="addOptions2"></table>
+            </div>
+
+        </form>
+        <!--底部按钮-->
+        <div class="text-center form-footer">
+            <button class="btn btn-cus" name="next1" ng-show="form.showForm==1" ng-disabled="forms.form1.$invalid">下一步</button>
+            <button class="btn btn-cus" name="prev1" ng-show="form.showForm==2">上一步</button>
+            <button class="btn btn-cus" name="next2" ng-disabled="!row.scenario_category_name" ng-show="form.showForm==2">下一步</button>
+            <button class="btn btn-cus" name="prev2" ng-show="form.showForm==3">上一步</button>
+            <button class="btn btn-cus" name="next3" ng-show="form.showForm==3" ng-disabled="forms.form3.$invalid && !$scope.devices.length">下一步</button>
+            <button class="btn btn-cus" name="cancel" ng-show="form.showForm!=4">取消</button>
+            <button class="btn btn-cus" name="complete" ng-show="form.showForm==4" ng-click="complete()">完成</button>
+        </div>
+    </div>
+    <form id="addAreaModal" novalidate bs-modal="addAreaModal" class="form-horizontal" name="formAddArea">
+        <div class="form-group">
+            <div class="col-xs-2 control-label">区域名称:</div>
+            <div class="col-xs-5">
+                <input class="form-control" name="name_area" ng-model="treeNode.areaName" placeholder='请输入区域名称，不超过30位' required ng-maxlength="30">
+            </div>
+            <div class="col-xs-4 ng-error" ng-messages="formAddArea.name_area.$error" ng-show="formAddArea.name_area.$dirty">
+                <div ng-message="required">区域名称不能为空</div>
+                <div ng-message="maxlength">区域名称不能超过30位</div>
+            </div>
+        </div>
+    </form>
+    <form id="modifyAreaModal" novalidate bs-modal="modifyAreaModal" class="form-horizontal" name="formModifyArea">
+        <div class="form-group">
+            <div class="col-xs-2 control-label">区域名称:</div>
+            <div class="col-xs-5">
+                <input class="form-control" name="name_area" ng-model="treeNode.areaName" placeholder='请输入区域名称，不超过30位' required ng-maxlength="30">
+            </div>
+            <div class="col-xs-4 ng-error" ng-messages="formModifyArea.name_area.$error" ng-show="formModifyArea.name_area.$dirty">
+                <div ng-message="required">区域名称不能为空</div>
+                <div ng-message="maxlength">区域名称不能超过30位</div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="home_not_allow" ng-show="!REGION_READ">
+    <img src="../home/img/notallow.png" alt="无权限访问">
+</div>
+<div class="home_not_allow" ng-show="NO_PERMISSION && REGION_READ">
+    <img src="../home/img/adminallow.png" alt="管理员授权">
+</div>
+<div class="read_rc" id="home_rc"
+     support="支持设备型号"
+     device-number="设备序列号"
+     device-ailas="设备别名"
+     delete="删除"
+     confirm-delete="确定删除,吗"
+     delete-device="删除设备"
+     success="成功"
+     error="请求出错啦~"
+     up-to-five="一次最多添加5个设备"
+     number-exist="设备序列号已存在"
+     add-shop-sucess="增加场所成功"
+     add-shop-error="增加场所失败"
+     add-sucess="增加设备成功"
+     add-error="增加设备失败"
+     add-dev-msg="没有和设备匹配的场景"
+     add-region="添加区域"
+     delete-region="删除区域"
+     modify-name="修改名称"
+     modify-region="修改区域"
+     not-modify="未修改区域名称"
+     table-header=""
+     single-group="独立设备"
+    Group-name="分组名称"
+    data="数据加载失败"
+    addDevTitle="分组名称,设备序列号,设备别名,删除"
+     first-completed="您的基本信息还未完善，是否跳转信息修改页面进行完善？"
+>
+</div>

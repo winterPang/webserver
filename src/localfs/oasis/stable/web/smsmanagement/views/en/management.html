@@ -1,0 +1,29 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">SMS Management</h3></div>
+        <div class="panel-body">
+            <div class="btn btn-cus" ng-click="refresh()">
+                <span class="glyphicon glyphicon-refresh" style="margin-right:7px;"></span>Refresh
+            </div>
+            <table bs-table="managementOptions"></table>
+        </div>
+    </div>
+    <form novalidate bs-modal="modify_management" class="form-horizontal" name="signatureModify">
+        <div class="form-group">
+            <div class="col-sm-3 control-label">SMS Signature</div>
+            <div class="col-sm-5">
+                <input class="form-control" name="signature" ng-model="row.signature" placeholder='Please enter a short message signature' required ng-maxlength="10">
+            </div>
+            <div class="col-sm-4 ng-error" ng-messages="signatureModify.signature.$error" ng-show="signatureModify.signature.$dirty">
+                <div ng-message="required">This field is required.</div>
+                <div ng-message="maxlength">This can not be more than 10!</div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="read_rc" id="smsmanagement_rc"
+     modal-data="SMS Management,OK,Cancel"
+     msgDialog-data="The request went wrong."
+     table-data="User name,Send count,Not send count,Signature,Modify"
+>
+</div>

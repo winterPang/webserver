@@ -1,0 +1,175 @@
+<html>
+ <head>
+ </head> 
+ <body>
+<div class="dashboard js-apinfo"> 
+    <div class="page-row"> 
+        <div class="col-xs-12 app-colum left-block" debug="Aps"> 
+            <div class="bg-bor"> 
+                <div class="head-bar"> 
+                    <div class="box-footer"> 
+                        <div class="col-xs-10"> 
+                            <span class="title_h">AP数量</span>
+                        </div> 
+                    <div class="text-right link-container">
+                        <a type="button" class="link-detail js-aplist" href="p_apinfo.ap_detail" title="更多">
+                        <i class="detail-icon icon"></i> </a>
+                    </div> 
+                </div> 
+                <div class="col-xs-4">
+                    <div class="syslog-info-mine-Total">
+                        <div class="ap-icon_h icon-online">
+                            
+                        </div>
+                        <div class="right-text-info">      
+                            <span class="counter" id="online">0</span>
+                            <br />
+                            <span class="number-title">在线AP数</span>
+                        </div>                      
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="syslog-info-mine-Total">
+                        <div class="ap-icon_h icon-offline">
+                            
+                        </div>
+                        <div class="right-text-info">      
+                            <span class="counter" id="offline">0</span>
+                            <br />
+                            <span class="number-title">离线AP数</span>
+                        </div>                      
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="syslog-info-mine-Total syslog-apinfo-border">
+                        <div class="ap-icon_h icon-unhealth">          
+                        </div>
+                        <div class="right-text-info">      
+                            <span class="counter" id="unhealthy">0</span>
+                            <br />
+                            <span class="number-title">不健康AP数</span>
+                        </div>                      
+                    </div>
+                </div>
+            </div> 
+        </div> 
+    </div> 
+    <div class="page-row"> 
+        <div class="col-xs-6 app-colum left-block" debug="APModel_bar"> 
+            <div class="app-box no-bk-color custom-height" > 
+                <div class="box-footer"> 
+                    <span class="title">基于AP型号</span>
+                </div> 
+                <div class="sysinfo-body"> 
+                    <div id="APModel_bar" class="myEchart col-xs-12"></div> 
+                </div> 
+            </div> 
+            <div class="app-box no-bk-color" style="height:265px;"debug="According_client"> 
+                <div class="box-footer"> 
+                    <span class="title">基于终端数</span>
+                </div> 
+                <div class="sysinfo-body"> 
+                    <div id="According_client" class=" col-xs-12 myEchart"></div>
+                </div>
+            </div> 
+        </div> 
+        <div class="col-xs-6 app-colum left-block"  debug="ApGroup_list"> 
+            <div class="app-box no-bk-color custom-height"> 
+                <div class="box-footer"> 
+                    <span class="title">基于AP组</span> 
+                </div> 
+                <div class="box-body no-height"> 
+                    <div id="ApGroup_list" class="simple-list"></div> 
+                </div> 
+            </div> 
+            <div class="default-height" debug="ApType_pie"> 
+                <div class="app-box no-bk-color" style="height:265px;"> 
+                    <div class="box-footer"> 
+                    <span class="title">基于AP类型</span> 
+                    </div> 
+                    <div class="sysinfo-body"> 
+                        <div id="ApType_pie" class="myEchart col-xs-12"></div> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+</div> 
+<div id="ap_diag" class="hide modal fade">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">AP列表</h3>
+    </div>
+    <div class="modal-body">
+        <!-- <div id="popList" class="simple-list"></div> -->
+        <div class="page-row">
+            <div class="btn_h_return" id="return"></div>
+            <div class="col-xs-12 app-colum">
+                  <div class="no-height default-bottom">
+                      <!-- <div class="box-footer">
+                          <span class="title">AP列表</span>
+                      </div> -->
+                      <div class="box-body no-height">
+                          <div id="onlineuser_list" class="simple-list" style = "width:860px"></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          </div>
+        </div>
+    </div>
+    <!-- <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">关闭</a>
+    </div> -->
+</div>
+
+<div id="endnum_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">AP列表</h3>
+    </div>
+
+    <div class="col-xs-12 info-tip">
+        <!--<a class="period" style="color:#80878c;"><span>终端周期:</span></a>-->
+        <span>终端数 :</span>
+        <a class="ap_client_name" time="1" style="color: grey;"></a>&nbsp;&nbsp;
+        <span>AP数 :</span>
+        <a class="ap_client_num" time="1" style="color: grey;"></a>
+    </div>
+
+    <div class="modal-body">
+        <div id="endnumPopList" class="simple-list" style = "width:860px"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+
+<div id="endtype_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">AP列表</h3>
+    </div>
+
+    <div class="col-xs-12 info-tip">
+        <!--<a class="period" style="color:#80878c;"><span>终端周期:</span></a>-->
+        <span>AP类型 :</span>
+        <a class="ap_type_value" time="1" style="color: grey;"></a>&nbsp;&nbsp;
+        <span>AP数量 :</span>
+        <a class="ap_type_num" time="1" style="color: grey;"></a>
+    </div>
+
+    <div class="modal-body">
+        <div id="endtypePopList" class="simple-list" style = "width:860px"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+
+<div id="apinfo_rc" class="rc-define" group_header="AP组名称,AP数目" ssid_header="SSID,AP数目（5GHz）,AP数目（2.4GHz）" ap_type="在线的手工AP,自动AP,离线的手工AP,未认证的AP" ap_diag_header = "AP名称,AP型号,AP类型" endnum_diag_header = "AP名称,AP型号,终端数" ALLAP_HEADER3="AP名称,型号,AP序列号,MAC地址" apType=",在线的手工AP,自动AP,离线的手工AP,未认证的AP" APOFDATA="在线的手工AP,自动AP,离线的手工AP,未认证的AP" ONLINEAP="在线的手工AP" UP="101以上"></div>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("p_apinfo.index");
+</script> 
+ </body>
+</html>

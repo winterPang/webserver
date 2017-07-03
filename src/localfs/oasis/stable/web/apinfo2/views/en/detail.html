@@ -1,0 +1,172 @@
+<style>
+    .apTotalCnt-icon{
+        background-position: -226px -262px;
+        width: 70px;
+        height: 62px;
+        display: inline-block;
+        line-height: 62px;
+        background-image: url(images/hangyeac.png);
+        vertical-align: middle;
+        margin-left: 0;
+        margin-top: -43px;
+    }
+</style>
+
+<div class="dashboard js-apinfo">
+    <div class="page-row"> 
+    <div class="col-xs-12 app-colum left-block" debug="Aps">
+            <div class="bg-bor"> 
+                <div class="head-bar"> 
+                    <div class="box-footer"> 
+                        <div class="col-xs-10"> 
+                            <span class="title_h">APs</span>
+                        </div> 
+                    <div class="text-right link-container">
+                        <a type="button" class="link-detail js-aplist" ui-sref="^.apinfo2_detail_ap" title="More">
+                        <i class="detail-icon icon"></i> </a>
+                    </div> 
+                </div>
+                <div class="col-xs-4">
+                    <div class="syslog-info-mine-Total">
+                        <div class="apTotalCnt-icon">
+                        </div>
+                        <div class="right-text-info">
+                            <span class="counter" id="unhealthy" ng-bind="all_ap"></span>
+                            <br />
+                            <span class="number-title">Total</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="syslog-info-mine-Total">
+                        <div class="ap-icon_h icon-online"></div>
+                        <div class="right-text-info">      
+                            <span class="counter" id="online" ng-bind="online_ap"></span>
+                            <br />
+                            <span class="number-title">Online APs</span>
+                        </div>                      
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="syslog-info-mine-Total syslog-apinfo-border">
+                        <div class="ap-icon_h icon-offline">
+                            
+                        </div>
+                        <div class="right-text-info">      
+                            <span class="counter" id="offline" ng-bind="offline_ap"></span>
+                            <br />
+                            <span class="number-title">Offline APs</span>
+                        </div>                      
+                    </div>
+                </div>
+            </div> 
+        </div> 
+    </div> 
+    <div class="page-row"> 
+        <div class="col-xs-6 app-colum left-block" debug="APModel_bar">
+            <div class="app-box no-bk-color app-box-slist custom-height">
+                <div class="box-footer">
+                    <span class="title">Top 5 APs by Traffic</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="link-detail" title="all APs by Traffic" ng-click="trafficTop5MoreFun1()">
+                            <i class="detail-icon icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="sysinfo-body">
+                    <!-- <div class="simple-list" bs-table="ApTransmitTraffic_list"> </div> -->
+                    <div id="traffic_top5" class="myEchart" style="height:300px;"></div>
+                </div>
+            </div>
+            <div class="app-box no-bk-color" debug="According_client">
+                <div class="box-footer"> 
+                    <span class="title">Client Distribution</span>
+                </div> 
+                <div class="sysinfo-body"> 
+                    <div id="According_client" class=" col-xs-12 myEchart" style="width:522px;height:280px;"></div>
+                </div>
+            </div> 
+        </div> 
+        <div class="col-xs-6 app-colum left-block"  debug="ApGroup_list"> 
+            <div class="app-box no-bk-color app-box-slist custom-height">
+                <div class="box-footer"> 
+                    <span class="title">Top 5 APs by Clients</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="link-detail" title="all APs by Clients" ng-click="trafficTop5MoreFun2()">
+                            <i class="detail-icon icon"></i>
+                        </a>
+                    </div>
+                </div> 
+                <div class="sysinfo-body">
+                    <!-- <div class="simple-list" bs-table="ApStationCount_list"> </div> -->
+                    <div id="users_top5" class="myEchart" style="height:300px;"></div>
+                </div> 
+            </div>
+            <div class="app-box no-bk-color app-box-slist custom-height">
+                <div class="box-footer">
+                    <span class="title">AP Group Info</span>
+                </div>
+                <div class="sysinfo-body">
+                    <div class="simple-list" bs-table="ApGroup_list"> </div>
+                </div>
+            </div>
+        </div> 
+    </div> 
+    </div>
+</div>
+
+<div bs-modal="apInfoByGroupOption" >
+    <div bs-table="apInfoByGroupList"> </div>
+</div>
+
+<div bs-modal="apInfoByClientOption" >
+    <div class="col-xs-12 info-tip">
+        <span style="color: rgb(78, 193, 178);
+        font-size: 15px;
+        margin: 10px 0px 10px 22px;
+        display: inline-block;">Client range:</span>
+        <a ng-bind="clientNum" class="ap_client_name" time="1" style="color: grey;"></a>
+        &nbsp;&nbsp;
+        <span style="color: rgb(78, 193, 178);
+        font-size: 15px;
+        margin: 10px 0px 10px 22px;
+        display: inline-block;">APs:</span>
+        <a ng-bind="apNum" class="ap_client_num" time="1" style="color: grey;"></a>
+    </div>
+    <div bs-table="apInfoByClientList"> </div>
+</div>
+
+<!-- trafficTop5More 流量top5 详情弹框 -->
+<div bs-modal="top5MoreModal1">
+    <top5moredirect rowsvalue="canshu"></top5moredirect>            
+</div>
+<div bs-modal="top5MoreModal2">
+    <top5moredirect2 rowsvalue2="canshu2"></top5moredirect2>            
+</div>
+
+<div id="apinfo_rc" class="rc-define"
+    close="Close"
+    aplist_title="AP List"
+    ApTransmitTraffic_header="AP Name,Traffic"
+    ApStationCount_header="AP Name,Clients"
+    group_header="AP Group Name,APs"
+    ap_info_group="AP Name,AP Model,Serial Number,MAC Address"
+    ap_info_type="AP Name,AP Model,Clients"
+    ap_info_client="AP Name,AP Model"
+    ssid_header="SSID,APs（5GHz）,APs（2.4GHz）"
+    endnum_diag_header = "AP Name,AP Model,Clients"
+    ALLAP_HEADER3="AP Name,AP Model,Serial Number,MAC Address"
+    apType="Online manual APs, Auto APs, Offline manual APs, Unauthenticated APs"
+    apClientType = "0,1~10,11~20,21~40,41~60,61~80,81~100,Over 100"
+
+    TITLE_dialog="all APs by Traffic,all APs by Clients"
+    Close1=",Close"
+    xTrafficDescrip="AP Name"
+    yTrafficDescrip="Traffic"
+    xUsersDescrip="AP Name"
+    yUsersDescrip="Clients"
+    yDescripMaohao=":"
+    meiYou="None"
+    getDataFailed="Get data failed.">
+
+</div>

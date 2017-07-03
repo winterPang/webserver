@@ -1,0 +1,58 @@
+<div class="container-fluid">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box">
+                <div class="select-footer">
+                    <!-- <div class="col-xs-3 ml20">
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <input type="radio" name="terminal" id="allterminal" value="1" ng-click="redirectCustomer()">
+                                <label for="allterminal">关联终端</label>
+                            </div>
+                            <div class="col-xs-6">
+                                <input type="radio" name="terminal" id="terminal" value="2" checked="checked">
+                                <label for="terminal">认证终端</label>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <div class="box-footer "style=" overflow-y: hidden;">
+                        <div style="float: right;position: relative;right:2.14285714rem; ">
+                            <div class="xb-input xb-radio">
+                                <input id="headquarters" class="input-element" name="headquarters" type="radio" value="headquarters"
+                                       ng-model="template.filterBranch" ng-click="selFilter('headquarters')" >
+                                <span class="input-icon radio-icon " ng-class="{'checked':template.filterBranch=='headquarters'}"></span>
+                                <label for="headquarters" class="input-label"></label>
+                            </div>
+                            <label for="headquarters">总部</label>
+                            &nbsp &nbsp
+                            <div class="xb-input xb-radio">
+                                <input id="branch" class="input-element" name="branch" type="radio" value="branch"
+                                       ng-model="template.filterBranch " ng-click="selFilter('branch')" >
+                                <span class="input-icon radio-icon " ng-class="{'checked':template.filterBranch=='branch'}"></span>
+                                <label for="branch" class="input-label"></label>
+                            </div>
+                            <label for="branch">分组</label>&nbsp&nbsp
+
+                            <div style="width: 200px;float: right;">
+                                <div ng-show="template.filterBranch=='branch'" style="display: inline-block;" >
+                                    <select class="singleSelect" style="width: 200px;" ng-model="branchSel"
+                                            ng-options="branchOne.alias for branchOne in branchLists" ng-change = "selectGroup()">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="dashboard total_clients">
+        <xanthbyodrz sn="{{sceneInfo.sn}}"></xanthbyodrz>       
+        <xanthclientrz sn="{{sceneInfo.sn}}"></xanthclientrz>
+        <!-- <xanthcomerz sn="{{sceneInfo.sn}}"></xanthcomerz> -->
+        <xanthcountrz sn="{{sceneInfo.sn}}"></xanthcountrz>
+        <xanthportalrz sn="{{sceneInfo.sn}}"></xanthportalrz>       
+    </div>
+</div>

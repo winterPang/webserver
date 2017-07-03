@@ -1,0 +1,176 @@
+<div class="page-row dashboard">
+	<div class="page-row">
+        <div class=" col-sm-12 app-colum left-block">
+            <div class="app-box ">
+                <div class="box-footer "style=" overflow-y: hidden;">
+                    <div style="float: right;position: relative;right:2.14285714rem; ">
+                            <div class="xb-input xb-radio">
+                                <input id="headquarters" class="input-element" name="headquarters" type="radio" value="headquarters"
+                                       ng-model="template.filterBranch" ng-click="selFilter('headquarters')" >
+                                <span class="input-icon radio-icon " ng-class="{'checked':template.filterBranch=='headquarters'}"></span>
+                                <label for="headquarters" class="input-label"></label>
+                            </div>
+                            <label for="headquarters">总部</label>
+                            &nbsp &nbsp
+                            <div class="xb-input xb-radio">
+                                <input id="branch" class="input-element" name="branch" type="radio" value="branch"
+                                       ng-model="template.filterBranch " ng-click="selFilter('branch')" >
+                                <span class="input-icon radio-icon " ng-class="{'checked':template.filterBranch=='branch'}"></span>
+                                <label for="branch" class="input-label"></label>
+                            </div>
+                            <label for="branch">分组</label>&nbsp&nbsp
+
+                            <div style="width: 200px;float: right;">
+                                <div ng-show="template.filterBranch=='branch'" style="display: inline-block;" >
+                                    <select class="singleSelect" style="width: 200px;" ng-model="branchSel"
+                                            ng-options="branchOne.alias for branchOne in branchLists" ng-change = "selectGroup()">
+                                    </select>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="col-sm-12  app-colum left-block">
+        <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <div class="col-xs-10">
+                    <span class="title">日志信息</span>
+                </div>
+                <div class="text-right link-container">
+                    <a type="button" class="link-detail" id="submit_scan" ui-sref="scene.content.monitor.warning">
+                        <span class="glyphicon glyphicon-th-list"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="middle-cell">
+                <div class="col-xs-6 col-md-6 col-lg-3" >
+                    <div class="syslog-info bg-transparent" style="margin-left:10px;">
+                        <div class="icon-container">
+                            <i class="syslog-icon emergency-icon"></i>
+                        </div>
+                        <div class="text-right syslog-value">
+                            <div class="log-count number color_emergency">0</div>
+                            <div class="log-title">紧急</div>
+                        </div>  
+                    </div>
+                </div>
+            </div>
+            <div class="middle-cell">
+                <div class="col-xs-6 col-md-6 col-lg-3" >
+                    <div class="syslog-info bg-transparent" style="margin-left:10px;">
+                        <div class="icon-container">
+			                <i class="syslog-icon critical-icon"></i>
+			            </div>
+			            <div class="text-right syslog-value">
+			                <div class="log-count number color_critical">0</div>
+			                <div class="log-title">危险</div>
+			            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="middle-cell">
+                <div class="col-xs-6 col-md-6 col-lg-3" >
+                    <div class="syslog-info bg-transparent" style="margin-left:10px;">
+                        <div class="icon-container">
+			                <i class="syslog-icon warning-icon"></i>
+			            </div>
+			            <div class="text-right syslog-value">
+			                <div class="log-count number color_warning">0</div>
+			                <div class="log-title">警告</div>
+			            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="middle-cell">
+                <div class="col-xs-6 col-md-6 col-lg-3" >
+                    <div class="syslog-info bg-transparent" style="margin-left:10px;">
+                        <div class="icon-container">
+			                <i class="syslog-icon info-icon"></i>
+			            </div>
+			            <div class="text-right syslog-value">
+			                <div class="log-count number color_info">0</div>
+			                <div class="log-title">报告</div>
+			            </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div> -->
+
+    <div class="col-sm-12 app-colum left-block"> 
+        <div class="page-row xxb" id="userflow">
+            <div class="col-xs-12 app-colum " debug="getnewuser">
+                <div class="app-box no-bk-color">
+                    <div class="box-footer">
+                        <div class="col-xs-3">
+                            <span class="title">历史宾客变化</span>
+                        </div>
+                        <div class="time-change" id="total">
+                            <a id="days" class="time-link active" value='1' ng-click="clickTest($event)">一天</a>
+                            <a id="weeks" class="time-link" value='2' ng-click="clickTest($event)">一周</a>
+                            <a id="mounth" class="time-link" value='3' ng-click="clickTest($event)">一月</a>
+                        </div>
+                    </div>
+                    <div class="box-body userflow-height form-group body-nopadding">
+                        <div id="loginechar" class="col-xs-12" style="height:230px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-row">
+        <div class="col-sm-6 app-colum left-block">
+            <div class="panel app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">AP流量排行 TOP5</span>
+                </div>
+                <div class="panel-body" style="height: 300px;">
+                    <div bs-Table="apFlowTable"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 app-colum left-block">
+            <div class="panel app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">基于终端数</span>
+                </div>
+                <div class="panel-body" style="height: 300px;">
+                    <div id="According_client" style="height:280px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-row">
+        <div class="col-sm-12 app-colum left-block">
+            <div class="app-box no-bk-color no-height default-bottom">
+                <div class="box-footer ">
+                    <span class="title">无线服务</span>
+                </div>
+                <div class="sysinfo-body box-body no-height">
+                    <div bs-table="option"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="dashboard_rc" class="rc-define"
+    group_ok="开启"
+    group_no="关闭"
+    ap_info_group="人数"
+    ap_info_type="终端数"
+    ap_info = "AP名称"
+    client_info = "流量（kb）"
+    ap_info_client="服务名称,SSID,SSID状态,客户端数量,绑定AP数,绑定AP组数" 
+    apClient_Type="0,1~10,11~20,21~40,'',41~60,61~80,81~100,101以上" 
+        >
+</div>

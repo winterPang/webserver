@@ -1,0 +1,100 @@
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">AP组管理</h3>
+        </div>
+        <div class="panel-body">
+            <div class="btn btn-cus" ng-click="addApGroup()" ng-if="write"><i class="btn-icon icon-add"></i>添加</div>
+            <button class="btn btn-cus" ng-click="deleteApGroup()" ng-if="write" ng-disabled="modDelGroupBtnDisable">删除</button>
+            <button class="btn btn-cus" ng-click="synConfig()">同步</button>
+            <div ng-if="modDelGroupBtnDisable && modDelShowDisable">
+                <lable>default-group和包含AP的AP组不能删除，请重新选择。</lable>
+            </div>
+            <!--ap group table-->
+            <div bs-table="apgroup_table"></div>
+        </div>
+    </div>
+</div>
+
+
+<div bs-modal="ap.options">
+    <div class="info-tip">以下AP为经apModel筛选的未入组AP！</div>
+    <div class="panel-body">
+        <button class="btn btn-cus" ng-click="addAp()" ng-disabled="modAddApBtnDisable">加入组</button>
+        <!--ap table-->
+        <div bs-table="ap_table"></div>
+    </div>
+</div>
+
+<!--AP in the group-->
+<div bs-modal="apInGroupModal">
+    <div bs-table="apInGroup_table"></div>
+</div>
+
+<!--增加AP组-->
+<div bs-modal="apgroup.options">
+    <!--/style>-->
+    <div>
+        <form name="addGroupForm" novalidate>
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">AP组名称</label>
+                <div>
+                    <input type="text" class="string big required" name="groupName" maxlength="31" ng-model="apGroupModel.groupName" ng-blur="change=true"
+                        ng-focus="change=false" required ng-pattern="/^[a-zA-Z0-9_\-\[\]\\]+$/" />
+                    <label class="info-explain">（1-31字符）</label>
+                    <label style="color:red" ng-if="addGroupForm.groupName.$error.required && change">该参数必须配置。</label>
+                    <label style="color:red" ng-if="addGroupForm.groupName.$error.pattern && change">只支持数字、字母、"_"、"-"、"["、"]"、"/"</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label label class="col-sm-3 control-label">AP组描述</label>
+                <div>
+                    <input type="text" class="string big" id="description" name="description" maxlength="64" error_id="description_error" ng-blur="deschange=true"
+                        ng-focus="deschange=false" ng-model="apGroupModel.description" ng-pattern="/^[a-zA-Z0-9_\-\[\]\\]+$/"
+                    />
+                    <label class="info-explain">（1-64字符）</label>
+                    <label style="color:red" ng-if="addGroupForm.description.$error.pattern && deschange">只支持数字、字母、"_"、"-"、"["、"]"、"/"</label>
+                    <label class="error" id="description_error"></label>
+                </div>
+            </div>
+            <div class="form-group" id="apModel">
+                <label class="col-sm-3 control-label required">AP型号</label>
+                <div>
+                    <div class="multi_select2">
+                        <select ng-model="apGroupModel.apmodel" name="apmodelselect" class="string big" ng-options="apmodel.apmodel for apmodel in apModels"
+                            required></select>
+                        <ul>
+                            <li ng-repeat="s in selected.apModel">
+                                <span>{{s}}</span>
+                                <a class="list-link"><span class="pull-right fa fa-del" ng-click="removeData(s)"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--<select select2 class="string big" name="apmodelselect" ng-model="apGroupModel.apmodel", ng-blur="selectchange=true" ng-focus="selectchange=false" required ng-options="apmodel.apmodel for apmodel in apModels"></select>-->
+                    <!--<label style="color:red" ng-if="addGroupForm.apmodelselect.$error.required">请选择入组AP型号。</label>-->
+                </div>
+            </div>
+            <div align="center">
+                <button class="btn btn-cus" ng-disabled="addGroupForm.groupName.$error.required || addGroupForm.groupName.$error.pattern || addGroupForm.apmodelselect.$error.required"
+                    ng-click="createApGroupDescripeModel()">下一步</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="read_rc" id="apgroup_rc" 
+    apgroup-table-title="AP组名称,描述,AP列表,操作" 
+    ap-table-title="AP名称,型号,AP序列号,MAC地址" 
+    modal-title="添加AP组,已入组AP"
+    ADD-FAILED="添加AP组失败"
+    ADD-SUCCESS="添加AP组成功" 
+    ADD-DES-FAILED="添加AP组描述失败" 
+    ADD-MODEL-FAILED="添加入组AP类型失败" 
+    ADD-AP-SUCCESS="加入组成功"
+    ADD-AP-FAILED="添加失败" 
+    DEL-SUCCESS="删除成功" 
+    DEL-FAILED="删除失败" 
+    SYN-SUCCESS="同步成功" 
+    SYN-FAILED="同步失败" 
+    DEL-ERROR-CONTINUE="default-group组为默认配置，不能删除。包含AP的AP组不能删除，请先执行AP出组操作。</br>是否继续删除其他组？"
+    DEL-ERROR="default-group组为默认配置，不能删除。包含AP的AP组不能删除，请先执行AP出组操作。">
+</div>

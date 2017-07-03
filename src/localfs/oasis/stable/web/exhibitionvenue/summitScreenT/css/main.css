@@ -1,0 +1,857 @@
+@font-face {
+    font-family: UnidreamLED;
+    src: url('Quartz-Bold.otf');
+}
+
+@font-face {
+    font-family: STXIHEI;
+    src: url('STXIHEI.TTF');
+}
+@font-face {
+    font-family: Roman;
+    src: url('HelveticaNeue-Roman.otf');
+}
+*{
+    padding:0;
+    margin:0;
+    font-family:'STXIHEI';
+    color:#fafafa;
+    user-select:none;
+}
+.r{
+    background:red;
+}
+.b{
+    background:blue;
+}
+.a{
+    background:aqua;
+}
+.c{
+    background:#ccc;
+}
+ul,li{
+    list-style:none;
+}
+.pos-rel{
+    position:relative;
+}
+.pos-abs{
+    position:absolute;
+}
+/*整体背景及公用设置*/
+.bg-sumScreen{
+    width:3840px;
+    height:2160px;
+    background:linear-gradient(#272b34,#101216);
+    background:-webkit-linear-gradient(#272b34,#101216);
+}
+.bg-sumScreen .summit_screen{
+    width:3790px;
+    height:2100px;
+    margin:25px;
+}
+.bg-sumScreen .summit_screen .sumTop{
+    width:3790px;
+    height:1360px;
+    overflow:hidden;
+}
+.bg-sumScreen .summit_screen .sumTop .topBar{
+    float:left;
+}
+/*上半部分右侧*/
+.bg-sumScreen .summit_screen .sumTop .clientDetials{
+    width:1214px;
+    height:100%;
+    background:linear-gradient(#2e333e,#131519);
+    background:-webkit-linear-gradient(#2e333e,#131519);
+}
+.bg-sumScreen .summit_screen .sumTop .clientDetials .ageContent{
+    width:100%;
+    height:490px;
+}
+.bg-sumScreen .summit_screen .sumTop .clientDetials .ageContent li{
+    width:602px;
+    height:490px;
+    float:left;
+}
+.bg-sumScreen .summit_screen .sumTop .clientDetials .ageContent li:nth-child(2){
+}
+/*饼图中部图标*/
+.bg-sumScreen .summit_screen .sumTop .clientDetials .ageContent .iconCommon div:nth-child(1){
+    width:62px;
+    height:60px;
+    margin:16px 34px;
+
+}
+.bg-sumScreen .summit_screen .sumTop .clientDetials .ageContent .iconCommon div:nth-child(2){
+    width:130px;
+    height:30px;
+    font-size:30px;
+    text-align:center;
+    line-height:30px;
+}
+.bg-sumScreen .summit_screen .sumTop .clientDetials .ageContent .iconCommon{
+    width:130px;
+    height:122px;
+}
+.bg-sumScreen .summit_screen .sumTop .clientDetials .ageContent .iconShop{
+    top:176px;
+    left:237px
+}
+.bg-sumScreen .summit_screen .sumTop .clientDetials .ageContent .iconConsume{
+    top:177px;
+    left:839px
+}
+.bg-sumScreen .summit_screen .sumTop .clientDetials .ageContent .iconAge{
+    top:184px;
+    left:235px
+}
+.bg-sumScreen .summit_screen .sumTop .clientDetials .ageContent .iconSexual{
+    top:184px;
+    left:838px
+}
+.bg-sumScreen .summit_screen .sumTop .clientDetials .ageContent .iconShop div:nth-child(1){
+    background:url(../img/icon.png) no-repeat -160px -428px;
+}
+.bg-sumScreen .summit_screen .sumTop .clientDetials .ageContent .iconConsume div:nth-child(1){
+    background:url(../img/icon.png) no-repeat -250px -428px;
+}
+.bg-sumScreen .summit_screen .sumTop .clientDetials .ageContent .iconAge div:nth-child(1){
+    background:url(../img/iconHead.png) no-repeat -36px -428px;
+    width: 62px;
+    height: 69px;
+    margin: 6px 34px;
+}
+.bg-sumScreen .summit_screen .sumTop .clientDetials .ageContent .iconSexual div:nth-child(1){
+    background:url(../img/iconHead.png) no-repeat -36px -428px;
+    width: 62px;
+    height: 69px;
+    margin: 6px 34px;
+}
+
+/*标题线*/
+.bg-sumScreen .sumTitle{
+    height:40px;
+    width:100%;
+    text-align:center;
+    line-height:40px;
+    font-size:38px;
+    margin:10px 0;
+}
+.bg-sumScreen .sumTitle li{
+    width:290px;
+    border-top:1px solid #111419;
+    border-bottom:1px solid #363d46;
+
+}
+.bg-sumScreen .sumTitle li:nth-child(1){
+    top:20px;
+    left:206px;
+}
+.bg-sumScreen .sumTitle li:nth-child(2){
+    top:20px;
+    right:206px;
+}
+#qualificationBar{
+    width:1214px;
+    height:300px;
+}
+#onlineHabit{
+    width:1214px;
+    height:300px;
+}
+#professionBar{
+    width:1214px;
+    height:380px;
+    overflow:hidden;
+}
+#clientSource{
+    width:1214px;
+    height:380px;
+}
+/*客户来源*/
+#clientSource .tangleSource{
+    width:350px;
+    height:55px;
+    margin:20px 128px;
+    float:left;
+}
+#clientSource .tangleSource .tangleIn{
+    width:350px;
+    height:55px;
+    float:left;
+}
+#clientSource .tangleSource .tangleIn span{
+    display:inline-block;
+    float:left;
+    width:11px;
+    margin:0 6px;
+    height:100%;
+    background:#363d46;
+}
+#clientSource .tangleSource .souType{
+    width:150px;
+    height:55px;
+    top:0;
+    left:-150px;
+    text-align:right;
+    line-height:55px;
+    font-size:28px;
+}
+#clientSource .tangleSource .souPercent{
+    width:100px;
+    height:55px;
+    top:0;
+    right:-100px;
+    text-align:right;
+    line-height:55px;
+    font-size:30px;
+    font-family:'Roman';
+    color:#fff;
+}
+/*职业分布内设置*/
+#professionBar .tangleBox{
+    width:750px;
+    height:52px;
+    margin:33px 240px;
+}
+#professionBar .tangleBox .tangleContent{
+    width:750px;
+    height:52px;
+}
+#professionBar .tangleBox .tangleContent span{
+    float:left;
+    display:inline-block;
+    width:13px;
+    height:100%;
+    margin:0 6px;
+    background:#363d46;
+}
+#professionBar .tangleBox .proType{
+    width:300px;
+    height:52px;
+    top:0;
+    left:-300px;
+    text-align:right;
+    line-height:52px;
+    font-size:28px;
+}
+#professionBar .tangleBox .proPercent{
+    width:110px;
+    height:52px;
+    line-height:52px;
+    font-size:30px;
+    top:0;
+    right:-110px;
+    text-align:right;
+    font-family:'Roman';
+}
+/*总部数码表区域*/
+.bg-sumScreen .onLineNumber{
+    width:1318px;
+    height:1360px;
+    margin:0 20px;
+}
+.bg-sumScreen .onLineNumber .logoContent{
+    width:1318px;
+    height:160px;
+    background:url(../img/title.png) no-repeat 7px 2px;
+}
+.bg-sumScreen .onLineNumber .onlineData{
+    width:1180px;
+    height:360px;
+    background:url(../img/numbg.png) no-repeat 1px 1px;
+    margin:0 69px;
+}
+.bg-sumScreen .onLineNumber .onlineData li:nth-child(1){
+    width:320px;
+    height:100px;
+    line-height:100px;
+    font-size:48px;
+    text-align:center;
+    top:0;
+    left:0;
+}
+.bg-sumScreen .onLineNumber .onlineData li:nth-child(2){
+    height:80px;
+    line-height:80px;
+    font-size:38px;
+    top:20px;
+    right:0;
+}
+.bg-sumScreen .onLineNumber .onlineData li:nth-child(2) span{
+    color:#fbe304;
+    vertical-align:bottom;
+    font-size:43px;
+}
+.bg-sumScreen .onLineNumber .onlineData .numBox{
+    width:1178px;
+    height:252px;
+    top:100px;
+    left:0;
+    overflow:hidden;
+}
+.bg-sumScreen .onLineNumber .onlineData .numBox ul{
+    transition:.8s all ease-out;
+    float:left;
+    width:294px;
+    height:2650px;
+    background:url(../img/number.png) no-repeat;
+    background-size:294px 2650px;
+}
+.bg-sumScreen .onLineNumber .advertNum{
+    width:1318px;
+    height:370px;
+    overflow:hidden;
+}
+.bg-sumScreen .onLineNumber .advertNum .adverBg{
+    width:509px;
+    height:182px;
+    float:left;
+    margin:115px 75px;
+    background:url(../img/icon.png) no-repeat -553px -248px;
+}
+.bg-sumScreen .onLineNumber .advertNum .adverBg .clickNum{
+    width:509px;
+    height:182px;
+    overflow:hidden;
+}
+
+.bg-sumScreen .onLineNumber .advertNum .adverBg .clickNum div{
+    width:110px;
+    height:150px;
+    background:url(../img/numberB.png) no-repeat;
+    background-size:127px 1500px;
+    margin:15px 4px;
+    float:left;
+    transition:.8s all ease-out;
+    -webkit-transition:.8s all ease-out;
+    -o-transition:.8s all ease-out;
+    -moz-transition:.8s all ease-out;
+    -ms-transition:.8s all ease-out;
+}
+.bg-sumScreen .onLineNumber .advertNum .adverBg .adExplore div{
+    width:110px;
+    height:150px;
+    background:url(../img/numberW.png) no-repeat;
+    background-size:127px 1500px;
+    margin:15px 6px;
+    float:left;
+    transition:.8s all ease-out;
+    -webkit-transition:.8s all ease-out;
+    -o-transition:.8s all ease-out;
+    -moz-transition:.8s all ease-out;
+    -ms-transition:.8s all ease-out;
+}
+.bg-sumScreen .onLineNumber .advertNum .adverBg ul{
+    width:300px;
+    height:45px;
+    font-size:38px;
+    left:100px;
+    top:-80px;
+    text-align:center;
+    line-height:45px;
+}
+.bg-sumScreen .onLineNumber .advertNum li:nth-child(1) .clickNum{
+    color:#3c87ff;
+}.bg-sumScreen .onLineNumber .advertNum li:nth-child(1) .exploreNum{
+    color:#8fa719;
+}
+#advertTrad{
+    width:1318px;
+    height:330px;
+}
+.bg-sumScreen .onLineNumber .advertNum .advertTips{
+    font-size:50px;
+    color:#bec6d6;
+ }
+.bg-sumScreen .onLineNumber .advertTips div{
+    position:absolute;
+}
+.bg-sumScreen .onLineNumber .advertTips span{
+    font-size:26px;
+    color:#bec6d6;
+    float:right;
+    margin:41px;
+}
+.bg-sumScreen .onLineNumber .advertTips div:nth-child(1){
+    width:53px;
+    height:36px;
+    right:334px;
+    top:20px;
+    background:url(../img/icon.png) no-repeat -38px -362px;
+}
+.bg-sumScreen .onLineNumber .advertTips div:nth-child(2){
+    width:115px;
+    height:43px;
+    top:13px;
+    right:80px;
+    background:url(../img/icon.png) no-repeat -125px -357px;
+}
+/*下半部分*/
+.bg-sumScreen .sumBot{
+    width:3788px;
+    height:732px;
+    background:linear-gradient(#1b1f25,#0d0e11);
+    background:-webkit-linear-gradient(#1b1f25,#0d0e11);
+    margin-top:18px;
+    overflow:hidden;
+}
+.bg-sumScreen .botSign{
+    width:3978px;
+    height:60px;
+}
+.bg-sumScreen .sumBot .rubMonitor{
+    margin-top:20px;
+}
+.bg-sumScreen .sumBot .rubMonitor .mapTips{
+    width:1169px;
+    height:70px;
+    margin-left:30px;
+    border:1px solid #202327;
+    bottom:13px;
+    left:0;
+}
+.bg-sumScreen .sumBot .rubMonitor .mapTips ul{
+
+}
+.bg-sumScreen .sumBot .rubMonitor .mapTips .lenIcon{
+    width:112px;
+    height:44px;
+}
+.bg-sumScreen .sumBot .rubMonitor .mapTips .lenIcon:nth-child(1){
+    top:14px;
+    left:750px;
+}
+.bg-sumScreen .sumBot .rubMonitor .mapTips .lenIcon:nth-child(2){
+    top:14px;
+    left:863px;
+}
+.bg-sumScreen .sumBot .rubMonitor .mapTips .lenIcon:nth-child(3){
+    top:14px;
+    left:976px;
+}
+.bg-sumScreen .sumBot .rubMonitor .mapTips .lenIcon:nth-child(2) li:nth-child(1){
+    background:#feb304;
+}
+.bg-sumScreen .sumBot .rubMonitor .mapTips .lenIcon:nth-child(3) li:nth-child(1){
+    background:#ff1045;
+}
+.bg-sumScreen .sumBot .rubMonitor .mapTips .lenIcon li{
+    float:left;
+}
+.bg-sumScreen .sumBot .rubMonitor .mapTips .lenIcon li:nth-child(1){
+    width:32px;
+    height:10px;
+    background:#56cfb8;
+    margin:17px 0;
+    border-radius:5px;
+}
+.bg-sumScreen .sumBot .rubMonitor .mapTips .lenIcon li:nth-child(2){
+    width:80px;
+    height:44px;
+    line-height:44px;
+    text-align:center;
+}
+.bg-sumScreen .sumBot .rubMonitor .mapTips div{
+    width:500px;
+    height:70px;
+    margin-left:10px;
+    line-height:35px;
+    font-size:21px;
+}
+.bg-sumScreen .sumBot .rubMonitor .rubItem{
+    float:left;
+    width:297px;
+    height:443px;
+    margin-left:29px;
+    margin-top:15px;
+    margin-right:20px;
+}
+.bg-sumScreen .sumBot .rubMonitor .rubItem ul{
+    width:297px;
+    height:56px;
+    background:#181b22;
+    margin:7px 0;
+    box-shadow:0 0 4px #000;
+}
+.bg-sumScreen .sumBot .rubMonitor .rubItem .itemLine li:nth-child(1){
+    width:256px;
+    height:35px;
+    font-size:21px;
+    margin-left:20px;
+    font-family:'Roman';
+    text-alingn:center;
+    line-height:35px;
+}
+.bg-sumScreen .sumBot .rubMonitor .rubItem .itemLine li:nth-child(2){
+    width:230px;
+    height:15px;
+    margin-left:20px;
+    background:#363d46;
+    border-radius:6px;
+}
+.bg-sumScreen .sumBot .rubMonitor .rubItem .itemLine li:nth-child(2) div{
+    width:0;
+    height:15px;
+    background:red;
+    border-radius:6px;
+    transition:.5s all ease;
+    -webkit-transition:20s all ease;
+}
+.bg-sumScreen .sumBot .rubMonitor .rubMap{
+    float:left;
+    width:854px;
+    height:448px;
+    margin-top:10px;
+}
+.bg-sumScreen .sumBot .rubMonitor .rubMap .mapContent{
+    float:left;
+    width:854px;
+    height:436px;
+    background:url(../img/map.png);
+    margin-top:10px;
+}
+.bg-sumScreen .sumBot .rubMonitor .rubMap .mapContent li{
+    width:66px;
+    height:82px;
+    background:url(../img/icon.png) no-repeat -30px -510px;
+    margin:3px;
+    float:left;
+    position:absolute;
+}
+.bg-sumScreen .sumBot .rubMonitor .rubMap .mapContent li:nth-child(1){
+    top:123px;
+    left:252px;
+}
+.bg-sumScreen .sumBot .rubMonitor .rubMap .mapContent li:nth-child(2){
+    top:237px;
+    left:122px;
+}
+.bg-sumScreen .sumBot .rubMonitor .rubMap .mapContent li:nth-child(3){
+    top:153px;
+    left:596px;
+}
+.bg-sumScreen .sumBot .rubMonitor .rubMap .mapContent li:nth-child(4){
+    top:72px;
+    left:430px;
+}
+.bg-sumScreen .sumBot .rubMonitor .rubMap .mapContent li:nth-child(5){
+    top:306px;
+    left:505px;
+}
+.bg-sumScreen .sumBot .rubMonitor .rubMap .mapContent li:nth-child(6){
+    top:343px;
+    left:11px;
+}
+.bg-sumScreen .sumBot .rubMonitor .rubMap .mapContent li:nth-child(7){
+    top:271px;
+    left:308px;
+}
+.bg-sumScreen .sumBot .rubMonitor .mapLine{
+    height:549px;
+    width:1px;
+    border-left:1px solid #111419;
+    border-right:1px solid #363d46;
+    left:1220px;
+}
+.bg-sumScreen .sumBot .botBar{
+    float:left;
+}
+.bg-sumScreen .sumBot .botBar:nth-child(1){
+    width:1214px;
+    height:640px;
+}
+.bg-sumScreen .sumBot .botBar:nth-child(2){
+    width:848px;
+    height:650px;
+}
+.bg-sumScreen .sumBot .botBar:nth-child(3){
+    width:848px;
+    height:650px;
+}
+.bg-sumScreen .sumBot .botBar:nth-child(4){
+    width:848px;
+    height:650px;
+}
+/*标题*/
+.bg-sumScreen .botTitle{
+    width:100%;
+    height:60px;
+    font-size:30px;
+    line-height:60px;
+    text-align:center;
+    margin:15px 0;
+}
+.bg-sumScreen .botTitle span{
+    line-height:20px;
+    height:20px;
+    display:inline-block;
+}
+.bg-sumScreen .botTitle span i{
+    display:inline-block;
+    width:105px;
+    border-top:1px solid #111419;
+    border-bottom:1px solid #363d46;
+}
+.bg-sumScreen .botTitle span i:nth-child(1){
+    top:10px;
+    left:-135px;
+}
+.bg-sumScreen .botTitle span i:nth-child(2){
+    top:10px;
+    right:-135px;
+}
+.bg-sumScreen .sumBot .perTarget{
+    width:806px;
+    height:210px;
+    margin:0 20px;
+    overflow:hidden;
+}
+/*心跳统计*/
+.bg-sumScreen .sumBot .perTarget .heartEch{
+    margin-left:20px;
+    float:left;
+    width:200px;
+    height:210px;
+}
+.bg-sumScreen .sumBot .perTarget .heartEch li:nth-child(2){
+    top:0;
+    left:0;
+    width:200px;
+    height:210px;
+}
+.bg-sumScreen .sumBot .perTarget .heartEch li:nth-child(2) div:nth-child(1){
+    top:75px;
+    left:84px;
+    width:31px;
+    height:27px;
+    background:url(../img/icon.png) no-repeat -262px -536px;
+}
+.bg-sumScreen .sumBot .perTarget .heartEch li:nth-child(2) div:nth-child(2){
+    top:109px;
+    left:66px;
+    width:70px;
+    height:30px;
+    text-align:center;
+    line-height:30px;
+    font-size:26px;
+    color:#fefcf7;
+}
+#heartBox{
+    width:200px;
+    height:210px;
+}
+/*心率*/
+.bg-sumScreen .sumBot .perTarget .heartBeat{
+    float:left;
+    width:250px;
+    height:100%;
+    margin:0 20px;
+    overflow:hidden;
+}
+.bg-sumScreen .sumBot .perTarget .heartBeat{
+
+}
+.bg-sumScreen .sumBot .perTarget .heartBeat li{
+    float:left;
+}
+.bg-sumScreen .sumBot .perTarget .heartBeat li:nth-child(1){
+    width:61px;
+    height:50px;
+    margin:80px 32px;
+}
+.bg-sumScreen .sumBot .perTarget .heartBeat .iconSlow{
+    background:url(../img/icon.png) no-repeat -322px -525px;
+}
+.bg-sumScreen .sumBot .perTarget .heartBeat .iconQuick{
+    background:url(../img/icon.png) no-repeat -412px -525px;
+}
+.bg-sumScreen .sumBot .perTarget .heartBeat li:nth-child(2){
+    width:125px;
+    height:100%;
+}
+.bg-sumScreen .sumBot .perTarget .heartBeat li:nth-child(2) div:nth-child(1){
+    width:100%;
+    height:40px;
+    font-size:38px;
+    text-align:center;
+    line-height:40px;
+    margin-top:63px;
+}
+.bg-sumScreen .sumBot .perTarget .heartBeat li:nth-child(2) div:nth-child(2){
+    width:100%;
+    height:40px;
+    font-size:30px;
+    text-align:center;
+    line-height:40px;
+}
+.bg-sumScreen .sumBot .perTarget .perContent{
+    width:680px;
+    height:38px;
+    margin:90px 74px;
+}
+.bg-sumScreen .sumBot .perTarget .perContent span{
+    display:inline-block;
+    width:12px;
+    height:100%;
+    background:red;
+    margin:0 5px;
+}
+.bg-sumScreen .sumBot .perTarget .perContent .iconContent{
+    width:60px;
+    height:88px;
+    background:url(../img/icon.png) no-repeat -338px -420px;
+    left:-70px;
+    top:-26px;
+}
+.bg-sumScreen .sumBot .perTarget .perContent .iconWeight{
+    width:86px;
+    height:88px;
+    background:url(../img/icon.png) no-repeat -414px -414px;
+    left:-86px;
+    top:-26px;
+}
+.bg-sumScreen .sumBot .perTarget .perContent .perTangle{
+
+}
+.bg-sumScreen .sumBot .perTarget .perContent .perTangle div{
+    float:left;
+}
+.bg-sumScreen .sumBot .perTarget .perContent .partOne{
+    height:38px;
+}
+.bg-sumScreen .sumBot .perTarget .perContent .partTwo{
+    height:38px;
+}
+.bg-sumScreen .sumBot .perTarget .perContent .partThree{
+    height:38px;
+}
+.bg-sumScreen .sumBot .perTarget .perContent .partOne span{
+    height:38px;
+    background:linear-gradient(#ff1866,#ff1045);
+    background:-webkit-linear-gradient(#ff1866,#ff1045);
+}
+.bg-sumScreen .sumBot .perTarget .perContent .partTwo span{
+    height:38px;
+    background:linear-gradient(#46cdff,#2f9eff);
+    background:-webkit-linear-gradient(#46cdff,#2f9eff);
+}
+.bg-sumScreen .sumBot .perTarget .perContent .partThree span{
+    height:38px;
+    background:linear-gradient(#ff1866,#ff1045);
+    background:-webkit-linear-gradient(#ff1866,#ff1045);
+}
+/*上下小标题*/
+.bg-sumScreen .perTopTitleM{
+    left:50%;
+    margin-left:-75px;
+    width:150px;
+    height:50px;
+    top:-60px;
+    font-family:'Roman';
+    line-height:50px;
+    font-size:26px;
+    text-align:center;
+}
+.bg-sumScreen .perBotTitleM{
+    left:50%;
+    margin-left:-75px;
+    width:150px;
+    height:50px;
+    bottom:-60px;
+    line-height:50px;
+    font-size:30px;
+    text-align:center;
+}
+#timeSpread{
+    width:806px;
+    height:220px;
+    margin:0 20px;
+}
+#botHand{
+    width:806px;
+    height:220px;
+    margin:0 20px;
+}
+#botStep{
+    width:806px;
+    height:220px;
+    margin:0 1px;
+}
+.bg-sumScreen .sumBot .logoCity{
+    width:480px;
+    height:112px;
+    top:5px;
+    left:381px;
+    background:url(../img/bt.png) no-repeat;
+    background-size:480px 100px;
+    font-size:38px;
+    text-align:center;
+    line-height:112px;
+}
+.bg-sumScreen .sumBot .logoSchool{
+    width:480px;
+    height:112px;
+    top:5px;
+    background:url(../img/bt.png) no-repeat;
+    left:2395px;
+    text-align:center;
+    font-size:38px;
+    line-height:112px;
+}
+.schoolLine{
+    line-height:30px;
+    height:30px;
+    text-align:center;
+    font-size:15px;
+    bottom:10px;
+    left:2367px;
+}
+/*数据获取失败提示*/
+.bg-sumScreen .reactBox{
+    -webkit-transform:scale(4);
+    position:fixed;
+    top:50%;
+    left:50%;
+    margin-left:-200px;
+    margin-top:-75px;
+    width:400px;
+    height:150px;
+    background:rgba(33,27,27,.5);
+    z-index:999;
+    border-radius:20px;
+    -webkit-border-radius:20px;
+}
+.bg-sumScreen .informFail{
+    display:none;
+    opacity:0;
+    transition:0.4s all ease;
+    -webkit-transition:0.4s all ease;
+}
+.bg-sumScreen .informFail li:nth-child(1){
+    width:85px;
+    height:85px;
+    background:url(../../../static/authority/img/v7_icon.png) no-repeat -586px -350px;
+    margin:10px 160px;
+}
+.bg-sumScreen .reactBox li{
+    width:200px;
+    height:40px;
+    text-align:center;
+    margin:10px 100px;
+    line-height:40px;
+    color:#ccc;
+    font-size:16px;
+}
+.bg-sumScreen .umengItem{
+    height:35px;
+    bottom:0;
+    left:50%;
+    color:#bec6d6;
+    margin-left:-277px;
+    text-align:center;
+    line-height:35px;
+    font-size:26px;
+}

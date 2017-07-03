@@ -1,0 +1,83 @@
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box">
+            <div class="box-footer">
+                <span class="title">区域热度</span>
+            </div>
+            <div class="box-body no-height">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <label>
+                            <span>选择地图</span>
+                            <select ng-model="mapInfo.curMapIterm"
+                                    ng-options="mapIterm.locationName for mapIterm in mapInfo.locationImage"
+                                    ng-change="mapInfo.selectMap()">
+                            </select>
+                        </label>
+                    </div>
+                    <div class="col-xs-7">
+                        <label class="col-xs-1 col-xs-offset-1">
+                            <input ng-checked="isChecked.realTime"
+                                   ng-click="isChecked.checkTimeMethod('realTime')"
+                                   type="radio"/> 实时
+                        </label>
+                        <label class="col-xs-2">
+                            <input ng-checked="!isChecked.realTime"
+                                   ng-click="isChecked.checkTimeMethod('timeRange')"
+                                   type="radio"/> 选择时间
+                        </label>
+                        <div class="col-xs-6">
+                            <input class="dateRange"
+                                   id="datetimeRange"
+                                   type="text"
+                                   ng-hide="isChecked.realTime"/>
+                        </div>
+                    </div>
+                    <div class="pull-right">
+                        <span class="dashboard">
+                            <label>客户端总数</label>
+                            <a class="log-count color_info list-link"
+                               href="javascript:void(0);"
+                               ng-click="mapInfo.clickClientTotal()"
+                               ng-bind="mapInfo.clientTotal">0</a>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            <div class="box-body no-height" ng-style="style.relative">
+                <img id="mapImage"
+                     ng-style="style.map"
+                     ng-src="{{'https://v3webtest.h3c.com/v3/wloc/map' + mapInfo.curMapIterm.imagePath}}"/>
+                <div id="heatMap" ng-style="style.map"></div>
+                <canvas id="areaCanvas"
+                        ng-style="style.map"
+                        ng-click="mapInfo.onMouseClick($event)"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div bs-modal="options.clientModal">
+    <div bs-table="options.clientTable"></div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div id="RC"
+     DRP_APPLYLABEL = "确定"
+     DRP_CANCELLABEL = "取消"
+     DRP_FROMLABEL = "起始时间"
+     DRP_TOLABEL = "结束时间"
+     DRP_CUSTOMRANGELABEL = "自定义"
+     DRP_DAYSOFWEEK = "日,一,二,三,四,五,六"
+     DRP_MONTHNAMES = "一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月"
+     CLIENT_MODAL_HEADER = "客户端列表"
+     CLIENT_TABLE_HEADER = "MAC,IP,微信昵称,手机,账号,驻留时长,来访时间,离开时间"></div>

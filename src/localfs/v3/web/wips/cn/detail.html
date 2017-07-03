@@ -1,0 +1,285 @@
+<html>
+<head>
+<style type="text/css">
+    .page-row .button-change{
+        text-align: right;
+        margin: 15px 0 10px 0;
+    }
+    .page-row .button-change span.active{
+        color: #4ec1b2;
+    }
+    .page-row .button-change span:hover{
+        cursor: pointer;
+    }
+
+
+       .page-row .probe-choice input{
+            width: 200px;
+            height: 33px;
+            padding-right: 40px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+       .page-row .probe-choice.input-height{
+            height: 45px;
+        }
+       .page-row .probe-choice input{
+            z-index: 2;
+        }
+       .page-row .probe-choice input.probe-input{
+            z-index: 2;
+        }
+      .page-row  #probe_time{
+            display: inline-block;
+        }
+       .page-row .probe-choice .choice-show{
+            width: 200px;
+            height: 0px;
+            overflow: hidden;
+            position: relative;
+            background-color: #fff;
+            -webkit-box-shadow: 0 0 1px 1px #ccc;
+            -moz-box-shadow: 0 0 1px 1px;
+            box-shadow: 0 0 6px 0px;
+            z-index: 2;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-transition: height 0.3s;
+            -moz-transition: height 0.3s;
+            -ms-transition: height 0.3s;
+            -o-transition: height 0.3s;
+            transition: height 0.3s;
+        }
+       .page-row .probe-choice .choice-show li{
+            background: #fff;
+            line-height: 35px;
+            font-size: 14px;
+            padding: 0px 0 0px 30px;
+            list-style-type: none;
+            -webkit-transition: background 0.3s;
+            -moz-transition: background 0.3s;
+            -ms-transition: background 0.3s;
+            -o-transition: background 0.3s;
+            transition: background 0.3s;
+        }
+       .page-row .probe-choice .choice-show li:not(:first-child) {
+            border-top: rgba(204, 204, 204, 0.36) dashed 1px;
+        }
+       .page-row .probe-choice .choice-show li:first-child{
+            border-top: rgba(204, 204, 204, 0.36) solid 1px;
+        }
+       .page-row .probe-choice .choice-show li:hover{
+            background: #ccc;
+            cursor: pointer;
+        }
+       .page-row .probe-choice .probesearch-icon{
+            position: absolute;
+            top: 10px;
+            right: 0;
+            width: 35px;
+            height: 31px;
+            border-left: #E9E9E9 solid 1px;
+            margin: 1px 6px 1px 0;
+        }
+       .page-row .probe-choice .choice-show.height-change{
+            height: auto;
+        }
+       .page-row .probe-choice input.probe-input{
+            width: 183px;
+            margin: 10px;
+        }
+       .daterangepicker td.active, .daterangepicker td.active:hover {
+            color: #fff;
+            background-color: #69C4C5;
+        }
+       .daterangepicker .ranges .range_inputs .btn-success,.daterangepicker .ranges .range_inputs .btn-success:hover{
+            margin: 10px;
+            color: #fff;
+            background-color: #69C4C5;
+            border-color: #fff;
+            min-width: 40px;
+        }
+    .daterange{
+        width: 200px;
+        height: 33px;
+        padding-right: 1px!important;
+        padding-left: 20px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        border: #ccc solid 1px;
+        margin: 0;
+    }
+    .daterange:focus{
+        border: #4ec1b2 solid 1px;
+        outline: none;
+    }
+    .choice-show .time-zone{
+        padding: 10px;
+    }
+    .choice-show .time-zone .daterange{
+        width: 180px;
+    }
+    /* datarange修改*/
+    .daterange button{
+        width: 100px;
+        background-color: #69C4C5;
+        padding: 0;
+    }
+    .daterangepicker table thead tr th {
+        background: #69C4C5;
+        color: #fff;
+    }
+    .daterangepicker .ranges .range_inputs .btn-success,.daterangepicker .ranges .range_inputs .btn-success:hover{
+        margin: 10px;
+        color: #fff;
+        background-color: #69C4C5;
+        border-color: #fff;
+        min-width: 40px;
+    }
+    .btn-small{
+        width: 100px;
+        padding: 0;
+    }
+    input.daterange{
+        border: #ccc solid 1px;
+        width: 165px;
+        height: 30px;
+    }
+        /*周期选择*/
+       .page-row .time-zone{
+            display: inline-block;
+        }
+       .page-row .radio-name{
+            display: inline-block;
+            margin: 0 20px 0 0;
+        }
+       .btn-small{
+            width: 100px;
+            padding: 0;
+        }
+       .page-row .choice-head{
+            width: 200px;
+            height: 33px;
+            padding-right: 0px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            border: #ccc solid 1px;
+        }
+       .page-row .choice-head:hover{
+            border-color: #4ec1b2;
+            cursor: pointer;
+        }
+       .page-row .choice-head span:first-child{
+            margin-left: 15px;
+            line-height: 33px;
+        }
+       .page-row .choice-head span:last-child{
+            height: 33px;
+            width: 30px;
+            float: right;
+        }
+
+        /*向下箭头*/
+       .page-row .arrow-down{
+            background: url(css/image/dashboard-icon.png) no-repeat -376px -94px;
+        }
+       .page-row .probesearch-icon{
+            background: url(css/image/dashboard-icon.png) no-repeat -209px -97px;
+            cursor: pointer;
+        }
+       .page-row .choice-show .time-zone{
+            padding: 10px;
+        }
+       .page-row .choice-show .time-zone .daterange{
+            width: 180px;
+        }
+        .cover-body{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .ant-wips-icon-back{
+            width: 65px;
+            height: 35px;
+            background:url(./css/image/ant-wips-icon.png) no-repeat -456px -61px;
+        }
+        .ant-wips-icon-back:hover{
+            width: 65px;
+            height: 35px;
+            background:url(./css/image/ant-wips-icon.png) no-repeat -348px -61px;
+            cursor: pointer;
+        }
+        .ant-fixed{
+            position: fixed;
+            right: 30px;
+            top: 131px;
+            z-index:999;
+        }
+
+</style>
+</head>
+
+<body>
+<div id="body_over" class="cover-body hide"></div>
+<a href="javascript:history.back();" class="ant-wips-icon-back ant-fixed"></a>
+<div class="page-row" id="wips_detail">
+    <div id="probe_map" class="col-xs-6 new-posistion">
+        <div id="datechoice" class="input-height probe-choice">
+            <div  class="choice-head" value="4">
+                <span class="current-state">今天</span>
+                <span  class="arrow-down"></span>
+            </div>
+            <div class="choice-show">
+                <div>
+                    <div class="time-zone" id="timezone">
+                        <input id="daterange" class="daterange" placeholder="选择日期" >
+                    </div>
+                </div>
+                <div>
+                    <li value="1">今天</li>
+                    <li value="2">最近7天</li>
+                    <li value="3">最近30天</li>
+                    <li value="4">最近一年</li>
+
+                </div>
+            </div>
+        </div>
+
+        <div id="probe_line" class="myEchart"></div>
+
+    </div>
+
+    <div class="col-xs-6 button-change">
+        <span id="attack_id" class="active" value="0">攻击</span>
+        |
+        <span id="AP_id" value="1">客户端</span>
+        |
+        <span id="client_id" value="2">AP</span>
+    </div>
+    <div class="col-xs-12" id="wips_slist">
+        <div class="simple-list col-xs-12" id="attack_Slist"></div>
+        <div class="simple-list col-xs-12" id="device_Slist"></div>
+    </div>
+</div>
+
+
+
+<div id="wips_detail_rc" class="rc-define" 
+     LIST_HEADER="探测器名称,攻击源MAC,类型,详情,攻击次数,时间"
+     STATION_HEAD="Mac地址,设备类型,时间"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("wips.detail");
+</script>

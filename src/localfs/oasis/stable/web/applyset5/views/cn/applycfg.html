@@ -1,0 +1,50 @@
+ <div class="page-row">
+        
+        <div class="col-xs-7 app-colum left-block">
+            <div class="app-box">
+                <div class="box-footer">
+                    <!-- title -->
+                    <span class="title">宾客行为分析</span>
+
+                    <!-- Form的按钮 -->
+                    <div class="form-actions top" style="display: block;" ng-show="drsOperateBtnDisp" ng-hide="!drsOperateBtnDisp">
+                        <a href="javascript:void(0)" class="form-btn icon-ok" ng-click="drsValueSET()"></a>
+                        <a href="javascript:void(0)" class="form-btn icon-remove" ng-click="drsValueBACK()"></a>
+                    </div>
+
+                </div>
+                
+                <div class="box-body no-height">
+                    <form class="form-horizontal form">
+                        <div class="form-group">
+                            <!-- label -->
+                            <label class="col-sm-3 control-label">宾客行为分析</label>
+
+                            <!-- checkbox -->
+                            <div class="col-sm-9">
+                                <div class="xb-input">
+                                    <div class="input-icon checkbox-icon switch" ng-class="{'checked':drsValueIsEnable}" ng-click="drsValueChange()"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- 调试 -->
+                <!-- <span ng-bind="drsValueIsEnable"></span> -->
+            </div>
+        </div>
+    </div>
+
+    <div id="RC" class="rc-define"
+        DRS_GET="获取应用分析状态失败" 
+
+        DRS_Cancel="已取消"     
+        DRS_OPEN="开启应用分析功能成功,开启应用分析功能失败"     
+        DRS_CLOSE="关闭应用分析功能成功,关闭应用分析功能失败" 
+        because3="由于设备连接超时，"
+        because4="由于主链接断开，"
+
+        Notice_Title = "提示"
+    >
+    </div>

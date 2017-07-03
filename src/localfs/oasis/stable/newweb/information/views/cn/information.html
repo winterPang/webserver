@@ -1,0 +1,139 @@
+<div class="panel panel-default" id="infoModifyModule"
+     ng-init="
+     submit_success='信息完善成功，您可以进行其它操作啦！';
+     submit_fail='信息完善失败，请您重试！';
+     CPM_title='更换手机号';
+     BPM_title='绑定手机号';
+     CEM_title='更换邮箱';
+     BEM_title='绑定邮箱';
+     phone_code='手机验证码已发送至您的手机，请注意查收！';
+     CEM_1_validaEmail='激活邮件已发送，请前往原邮箱进行激活';
+     CEM_changeSuccess='在新邮箱中激活后即可更换成功';
+     CEM_changeFail='请前往原邮箱进行验证';
+     BEM_bindSuccess='邮件已发送，前往邮箱激活后即可绑定成功';
+     ">
+    <!-- Main -->
+    <div class="panel-heading">
+        <h3 class="panel-title">信息修改</h3>
+    </div>
+    <div class="panel-body">
+        <div class="col-sm-8">
+            <form class="form-horizontal col-sm-offset-2" name="IMForm" novalidate>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">用户名</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" name="username" disabled ng-model="IMFData.username"/>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">手机号</label>
+                    <div class="col-sm-4" ng-show="IMFData.phone">
+                        <input class="form-control" name="phone" disabled ng-model="IMFData.phone"/>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="control-label">
+                            <a href="javascript:void(0);" ng-click="IMFEvent.phoneManage()">
+                                <u ng-bind="IMFData.phone?'更换':'绑定'"></u>
+                            </a>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label">邮箱</label>
+                    <div class="col-sm-4" ng-show="IMFData.email">
+                        <input class="form-control" name="email" disabled ng-model="IMFData.email"/>
+                    </div>
+                    <div class="col-sm-2">
+                        <label class="control-label">
+                            <a href="javascript:void(0);" ng-click="IMFEvent.emailManage()">
+                                <u ng-bind="IMFData.email?'更换':'绑定'"></u>
+                            </a>
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label required-sign">行业类型</label>
+                    <div class="col-sm-4">
+                        <select class="form-control" name="industry" required
+                                ng-options="item.id as item.industryName for item in industryList"
+                                ng-model="IMFData.industry">
+                            <option value="" selected disabled>--请选择行业类型--</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label required-sign">企业名称</label>
+                    <div class="col-sm-4">
+                        <input class="form-control" name="enterpriseName" required
+                               ng-maxlength="64"
+                               ng-model="IMFData.enterpriseName"/>
+                    </div>
+                    <div class="col-sm-4 ng-error"
+                         ng-show="IMForm.enterpriseName.$dirty"
+                         ng-messages="IMForm.enterpriseName.$error">
+                        <span ng-message="required">该值必须填写</span>
+                        <span ng-message="maxlength">最多不能超过64位！</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-2 control-label required-sign">公司地址</label>
+                    <label class="col-sm-4 col-lg-2">
+                        <select class="form-control" name="province" required
+                                ng-change="IMFEvent.chooseProvince()"
+                                ng-options="addressList.indexOf(item) as item.name for item in addressList"
+                                ng-model="IMFData.province">
+                            <option value="" selected disabled>--请选择省--</option>
+                        </select>
+                    </label>
+                    <label class="col-sm-4 col-lg-2">
+                        <select class="form-control" name="city" required
+                                ng-change="IMFEvent.chooseCity()"
+                                ng-options="addressList[IMFData.province].cityList.indexOf(item) as item.name for item in addressList[IMFData.province].cityList"
+                                ng-model="IMFData.city">
+                            <option value="" selected disabled>--请选择市区--</option>
+                        </select>
+                    </label>
+                    <label class="col-sm-4 col-sm-offset-2 col-lg-2 col-lg-offset-0">
+                        <select class="form-control" name="area" required
+                                ng-options="addressList[IMFData.province].cityList[IMFData.city].areaList.indexOf(item) as item for item in addressList[IMFData.province].cityList[IMFData.city].areaList"
+                                ng-model="IMFData.area">
+                            <option value="" selected disabled>--请选择区县--</option>
+                        </select>
+                    </label>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-6">
+                    <textarea class="form-control" name="address" placeholder="请填写详细地址"
+                              ng-maxlength="50" ng-model="IMFData.address"></textarea>
+                    </div>
+                    <div class="col-sm-4 ng-error"
+                         ng-show="IMForm.address.$dirty"
+                         ng-messages="IMForm.address.$error">
+                        <span ng-message="maxlength">最多不能超过50位！</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-2"></div>
+                    <div class="col-sm-4">
+                        <button class="btn btn-cus" type="button"
+                                ng-disabled="IMForm.$invalid"
+                                ng-click="IMFEvent.submit()">确定</button>
+                        <button class="btn btn-cus ng-hide" type="button"
+                                ng-click="IMFEvent.return()">取消</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-sm-4">
+            <user-avatar
+                    avatar="IMFData.avatar"
+                    upload="IMFData.upload"
+            ></user-avatar>
+        </div>
+    </div>
+    <!-- Modal Box -->
+    <div change-phone></div>
+    <div bind-phone></div>
+    <div change-email></div>
+    <div bind-email></div>
+</div>

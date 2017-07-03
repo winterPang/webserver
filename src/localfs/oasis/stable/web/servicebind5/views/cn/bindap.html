@@ -1,0 +1,40 @@
+
+
+<div class="btn_h_return" ng-click ="return()"></div>
+<div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">已绑定无线服务</span>
+            </div>
+            <div class="panel-body">
+            <div class="btn btn-cus" ng-click="unbind()" ng-disabled="bindBtnDisable">解除绑定</div>
+            <div class="box-body no-height">
+                <div bs-Table="bindOptions"></div>
+            </div>
+            </div>
+        </div>
+</div>
+
+
+
+<div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">未绑定无线服务</span>
+            </div>
+            <div class="panel-body">
+                <div class="btn btn-cus" ng-click="bind()" ng-disabled="unbindBtnDisable">绑定服务</div>
+                <div class="box-body no-height">
+                    <div bs-Table="unbindOptions"></div>
+                </div>
+            </div>
+        </div>
+</div>
+
+
+<div id="apinfo_aplist_rc" class="rc-define"
+    	Bind_HEADER="无线服务名称,SSID,描述" 	
+        BIND_SUCCESS="绑定成功,正在同步数据，请稍候"
+        UNBIND_SUCCESS ="解绑成功,正在同步数据，请稍候"
+        SUM_TEMPLATE="射频下绑定服务数量达到上限"
+></div>

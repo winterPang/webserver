@@ -1,0 +1,108 @@
+<html>
+<head>
+</head>
+<style>
+    .link-container {
+        position: absolute;
+        right: 5px;
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+    .new_app-box {
+        outline: 1px solid #dedddd;
+        margin-bottom: 20px;
+        background: #fff;
+        overflow-y: hidden;
+        border: 0 !important;
+    }
+
+    .period {
+        padding-left: 2px;
+    }
+    .container{
+        width: 100%;
+        padding:0 25px;
+        min-height:400px;
+        box-sizing:border-box;
+    }
+    .canvas{
+        display:block;
+        position:relative;
+        width:100%;
+        overflow:hidden;
+    }
+    .bgCanvas,.myEchart{
+        display:block;
+        position:relative;
+        z-index:2
+    }
+    .myEchart{
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 3;
+    }
+    .rail{
+        position:absolute;
+        left:0;
+        top:0;
+        z-index:4;
+    }
+    .with-button.with-page{
+        margin-top:0!important;
+    }
+
+</style>
+
+<body>
+<div class="page-row">
+    <div class="col-xs-12 app-colum app-box left-block">
+        <div id="detect_container1">
+            <div class="app-box">
+                <div class="box-footer">
+                    <div class="col-xs-12">
+                        <div class="col-xs-8">
+                            <label style="font-size: 16px">&nbsp&nbsp地图&nbsp&nbsp</label>
+                            <select id="MapSelect" class="singleSelect" allowClear="false" name="" style="width: 180px">
+
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-6 container">
+                        <div class="canvas" id="canvas">
+                            <canvas id="bgCanvas" class="bgCanvas"></canvas>
+                            <div id="eChart" class="myEchart"></div>
+                            <canvas class="rail" id="rail"></canvas>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<form class="form-horizontal form hide" id="areaForm">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">数字围栏名称：<span id="areaName"></span></h3>
+    </div>
+    <div class="modal-body">
+        <div id="client_slist" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+            <i class="icon-remove"></i> 关闭
+        </a>
+    </div>
+</form>
+<div id="wloc_rc" class="rc-define" CLIENT_INFO="终端MAC地址,横坐标,纵坐标"></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("position.client_heatmap");
+</script>

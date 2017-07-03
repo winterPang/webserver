@@ -1,0 +1,30 @@
+
+<html>
+<head>
+</head>
+<style>
+    .notestyle{
+        position: absolute;
+        margin-top: -60px;
+        margin-left: 6px;
+    }
+</style>
+<body>
+
+<div class="mlist" id="Probe_Editlist">
+</div>
+<!--<div><span class="notestyle">探针功能与WIPS功能不能同时开启</span></div>-->
+
+<div id="Probe_rc" class="rc-define"
+     LIST_HEADER="AP名称,射频,状态"
+     STATUS="关闭,开启"
+     DISABLE='关闭'
+     ENABLE='开启'
+     DATA=<%=JSON.stringify(radiocfg)%>
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+     Utils.Pages.loadJS("clientprobe.radiocfg");
+</script>
+

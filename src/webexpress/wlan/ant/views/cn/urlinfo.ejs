@@ -1,0 +1,46 @@
+<html>
+<head>
+</head>
+<div id="drs_monitor">
+    <ul class="nav nav-tabs">
+        <li class="active">
+            <a href="drs.url" data-toggle="tab">最受欢迎的网站</a>
+        </li>
+        <li>
+            <a href="drs.wecomappinfo" data-toggle="tab">最受欢迎的应用</a>
+        </li>
+        <li>
+            <a href="drs.interfaceinfo" data-toggle="tab">接口流量</a>
+        </li>
+        <li>
+            <a href="drs.userinfo" data-toggle="tab">用户流量</a>
+        </li>
+        <li>
+            <a href="drs.webinfo" data-toggle="tab">网站统计</a>
+        </li>
+        <li>
+            <a href="drs.appinfo" data-toggle="tab">应用统计</a>
+        </li>
+
+    </ul>
+</div>
+  <div class="mlist" id="urlList"></div>
+
+    <div id="urlinfo_infor_rc" class="rc-define"
+         USER_HEADER="网站类型,网站名称,在线时长（时：分：秒),访问人数,流量方向"
+         URL_NAME="统计周期"
+         ONEDAY = "一天内"
+         AWEEK = "一周内"
+         FEN = "分"
+         MIAO = "秒"
+         XIAOSHI = "小时"
+         UPPKT = "上行"
+         DOWNPKT = "下行"
+         DATA = <%=JSON.stringify(UrlFlow)%>
+    ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("drs.urlinfo");
+</script>
+ 

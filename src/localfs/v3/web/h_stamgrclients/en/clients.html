@@ -1,0 +1,192 @@
+<html>
+<head>
+    
+</head>
+<body>
+<div class="btn_h_return" id="return"></div>
+
+    <div class="col-xs-12 app-colum">
+
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">Client Statistics</span>
+            </div>
+            <div class="box-body no-height" style="padding:0px 20px;">
+                <div class="form-group col-sm-12" id="anniumen">
+                    <div class="radioAnNiu" style="margin-top:10px;">
+                        <input type="radio" name="sanzhong-info" id="jiben">
+                        <label for="jiben" style="margin-right:30px;">Basic Information</label>
+                        
+                        <input type="radio" name="sanzhong-info" id="shepin">
+                        <label for="shepin" style="margin-right:30px;">Radio Information</label>
+                       
+                        <input type="radio" name="sanzhong-info" id="tongji">
+                        <label for="tongji" style="margin-right:30px;">Statistics Information</label>
+
+                        <input type="radio" name="sanzhong-info" id="yonghu">
+                        <label for="yonghu" style="margin-right:30px;">Authentication Information</label>    
+
+                        <input type="radio" name="sanzhong-info" id="newOutline">
+                        <label for="newOutline" style="margin-right:30px;">Offline users</label>                                            
+                    </div>
+                </div>
+
+<br /><br /><br />
+
+                <div id="clients_list" class="simple-list"></div>
+                <div id="clients_list_sp" class="simple-list"></div>
+                <div id="clients_list_tj" class="simple-list"></div>
+                <div id="clients_list_yh" class="simple-list"></div>
+                <div id="clients_list_lx" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 弹出框 -->
+    <div class="hide modal fade" id="flowdetailDlg">
+      <form class="form-horizontal form" id="flowdetail_form">
+            
+            <!-- 弹出框的数据显示 -->
+            <div class="col-sm-12">
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label"><strong>MAC地址MAC Address</strong></label>
+                    <span id="clientMAC"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>IP Address</strong></label>
+                    <span id="clientIP"></span>
+                </div>
+                <!-- <div class="form-group">
+                    <label class="col-sm-2  control-label "><strong>Client Name</strong></label>
+                    <span id="clientName"></span>
+                </div> -->
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>Vendor</strong></label>
+                    <span id="clientVendor"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>AP Name</strong></label>
+                    <span id="ApName"></span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>SSID</strong></label>
+                    <span id="clientSSID"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>Signal Strength</strong></label>
+                    <span id="signalStrength"></span>
+                    <span> db</span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>Tx Rate</strong></label>
+                    <span id="clientTxRate"></span>
+                    <span> Kbps</span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>Rx Rate</strong></label>
+                    <span id="clientRxRate"></span>
+                    <span> Kbps</span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>Radio Type</strong></label>
+                    <span id="clientRadioMode"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>Client Mode</strong></label>
+                    <span id="clientMode"></span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>Channel</strong></label>
+                    <span id="clientChannel"></span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>Username</strong></label>
+                    <span id="portalUserName"></span>
+                </div>     
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>Authentication Method</strong></label>
+                    <span id="portalAuthType"></span>
+                </div>  
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>Online Time</strong></label>
+                    <span id="portalOnlineTime"></span>
+                </div> 
+            
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>Sent Bytes</strong></label>
+                    <span id="clientTxBytes">None</span><span> B</span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>Received Bytes</strong></label>
+                    <span id="clientRxBytes">None</span>
+                    <span> B</span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>Sent Packets</strong></label>
+                    <span id="clientTxPackets">None</span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3  control-label "><strong>Received Packets</strong></label>
+                    <span id="clientRxPackets">None</span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-3  control-label "><strong>Negotiated Rate</strong></label>
+                    <span id="NegoMaxRate"></span><span> Mbps</span>
+                </div>                
+            </div>
+      </form>
+
+        <!-- 弹出框的返回按钮 -->Back
+       <!--  <div class="modal-footer form-actions">
+            <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+                Close
+            </a>
+        </div> -->
+
+    </div>   
+
+
+    <!-- 弹出框：认证 -->
+    
+
+<iframe id="exportFile" name="exportFile" style="display: none" ></iframe>
+<div id="clients_rc" class="rc-define"
+     BUTTON_CANCEL="Back"
+     EXPORT_LOG="Export"
+
+     KICKOUT_renzheng="Log Out Lvzhou User"
+     KICKOUT_ALL="Log Out All Lvzhou Users"
+     
+     KICKOUT_lixian="Clear Online Status"
+     
+     LIST_HEADER="MAC Address,IP Address,Vendor,AP Name,SSID"
+     LIST_HEADER_SP="MAC Address, IP Address, AP Name, Radio Type, Client Mode, Channel, Negotiated Rate (Mbps)"
+     LIST_HEADER_TJ="MAC Address, IP Address, AP Name, Tx Rate (Kbps), Rx Rate (Kbps)"
+     LIST_HEADER_YH="MAC Address, SSID, Username, Authentication Method, Online Duration"
+     LIST_HEADER_LX="MAC Address, IP Address, Username, Authentication Method, Online Duration"
+
+     USER_TYPE="One-Key Authentication, SMS Authentication, WeChat Client Authentication, Ali Pay Authentication, QQ Authentication, WeChat Official Account Authentication, Fixed Account Authentication"
+
+     LIST_HEADER_BF="mac,ip,名称,厂商,接入点名称,关联的ssid名,信号强度(db),发送速率(Kbps),接收速率(Kbps),关联,模式,关联的Radio信道,协商速率(Mbps),发送报文字节(KB),接收报文字节(KB),发送报文数,接收报文数" 
+
+     LIST_POWERSAVEMODE="Activate, Sleep"
+     LIST_QOSMODE="N/A,WMM,11e,WMM and 11e"
+     SEC_TYPE="No Authentication, 802.1X, Static PSK, Static WEP, MAC, Portal, Dynamic WEP, 802.1X (non-encryption)"
+
+
+    TITLE_FLOWINFO="Client Details"
+    TITLE_RenZhengINFO="Authenticated Client Details"
+    FRESH="Refresh"
+
+    UNKNOW="Unknown"
+    NONE="None"
+    KICKOUTSUC="Successfully logged out users in batch."
+    KICKONESUC="Successfully logged out the user."
+    CLEARSUC="Successfully cleared the online status."
+     ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("h_stamgrclients.clients");
+</script>

@@ -1,0 +1,155 @@
+<html>
+<head>
+</head>
+<style> 
+  @import url("./libs/jquerynav/jquery-accordion-menu.css");
+.new-app-box {
+    border: 1px solid #e7e7e9;
+    margin-bottom: 0px;
+    background: #fff;
+    overflow-y: hidden;
+}
+ 
+.new-list-group 
+{
+    padding-left: 0;
+    margin-bottom: 1px;
+    height: 63px;
+    
+}
+ 
+.scorll
+{
+    height: 700px;
+    overflow-y: auto;
+} 
+ 
+ 
+.ShowUserHead{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.borderStyle{
+      border-bottom-color: #fefefe;
+    border-left-color: #fefefe;
+    border-top-color: #fefefe;
+    border-right-color: #fefefe;
+}
+.antmenu{
+        margin-left: -15px;
+        height: 614px;
+        background: #ddd; 
+    }
+  /*重写的用户菜单列表的style start*/
+.red.jquery-accordion-menu ul li a 
+  {
+    background: #ddd;
+  }
+.red.jquery-accordion-menu>ul>li>a 
+  {
+    border-bottom-color: #C4CFDA;
+}
+.jquery-accordion-menu ul li a {
+  width: 100%;
+  padding: 14px 22px;
+  float: left;
+  text-decoration: none;
+  color: #000;
+  font-size: 13px;
+  background: #414956;
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  -o-transition: color .2s linear,background .2s linear;
+  -moz-transition: color .2s linear,background .2s linear;
+  -webkit-transition: color .2s linear,background .2s linear;
+  transition: color .2s linear,background .2s linear
+}
+/* .red.jquery-accordion-menu .jquery-accordion-menu-header{
+  background: #2e3b48
+}*/
+.red.jquery-accordion-menu .jquery-accordion-menu-header {
+    background: #ddd;
+}
+</style>
+<body> 
+<div class="page-row"> 
+    <div class="col-xs-12 app-colum"> 
+        <div class="col-xs-9" id="oneUser">
+          <div style="margin-right: 20px;">
+              <div class="col-xs-12 app-box" style="background: #F7F5F5">
+                <div class="col-xs-3 text-center ShowUserHead">
+                  <span>姓名</span>
+                  <br/>
+                  <span id="Username">张奎</span>
+                </div>
+                 <div class="col-xs-3 text-center ShowUserHead">
+                  <span>年龄</span>
+                   <br/>
+                  <span id="UserAge">36</span>
+                </div>
+                <div class="col-xs-3 text-center ShowUserHead">
+                  <span>职业</span>
+                   <br/>
+                  <span id="Userprofession">自由职业</span>
+                </div>
+                <div class="col-xs-3 text-center ShowUserHead">
+                  <span>兴趣爱好</span>
+                   <br/>
+                  <span id="Userinterest">打球 上网</span>
+                </div>
+              </div>  
+              <div class="col-xs-12 app-box">
+                <div class="col-xs-12">
+                  <div style="margin-top: 10px;">
+                    <span class="title" style="margin-left: 10px;">用户上网趋势</span>
+                  </div> 
+                  <div id="UserDpi_chart" class="myEchart col-xs-12"></div> 
+                </div> 
+              </div>  
+               <div class="col-xs-12 app-box">
+                <div class="col-xs-12">
+                  <div style="margin-top: 10px;">
+                    <span class="title" style="margin-left: 10px;">用户来访频率</span>
+                  </div> 
+                  <div id="UserAccessFrequ_chart" class="myEchart col-xs-12"></div> 
+                </div> 
+              </div>  
+
+              <div class="col-xs-12 app-box">
+                <div class="col-xs-12">
+                  <div style="margin-top: 10px;">
+                    <span class="title" style="margin-left: 10px;">位置喜爱分布</span>
+                  </div> 
+                  <div id="UserLocation_Pie" class="myEchart col-xs-12"></div> 
+                </div> 
+              </div>
+          </div> 
+        </div>
+        <div class="col-xs-3">
+
+            <!-- 菜单列表 -->
+            <div class="antmenu"></div>          
+         
+           <!--  <div>
+                 <input class="borderStyle" type="text" id="Userinput" onkeyup="getUser()" placeholder="请输入用户名称">
+            </div>   -->
+
+            <!-- 显示所有用户的菜单 -->
+           <!--  <div class="scorll app-box" id="listmap">       
+            </div> -->
+            <!-- 显示单个用户的菜单 -->
+            <!--  <div class="" id="OneUserlistmap"></div> -->
+        </div> 
+    </div>
+</div>
+<div id="User_monitor_rc" class="rc-define"
+         Type_HEAD="访问方式,新闻,工具,游戏,下载,视频,金融,生活,办公,通讯,导航,其他"
+         UrlType_HEAD="应用类型,起始时间,结束时间,"
+            ></div>
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("DpiUser.dpi_User");
+</script>

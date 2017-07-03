@@ -1,0 +1,386 @@
+<style>
+    label{
+        color:#343e4e;
+        vertical-align: -2px;
+    }
+    .mt{
+        margin-top:10px;
+    }
+    .form-horizontal .control-group {
+        display: inline-block;
+        margin-right:30px;
+    }
+    .form-horizontal .control-label {
+        text-align:left;
+        float:left;
+        padding-top:20px;
+        width: 170px;
+    }
+    .form-horizontal .controls {
+        margin-left: 180px;
+    }
+    .pl20{
+        padding-left:15px;
+    }
+    .mt20{
+        margin-top: 20px;
+    }
+    .mt15{
+        margin-top: 15px;
+    }
+    .control-content{
+        float:left;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #dddddd;
+        text-align: center;
+        border-radius: 50%;
+        line-height: 50px;
+        padding: 0px;
+        margin-left: 8px;
+    }
+    a{
+        color:#22878e;
+    }
+    a:hover{
+        color:#4ec1b2;
+    }
+    .select2.select2-container .select2-selection--multiple ul {
+        position: initial;
+        padding: 0 5px;
+    }
+    .select2-container{
+        width: 240px!important;
+    }
+    .select2-container--default .select2-selection--multiple .select2-selection__choice {
+        background-color: #e4e4e4 !important;
+        border: 1px solid #aaa !important;
+        border-radius: 4px !important;
+        cursor: default !important;
+        float: left !important;
+        margin-right: 5px !important;
+        margin-top: 5px !important;
+        padding: 0 5px !important;
+    }
+    .select2.select2-container .select2-selection--multiple ul > li > span {
+        float: right;
+        margin-right: 2px;
+        margin-left: 0px;
+    }
+    .select2-container--default .select2-selection--multiple .select2-selection__rendered li {
+        list-style: none;
+        line-height: 25px;
+    }
+    .select-style{
+        margin-top: 18px;
+        width: 240px;
+        border-color: #aaaaaa!important; 
+    }
+    .form-horizontal .range{
+        margin:16px 0px 0px -33px;
+    }
+    .form-horizontal .w200{
+        width: 200px;
+    }
+    .select2-container--default.select2-container--focus .select2-selection--multiple {
+        border: solid #aaa 1px;
+        outline: 0;
+    }
+    .select2-container--default.select2-container--focus .select2-selection--multiple:focus{
+        border: solid #78cec3 1px;
+        outline: 0;
+    }
+    .select2-search__field{
+        width:240px!important;
+    }
+</style>
+<div class="dashboard container-fluid">
+    <div class="col-xs-12 app-colum left-block">
+        <div id="clientSelect" class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">客户端</span>
+            </div>
+            <div class="panel-body">
+                <ul class="nav nav-tabs" role="tbalist" id="clientTab">
+                    <li class="active" tag="baseInfo"><a>在线终端信息</a></li>
+                    <li tag="offLineInfo"><a>历史认证用户</a></li>
+                </ul>
+                <div class="clientSection mt" style="display:block;" id="baseInfo">
+                    <form name="baseForm" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">选择导出的列名：</label>
+                            <div class="col-md-9">
+                                <div class="control-group mt20" ng-repeat="item in stalistBasicInfo">
+                                    <input type="checkbox" name="baseInfo"  ng-checked="isChecked('clientSelect','baseInfo',item.id)" value="{{item.id}}" ng-click="updateSelection('clientSelect','baseInfo',$event,item.id)">
+                                    <label for="">{{item.shortName}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">场所列表：</label>
+                            <div class="col-md-9">
+                                <select class="select-style" ng-name="selectShop" id="selectShop_baseInfo" placeholder="选择场所" ng-model="selectedShopbaseInfo" ng-options="x for (x, y) in oSn" ng-change="getDevSn('baseInfo')">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">选择查看的设备：</label>
+                            <div class="col-md-9 multi_select2">
+                                <select class="select-style" ng-name="selectDevSn" ng-model="modelDevSnbaseInfo" id="clientSelectbaseInfo" ng-options="sn for sn in baseInfoArrSn" style="width:240px!important">
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-cus" ng-click="exportClient('clientSelect','baseInfo')">导出</button>
+                    </form>
+                </div>
+                <div class="clientSection mt" style="display:none;" id="offLineInfo">
+                    <form name="offLineForm" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">选择导出的时间：</label>
+                            <div class="col-md-9">
+                                <select class="select-style" ng-name="selectTime" ng-model="modelTime" id="selectTime" ng-options="time for time in arrTime"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">场所列表：</label>
+                            <div class="col-md-9">
+                                <select class="select-style" ng-name="selectShop" id="selectShop_offLineInfo" placeholder="选择场所" ng-model="selectedShopoffLineInfo" ng-options="x for (x, y) in oSn" ng-change="getDevSn('offLineInfo')">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">选择查看的设备：</label>
+                            <div class="col-md-9 multi_select2 mt15">
+                                <select class="select-style" select2="dpiOptions" ng-name="selectDevSn" ng-model="modelDevSnoffLineInfo" ng-options="sn for sn in offLineInfoArrSn" id="clientSelectauthInfo">
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-cus" ng-click="exportPortal()">导出</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 app-colum left-block">
+        <div id='apSelect' class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">AP</span>
+            </div>
+            <div class="panel-body">
+                <ul class="nav nav-tabs" role="tablist" id="apreport">
+                    <li class="active" tag="baseInfo"><a>基本信息</a></li>
+                </ul>
+                <div class="apSection mt" style="display:block" id="baseInfo">
+                    <form name="apBasicForm" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">选择导出的列名：</label>
+                            <div class="col-md-9">
+                                <div class="control-group mt20" ng-repeat="item in apBasicInfo">
+                                    <input type="checkbox" name="baseInfo"  ng-checked="isChecked('apSelect','baseInfo',item.id)" value="{{item.id}}" ng-click="updateSelection('apSelect','baseInfo',$event,item.id)">
+                                    <label for="">{{item.shortName}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">场所列表：</label>
+                            <div class="col-md-9">
+                                <select class="select-style" ng-name="selectShop" id="selectShop_apbaseInfo" placeholder="选择场所" ng-model="selectedShopapbaseInfo" ng-options="x for (x, y) in oSn" ng-change="getDevSn('apbaseInfo')">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">选择查看的设备：</label>
+                            <div class="col-md-9 multi_select2">
+                                <select class="select-style" ng-name="selectDevSn" ng-model="modelDevSnapbaseInfo" ng-options="sn for sn in apbaseInfoArrSn" id="apSelectedSn">
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-cus" ng-click="exportAp('apSelect','baseInfo')">导出</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 app-colum left-block">
+        <div id='dpiSelect' class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">DPI</span>
+            </div>
+            <div class="panel-body">
+                <ul class="nav nav-tabs" role="tablist" id="moduel">
+                    <li class="active" tag="GetApp"><a>应用统计</a></li>
+                    <li tag="GetUrl"><a>网站统计</a></li>
+                    <li tag="GetInterfaces"><a>用户流量</a></li>
+                    <li tag="InterfacesStatis"><a>接口流量</a></li>
+                </ul>
+                <div class="tabbox" style="display:block" id="GetApp">
+                    <form name="appForm" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">选择导出的列名：</label>
+                            <div class="col-md-9">
+                                <div class="control-group mt20" ng-repeat="item in dpi_GetApp">
+                                    <input type="checkbox" name="GetApp"  ng-checked="isChecked('dpiSelect','GetApp',item.id)" value="{{item.id}}" ng-click="updateSelection('dpiSelect','GetApp',$event,item.id)">
+                                    <label for="">{{item.shortName}}</label>
+                                </div>
+                            </div>
+                         </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 w200 control-label required">选择导出的时间段：</label>
+                            <div class="col-md-8">
+                                <input type="text" name="datefilter" id="daterange_GetApp" class="daterange time-select range" placeholder="选择日期" ctrl="daterang" style="width:310px;" name ="clientTime" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">场所列表：</label>
+                            <div class="col-md-9">
+                                <select class="select-style" ng-name="selectShop" id="selectShop_GetApp" placeholder="选择场所" ng-model="selectedShopGetApp" ng-options="x for (x, y) in oSn" ng-change="getDevSn('GetApp')">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">选择查看的设备：</label>
+                            <div class="col-md-9 multi_select2">
+                                <select class="select-style" ng-name="selectDevSn" ng-model="modelDevSnGetApp" ng-options="sn for sn in GetAppArrSn" id="dpiSelectGetApp">
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-cus" ng-click="exportDpi('dpiSelect','GetApp')">导出</button>
+                        <div class="form-group">
+                            <span class="pl20 col-sm-12">提示：最多支持导出一天的数据</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="tabbox" style="display:none" id="GetUrl">
+                    <form name="urlForm" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">选择导出的列名：</label>
+                            <div class="col-md-9">
+                                <div class="control-group mt20" ng-repeat="item in dpi_GetUrl">
+                                    <input type="checkbox" name="GetUrl"  ng-checked="isChecked('dpiSelect','GetUrl',item.id)" value="{{item.id}}" ng-click="updateSelection('dpiSelect','GetUrl',$event,item.id)">
+                                    <label for="">{{item.shortName}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 w200 control-label required">选择导出的时间段：</label>
+                            <div class="col-md-8">
+                                <input type="text" name="datefilter" id="daterange_GetUrl" class="daterange time-select range" placeholder="选择日期" ctrl="daterang" style="width:310px;" name ="clientTime" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">场所列表：</label>
+                            <div class="col-md-9">
+                                <select class="select-style" ng-name="selectShop" id="selectShop_GetUrl" placeholder="选择场所" ng-model="selectedShopGetUrl" ng-options="x for (x, y) in oSn" ng-change="getDevSn('GetUrl')">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">选择查看的设备：</label>
+                            <div class="col-md-9 multi_select2">
+                                <select class="select-style" ng-name="selectDevSn" ng-model="modelDevSnGetUrl" ng-options="sn for sn in GetUrlArrSn" id="dpiSelectGetUrl">
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-cus" ng-click="exportDpi('dpiSelect','GetUrl')">导出</button>
+                        <div class="form-group">
+                            <span class="pl20 col-sm-12">提示：最多支持导出一天的数据</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="tabbox" style="display:none" id="GetInterfaces">
+                    <form name="flowForm" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">选择导出的列名：</label>
+                            <div class="col-md-9">
+                                <div class="control-group mt20" ng-repeat="item in dpi_GetInterfaces">
+                                    <input type="checkbox" name="GetInterfaces"  ng-checked="isChecked('dpiSelect','GetInterfaces',item.id)" value="{{item.id}}" ng-click="updateSelection('dpiSelect','GetInterfaces',$event,item.id)">
+                                    <label for="">{{item.shortName}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 w200 control-label required">选择导出的时间段：</label>
+                            <div class="col-md-8">
+                                <input type="text" name="datefilter" id="daterange_GetInterfaces" class="daterange time-select range" placeholder="选择日期" ctrl="daterang" style="width:310px;" name ="clientTime" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">场所列表：</label>
+                            <div class="col-md-9">
+                                <select class="select-style" ng-name="selectShop" id="selectShop_GetInterfaces" placeholder="选择场所" ng-model="selectedShopGetInterfaces" ng-options="x for (x, y) in oSn" ng-change="getDevSn('GetInterfaces')">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">选择查看的设备：</label>
+                            <div class="col-md-9 multi_select2">
+                                <select class="select-style" ng-name="selectDevSn" ng-model="modelDevSnGetInterfaces" ng-options="sn for sn in GetInterfacesArrSn" id="dpiSelectGetInterfaces">
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-cus" ng-click="exportDpi('dpiSelect','GetInterfaces')">导出</button>
+                        <div class="form-group">
+                            <span class="pl20 col-sm-12">提示：最多支持导出一天的数据</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="tabbox" style="display:none" id="InterfacesStatis">
+                    <form name="interForm" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">选择导出的列名：</label>
+                            <div class="col-md-9">
+                                <div class="control-group mt20" ng-repeat="item in dpi_InterfacesStatis">
+                                    <input type="checkbox" name="InterfacesStatis"  ng-checked="isChecked('dpiSelect','InterfacesStatis',item.id)" value="{{item.id}}" ng-click="updateSelection('dpiSelect','InterfacesStatis',$event,item.id)">
+                                    <label for="">{{item.shortName}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 w200 control-label required">选择导出的时间段：</label>
+                            <div class="col-md-8">
+                                <input type="text" name="datefilter" id="daterange_InterfacesStatis" class="daterange time-select range" placeholder="选择日期" ctrl="daterang" style="width:310px;" name ="clientTime" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">场所列表：</label>
+                            <div class="col-md-9">
+                                <select class="select-style" ng-name="selectShop" id="selectShop_InterfacesStatis" placeholder="选择场所" ng-model="selectedShopInterfacesStatis" ng-options="x for (x, y) in oSn" ng-change="getDevSn('InterfacesStatis')">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">选择查看的设备：</label>
+                            <div class="col-md-9 multi_select2">
+                                <select class="select-style" ng-name="selectDevSn" ng-model="modelDevSnInterfacesStatis" ng-options="sn for sn in InterfacesStatisArrSn" id="dpiSelectInterfacesStatis">
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-cus" ng-click="exportDpi('dpiSelect','InterfacesStatis')">导出</button>
+                        <div class="form-group">
+                            <span class="pl20 col-sm-12">提示：最多支持导出一天的数据</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="user_rc" class="rc-define"
+      title ="选择导出内容"
+      tips="请选择导出的列名,请选择场所,数据不存在导出不成功,请选择该场所下的设备"
+      time="一天,七天,一个月"
+      clientSelect = "基本信息,认证历史用户"
+      clientSelect_en ="baseInfo,offLineInfo"
+      dpiSelect = "应用统计,网站统计,用户流量,接口流量"
+      dpiSelect_en ="GetApp,GetUrl,GetInterfaces,InterfacesStatis"
+      apSelect = "基本信息"
+      apSelect_en = "baseInfo"
+      sta_info = "MAC地址,IP地址,终端厂商,AP,SSID,Radio类型,终端模式,Radio信道,协商速率,发送速率,接收速率,用户名,认证方式,认证时间,portal上线时间"
+      dpi_info = "应用名称,应用类型,用户MAC地址,上行流量,下行流量,在线时长,最后一次访问时刻,网站名称,网站类型,丢弃流量,接口名称,报文数目,流量,占流量百分比"
+      ap_info = "AP名称,AP序列号,AP型号,AP组名称,MAC地址,IP地址,AP射频,信道,最大传输功率,在线时长,2.4G客户端数量,5G客户端数量"
+      ssid_info = "SSID,状态,隐藏SSID,VLANID,加密套件,安全IE"
+      ad_info = "页面URl,浏览量,访客数,点击数,点击率"
+      DRP_APPLYLABEL = "确定"
+      DRP_CANCELLABEL = "取消"
+>
+</div>

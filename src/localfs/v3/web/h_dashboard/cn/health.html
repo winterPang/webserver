@@ -1,0 +1,57 @@
+<html>
+<head>
+    <style type="text/css">
+/*    .xx-link {
+            color: #2E8BB3;
+            text-decoration: underline;
+            cursor: pointer;
+            line-height: 35px;
+            margin-right: 10px;
+        }*/
+    </style>
+</head>
+<body>
+
+<div class="app-colum xxb" style="color: #80878c;" id="aps_page" debug="getHealth">
+    <div class="box-footer" style="background:transparent;">
+       <div class="col-xs-3">
+           <span class="title">综合健康度</span>
+       </div>
+       <div class="text-right link-container index_out_div">
+            <!-- <a type="button" class="refresh" id="refresh_AP">
+                <i class="refresh-icon icon"></i>
+            </a> -->
+           <!-- 2016.11.22 修改 系统信息 按钮,添加 .xxb .index_out_div .xx-link style="top: 0;" -->
+            <a type="button" class="xx-link" tab="0" id="system" style="top: 0;">系统信息</i></a>
+       </div> 
+    </div>
+   <div class="box-body echart-height form-group body-nopadding" style="overflow:hidden; height:200px;">
+        <div class="col-xs-6">
+            <div class="row-nohover row-clear padding0" style="padding: 0px;">
+                 <div id="score-pie" class="myEchart chartStyle"></div> 
+            </div>
+            <div style="color: #ffa5af;position:absolute;  top: 160px;" id="terminalMessage" debug='["getHealthScore"]'></div>
+            <!-- <div style="color: #ffa5af;position:absolute;  top: 170px;" id="terminalMessage" debug='["getHealthScore"]'>打败了全国<span>0</span>%的用户，需要看病啦~(&gt;o&lt;)</div> -->
+        </div>
+        <div class="col-xs-6" >
+            <div class="row-clear padding0">
+                <div id="apphealth" class="myEchart chartStyle"></div>
+            </div>
+        </div>
+    </div>
+</div>
+    <div id="health_rc" class="rc-define"
+         TIP_PROFIX1 = "被"
+         TIP_PROFIX2 = "打败了"
+         TIP1 = "%的绿洲用户打败，累觉不爱... ..."
+         TIP2 = "%的绿洲用户，设备需要体检啦~~"
+         TIP3 = "%的绿洲用户，还可以更棒呦~"
+         TIP4 = "%的绿洲用户，觉着自己萌萌哒~"
+         TIP5 = "%的绿洲用户，简直~太~赞~啦！"
+    ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_dashboard.health");
+
+</script>

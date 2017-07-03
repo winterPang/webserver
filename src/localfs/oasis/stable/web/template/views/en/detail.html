@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">Configuration Template</span>
+            </div>
+            <div class="box-body no-height">
+	            <div class="btn btn-cus" ng-click="create()">Create</div>	            
+	            <button class="btn btn-cus" ng-click="delete()" ng-disabled="auth">Delete</button>
+	            <div bs-Table="options"></div>	            
+	        </div>
+        </div>
+    </div>
+</div>  
+
+<div class="col-xs-12 app-colum" bs-modal = "applycount">
+    <div bs-Table="apply"></div>
+</div>
+
+<div class="col-xs-12 app-colum" bs-modal = "modalRelieve">
+    <div bs-Table="tableRelieve"></div>
+</div>
+                                               
+<div id="user_rc" class="rc-define"
+    Visitor_LIST_HEADER = "Template name,Description,Applied Devices"
+	Visitor_LIST = "Name,devSN,Template mode,Template mode time"
+    LIST_QOSMODE = "Deleted successfully"
+    LIST_QOS = "Deleted failed"
+    SUCCESS_SUC = "Template applied successfully"
+    FAILED_FAI = "Failed to apply the template to the devices"
+    FAL_MODEL = "Template bind successfully,Devices request timeout"
+    DELET_SUC = "Remove the template has been applied successfully"
+    DELET_FAI = "Terminate the application template failure"
+    FAL_OVER = "The cloud attempt failed"
+    oprater = "Operation"
+    amend = "Modified"
+    apply = "apply"
+    customer = "Remove"
+    custom = "Remove application"
+    modalRelieved = "Equipment application templates list"
+    close ="close"
+    equipment = "DeviceList"
+    >
+</div>

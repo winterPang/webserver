@@ -1,0 +1,82 @@
+.online_state{
+    font-size: 24px;
+    color: #343e4e;
+    text-align:center;
+    margin-top: 40px;
+    display: block;
+}
+.city_right_block {
+    padding-right: 10px;
+}
+.city_left_block {
+    padding-left: 15px;
+}
+
+.ap_station {
+    height: 250px;
+    margin-left: 10%;
+    margin-right:10%;
+    border-bottom: 1px solid #e7e7e9;
+}
+
+.city_dev_online {
+    float: left;
+    height: 210px;
+    width: 43%;
+    margin-top:10%;
+}
+
+.city_dev_status {
+    font-size: 16px;
+    color: #75808b;
+    margin-left: 25%;
+    margin-top: 5px;
+    display: block;
+}
+
+.city_dev_number {
+    font-size: 24px;
+    color: rgba(52,62,78,0.57);
+    margin-left: -9%;
+    margin-top: 8px;
+    text-align: center;
+    display: block;
+    text-decoration: underline;
+}
+
+.station_position{
+    margin-left: 10%;
+    margin-right:10%;
+    text-align:center;
+}
+.city_station_online {
+    float: left;
+    width: 43%;
+    margin-top:40px;
+}
+
+.city_total_style {
+    margin-left: 25%;
+    margin-top: 27px;
+}
+
+.box_foot {
+    height: 42px;
+    line-height: 42px;
+    margin-bottom:10px;
+    background: #EDF9F7;
+    border: 1px solid #e7e7e9;
+}
+
+.station_text {
+    display: inline-block;
+    width:74px;
+}
+.city_relation {
+    background: url(../city_map/image/guanlian.png) no-repeat;
+    width: 55px;
+    height: 68px;
+    margin: 0 auto;
+    margin-top: 36px;
+}
+

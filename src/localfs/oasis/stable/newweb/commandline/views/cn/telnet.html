@@ -1,0 +1,346 @@
+<style>
+    .page-row{
+        -moz-user-select: -moz-text!important;
+        -moz-user-select: text!important;
+        -o-user-select:text!important;
+        -khtml-user-select:text!important;
+        -webkit-user-select:text!important;
+        -ms-user-select:text!important;
+        user-select:text!important;
+    }
+    .page-row #command_line input{
+        border:0;
+        outline: none;
+        width:60%;
+    }
+    .page-row #command_line{
+        background-color:black;
+        height:600px;
+    }
+    .page-row .backgroud-color{
+        background-color:black!important;
+        color: white!important;
+        font-size:18px;
+        font-weight: normal;
+        font-family: "Courier New";
+    }
+    .page-row .display-block-span{
+        display: block;
+    }
+    .page-row .backgroud-color-red{
+        position: absolute;
+        top: 14px;
+        width:100%;
+        color: #A30500;
+        font-size:18px;
+        font-weight: bold;
+        font-family: "Courier New";
+        text-align: center;
+    }
+    .page-row #window_command{
+        overflow:hidden;
+        background-color: black;
+    }
+    .page-row .test_box {
+        width: 400px;
+        min-height: 120px;
+        max-height: 100000px;
+        _height: 120px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 3px;
+        outline: 0;
+        border: 1px solid #a0b3d6;
+        font-size: 12px;
+        word-wrap: break-word;
+        overflow-x: hidden;
+        overflow-y: auto;
+        _overflow-y: visible;
+    }
+    .page-row #button_right{
+        float: right;
+        margin-right: 20px;
+    }
+    .modal #large_textarea{
+        width: 100%!important;
+        height: 300px!important;
+        font-size:18px!important;
+        font-weight: normal!important;
+    }
+    .page-row .new-panel-footer{
+        padding: 10px 15px;
+        background-color: rgba(255,204,94,1);
+        border-top: 1px solid #FFCA5F;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+    .page-row .footer-cmd
+    {
+        padding: 10px 15px;
+        background-color: rgba(255,204,94,1);
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+
+    }
+    .page-row .body-cmd
+    {
+        padding: 10px 15px;
+        background-color: #F7F7F7;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        height: 200px;
+
+    }
+    .page-row .title-cmd{
+        position: absolute;
+        width: 500px;
+        top:-300px;
+    }
+    .page-row label{
+        line-height: 18px!important;
+    }
+    .page-row input{
+        margin:0 0 0 0!important;
+        padding: 0 0 0 4px !important;
+        line-height: 18px!important;
+        height:20px!important;
+        vertical-align: baseline;
+    }
+    .page-row #button_largeset,#button_help{
+        cursor: pointer;
+    }
+    .page-row .warning-panel{
+        position: absolute;
+        height: 45px;
+        width: 100%;
+        background: orange;
+        text-align: center;
+        padding: 13px 12px 0 0;
+        top: 0;
+        color: #ffffff;
+        z-index: 100;
+        font-size: 17px;
+    }
+    .page-row .head-title-center{
+        text-align: center;
+    }
+    .page-row .title-style{
+        color: #343e4e;
+        font-size: 14pt;
+    }
+    .page-row .message_help{
+        position: absolute;
+        right: 0;
+        top: 0px;
+        width: 220px;
+        height: 600px;
+        background: #2a3542;
+        overflow: hidden;
+        -webkit-transition: width 0.3s;
+        -moz-transition: width  0.3s;
+        -ms-transition: width  0.3s;
+        -o-transition: width  0.3s;
+        transition: width  0.3s;
+    }
+    .page-row .message_help .nav-item a+span:hover,.page-row .li-normalstyle:hover{
+        color: #fff !important;
+        background-color: #47586B !important;
+        cursor: pointer;
+    }
+    .message_help .nav-items .nav-item a+span,.message_help .li-normalstyle{
+        background-color: #394553;
+        display: block;
+        padding: 14px 20px;
+    }
+    .message_help .nav-items .nav-item a span {
+        /*background-color: #394553;*/
+        display: block;
+        padding: 14px 20px 0 0;
+    }
+    .page-row .li-normalstyle{
+        position: absolute;
+        bottom: 0;
+        width:100%;
+        text-align: center;
+        padding: 7px 0 0 0!important;
+        color: #fcfcfc !important;
+        background: #813B3B;
+    }
+
+    .page-row .sub-list{
+        overflow: hidden;
+        height: auto;
+        /*font-size: 13px;*/
+        padding: 0 0 0 0;
+        background: #2a3542;
+        cursor: pointer;
+    }
+
+    .page-row ul {
+        font-size: 11px;
+        color: #fff;
+        padding: 0;
+        list-style-type: none;
+    }
+    .page-row .sub-list li {
+        padding: 14px 35px;
+    }
+
+    .page-row .help-head{
+        display: block;
+        height: 45px;
+        padding: 12px 0 0 0;
+        font-size: 17px;
+        color: #F5F5F5;
+        background: #11796C;
+        overflow: hidden;
+        text-align: center;
+    }
+    .page-row .help-containor{
+        font-family: 'Open Sans',sans-serif;
+    }
+    .page-row .tip-icon{
+        height: 45px;
+        width: 33px;
+        position: absolute;
+        top: 48%;
+        right: 8px;
+        cursor: pointer;
+    }
+    .page-row .tip-icon.on{
+        background: url(./css/image/login-icon.png) no-repeat -47px -243px;
+    }
+    .page-row .tip-icon.off{
+        background: url(./css/image/login-icon.png) no-repeat -101px -243px;
+    }
+    .page-row .box-body-new.new-padding{
+        padding-right: 221px;
+    }
+    .page-row #command_line span{
+        background-color: black!important;
+        color: white!important;
+        font-size: 18px;
+        font-weight: normal;
+        font-family: "Courier New";
+    }
+
+    .page-row .antmenu {
+        height: 512px;
+        overflow-y: auto;
+    }
+    .telnet-switch{
+        top: 121px;
+        position: fixed;
+        font-size: 18px;
+    }
+    .telnet-switch label{
+        vertical-align: bottom;
+    }
+    .page-row .ant-close {
+        color: #FFF;
+        display: inline;
+    }
+    .warning-panel a.ant-close {
+        opacity: 0.5;
+    }
+    .warning-panel a.ant-close:hover {
+        opacity: 1;
+    }
+    .page-row .ant-open {
+        color: #FFF;
+        display: inline;
+        font-size: 18px;
+        font-family: inherit;
+        font-weight: lighter; 
+        background: transparent;
+    }
+    .open {
+        font-size: 15px;
+        font-family: cursive;
+    }
+    .page-row .close {
+        opacity: 1;
+    }
+</style>
+<div class="col-xs-12">
+    
+    <div class="page-row col-xs-12" id="Probe_Monitor" unselectable="off">
+        <div class="telnet-switch">
+            <label for="telnetswitch">telnet模式&nbsp;&nbsp;</label>
+            <a type="button" class="link-detail" ui-sref="^.commandline5">
+                <div class="xb-input">
+                    <div class="input-icon checkbox-icon switch" ng-class="{'checked':drsValueIsEnable}" ng-click="drsValueChange()">
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="box-body-new col-xs-12 new-padding" >
+            <div class="col-xs-12 ">
+                <div id="window_command">
+                    <div id="command_line" class="col-xs-12">
+                        <!-- <iframe src="../frame/ant/shellinabox.html" style="width:100%;height:100%"></iframe> -->
+                    </div>
+                    <div class="warning-panel" ng-show="b_warning_show" ng-click="showWarning()">
+                        <a class="close ant-close" role="button-cancel"><span>×</span></a>
+                        警告:请在专业人员指导下使用！
+                    </div>
+                </div> 
+            </div>
+
+            <div class="help-containor">
+                <div id="help_message" class="message_help">
+                    <span class="help-head">常用命令</span>
+                    <ul class="nav-items">
+                        <li class="nav-item">
+                            <div ng-click="showCmd('baseInfo')">
+                                <a class="close ant-open" role="button-cancel">
+                                    <span ng-class="{'open': isBaseOpen}">{{base}}</span>
+                                </a>
+                                <span>基础信息</span>
+                            </div>
+                            <ul class="sub-list" ng-show="baseInfo">
+                                <li ng-click="commonCommands('display version')">版本信息</li>
+                                <li ng-click="commonCommands('display device')">设备信息</li>
+                                <li ng-click="commonCommands('display clock')">系统时间</li>
+                                <li ng-click="commonCommands('display current-configuration')">配置信息</li>
+                                <li ng-click="commonCommands('display interface brief')">接口信息</li>
+                                <li ng-click="commonCommands('display wlan rrm-status ap all')">网络环境分析</li>
+                                <li ng-click="commonCommands('save')">保存当前配置</li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <div ng-click="showCmd('networkInfo')">
+                                <a class="close ant-open" role="button-cancel">
+                                    <span ng-class="{'open': isNetOpen}">{{network}}</span>
+                                </a>
+                                <span>网络信息</span>
+                            </div>
+                            <ul class="sub-list" ng-show="networkInfo">
+                                <li ng-click="commonCommands('display cloud state')">绿洲云状态</li>
+                                <li ng-click="commonCommands('display ip routing-table')">路由信息</li>
+                                <li ng-click="commonCommands('display wlan ap all')">无线AP</li>
+                                <li ng-click="commonCommands('display wlan statistics ap all connect-history')">无线AP统计</li>
+                                <li ng-click="commonCommands('display wlan client')">无线Client</li>
+                                <li ng-click="commonCommands('display wlan statistics client')">无线Client统计</li>
+                                <li ng-click="commonCommands('display wlan service-template')">无线服务模板</li>
+                                <li ng-click="commonCommands('display dhcp server ip-in-use')">DHCP状态</li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <div ng-click="showCmd('monitorInfo')">
+                                <a class="close ant-open" role="button-cancel">
+                                    <span ng-class="{'open': isMonOpen}">{{monitor}}</span>
+                                </a>
+                                <span>监控信息</span>
+                            </div>
+                            <ul class="sub-list" ng-show="monitorInfo">
+                                <li ng-click="commonCommands('display cpu-usage')">CPU使用率</li>
+                                <li ng-click="commonCommands('display memory')">内存信息</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

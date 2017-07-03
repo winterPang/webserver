@@ -1,0 +1,1001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>绘制</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1">
+    <meta http-equiv="cache-control" content="no-cache">
+    <meta http-equiv="expires" content="0">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <link rel="stylesheet" href="../../libs/bootstrap/css/bootstrap.css">
+    <!--<link rel="stylesheet" href="../../css/jquery-ui.min.css">-->
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/mobile.css">
+    <script type="text/javascript" src="../../libs/jquery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../../libs/jquery/jquery-ui-1.11.2.min.js"></script>
+    <script type="text/javascript" src="../../libs/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../libs/base64.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header navbar-collapse">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand text-center" href="javascript:void(0)" style="padding-right: 48px;">组件名称</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-collapse nav-pills">
+                <li role="presentation" class="navbar-collapse active" style="margin-left:60px">
+                    <a href="#home" data-toggle="tab">首页<span class="sr-only">(current)</span></a></li>
+                <li role="presentation" class="navbar-collapse"><a href="#login" data-toggle="tab">登录</a></li>
+                <li role="presentation" class="navbar-collapse"><a href="#login_success" data-toggle="tab">登录成功</a></li>
+                <li role="presentation" class="navbar-collapse"><a href="#main" data-toggle="tab">主页</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right nav-pills">
+                <li class="release" style="margin-right:64px"><a href="javascript:void(0)">发布</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<div class="navleft">
+    <ul>
+        <!--<li class="carousel_control"><span class="carousel_icon"></span><a href="#multiSection">轮播图</a></li>-->
+        <li class="background_control"><span class="background_icon"></span><a href="javascript:void(0)">背景</a></li>
+        <li class="single_control"><span class="single_icon"></span><a href="javascript:void(0)">单图</a></li>
+        <!--<li class="double_control"><span class="double_icon"></span><a href="#doubleSection">双图</a></li>-->
+        <li class="video_control"><span class="video_icon"></span><a href="javascript:void(0)">视频</a></li>
+        <!--<li class="audio_control"><span class="audio_icon"></span><a href="#audioSection">音频</a></li>-->
+        <!--<li class="frame_control"><span class="frame_icon"></span><a href="#frameSection">悬浮框</a></li>-->
+        <!--<li class="link_control"><span class="link"></span><a href="#linkSection">外部链接</a></li>-->
+        <!--<li class="text_control"><span class="text_icon"></span><a href="#textSection">文本</a></li>-->
+        <li class="logo_control"><span class="logo_icon"></span><a href="javascript:void(0)">logo</a></li>
+        <!--<li class="telephone_control"><span class="telephone_icon"></span><a href="#telSection">电话</a></li>-->
+    </ul>
+</div>
+<div class="container-fluid tab-content" style="padding-left:0px;">
+    <div class="row tab-pane fade in active home_page" id="home">
+        <!--<div class="col-xs-1 disclaimer" style="position: fixed;right: 20px;"><a href="javascript:void(0)">免责声明</a>-->
+        <!--</div>-->
+        <div class="col-xs-6 col-sm-4 col-md-4 telimg">
+            <div class="content_draw">
+            </div>
+        </div>
+        <!--logo组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_logo show_edit_area" style="display:none;">
+            <div class="edit_top">
+                <span class="edit_text">logo&nbsp;编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_logo">删除logo</button>
+            </div>
+            <form class="form-inline logoForm" style="margin-top:34px">
+                <div class="form-group">
+                    <label class="sr-only">上传 logo</label>
+                    <p class="form-control-static">上传logo</p>
+                </div>
+                <div class="form-group upload" action="" method="post" enctype="multipart/form-data">
+                    <input type="text" name="txtlogo" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="filelogo" class="file_upload upload-input-file"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static logo_img_check" style="color:#666666;font-size:12px">&nbsp;&nbsp;*&nbsp;图片大小不超过1M</p>
+                </div>
+                <div class="tip_size"><p>*&nbsp;建议上传图片为：尺寸大于100 x 100 px的正方形</p></div>
+                <div class="form-group" style="margin-left: 30px;">
+                    <label class="sr-only">编辑商户名</label>
+                    <p class="form-control-static">编辑商户名</p>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only">text</label>
+                    <input type="text" class="form-control logo_text" name="logoText" placeholder="请输入">
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static logo_txt_check" style="color:#666666;font-size:12px;">*&nbsp;仅限于16个字符以内</p>
+                </div>
+                <div class="logo_container text-center">
+                    <img class="preview" src="../../images/logo_bg.jpg">
+                </div>
+                <button type="button" name="btnlogo" class="btn col-sm-offset-5 complete-upload-btn">完成上传</button>
+            </form>
+            <!--<form class="form-inline logoTextForm">-->
+
+            <!--</form>-->
+        </div>
+        <!--logo组件编辑框end-->
+        <!--音频组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_audio show_edit_area" style="display:none;">
+            <div class="edit_top">
+                <span class="edit_text">音频编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_audio">删除音频</button>
+            </div>
+            <form class="form-inline audioForm" style="margin-top:34px">
+                <div class="form-group">
+                    <label class="sr-only">上传音频</label>
+                    <p class="form-control-static">上传音频</p>
+                </div>
+                <div class="form-group upload" action="" method="post" enctype="multipart/form-data">
+                    <input type="text" name="txtaudio" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="fileaudio" class="file_upload upload-input-file"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static" style="color:#666666;font-size:12px">&nbsp;&nbsp;*&nbsp;仅支持图片格式</p>
+                </div>
+                <div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 image_container text-center">
+                    <audio class="preview" controls="controls">
+                        <source src="" type="audio/ogg">
+                        <source src="" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <button type="button" name="btnaudio" class="btn col-sm-offset-5 complete-upload-btn">完成上传</button>
+            </form>
+        </div>
+        <!--音频组件编辑框end-->
+        <!--单图组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_single show_edit_area" style="display:none;">
+            <div class="edit_top">
+                <span class="edit_text">单图编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_single">删除单图</button>
+            </div>
+            <form class="form-inline singleForm" style="margin-top:34px">
+                <div class="form-group">
+                    <label class="sr-only">上传图片</label>
+                    <p class="form-control-static">上传图片</p>
+                </div>
+                <div class="form-group upload" action="" method="post" enctype="multipart/form-data">
+                    <input type="text" name="txtsingle" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="filesingle" class="file_upload upload-input-file"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static single_img_check">&nbsp;&nbsp;*&nbsp;图片大小不超过1M</p>
+                </div>
+                <div class="tip_size"><p>*&nbsp;建议上传图片尺寸为：991 x 447 px</p></div>
+                <div class="form-group" style="margin-left: 30px;">
+                    <label class="sr-only">添加文字描述</label>
+                    <p class="form-control-static">文字描述</p>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only">text</label>
+                    <input type="text" class="form-control single_text" name="singleText" placeholder="请输入">
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static single_txt_check" style="color:#666666;font-size:12px;">*&nbsp;仅限于48个字符以内</p>
+                </div>
+                <div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 image_container text-center">
+                    <img class="preview" src="../../images/wave.png" height="246">
+                </div>
+                <button type="button" name="btnsingle" class="btn col-sm-offset-5 complete-upload-btn">完成上传</button>
+            </form>
+            <!--<form class="form-inline singleTextForm">-->
+
+            <!--</form>-->
+        </div>
+        <!--单图组件编辑框end-->
+        <!--背景组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_background show_edit_area" style="display:none;">
+            <div class="edit_top">
+                <span class="edit_text">背景编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_background">删除背景</button>
+            </div>
+            <form class="form-inline backgroundForm" enctype="multipart/form-data" style="margin-top:34px">
+                <div class="form-group">
+                    <label class="sr-only">上传图片</label>
+                    <p class="form-control-static">上传图片</p>
+                </div>
+                <div class="form-group upload">
+                    <input type="text" name="txtbackground" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="filebackground" class="file_upload upload-input-file"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static background_img_check" style="color:#666666;font-size:12px">&nbsp;&nbsp;*&nbsp;图片大小不超过1M</p>
+                </div>
+                <div class="tip_size"><p>*&nbsp;建议上传图片尺寸为：180 x 300 px</p></div>
+                <div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 image_container text-center">
+                    <img class="preview" src="../../images/wave.png" height="246">
+                </div>
+                <button type="button" name="btnbackground" class="btn col-sm-offset-5 complete-upload-btn">完成上传</button>
+            </form>
+        </div>
+        <!--背景组件编辑框end-->
+        <!--双图组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_double show_edit_area" style="display: none;">
+            <div class="edit_top">
+                <span class="edit_text">双图编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_double">删除双图</button>
+            </div>
+            <form class="form-inline" style="margin-top:10px">
+                <div class="form-group">
+                    <label class="sr-only">上传图片</label>
+                    <p class="form-control-static">上传图片</p>
+                </div>
+                <div class="form-group upload" action="" method="post" enctype="multipart/form-data">
+                    <input type="text" name="txtdouble" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="filedouble" class="file_upload upload-input-file" multiple="multiple"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static" style="color:#666666;font-size:12px">&nbsp;&nbsp;*&nbsp;图片大小不超过1M</p>
+                </div>
+            </form>
+            <div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 image_container text-center" style="margin-top: 12px;">
+                <img class="preview" src="../../images/wave.png" height="246">
+            </div>
+            <div class="form-inline col-xs-offset-1 col-sm-offset-1 double">
+                <div class="form-group">
+                    <img class="double_right_preview" src="../../images/wave.png" style="width:100%;height: 100%;">
+                </div>
+                <div class="form-group" style="padding-left: 30px;">
+                    <label class="sr-only">文字描述</label>
+                    <p class="form-control-static">文字描述&nbsp;&nbsp;</p>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="txtleft" class="form-control double_left_text" placeholder="请输入">
+                </div>
+            </div>
+            <div class="form-inline col-xs-offset-1 col-sm-offset-1 double" style="margin-top: 10px;">
+                <div class="form-group">
+                    <img class="double_right_preview" src="../../images/wave.png" style="width:100%;height: 100%;">
+                </div>
+                <div class="form-group" style="padding-left: 30px;">
+                    <label class="sr-only">文字描述</label>
+                    <p class="form-control-static">文字描述&nbsp;&nbsp;</p>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="txtright" class="form-control double_right_text" placeholder="请输入">
+                </div>
+            </div>
+            <button type="submit" class="btn col-sm-offset-5 complete-upload-btn" style="margin-top: 12px;margin-bottom: 20px;">完成上传</button>
+        </div>
+        <!--双图组件编辑框end-->
+        <!--视频组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_video show_edit_area" style="display:none;">
+            <div class="edit_top">
+                <span class="edit_text">视频编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_video">删除视频</button>
+            </div>
+            <form class="form-inline videoForm" style="margin-top:34px">
+                <div class="form-group">
+                    <label class="sr-only">上传视频</label>
+                    <p class="form-control-static">上传视频</p>
+                </div>
+                <div class="form-group upload" enctype="multipart/form-data">
+                    <input type="text" name="txtvideo" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="filevideo" class="file_upload upload-input-file"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static video_check" style="color:#666666;font-size:12px">&nbsp;&nbsp;*&nbsp;视频大小不超过1M</p>
+                </div>
+                <div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 video_container text-center">
+                    <video class="preview" controls="controls" height="246">
+                        <source src="" type="video/mp4">
+                        <source src="" type="video/wmv">
+                        <source src="" type="video/ogg">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                <button type="button" name="btnvideo" class="btn col-sm-offset-5 complete-upload-btn">完成上传</button>
+            </form>
+        </div>
+        <!--视频组件编辑框end-->
+    </div>
+    <div class="row tab-pane fade login_page" id="login">
+        <div class="col-xs-6 col-sm-4 col-md-4 telimg">
+            <div class="content_draw">
+
+
+            </div>
+        </div>
+        <!--logo组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_logo show_edit_area" style="display:none;">
+            <div class="edit_top">
+                <span class="edit_text">logo&nbsp;编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_logo">删除logo</button>
+            </div>
+            <form class="form-inline logoForm" style="margin-top:34px">
+                <div class="form-group">
+                    <label class="sr-only">上传 logo</label>
+                    <p class="form-control-static">上传logo</p>
+                </div>
+                <div class="form-group upload" action="" method="post" enctype="multipart/form-data">
+                    <input type="text" name="txtlogo" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="filelogo" class="file_upload upload-input-file"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static logo_img_check" style="color:#666666;font-size:12px">&nbsp;&nbsp;*&nbsp;图片大小不超过1M</p>
+                </div>
+                <div class="tip_size"><p>*&nbsp;建议上传图片为：尺寸大于100 x 100 px的正方形</p></div>
+                <div class="form-group" style="margin-left: 30px;">
+                    <label class="sr-only">编辑商户名</label>
+                    <p class="form-control-static">编辑商户名</p>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only">text</label>
+                    <input type="text" class="form-control logo_text" name="logoText" placeholder="请输入">
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static logo_txt_check" style="color:#666666;font-size:12px;">*&nbsp;仅限于16个字符以内</p>
+                </div>
+                <div class="logo_container text-center">
+                    <img class="preview" src="../../images/logo_bg.jpg">
+                </div>
+                <button type="button" name="btnlogo" class="btn col-sm-offset-5 complete-upload-btn">完成上传</button>
+            </form>
+            <!--<form class="form-inline logoTextForm">-->
+
+            <!--</form>-->
+        </div>
+        <!--logo组件编辑框end-->
+        <!--音频组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_audio show_edit_area" style="display:none;">
+            <div class="edit_top">
+                <span class="edit_text">音频编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_audio">删除音频</button>
+            </div>
+            <form class="form-inline audioForm" style="margin-top:34px">
+                <div class="form-group">
+                    <label class="sr-only">上传音频</label>
+                    <p class="form-control-static">上传音频</p>
+                </div>
+                <div class="form-group upload" action="" method="post" enctype="multipart/form-data">
+                    <input type="text" name="txtaudio" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="fileaudio" class="file_upload upload-input-file"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static" style="color:#666666;font-size:12px">&nbsp;&nbsp;*&nbsp;仅支持图片格式</p>
+                </div>
+                <div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 image_container text-center">
+                    <audio class="preview" controls="controls">
+                        <source src="" type="audio/ogg">
+                        <source src="" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <button type="button" name="btnaudio" class="btn col-sm-offset-5 complete-upload-btn">完成上传</button>
+            </form>
+        </div>
+        <!--音频组件编辑框end-->
+        <!--单图组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_single show_edit_area" style="display:none;">
+            <div class="edit_top">
+                <span class="edit_text">单图编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_single">删除单图</button>
+            </div>
+            <form class="form-inline singleForm" style="margin-top:34px">
+                <div class="form-group">
+                    <label class="sr-only">上传图片</label>
+                    <p class="form-control-static">上传图片</p>
+                </div>
+                <div class="form-group upload" action="" method="post" enctype="multipart/form-data">
+                    <input type="text" name="txtsingle" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="filesingle" class="file_upload upload-input-file"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static single_img_check">&nbsp;&nbsp;*&nbsp;图片大小不超过1M</p>
+                </div>
+                <div class="tip_size"><p>*&nbsp;建议上传图片尺寸为：991 x 447 px</p></div>
+                <div class="form-group" style="margin-left: 30px;">
+                    <label class="sr-only">添加文字描述</label>
+                    <p class="form-control-static">文字描述</p>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only">text</label>
+                    <input type="text" class="form-control single_text" name="singleText" placeholder="请输入">
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static single_txt_check" style="color:#666666;font-size:12px;">*&nbsp;仅限于48个字符以内</p>
+                </div>
+                <div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 image_container text-center">
+                    <img class="preview" src="../../images/wave.png" height="246">
+                </div>
+                <button type="button" name="btnsingle" class="btn col-sm-offset-5 complete-upload-btn">完成上传</button>
+            </form>
+            <!--<form class="form-inline singleTextForm">-->
+
+            <!--</form>-->
+        </div>
+        <!--单图组件编辑框end-->
+        <!--背景组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_background show_edit_area" style="display:none;">
+            <div class="edit_top">
+                <span class="edit_text">背景编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_background">删除背景</button>
+            </div>
+            <form class="form-inline backgroundForm" enctype="multipart/form-data" style="margin-top:34px">
+                <div class="form-group">
+                    <label class="sr-only">上传图片</label>
+                    <p class="form-control-static">上传图片</p>
+                </div>
+                <div class="form-group upload">
+                    <input type="text" name="txtbackground" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="filebackground" class="file_upload upload-input-file"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static background_img_check" style="color:#666666;font-size:12px">&nbsp;&nbsp;*&nbsp;图片大小不超过1M</p>
+                </div>
+                <div class="tip_size"><p>*&nbsp;建议上传图片尺寸为：180 x 300 px</p></div>
+                <div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 image_container text-center">
+                    <img class="preview" src="../../images/wave.png" height="246">
+                </div>
+                <button type="button" name="btnbackground" class="btn col-sm-offset-5 complete-upload-btn">完成上传</button>
+            </form>
+        </div>
+        <!--背景组件编辑框end-->
+        <!--双图组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_double show_edit_area" style="display: none;">
+            <div class="edit_top">
+                <span class="edit_text">双图编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_double">删除双图</button>
+            </div>
+            <form class="form-inline" style="margin-top:10px">
+                <div class="form-group">
+                    <label class="sr-only">上传图片</label>
+                    <p class="form-control-static">上传图片</p>
+                </div>
+                <div class="form-group upload" action="" method="post" enctype="multipart/form-data">
+                    <input type="text" name="txtdouble" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="filedouble" class="file_upload upload-input-file" multiple="multiple"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static" style="color:#666666;font-size:12px">&nbsp;&nbsp;*&nbsp;图片大小不超过1M</p>
+                </div>
+            </form>
+            <div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 image_container text-center" style="margin-top: 12px;">
+                <img class="preview" src="../../images/wave.png" height="246">
+            </div>
+            <div class="form-inline col-xs-offset-1 col-sm-offset-1 double">
+                <div class="form-group">
+                    <img class="double_right_preview" src="../../images/wave.png" style="width:100%;height: 100%;">
+                </div>
+                <div class="form-group" style="padding-left: 30px;">
+                    <label class="sr-only">文字描述</label>
+                    <p class="form-control-static">文字描述&nbsp;&nbsp;</p>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="txtleft" class="form-control double_left_text" placeholder="请输入">
+                </div>
+            </div>
+            <div class="form-inline col-xs-offset-1 col-sm-offset-1 double" style="margin-top: 10px;">
+                <div class="form-group">
+                    <img class="double_right_preview" src="../../images/wave.png" style="width:100%;height: 100%;">
+                </div>
+                <div class="form-group" style="padding-left: 30px;">
+                    <label class="sr-only">文字描述</label>
+                    <p class="form-control-static">文字描述&nbsp;&nbsp;</p>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="txtright" class="form-control double_right_text" placeholder="请输入">
+                </div>
+            </div>
+            <button type="submit" class="btn col-sm-offset-5 complete-upload-btn" style="margin-top: 12px;margin-bottom: 20px;">完成上传</button>
+        </div>
+        <!--双图组件编辑框end-->
+        <!--视频组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_video show_edit_area" style="display:none;">
+            <div class="edit_top">
+                <span class="edit_text">视频编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_video">删除视频</button>
+            </div>
+            <form class="form-inline videoForm" style="margin-top:34px">
+                <div class="form-group">
+                    <label class="sr-only">上传视频</label>
+                    <p class="form-control-static">上传视频</p>
+                </div>
+                <div class="form-group upload" enctype="multipart/form-data">
+                    <input type="text" name="txtvideo" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="filevideo" class="file_upload upload-input-file"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static video_check" style="color:#666666;font-size:12px">&nbsp;&nbsp;*&nbsp;视频大小不超过1M</p>
+                </div>
+                <div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 video_container text-center">
+                    <video class="preview" controls="controls" height="246">
+                        <source src="" type="video/mp4">
+                        <source src="" type="video/wmv">
+                        <source src="" type="video/ogg">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                <button type="button" name="btnvideo" class="btn col-sm-offset-5 complete-upload-btn">完成上传</button>
+            </form>
+        </div>
+        <!--视频组件编辑框end-->
+    </div>
+    <div class="row tab-pane fade in home_page" id="login_success">
+        <div class="col-xs-6 col-sm-4 col-md-4 telimg">
+            <div class="content_draw">
+
+            </div>
+        </div>
+        <!--logo组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_logo show_edit_area" style="display:none;">
+            <div class="edit_top">
+                <span class="edit_text">logo&nbsp;编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_logo">删除logo</button>
+            </div>
+            <form class="form-inline logoForm" style="margin-top:34px">
+                <div class="form-group">
+                    <label class="sr-only">上传 logo</label>
+                    <p class="form-control-static">上传logo</p>
+                </div>
+                <div class="form-group upload" action="" method="post" enctype="multipart/form-data">
+                    <input type="text" name="txtlogo" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="filelogo" class="file_upload upload-input-file"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static logo_img_check" style="color:#666666;font-size:12px">&nbsp;&nbsp;*&nbsp;图片大小不超过1M</p>
+                </div>
+                <div class="tip_size"><p>*&nbsp;建议上传图片为：尺寸大于100 x 100 px的正方形</p></div>
+                <div class="form-group" style="margin-left: 30px;">
+                    <label class="sr-only">编辑商户名</label>
+                    <p class="form-control-static">编辑商户名</p>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only">text</label>
+                    <input type="text" class="form-control logo_text" name="logoText" placeholder="请输入">
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static logo_txt_check" style="color:#666666;font-size:12px;">*&nbsp;仅限于16个字符以内</p>
+                </div>
+                <div class="logo_container text-center">
+                    <img class="preview" src="../../images/logo_bg.jpg">
+                </div>
+                <button type="button" name="btnlogo" class="btn col-sm-offset-5 complete-upload-btn">完成上传</button>
+            </form>
+            <!--<form class="form-inline logoTextForm">-->
+
+            <!--</form>-->
+        </div>
+        <!--logo组件编辑框end-->
+        <!--音频组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_audio show_edit_area" style="display:none;">
+            <div class="edit_top">
+                <span class="edit_text">音频编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_audio">删除音频</button>
+            </div>
+            <form class="form-inline audioForm" style="margin-top:34px">
+                <div class="form-group">
+                    <label class="sr-only">上传音频</label>
+                    <p class="form-control-static">上传音频</p>
+                </div>
+                <div class="form-group upload" action="" method="post" enctype="multipart/form-data">
+                    <input type="text" name="txtaudio" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="fileaudio" class="file_upload upload-input-file"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static" style="color:#666666;font-size:12px">&nbsp;&nbsp;*&nbsp;仅支持图片格式</p>
+                </div>
+                <div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 image_container text-center">
+                    <audio class="preview" controls="controls">
+                        <source src="" type="audio/ogg">
+                        <source src="" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <button type="button" name="btnaudio" class="btn col-sm-offset-5 complete-upload-btn">完成上传</button>
+            </form>
+        </div>
+        <!--音频组件编辑框end-->
+        <!--单图组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_single show_edit_area" style="display:none;">
+            <div class="edit_top">
+                <span class="edit_text">单图编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_single">删除单图</button>
+            </div>
+            <form class="form-inline singleForm" style="margin-top:34px">
+                <div class="form-group">
+                    <label class="sr-only">上传图片</label>
+                    <p class="form-control-static">上传图片</p>
+                </div>
+                <div class="form-group upload" action="" method="post" enctype="multipart/form-data">
+                    <input type="text" name="txtsingle" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="filesingle" class="file_upload upload-input-file"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static single_img_check">&nbsp;&nbsp;*&nbsp;图片大小不超过1M</p>
+                </div>
+                <div class="tip_size"><p>*&nbsp;建议上传图片尺寸为：991 x 447 px</p></div>
+                <div class="form-group" style="margin-left: 30px;">
+                    <label class="sr-only">添加文字描述</label>
+                    <p class="form-control-static">文字描述</p>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only">text</label>
+                    <input type="text" class="form-control single_text" name="singleText" placeholder="请输入">
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static single_txt_check" style="color:#666666;font-size:12px;">*&nbsp;仅限于48个字符以内</p>
+                </div>
+                <div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 image_container text-center">
+                    <img class="preview" src="../../images/wave.png" height="246">
+                </div>
+                <button type="button" name="btnsingle" class="btn col-sm-offset-5 complete-upload-btn">完成上传</button>
+            </form>
+            <!--<form class="form-inline singleTextForm">-->
+
+            <!--</form>-->
+        </div>
+        <!--单图组件编辑框end-->
+        <!--背景组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_background show_edit_area" style="display:none;">
+            <div class="edit_top">
+                <span class="edit_text">背景编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_background">删除背景</button>
+            </div>
+            <form class="form-inline backgroundForm" enctype="multipart/form-data" style="margin-top:34px">
+                <div class="form-group">
+                    <label class="sr-only">上传图片</label>
+                    <p class="form-control-static">上传图片</p>
+                </div>
+                <div class="form-group upload">
+                    <input type="text" name="txtbackground" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="filebackground" class="file_upload upload-input-file"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static background_img_check" style="color:#666666;font-size:12px">&nbsp;&nbsp;*&nbsp;图片大小不超过1M</p>
+                </div>
+                <div class="tip_size"><p>*&nbsp;建议上传图片尺寸为：180 x 300 px</p></div>
+                <div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 image_container text-center">
+                    <img class="preview" src="../../images/wave.png" height="246">
+                </div>
+                <button type="button" name="btnbackground" class="btn col-sm-offset-5 complete-upload-btn">完成上传</button>
+            </form>
+        </div>
+        <!--背景组件编辑框end-->
+        <!--双图组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_double show_edit_area" style="display: none;">
+            <div class="edit_top">
+                <span class="edit_text">双图编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_double">删除双图</button>
+            </div>
+            <form class="form-inline" style="margin-top:10px">
+                <div class="form-group">
+                    <label class="sr-only">上传图片</label>
+                    <p class="form-control-static">上传图片</p>
+                </div>
+                <div class="form-group upload" action="" method="post" enctype="multipart/form-data">
+                    <input type="text" name="txtdouble" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="filedouble" class="file_upload upload-input-file" multiple="multiple"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static" style="color:#666666;font-size:12px">&nbsp;&nbsp;*&nbsp;图片大小不超过1M</p>
+                </div>
+            </form>
+            <div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 image_container text-center" style="margin-top: 12px;">
+                <img class="preview" src="../../images/wave.png" height="246">
+            </div>
+            <div class="form-inline col-xs-offset-1 col-sm-offset-1 double">
+                <div class="form-group">
+                    <img class="double_right_preview" src="../../images/wave.png" style="width:100%;height: 100%;">
+                </div>
+                <div class="form-group" style="padding-left: 30px;">
+                    <label class="sr-only">文字描述</label>
+                    <p class="form-control-static">文字描述&nbsp;&nbsp;</p>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="txtleft" class="form-control double_left_text" placeholder="请输入">
+                </div>
+            </div>
+            <div class="form-inline col-xs-offset-1 col-sm-offset-1 double" style="margin-top: 10px;">
+                <div class="form-group">
+                    <img class="double_right_preview" src="../../images/wave.png" style="width:100%;height: 100%;">
+                </div>
+                <div class="form-group" style="padding-left: 30px;">
+                    <label class="sr-only">文字描述</label>
+                    <p class="form-control-static">文字描述&nbsp;&nbsp;</p>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="txtright" class="form-control double_right_text" placeholder="请输入">
+                </div>
+            </div>
+            <button type="submit" class="btn col-sm-offset-5 complete-upload-btn" style="margin-top: 12px;margin-bottom: 20px;">完成上传</button>
+        </div>
+        <!--双图组件编辑框end-->
+        <!--视频组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_video show_edit_area" style="display:none;">
+            <div class="edit_top">
+                <span class="edit_text">视频编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_video">删除视频</button>
+            </div>
+            <form class="form-inline videoForm" style="margin-top:34px">
+                <div class="form-group">
+                    <label class="sr-only">上传视频</label>
+                    <p class="form-control-static">上传视频</p>
+                </div>
+                <div class="form-group upload" enctype="multipart/form-data">
+                    <input type="text" name="txtvideo" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="filevideo" class="file_upload upload-input-file"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static video_check" style="color:#666666;font-size:12px">&nbsp;&nbsp;*&nbsp;视频大小不超过1M</p>
+                </div>
+                <div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 video_container text-center">
+                    <video class="preview" controls="controls" height="246">
+                        <source src="" type="video/mp4">
+                        <source src="" type="video/wmv">
+                        <source src="" type="video/ogg">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                <button type="button" name="btnvideo" class="btn col-sm-offset-5 complete-upload-btn">完成上传</button>
+            </form>
+        </div>
+        <!--视频组件编辑框end-->
+    </div>
+    <div class="row tab-pane fade in home_page" id="main">
+        <div class="col-xs-6 col-sm-4 col-md-4 telimg">
+            <div class="content_draw">
+
+            </div>
+        </div>
+        <!--logo组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_logo show_edit_area" style="display:none;">
+            <div class="edit_top">
+                <span class="edit_text">logo&nbsp;编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_logo">删除logo</button>
+            </div>
+            <form class="form-inline logoForm" style="margin-top:34px">
+                <div class="form-group">
+                    <label class="sr-only">上传 logo</label>
+                    <p class="form-control-static">上传logo</p>
+                </div>
+                <div class="form-group upload" action="" method="post" enctype="multipart/form-data">
+                    <input type="text" name="txtlogo" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="filelogo" class="file_upload upload-input-file"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static logo_img_check" style="color:#666666;font-size:12px">&nbsp;&nbsp;*&nbsp;图片大小不超过1M</p>
+                </div>
+                <div class="tip_size"><p>*&nbsp;建议上传图片为：尺寸大于100 x 100 px的正方形</p></div>
+                <div class="form-group" style="margin-left: 30px;">
+                    <label class="sr-only">编辑商户名</label>
+                    <p class="form-control-static">编辑商户名</p>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only">text</label>
+                    <input type="text" class="form-control logo_text" name="logoText" placeholder="请输入">
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static logo_txt_check" style="color:#666666;font-size:12px;">*&nbsp;仅限于16个字符以内</p>
+                </div>
+                <div class="logo_container text-center">
+                    <img class="preview" src="../../images/logo_bg.jpg">
+                </div>
+                <button type="button" name="btnlogo" class="btn col-sm-offset-5 complete-upload-btn">完成上传</button>
+            </form>
+            <!--<form class="form-inline logoTextForm">-->
+
+            <!--</form>-->
+        </div>
+        <!--logo组件编辑框end-->
+        <!--音频组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_audio show_edit_area" style="display:none;">
+            <div class="edit_top">
+                <span class="edit_text">音频编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_audio">删除音频</button>
+            </div>
+            <form class="form-inline audioForm" style="margin-top:34px">
+                <div class="form-group">
+                    <label class="sr-only">上传音频</label>
+                    <p class="form-control-static">上传音频</p>
+                </div>
+                <div class="form-group upload" action="" method="post" enctype="multipart/form-data">
+                    <input type="text" name="txtaudio" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="fileaudio" class="file_upload upload-input-file"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static" style="color:#666666;font-size:12px">&nbsp;&nbsp;*&nbsp;仅支持图片格式</p>
+                </div>
+                <div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 image_container text-center">
+                    <audio class="preview" controls="controls">
+                        <source src="" type="audio/ogg">
+                        <source src="" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+                <button type="button" name="btnaudio" class="btn col-sm-offset-5 complete-upload-btn">完成上传</button>
+            </form>
+        </div>
+        <!--音频组件编辑框end-->
+        <!--单图组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_single show_edit_area" style="display:none;">
+            <div class="edit_top">
+                <span class="edit_text">单图编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_single">删除单图</button>
+            </div>
+            <form class="form-inline singleForm" style="margin-top:34px">
+                <div class="form-group">
+                    <label class="sr-only">上传图片</label>
+                    <p class="form-control-static">上传图片</p>
+                </div>
+                <div class="form-group upload" action="" method="post" enctype="multipart/form-data">
+                    <input type="text" name="txtsingle" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="filesingle" class="file_upload upload-input-file"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static single_img_check">&nbsp;&nbsp;*&nbsp;图片大小不超过1M</p>
+                </div>
+                <div class="tip_size"><p>*&nbsp;建议上传图片尺寸为：991 x 447 px</p></div>
+                <div class="form-group" style="margin-left: 30px;">
+                    <label class="sr-only">添加文字描述</label>
+                    <p class="form-control-static">文字描述</p>
+                </div>
+                <div class="form-group">
+                    <label class="sr-only">text</label>
+                    <input type="text" class="form-control single_text" name="singleText" placeholder="请输入">
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static single_txt_check" style="color:#666666;font-size:12px;">*&nbsp;仅限于48个字符以内</p>
+                </div>
+                <div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 image_container text-center">
+                    <img class="preview" src="../../images/wave.png" height="246">
+                </div>
+                <button type="button" name="btnsingle" class="btn col-sm-offset-5 complete-upload-btn">完成上传</button>
+            </form>
+            <!--<form class="form-inline singleTextForm">-->
+
+            <!--</form>-->
+        </div>
+        <!--单图组件编辑框end-->
+        <!--背景组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_background show_edit_area" style="display:none;">
+            <div class="edit_top">
+                <span class="edit_text">背景编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_background">删除背景</button>
+            </div>
+            <form class="form-inline backgroundForm" enctype="multipart/form-data" style="margin-top:34px">
+                <div class="form-group">
+                    <label class="sr-only">上传图片</label>
+                    <p class="form-control-static">上传图片</p>
+                </div>
+                <div class="form-group upload">
+                    <input type="text" name="txtbackground" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="filebackground" class="file_upload upload-input-file"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static background_img_check" style="color:#666666;font-size:12px">&nbsp;&nbsp;*&nbsp;图片大小不超过1M</p>
+                </div>
+                <div class="tip_size"><p>*&nbsp;建议上传图片尺寸为：180 x 300 px</p></div>
+                <div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 image_container text-center">
+                    <img class="preview" src="../../images/wave.png" height="246">
+                </div>
+                <button type="button" name="btnbackground" class="btn col-sm-offset-5 complete-upload-btn">完成上传</button>
+            </form>
+        </div>
+        <!--背景组件编辑框end-->
+        <!--双图组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_double show_edit_area" style="display: none;">
+            <div class="edit_top">
+                <span class="edit_text">双图编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_double">删除双图</button>
+            </div>
+            <form class="form-inline" style="margin-top:10px">
+                <div class="form-group">
+                    <label class="sr-only">上传图片</label>
+                    <p class="form-control-static">上传图片</p>
+                </div>
+                <div class="form-group upload" action="" method="post" enctype="multipart/form-data">
+                    <input type="text" name="txtdouble" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="filedouble" class="file_upload upload-input-file" multiple="multiple"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static" style="color:#666666;font-size:12px">&nbsp;&nbsp;*&nbsp;图片大小不超过1M</p>
+                </div>
+            </form>
+            <div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 image_container text-center" style="margin-top: 12px;">
+                <img class="preview" src="../../images/wave.png" height="246">
+            </div>
+            <div class="form-inline col-xs-offset-1 col-sm-offset-1 double">
+                <div class="form-group">
+                    <img class="double_right_preview" src="../../images/wave.png" style="width:100%;height: 100%;">
+                </div>
+                <div class="form-group" style="padding-left: 30px;">
+                    <label class="sr-only">文字描述</label>
+                    <p class="form-control-static">文字描述&nbsp;&nbsp;</p>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="txtleft" class="form-control double_left_text" placeholder="请输入">
+                </div>
+            </div>
+            <div class="form-inline col-xs-offset-1 col-sm-offset-1 double" style="margin-top: 10px;">
+                <div class="form-group">
+                    <img class="double_right_preview" src="../../images/wave.png" style="width:100%;height: 100%;">
+                </div>
+                <div class="form-group" style="padding-left: 30px;">
+                    <label class="sr-only">文字描述</label>
+                    <p class="form-control-static">文字描述&nbsp;&nbsp;</p>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="txtright" class="form-control double_right_text" placeholder="请输入">
+                </div>
+            </div>
+            <button type="submit" class="btn col-sm-offset-5 complete-upload-btn" style="margin-top: 12px;margin-bottom: 20px;">完成上传</button>
+        </div>
+        <!--双图组件编辑框end-->
+        <!--视频组件编辑框start-->
+        <div class="col-md-offset-1 col-xs-5 col-sm-7 col-md-6 edit_video show_edit_area" style="display:none;">
+            <div class="edit_top">
+                <span class="edit_text">视频编辑</span>
+                <a class="close edit_close" style="display: inline" role="button-cancel"><span>×</span></a>
+                <button class="del_btn_video">删除视频</button>
+            </div>
+            <form class="form-inline videoForm" style="margin-top:34px">
+                <div class="form-group">
+                    <label class="sr-only">上传视频</label>
+                    <p class="form-control-static">上传视频</p>
+                </div>
+                <div class="form-group upload" enctype="multipart/form-data">
+                    <input type="text" name="txtvideo" class="form-control upload-url"/>
+                    <input type="button" name="btnpreview" class="upload-btn" value="浏览文件"/>
+                    <input type="file" name="filevideo" class="file_upload upload-input-file"/>
+                </div>
+                <div class="form-group">
+                    <p class="form-control-static video_check" style="color:#666666;font-size:12px">&nbsp;&nbsp;*&nbsp;视频大小不超过1M</p>
+                </div>
+                <div class="col-xs-offset-1 col-sm-offset-1 col-sm-10 video_container text-center">
+                    <video class="preview" controls="controls" height="246">
+                        <source src="" type="video/mp4">
+                        <source src="" type="video/wmv">
+                        <source src="" type="video/ogg">
+                        Your browser does not support HTML5 video.
+                    </video>
+                </div>
+                <button type="button" name="btnvideo" class="btn col-sm-offset-5 complete-upload-btn">完成上传</button>
+            </form>
+        </div>
+        <!--视频组件编辑框end-->
+    </div>
+</div>
+
+<script src="../../controller/index.js"></script>
+</body>
+</html>
+

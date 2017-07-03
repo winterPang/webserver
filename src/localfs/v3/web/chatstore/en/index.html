@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<div class="col-xs-12 app-colum">
+	        <div class="app-box no-height">
+	            <div class="box-footer">
+	                <span class="title">WeChat Store</span>
+					<!--<div class="text-right link-container">
+						<a type="button" class="filter" id="filter_weixinstore">
+							<i class="filter-icon icon"></i>
+						</a>
+						<div class="hide" id="weixinstore_block">
+							<div class="filter-container">
+								<label>Select WeChat official account:</label>
+								<select id="PublicWeixin" name="SetfigUpport" class="singleSelect"big></select>
+							</div>
+						</div>
+					</div>-->
+				</div>
+	            <div class="box-body no-height">
+	                <div id="chatstoreList" class="simple-list"></div>
+	            </div>
+	        </div>
+    	</div>
+
+    	<div id="chatstore_rc" class="rc-define"
+    		chatStore_HEADER = "Store Name, Official Account, SSID, Status, Settings"
+    		redirectBtn = "Import"
+			available_state="System error, Reviewing, Approved, Rejected"
+			del_statu="Store deleted successfully, Failed to delete the store"
+			SET_PHOTO = "Set"
+			GET_WX_SHOP_LIST = "Obtaining WeChat store list…"
+        ></div>
+    </body>
+</html>
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("chatstore.index");
+</script>

@@ -1,0 +1,56 @@
+
+div.text-right.link-container{
+    font-size:15px;
+}
+
+
+.business-wifi-devinfo .simple-list .slist-body.with-button {
+    margin-top: 0px;
+}
+
+.business-wifi-devinfo .app-box .top-box{
+    border-bottom:#dedddd solid 1px;
+    padding: 10px 0 10px 28px;
+    /*box-shadow: 1px 1px 3px #dedddd;*/
+    display: none;
+}
+
+.business-wifi-devinfo .top-box .filter-zone{
+    display: inline-block;
+}
+
+.business-wifi-devinfo .radio-name{
+    /*display:inline-block;*/
+    margin-left: 10px;
+}
+
+.business-wifi-devinfo div.radio-title{
+    margin-top:5px;
+}
+
+.business-wifi-devinfo input.daterange{
+    border:#ccc solid 1px;
+    width: 165px;
+    height: 30px;
+}
+
+.business-wifi-devinfo input.inputArea{
+    display: inline-block;
+    max-width: 80px;
+    height: 18pt;
+}
+.business-wifi-devinfo .selectArea{
+    display: none;
+}
+.business-wifi-devinfo div.time-zone{
+    height:100px;
+}
+.business-wifi-devinfo .app-box .form-actions.top{
+    margin: -12px -5px 0 0;
+}
+.business-wifi-devinfo .app-box .form-actions.bottom {
+    margin: 80px 1px 0 0;
+}
+.business-wifi-devinfo .time-zone .form-actions{
+    display:none;
+}

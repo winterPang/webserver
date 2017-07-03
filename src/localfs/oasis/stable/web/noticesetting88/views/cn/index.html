@@ -1,0 +1,536 @@
+<style>
+    .inputStyle{
+        width:100px !important;
+        height:26px !important;
+        text-align:center !important; 
+    }
+    .heightX{
+        line-height:33px !important;
+    }
+    .inputwidth{
+        width: 200px !important;
+    }
+    .alignChart{
+        width: 26px !important;
+        line-height: 35px !important;
+        text-align: center !important;
+    }
+    .martop{
+        margin-top: 20px !important;
+    }
+    .h32{
+        height: 34px !important;
+    }
+    .input-icon2{
+        height: 20px !important;
+    }
+    .mr5{
+        margin-right: 5%;
+    }
+    .bindNotice{
+        position: absolute;
+        right: 45px;
+        top: 15px;
+    }
+    .bindNotice:hover{
+        color: #4ec1b2;
+    }
+    .sms{
+        width: 92px;
+    }
+    .smsyanzheng{
+        width: 108px !important;
+        margin-right: -5px !important;
+    }
+    .table-condensed a.btn{
+        display:inline;
+        background: #fff;
+    }
+    .table-condensed a{
+        color: #4EC1B2 !important;
+
+    }
+    .table-condensed a.btn:hover{
+        background: #fff;
+    }
+    .table-condensed button.btn{
+        background-color: #78CEC3;
+        color: #fff;
+        line-height: 23px;
+    }
+    .note{
+        font-size: 16px;
+        line-height: 25px;
+        height: 25px;
+        color: #80878C;
+    }
+</style>
+
+
+<div>
+    <!-- 新版告警通知demo开始-->
+    <div class="panel panel-default"> 
+        <div class="panel-heading">
+            <h3 class="panel-title">短信通知</h3>
+        </div>
+                       
+        <div class="panel-body">
+            <div class="btn btn-cus" ng-click="addSms()">
+                <i class="btn-icon icon-add"></i>添加
+            </div>
+            <div bs-Table="smsTable"></div>
+        </div>
+    </div>
+    <!-- 新版告警通知demo结束 -->
+
+    <div class="panel panel-default" style="position:relative">          
+        <div class="panel-heading">
+            <h2 class="panel-title">微信通知</h2>
+        </div>
+                   
+        <div class="panel-body">
+            <label class="bindNotice" ng-click="bindNotice()">绑定说明</label>
+            <form name="undistrupForm" role="form">
+                <div class="form-group">
+                    <label class="col-sm-2 heightX">通知开关</label>
+                    <div class="col-sm-10">
+                        <div class="xb-input">
+                            <div id="wechatSwitch" class="input-icon checkbox-icon switch" 
+                            ng-class="{'checked':wechatNoticeEnable}" ng-click="wechatNotice()"></div>
+                        </div>
+                    </div>                  
+                </div>
+                <div  ng-show="weixinTimer">
+                    <div class="form-group">
+                            <label class="col-sm-2 heightX">指定通知时间</label>
+                            <div class="col-sm-10" > 
+                                <div class="heightX">
+                                   <div class="xb-input xb-checkbox">
+                                        <input type="checkbox" class="input-element" id="wechatWorkday" name="wechatWorkday"  ng-model="info.wechatWorkday"/>
+                                        <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.wechatWorkday == true}"></span>
+                                        <label for="wechatWorkday" class="input-label"></label>
+                                    </div>
+                                    <label for="wechatWorkday" class="mr5">周一至周五</label> 
+
+                                    <div class="xb-input xb-checkbox">
+                                        <input type="checkbox" class="input-element" id="wechatSaturday" name="wechatSaturday"  ng-model="info.wechatSaturday"/>
+                                        <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.wechatSaturday == true}"></span>
+                                        <label for="wechatSaturday" class="input-label"></label>
+                                    </div>
+                                    <label for="wechatSaturday" class="mr5">周六</label> 
+
+                                    <div class="xb-input xb-checkbox">
+                                        <input type="checkbox" class="input-element" id="wechatSunday" name="wechatSunday"  ng-model="info.wechatSunday"/>
+                                        <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.wechatSunday == true}"></span>
+                                        <label for="wechatSunday" class="input-label"></label>
+                                    </div>
+                                    <label for="wechatSunday" class="mr5">周日</label> 
+                                </div>
+
+
+                                <div>
+                                    <div class="form-group col-xs-2">
+                                        <div class='input-group date' id='datetimepicker3'>
+                                            <input id="wechatStart"  type='text' class="form-control h32"  value="12:00 AM" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-time"></span>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <label class="col-xs-1 alignChart">至</label>
+
+                                    <div class="form-group col-xs-2">
+                                        <div class='input-group date' id='datetimepicker4'>
+                                            <input id="wechatEnd" type='text' class="form-control h32"  value="12:00 PM" />
+                                            <span class="input-group-addon">
+                                                <span class="glyphicon glyphicon-time"></span>
+                                            </span>
+                                        </div>
+                                    </div>  
+                                </div>
+                            </div>
+                    </div> 
+
+                    <div class="form-group">
+                        <label class="col-sm-2">单日最大条数</label>
+                        <div class="col-sm-10">
+                            <input  type="number" name="maxTimes" class="inputStyle" placeholder="10" 
+                            ng-model="info.wechatMax" ng-pattern='/^[1-9]$|^[1-9]\d$|^[1-9]\d{2}$/'>
+
+                            <label class="info-explain heightX">(1~999)</label>
+                            <label  ng-if="undistrupForm.maxTimes.$error.pattern && undistrupForm.maxTimes.$dirty"  style="color:red;">单日短信条数应该1~999之间</label>
+                        </div>            
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-sm-2">通知类型</label>
+
+                        <div class="col-sm-10">
+                            <div class="xb-input xb-checkbox">
+                                <input type="checkbox" class="input-element" id="wechatAP" name="wechatAP"  ng-model="info.wechatAP"/>
+                                <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.wechatAP == true}"></span>
+                                <label for="wechatAP" class="input-label"></label>
+                            </div>
+                            <label for="wechatAP" class="mr5">AP上线</label>
+
+                            <div class="xb-input xb-checkbox">
+                                <input type="checkbox" class="input-element" id="wechatAPOffline" name="wechatAPOffline"  ng-model="info.wechatAPOffline"/>
+                                <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.wechatAPOffline == true}"></span>
+                                <label for="wechatAPOffline" class="input-label"></label>
+                            </div>
+                            <label for="wechatAPOffline" class="mr5">AP下线</label>
+                                       
+                            <div class="xb-input xb-checkbox">
+                                <input type="checkbox" class="input-element" id="wechatEquipment" name="wechatEquipment"  ng-model="info.wechatEquipment"/>
+                                <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.wechatEquipment == true}"></span>
+                                <label for="wechatEquipment" class="input-label"></label>
+                            </div>
+                            <label for="wechatEquipment" class="mr5">设备状态</label>
+
+                            
+                            <div class="xb-input xb-checkbox">
+                                <input type="checkbox" class="input-element" id="wechatMemory" name="wechatMemory"  ng-model="info.wechatMemory"/>
+                                <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.wechatMemory == true}"></span>
+                                <label for="wechatMemory" class="input-label"></label>
+                            </div>
+                            <label for="wechatMemory" class="mr5">内存告警</label>
+
+                            <div class="xb-input xb-checkbox">
+                                <input type="checkbox" class="input-element" id="wechatCPU" name="wechatCPU"  ng-model="info.wechatCPU"/>
+                                <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.wechatCPU == true}"></span>
+                                <label for="wechatCPU" class="input-label"></label>
+                            </div>
+                            <label for="wechatCPU" class="mr5">CPU告警</label>
+
+                            <div class="xb-input xb-checkbox">
+                                <input type="checkbox" class="input-element" id="wechatSoftware" name="wechatSoftware"  ng-model="info.wechatSoftware"/>
+                                <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.wechatSoftware == true}"></span>
+                                <label for="wechatSoftware" class="input-label"></label>
+                            </div>
+                            <label for="wechatSoftware" class="mr5">软件升级</label>
+                                            
+                        </div>
+                    </div> 
+                </div>
+
+                <div align = "center">
+                    <button id="setSubmit" class="btn btn-cus" ng-click="setSubmit()"  ng-disabled="undistrupForm.$pristine">确定</button>
+                </div>
+            
+            </form>
+        </div>                         
+    </div>
+
+    <div class="panel panel-default" style="position:relative">          
+        <div class="panel-heading">
+            <h2 class="panel-title">APP通知</h2>
+        </div>
+                   
+        <div class="panel-body">
+            <form name="appForm">
+
+            <div>             
+                <div class="form-group">
+                    <label class="col-sm-2 heightX">通知开关</label>
+
+                    <div class="col-sm-10">
+                        <div class="xb-input">
+                            <div id="appSwitch" class="input-icon checkbox-icon switch" ng-class="{'checked':appNoticeEnable}" ng-click="appNotice()"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div ng-show="appTimer">
+                    <div class="form-group" >   
+                        <label class="col-sm-2 heightX">指定通知时间</label> 
+                        <div class="col-sm-10" >
+                            <div class="heightX">
+                               <div class="xb-input xb-checkbox">
+                                    <input type="checkbox" class="input-element" id="appWorkday" name="appWorkday"  ng-model="info.appWorkday"/>
+                                    <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.appWorkday == true}"></span>
+                                    <label for="appWorkday" class="input-label"></label>
+                                </div>
+                                <label for="appWorkday" class="mr5">周一至周五</label> 
+
+                                <div class="xb-input xb-checkbox">
+                                    <input type="checkbox" class="input-element" id="appSaturday" name="appSaturday"  ng-model="info.appSaturday"/>
+                                    <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.appSaturday == true}"></span>
+                                    <label for="appSaturday" class="input-label"></label>
+                                </div>
+                                <label for="appSaturday" class="mr5">周六</label> 
+
+                                <div class="xb-input xb-checkbox">
+                                    <input type="checkbox" class="input-element" id="appSunday" name="appSunday"  ng-model="info.appSunday"/>
+                                    <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.appSunday == true}"></span>
+                                    <label for="appSunday" class="input-label"></label>
+                                </div>
+                                <label for="appSunday" class="mr5">周日</label> 
+                            </div>
+
+
+                            <div class="form-group col-xs-2">
+                                <div class='input-group date' id='datetimepicker5'>
+                                    <input id="appStart" type='text' class="form-control h32" value="12:00 PM" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </span>
+                                </div>
+                            </div>
+                            <label class="col-xs-1 alignChart">至</label>
+                            <div class="form-group col-xs-2">
+                                <div class='input-group date' id='datetimepicker6'>
+                                    <input id="appEnd" type='text' class="form-control h32" value="12:00 PM" />
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-time"></span>
+                                    </span>
+                                </div>
+                            </div>                      
+                        </div> 
+                    </div>  
+
+                    <div class="form-group">
+                        <label class="col-sm-2">通知类型</label>
+
+                        <div class="col-sm-10">
+                            <div class="xb-input xb-checkbox">
+                                <input type="checkbox" class="input-element" id="appAP" name="appAP"  ng-model="info.appAP"/>
+                                <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.appAP == true}"></span>
+                                <label for="appAP" class="input-label"></label>
+                            </div>
+                            <label for="appAP" class="mr5">AP上线</label>
+
+                            <div class="xb-input xb-checkbox">
+                                <input type="checkbox" class="input-element" id="appAPOffline" name="appAPOffline"  ng-model="info.appAPOffline"/>
+                                <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.appAPOffline == true}"></span>
+                                <label for="appAPOffline" class="input-label"></label>
+                            </div>
+                            <label for="appAPOffline" class="mr5">AP下线</label>
+                                       
+                            <div class="xb-input xb-checkbox">
+                                <input type="checkbox" class="input-element" id="appEquipment" name="appEquipment"  ng-model="info.appEquipment"/>
+                                <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.appEquipment == true}"></span>
+                                <label for="appEquipment" class="input-label"></label>
+                            </div>
+                            <label for="appEquipment" class="mr5">设备状态</label>
+
+                            
+                            <div class="xb-input xb-checkbox">
+                                <input type="checkbox" class="input-element" id="appMemory" name="appMemory"  ng-model="info.appMemory"/>
+                                <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.appMemory == true}"></span>
+                                <label for="appMemory" class="input-label"></label>
+                            </div>
+                            <label for="appMemory" class="mr5">内存告警</label>
+
+                            <div class="xb-input xb-checkbox">
+                                <input type="checkbox" class="input-element" id="appCPU" name="appCPU"  ng-model="info.appCPU"/>
+                                <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.appCPU == true}"></span>
+                                <label for="appCPU" class="input-label"></label>
+                            </div>
+                            <label for="appCPU" class="mr5">CPU告警</label>
+
+                            <div class="xb-input xb-checkbox">
+                                <input type="checkbox" class="input-element" id="appSoftware" name="appSoftware"  ng-model="info.appSoftware"/>
+                                <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.appSoftware == true}"></span>
+                                <label for="appSoftware" class="input-label"></label>
+                            </div>
+                            <label for="appSoftware" class="mr5">软件升级</label>
+                                            
+                        </div>
+                    </div> 
+                </div>                             
+            </div>
+
+            <div align = "center">
+                <button id="appSubmit" class="btn btn-cus" ng-click="appSubmit()"  ng-disabled="appForm.$pristine">确定</button>
+            </div>
+            
+            </form>
+        </div>                         
+    </div>
+
+
+    <!-- 绑定说明modal -->l
+    <div bs-modal="bindNoticeModal.options">
+        <p class="note">1.打开微信公众号并点击添加按钮</p>
+        <p class="note">2.搜索“新华三绿洲平台”</p>
+        <p class="note">3.关注该公众号并登录您的绿洲账号进行绑定</p>
+    </div>
+
+    <!-- 添加短信配置modal -->
+    <form novalidate  name="smsForm" bs-modal="addSmsModal.options" style="width:90%;margin:0 auto">  
+        <div class="form-group">
+            <label class="col-sm-2 control-label">手机号码:</label>
+            <div class="col-sm-8">
+                <input type="text" id="phoneNum" name="phoneNum" class="string big form-control " required ng-model="smsInfo.phoneNum"  ng-pattern='/^1(3|4|5|7|8)\d{9}$/'>
+
+                <label ng-if="smsForm.phoneNum.$error.required && smsForm.phoneNum.$touched"  style="color:red">手机号码必须填写</label>
+                <label ng-if="smsForm.phoneNum.$error.pattern && smsForm.phoneNum.$dirty"  style="color:red">请输入正确的手机号码</label>     
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label heightX">短信验证码:</label>
+            <div class="col-sm-8">
+                <input type="text" id="captcha" name="captcha" class="string big form-control smsyanzheng" required ng-model="smsInfo.captcha" >
+                 <button class="btn btn-cus sms" ng-click="getCaptcha()" ng-disabled="captchaEnable"
+                 ng-model="smsInfo.interval">{{smsInfo.interval}}</button>
+
+                 <label ng-if="captchaError"  style="color:red">验证码错误</label>  
+                 <label ng-if="captchaError2"  style="color:red">验证码已过期,请重新获取</label>  
+                 <label ng-if="captchaError3"  style="color:red">90秒内请勿重复发送</label>  
+                    
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label class="col-sm-2" style="line-height:28px">指定通知时间:</label>
+
+            <div class="heightX col-sm-8">
+                <div class="xb-input xb-checkbox">
+                    <input type="checkbox" class="input-element" id="workday" name="workday"  ng-model="smsInfo.workday"/>
+                    <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': smsInfo.workday == true}"></span>
+                    <label for="workday" class="input-label"></label>
+                </div>
+                <label for="workday" class="mr5">周一至周五</label> 
+
+                <div class="xb-input xb-checkbox">
+                    <input type="checkbox" class="input-element" id="saturday" name="saturday"  ng-model="smsInfo.saturday"/>
+                    <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': smsInfo.saturday == true}"></span>
+                    <label for="saturday" class="input-label"></label>
+                </div>
+                <label for="saturday" class="mr5">周六</label> 
+
+                <div class="xb-input xb-checkbox">
+                    <input type="checkbox" class="input-element" id="sunday" name="sunday"  ng-model="smsInfo.sunday"/>
+                    <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': smsInfo.sunday == true}"></span>
+                    <label for="sunday" class="input-label"></label>
+                </div>
+                <label for="sunday" class="mr5">周日</label> 
+            </div>
+                                 
+            
+            <div class="col-sm-8 col-sm-offset-2" style="height:34px"> 
+
+                <div class="form-group col-sm-3" >                     
+                    <div class='input-group date' id='datetimepicker01' style="margin-left:-15px;margin-right:-15px">
+                        <input id="smsStart" type='text' class="form-control h32" value="12:00 PM"  />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-time"></span>
+                        </span>
+                    </div>
+                </div>
+
+                <label class="col-xs-1 alignChart">至</label>
+
+                <div class="form-group col-sm-3">
+                    <div class='input-group date' id='datetimepicker02' style="margin-left:-15px;width:120px">
+                        <input id="smsEnd" type='text' class="form-control h32" value="12:00 PM" />
+                        <span class="input-group-addon">
+                            <span class="glyphicon glyphicon-time"></span>
+                        </span>
+                    </div>
+                </div>  
+
+            </div> 
+              
+        </div>  
+
+        <div class="form-group">
+            <label class="col-sm-2" style="line-height:32px">单日最大条数:</label>
+
+            <div class="col-sm-10">
+                <input  type="number" name="maxTimes"  placeholder="10" style="width:20%;text-align: center" 
+                ng-model="smsInfo.maxTimes" ng-pattern='/^[1-9]$|^[1-9]\d$|^[1-9]\d{2}$/'>
+
+                <label class="info-explain">(1~999)</label>
+
+                <label  ng-if="smsForm.maxTimes.$error.pattern && smsForm.maxTimes.$dirty"  style="color:red;position:absolute;top:6px;left:200px">单日短信条数应该1~999之间</label> 
+
+            </div> 
+
+             
+        </div> 
+                       
+        <div class="form-group">
+            <label class="col-sm-2">通知类型：</label>
+
+            <div class="col-sm-10">
+                <div class="xb-input xb-checkbox">
+                    <input type="checkbox" class="input-element" id="AP" name="AP"  ng-model="smsInfo.AP"/>
+                    <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': smsInfo.AP == true}"></span>
+                    <label for="AP" class="input-label"></label>
+                </div>
+                <label for="AP" class="mr5">AP上线</label>
+
+                <div class="xb-input xb-checkbox">
+                    <input type="checkbox" class="input-element" id="APOffline" name="APOffline"  ng-model="smsInfo.APOffline"/>
+                    <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': smsInfo.APOffline == true}"></span>
+                    <label for="APOffline" class="input-label"></label>
+                </div>
+                <label for="APOffline" class="mr5">AP下线</label>
+                           
+                <div class="xb-input xb-checkbox">
+                    <input type="checkbox" class="input-element" id="equipment" name="equipment"  ng-model="smsInfo.equipment"/>
+                    <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': smsInfo.equipment == true}"></span>
+                    <label for="equipment" class="input-label"></label>
+                </div>
+                <label for="equipment" class="mr5">设备状态</label>
+
+                
+                <div class="xb-input xb-checkbox">
+                    <input type="checkbox" class="input-element" id="memory" name="memory"  ng-model="smsInfo.memory"/>
+                    <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': smsInfo.memory == true}"></span>
+                    <label for="memory" class="input-label"></label>
+                </div>
+                <label for="memory" class="mr5">内存告警</label>
+
+                <div class="xb-input xb-checkbox">
+                    <input type="checkbox" class="input-element" id="CPU" name="CPU"  ng-model="smsInfo.CPU"/>
+                    <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': smsInfo.CPU == true}"></span>
+                    <label for="CPU" class="input-label"></label>
+                </div>
+                <label for="CPU" class="mr5">CPU告警</label>
+
+                <div class="xb-input xb-checkbox">
+                    <input type="checkbox" class="input-element" id="software" name="software"  ng-model="smsInfo.software"/>
+                    <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': smsInfo.software == true}"></span>
+                    <label for="software" class="input-label"></label>
+                </div>
+                <label for="software" class="mr5" style="margin-right:0">软件升级</label>
+                                
+            </div>
+        </div>    
+
+        <div align = "center">
+            <button class="btn btn-cus"  disabled="true"
+            ng-click="smsSubmit()" ng-disabled="smsForm.$invalid||smsForm.$pristine">确定</button>
+        </div>                              
+    </form> 
+    
+</div>
+
+
+
+<div id="noticesetting_rc" class="rc-define"
+    edit_suc="设置成功"
+    edit_fal="设置失败"
+    smsinfo="手机号码,通知时间,单日最大条数,通知状态"
+    bind_notice="绑定说明"
+    add_phoneNum="添加手机号码"
+    OPERAT="操作"
+    REMOVE="删除"
+    DEL_SUC="删除成功"
+    ADD_SUC="添加成功"
+    MODIFY_SUC="修改成功"
+    MODIFY_FAL="修改失败"
+    repetition="该号码已绑定，无法重复创建"
+    captcha="获取验证码"
+    DEL_CON="确认删除该号码吗？"
+    CLOSE_SUC="关闭成功"
+    CLOSE_FAL="关闭失败"
+    OPEN_SUC="开启成功"
+    OPEN_FAL="开启失败"
+    TIME_ERR="每日通知时间的起始时间应早于结束时间"
+    TYPE_ERR="请至少选择一种通知类型"
+></div>

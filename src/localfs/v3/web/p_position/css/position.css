@@ -1,0 +1,220 @@
+.wlanposition .bg-gray{
+    background: #F7F8F8;
+    /*height:200px;*/
+    margin-bottom: 20px;
+}
+.wlanposition .head-bar {
+    padding: 10px 5px 18px 20px;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+.wlanposition .sysinfo-footer{
+    line-height: 32px;
+    /*height: 50px;*/
+    margin-bottom: 12px;
+}
+.wlanposition .sysinfo-footer .title{
+    color: #47495d;
+    font-size: 18px;
+    font-weight: normal;
+    margin-left:8px;
+    display: block;
+    line-height: 30px;
+}
+.wlanposition .syslog-info{
+    /*height: 118px;*/
+    line-height: 22px ;
+    vertical-align: middle;
+    background: #fff;
+    border: 0;
+    margin:-12px 15px 0 0;
+    text-align: center;
+    width: auto;
+    height:50%;
+}
+
+.wlanposition .syslog-info .categor{
+    text-align: left;
+    margin-left: 20px;
+    /*height: 22px;*/
+    color: #a7b7c1;
+    width: 70px;
+    margin-bottom: 30px;
+}
+
+.wlanposition .engine{
+    font-size: 36px;
+<<<<<<< HEAD
+}
+
+/*.apply_config .refresh{*/
+    /*margin-left: 960px;*/
+/*}*/
+.main_content{
+    vertical-align:middle;
+}
+.main_row{
+    margin-left: 120px;
+}
+.building_name{
+    text-align: center;
+}
+
+=======
+}
+
+/*.apply_config .refresh{*/
+    /*margin-left: 960px;*/
+/*}*/
+.main_content{
+    vertical-align:middle;
+}
+.main_row{
+    margin-left: 120px;
+}
+.building_name{
+    text-align: center;
+}
+
+>>>>>>> e51b72895a34562c65af701edcd14373c9e9da3d
+#add_button{
+    width: 280px;
+    /*height:230px;*/
+    vertical-align: middle;
+    padding: 47px 0px 0 5px;
+}
+
+.apply_page_row {
+  width: 100%;
+  clear: both;
+  /*border:1px solid #47495d;  */
+}
+.map_location{
+    margin: 50px;
+}
+/*.map_head{
+    border: 1px solid #47495d;
+      
+}*/
+.map_head h3{
+    margin-left: 15px;
+}
+.map_body{
+    margin: 20px  0 20px 30px;
+}
+
+<<<<<<< HEAD
+=======
+#map_dialog {
+    width: 400px;
+    top: 459px;
+    left: 1098px;
+}
+>>>>>>> e51b72895a34562c65af701edcd14373c9e9da3d
+#SubmitImg{
+    width: 160px;
+    height: 120px;
+    filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale);
+}
+<<<<<<< HEAD
+=======
+
+.upload{
+    width:35%;
+    font-size: 15px;
+}
+
+.drawpic{
+    width:35%;
+    font-size: 15px;
+}
+.mybtn{
+    width:60px;
+    height:20px;
+    display:inline-block;
+    /*background-color:rgb(91,183,91);*/
+    /*border:1px solid rgb(91,183,91);*/
+    /*border-radius:3px;*/
+    color:white;
+    font-size:13px;
+    font-family:?бщииик??oи▓;
+    cursor:pointer;
+    /*text-align:center;*/
+    /*vertical-align: center;*/
+    /*box-shadow:0px 0px 1px 1px rgb(91,160,91);*/
+}
+
+.mybtn:hover{
+    background-color:#4e;
+    border-color:rgb(91,160,91);
+    color:white;
+    text-decoration:none;
+}
+.myinp{
+    width:100px;
+    height:30px;
+    display:inline-block;
+    border:1px solid rgb(209,232,250);
+    border-radius:2px;
+}
+
+#myimg{
+    width:300px;
+    height:200px;
+}
+#mybutton{
+    width: 60px;
+    padding-right: 60px;
+}
+>>>>>>> e51b72895a34562c65af701edcd14373c9e9da3d
+/*.hidedialog{
+  width:600px;
+  height: 300px;
+  display: none;  
+}
+
+.showdialog{
+    background-color: #ffE;
+    border:none;
+    height: 300px;
+    width: 600px;
+    position: absolute;
+    display: block;
+    z-index: 5;
+    right:32%;
+    bottom:29%;
+    top:15%;
+    opacity:1;
+} 
+
+
+.maphead{
+    width:100%;
+    height: auto;
+    background-color: #4EC1B2;
+    padding:4px 15px;
+    border-bottom:1px solid #4EC1B2;
+    color: white;
+}
+
+.maphead .close{
+    margin-top: 22px;
+}
+<<<<<<< HEAD
+=======
+
+.maphead h3{
+    font-size: 21px;
+}*/
+
+
+>>>>>>> e51b72895a34562c65af701edcd14373c9e9da3d
+
+.maphead h3{
+    font-size: 21px;
+}*/
+
+
+
+
+

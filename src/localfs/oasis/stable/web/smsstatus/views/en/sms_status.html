@@ -1,0 +1,25 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">SMS Status</h3></div>
+        <div class="panel-body">
+            <div class="btn btn-cus" ng-click="refresh()">
+                <span class="glyphicon glyphicon-refresh" style="margin-right:7px;"></span>Rfresh
+            </div>
+            <div class="form-group pull-right zeromargin">
+                <button class="btn btn-cus" ng-click="search()">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </div>
+            <div class="form-group pull-right input-group zeromargin">
+                <input type="text" ng-model="phone_number" class="form-control" ng-keyup="keysearch($event)" placeholder="Phone number">
+            </div>
+            <table bs-table="statusOptions"></table>
+        </div>
+    </div>
+</div>
+<div class="read_rc" id="smsstatus_rc"
+     msgDialog-data="The request went wrong."
+     sure-delete="Delete the selected data. Continue?"
+     table-data="User name,Cell-phone number,Mobile operators,Phone address,SMS content,SMS status,Sending time,Delete"
+>
+</div>

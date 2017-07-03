@@ -1,0 +1,321 @@
+<dashboard-log sn="{{sceneInfo.sn}}"></dashboard-log>
+<div class="dashboard container-fluid">
+    <div class="page-row">
+        <div class=" col-xs-6 app-colum left-block" style="height:250px;" debug="AP">
+            <!-- <div class="app-box echart-height"> -->
+            <div class="app-box no-bk-color" style="height:280px;">
+                <div class="box-footer" style="background: initial;">
+                    <div class="col-xs-12">
+                        <span class="title">AP</span>
+                        <div class="text-right link-container">
+                            <a type="button" class="refresh" ng-click="apCount()"><i class="refresh-icon icon"></i></a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row-nohover row-clear padding0">
+                    <div class="col-xs-5 row-left">
+                        <div id="pie_aps" class="myEchart" style="height:180px;"></div>
+                    </div>
+                    <div class="col-xs-7">
+                        <div id="aps" class="col-xs-12 myEchart" style="height:210px;"></div>
+                    </div>
+                </div>
+            </div>
+            <!-- </div> -->
+        </div>
+        <div class="col-xs-6 app-colum left-block"id="aps_page" debug="getHealth">
+            <div class="app-box no-bk-color" style="height:280px">
+                <div class="box-footer">
+                    <div class="col-xs-3">
+                        <span class="title">综合健康度</span>
+                    </div>
+                    <div class="text-right link-container">
+                        <a type="button" class="xx-link" tab="0" id="system" ng-click="systemInformation()">系统信息</i></a>
+                    </div>
+                </div>
+
+                <div class="box-body echart-height form-group col-xs-12">
+                    <div class="col-xs-6">
+                        <div class="row-nohover row-clear padding0" style="padding: 0px;">
+                            <div id="score-pie" class="myEchart chartStyle" style="height:200px;"></div>
+                            <span style="color:#fe8086;position:absolute;top:160px;" ng-show="isFail">被<span>{{getPercent}}</span>%的绿洲用户打败，累觉不爱... ...</span>
+                            <span id="terminalMessage" style="position:absolute;top:160px;" ng-show="isSuccess">打败了<span>{{getPercent}}</span><span>{{terminalMessage}}</span></span>
+                        </div>
+                        <!-- <div style="color: #ffa5af;position:absolute;  top: 170px;" id="terminalMessage" debug='["getHealthScore"]'>打败了全国<span>0</span>%的用户，需要看病啦~(&gt;o&lt;)</div> -->
+                    </div>
+                    <div class="col-xs-6 right01">
+                        <div class="row-clear padding0">
+                            <!-- <div id="apphealth" class="myEchart chartStyle"></div> -->
+                            <div class="right_health">
+                                <div class=" col-xs-12 health_title">
+                                    <div class="col-xs-5 left top_distance">剩余带宽</div>
+                                    <ul id="raty_score_1" class=" col-xs-7 health_value ">
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                        <li><a id="reports" class="reports" style="display: inline;" ng-click="openModal()" ng-if="permission.write"></a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-12 health_title">
+                                    <div class="col-xs-5 left top_distance">AP在线率</div>
+                                    <ul id="raty_score_2" class="col-xs-7 health_value left">
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-12 health_title">
+                                    <div class="col-xs-5 left top_distance">终端速率</div>
+                                    <ul id="raty_score_3" class="col-xs-7 health_value left">
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-12 health_title">
+                                    <div class="col-xs-5 left top_distance">安全评价</div>
+                                    <ul id="raty_score_4" class="col-xs-7 health_value left">
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                    </ul>
+                                </div>
+                                <div class="col-xs-12 health_title">
+                                    <div class="left col-xs-5 top_distance">无线环境</div>
+                                    <ul id="raty_score_5" class="health_value left col-xs-7">
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                    </ul>
+                                </div>
+                                <div class=" col-xs-12 health_title">
+                                    <div class="left col-xs-5 top_distance">系统健康度</div>
+                                    <ul id="raty_score_6" class="health_value left col-xs-7">
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                        <li class="emptyStar"></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <palmap-iframe nasid="sceneInfo.nasid"></palmap-iframe>
+    <div class="page-row">
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color" style="height:300px;">
+                <div class="box-footer ">
+                    <div class="col-xs-12">
+                        <span class="title">无线服务</span>
+                    </div>
+                </div>
+                <div class="box-body no-height" style="padding:0 2px;">
+                    <div bs-table="wireless_service"></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color" style="height:300px;">
+                <div class="box-footer" id="vlans_page" style="background: initial;">
+                    <div class="col-xs-3">
+                        <span class="title">客户端</span>
+                    </div>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh" id="refresh_ssid" ng-click="clientCount()">
+                            <i class="refresh-icon icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="dashboard-client-header" debug="getClient">
+                    <div class="dashboard-client-block">
+                        <span class="client-title dashboard-body-font">关联终端&nbsp;</span>
+                        <span id="Current" class="client-count dashboard-body-num">0</span>
+                        <span class="client-title dashboard-body-font">&nbsp;认证用户&nbsp;</span>
+                        <span id="portalusercount" class="client-count dashboard-body-num">0</span>
+                    </div>
+                </div>
+                <div class="row-nohover sysinfo-body" style="height:200px;" >
+                    <div id="client_count" class="myEchart col-xs-12" style="height:200px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dashboard container-fluid">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="col-xs-12">
+                    <div class="box-footer">
+                        <span class="title">流量监控</span>
+                        <div class="text-right link-container">
+                            <label for="branchSelect"><span style="font-weight:600;font-size:14px;">端口 </span>选择</label>
+                            <select class="singleSelect" id="branchSelect" name="branchSelect"
+                                    style="margin-top:0px;margin-left:10px;vertical-align:middle;line-height:30px;height:30px;width:150px;"
+                                    ng-options="item as item.name for item in list" ng-model="selectValue" ></select>
+                        </div>
+                    </div>
+                    <div class="sysinfo-body col-sm-12">
+                        <div id="usage" name="usage" class="myEchart dashboard-usage" debug="getUsage" style="height:210px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div bs-modal="systemInfo.options">
+    <form class="form edit" id="system_form" style="overflow:hidden;">
+        <div class="row-clear padding0" debug="getGaugeCpu">
+            <div class="col-xs-6 file-container">
+                <div id="flash" class="col-xs-6">
+                    <div id="gauge_cpu" class="myEchart" style="width:250px;height:250px;"></div>
+                </div>
+                <div id="cfcardA" class="col-xs-6">
+                    <div id="gauge_mem" class="myEchart" style="width:250px;height:250px;"></div>
+                </div>
+            </div>
+            <div class="col-xs-6">
+                <div class="app-content"  style="color:#80878c;margin-top:40px;" id="version_block">
+                    <div class="page-row odd">
+                        <div class="utilization-height">
+                            <div class="col-xs-5">
+                                <span class="form-label"><strong>设备型号：</strong></span>
+                            </div>
+                            <div class="col-xs-7 text-left">
+                                <span id="devMode" ng-bind="devMode"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-row odd">
+                        <div class="utilization-height">
+                            <div class="col-xs-5">
+                                <span class="form-label"><strong>序列号：</strong></span>
+                            </div>
+                            <div class="col-xs-7 text-left">
+                                <span id="SerialNumber" ng-bind="sceneInfo.sn"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-row even">
+                        <div class="utilization-height">
+                            <div class="col-xs-5">
+                                <span class="form-label"><strong>基线版本：</strong></span>
+                            </div>
+                            <div class="col-xs-7 text-left">
+                                <span id="devSoftVersion" ng-bind="devSoftVersion"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="page-row even">
+                        <div class="utilization-height">
+                            <div class="col-xs-5">
+                                <span class="form-label"><strong>软件版本：</strong></span>
+                            </div>
+                            <div class="col-xs-7 text-left">
+                                <span id="devHardVersion" ng-bind="devHardVersion"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <!--<div class="page-row odd">
+                        <div class="utilization-height">
+                            <div class="col-xs-5">
+                                <span class="form-label">Bootrom版本：</span>
+                            </div>
+                            <div class="col-xs-7 text-left">
+                                <span id="devBootWare" ng-bind="devBootWare"></span>
+                            </div>
+                        </div>
+                    </div>-->
+                    <div class="page-row odd">
+                        <div class="utilization-height">
+                            <div class="col-xs-5">
+                                <span class="form-label"><strong>连接状态：</strong></span>
+                            </div>
+                            <div class="col-xs-7 text-left">
+                                <span id="devv3CloudConnectionState"  ng-bind="connectStatus"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<form class="form edit addInternet" name="AddInternetForm" bs-modal="bandWidthOption.options">
+    <div class="form-group">
+        <label class="col-sm-3 control-label required">上行带宽:</label>
+        <div class="col-sm-9">
+            <input type="text"  class="string big"  ng-model="bandWidth.upband" name ="upband" required ng-maxlength="3" onKeyUp="this.value=this.value.replace(/\D/g,'')"/>
+            <label class="info-explain">Mbps</label>
+            <div ng-show="AddInternetForm.upband.$dirty" ng-messages="AddInternetForm.upband.$error" style="display: inline-block;">
+                <label ng-message="required" class="error" style="display: inline-block;">该参数必须配置。</label>
+                <label ng-message="maxlength" class="error" style="display: inline-block;">长度不能大于3位</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label required">下行带宽:</label>
+        <div class="col-sm-9">
+            <input type="text" class="string big"  ng-model="bandWidth.downband"  name ="downband"
+                   required ng-maxlength="3" onKeyUp="this.value=this.value.replace(/\D/g,'')" ng-pattern="/^[1-9]\d*$/"/>
+            <label class="info-explain">Mbps</label>
+            <div ng-show="AddInternetForm.downband.$dirty" ng-messages="AddInternetForm.downband.$error" style="display: inline-block;">
+                <label ng-message="required" class="error" style="display: inline-block;">该参数必须配置。</label>
+                <label ng-message="maxlength" class="error" style="display: inline-block;">长度不能大于3位</label>
+                <label ng-message="pattern" class="error" style="display: inline-block;">下行带宽不能为0</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-12">
+            <p style="color:#df443e;margin-top:6px; font-size:16px;">注意：请先选择流量监控端口，否则配置无法生效，影响综合健康分评判。</p>
+        </div>
+    </div>
+</form>
+<div id="dashboard_rc"
+     AP_STATUS="在线,离线"
+     STATUS="使能,去使能"
+     ssidName="SSID名称"
+     WL_SERVICE_NAME="无线服务名称"
+     WL_SERVICE_STATUS="无线服务状态"
+     cpu="CPU"
+     memory="内存"
+
+     no_choose_port="不选择端口"
+     ZONGLIANG="总流量"
+     total_flow_up_down="总上行量,总下行量"
+     LIULIANG="流量"
+     STREAM="上行量,下行量"
+
+     PORTALSTA="认证终端,非认证终端"
+     Connect_Sta="已连接,连接中断"
+     Connect_Stav3="已连接,连接中断"
+     TIP1="%的绿洲用户打败，累觉不爱... ..."
+     TIP2="%的绿洲用户，设备需要体检啦~~"
+     TIP3="%的绿洲用户，还可以更棒呦~"
+     TIP4="%的绿洲用户，觉着自己萌萌哒~"
+     TIP5="%的绿洲用户，简直~太~赞~啦！"
+     FORM_TITLE="系统利用率"
+     ADD_TITLE="设置额定带宽"
+     CLOSE="关闭"
+     CANCEL="取消"
+     NO_AUTHORITY="没有权限"
+     SETBAND_SUC='带宽设置成功'
+     SETBAND_FAIL='带宽设置失败'>
+</div>

@@ -1,0 +1,98 @@
+<html>
+<head>
+</head>
+
+<body>
+	<div class="page-row">
+	    <div class="col-xs-12 app-colum">
+	        <div class="app-box no-height">
+	            <div class="box-footer">
+	                <span class="title">访客列表</span>
+	            </div>
+	            <div class="box-body no-height">
+	                <div id="guest_list" class="simple-list"></div>
+	            </div>
+	        </div>
+	    </div>
+	</div>
+
+	<div id="add_black_dlg" class="modal hide">
+		<div class="modal-body">
+			<form class="form-horizontal form edit" id="add_black_form">
+				<div class="form-group">
+					<label class="col-sm-3 required">账号名</label>
+					<div class="col-sm-9">
+						<input type="text" class="string required" id="name" maxlength="32" errid="name_error">
+						<label class="info-explain">（1-32 字符）</label>
+		            	<label class="error" id="name_error"></label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 required">密码</label>
+					<div class="col-sm-9">
+						<input type="text" class="string required" id="password" errid="password_error">
+						<label class="info-explain"></label>
+		            	<label class="error" id="password_error"></label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 required">确认密码</label>
+					<div class="col-sm-9">
+						<input type="text" class="string required" id="password2" errid="password2_error">
+						<label class="info-explain"></label>
+		            	<label class="error" id="password2_error"></label>
+					</div>
+				</div>
+			</form>
+		</div>		
+	</div>
+
+	<div id="edit_black_dlg" class="modal hide">
+		<div class="modal-body">
+			<form class="form-horizontal form edit" id="edit_black_form">
+				<div class="form-group">
+					<label class="col-sm-3 required">原密码</label>
+					<div class="col-sm-9">
+						<input type="text" class="string required" id="password3" errid="password3_error">
+						<label class="info-explain"></label>
+		            	<label class="error" id="password3_error"></label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 required">新密码</label>
+					<div class="col-sm-9">
+						<input type="text" class="string required" id="newpassword" errid="newpassword_error">
+						<label class="info-explain"></label>
+		            	<label class="error" id="newpassword_error"></label>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3 required">确认新密码</label>
+					<div class="col-sm-9">
+						<input type="text" class="string required" id="newpassword2" errid="newpassword2_error">
+						<label class="info-explain"></label>
+		            	<label class="error" id="newpassword2_error"></label>
+					</div>
+				</div>
+			</form>
+		</div>		
+	</div>
+
+<div id="guest_rc" class="rc-define"
+    GUEST_HEAD = "账号名,认证方式,注册时间"
+    ADD_FORM_TITLE = "增加固定账户"
+    EDIT_FORM_TITLE = "修改密码"
+    ADD_BLACK = "加入黑名单"
+    DEL_BLACK = "解除黑名单"
+    PUTOUT = "导出"
+    CHECK_PUTOUT = "查看导出结果"
+    DELETE = "删除"
+
+    test1 = "固定账号认证"
+        ></div>
+</body>
+
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_guestinfo.index");
+</script>

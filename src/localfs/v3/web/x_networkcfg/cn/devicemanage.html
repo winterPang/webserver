@@ -1,0 +1,224 @@
+<html>
+<head>
+</head>
+<style>
+    .tips{
+        padding-right:17px;
+        margin:6px 0;
+        height:35px;
+        width:280px;
+        line-height:35px;
+        float:left;
+        font-size:20px;
+    }
+    .head-name {
+        pointer-events: none;
+        cursor: default;
+    }
+    .failtips{
+            padding: 10px 20px 0px 20px;margin-bottom: -10px;color: #000
+          }
+</style>
+<body>
+
+<div class="col-xs-12 col-sm-12 app-colum xxb hide" id="verProgress">
+    <div class="app-box no-height edit">
+        <div class="box-footer">
+            <span class="title">升级进度</span>
+        </div>
+        <div class="progress showList">
+            <div class="progress-bar progress-bar-success progress-bar-striped" role="progressbar"
+                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">
+                <!--class="sr-only"-->
+                <span>0% Complete</span>
+            </div>
+        </div>
+    </div>
+</div>
+<!--进度-->
+<div class="col-xs-12 col-sm-12 app-colum  xxb hide" id="Que_Ing">
+    <div class="app-box no-height edit">
+        <div class="box-footer">
+            <span class="title">正在升级</span>
+            <span class="title" id="bacBtn" style="float:right;cursor:pointer;margin-right:30px;">退出</span>
+        </div>
+        <div id="listIng" class="simple-list"></div>
+    </div>
+</div>
+
+<div class="col-xs-12 col-sm-12 app-colum xxb hide" id="Que_complete">
+    <div class="app-box no-height edit">
+        <div class="box-footer">
+            <span class="title">升级完成/失败</span>
+        </div>
+        <div id="listComplete" class="simple-list"></div>
+    </div>
+</div>
+
+<div class="app-colum xxb" debug="getPlaceInfo getApInfo getVerInfo">
+    <div class="app-box">
+        <div class="box-footer">
+            <span class="title">设备管理</span>
+        </div>
+        <div class="box-body no-height">
+            <div class="col-xs-9">
+                <label class="control-label">设备定时重启 ：</label>
+                <div class="ctrl-btn openORclose open status btn forbid" id="rebootBtn"></div>
+                <label class="control-label">重启时间 ：</label>
+                <div id="StartValidityDateTime1" style="display: inline-block;width:160px;">
+                    <div id="clocktime1" class="timewidget_nosecond"></div>
+                </div>
+                <button class="btn btn-primary btn_ok hidden forbid" id="comfire">确认</button>
+            </div>
+            <div class="space-44"></div>
+            <div class="box-footer">
+                <span class="tips">可升级到最新版本设备</span>
+            </div>
+            <div class="col-xs-12">
+                <div id="WipsList" class="simple-list"></div>
+            </div>
+            <div class="box-footer">
+                <span class="tips">已升级到最新版本设备</span>
+            </div>
+            <div class="col-xs-12">
+                <div id="Que_WipsList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--升级完成设备-->
+<!--<div class="app-colum xxb" debug="getPlaceInfo getApInfo getVerInfo">
+    <div class="app-box">
+        <div class="box-body no-height">
+            <div class="col-xs-12">
+                <div id="Que_WipsList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>-->
+
+
+
+<div class="hide modal fade" id="warningModal"> 
+    <form class="form-horizontal form" id="warningForm">
+        <div  style="text-align:center">
+            <img src="../x_networkcfg/images/icon-w1.png" alt="警告" style="margin-right:5px;margin-top:-4px">
+            <label  id="warningText" style="font-size:18px;color:#7f888f">自动升级有风险，请谨慎使用</label>       
+        </div>
+    </form>     
+</div>
+
+
+<div class="hide modal fade" id="StatusDlg">
+    <form class="form-horizontal form" id="StatusForm">
+        <div class="form-group">
+            <label class="col-sm-9 control-label" id="ApText">是否确定升级设备</label>
+            <div class="col-sm-12 box-body no-height">
+                 <div id="WipsList1" class="simple-list"></div>
+            </div>
+            <!--<label class="col-sm-9 control-label" id="ApName" name="ApName"></label>-->
+        </div>
+    </form>
+</div>
+
+<div class="hide modal fade" id="StatusQueue">
+    <form class="form-horizontal form" id="upGradeForm">
+        <div class="form-group">
+            <label class="col-sm-9 control-label" id="reflashBtn"></label>
+            <div class="col-sm-12 box-body no-height">
+                <div id="upGradeList" class="simple-list"></div>
+            </div>
+            <!--<label class="col-sm-9 control-label" id="ApName" name="ApName"></label>-->
+        </div>
+    </form>
+</div>
+
+
+<div class="hide modal fade" id="AddApDlg">
+    <div class="modal-body">
+        <form class="form edit" id="AddApForm">
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">设备名称</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="ap_name" name ="ap_name" errid="ap_name_error" maxlength=64 />
+                    <label class="info-explain">（1-64字符）</label>
+                    <label class="error" id="ap_name_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">序 列 号</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="ap_SN" name ="ap_SN" errid="ap_SN_error" maxlength=64 />
+                    <label class="info-explain">（1-64字符）</label>
+                    <label class="error" id="ap_SN_error"></label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="hide modal fade " id="failcfgDlg">
+    <div id="client_diag">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="closeX"></button>
+            <h3 class="modal-title">配置失败列表</h3>
+        </div>
+        <!-- <span id="tip" style=" color:red; display: none;">下发失败的原因是设备离线</span> -->
+        <div class="failtips">
+              <strong>Tips：设备版本低不支持此配置，请先升级设备版本</strong> 
+            </div>
+        <div class="modal-body">
+            <div id="failList" class="simple-list showList"></div>
+        </div>
+        <div class="modal-footer form-actions">
+            <!-- <a class="btn btn-primary" id="failConform">确定</a> <a class="btn btn-primary" id="failClose">关闭</a> -->
+        </div>
+    </div>
+    <!--<div id="failList" class="simple-list showList"></div>-->
+    <!--<button class="btn btn-primary btn_ok hidemodify" id="signalStrength_btn" >确定</button>-->
+    <!--<button class="btn btn-primary btn_ok hidemodify" id="signalStrength_btn" >修改</button>-->
+</div>
+<div id="ws_ssid_rc" class="rc-define"
+     LIST_TITLE = "设备别名,序列号,固件版本,在线时长,升级状态,在线状态"
+     LIST_TITLE2 = "设备别名,序列号,固件版本,在线时长,在线状态"
+     EDIT_TITLE = "新增,升级,重启,删除"
+     WIPS_TITLE = "无线攻击防御"
+     ON_OFF = "关闭,开启"
+     WIPS_TYPE = "无,无线探针,无线攻击防御"
+     STATUS_TITLE="状态"
+     ADD_TITLE="添加"
+     CONFIRM_TITLE = "确认提示"
+     VER_ERROR = "下载失败,设备空间不足,保存配置失败,其他错误,升级成功,配置下发成功,配置下发失败,下发超时请重新配置"
+     MSG_INFO="升级失败,数据请求失败！,成功重启设备,设备重启失败,成功删除设备,设备删除失败,升级进度"
+     MSG_INFO1="已经是最新版本,添加设备失败,成功添加设备"
+     TEXT="是否批量,设备,是否确定要"
+     BATCH_UPGRADE_TEXT="是否升级下列选中设备,是否升级设备"
+     BATCH_RESTART_TEXT="是否重启下列选中设备,是否重启设备"
+     BATCH_DELETE_TEXT="是否删除下列选中设备,是否删除设备"
+     TITLE_TEXT="可升级到最新版本"
+     PENDING_MSG="设备正在重启...,设备重启中...,设备正在升级...,正在获取设备列表...,正在更新设备重启时间,配置下发中..."
+     FAIL_INFO ="设备端配置失败请重新配置"
+     PRESS_LIST ="设备别名,序列号,设备状态"
+     FAIL_CFGLIST="配置失败列表"
+     DEV_LIST="设备序列号,状态"
+     STATE="在线,离线"
+     Que_upGrade="正在升级...,升级成功,下载失败,设备空间不足,保存配置失败,升级失败,待升级,设备待连接,"
+     Que_statusList="序列号,进度,状态"
+     Que_statusReflash="刷新状态,后台升级,升级状态"
+     Que_tip="正在升级，请稍等"
+     Que_fail="升级失败，请稍后再试。"
+     Que_UGstatus="获取升级状态失败！"
+     Que_Complete="升级成功"
+     Que_allComplete="所选设备已是最新版本。"
+     Que_bacGrade="设备后台升级中"
+     Que_upGradeFail="设备离线，升级失败"
+     Que_upGradeBtn="批量升级"
+     Que_ready="设备就绪"
+     Que_compare="升级完成,待升级,无法获取最新版本信息"
+     Que_devNone="请选择可升级设备"
+     Que_stop="升级中断"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_networkcfg.devicemanage");
+</script>

@@ -1,0 +1,106 @@
+<html>
+<head>
+	<!-- <link rel="stylesheet" type="text/css" href="/v3/web/h_stamgrclients/m_clients.css"> -->
+</head>
+<body>
+<!-- <dl class="headline wlan-headline">
+    <span class="headbutton">
+        <div class="btn-group shortcut">
+            <a class="btn btn-default" href="#M_WIPS?np=wips.help" title="Help"><i class="icon-book"> </i></a>
+        </div>
+    </span>
+</dl> -->
+
+<div class="dashboard">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">全部热点区域人流统计</span>
+                    <div class="text-right link-container">
+                            <i class="detail-icon icon"></i>
+                    </div>
+                </div>
+                <div style="height:350px" class="box-body echart-height">
+                    <div style="height:350px"id="regional_bar" class="myEchart col-xs-12"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">热点景区排行</span>
+                    <div class="text-right link-container">
+                        <i class="detail-icon icon"></i>
+                    </div>
+                </div>
+                <div style="height: 250px" class="col-xs-6 app-colum left-block">
+                    <div class="box-footer">
+                        <span class="title">景区人数</span>
+                    </div>
+                    <div  class="col-xs-6 panel leg-panel" style="width: 47%; right: 200px; top: 50px;">
+                        <div class="leg-row leg-hover">
+                            <span class="leg-icon" style="background:#53B9E7"></span>
+                            <span class="leg-title">奥森</span><span class="leg-percent">5200人</span>
+                        </div>
+                        <div class="leg-row">
+                            <span class="leg-icon" style="background:#31ADB4"></span>
+                            <span class="leg-title">故宫</span><span class="leg-percent">3400人</span>
+                        </div>
+                        <div class="leg-row">
+                            <span class="leg-icon" style="background:#69C4C5"></span>
+                            <span class="leg-title">天坛</span><span class="leg-percent">2700人</span>
+                        </div>
+                        <div class="leg-row">
+                            <span class="leg-icon" style="background:#FFBB33"></span>
+                            <span class="leg-title">颐和园</span><span class="leg-percent">2600人</span>
+                        </div>
+                        <div class="leg-row">
+                            <span class="leg-icon" style="background:#FFBB33"></span>
+                            <span class="leg-title">北海公园</span><span class="leg-percent">2530人</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="height: 250px" class="col-xs-6 app-colum left-block">
+                    <div class="box-footer">
+                        <span class="title">景区关联人数</span>
+                        <div  class="col-xs-6 panel leg-panel" style="width: 47%; right: 200px; top: 50px;">
+                            <div class="leg-row leg-hover">
+                                <span class="leg-icon" style="background:#53B9E7"></span>
+                                <span class="leg-title">奥森</span><span class="leg-percent">3700人</span>
+                            </div>
+                            <div class="leg-row">
+                                <span class="leg-icon" style="background:#31ADB4"></span>
+                                <span class="leg-title">故宫</span><span class="leg-percent">2300人</span>
+                            </div>
+                            <div class="leg-row">
+                                <span class="leg-icon" style="background:#69C4C5"></span>
+                                <span class="leg-title">天坛</span><span class="leg-percent">1700人</span>
+                            </div>
+                            <div class="leg-row">
+                                <span class="leg-icon" style="background:#FFBB33"></span>
+                                <span class="leg-title">颐和园</span><span class="leg-percent">1600人</span>
+                            </div>
+                            <div class="leg-row">
+                                <span class="leg-icon" style="background:#FFBB33"></span>
+                                <span class="leg-title">北海公园</span><span class="leg-percent">1530人</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+        
+<div id="passenger_rc" class="rc-define"></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("city_passenger.index");
+</script>
+

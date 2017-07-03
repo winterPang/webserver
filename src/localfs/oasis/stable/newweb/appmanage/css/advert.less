@@ -1,0 +1,109 @@
+// 定义颜色变量
+@border: #e7e7e6;
+@nav: #f5f5f5;
+@nav-font: #80878c;
+@nav-active: #80878c;
+
+// 小组件
+.arrow(@color, @right, @index) {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: @right;
+  z-index: @index;
+  border: 19px solid transparent;
+  border-left: 10px solid @color;
+  border-right: none;
+}
+.font(@color, @size, @family) {
+  color: @color;
+  font: @size @family;
+};
+
+// 重新定义list样式
+.init-list () {
+  .app-list-inline {
+    padding-left: 0;
+    margin-bottom: 0;
+    overflow: hidden;
+    li {
+      float: left;
+      padding-left: 0;
+      padding-right: 0;
+      list-style: none;
+    }
+  }
+}
+
+// 模块样式 - 正式开始
+#advert_module {
+  .init-list();
+
+  .app-nav {
+    width: 810px;
+    border: 1px solid @border;
+    li {
+      position: relative;
+      width: 202px;
+      height: 38px;
+      padding-left: 30px;
+      .font(@nav-font, 14px, 'Microsoft Yahei');
+      line-height: 38px;
+      background-color: @nav;
+      &:before { // top
+        .arrow(@nav, -9px, 2);
+      }
+      &:after { // bottom
+        .arrow(@border, -10px, 1);
+      }
+      &:first-child {
+        padding-left: 20px;
+      }
+      &.active {
+        color: #fff;
+        background-color: @nav-active;
+        &:before {right: -10px;border-left-color: @nav-active;}
+      }
+    }
+  }
+
+  .app-content {
+    width: 810px;
+    border: 1px solid @border;
+    border-top: none;
+
+    li {
+      padding-top: 9px;
+      width: 202px;
+      height: 338px;
+      border-right: 1px solid @border;
+      overflow: auto;
+      &:last-child {border-right: none;}
+
+      div {
+        padding:7px 0 7px 20px;
+        margin: 1px 0;
+        .font(#343e4e, 14px, "Microsoft Yahei");
+      }
+
+
+
+    }
+
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+

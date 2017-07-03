@@ -1,0 +1,233 @@
+<html>
+<head>
+</head>
+<body>
+<div class="dashboard">
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">基于型号</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh" id="refresh_mode">
+                            <i class="refresh-icon icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div id="Mode" class="myEchart"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">基于版本</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh" id="refresh_version">
+                            <i class="refresh-icon icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div id="Version" class="myEchart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+         <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                    <div class="sysinfo-footer">
+                        <span class="title">基于运行时长</span>
+                        <div class="text-right link-container">
+                            <a type="button" class="refresh" id="refresh_Online">
+                                <i class="refresh-icon icon"></i>
+                            </a>
+                        </div> 
+                    </div>
+                    <div class="box-body" style="height:300px;">
+                        <div id="Online_Time" class="myEchart"></div>
+                    </div>
+            </div> 
+        </div>
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">基于流量</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh" id="refresh_flow">
+                            <i class="refresh-icon icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div id="Flow" class="myEchart"></div>
+                </div>
+            </div>           
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">基于AP数</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh" id="refresh_Ap">
+                            <i class="refresh-icon icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div id="According_Ap" class="myEchart"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">基于终端数</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh" id="refresh_Station">
+                            <i class="refresh-icon icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div id="According_Station" class="myEchart"></div>
+                </div>
+            </div>           
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">AC列表</span>
+                </div>
+                <div class="box-body">
+                    <div class="simple-list" id="acList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 页面上暂时没用，后续删掉-->
+<div id="ByOnlinePop_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">设备列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="ByOnlinePopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+
+<div id="ByVersionPop_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">设备列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="ByVersionPopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+
+<div id="ByModePop_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">设备列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="ByModePopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+
+<div id="ByFlowPop_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">设备列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="ByFlowPopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+<div id="AreaPop_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">设备列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="AreaPopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+<div id="ProvincePop_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">设备列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="ProvincePopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+<div id="ByAp_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">设备列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="ByApList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+
+<div id="ByClient_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">设备列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="ByClient" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+
+<div id="summary_rc" class="rc-define"
+List_ByOnline="设备系列号,在线时长（天:时:分:秒）"
+List_ByVersion="设备系列号,版本"
+List_ByMode="设备系列号,设备型号"
+List_ByFlow="设备系列号,流量（Kb）"
+List_LINK="详情"
+List_Area="设备系列号,所在省份"
+List_ByAp="设备序列号,数目"
+List_ByClient="设备序列号,数目"
+List_Ac="用户,场所,设备序列号,管理AP数量,在线AP数量,在线Client数量,关联绿洲连续时长(小时)"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("wdashboard.device");
+</script>

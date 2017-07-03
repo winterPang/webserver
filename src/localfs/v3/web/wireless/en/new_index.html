@@ -1,0 +1,188 @@
+<html>
+<head>
+    <link href="../../web/wireless/wireless.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">Wireless Service Configuration</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="ssidList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+
+<div class="hide" id="ssidToggle">
+    <form id="toggle_form" class="form edit">
+        <div class="col-sm-6 response-block">
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">SSID</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="SSID" name="SSID" readonly/>
+                    <label class="info-explain">(1 to 32 characters)</label>
+                    <label class="error" id="SSID_error"></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 response-block">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Authentication method</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-12">
+                        <input type="radio" value="AT1" id="AT1" name="AuthenType" ctrlBlock=".ath-type" content="" checked/>
+                        <label for="AT1">No authentication</label>
+                    </div>
+
+                    <div class="col-sm-12">
+                        <input type="radio" value="AT2" id="AT2" name="AuthenType" ctrlBlock=".ath-type" content="" />
+                        <label for="AT2" >One-key authentication</label>
+                    </div>
+
+                    <div class="col-sm-12 st-type" id="MailBlock" >
+                        <input type="radio" value="AT3" id="AT3" name="AuthenType" ctrlBlock=".ath-type" content="#LoginWays" />
+                        <label for="AT3">Account login</label>
+                        <div id="LoginWays" class="ath-type hide">
+                            <div class="col-sm-2">
+                                <input type="checkbox"  value="1" id="Message" name="LoginWays"/>
+                                <label for="Message">Short message</label>
+                            </div>
+                            <div class="col-sm-3 account_style">
+                                <input type="checkbox"  value="2" id="WeChart" name="LoginWays"/>
+                                <label for="WeChart">WeChat official account</label>
+                            </div>
+                            <div class="col-sm-3 account_style">
+                                <input type="checkbox" value="3" id="FixAccount" name="LoginWays"/>
+                                <label for="FixAccount">Fixed account</label>
+                            </div>
+                            <div class="col-sm-3 account_style">
+                                <input type="checkbox" value="4" id="isWeChatWifi" name="LoginWays"/>
+                                <label for="isWeChatWifi">WeChat Wi-Fi</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-12 st-type" id="WeixinBlock" >
+                        <input type="radio" value="AT4" id="AT4" name="AuthenType" ctrlBlock=".ath-type" content="#ModelSelect"/>
+                        <label for="AT4">Select authentication template</label>
+                        <div class="ath-type hide" id="ModelSelect">
+                            <!-- -->
+                            <select class="singleSelect"  allowClear="true" id="AuthCfgList" name="AuthCfgList">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Login page</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-12">
+                        <div class="col-sm-3">
+                            <input type="radio" id="LP1" value="LP1" name="LoginPage" value="1" ctrlBlock=".lg-page"/>
+                            <label for="LP1">Simple</label>
+                        </div>
+                        <!--<div class="col-sm-2">
+                        <a class="xb-link" id ="simpledraw">Edit</a>
+                        </div>-->
+                    </div>
+                    <div class="col-sm-12">
+                        <input type="radio" id="LP4" value="LP4" name="LoginPage" ctrlBlock=".lg-page" content="#LoginPageSelect">
+                        <label for="LP4">Select page template</label>
+                        <div class="lg-page hide" id="LoginPageSelect">
+                            <!--allowClear="false" 属性-->
+                            <select class="singleSelect"  id="LoginPageList" name="LoginPageList">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">WeChat official account</label>
+                <div class="col-sm-9" id="WeChartSelect">
+                    <select class="singleSelect"  id="WeChartList" name="WeChartList">
+                    </select>
+                    <!--&nbsp;&nbsp;-->
+                    <!--<a class="xb-link">New</a>-->
+                </div>
+            </div>
+
+            <div class="form-group" id = "freeCertification">
+                <label class="col-sm-3 control-label">Authentication free</label>
+                <div class="col-sm-9">
+                    <input type="checkbox" class="switch" id="auto_study_enable" name="auto_study_enable" checked ctrlBlock=".Learn-MAC"/>
+                    <div class="Learn-MAC">
+                        <!--<input type="checkbox" id="impose_auth" checked ctrlBlock=".Learn-Time" hidden/>
+                        <label for="impose_auth" hidden>Authentication free period</label>
+                        <br>-->
+                        <div class="Learn-Time">
+                            <input type="text" class="string big" placeholder="7" id="impose_auth_time" name="impose_auth_time" value="7"/>
+                            <label class="info-explain">(1 to 30) days</label>
+                        </div>
+                        <label class="info-explain">Note: Clients passed authentication don't need to be reauthenticated when coming online again within the period.</label>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </form>
+</div>
+
+<div class="hide modal fade" id="AddSsidDlg">
+    <div class="modal-body">
+        <form class="form edit" id="AddSsidForm">
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">SSID</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="ssid_name" name ="ssid_name" errid="ssid_name_error" maxlength=32 />
+                    <label class="info-explain">(1 to 32 characters)</label>
+                    <label class="error" id="ssid_name_error"></label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div id="ws_ssid_rc" class="rc-define"
+     SSID_HEADER = "SSID, Authentication Method"
+     ADD_TITLE = "Add SSID"
+     AUTH_CFG = "No authentication, WeChat authentication, Short message authentication, One-key authentication, Select page template"
+     DEL_AUTH_FAIL = "Failed to delete the published template"
+     DEL_PUB_SUCC = "Template publishing canceled successfully"
+     PUB_SUCC = "Template published successfully"
+     ADD_SUCCESS = "SSID successfully added"
+     ADD_FAIL = "Failed to add the SSID"
+     ADD_NULL_SSID = "Please enter an SSID"
+     DEL_SUCCESS = "SSID successfully deleted"
+     DEL_FAIL = "Failed to delete the SSID"
+     AUTHEN_TYPE="No authentication, One-key authentication, Account authentication"
+     SYN="Synchronize"
+     LINK="Adding failed because the main connection is broken down",
+     LINK_delete="Deleting failed because the main connection is broken down",
+     ADD_Limit="Adding failed because the number of service templates has reached the threshold"
+     CONFIG_SUCCESS = "Configuration succeeded"
+     CONFIG_FAILED = "Configuration failed"
+     DEL_TEMPLATE_ERR = "Configuration failed. Failed to delete the page template"
+     CONFIGING = "Issuing configuration…."
+     DEL_SUCCESS = "Deleting succeeded"
+     ADD_SUCCESS = "Adding succeeded"
+     SUCCESS_BUT_FAILED = "Adding succeeded. Synchronization failed. Please synchronize configuration manually"
+     SYN_SUCCESS = "Synchronization succeeded"
+     SYN_FAILED = "Synchronization failed"
+     SYNING = "Synchronize"
+     TIME = "s"
+     GET_DATA_ERR = "Error occurred during data obtaining"
+     UPDATE_VERSION = "The version does not support obtaining supported models. Please upgrade the version"
+     DEL_CONFIGING = "Issuing configuration"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("wireless.new_index");
+</script>
+

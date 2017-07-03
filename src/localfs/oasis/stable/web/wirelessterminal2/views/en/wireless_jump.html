@@ -1,0 +1,26 @@
+<div id="authUserHistoryDetails"
+     date-picker-label="确定,取消,起始时间,结束时间"
+     date-picker-week="日,一,二,三,四,五,六"
+     date-picker-month="一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月"
+     list-header="Username,IP Address,MAC Address,Authentication Method,Uplink Traffic(MB),Downlink Traffic(MB),Associated At,Online Duration">
+    <div class="btn_h_return"></div>
+    <div class="panel">
+        <div class="panel-heading">
+            <h3 class="panel-title">Authenticated Client Online History</h3>
+        </div>
+        <div class="panel-body">
+            <div class="pull-left">
+                <button class="btn btn-cus" ng-click="event.refresh()">Refresh</button>
+                <button class="btn btn-cus" ng-disabled="unexport" ng-if="permission.execute" ng-click="event.refresh()">Export</button>
+            </div>
+            <div class="pull-right form-inline">
+                <label for="dateRangePicker">Date</label>
+                <input class="form-control" id="dateRangePicker" type="text" style="width: 180px;" />
+            </div>
+            <div bs-table="authHistoryTable"></div>
+        </div>
+    </div>
+</div>
+
+
+

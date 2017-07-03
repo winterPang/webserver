@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Draw</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link href="../resources/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+
+    <link href="../resources/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <link href="../resources/jqueryui-bootstrap/jquery-ui-1.9.2.custom.css" type="text/css" rel="stylesheet">
+    <link href="../resources/jqueryui-bootstrap/bootstrap.custom.css" type="text/css" rel="stylesheet">
+    <link href="../resources/css/custom.css" type="text/css" rel="stylesheet">
+    <link href="../resources/css/jquery.bootstrap.custom.css" type="text/css" rel="stylesheet">
+
+    <script type="text/javascript" src="../resources/angular.js"></script>
+    <script type="text/javascript" src="../resources/angular-resource.js"></script>
+    <script type="text/javascript" src="../resources/jqueryui-bootstrap/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="../resources/jqueryui-bootstrap/jquery-ui-1.9.2.custom.min.js"></script>
+    <script type="text/javascript" src="../resources/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript" src="../resources/jquery-ui-timepicker-zh-EN.js"></script>
+    <script type="text/javascript" src="../resources/ueditor.config.js"></script>
+    <script type="text/javascript" src="../resources/ueditor.all.min.js"></script>
+    <script type="text/javascript" src="../resources/jquery.customEn.js"></script>
+    <script type="text/javascript" src="../resources/base64.js"></script>
+    <script type="text/javascript" src="../resources/jquery.i18n.properties-min-1.0.9.js"></script>
+    <script type="text/javascript" src="../resources/language-init.js"></script>
+    <script type="text/javascript" src="../resources/drawEn.js"></script>
+
+    <script>
+        var jq = jQuery.noConflict();
+        jq(function () {
+            // Tabs
+            jq('#tabs').tabs();
+        });
+        var jq = jQuery.noConflict();
+        var indexCtrl;
+    </script>
+    <script type="text/javascript">
+        // menu
+        jq(document).ready(function () {
+            // 更多新闻
+            function ml_close_demo() {
+                jq('.float-news').animate({
+                    left: '-450px'
+                }, 300, function () {
+                    jq('.float-open').delay(50).animate({
+                        left: '-2px'
+                    }, 300);
+                });
+            }
+
+            function ml_open_demo() {
+                jq('.float-open').animate({
+                    left: '-70px'
+                }, 100, function () {
+                    jq('.float-news').delay(50).animate({
+                        left: '0px'
+                    }, 300);
+                });
+            }
+
+            jq('.float-close').click(function () {
+                ml_close_demo();
+                return false;
+            });
+            jq('.open-btn').hover(function () {
+                ml_open_demo();
+                return false;
+            });
+
+            setTimeout(function () {
+                ml_close_demo()
+            }, 1000);
+
+        });
+    </script>
+    <style>
+        .label-info {
+            padding: 10px 0 0 10px;
+            color: #4ec1b2;
+            background-color: transparent;
+        }
+
+        .page-content #tabs ul li:hover {
+            background: transparent;
+            border-bottom: 1px solid transparent;
+            padding-bottom: 0;
+            color: #4ec1b2;
+        }
+
+        .weather {
+            background-color: #fff;
+        }
+    </style>
+
+</head>
+<body style="min-width:1080px;min-height:560px;background: url(../resources/images/bg.jpg) 50% 50% no-repeat fixed;background-repeat:repeat;" ng-app="mainApp">
+
+<div id="create-o2oThemeTemplate" class="page-content" ng-controller="o2oThemeTemplateController">
+    <div id="tabs">
+        <ul>
+            <li ng-class="type==1?'ui-tabs-active ui-state-active':''">
+                <a href="#tabs-a" ng-click="changeValue(1);">Auto Login</a></li>
+            <li ng-class="type==2?'ui-tabs-active ui-state-active':''">
+                <a href="#tabs-a" ng-click="changeValue(2);">Login</a></li>
+            <li ng-class="type==3?'ui-tabs-active ui-state-active':''">
+                <a href="#tabs-a" ng-click="changeValue(3);">Login Success</a></li>
+            <li ng-class="type==4?'ui-tabs-active ui-state-active':''">
+                <a href="#tabs-a" ng-click="changeValue(4);">Homepage</a></li>
+            <li><label class="label-info">Support for the four pages varies by authentication method.</label></li>
+        </ul>
+
+        <div id="tabs-a" style='position:relative;'>
+            <div style='position:absolute; top:4px; left:7px;'>
+                <div ng-hide="dShow" style='display:inline-block;'>
+                    <span class="label-info">Display</span>
+                    <input type="radio" id="Introduction_1" name="Introduction" value="1" ng-model="Introduction_v">
+                    <label for="Introduction_1">Y</label>
+                    <input type="radio" id="Introduction_2" name="Introduction" value="0" ng-model="Introduction_v">
+                    <label for="Introduction_2">N</label>
+                    <span class="label-info" ng-hide="tShow">Redirect in</span>
+                    <input type="text" id="time_v" ng-model="time_v" ng-hide="tShow" style='padding:2px 5px;width:40px;'>
+                    <label for="time_v" ng-hide="tShow">s</label>
+                    <span class="label-info" ng-hide="tShow">(1-9)</span>
+                </div>
+                <div style='display:inline-block;'>
+                    <!--天气-->
+                    <span class="label-info">Weather</span>
+                    <input type="radio" id="Weather_1" name="Weather" value="1" ng-model="Weather_v">
+                    <label for="Weather_1">Y</label>
+                    <input type="radio" id="Weather_2" name="Weather" value="0" ng-model="Weather_v">
+                    <label for="Weather_2">N</label>
+                    <span class="label-info" ng-show="Template_v">Weather template</span>
+                    <select ng-model="Template" ng-show="Template_v">
+                        <option value="1">Classic</option>
+                        <option value="2">3D rendering</option>
+                        <option value="3">Simple</option>
+                    </select>
+                    <span class="label-info" ng-show="Style_v">Style</span>
+                    <select ng-model="Style" ng-show="Style_v">
+                        <option value="1">Text</option>
+                        <option value="2">3D image</option>
+                        <option value="3">Classic image</option>
+                    </select>
+                    <span class="label-info" ng-show="Day_v">Days</span>
+                    <select ng-model="Day" ng-show="Day_v">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="setting-container" style='margin-top: -13px;'>
+                <a class="btn btn-info" role="button" href="#" ng-click="publishData()"><i class="fa fa-list-ul fa-1x green"></i>Publish</a>
+            </div>
+            <div class="float-open" id="float-open" style="left:-2px;">
+                <a class="open-btn" href="javascript:void(0);">&gt;</a></div>
+            <div class="float-news" id="float-news" style="left:-450px;">
+                <a class="float-close">X</a>
+                <div class="newslist">
+                    <h3>Element</h3>
+                    <div id="menus" class="canvas-menus " style="text-align: center;overflow:visible;"></div>
+                </div>
+            </div>
+
+            <div id="widgets" class="canvas-widgets">
+                <iframe allowtransparency="true" ng-show="Weather_v == '1'" style="display: block;" class="weather" frameborder="0" width="100%" height="{{h}}" scrolling="no" src={{kk}}></iframe>
+                <div id="indexContent" class="widget-content"></div>
+            </div>
+            <div id="tools" class="canvas-tools"></div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

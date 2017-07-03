@@ -1,0 +1,266 @@
+@import "$variable";
+
+.lyp-hide {
+  display: none;
+}
+.main {
+  overflow:auto;
+  >div {
+    margin-top: 60px;
+    margin-top: @base-size*60rem;
+  }
+  .main-menu {
+    .left-menu {
+      .menu-title {
+        font-size: 20px;
+        font-size: @base-size*20rem;
+        margin-top: 20px;
+        margin-top: @base-size*20rem;
+        color: @submenu-title-color;
+      }
+      .menu-content {
+        li {
+          & .menu-active, & a:hover {
+            color: @submenu-color;
+            text-decoration: none;
+            outline: none;
+          }
+        }
+        ul li {
+          list-style: none;
+          a {
+            font-size: 15px;
+            font-size: @base-size*15rem;
+            display: block;
+            line-height: 38px;
+            line-height: @base-size*38rem;
+            margin-bottom: 0;
+            position: relative;
+            text-decoration: none;
+            cursor: pointer;
+          }
+          > ul {
+            & :first-child .lm-split-line {
+              height: 20px;
+              height: @base-size*20rem;
+              margin-top: 0;
+              border-width: 0 0 1px 0;
+              border-width: 0 0 @base-size*1rem 0;
+            }
+          }
+        }
+        > ul > li > ul {
+          padding: 0;
+          margin: 0 0 0 2px;
+          margin: 0 0 0 @base-size*2rem;
+          & > li {
+            & > * {
+              display: block;
+              float: left;
+              height: 38px;
+              height: @base-size*38rem;
+              line-height: 38px;
+              line-height: @base-size*38rem;
+              outline: none;
+            }
+            & > a.menu-active:before {
+              content: "";
+              display: inline-block;
+              width: 10px;
+              width: @base-size*10rem;
+              height: 10px;
+              height: @base-size*10rem;
+              border-radius: 50%;
+              background-color: @submenu-color;
+              position: absolute;
+              left: -26px;
+              left: -@base-size*26rem;
+              top: 14px;
+              top: @base-size*14rem;
+            }
+            & > .lm-split-line {
+              width: 12px;
+              width: @base-size*12rem;
+              margin-top: -18px;
+              margin-top: -@base-size*18rem;
+              margin-right: 10px;
+              margin-right: @base-size*10rem;
+              border: solid @submenu-color;
+              border-width: 0 0 1px 1px;
+              border-width: 0 0 @base-size*1rem @base-size*1rem;
+            }
+          }
+        }
+      }
+    }
+    .main-content {
+      padding-left: 241px;
+      padding-left: @base-size*241rem;
+      padding-right: 30px;
+      padding-right: @base-size*30rem;
+    }
+  }
+}
+
+@media (min-width: (@screen-md + 1)) {
+
+  .left-menu {
+    position: fixed;
+    left: 0;
+    height: auto;
+    width: 210px;
+    width: @base-size*210rem;
+    margin-left: 40px;
+    margin-left: @base-size*40rem;
+    background-color: @left-menu-lg-bg;
+    .menu-title {
+      margin-bottom: 25px;
+      margin-bottom: @base-size*25rem;
+      margin-left: 35px;
+      margin-left: @base-size*35rem;
+      color: @submenu-title-color;
+    }
+    .menu-content {
+      li a {
+        color: @submenu-sm-color;
+        text-decoration: none;
+        &.menu-active, &:hover {
+          color: @submenu-color;
+          text-decoration: none;
+        }
+      }
+      > ul > li > a.menu-active:before {
+        content: "";
+        width: 10px;
+        width: @base-size*10rem;
+        height: 10px;
+        height: @base-size*10rem;
+        border-radius: 10px;
+        border-radius: @base-size*10rem;
+        background-color: @submenu-color;
+        position: absolute;
+        top: 14px;
+        top: @base-size*14rem;
+        left: -20px;
+        left: -@base-size*20rem;
+      }
+    }
+  }
+}
+
+@media (max-width: @screen-md) {
+
+  .main {
+    .main-menu {
+      .main-content {
+        padding-right: 0;
+      }
+      .left-menu {
+        //display: none;
+        position: fixed;
+        right: -130px;
+        right: -@base-size*130rem;
+        padding: 10px 0 0 0;
+        padding: @base-size*10rem 0 0 0;
+        top: 130px;
+        top: @base-size*130rem;
+        width: 130px;
+        width: @base-size*130rem;
+        z-index: 998;
+        border-radius: 0 0 0 5px;
+        border-radius: 0 0 0 @base-size*5rem;
+        background-color: @navbar-default-bg;
+        .menu-title {
+          margin-left: 0;
+          padding: 0 20px;
+          padding: 0 @base-size*20rem;
+        }
+        .menu-content {
+          & > ul > li > ul > li {
+            & > a {
+              width: 128px;
+              width: @base-size*128rem;
+              padding-left: 25px;
+              padding-left: @base-size*25rem;
+              &.menu-active:before {
+                display: none;
+              }
+            }
+            & > .lm-split-line {
+              display: none;
+            }
+          }
+          ul {
+            padding: 10px 0 0;
+            padding: @base-size*10rem 0 0;
+            li {
+              list-style: none;
+              a {
+                padding: 0 20px;
+                padding: 0 @base-size*20rem;
+                font-size: 12px;
+                font-size: @base-size*12rem;
+                color: @navbar-default-link-color;
+                &:hover {
+                  background-color: @navbar-default-link-active-bg;
+                }
+                &.menu-active {
+                  color: @navbar-default-link-active-color;
+                  background-color: @navbar-default-link-active-bg;
+                  &::before {
+                    content: "";
+                    width: 0;
+                    height: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+//btn for show submenu
+.btn-show-submenu {
+  position: fixed;
+  right: 0;
+  top: 130px;
+  top: @base-size*130rem;
+  height: 40px;
+  height: @base-size*40rem;
+  border-radius: 5px 0 0 5px;
+  border-radius: @base-size*5rem 0 0 @base-size*5rem;
+  line-height: 30px;
+  line-height: @base-size*30rem;
+  padding: 5px;
+  padding: @base-size*5rem;
+  z-index: 999;
+  color: white;
+  display: none;
+  cursor: pointer;
+  font-weight: bolder;
+  background-color: @navbar-default-bg;
+  border-left: 0;
+  &:hover {
+    color: @navbar-default-link-hover-color;
+    background-color: @navbar-default-link-active-bg;
+  }
+}
+
+@media (max-width: @screen-md) {
+  .main {
+    //margin-top: 130px;
+    //margin-top: @base-size*130rem;
+    .main-menu {
+      .main-content {
+        padding-left: 0;
+      }
+    }
+    //btn for show submenu
+    .btn-show-submenu {
+      display: inline-block;
+    }
+  }
+}

@@ -1,0 +1,237 @@
+<style>
+    /*html .app-colum .app-box.no-bk-color .box-footer, body .app-colum .app-box.no-bk-color .box-footer {
+    height: 30px;
+    line-height: 30px;
+    background: transparent;
+    }*/
+    
+    .ml16 {
+        margin-left: 16px;
+    }
+    
+    .ml35 {
+        margin-left: 35px;
+    }
+    
+    .ml10 {
+        margin-left: 10px;
+    }
+    
+    .form-group5 {
+        margin-top: -5px;
+    }
+    
+    .sta_info .label {
+        line-height: 0;
+    }
+    
+    .form-horizontal .control-label {
+        text-align: left;
+    }
+    .return_btn{
+        color: #4ec1b2;
+        float: right;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+</style>
+<div class="page-row">
+    <div class="col-xs-12 app-colum left-block">
+        <div class="app-box">
+            <div class="select-footer">
+                <span class="float-left ml16">日期</span>
+                <div class="float-left ml10" style="width:200px;">
+                    <input type="text" name="datefilter" id="timerange" class="daterange time-select range" placeholder="选择日期" ctrl="daterang"
+                        style="height:25px;" name="clientTime" required>
+                </div>
+                <form name="myForm" novalidate>
+                    <label class="ml16 required">IP</label>
+                    <input type="text" style="height:25px;" class="string big" name="ipAddress" ng-pattern="/^(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])\.(\d{1,2}|1\d\d|2[0-4]\d|25[0-5])$/"
+                        id="getIp" ng-model="ipA">
+                    <label ng-show="myForm.ipAddress.$dirty" ng-messages="myForm.ipAddress.$error" style="display:inline-block;">
+                                <label ng-message="pattern" class="error" style="display: inline-block;">请输入正确的IP地址</label>
+                    </label>
+                    <label class=" ml16 required">MAC</label>
+                    <select class="select-style" ng-name="selectDevSn" ng-model="fisrtMAC" id="maclist" ng-options="sn for sn in macArr" style="width:200px;height:25px;line-height:25px;">
+                            </select>
+                    <div class="return_btn" ng-click ="return()">返回</div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-row">
+    <div class="col-xs-3 app-colum left-block">
+        <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <span class="title">今日体验</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="experienceInfo" class="myEchart" style="height:170px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 app-colum left-block">
+        <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <span class="title">今日评分历史</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="ScoreInfo" class="myEchart" style="height:170px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-3 app-colum left-block">
+        <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <span class="title">终端信息</span>
+            </div>
+            <div class="box-body no-height">
+                <div class="col-sm-12" style="height:170px;padding:0;color:#343e4e">
+                <div class="sta_info">
+                    <div class="form-group form-group5">
+                        <label class="control-label" style="width:50px">MAC：</label>
+                        <span class="label form-if-setHtml" id="clientMAC"></span>
+                    </div>
+                    <div class="form-group form-group5">
+                        <label class="control-label" style="width:50px">IP：</label>
+                        <span class="label form-if-setHtml" id="clientIP"></span>
+                    </div>
+                    <div class="form-group form-group5">
+                        <label class="control-label" style="width:50px">厂商：</label>
+                        <span class="label form-if-setHtml" id="clientVendor"></span>
+                    </div>
+                    <div class="form-group form-group5" id="aphistory">
+                        <label class="control-label" style="color:#4ec1b2;" id="apDetail" ng-click="apclick()">终端关联AP历史</label>
+                        <span style="color:#343e4e;">（仅支持查看7天内接入的客户端数据）</span>
+                    </div>
+                    <div class="form-group form-group5" id="clientLog">
+                        <label class="control-label" style="color:#4ec1b2;" id="logDetail" ng-click="logclick()">查看终端日志</label>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xs-12 app-colum left-block">
+        <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <span class="title">速率</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="channel_rate" class="myEchart" style="height:200px;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-4 app-colum left-block">
+        <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <span class="title">信号强度</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="signalInfo" class="myEchart" style="height:260px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-4 app-colum left-block">
+        <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <span class="title">信道利用率</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="channelInfo" class="myEchart" style="height:260px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-4 app-colum left-block">
+        <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <span class="title">底噪</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="noiseInfo" class="myEchart" style="height:260px;cursor:pointer;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div bs-modal="apButtons.options">
+    <div bs-Table="bindApStaOptions"></div>
+</div>
+<div bs-modal="clientDetail.options">
+    <div bs-Table="staOptions"></div>
+</div>
+
+<div bs-modal="logDetail.options">
+    <div bs-Table="logOptions"></div>
+</div>
+
+<form class="form-horizontal form" bs-modal="busyAvg.options" id="view_busyAvg_form">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <label class="col-sm-7 control-label info-explain">时间</label>
+            <span class="label form-if-setHtml" id="time">--</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-7 control-label info-explain">AP序列号</label>
+            <span class="label form-if-setHtml" id="apSN">--</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-7 control-label info-explain">AP名称</label>
+            <span class="label form-if-setHtml" id="apName">--</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-7 control-label info-explain">射频</label>
+            <span class="label form-if-setHtml" id="radioID">--</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-7 control-label info-explain">信道</label>
+            <span class="label form-if-setHtml" id="radioChannel">--</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-7 control-label info-explain">信道利用率</label>
+            <span class="label form-if-setHtml" id="busyAvg">--</span>
+        </div>
+    </div>
+</form>
+<form class="form-horizontal form" bs-modal="noise.options" id="view_noise_form">
+    <div class="col-sm-12">
+        <div class="form-group">
+            <label class="col-sm-7 control-label info-explain">时间</label>
+            <span class="label form-if-setHtml" id="time">--</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-7 control-label info-explain">AP序列号</label>
+            <span class="label form-if-setHtml" id="apSN">--</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-7 control-label info-explain">AP名称</label>
+            <span class="label form-if-setHtml" id="apName">--</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-7 control-label info-explain">射频</label>
+            <span class="label form-if-setHtml" id="radioID">--</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-7 control-label info-explain">信道</label>
+            <span class="label form-if-setHtml" id="radioChannel">--</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-7 control-label info-explain">底噪</label>
+            <span class="label form-if-setHtml" id="RadioNoiseFloor">--</span>
+        </div>
+    </div>
+</form>
+<div id="user_rc" 
+    DETAIL="详细信息", 
+    BTN='确定,取消', 
+    APINFO='AP列表,AP名称,射频,终端模式,接入时间,下线时间',
+    warn-list-header="设备名称,模块,严重级别,内容,告警时间",
+    ERROR="没有对应的MAC存在,无关联的AP历史,请输入IP地址"
+    STAINFO="终端指标详情,MAC地址,IP,rssi,AP,射频,协商速率,终端厂商"
+    LOGINFO="请先在设备日志页面打开日志开关">  
+    </div>
+    

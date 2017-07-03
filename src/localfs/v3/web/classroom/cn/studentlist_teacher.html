@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html  lang="cn">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="btn_h_return" id="return"></div>
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box">
+            <div class="box-footer">
+                <span class="title" id="studentType">学生信息</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="studentList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hide modal fade" id="ContactParentDlg">
+    <form id="Parent_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-2">学生姓名</div>
+            <div class="col-xs-9" id="studentName"></div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-2">家长1</div>
+            <div class="col-xs-9" id="parent1"></div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-2">家长2</div>
+            <div class="col-xs-9" id="parent2"></div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-2">家长3</div>
+            <div class="col-xs-9" id="parent3"></div>
+        </div>
+    </form>
+</div>
+
+<div id="student_rc" class="rc-define"
+     CLASS_LIST1="学生,年级,班号,到校时间"
+     CLASS_LIST2="学生,年级,班号,请假时间,请假原因"
+     CLASS_LIST3="学生,年级,班号,离校时间"
+     CLASS_LIST4="学生,年级,班号,心率"
+     CLASS_LIST5="学生,年级,班号,心率"
+     CLASS_LIST6="学号,姓名,班号,告警区域,告警时间"
+     CLASS_LIST7="学生,年级,班号,告警详情"
+     CLASS_LIST8="学生,年级,班号,告警详情"
+     EDIT_TITLE="导出,联系家长"
+     CONTACT_NAME="联系家长"
+     TITLE_TYPE="到校学生,请假学生,离校学生,心率过缓学生,心率过速学生,从未到校学生,紧急安全告警,重要安全告警,安全提示"
+     GRADE_TYPE1 = "一年级,二年级,三年级,四年级,五年级,六年级,七年级,八年级,九年级,十年级,十一年级,十二年级"
+     GRADE_TYPE2 = "初一,初二,初三"
+     GRADE_TYPE3 = "高一,高二,高三"
+     GRADE_TYPE4 = "初一,初二,初三,高一,高二,高三"
+
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.studentlist_teacher");
+</script>

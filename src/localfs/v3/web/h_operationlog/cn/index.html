@@ -1,0 +1,33 @@
+<html>
+
+<head>
+</head>
+
+<body>
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height default-bottom">
+            <div class="box-footer">
+                <span class="title">操作日志</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="operationLog_list" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="operationLog_rc" class="rc-define"
+     NET_ITEM = "操作员,时间操作,IP地址,模块名称,操作描述,操作结果,失败原因"
+     MODULENAME = "云端"
+     OPERATIONDEC = "登录用户"
+     OPERATIONRESULT = "成功"
+     FAILCAUSE = '场所"dddddddddddddd"与设备绑定'
+     FRESH = "刷新"
+        ></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_operationLog.index");
+</script>

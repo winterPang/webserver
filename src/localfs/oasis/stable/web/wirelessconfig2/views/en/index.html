@@ -1,0 +1,142 @@
+<div class="container-fluid" style="position:relative">
+
+
+	<div class="loading" ng-if="loading">
+		<label class="" ng-bind="message"></label>
+		<img src="images/icon_waiting_54x54.gif">
+	</div>
+
+
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div class="app-box no-height">
+                <div class="box-footer">
+                    <span class="title">Wireless Service Configuration</span>
+                </div>
+
+                <div class="box-body no-height" style="padding:0px 20px;">
+
+                    <!-- 声明 -->
+                    <div id="" style="margin:20px 0px 20px 0px;color:#3eb0a1;">
+                        <label>For a wireless service to take effect, please bind it to APs or AP groups.</label>
+                       <!--  <label>说明：服务模板，若未绑定AP或绑定AP组，此服务模板将不会生效；若要生效请手动绑定。</label> -->
+                    </div>
+
+                    <!-- 按钮 -->
+                    <div class="btn btn-cus" ng-click="addEvent()" ng-if="permission.write">
+                        <i class="btn-icon icon-add"></i>
+                        Add
+                    </div>
+                    <div id="syncBtn" class="btn btn-cus" ng-click="syncEvent()">
+                        Synchronize
+                    </div>
+
+                    <!-- 列表 -->
+                    <div bs-table="table_stList"></div>
+
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    
+    <!-- AP Group绑定弹框 -->
+    <div bs-modal="apgroupDialog">
+        <xotherpageofapgroup sn="sceneInfo.sn" stnamevalue="a.stnamevaluegive"></xotherpageofapgroup>            
+    </div>
+    
+
+    <!-- AP 绑定弹框 -->
+    <div bs-modal="apDialog">
+        <xotherpageofap sn="sceneInfo.sn" stnamevalue="a.stnamevaluegive"></xotherpageofap>            
+    </div>
+
+
+    <!-- SSID 详情弹框 -->
+    <div bs-modal="ssiddetailDialog">
+        <xotherpageofssid rowsvalue="b"></xotherpageofssid>            
+    </div>
+</div>
+
+<style>
+    .loading{
+        position: absolute;
+        z-index: 999999999;
+        background-color: rgba(0,0,0,0.6);
+        width: 100%;
+        height: 100%;
+        top:0;
+    }
+
+    .loading label{
+        font-size: 28px;
+        color:white;
+
+        position: absolute;
+        top: 35%;
+        left: 45%;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .loading img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+    }
+
+</style>
+
+    <div id="RC" class="rc-define"
+        stList_Text= "Service Name,SSID,Authentication Method,Status,Bound APs,Bound AP Groups"
+        SECONDS="Seconds"
+        SYN="Synchronize"
+
+        STATUS_onoff="Enabled, Disabled"
+        sureDelete="Are you sure you want to delete the selected item?"
+        OPTION_operate='Bind,Edit,Delete'
+        TITLE_dialog="Bound AP Group List,Bound APs,Wireless Services Details"
+        getDataFailed='Failed to obtain the binding information for this SSID.'
+
+        unbindAP_FAILED_NEEDApsn="Failed to delete the wireless service because the device runs on a low version. APs without a serial number cannot be unbound."
+        unbindAP_FAILED_3="Failed to delete the wireless service because the connection timed out during the AP unbinding process."
+        unbindAP_FAILED_4="Failed to delete the wireless service because the main connection was broken down during the AP unbinding process."
+        unbindAP_FAILED_Other="Failed to delete the wireless service because AP unbinding failed."
+
+        unbindAPGroup_FAILED_NeedModel=
+        "未能删除，此服务模板绑定了没有model的apgroup，这些apgroup无法解绑！"
+        unbindAPGroup_FAILED_3="Failed to delete the wireless service because the connection timed out during the AP group unbinding process."
+        unbindAPGroup_FAILED_4="Failed to delete the wireless service because the main connection was broken down during the AP group unbinding process."
+        unbindAPGroup_FAILED_Other='Failed to delete the wireless service because AP group unbinding failed.'
+
+        ssidDeleteFailed_noExist="Failed to delete the wireless service because the service template does not exist."
+        ssidDeleteFailed_isBind="Failed to delete the wireless service ,please unbind the service template first."
+        ssidDeleteFailed_3="Failed to delete the wireless service because the connection timed out."
+        ssidDeleteFailed_4="Failed to delete the wireless service because the main connection was broken down."
+        ssidDeleteFailed_Other='Failed to delete the wireless service.'
+
+        ssidDeleteOK="Deletion succeeded."
+        ssidDeleteOK_pubDeleteFailed='Deletion succeeded,But failed to delete the published template.'
+
+        syncFailed_low="Cannot synchronize the configuration because the device runs on a low version."
+        syncFailed_3="Synchronization failed because the connection timed out."
+        syncFailed_4="Synchronization failed because the main connection was broken down."
+        syncFailed_other="Synchronization failed."
+        syncOK="Synchronization succeeded."
+
+        TEXT_operate='Operation'
+        Close=",Close"
+
+        getST_fail="Failed to obtain service template information."
+        allPubInfoFail="Authentication method information cannot be displayed because the system failed to obtain publishment templates in batch."
+        allAuthInfoFail="Authentication method information cannot be displayed because the system failed to obtain authentication templates in batch."
+        AuthType_Text="No Authentication,Anonvmous Authentication,Account Authentication  , Fixed Account , Short Message , WeChat Official Account , WeChat Wi-Fi ,Account Authentication:,"   
+
+        deleteProcessing="Deleting"
+
+    >
+    </div>

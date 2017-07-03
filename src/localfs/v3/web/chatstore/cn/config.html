@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<div class="col-xs-12 app-colum">
+	        <div class="app-box no-height">
+	            <!-- 头部文件 -->
+	            <div class="box-footer">
+	           	   <!-- 左侧 -->
+	               <span class="title">门店设置</span>
+	               <!-- 右侧按钮 -->
+
+	            </div>
+				<!-- 表格内容 -->
+	            <div class="box-body no-height">
+					<table border="1" style="width: 100%">
+						<tr>
+							<td>门店设置</td>
+						</tr>
+					</table>
+					<div class="col-sm-4 col-sm-offset-4" style="margin-top: 30px">
+								<div class="form-group">
+									<label class="col-sm-3 control-label">SSID</label>
+									<div class="col-sm-9" id="WeChartSelect">
+										<select class="singleSelect"  id="ssidList" name="ssidList">
+										</select>
+									</div>
+								</div>
+							<!--	<div class="form-group">
+									<label class="col-sm-3 control-label">模板</label>
+									<div class="col-sm-9" id="WeChartSelect1">
+										<select class="singleSelect"  id="templateList" name="templateList">
+										</select>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="col-sm-3 control-label">文案</label>
+									<div class="col-sm-9" id="WeChartSelect2">
+										<select class="singleSelect"  id="docList" name="docList">
+										</select>
+									</div>
+								</div>-->
+								<button  id="wifiUpdate" class="btn btn-success" style="margin-left: 35%; margin-top: 15px;">
+									确定
+								</button>
+
+					</div>
+	            </div>
+				<div class="box-body no-height">
+					<table border="1" style="width: 100%">
+						<tr>
+							<td>二维码</td>
+						</tr>
+					</table>
+					<!-- 注释掉下载二维码的按钮-->
+						<!--<p>-->
+							<!--<a id="down" href="../frame/css/image/qr.png" download="../frame/css/image/qr.png">-->
+								<!--<button class="btn btn-success" style="margin: 10px">下载</button>-->
+							<!--</a>-->
+						<!--</p>-->
+						<input type="radio" id="chun" name="erweima" value="0" checked>纯二维码</input>
+						<input type="radio" id="wuliao" name="erweima" value="1">物料二维码</input>
+						<br>
+					<div align="center" id="img_erweima">
+						<p><img id="img" src="../frame/css/image/qr.png"></p>
+						<button id = "back_chatStore" class="btn btn-success" style=" margin-top: 35px;">返回</button>
+					</div>
+				</div>
+	        </div>
+    	</div>
+    	<!-- 定义变量 -->
+	    <div id="storeinfomation_rc" class="rc-define"
+	    		storeInfomation_HEADER = "门店名称,关联SSID,当前状态"
+	    		redirectBtn = "插入"
+			 	operateResilt = "配置成功，五分钟后才会生效,配置失败"
+			 	clear_Err = "清除设备门店失败"
+			 	docListStr = "欢迎光临+公众号名称,欢迎光临+门店名称,欢迎光临+公众号名称+WiFi,欢迎光临+门店名称+WiFi"
+				>
+    	</div>
+    	
+    </body>
+</html>
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("chatstore.config");
+</script>

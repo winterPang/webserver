@@ -1,0 +1,321 @@
+/**
+ * Created by liuyanping lkf6877 on 2017/6/05.
+ */
+.oasis-main-home .oasis-main-home-tree {
+  margin-top: -28px;
+  width: 220px;
+  background-color: #31495a;
+  color: #c4cebd;
+  position: absolute;
+  /*.ztree{
+      padding-left: 32px;
+      padding-bottom: 60px;
+      outline: none;
+      overflow-y: auto;
+      overflow-x: scroll;
+      ul{
+        margin: 0;
+        padding: 0 0 0 18px;
+      }
+      a{
+        color: #c4cebd;
+        font-size: 14px;
+        line-height: 34px;
+        &:hover{
+          color: #f27935;
+          cursor: pointer;
+          text-decoration: none;
+          //outline: none;
+        }
+      }
+      li{
+        outline: none;
+        background: url(../img/tree-dot.png) 8px 0 repeat-y;
+      }
+      span.button.root_open, span.button.root_close{
+        &+a{
+          !*line-height: 0;
+          margin: 0 10px 0 0;
+          width: 16px;
+          height: 16px;
+          display: inline-block;
+          vertical-align: middle;
+          border: 0 none;
+          cursor: pointer;
+          outline: none;*!
+          !*background-color: transparent;
+          background-repeat: no-repeat;
+          background-attachment: scroll;*!
+          span.ico_open{
+            width: 16px;
+            height: 16px;
+            display: inline-block;
+            vertical-align: middle;
+            cursor: pointer;
+            background: url(../img/tree-icon.png) no-repeat;
+            margin-right: 10px;
+          }
+          &:hover{
+            span.ico_open{
+              background-position: -130px 0;
+            }
+          }
+        }
+      }
+    }*/
+}
+.oasis-main-home .oasis-main-home-tree .up {
+  padding-top: 30px;
+  padding-bottom: 28px;
+  padding-left: 20px;
+}
+.oasis-main-home .oasis-main-home-tree .up .title {
+  font-size: 16px;
+  padding-left: 8px;
+  margin-bottom: 20px;
+  position: relative;
+}
+.oasis-main-home .oasis-main-home-tree .up .title:before {
+  content: "";
+  height: 16px;
+  width: 2px;
+  background-color: #c4cebd;
+  position: absolute;
+  left: 0;
+  top: 4px;
+}
+.oasis-main-home .oasis-main-home-tree .up .search {
+  width: 172px;
+  position: relative;
+}
+.oasis-main-home .oasis-main-home-tree .up .search input {
+  width: 172px;
+  border: none;
+  background-color: #465c6b;
+  padding-right: 36px;
+}
+.oasis-main-home .oasis-main-home-tree .up .search input::-webkit-input-placeholder {
+  color: #c4cebd;
+  font-size: 14px;
+}
+.oasis-main-home .oasis-main-home-tree .up .search input:-moz-placeholder {
+  color: #c4cebd;
+  font-size: 14px;
+}
+.oasis-main-home .oasis-main-home-tree .up .search input::-moz-placeholder {
+  color: #c4cebd;
+  font-size: 14px;
+}
+.oasis-main-home .oasis-main-home-tree .up .search input:-ms-input-placeholder {
+  color: #c4cebd;
+  font-size: 14px;
+}
+.oasis-main-home .oasis-main-home-tree .up .search span {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 36px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  background-color: rgba(196, 206, 189, 0.4);
+  color: #31495a;
+}
+.oasis-main-home .oasis-main-home-tree .bottom-btn {
+  position: absolute;
+  height: 54px;
+  width: 209px;
+  left: 0;
+  bottom: 12px;
+  background-color: #31495a ;
+}
+.oasis-main-home .oasis-main-home-tree .bottom-btn > div {
+  height: 24px;
+  width: 60px;
+  border-radius: 3px;
+  border: 1px solid #c4cebd;
+  margin-left: 80px;
+  margin-top: 15px;
+  cursor: pointer;
+  text-align: center;
+}
+.oasis-main-home .oasis-main-home-tree .bottom-btn > div:hover {
+  background-color: #428ace;
+  color: #f6f6f6;
+  border: 1px solid #428ace;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree {
+  padding-left: 32px;
+  padding-bottom: 60px;
+  overflow-y: auto;
+  overflow-x: scroll;
+  /*.ztree{
+        padding: 0;
+        margin: 0;
+        font-size: 14px;
+        color: #c4cebd;
+        li{
+          padding:0;
+          margin:0;
+          list-style:none;
+          text-align:left;
+          white-space:nowrap;
+          outline:0;
+          //background: url("../img/tree-dot.png") repeat-y 8px;
+          ul{
+            padding: 0 0 0 18px;
+            margin: 0;
+            background: url(../img/tree-dot.png) repeat-y 8px;
+          }
+          a{
+            color: #c4cebd;
+            font-size: 14px;
+            line-height: 34px;
+            cursor: pointer;
+            &:hover{
+              color: #f27935;
+              #treeDemo_1_switch{
+                background-position: -130px 1px;
+              }
+              span{
+                &[id$='_switch']{
+                  background-position: -150px -29px;
+                }
+              }
+            }
+            #treeDemo_1_switch{
+              display: inline-block;
+              width: 16px;
+              height: 16px;
+              vertical-align: middle;
+              margin-right: 10px;
+              background-image: url("../img/tree-icon.png");
+              background-position: 0px 1px;
+            }
+            span{
+              vertical-align: middle;
+              &[id$='_switch']{
+                display: inline-block;
+                width: 18px;
+                height: 18px;
+                vertical-align: middle;
+                margin-right: 10px;
+                background-image: url("../img/tree-icon.png");
+                background-position: -20px -29px;
+              }
+            }
+          }
+        }
+      }*/
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li span.button.level1_ico_open,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li span.button.level1_ico_close,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li span.button.level1_ico_docu {
+  margin-right: 10px;
+  background: url('../../frame/img/sprite.png') no-repeat -152px -357px;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li span.button.level2_ico_open,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li span.button.level2_ico_close,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li span.button.level2_ico_docu {
+  margin-right: 10px;
+  background: url('../../frame/img/sprite.png') no-repeat -173px -388px;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li span.button.level3_ico_open,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li span.button.level3_ico_close,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li span.button.level3_ico_docu {
+  margin-right: 10px;
+  background: url('../../frame/img/sprite.png') no-repeat -206px -388px;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li span.button.level4_ico_open,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li span.button.level4_ico_close,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li span.button.level4_ico_docu {
+  margin-right: 10px;
+  background: url('../../frame/img/sprite.png') no-repeat -238px -388px;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li span.button.switch {
+  height: 34px;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li span.button.switch[class*=open],
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li span.button.switch[class*=close] {
+  margin-top: 8px;
+  height: 22px;
+  background-position-y: -33px;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li span.button.center_docu {
+  background-position-y: -10px;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li span.button.bottom_docu {
+  background-position-y: -28px;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a {
+  height: 34px;
+  line-height: 34px;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a .node_name {
+  color: #c4cedb;
+  font-size: 14px;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a:hover {
+  text-decoration: none;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a:hover .node_name {
+  color: #f27935;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a:hover span.button.level1_ico_open,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a:hover span.button.level1_ico_close,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a:hover span.button.level1_ico_docu {
+  margin-right: 10px;
+  background: url('../../frame/img/sprite.png') no-repeat -282px -357px;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a:hover span.button.level2_ico_open,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a:hover span.button.level2_ico_close,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a:hover span.button.level2_ico_docu {
+  margin-right: 10px;
+  background: url('../../frame/img/sprite.png') no-repeat -303px -388px;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a:hover span.button.level3_ico_open,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a:hover span.button.level3_ico_close,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a:hover span.button.level3_ico_docu {
+  margin-right: 10px;
+  background: url('../../frame/img/sprite.png') no-repeat -336px -388px;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a:hover span.button.level4_ico_open,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a:hover span.button.level4_ico_close,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a:hover span.button.level4_ico_docu {
+  margin-right: 10px;
+  background: url('../../frame/img/sprite.png') no-repeat -368px -388px;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a.curSelectedNode {
+  padding-top: 1px;
+  height: 34px;
+  line-height: 34px;
+  border: none;
+  background-color: #31495a;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a.curSelectedNode .node_name {
+  color: #f27935;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a.curSelectedNode span.button.level1_ico_open,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a.curSelectedNode span.button.level1_ico_close,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a.curSelectedNode span.button.level1_ico_docu {
+  margin-right: 10px;
+  background: url('../../frame/img/sprite.png') no-repeat -282px -357px;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a.curSelectedNode span.button.level2_ico_open,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a.curSelectedNode span.button.level2_ico_close,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a.curSelectedNode span.button.level2_ico_docu {
+  margin-right: 10px;
+  background: url('../../frame/img/sprite.png') no-repeat -303px -388px;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a.curSelectedNode span.button.level3_ico_open,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a.curSelectedNode span.button.level3_ico_close,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a.curSelectedNode span.button.level3_ico_docu {
+  margin-right: 10px;
+  background: url('../../frame/img/sprite.png') no-repeat -336px -388px;
+}
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a.curSelectedNode span.button.level4_ico_open,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a.curSelectedNode span.button.level4_ico_close,
+.oasis-main-home .oasis-main-home-tree .oasis-home-ztree .ztree li a.curSelectedNode span.button.level4_ico_docu {
+  margin-right: 10px;
+  background: url('../../frame/img/sprite.png') no-repeat -368px -388px;
+}

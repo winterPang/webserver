@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	
+	<link href="../smartcity/terminalmeasure/css/measure.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="col-xs-12 app-colum">
+    	<div class="app-box no-height">
+	        <div class="box-footer">
+	            <span class="title">终端测量</span>
+	        </div>
+					<div id="measure">
+						<input id="input_mac"  maxlength="14" placeholder="客户端MAC：xxxx-xxxx-xxxx" ng-model="macnr"></input>
+						<button id="measure_btn" ng-click="measure()">测量</button>
+						<a class="xb-link" title="选择客户端" ng-click="choose()" id="chois">筛选</a>
+						
+						
+					</div>
+					<div id="Test11kContent">
+						<div id="Test11kTitleResult" ng-model="Test11kTitleResult">{{Test11kTitleResult}}</div>
+						<div>
+						<div id="measureResult" ng-model="measureResult">{{measureResult}}</div> <!--这个位置显示 WRRM--> 
+							<table ng-show="measureResult_table_show">
+								<tr ng-show="Linkmargin_show">
+								<td>Linkmargin</td> <td ng-model="Linkmargin">{{Linkmargin}}</td>
+								</tr>
+								<tr ng-show="RCPI_show">
+								<td>RCPI</td>  <td ng-model="RCPI">{{RCPI}}</td>
+								</tr>
+								<tr ng-show="RSNI_show">
+								<td>RSNI</td>  <td ng-model="RSNI">{{RSNI}}</td>
+								</tr>
+								<tr ng-show="AntennaID_show">
+								<td>AntennaID</td>  <td ng-model="AntennaID">{{AntennaID}}</td>
+								</tr>
+								<tr ng-show="ANPI_show">
+								<td>ANPI</td>  <td ng-model="ANPI">{{ANPI}}</td>
+								</tr>
+								<tr ng-show="IPI0210_show">
+								<td>IPI0210</td>  <td ng-model="IPI0210">{{IPI0210}}</td>
+								</tr>
+								<tr ng-show="Transmitpower_show">
+								<td>Transmitpower</td>  <td ng-model="Transmitpower">{{Transmitpower}}</td>
+								</tr>
+								<tr ng-show="BSS_show">
+								<td>BSS</td>   <td ng-model="BSS">{{BSS}}</td>
+								</tr>
+								<tr ng-show="OFDM_show">
+								<td>OFDM</td>  <td ng-model="OFDM">{{OFDM}}</td>
+								</tr>
+								<tr ng-show="Radar_show">
+								<td>Radar</td>  <td ng-model="Radar">{{Radar}}</td>
+								</tr>
+								<tr ng-show="Unsignal_show">
+								<td>Unsignal</td>  <td ng-model="Unsignal">{{Unsignal}}</td>
+								</tr>
+								<tr ng-show="CCA_show">
+								<td>CCA</td>  <td ng-model="CCA">{{CCA}}</td>
+								</tr>
+								<tr ng-show="RPI027_show">
+								<td>RPI027</td>  <td ng-model="RPI027">{{RPI027}}</td>
+								</tr>
+								<tr ng-show="BSSID_show">
+								<td>BSSID</td>  <td ng-model="BSSID">{{BSSID}}</td>
+								</tr>
+								<tr ng-show="PHY_show">
+								<td>PHY</td>  <td ng-model="PHY">{{PHY}}</td>
+								</tr>
+								<tr ng-show="AverageRCPI_show">
+								<td>AverageRCPI</td>  <td ng-model="AverageRCPI">{{AverageRCPI}}</td>
+								</tr>
+								<tr ng-show="LastRSNI_show">
+								<td>LastRSNI</td>  <td ng-model="LastRSNI">{{LastRSNI}}</td>
+								</tr>
+								<tr ng-show="LastRCPI_show">
+								<td>LastRCPI</td>  <td ng-model="LastRCPI">{{LastRCPI}}</td>
+								</tr>
+								<tr ng-show="Frames_show">
+								<td>Frames</td>  <td ng-model="Frames">{{Frames}}</td>
+								</tr>
+								<tr ng-show="AveAc_show">
+								<td>AveAc</td>  <td ng-model="AveAc">{{AveAc}}</td>
+								</tr>
+								<tr ng-show="Be_show">
+								<td>Be</td>  <td ng-model="Be">{{Be}}</td>
+								</tr>
+								<tr ng-show="Bk_show">
+								<td>Bk</td>  <td ng-model="Bk">{{Bk}}</td>
+								</tr>
+								<tr ng-show="Vi_show">
+								<td>Vi</td>  <td ng-model="Vi">{{Vi}}</td>
+								</tr>
+								<tr ng-show="Vo_show">
+								<td>Vo</td>  <td ng-model="Vo">{{Vo}}</td>
+								</tr>
+								<tr ng-show="QosClients_show">
+								<td>QosClients</td>  <td ng-model="QosClients">{{QosClients}}</td>
+								</tr>
+								<tr ng-show="Channelutilizationrate_show">
+								<td>Channelutilizationrate</td>  <td ng-model="Channelutilizationrate">{{Channelutilizationrate}}</td>
+								</tr>
+								<tr ng-show="TrafficID_show">
+								<td>TrafficID</td>  <td ng-model="TrafficID">{{TrafficID}}</td>
+								</tr>
+								<tr ng-show="SentMSDUs_show">
+								<td>SentMSDUs</td>  <td ng-model="SentMSDUs">{{SentMSDUs}}</td>
+								</tr>
+								<tr ng-show="DiscardedMSDUs_show">
+								<td>DiscardedMSDUs</td>  <td ng-model="DiscardedMSDUs">{{DiscardedMSDUs}}</td>
+								</tr>
+								<tr ng-show="FailedMSDUs_show">
+								<td>FailedMSDUs</td>  <td ng-model="FailedMSDUs">{{FailedMSDUs}}</td>
+								</tr>
+								<tr ng-show="MSDUsTimes_show">
+								<td>MSDUsTimes</td>  <td ng-model="MSDUsTimes">{{MSDUsTimes}}</td>
+								</tr>
+								<tr ng-show="LostQoSCFPolls_show">
+								<td>LostQoSCFPolls</td>  <td ng-model="LostQoSCFPolls">{{LostQoSCFPolls}}</td>
+								</tr>
+								<tr ng-show="Averagequeuedelay_show">
+								<td>Averagequeuedelay</td>  <td ng-model="Averagequeuedelay">{{Averagequeuedelay}}</td>
+								</tr>
+								<tr ng-show="Averagetransmitdelay_show">
+								<td>Averagetransmitdelay</td>  <td ng-model="Averagetransmitdelay">{{Averagetransmitdelay}}</td>
+								</tr>
+								<tr ng-show="Bin0rangePolls_show">
+								<td>Bin0rangePolls</td>  <td ng-model="Bin0rangePolls">{{Bin0rangePolls}}</td>
+								</tr>
+								<tr ng-show="Bin025_show">
+								<td>Bin025</td>  <td ng-model="Bin025">{{Bin025}}</td>
+								</tr>
+								
+								
+							</table>
+						</div>
+					</div>
+					<div id="rfpingContent">
+						<div>
+							<table>
+								<tbody id="rfpingResult" ng-show="rfpingResult_show">
+								  <tr ng-model="rfpingTitle">
+										<th>MCS</th>
+										<th>Rate(Mbps)</th>
+										<th>Tx/Rx</th>
+										<th>RSSI</th>
+										<th>RTT(ms)</th>
+									</tr>
+									<tr ng-repeat="item in items"> 
+										<td>{{$index}}</td>
+										<td>{{item.TxRate}}</td>
+										<td>{{item.TxPktCnt}}/{{item.RxPktCnt}}</td>
+										<td>{{item.Rssi}}</td>
+										<td>{{item.Rtt}}</td>
+									</tr>
+								</tbody>
+								<tbody>
+								  <tr>
+										<td ng-model="rfpingFailedInfo" ng-show="rfpingFailedInfo_show">{{rfpingFailedInfo}}</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div id="maintainpingContent">
+						<div>
+							<table>
+								<tbody id="maintainpingResult"  ng-show="maintainpingResult_show">
+									<tr id="maintainpingTitle">
+										<th>AC-PING-AP(ms)</th>
+										<th>AC-PING-WEB(ms)</th>
+									</tr>
+								</tbody>
+								<tbody id="maintainpingAvgResult"  ng-show="maintainpingAvgResult_show">
+									<tr id="maintainpingAvgTitle" >
+										<th>average(ms)</th>
+										<th>average(ms)</th>
+									</tr>
+								</tbody>
+								<tbody>
+									<tr ng-show="maintainpingFailedInfo_show">
+										<td ng-bind="maintainpingFailedInfo"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+    	</div>
+	</div>
+
+	<div bs-modal="options">
+	
+			<div bs-table="apgroup_table"></div>
+        </div>
+	
+	
+	<div id="RC"
+	TERNIMAL_LIST_HEADER = "MAC地址,IP地址,无线服务,AP,终端厂商,终端类型,测量类型"
+	MODAL_HEADER = "客户端"
+	>
+	</div>
+</body>
+</html>

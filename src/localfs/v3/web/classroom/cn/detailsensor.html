@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+    </style>
+</head>
+<body>
+<div class="btn_h_return" id="return"></div>
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title" id="room_name"></span>
+            </div>
+            <div class="box-body no-height">
+                <div id="room-detail" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hide modal fade" id="AddDlg">
+    <form id="add_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">传感器MAC</label>
+            <div class="col-sm-9">
+                <select class="singleSelect required" id="sensorID" name="classAP" errid="classAP_error"></select>
+                <label class="info-explain"></label>
+                <label class="error" id="classAP_error"></label>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+<div id="sensor_rc" class="rc-define"
+     SENSOR_HEAD="传感器MAC,传感器名称,温度(℃),湿度(g/m³),含氧量(%)"
+     Detail="详情"
+></div>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.detailsensor");
+</script>

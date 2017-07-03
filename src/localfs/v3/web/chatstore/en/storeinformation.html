@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<div class="col-xs-12 app-colum">
+	        <div class="app-box no-height">
+	            <!-- 头部文件 -->
+	            <div class="box-footer">
+	           	   <!-- 左侧 -->
+	               <span class="title">Import Applied Store</span>
+	               <!-- 右侧按钮 -->
+	               <div class="text-right link-container">
+						<!-- <a type="button" class="filter" id="filter_weixinstore">
+							<i class="filter-icon icon"></i>
+						</a> -->
+		                <div id="weixinstore_block" >
+			            	<div class="filter-container" style="border: none;background: #EDF9F7;box-shadow: none;height: 50px;top: -10px;right: -2px;">
+			            		<label>Select WeChat official account:</label>
+			            		<select id="PublicWeixin" name="SetfigUpport" class="singleSelect"big></select>
+			            	</div>
+			            </div>
+	            	</div>	  
+	            </div>
+				<!-- 表格内容 -->
+	            <div class="box-body no-height">
+	                <div id="storeinfomationList" class="simple-list"></div>
+	            </div>
+	        </div>	
+    	</div>
+    	<!-- 定义变量 -->
+	    <div id="storeinfomation_rc" class="rc-define"
+			storeInfomation_HEADER = "Store Name, SSID, Status"
+			comeback="Back"
+			redirectBtn = "插入"
+            updateResult = "Importing succeeded, Importing failed"
+            shopExist = "The store already exists"
+            getLvzhouwifi_Err = "Store query failed"
+            poiIdNotExist_Err = "The store does not exist"
+            getLvzhouShop_Err = "Store query failed"
+            WechatNotFind = "The WeChat official account does not exist"
+            available_state="System error, Reviewing, Approved, Rejected"
+            insertSuc = "Store information imported successfully"
+            insertWifiShopFail = "Failed to import store information for WeChat Wi-Fi"
+            insertShopFail = "Failed to import store information"
+			GET_WX_SHOP_LIST = "Obtaining WeChat store list…"
+            > 
+    	</div>
+    	
+    </body>
+</html>
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("chatstore.storeinfomation");
+</script>

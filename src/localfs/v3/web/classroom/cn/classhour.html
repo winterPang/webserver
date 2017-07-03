@@ -1,0 +1,308 @@
+<html>
+<head>
+<style type="text/css">
+#ClassPanel{
+    display: flex;
+    display: -moz-flex;
+    display: -webkit-flex;
+}
+ 
+#ClassPanel>div.app-box{
+    border: 1px solid #e7e7e9;
+    margin-bottom: 20px;
+    background: #fff;
+}
+#ClassPanel>div.app-box:first-child{
+    flex:1 1 200px;
+    margin-right: 20px;
+}
+#ClassPanel>div.app-box:last-child{
+    flex:4 4 600px;
+    position: relative;
+}
+
+#ClassPanel>div.app-box .box-body{
+    height: auto;
+}
+
+#ClassPanel .app-box .box-footer .tool-btn{
+    float: right;
+    margin-right: 14px;
+    text-decoration: underline;
+    cursor: pointer;
+}
+#ClassPanel .app-box .box-footer .tool-btn:hover{
+    color: #4EC1B2;
+}
+#StuList {
+    text-align: center;
+    vertical-align: top;
+}
+#StuList .stu-item{
+    display: inline-block;
+    width: 58px;
+    min-height: 70px;
+    margin-right: 18px;
+    margin-bottom: 20px;
+    position: relative;
+    vertical-align: top;
+}
+#StuList .stu-icon{
+    width: 45px;
+    height:45px;
+    /*border: 2px solid #EDF9F7;*/
+    /*border-radius: 40px;*/
+    display: block;
+    cursor: pointer;
+    background:url(../frame/css/image/smartschool.png) -318px -358px;
+}
+#StuList .off-set .stu-icon{
+    /*filter: grayscale(100%);*/
+    /*-webkit-filter: grayscale(100%);*/
+    /*-moz-filter: grayscale(100%);*/
+    display:inline-block;
+    background:url(../frame/css/image/smartschool.png) -318px -430px;
+}
+#StuList .stu-icon.h-over{
+    transform: rotateY(720deg);
+    transition: 1.5s;
+    transform-style: preserve-3d;
+}
+#StuList .stu-name{
+    word-break:break-all;
+    display:inline-block;
+}
+/*#StuList .stu-edit{*/
+    /*float: none;*/
+    /*vertical-align: middle;*/
+    /*line-height: 8px;*/
+    /*margin-left: 2px;*/
+    /*cursor: pointer;*/
+    /*margin-top: 0;*/
+    /*display: none;*/
+/*}*/
+/*#StuList .stu-edit:hover{*/
+    /*color: #4EC1B2;*/
+/*}*/
+/*#StuList .stu-item:hover .stu-edit{*/
+    /*display: inline-block;*/
+    /*position: absolute;*/
+    /*top: 40px;*/
+    /*right: -8px;*/
+/*}*/
+#StuList .stu-hand{
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    right: 0;
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+}
+/*举手状态*/
+#StuList .stu-item.active .stu-hand{
+    animation-name: twinkle;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    /* Firefox: */
+    -moz-animation-name: twinkle;
+    -moz-animation-duration: 1s;
+    -moz-animation-timing-function: linear;
+    -moz-animation-delay: 0s;
+    -moz-animation-iteration-count: infinite;
+    /* Safari 和 Chrome: */
+    -webkit-animation-name: twinkle;
+    -webkit-animation-duration: 1s;
+    -webkit-animation-timing-function: linear;
+    -webkit-animation-delay: 0s;
+    -webkit-animation-iteration-count: infinite;
+    /* Opera: */
+    -o-animation-name: twinkle;
+    -o-animation-duration: 1s;
+    -o-animation-timing-function: linear;
+    -o-animation-delay: 0s;
+    -o-animation-iteration-count: infinite;
+}
+
+#HandTop .top-item{
+    height: 65px;
+    width: 100%;
+    padding: 5px 10px 5px 5px;
+    border-radius: 5px;
+}
+
+#HandTop .top-item:hover{
+    background: #EEF3F2;
+}
+
+#HandTop .top-icon{
+    width: 43px;
+    height: 43px;
+    float: left;
+    border: 2px solid #EDF9F7;
+    border-radius: 20px;
+}
+#HandTop .top-name{
+    line-height: 50px;
+    font-size: 14px;
+    margin-left: 5px;
+}
+
+#HandTop .top-infor{
+    min-width: 50px;
+    height: 50px;
+    float: right;
+    text-align: center;
+}
+#HandTop .top-infor span{
+    display: block;
+}
+
+/*
+    top文字
+*/
+#HandTop .top-infor .top-ranking{
+    color: #4EC1B2;
+    font-weight: bolder;
+    font-style: italic;
+    font-size: 20px;
+}
+
+#SetStu_form .head-field{
+    text-align: center;
+}
+#SetStu_form .head-field img{
+    width: 120px;
+    height: 120px;
+    border: 1px solid #4DC1B2;
+}
+
+#ClassPanel .class-link{
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+@-webkit-keyframes twinkle{
+    50%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+
+}
+@media (max-width: 1280px)
+{
+    #ClassPanel .app-colum{
+        float: left;
+        clear: none;
+    }
+
+    #ClassPanel .app-colum.col-xs-3 {
+        width: 25%;
+    }
+    #ClassPanel .app-colum.col-xs-9 {
+        width: 75%;
+    }
+}
+
+
+</style>
+</head>
+<body>
+<div class="btn_h_return" id="iBack"></div>
+<div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+        <div class="app-box wrap_c" style="cursor:pointer" id="emegency_id">
+            <div class="box-footer">
+                <span class="title">教室环境</span>
+                <div class="text-right link-container">
+                    <label class="number-title">当前班级</label>
+                    <span>:</span>
+                    <a type="button" class="xb-link" id="CurClass" style="padding-bottom:10px;text-decoration: none;"></a>
+                </div>
+            </div>
+            <div class="box-body body-box  body-nopadding"  style="height:200px;">
+                <div class="col-xs-4" style="text-align:center; margin-top:10px;">
+                    <span style="font-size:20px;">温度</span>
+                    <div style="margin-top:20px;"><img style="height:100px;" src="css/image/temperature.png"/></div>
+                    <div>
+                        <div class="col-xs-4 col-xs-offset-2">
+                            <span style="font-size:20px;">较热</span>
+                        </div>
+                        <div class="col-xs-4" style="height:30px;border-left:2px solid #cdcdc1">
+                            <div id="tem_id" style="font-size:20px;"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4" style="text-align:center; margin-top:10px;">
+                    <span style="font-size:20px;">湿度</span>
+                    <div style="margin-top:20px;"><img style="height:100px;" src="css/image/wet.png"/></div>
+                    <div>
+                        <div class="col-xs-4 col-xs-offset-2">
+                            <span style="font-size:20px;">适宜</span>
+                        </div>
+                        <div class="col-xs-4" style="height:25px;border-left:2px solid #cdcdc1">
+                            <div style="font-size:20px;">60%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-4" style="text-align:center; margin-top:10px;">
+                    <span style="font-size:20px;">空气质量</span>
+                    <div style="margin-top:20px;"><img style="height:100px;" src="css/image/leaf.png"/></div>
+                    <div>
+                        <div class="col-xs-4 col-xs-offset-2">
+                            <span style="font-size:20px;">良好</span>
+                        </div>
+                        <div class="col-xs-4" style="height:25px;border-left:2px solid #cdcdc1">
+                            <div style="font-size:20px;">39</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-row class-row" id="ClassPanel">
+    <div class="app-box wrap_c">
+        <div class="box-footer">
+            <span class="title">今日举手排名</span>
+            <!-- <span class="tool-btn">清空</span> -->
+
+        </div>
+        <div class="box-body">
+            <div id="HandTop"></div>
+        </div>
+    </div>
+
+    <div class="app-box wrap_c">
+        <div class="box-footer">
+            <span class="title">学生列表</span>
+        </div>
+        <div class="box-body">
+            <div id="StuList"></div>
+            <!--<div id="PageBar">-->
+                <!--<a class="page-btn last">上一页</a>-->
+                <!--<ul cur="1" total="1"></ul>-->
+                <!--<a class="page-btn next">下一页</a>-->
+            <!--</div>-->
+
+        </div>
+    </div>
+</div>
+
+    
+<div id="c_room_rc" class="rc-define"
+    STU_NAME=",大高个男,邸志伟,范晓坤,巩志涛,何学斌,金鸿婷,李刚,刘超,刘宏伟,柳天骄,庞立东,秦顺宇,任文慧,田文文,王丙志,王琳凯,王宇,袁粤坤,张来玉,张明,长头发女,赵廷海"
+    TIME="次"
+    STU_TITLE="修改学生信息"
+    REQ_ERROR="数据请求错误，请您刷新页面重试。"
+    CHANGE_TITLE="切换班级"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.classhour");
+</script>

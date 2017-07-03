@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">配置模板</span>
+            </div>
+            <div class="box-body no-height">
+	            <div class="btn btn-cus" ng-click="create()">创建</div>	            
+	            <button class="btn btn-cus" ng-click="delete()" ng-disabled="auth">删除</button>
+	            <div bs-Table="options"></div>	            
+	        </div>
+        </div>
+    </div>
+</div>  
+
+<div class="col-xs-12 app-colum" bs-modal = "applycount">
+    <div bs-Table="apply"></div>
+</div>
+
+<div class="col-xs-12 app-colum" bs-modal = "modalRelieve">
+    <div bs-Table="tableRelieve"></div>
+</div>
+                                               
+<div id="user_rc" class="rc-define"
+    Visitor_LIST_HEADER = "模板名称,描述,应用的设备数量"
+	Visitor_LIST = "设备名,devSN,设备应用的模板,设备应用模板时间"
+    LIST_QOSMODE = "删除成功"
+    LIST_QOS = "删除失败"
+    SUCCESS_SUC = "应用模板成功"
+    FAL_MODEL = "绑定模板成功,设备请求超时"
+    FAL_OVER = "云端请求成功，设备侧响应失败,绑定设备成功"
+    FAILED_FAI = "应用模板失败"
+    DELET_SUC = "解除应用模板成功"
+    DELET_FAI = "解除应用模板失败"
+    oprater = "操作"
+    amend = "修改"
+    apply = "应用"
+    customer = "解除"
+    custom = "解除应用"
+    close ="关闭"
+    equipment = "设备列表"
+    modalRelieved = "设备应用模板列表"
+    >
+</div>

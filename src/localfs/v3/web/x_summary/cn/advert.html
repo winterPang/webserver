@@ -1,0 +1,184 @@
+<html>
+
+<head>
+</head>
+<style>
+    #reDevSelect .scenes_panel{
+        top:6px;
+        left:15px;
+        position:absolute !important;
+        background:#EDF9F7 !important;
+        border:none !important;;
+
+    }
+    #reDevSelect #switchScenesBtn{
+        margin:10px 0;
+    }
+    #reDevSelect .scenes_panel_content{
+        margin-bottom:42px;
+        padding:0 !important;
+    }
+    #reDevSelect select{
+        width:100% !important;
+    }
+    #reDevSelect .form-group{
+        line-height:35px !important;
+    }
+</style>
+<body>
+    <div class="page-row xxb">
+
+        <div class="col-xs-12 app-colum ">
+            <div class="page-row xxb" id="reDevSelect">
+                <div class="col-xs-12 app-colum">
+                    <div class="app-box">
+                        <div class="box-footer">
+                            <div id="scene-contain" class="change_scenes">
+                                <div class="change_scenes_trigger change_station" style="visibility:hidden;" id="change_scenes_trigger">
+                                    <!--<span class="fa fa-sort-down"></span>-->
+                                    <span class="glyphicon-transfer glyphicon"></span>
+                                    <span class="pos" id="switch-text">设备切换</span>
+                                </div>
+                                <div class="scenes_panel ng-show" id="scenes_panel" name="scenes_panel">
+                                    <div class="scenes_panel_content">
+                                        <div class="form-group hide">
+                                            <label class="col-xs-3 control-label hide"><span id="switch-shop"></span>选择设备：</label>
+                                            <div class="col-xs-9">
+                                                <select id="selectedScene" class="select"></select>
+                                            </div>
+                                        </div>
+                                        <div class="form-group" id="device-contain">
+                                            <label class="col-xs-3 control-label"><span id="switch-device"></span>：</label>
+                                            <div class="col-xs-9">
+                                                <select id="devSn" class="select"></select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="scenes_panel_footer">
+                                        <button class="btn btn-cus hide" id="switchScenesBtn">确认</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 app-colum" debug="getAdMessage">
+            <div class="app-box no-height default-bottom">
+                <div class="box-footer">
+                    <span class="title">概况</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="link-send hidemodify" id="a_history">
+                            <span>导出</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body no-height">
+                    <div id="basic_slist" class="simple-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="page-row xxb">
+        <div class="col-xs-12 app-colum" debug="getAdvertBySpan">
+            <div class="app-box">
+                <div class="box-footer">
+                    <span class="title">广告展示统计</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="link-send" id="todayAd">
+                            <span>今天</span>
+                        </a>
+                        <span>|</span>
+                        <a type="button" class="link-receive" id="yesterdayAd">
+                            <span>昨天</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body">
+                    <div class="form-group col-sm-12">
+                        <div class="radio_styles radio-group">
+                            <div class="col-sm-1">
+                                <input type="radio" name="advert-info" id="pv" checked>
+                                <label for="pv">浏览量</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <input type="radio" name="advert-info" id="pu">
+                                <label for="pu">访客数</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <input type="radio" name="advert-info" id="clickCount">
+                                <label for="clickCount">点击数</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <input type="radio" name="advert-info" id="ctr">
+                                <label for="ctr">点击率</label>
+                            </div>
+                        </div>
+                        <div id="adShowCount" class="myEchart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-row xxb">
+        <div class="col-xs-12 app-colum" debug="getAdMessage">
+            <div class="app-box no-height default-bottom">
+                <div class="box-footer">
+                    <span class="title">受访页面</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="link-send" id="todayPage">
+                            <span>今天</span>
+                        </a>
+                        <span>|</span>
+                        <a type="button" class="link-receive" id="yesterdayPage">
+                            <span>昨天</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body no-height">
+                    <div id="detail_slist" class="simple-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <!--<form class="modal fade modal-super dashboard in hide" id="history_details" debug="getAdMessage">
+        <div class="modal-header">
+            <button id="his_close" type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">历史记录</h3>
+        </div>
+        <div class="modal-body">
+            <div class="box" id="wifi-terminal">
+                <div class="box-body no-height">
+                    <div id="history_slist" class="simple-list"></div>
+                </div>
+            </div>
+        </div>
+        <iframe id="exportFile" name="exportFile" class="hide"></iframe>
+    </form>-->
+
+        <iframe id="exportFile" name="exportFile" class="hide"></iframe>
+
+    <div id="x_adAnalysisi_rc" class="rc-define" BASIC_ITEM=" ,浏览量,访客数,点击数,点击率,平均访问时长"  HISTORY_ITEM=" 日期,浏览量,访客数,点击数,点击率" DETAIL_ITEM="页面URL,浏览量,访客数,点击数,点击率,平均停留时间"
+    TODAY="今天" YESTERDAY="昨天" TIME='今天,昨天' HISTORYAVG="历史平均" OTHER="其它" TOTAL="当页汇总" EXPORT="导出" EXPORT1="导入"
+    pv="浏览量"
+    pu="访客数"
+    clickCount="点击数"
+    ctr="点击率"
+    DRAW_AD_SHOW_NAME="广告展示"
+         DATA_TEXT="数据是data"
+         switchBtn="切换场所"
+    ></div>
+</body>
+
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_summary.advert");
+
+</script>

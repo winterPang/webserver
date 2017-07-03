@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="dashboard">
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">绑定数量</span>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div class="myEchart" id="radioCount" style="height:260px"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">入侵检测功能</span>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div class="myEchart" id="intrusionCheck" style="height:260px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">身份认证</span>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div class="myEchart" id="identify" style="height:260px"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">零漫游功能</span>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div class="myEchart" id="roam" style="height:260px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">用户隔离功能</span>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div class="myEchart" id="quarantine" style="height:260px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    Utils.Pages.loadJS("maintain.analyse_ssid");
+</script>

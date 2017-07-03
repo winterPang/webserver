@@ -1,0 +1,187 @@
+<div class="page-row custom">
+    <div class="col-xs-12 app-colum">
+        <div class="col-xs-12 app-box">
+            <div class="box-footer">
+                 <div class="menu-content select-time col-xs-9">
+                    <span class="ml20">Period：</span>
+                    <input type="radio" name="time" class="no-display" id="aDay" ng-click="initViewsByTime('aDay')" checked />
+                    <label for="aDay" ng-class="{true:'timeActive',false:'inTimeActive'}[isDay]">Today</label>
+                    <input type="radio" name="time" class="no-display" id="aWeek" ng-click="initViewsByTime('aWeek')" /> 
+                    <label for="aWeek" ng-class="{true:'timeActive',false:'inTimeActive'}[isWeek]">One week</label>
+                    <input type="radio" name="time" class="no-display" id="aMonth" ng-click="initViewsByTime('aMonth')"/>
+                    <label for="aMonth" ng-class="{true:'timeActive',false:'inTimeActive'}[isMonth]">One month</label>
+                    <input type="radio" name="time" class="no-display" id="aYear" ng-click="initViewsByTime('aYear')" /> 
+                    <label for="aYear" ng-class="{true:'timeActive',false:'inTimeActive'}[isYear]">One year</label>
+                    <input type="radio" name="time" class="no-display" id="otherTime" disabled />
+                    <label for="otherTime" ng-class="{true:'otherTimeActive',false:'inOtherTimeActive'}[isOther]">Custom</label>
+                    <input id="daterange" class="daterange time-select date_input" ctrl="daterang">
+                </div>
+                <div class="text-right link-container">
+                    <a type="button" class="link-detail" ui-sref="^.wiresecurit_rz" title="Details">
+                        <span class="glyphicon glyphicon-th-list"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 app-box">
+            <div class="statistics-table col-xs-12">
+                <table class="col-xs-12 table-height">
+                    <tr>
+                        <td class="col-xs-2">
+                            <div class="border-right">
+                                <span class="detail-icon position-one"></span>
+                                <div class="statistic-text">
+                                    <div class="em-color">{{clientNum}}</div>
+                                    <div>Clients</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-xs-2">
+                            <div class="border-right">
+                                <span class="detail-icon position-two"></span>
+                                <div class="statistic-text">
+                                    <div class="em-color">{{unauthorClientNum}}</div>
+                                    <div>Unauthorized Clients</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-xs-2">
+                            <div class="border-right">
+                                <span class="detail-icon position-three"></span>
+                                <div class="statistic-text">
+                                    <div class="em-color">{{APNum}}</div>
+                                    <div>APs</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-xs-2">
+                            <div class="border-right">
+                                <span class="detail-icon position-four"></span>
+                                <div class="statistic-text">
+                                    <div class="em-color">{{rougeAPNum}}</div>
+                                    <div>Rouge APs</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-xs-2">
+                            <div class="border-right">
+                                <span class="detail-icon position-five"></span>
+                                <div class="statistic-text">
+                                    <div class="em-color">{{attackTimes}}</div>
+                                    <div>Attacks</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-xs-2">
+                            <div class="last">
+                                <span class="detail-icon position-six"></span>
+                                <div class="statistic-text">
+                                    <div class="em-color">{{ctmTimes}}</div>
+                                    <div>Counterplan</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-xs-12 app-box no-bk-color no-overflow">
+            <div class="box-footer col-xs-12">
+                <div class="col-xs-3">
+                    <span class="title">Attack Information</span>
+                </div>
+                <div class="col-xs-3">
+                    <span class="title">Severe</span>
+                    <span class="text-right">{{countSeriousAttackTimes+"（Times）"}}</span>
+                </div>
+                <div class="col-xs-3">
+                    <span class="title">Flood attacks</span>
+                    <span class="text-right">{{countFloodAttackTimes + "（Times）"}}</span>
+                </div>
+                <div class="col-xs-3">
+                    <span class="title">Malformed packets</span>
+                    <span class="text-right">{{countAbnormalPacketTimes + "（Times）"}}</span>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="col-xs-3">
+                    <div class="view-height" id="AttackInfoPie"></div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="view-height" id="SeriousAttackChart"></div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="view-height" id="FloodAttack"></div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="view-height" id="AbnormalPacketChart"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 app-box no-bk-color no-overflow">
+            <div class="box-footer col-xs-12">
+                <span class="title">Device Information</span>
+                <span class="text-right pointer" ng-click="openHelpDoc()">Help</span>
+            </div>
+            <div class="col-xs-12">
+                <div class="col-xs-4 view-height">
+                    <div style="height:220px" id="StatisticsAPPie"></div>
+                </div>
+                <div class="col-xs-4 view-height">
+                    <div style="height:220px" id="StatisticsDevicePie"></div>
+                </div>
+                <div class="col-xs-4 view-height">
+                    <div style="height:220px" id="StatisticsClientPie"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 帮助文档 -->
+<div bs-modal="helpDoc.options">  
+    <form role="form" name="authForm" novalidate>
+        <div class="form-group row">
+            <ul>
+                <li><span>Authorized APs:</span> APs permitted in the WLAN, including APs connected to the AC and not in the prohibited device list and configured authorized APs.</li>
+                <li><span>Rogue APs:</span> APs that cannot be used in the WLAN, including APs in the prohibited device list, APs not in the OUI configuration file, and configured rogue APs.</li>
+                <li><span>Misconfigured APs:</span> APs that can be used in the WLAN but have incorrect configuration.</li>
+                <li><span>External APs:</span> APs that are in an adjacent WLAN.</li>
+                <li><span>Ad hoc APs:</span> APs in Ad hoc mode. WIPS detects Ad hoc APs by listening to beacon frames.</li>
+                <li><span>Potential-authorized APs:</span> APs that are not in the permitted device list, the trusted OUI list, and the prohibited device list.</li>
+                <li><span>Potential-rogue APs:</span> APs that are not in the permitted device list, the trusted OUI list, and the prohibited device list, but have incorrect configuration. The wired port of a potential-rogue AP is connected to the WLAN.</li>
+                <li><span>Potential-external APs:</span> APs that are not in the permitted device list, the trusted OUI list, and the prohibited device list, but have incorrect configuration. The wired port of a potential-external AP is not connected to the WLAN.</li>
+                <li><span>Uncategorized APs:</span> APs whose categories cannot be determined.</li>
+                <li><span>Authorized clients:</span> Clients that are permitted in the WLAN, including clients in the permitted device list and associated with authorized APs and clients that have passed authentication and are associated with authorized APs.</li>
+                <li><span>Unauthorized clients:</span> Clients that cannot be used in the WLAN, including clients in the prohibited device list, clients associated with rogue APs, and clients not in the OUI configuration file.
+                </li>
+                <li><span>Misassociated clients:</span> Clients in the permitted device list but associated with unauthorized APs. A misassociated client might introduce security threats to the network.
+                </li>
+                <li><span>Uncategorized clients:</span> Clients whose categories cannot be determined.</li>
+            </ul>
+        </div>
+        <div align = "center">
+            <button class="btn btn-cus" ng-disabled="authForm.$invalid" 
+            ng-click="closeHelpDoc()">Cancel</button>
+        </div>
+    </form>                                               
+</div> 
+
+<div id="wiresecurit_rc"
+     DEVICE-TYPE=",Authorized AP,Misconfigured AP,Rogue AP,External AP,Ad hoc AP,Mesh AP,Potential-authorized AP,Potential-rogue AP,Potential-external AP,Uncategorized AP,Authorized client,Misassociated client,Unauthorized client,Uncategorized client"
+     ATTACK-NAME-ONE=",AP spoofing attack,,,Client spoofing,,Weak IV,Windows bridge,Clients with 40 MHz mode disabled,Soft AP,Power save attack,Omerta attack,Disassociation attack, Deauthentication attack,Prohibited channel,AP impersonation attack,Unencrypted authorized AP, Unencrypted authorized client,Hotspot attack,HT-greenfield AP,Association/reassociation DoS attack,Honeypot AP,MITM attack,Wireless bridge,AP flood attack,Channel change,"
+     ATTACK-NAME-TWO="Association request,Authentication frame,Beacon frame,Block ACK,CTS, Deauthentication frame,Disassociation frame,EAPOL-Start frame,Null-data frame,Probe request, Reassociation request,RTS,EAPOL-Logoff frame,EAP Fail frame,EAP Success frame"
+     ATTACK-NAME-THREE="Duplicate IE, FATA-Jack malformed packet, Abnormal IBSS and ESS setting, Invalid source address, Malformed association request, Malformed authentication request, Invalid deauthentication code, Invalid disassociation code, Malformed HT IE, Invalid IE length, Invalid packet length, Oversized duration, Malformed probe response, Oversized EAPOL key, Oversized SSID, Redundant IE"
+     ATTACK-TYPE-LAN="Flood,Malformed packet,Severe"
+     REMAID-INFO="APs,Clients,APs and Clients"
+     HELP="Help"
+     APPLY="Apply"
+     CANCEL="Cancel"
+     WEEK="Su,Mo,Tu,We,Th,Fr,Sa"
+     MONTH="Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec"
+
+></div>

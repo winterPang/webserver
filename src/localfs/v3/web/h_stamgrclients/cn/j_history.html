@@ -1,0 +1,49 @@
+<html>
+<head>
+    <style>
+        .app-box .box-body.radioGrp-box{
+            padding:0px 20px;
+            margin-top:10px;
+        }
+        .radio-space label{
+            margin-right:30px
+        }
+    </style>
+</head>
+<body>
+
+<div class="btn_h_return" id="returnBtn"></div>
+
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">认证用户历史在线变化明细</span>
+        </div>
+        <div class="box-body no-height radioGrp-box">
+            <div class="form-group col-sm-12 radio-space" id="radioGrp">
+                <input id="oneDay" name="radioGrp" type="radio" checked="checked">
+                <label for="oneDay">一天</label>
+                <input id="oneWeek" name="radioGrp" type="radio">
+                <label for="oneWeek">一周</label>
+                <input id="oneMonth" name="radioGrp" type="radio">
+                <label for="oneMonth">一月</label>
+            </div>
+        </div>
+        <div class="box-body no-height">
+            <div class="simple-list" id="historyList"></div>
+        </div>
+    </div>
+</div>
+
+<iframe class="hide" id="exportFile" name="exportFile"></iframe>
+
+<div class="rc-define" id="history_rc"
+     list_header = "用户名,IP地址,MAC地址,认证类型,上行流量,下行流量,上线时间,在线时长"
+     refresh_btn = "刷新"
+     export_btn = "导出"></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("h_stamgrclients.j_history");
+</script>

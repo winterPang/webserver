@@ -1,0 +1,142 @@
+<div class="container-fluid" style="position:relative">
+
+
+	<div class="loading" ng-if="loading">
+		<label class="" ng-bind="message"></label>
+		<img src="images/icon_waiting_54x54.gif">
+	</div>
+
+
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div class="app-box no-height">
+                <div class="box-footer">
+                    <span class="title">无线服务配置</span>
+                </div>
+
+                <div class="box-body no-height" style="padding:0px 20px;">
+
+                    <!-- 声明 -->
+                    <div id="" style="margin:20px 0px 20px 0px;color:#3eb0a1;">
+                        <label>说明：服务模板，若未绑定AP或绑定AP组，此服务模板将不会生效；若要生效请手动绑定。</label>
+                    </div>
+
+                    <!-- 按钮 -->
+                    <div class="btn btn-cus" ng-click="addEvent()" ng-if="permission.write">
+                        <i class="btn-icon icon-add"></i>
+                        添加
+                    </div>
+                    <div id="syncBtn" class="btn btn-cus" ng-click="syncEvent()">
+                        同步
+                    </div>
+
+                    <!-- 列表 -->
+                    <div bs-table="table_stList"></div>
+
+                </div>
+            </div>
+        </div>
+    </div> 
+
+    
+    <!-- AP Group绑定弹框 -->
+    <div bs-modal="apgroupDialog">
+        <xotherpageofapgroup sn="sceneInfo.sn" stnamevalue="a.stnamevaluegive"></xotherpageofapgroup>            
+    </div>
+    
+
+    <!-- AP 绑定弹框 -->
+    <div bs-modal="apDialog">
+        <xotherpageofap sn="sceneInfo.sn" stnamevalue="a.stnamevaluegive"></xotherpageofap>            
+    </div>
+
+
+    <!-- SSID 详情弹框 -->
+    <div bs-modal="ssiddetailDialog">
+        <xotherpageofssid rowsvalue="b"></xotherpageofssid>            
+    </div>
+</div>
+
+
+<style>
+    .loading{
+        position: absolute;
+        z-index: 999999999;
+        background-color: rgba(0,0,0,0.6);
+        width: 100%;
+        height: 100%;
+        top:0;
+    }
+
+    .loading label{
+        font-size: 28px;
+        color:white;
+
+        position: absolute;
+        top: 35%;
+        left: 45%;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+    }
+
+    .loading img{
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        margin: auto;
+    }
+
+</style>
+
+
+    <div id="RC" class="rc-define"
+        stList_Text= "无线服务名称,SSID,认证方式,状态,绑定AP数量,绑定AP组数量"
+        SECONDS="秒"
+        SYN="同步"
+
+        STATUS_onoff="开启,关闭"
+        sureDelete="确定要删除？"
+        OPTION_operate='绑定,编辑,删除'
+        TITLE_dialog="已绑定AP组列表,已绑定AP列表,无线服务详情"
+        getDataFailed='获取此SSID的绑定信息失败！'
+
+        unbindAP_FAILED_NEEDApsn="删除失败，由于版本过低，您选择了没有序列号ap，这些ap未能解绑成功！"
+        unbindAP_FAILED_3="删除失败，由于：解绑AP时，设备连接超时！"
+        unbindAP_FAILED_4="删除失败，由于：解绑AP时，主链接断开！"
+        unbindAP_FAILED_Other="删除失败，由于解绑AP失败！"
+
+        unbindAPGroup_FAILED_NeedModel=
+        "未能删除，此服务模板绑定了没有model的apgroup，这些apgroup无法解绑！"
+        unbindAPGroup_FAILED_3="删除失败，由于：解绑APGroup时，设备连接超时！"
+        unbindAPGroup_FAILED_4="删除失败，由于：解绑APGroup时，主链接断开！"
+        unbindAPGroup_FAILED_Other='删除失败，由于解绑APGroup失败!'
+
+        ssidDeleteFailed_noExist="删除失败，此服务模板不存在。"
+        ssidDeleteFailed_isBind="删除失败，此服务模板处于绑定状态，请先解绑。"
+        ssidDeleteFailed_3="删除SSID失败，由于：设备连接超时！"
+        ssidDeleteFailed_4="删除SSID失败，由于：主链接断开！"
+        ssidDeleteFailed_Other='删除SSID失败!'
+
+        ssidDeleteOK="服务模板删除成功！"
+        ssidDeleteOK_pubDeleteFailed='服务模板删除成功，但发布模板未清除!'
+
+        syncFailed_low="鉴定到您的版本过低，无法实现同步。"
+        syncFailed_3="同步失败，由于：设备连接超时！"
+        syncFailed_4="同步失败，由于：主链接断开！"
+        syncFailed_other="同步失败！"
+        syncOK="同步成功！"
+
+        TEXT_operate='操作'
+        Close=",关闭"
+
+        getST_fail="服务模板获取失败。"
+        allPubInfoFail="由于发布模板批量获取失败，认证方式无法显示。"
+        allAuthInfoFail="由于认证模板批量获取失败，认证方式无法显示。"
+        AuthType_Text="不认证,一键认证,账号认证  , 固定账号 , 短信认证 , 公众号认证 , 微信连WIFI ,账号认证：,"
+
+        deleteProcessing="删除处理中"
+    >
+    </div>

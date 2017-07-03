@@ -1,0 +1,262 @@
+<div class="container"> 
+    <div class="network-box home-site home-site-box home-site-list">
+        <div>  
+            <div class="row" style="padding-bottom: 0x;">
+                <div class="col-xs-9"></div>
+                <div class="btn col-xs-2 col-xs-offset-1" ng-click="addModal()">增加网络</div>
+            </div>
+            <div class="operation row" >
+                <div class="col-xs-5 row operationBox"  ng-repeat="v in sites">
+                    <div class="col-xs-4 left-radia" style="border:1px solid #000" ng-mouseenter="showDes=true" ng-mouseleave="showDes=false" ng-mousewheel="showDes=true">
+                        <p>{{v.name}}</p>
+                        <p style="height:30px;">{{v.des}}</span>
+                        <div style="">
+                            <div data-radial-indicator="indicatorOption" style=""></div>  
+                        </div>
+                        <ul class="toggle-content" ng-show="showDes" ng-mouseleave="showDes=false">
+                            <li  ui-sref="oasisdemo.content.dashboard" ng-mouseenter="addToggleo()" ng-mouseleave="deleteToggleo()" ng-class="hoverClasso">
+                                运维
+                            </li>
+                            <li  ui-sref="oasisdemo.tree3"  ng-mouseenter="addTogglet()" ng-mouseleave="deleteTogglet()" ng-class="hoverClasst">规划
+                            </li>
+                            <li ui-sref="demo3.dashboard" ng-mouseenter="addToggleth()" ng-mouseleave="deleteToggleth()" ng-class="hoverClassth">授权</li>
+                        </ul>  
+                    </div>
+                    <div class="col-xs-8 radia-right">
+                        <ul>
+                            <li class="row">
+                                <p class="col-xs-4 col-xs-offset-2">在线终端：</p>
+                                <p class="col-xs-3">{{v.clientnum}}</p>
+                            </li>
+                            <li class="row">
+                                <p class="col-xs-4 col-xs-offset-2">上行速率：</p>
+                                <p class="col-xs-3">{{v.up}}Mbps</p>
+                            </li>
+                            <li class="row">
+                                <p class="col-xs-4 col-xs-offset-2">下载速率：</p>
+                                <p class="col-xs-3">{{v.down}}Mbps</p>
+                            </li>
+                        </ul>
+                        <p ng-click="delBtn()">×</p>
+                    </div>   
+                </div>
+            </div>
+        </div>
+        <div class="container-fuid home-site-container" rc="首页,上一页,下一页,末页,失败,未知,无设备">
+            <div class="row">
+                <div class="text-center" style="position:relative;">
+                  <div bs-pager="pagination" ng-model="page"></div>
+                  <select class="home-page-size" ng-model="pageSize" title="page" style="
+                    border-color: #ccc !important;" ng-options="p for p in [2, 4, 8, 16]" ></select>       
+                </div>  
+            </div>
+        </div>
+    </div>
+
+    <!-- 三级联动 -->
+    <form novalidate name="form1" bs-modal="modal1.option">
+        <div class="clearfix">
+            <ul class="text-center">
+                <li class="col-xs-4 pull-left">
+                    <span><img src="../home/img/one_active.png"></span>
+                    <span>网络信息</span>
+                </li>
+                <li class="col-xs-4 pull-left">
+                    <span><img src="../home/img/two.png"></span>
+                    <span>添加区域</span></li>
+                <li class="col-xs-4 pull-left">
+                    <span><img src="../home/img/three.png">
+                    </span><span>添加设备</span>
+                </li>                  
+            </ul>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3 control-label required">网络名称</label>
+            <div class="col-sm-5">
+                <input class="form-control" name="shopName" type="text" ng-model="row.shopName" required
+                     ng-pattern="/^[^0-9]/" ng-maxlength="20">
+            </div>
+            <div class="ng-error col-sm-4" ng-show="form1.shopName.$dirty" ng-messages="form1.shopName.$error">
+                <div ng-message="required">请输入场所名称！</div>
+                <div ng-message="maxlength">最多不能超过20位！</div>
+                <div ng-message="pattern">不能以数字开头！</div>
+                <div ng-message="ajaxValid-1">场所名称不合法</div>
+                <div ng-message="ajaxValid-2">场所已存在</div>
+                <div ng-message="ajaxValid-3">请求参数不合法</div>
+                <div ng-message="ajaxValid-4">网络异常</div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3 control-label required">行业</label>
+            <div class="col-sm-5">                  
+                <!-- <select id="cmbIndustry" class="form-control" name="industry" required></select> -->
+                <select  ng-model="industry" ng-options="act for act in industries" 
+                ng-init="industries[0]" required></select> 
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3 control-label required">场所地址</label>
+            <div class="col-sm-9">               
+                <select id="cmbProvince" class="form-control" name="province" required></select>省
+                <select id="cmbCitys" class="form-control" name="city" required></select>市
+                <select id="cmbArea" class="form-control" name="area" required></select>区
+                <span ng-show="form1.province.$invalid||form1.city.$invalid||form1.area.$invalid" style="color:red;font-size:12px;">请选择省市区</span>                
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3 control-label">详细地址</label>
+            <div class="col-sm-5">
+                <input class="form-control" name="address" type="text" ng-model="row.address" ng-maxlength="50">
+            </div>
+            <div class="col-sm-4 ng-error" ng-show="form1.address.$dirty" 
+            ng-messages="form1.address.$error">
+                <div ng-message="maxlength">最多不能超过50位！</div>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3 control-label">网络描述</label>
+            <div class="col-sm-5">
+                <textarea class="form-control" name="shopProfile" type="text" ng-model="row.shopDesc" ng-maxlength="500"></textarea>
+            </div>
+            <div class="col-sm-4 ng-error" ng-show="form1.shopProfile.$dirty" ng-messages="form1.shopProfile.$error">
+                <div ng-message="maxlength">最多不能超过500位！</div>
+            </div>
+        </div>
+
+        <div class="text-center">
+            <button class="btn btn-cus" name="confirm" ng-disabled="form1.$invalid">确认</button>
+            <button class="btn btn-cus" name="config" ng-disabled="form1.$invalid">确认并配置</button>
+            <button class="btn btn-cus" name="cancel">取消</button>
+        </div>
+    </form>
+  
+    <div bs-modal="modal2.option">    
+        <div class="clearfix">
+            <ul class="text-center">
+                <li class="col-xs-4 pull-left">
+                    <span><img src="../home/img/one.png"></span>
+                    <span>网络信息</span>
+                </li>
+                <li class="col-xs-4 pull-left">
+                    <span><img src="../home/img/two_active.png"></span>
+                    <span>添加区域</span></li>
+                <li class="col-xs-4 pull-left">
+                    <span><img src="../home/img/three.png">
+                    </span><span>添加设备</span>
+                </li>                  
+            </ul>
+        </div>
+             
+        <div class=" tree1">
+            <ul id="treeDemo1" class="ztree l-first"></ul>
+        </div> 
+        
+        <div class="text-center" style="margin-top:20px;">
+            <button class="btn btn-cus" name="prev2">上一步</button>
+            <button class="btn btn-cus" name="next2">下一步</button>
+            <button class="btn btn-cus" name="cancel2">取消</button>
+        </div>
+    </div>       
+        
+    <form novalidate name="form3" bs-modal="modal3.option" >     
+        <div class="clearfix">
+            <ul class="text-center">
+                <li class="col-xs-4 pull-left">
+                    <span><img src="../home/img/one.png"></span>
+                    <span>网络信息</span>
+                </li>
+                <li class="col-xs-4 pull-left">
+                    <span><img src="../home/img/two.png"></span>
+                    <span>添加区域</span></li>
+                <li class="col-xs-4 pull-left">
+                    <span><img src="../home/img/three_active.png">
+                    </span><span>添加设备</span>
+                </li>                  
+            </ul>
+        </div>
+
+
+        <div class="form-group row">
+            <label class="col-sm-3 control-label required">添加</label>
+            <div class="col-sm-5">
+                <select  ng-model="data.add" ng-options="act for act in adds" 
+                ng-init="adds[0]" required></select> 
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3 control-label required">添加方式</label>
+            <div class="col-sm-5">  
+                <select  ng-model="data.addMode" ng-options="act.name for act in addModes" 
+                ng-init="addModes[0]" required></select> 
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3 control-label required">{{data.addMode.value}}</label>
+            <div class="col-sm-5">                                   
+                    <input type="text" required ng-model="data.numInfo">                        
+            </div>
+        </div>
+        
+        <div class="form-group row">
+            <label class="col-sm-3 control-label required">设备别名</label>
+            <div class="col-sm-5">                                   
+                    <input type="text" required ng-model="data.oName">                        
+            </div>
+        </div>
+
+
+        <div class="form-group row">
+            <label class="col-sm-3 control-label required">添加至</label>
+            <div class="col-sm-5"> 
+                <select  ng-model="data.addTo" ng-options="act for act in addTos" 
+                ng-init="addTos[0]" required></select> 
+            </div>
+        </div>         
+
+        <div class="text-center" style="margin-top:20px;">
+            <button class="btn btn-cus" name="prev3">上一步</button>
+            <button class="btn btn-cus" name="complete" ng-disabled="form3.$invalid">完成添加</button>
+            <button class="btn btn-cus" name="continue" ng-disabled="form3.$invalid">继续配置</button>
+            <button class="btn btn-cus" name="cancel3">取消</button>
+        </div>
+                                                    
+        <div ng-show="infoState">
+            <div bs-Table="bindDeviceTable"></div> 
+        </div>                                                
+    </form>
+
+    <!--Ztree Modal-->
+    <form bs-modal="addAreaModal" class="form-horizontal" name="formAddArea">
+        <div class="form-group">
+            <div class="col-sm-2">区域名称:</div>
+            <div class="col-sm-5">
+                <input class="form-control" name="name_area" ng-model="treeNode.areaName" placeholder='请输入区域名称，不超过10位' required ng-maxlength="10">
+            </div>
+            <div class="col-sm-5 ng-error" ng-messages="formAddArea.name_area.$error" ng-show="formAddArea.name_area.$dirty">
+                <div ng-message="required">区域名称不能为空</div>
+                <div ng-message="maxlength">区域名称不能超过10位</div>
+            </div>
+        </div>
+    </form>
+
+    <form bs-modal="modifyAreaModal" class="form-horizontal" name="formModifyArea">
+        <div class="form-group">
+            <div class="col-sm-2">区域名称:</div>
+            <div class="col-sm-5">
+                <input class="form-control" name="name_area" ng-model="treeNode.areaName" placeholder='请输入区域名称，不超过10位' required ng-maxlength="10">
+            </div>
+            <div class="col-sm-5 ng-error" ng-messages="formModifyArea.name_area.$error" ng-show="formModifyArea.name_area.$dirty">
+                <div ng-message="required">区域名称不能为空</div>
+                <div ng-message="maxlength">区域名称不能超过10位</div>
+            </div>
+        </div>
+    </form>
+    
+</div>

@@ -1,0 +1,131 @@
+<div class="panel panel-default" id="infoModifyModule"
+     ng-init="
+     submit_success='Information modified successfully.';
+     submit_fail='Fail to modify the information.';
+     CPM_title='Change Phone';
+     BPM_title='Bind Phone';
+     CEM_title='Change Email';
+     BEM_title='Bind Email';
+     phone_code='The verification code has been sent to your cellphone.';
+     CEM_1_validaEmail='Email sent successfully.Go to the mailbox to verify the old address.';
+     CEM_changeSuccess='Please go to the mailbox to active the new address.';
+     CEM_changeFail='Please first go to the mailbox to verify the old address.';
+     BEM_bindSuccess='Email sent successfully.Go to the mailbox to activate the binding.';
+     ">
+    <!-- Main -->
+    <div class="panel-heading">
+        <h3 class="panel-title">Information Modification</h3>
+    </div>
+    <div class="panel-body">
+        <form class="form-horizontal" name="IMForm" novalidate>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Username</label>
+                <div class="col-sm-4">
+                    <input class="form-control" name="username" disabled ng-model="IMFData.username"/>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Phone number</label>
+                <div class="col-sm-4" ng-show="IMFData.phone">
+                    <input class="form-control" name="phone" disabled ng-model="IMFData.phone"/>
+                </div>
+                <div class="col-sm-2">
+                    <label class="control-label">
+                        <a href="javascript:void(0);" ng-click="IMFEvent.phoneManage()">
+                            <u ng-bind="IMFData.phone?'Change':'Bind'"></u>
+                        </a>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Email</label>
+                <div class="col-sm-4" ng-show="IMFData.email">
+                    <input class="form-control" name="email" disabled ng-model="IMFData.email"/>
+                </div>
+                <div class="col-sm-2">
+                    <label class="control-label">
+                        <a href="javascript:void(0);" ng-click="IMFEvent.emailManage()">
+                            <u ng-bind="IMFData.email?'Change':'Bind'"></u>
+                        </a>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label required-sign">Industry</label>
+                <div class="col-sm-4">
+                    <select class="form-control" name="industry" required
+                            ng-options="item.id as item.industryName for item in industryList"
+                            ng-model="IMFData.industry">
+                        <option value="" selected disabled>Select an industry</option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label required-sign">Unit name</label>
+                <div class="col-sm-4">
+                    <input class="form-control" name="enterpriseName" required
+                           ng-maxlength="64"
+                           ng-model="IMFData.enterpriseName"/>
+                </div>
+                <div class="col-sm-4 ng-error"
+                     ng-show="IMForm.enterpriseName.$dirty"
+                     ng-messages="IMForm.enterpriseName.$error">
+                    <span ng-message="required">This field is required</span>
+                    <span ng-message="maxlength">Max. length: 64 characters</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label required-sign">Unit address</label>
+                <label class="col-sm-4 col-lg-2">
+                    <select class="form-control" name="province" required
+                            ng-change="IMFEvent.chooseProvince()"
+                            ng-options="addressList.indexOf(item) as item.name for item in addressList"
+                            ng-model="IMFData.province">
+                        <option value="" selected disabled>Province</option>
+                    </select>
+                </label>
+                <label class="col-sm-4 col-lg-2">
+                    <select class="form-control" name="city" required
+                            ng-change="IMFEvent.chooseCity()"
+                            ng-options="addressList[IMFData.province].cityList.indexOf(item) as item.name for item in addressList[IMFData.province].cityList"
+                            ng-model="IMFData.city">
+                        <option value="" selected disabled>City/District</option>
+                    </select>
+                </label>
+                <label class="col-sm-4 col-sm-offset-2 col-lg-2 col-lg-offset-0">
+                    <select class="form-control" name="area" required
+                            ng-options="addressList[IMFData.province].cityList[IMFData.city].areaList.indexOf(item) as item for item in addressList[IMFData.province].cityList[IMFData.city].areaList"
+                            ng-model="IMFData.area">
+                        <option value="" selected disabled>District/County</option>
+                    </select>
+                </label>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-6">
+                    <textarea class="form-control" name="address" placeholder="Enter the detailed address"
+                              ng-maxlength="200" ng-model="IMFData.address"></textarea>
+                </div>
+                <div class="col-sm-4 ng-error"
+                     ng-show="IMForm.address.$dirty"
+                     ng-messages="IMForm.address.$error">
+                    <span ng-message="maxlength">Max. length: 200 characters</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-2"></div>
+                <div class="col-sm-4">
+                    <button class="btn btn-cus" type="button"
+                            ng-disabled="IMForm.$invalid"
+                            ng-click="IMFEvent.submit()">OK</button>
+                    <button class="btn btn-cus ng-hide" type="button"
+                            ng-click="IMFEvent.return()">Cancel</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Modal Box -->
+    <div change-phone></div>
+    <div bind-phone></div>
+    <div change-email></div>
+    <div bind-email></div>
+</div>

@@ -1,0 +1,304 @@
+<html>
+<head>
+</head>
+<body>
+
+<!-- 1顶部的“全局/分支、认证”筛选条 -->
+<div class="page-row">
+    <div class="col-xs-12 app-colum left-block">
+        <div class="app-box">
+            <div class="select-footer" style="">
+                <div class="col-xs-1  ml20">
+                    <input type="radio" name="globals-info" id="globals-yes" value="1" checked="checked">
+                    <label for="globals-yes">全局</label>
+                </div>
+                <div class="col-xs-9">
+
+                    <div style="display:inline-block;">
+                        <input type="radio" name="globals-info" id="globals-no" value="2">
+                        <label for="globals-no">指定分支</label>
+                        <div id="branchSelectDiv">
+                            <select class="singleSelect hide" id="branchSelect" name="branchSelect" style="margin-top:0px;margin-left:10px;vertical-align:middle;height:20px;width:150px;"></select>
+                        </div>
+                    </div> 
+                    <div style="color:#80878c;display:inline-block;width:40px;text-align:center;">
+                        |
+                    </div>                 
+                    <div style="display:inline-block;">
+                        <input style="vertical-align:top;" type="checkbox" name="portal-info" id="portal-choose" value="">
+                         <label for="portal-choose">仅统计认证终端</label>
+                    </div>                      
+                     
+                </div> 
+               
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard">
+    
+    <!-- 2-1关联视图：客户端数量 -->
+    <div class="page-row" id="oneone">
+        <div class="col-xs-12 app-colum left-block" debug="clients NumRZ">
+            <div class="bg-bor">
+                <div class="head-bar">
+                    <div class="box-footer">
+                        <div class="col-xs-10">
+                           <span class="title sysinfo-footer-title">客户端数量</span>
+                        </div>  
+                        <div class="text-right link-container">
+                           <a type="button" class="
+                            link-detail" id="submit_scan" data-hrefLink="hq_customer.clients" title="更多">
+                                <i class="detail-icon icon"></i>
+                           </a>
+                        </div>
+                        <div class="text-rightandlink-container">
+                            
+                        </div>                      
+                   </div>
+                    <div class="col-xs-3">
+                        <div class="syslog-info-mine-Total">
+                            <div class="left-icon Total-icon">
+                                
+                            </div>
+                            <div class="right-text">      
+                                <span class="number-count" id="Total">0</span>
+                                <br />
+                                <span class="number-title">总计</span>
+                            </div>                      
+                        </div>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <div class="syslog-info-mine-Num2G">
+                            <div class="left-icon Num2G-icon">
+                                
+                            </div>
+                            <div class="right-text">      
+                                <span class="number-count" id="Num2G">0</span>
+                                <br />
+                                <span class="number-title">2.4GHz</span>
+                            </div>          
+                        </div>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <div class="syslog-info-mine-Num5G">
+                            <div class="left-icon Num5G-icon">
+                                
+                            </div>
+                            <div class="right-text">      
+                                <span class="number-count" id="Num5G">0</span>
+                                <br />
+                                <span class="number-title">5GHz</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <div class="syslog-info-mine-NumRZ">
+                            <div class="left-icon NumRZ-icon">
+                                
+                            </div>
+                            <div class="right-text">      
+                                <span class="number-count" id="NumRZ">0</span>
+                                <br />
+                                <span class="number-title">认证终端</span>
+                            </div>
+                        </div>
+                    </div>                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 2-2认证视图：客户端数量 -->
+    <div class="page-row" id="twotwo">
+        <div class="col-xs-12 app-colum left-block" debug="clients NumRZ">
+            <div class="bg-bor">
+                <div class="head-bar">
+                    <div class="box-footer">
+                        <div class="col-xs-10">
+                           <span class="title sysinfo-footer-title">客户端数量</span>
+                        </div>  
+                        <div class="text-right link-container">
+                           <a type="button" class="
+                            link-detail" id="submit_scan_portal" data-hrefLink="hq_customer.clients" title="更多">
+                                <i class="detail-icon icon"></i>
+                           </a>
+                        </div>
+                        <div class="text-rightandlink-container">
+                            
+                        </div>                      
+                   </div>
+                    <div class="col-xs-4">
+                        <div class="syslog-info-mine-Total">
+                            <div class="left-icon Total-icon">
+                                
+                            </div>
+                            <div class="right-text">      
+                                <span class="number-count" id="Total_portal">0</span>
+                                <br />
+                                <span class="number-title">总计</span>
+                            </div>                      
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <div class="syslog-info-mine-Num2G">
+                            <div class="left-icon Num2G-icon">
+                                
+                            </div>
+                            <div class="right-text">      
+                                <span class="number-count" id="Num2G_portal">0</span>
+                                <br />
+                                <span class="number-title">2.4GHz</span>
+                            </div>          
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <div class="syslog-info-mine-Num5G" style="border-right:0px;">
+                            <div class="left-icon Num5G-icon">
+                                
+                            </div>
+                            <div class="right-text">      
+                                <span class="number-count" id="Num5G_portal">0</span>
+                                <br />
+                                <span class="number-title">5GHz</span>
+                            </div>
+                        </div>
+                    </div>
+
+                   
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3宾客统计 -->
+    <div class="page-row xxb" id="userflow">
+        <div class="col-xs-12 app-colum left-block" debug="getnewuser">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <div class="col-xs-3">
+                        <span class="title">宾客统计</span>
+                    </div>
+                    <div class="index_out_div" id="dateChoose_Div">
+                        <a id="days" class="xx-link active" value='1'>一天</a>
+                        <a id="weeks" class="xx-link" value='2'>一周</a>
+                        <a id="mounth" class="xx-link" value='3'>一月</a>
+                        <!-- <a id="years" class="xx-link" value='4'>一年</a> -->
+                    </div>
+                </div>
+                <div class="box-body userflow-height form-group body-nopadding">
+                    <div id="loginUserEchart" class="col-xs-10 myEchart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 4客流统计 -->
+    <div class="page-row xxb">
+        <div class="col-xs-12 app-colum left-block" debug="getAccessTime getOnlineTime">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <div class="col-xs-3">
+                        <span class="title">客流统计</span>
+                    </div>
+                    <div class="index_out_div" id="detailChoose_Div">
+                        <a id="oDetail" data-hrefLink="hq_customer.clientinfo" class="xx-link">在线宾客</a>
+                        <a id="hDetail" data-hrefLink="hq_customer.clienthist" class="xx-link">历史明细</a>
+                    </div>     
+                </div>
+                <div class="box-body pie-height form-group body-nopadding">
+                    <div class="col-xs-6 pietop">
+                    <!-- <div class="col-xs-4 pietop"> -->
+                        <div class="row-nohover row-clear padding0">
+                            <div id="Channel_laiFangCiShu" class=" col-xs-12 myEchart newpie-container"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 pietop">
+                    <!-- <div class="col-xs-4 pietop"> -->
+                        <div class="row-nohover row-clear padding0">
+                            <div id="Channel_zhuLiuShiChang" class=" col-xs-12 myEchart newpie-container"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 5“分支、SSID”列表 -->
+    <div class="page-row">
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color" debug="bySsidList ssid"> 
+                <div class="box-footer"> 
+                    <span class="title">基于分支分类</span> 
+                </div> 
+                <div class="sysinfo-body app-box-slist"> 
+                    <div id="byBranchesList" class="simple-list"></div> 
+                </div> 
+            </div>
+        </div>
+
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color" debug="bySsidList ssid"> 
+                <div class="box-footer"> 
+                    <span class="title">基于SSID分类</span> 
+                </div> 
+                <div class="sysinfo-body app-box-slist"> 
+                    <div id="bySsidList" class="simple-list"></div> 
+                </div> 
+            </div>
+        </div>
+    </div>
+
+  
+    <!-- 注意会有弹框 -->
+    <div id="maoxian">
+
+    </div>
+</div>
+
+
+        
+<div id="customer_rc" class="rc-define"
+    USER_BinKeTongJi_Y="人数"
+
+    USER_KeLiuTongJi_Title="来访次数,驻留时长"
+    USER_KeLiuTongJi_A_Legend="一次,两次,三次,四次以上"
+    USER_KeLiuTongJi_B_Legend="半小时以内,一小时内,两小时内,两小时以上"
+
+    BRANCHES_HEADER="分支名称,5GHz客户端数量,2.4GHz客户端数量"
+    SSID_HEADER="SSID,5GHz客户端数量,2.4GHz客户端数量"
+
+
+
+
+
+
+USER_TYPE_MODE="oneHour,oneDay,oneWeek,oneMonth,current,custom"
+USER_TYPE_MODE_NEW="ofhour,ofday,ofweek,ofmonth,ofyear"
+
+USER_COUNT="人数"
+
+WIRELESS_MODE='802.11b(2.4GHz),802.11a(5GHz),802.11g(2.4GHz),802.11gn(2.4GHz),802.11an(5GHz),802.11ac(5GHz)'
+AKM_METHOD="不认证,802.1X 认证,静态PSK密钥,静态WEP密钥,MAC地址认证,Portal认证,动态WEP密钥,802.1X 认证（不加密）"
+AKM_METHOD2="不认证,802.1X 认证,MAC地址认证,Portal认证,MAC地址认证 & Portal认证"
+>
+    
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("hq_customer.customer");
+</script>
+<script type="text/javascript">
+
+
+
+</script>

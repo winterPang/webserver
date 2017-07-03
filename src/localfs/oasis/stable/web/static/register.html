@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta   http-equiv= "Pragma"   content= "no-cache" />
+		<meta   http-equiv= "Cache-Control"   content= "no-cache" />
+		<meta   http-equiv= "Expires"   content= "0" />
+		<title></title>
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<!--<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">-->
+		<link rel="stylesheet" href="bootstrap.css">
+		<link rel="stylesheet" href="notice/jqueryNotice.css">
+		<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+		<!--<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">-->
+		<link href="register.css" rel="stylesheet" type="text/css"/>
+		<link id="favicon_link" rel="icon" href="image/h3clogo.png">
+	</head>
+	<body>
+	<div class="backgroud_image">
+		<div class="register">
+			<form id="form-icon" class="form-horizontal form-bordered form edit form-cn" onsubmit="return false">
+				<div class="register_page">
+					<ul class="nav sub-nav nav-tabs">
+						<li>
+							<a href="#phone" data-toggle="tab" class="phone_register">
+								<span class="phone_icon"></span>
+								<span id='register_title'></span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<div class="tab-content" id="tabContent">
+					<div class="tab-pane fade in active" id="phone">
+						<form id = "registerFrom" class="form-horizontal form">
+							<div class="form-group">
+								<label  class="text_word">
+									<span class="emphsis "></span>
+									<span id='telephoneLabel' ></span>
+								</label>
+								<input type="text" class="telephone" errid="telephone_error" maxlength=32
+									   id="telephone" name="telephone">
+								<span class="error" id="telephone_error"></span>
+							</div>
+							<div class="form-group">
+								<label class="text_word">
+									<span class="emphsis "></span>
+									<span id="photoIdentyLabel"></span>
+								</label>
+								<input type="text" id="photoIdenty"
+									   name = "photoIdenty"
+									   style="width: 13%;"
+									   errid = "photoIdenty_error">
+								<img class="img-disabled"
+									 src=""
+									 alt=""
+									 id="imgCode"
+									 style="
+									 cursor:pointer;
+									 width: 80px;
+									 height: 25px;
+									 margin-left: 20px;
+									 border-radius: 7px;"/>
+								<div class="loader">
+									<div class="loader-inner ball-spin-fade-loader">
+										<div></div>
+										<div></div>
+										<div></div>
+										<div></div>
+										<div></div>
+										<div></div>
+										<div></div>
+										<div></div>
+									</div>
+								</div>
+								<button class="send dis" disabled="disabled" style="
+								cursor: no-drop;
+								margin-left: 120px;">
+									<span id="sendNumber"></span>
+								</button>
+								<span class="error" id="photoIdenty_error"></span>
+							</div>
+							<div class="form-group" >
+								<label class="text_word">
+									<span class="emphsis"></span>
+									<span id="identifyLabel"></span>
+								</label>
+								<input type="text" class="required" errid="identify_error" maxlength=32
+									   id="identify" name="identify">
+								<span class="error" id="identify_error" ></span>
+							</div>
+							<div class="form-group">
+								<label class="text_word">
+									<span class="emphsis"></span>
+									<span id="emailLabel"></span>
+								</label>
+								<input type="email" class="email required" errid="mail_err" maxlength=32
+									   id="email" name="email">
+								<span class="error" id="mail_err" ></span>
+							</div>
+							<div class="form-group">
+								<label class="text_word">
+									<span class="emphsis"></span>
+									<span id="hnameLabel"></span>
+								</label>
+								<input type="text" class=" length required" errid="hname_error" maxlength=32
+									   id="hname" name="hname" autocomplete="off"  minlength="6">
+								<span class="error" id="hname_error" ></span>
+							</div>
+							<div class="form-group">
+								<label class="text_word">
+									<span class="emphsis"></span>
+									<span id="passwordLabel"></span>
+								</label>
+									<input type="password" class=" length required" errid="password_error" maxlength=32
+										   id="password" name="password" autocomplete="off" minlength="8">
+									<input type="text" id="text" class="length" autocomplete="off" errid="password_error"
+										   style="display:none" maxlength=32 minlength="8">
+									<span class="icon_eye" id="switch"></span>
+									<span class="password_border password_border_disable">
+										<div>
+											<span id='weak' class="password_strength_text password_strength_text_disable">></span>
+											<span id='middle' class="password_strength_text password_strength_text_disable"></span>
+											<span id='strong' class="password_strength_text password_strength_text_disable"></span>
+										</div>
+										<div style="margin-top: -11px">
+											<span class="password_strength password_strength_easy password_strength_disable" style="margin-left: 4px"></span>
+											<span class="password_strength password_strength_middle password_strength_disable"></span>
+											<span class="password_strength password_strength_complex password_strength_disable"></span>
+										</div>
+									</span>
+									<span class="error" id="password_error" hidden></span>
+							</div>
+							<div class="form-group">
+								<label class="text_word">
+									<span class="emphsis"></span>
+									<span id="conpasswordLabel"></span>
+								</label>
+									<input type="password" class=" length required" errid="conpassword_error"
+										   maxlength=32 id="conpassword" errid="conpassword_error" name="conpassword"
+										   minlength="8">
+									<input type="text" class=" length" id="text_con" errid="conpassword_error"
+										   style="display:none" maxlength=32  minlength="8">
+									<span class="icon_eye" id="switch_con"></span>
+									<span class="error" id="conpassword_error" hidden></span>
+							</div>
+						</form>
+						<div class="modal-footer">
+							<button class="btn btn-primary" id="registBtn" disabled="disabled"></button>
+							<button class="btn btn-primary" id="backLogin"></button>
+						</div>
+					</div>
+				</div>
+			</form>
+			<!--<a href="#" class="protocol">《绿洲》用户协议</a>-->
+		</div>
+	</div>
+	</body>
+</html>
+<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+<!--<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>-->
+<script src="jquery.js" type="application/javascript"></script>
+
+<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+<!--<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
+<script src="bootstrap.min.js" type="application/javascript"></script>
+<script src="notice/jquery-notice.js" type="application/javascript"></script>
+<script src="register.js" type="application/javascript"></script>

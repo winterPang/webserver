@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style type="text/css">
+        .tab-content>.tab-pane {
+            display:block;
+            height: 0;
+            overflow-x: hidden;
+        }
+        .tab-content>.active {
+            height: auto;
+        }
+        .dateSelectstyle{
+            text-decoration:underline;
+            color: #45B5BB;
+        }
+        .page-row{
+            moz-user-select: -moz-text!important;
+            -moz-user-select: text!important;
+            -o-user-select:text!important;
+            -khtml-user-select:text!important;
+            -webkit-user-select:text!important;
+            -ms-user-select:text!important;
+            user-select:text!important;
+        }
+        /*<!-- daterange 调整-->*/
+
+
+        /*周期选择*/
+        .time-zone{
+            display: inline-block;
+        }
+        .radio-name{
+            display: inline-block;
+            margin: 0 20px 0 0;
+        }
+        .btn-small{
+            width: 100px;
+            padding: 0;
+        }
+
+
+        /*slist 调整*/
+        .slist-body .slist-center .slist-row,.slist-body .slist-head{
+            border-bottom: 0px;
+        }
+        .slist-body .slist-head,.slist-body .slist-center .slist-row.even{
+            background-color: #EDF0F2;
+            transition:background 0.5s;
+            -moz-transition:background 0.5s; /* Firefox 4 */
+            -webkit-transition:background 0.5s; /* Safari and Chrome */
+            -o-transition:background 0.5s; /* Opera */
+        }
+        .slist-body .slist-center .slist-row.odd{
+            background-color: #ffffff;
+            transition:background 0.5s;
+            -moz-transition:background 0.5s; /* Firefox 4 */
+            -webkit-transition:background 0.5s; /* Safari and Chrome */
+            -o-transition:background 0.5s; /* Opera */
+        }
+        .simple-list .slist-body {
+            border-style: solid;
+            border-color: #dedddd;
+            border-width: 0 1px 0 1px;
+        }
+        .slist-body .slist-center .slist-row:hover{
+            color:white;
+            background: #4ec1b2;
+        }
+        .slist-body .slist-center .slist-row.active{
+            background: rgba(0 0 0 0);
+        }
+
+
+        .probe-icon{
+            line-height: 36px;
+            color: #4ec1b2;
+            margin-left: 5px;
+        }
+        .probe-icon::before{
+            content: "\e617";
+            font-size: 10px;
+            color: #4ec1b2;
+        }
+        .probe-manager{
+            border-color: #cccccc;
+            border-style: dashed none dashed none;
+            border-width: 1px;
+            height: 40px;
+            overflow: hidden;
+
+        }
+        .probe-timechoice{
+        }
+        .probe-timechoice:hover{
+            background-color: #e3e3e3;
+            cursor: pointer;
+        }
+
+
+        .probe-choice input{
+            width: 200px;
+            height: 33px;
+            padding-right: 40px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+        .probe-choice.input-height{
+            height: 45px;
+        }
+        .probe-choice input{
+            z-index: 2;
+        }
+        .probe-choice input.probe-input{
+            z-index: 2;
+        }
+        #probe_time{
+            display: inline-block;
+        }
+        .probe-choice .choice-show{
+            width: 100%;
+            height: 0px;
+            overflow: hidden;
+            position: relative;
+            background-color: #fff;
+            -webkit-box-shadow: 0 0 1px 1px #ccc;
+            -moz-box-shadow: 0 0 1px 1px;
+            box-shadow: 0 0 6px 0px;
+            z-index: 2;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-transition: height 0.3s;
+            -moz-transition: height 0.3s;
+            -ms-transition: height 0.3s;
+            -o-transition: height 0.3s;
+            transition: height 0.3s;
+        }
+        .probe-choice .choice-show li{
+            background: #fff;
+            line-height: 35px;
+            font-size: 14px;
+            padding: 0px 0 0px 18px;
+            list-style-type: none;
+            -webkit-transition: background 0.3s;
+            -moz-transition: background 0.3s;
+            -ms-transition: background 0.3s;
+            -o-transition: background 0.3s;
+            transition: background 0.3s;
+        }
+        .probe-choice .choice-show li:not(:first-child) {
+            border-top: rgba(204, 204, 204, 0.36) dashed 1px;
+        }
+        .probe-choice .choice-show li:first-child{
+            border-top: rgba(204, 204, 204, 0.36) solid 1px;
+        }
+        .probe-choice .choice-show li:hover{
+            background: #ccc;
+            cursor: pointer;
+        }
+        .probe-choice .probesearch-icon{
+            position: absolute;
+            top: 10px;
+            right: 0;
+            width: 35px;
+            height: 31px;
+            border-left: #E9E9E9 solid 1px;
+            margin: 1px 6px 1px 0;
+        }
+        .probe-choice .choice-show.height-change{
+            height: auto;
+        }
+        .probe-choice input.probe-input{
+            width: 183px;
+            margin: 10px;
+        }
+        .choice-head{
+            width: 100%;
+            height: 33px;
+            padding-right: 0px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            border: #ccc solid 1px;
+        }
+        .choice-head:hover{
+            border-color: #4ec1b2;
+            cursor: pointer;
+        }
+        .choice-head span:first-child{
+            margin-left: 15px;
+            line-height: 33px;
+        }
+        .choice-head span:last-child{
+            height: 33px;
+            width: 30px;
+            float: right;
+        }
+
+        /*向下箭头*/
+        .arrow-down{
+            background: url(css/image/dashboard-icon.png) no-repeat -376px -94px;
+        }
+        .probesearch-icon{
+            background: url(css/image/dashboard-icon.png) no-repeat -209px -97px;
+            cursor: pointer;
+        }
+        /*全页面覆盖*/
+        .cover-body{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        /*echart图表*/
+        #probe_map{
+            height: 350px;
+            background-color: #415172;
+            -webkit-transition: height 0.5s;
+            -moz-transition: height 0.5s;
+            -ms-transition: height 0.5s;
+            -o-transition: height 0.5s;
+            transition: height 0.5s;
+        }
+        .page-row .new-posistion{
+            margin-bottom: 20px;
+        }
+
+
+        #probe_time5+label+.time-zone{
+            display: none;
+        }
+        #probe_time5:checked +label + .time-zone{
+            display: inline-block;
+        }
+        .daterange{
+            width: 200px;
+            height: 33px;
+            padding-right: 1px!important;
+            padding-left: 20px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            border: #ccc solid 1px;
+            margin: 0;
+        }
+        .daterange:focus{
+            border: #4ec1b2 solid 1px;
+            outline: none;
+        }
+        .choice-show .time-zone{
+            padding: 10px;
+        }
+        .choice-show .time-zone .daterange{
+            width: 180px;
+        }
+
+        .probe-back{
+            position: absolute;
+            height: 40px;
+            width: 22px;
+            background: #EC5068;
+            z-index: 1;
+            cursor: pointer;
+            overflow: hidden;
+            -webkit-transition: width 0.5s;
+            -moz-transition: width 0.5s;
+            -ms-transition: width 0.5s;
+            -o-transition: width 0.5s;
+            transition: width 0.5s;
+        }
+        .probe-back:hover{
+            width: 100px;
+        }
+        .probe-back div{
+            padding-left: 5px;
+            color: #ffffff;
+            overflow: hidden;
+            height: 40px;
+            width: 100px;
+            float: right;
+        }
+        .probe-back span:first-child{
+            margin-top: 10px;
+            float: left;
+        }
+        .icon-back{
+            float: right;
+            margin: 0;
+            width: 20px;
+            height: 40px;
+            z-index: 2;
+            background: url(css/image/dashboard-icon.png) no-repeat -19px -5px;
+        }
+        /*返回功能，暂时屏蔽		*/
+        /*.simple-list{*/
+        /*border-left: #EC5068 solid 3px;*/
+        /*}*/
+
+        #datechoice1{
+            widows: 200px;
+            margin-left: 20px;
+            margin-top: 15px;
+            top: 0;
+            position: relative;
+            -webkit-transition: top 0.5s, margin 0.5s;
+            -moz-transition: top 0.5s, margin 0.5s;
+            -ms-transition: top 0.5s, margin 0.5s;
+            -o-transition: top 0.5s, margin 0.5s;
+            transition: top 0.5s, margin 0.5s;
+        }
+        .page-row .choice-head{
+            background: #fff;
+        }
+        #datechoice{
+            width: 200px;
+            float: right;
+        }
+
+
+
+        .position-hide{
+            height: 0 !important;
+            margin: 0 !important;
+        }
+        .position-up{
+            position: absolute!important;
+            top: -45px!important;
+            margin: 0 !important;
+        }
+
+        input.wrong-mac{
+            border-color:red;
+        }
+
+
+        #datechoice1{
+            position: absolute;
+            z-index: 999;
+        }
+
+        #analysize_choice{
+            position: absolute;
+            /* right: 20px; */
+            left: 227px;
+            top: 15px;
+            width: 100px;
+            z-index: 99;
+        }
+
+
+        /*样式调整*/
+        .leg-panel .leg-row,.leg-panel .leg-row .leg-percent{
+            color: #ffffff;
+            border-bottom: 1px solid #43607d;
+        }
+
+        #probe_drawpie{
+            z-index: 0;
+        }
+        .page-row{
+            position: relative;
+        }
+        .app-box{
+            margin-left:3px;
+            margin-right:3px
+        }
+        #pie4{
+            padding-left:20px;
+        }
+
+        .filter-container{
+            display:inline-block;
+            height:auto;
+            background: #fff;
+            box-shadow: 0 1px 8px rgba(0,0,0,0.1);
+            border:1px solid #a7b7c1;
+            z-index: 999;
+            position: relative;
+            right: 0;
+            padding: 8px;
+            clear: both;
+        }
+
+        .app-box .box-footer .link-container1{
+            position: absolute;
+            right: 5px;
+        }
+        .page-row #revolution-id{
+            margin: 11px 2px 2px 10px;
+            width: 60px;
+            text-align: center;
+        }
+        .page-row #Interval{
+            margin: 0 2px 2px 10px;
+            width: 60px;
+            text-align: center;
+        }
+        .black-temp{
+            position: absolute;
+            left: 88px;
+            opacity: 0.5
+        }
+        .newback-temp{
+            background: url(./css/image/map6floor.png);
+        }
+        .newback-temp{
+            background:rgba(0,0,0,0.5) url(./css/image/map6floor.png) no-repeat;
+        }
+        .footer-cmd
+        {
+            padding: 10px 15px;
+            background-color: #4EC1B1;
+        }
+        .body-cmd
+        {
+            padding: 10px 15px;
+            background-color: #F7F7F7;
+        }
+        .title-cmd{
+            position: absolute;
+            top:-300px;
+        }
+        .margin-left-little{
+            margin:0 20px 0 0;
+        }
+        #hotmap_btn,#map_btn{
+            cursor: pointer;
+        }
+        .app-box .box-body{
+            height: 691px;
+            padding: 10px 30px;
+        }
+        .radio-name{
+            display: inline-block;
+            margin: 0 20px 0 0;
+        }
+        .radio-name .datewidget input{
+            width: 121px;
+            height: 30px;
+        }
+        .radio-name .datewidget span{
+            left: 95px;
+            padding:0 0 0 0;
+        }
+        .app-box .top-box{
+            border-bottom: #dedddd solid 1px;
+            padding: 10px 0 10px 28px;
+            box-shadow: 1px 1px 3px #dedddd;
+        }
+        .top-box .time-zone{
+            display: inline-block;
+        }
+        #Probe_Monitor .hide{
+            display: none!important;
+        }
+        .cancel-actions {
+            position: static;
+            margin: 8px 15px 0 0;
+            display: inline-block;
+            float: right;
+            background: url(css/image/xb-icons.png) no-repeat;
+            height: 16px;
+            width: 18px;
+        }
+        .cancel-actions.hover-action {
+            background-position: -663px -42px;
+            cursor: pointer;
+        }
+
+        .cancel-actions.hover-action:hover{
+            background-position: -594px -42px;
+            cursor: pointer;
+        }
+        .forbidden-click{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+        }
+        .forbidden-click.on{
+            z-index:999
+        }
+        .forbidden-click.off{
+            z-index: -999;
+        }
+
+        input.daterange{
+            border: #ccc solid 1px;
+            width: 165px;
+            height: 30px;
+        }
+        /*.title-img img{*/
+        /*cursor: pointer;*/
+        /*float: left;*/
+        /*}*/
+        .title-img{
+            display: inline-block;
+            float: left;
+            width: 320px;
+        }
+        .title-img + div{
+            display: inline-block;
+            float: right;
+        }
+
+
+        @media screen and (max-width:1023px) {
+            .app-box .box-body{
+                height: 100%;
+                padding: 10px 30px;
+            }
+            #pie1{
+                width: 100%;
+            }
+            #pie2{
+                width: 100%;
+            }
+            #pie3{
+                width: 100%;
+            }
+            #pie4{
+                width: 100%;
+                padding-left: 0;
+            }
+            #probe_Ssid_all{
+                width: 100%;
+            }
+        }
+        @media screen and (max-width:1279px) {
+            .app-box .box-body{
+                height: 100%;
+                padding: 10px 30px;
+            }
+
+            #pie4{
+                width: 100%;
+                padding-left: 0;
+            }
+            #probe_Ssid_all{
+                width: 100%;
+            }
+        }
+
+        @media screen and (min-width:1400px) {
+            .app-box .box-body{
+                height: 100%;
+                padding: 10px 30px;
+            }
+
+            #pie4{
+                width: 65%;
+                padding-left: 0;
+            }
+            #probe_Ssid_all{
+                width: 35%;
+            }
+        }
+
+        .set-background{
+            background: url(./css/image/calender.png) 10px 10px;
+            background-repeat: no-repeat;
+            padding-left: 21px;
+            padding-top: 1px;
+            margin-top: -2px;
+            color: #fff;
+            font-weight: bolder;
+            font-family: monospace;
+            width: 45px;
+            height: 45px;
+        }
+        .box-footer span {
+            float: right;
+            padding-right: 20px;
+            cursor: pointer;
+            color: #4CBDCE;
+        }
+        .box-footer span:hover {
+            color: #4CBDCE;
+        }
+        #helpcontent .modal-body ul li span {
+            font-weight: 600;
+        }
+        ul p {
+            text-indent: 2em;
+            margin-bottom: 10px;
+        }
+        .modal-super {
+            width: 800px;
+            margin-left: -400px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer" >
+            <div class="col-xs-12">
+                <div class="title-img">
+                    <div class="col-xs-4" id="senior_filter" style="cursor: pointer">
+                        <div class="set-background" id="calendar"></div>
+                    </div>
+                    <div class="col-xs-7" id="cycle_date" style="margin-left: -67px;">（今天）</div>
+                </div>
+                <div class="title-img" style="padding-left: 100px">
+                    <div class="col-xs-4" id="senior_filter2" style="cursor: pointer">
+                        <div class="set-background" id="place">CP</div>
+                    </div>
+                    <div class="col-xs-7" id="cycle_date2" style="margin-left: -20px;">
+                        <select id="changshuoselect"  allowClear="false" name="changshuoselect" class="singleSelect" style="width: 150px"></select>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="top-box hide">
+            <div class="time-zone">
+                <span class="radio-name">周期</span>
+                <div class="radio-name">
+                    <input type="radio" id="WT1" name="WipsType" value="0" checked/>
+                    <label for="WT1">今天</label>
+                </div>
+                <div class="radio-name">
+                    <input type="radio" id="WT2" name="WipsType" value="1"/>
+                    <label for="WT2">七天</label>
+                </div>
+                <div class="radio-name">
+                    <input type="radio" id="WT3" name="WipsType" value="2"/>
+                    <label for="WT3">一月</label>
+                </div>
+                <div class="radio-name">
+                    <input type="radio" id="WT4" name="WipsType" value="3"/>
+                    <label for="WT4">一年</label>
+                </div>
+                <div class="radio-name">
+                    <input type="radio" id="WT5" name="WipsType" value="4"/>
+                    <label for="WT5">其他</label>
+                </div>
+            </div>
+            <div class="time-zone hide" id="timezone">
+                <input id="daterange" class="daterange hide" placeholder="选择日期">
+            </div>
+
+            <div class="cancel-actions hover-action" id="remove">
+            </div>
+        </div>
+        <div class="box-body no-height">
+            <div class="app-box" style="background: #F7F5F5;height: 140px ">
+                <div class="col-xs-6 text-center ShowUserHead" style="padding-top: 35px; padding-left:180px;text-align: left">
+                    <span class="data-title"  id="dangqian"></span>
+                    <img id="help_img_visit" class="help_img" src="../soon/image/help.png" />
+                    <br/>
+                    <span class="view-font" id="visit">0</span>
+                    <span >人次 &nbsp;&nbsp;</span>
+                    <img id="visit_times" src="" />
+                    <span id="visit_change">0</span>
+                    <span>人次</span>
+                </div>
+                <div class="col-xs-6 text-center ShowUserHead" style="padding-top: 35px; padding-left:180px;text-align: left" >
+                    <span class="data-title" id="dangqian_history"></span>
+                    <img id="help_img_history" class="help_img" src="../soon/image/help.png" >
+                    <br/>
+                    <span class="number-count" id="history_visit" style="color: #4ec1b2">0</span>
+                    <span >人次 &nbsp;&nbsp;</span>
+                    <img id="history_times" src="" />
+                    <span id="history_change">0</span>
+                    <span>人次</span>
+                </div>
+            </div>
+
+            <div class="col-xs-12 app-colum" id="content">
+                <div id="local-model" class="cont">
+                    <ul class="nav nav-tabs">
+                        <li role="presentation" class="active"><a href="#ratio" data-toggle="tab" ><span class="nav-cont">占比分析</span></a></li>
+                        <li role="presentation"><a href="#xiangxi" data-toggle="tab">详细统计</a></li>
+                    </ul>
+                    <div class="tab-content tabstyle">
+                        <div class="tab-pane active" id="ratio" style="margin: 0px -40px 0px -40px">
+                            <div class="row">
+                                <div class="col-xs-12 app-colum right-block" style="height: 300px;">
+                                    <div class="col-xs-6 app-colum left-block">
+                                        <div class="box-body echart-height body-nopadding">
+                                            <div id="frequencyratio" class="myEchart"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-6 app-colum left-block">
+                                        <div class="box-body echart-height body-nopadding">
+                                            <div id="frequencyratio_history" class="myEchart"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="tab-pane" id="xiangxi" style="margin: 0px -40px 0px -40px">
+                            <div class="row">
+                                <div class="col-xs-12  body-nopadding" style="height: 300px;">
+                                    <div class="simple-list" id="xiangxi_list" style="margin-top: 10px; margin-left: 0px; width: 1098px"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
+
+<!-- ----------------------------------------------------------------------- -->
+<div id="visit_rc" class="rc-define"  DATE_CYCLE="（今天）,（七天）,（一月）,（一年）">
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("a_dataanalysis.visit");
+</script>

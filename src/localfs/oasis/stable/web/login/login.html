@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+<head>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>o2o</title>
+
+    <!-- CSS -->
+    <link href="css/login.css" rel="stylesheet">
+    <!-- Javascript Libraries -->
+    <script src="../frame/libs/jquery/jquery-1.11.3.min.js"></script>
+    <script src="js/userlogin.js"></script>
+
+</head>
+<body>
+<div class="login-panel"></div>
+<div class="loginarea">
+    <div class="logo img-responsive"></div>
+    <form name="loginForm">
+            <div>
+                <div class="error" ng-if="loginFlag" style="display: block">用户名或密码错误</div>
+                <div class="error" ng-if="loginEmpty" style="display: block">请填写用户名密码</div>
+            </div>
+            <div class="username">
+                <label for="name" class="label_username"></label>
+                <input type="text" id="name" name="username" placeholder="用户名"/>
+            </div>
+            <div>
+                <label for="password" class="label_password"></label>
+                <input type="password" id="password" name="password" placeholder="密码"/>
+                <input type="text" id="text" style="display: none"/>
+                <span class="icon_eye" id="switch"></span>
+            </div>
+        <input type="submit" id="loginBtn" class="button cusbtn-default"
+               name="loginBtn" value="登录" />
+    </form>
+    <ul>
+        <li><div class="borderstyle">
+            <a href="#" class="cancelleft">忘记密码</a>
+        </div></li>
+        <li><div class="borderstyle">
+            <a href="#" class="register" id="registerBtn">立即注册</a>
+        </div></li>
+        <li><a href="#" class="vistorlogin" id="visitorLoginBtn">访客登录</a></li>
+    </ul>
+</div>
+
+<div class="adv">
+    <div class="advertisement" id="adPanel">
+        <ul>
+            <li id="adv0"><a href="#"></a> <img src="img/a_image_1.png"/></li>
+            <li id="adv1"><a href="#"></a> <img src="img/a_image_2.png"/></li>
+            <li id="adv2"><a href="#"></a> <img src="img/a_image_3.png"/></li>
+        </ul>
+    </div>
+    <ul class="menuposition">
+        <li><i class="menu-icon" id="i1"></i></li>
+        <li><i class="menu-icon" id="i2"></i></li>
+        <li><i class="menu-icon" id="i3"></i></li>
+    </ul>
+</div>
+
+<!--正在加载样式-->
+<!--<div class="modal-loading" ng-if="loading" style="display: none">
+    <div class="loading">
+        <img src="../images/icon_waiting_54x54.gif" /><span
+            ng-bind="loading_text"></span>
+    </div>
+</div>-->
+
+</body>
+
+</html>

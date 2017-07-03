@@ -1,0 +1,40 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 3,
+  "rows": [
+    {
+      "id": 10,
+      "devicemodel": "WX5004",
+      "bomcode": "0235A35J",
+      "Dstyllable": "A35J",
+      "selected": true,
+      "showDetail": true,
+      "showDelete": true,
+      "otherpage": true,
+      "showEdit": true
+    },
+    {
+      "id": 11,
+      "devicemodel": "LSUM3WCMD0",
+      "bomcode": "0231A1GH",
+      "Dstyllable": "A1GH",
+      "selected": true,
+      "showDetail": true,
+      "showDelete": true,
+      "otherpage": true,
+      "showEdit": true
+    },
+    {
+      "id": 12,
+      "devicemodel": "EWPXM3WCMD0",
+      "bomcode": "0231A1GJ",
+      "Dstyllable": "A1GJ",
+      "selected": true,
+      "showDetail": true,
+      "showDelete": true,
+      "otherpage": true,
+      "showEdit": true
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+<div id="dashboard_rc" 
+    no_choose_port="None"
+    ZONGLIANG="Total"
+    total_flow_up_down="Total upstream,Total downstream"
+    LIULIANG="Traffic"
+    STREAM="upstream,downstream"
+>
+<div class="dashboard container-fluid">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="col-xs-12">
+                    <div class="box-footer">
+                        <span class="title">Traffic Monitoring</span>
+                        <div class="text-right link-container">
+                            <label for="branchSelect"><span style="font-weight:600;font-size:14px;">Interface</span></label>
+                            <select class="singleSelect" id="branchSelect" name="branchSelect"
+                                    style="margin-top:0px;margin-left:10px;vertical-align:middle;height:30px;width:150px;"
+                                    ng-options="item as item.name for item in list" ng-model="selectValue" ></select>
+                        </div>
+                    </div>
+                    <div class="sysinfo-body col-sm-12">
+                        <div id="usage" name="usage" class="myEchart dashboard-usage" debug="getUsage" style="height:210px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>

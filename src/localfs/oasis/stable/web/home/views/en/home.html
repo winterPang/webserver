@@ -1,0 +1,293 @@
+<div ng-show="REGION_READ && !NO_PERMISSION">
+    <div class="storeGroup">
+        <h4 class="pull-left">Store Group</h4>
+        <div class="pull-right" style="margin-top:20px;">
+            <img class="echratsImg" src="../home/images/icon-dtc.png" ng-click="echratsView($event)" style="cursor:pointer">
+            <img class="tableImg" src="../home/images/icon-lbn.png" style="margin-right:15px;" ng-click="tableView($event)">
+            <!--<img src="../home/images/icon-mn.png">-->
+        </div>
+        <!--<hr class="clearfix">-->
+        <div class="pull-left" id="divInput">
+            <form class="form-inline" role="form">
+                <div class="form-group has-feedback">
+                    <input type="text" class="form-control" id="search" ng-model="searchText" autocomplete="false">
+                    <span class="glyphicon glyphicon-search form-control-feedback" id="btnSearch"></span>
+                </div>
+            </form>
+        </div>
+        <div class="ztree-container pull-left">
+            <ul id="treeDemo" class="ztree"></ul>
+        </div>
+        <button type="button" ng-click="expand=!expand" class="btn btn-default" id="right" ng-init="expand=true">
+            <span class="glyphicon  glyphicon-chevron-left" ng-class="{true:'glyphicon-chevron-left',false:'glyphicon-chevron-right'}[expand]"></span>
+        </button>
+    </div>
+
+    <div home-site="region"></div>
+    <div class="container" ng-show="SHOP_WRITE">
+        <div class="row">
+            <div class="text-center" id="add_div" ng-click="addSite()">
+                <img src="../home/img/icon_homepage_add.png" id="add_img">
+            </div>
+        </div>
+    </div>
+
+    <div bs-modal="form.option" class="guideModal" id="homeAddShopForm">
+        <!--显示在上面的一条条-->
+        <div class="clearfix clearfix2">
+            <ul class="text-center">
+                <li class="col-xs-3 pull-left">
+                    <span><img src="../home/img/one{{form.showForm==1?'_active':''}}.png"></span><span>Add Site</span>
+                </li>
+                <li class="col-xs-3 pull-left">
+                    <span><img src="../home/img/two{{form.showForm==2?'_active':''}}.png"></span><span>Scenario</span>
+                </li>
+                <li class="col-xs-3 pull-left">
+                    <span><img src="../home/img/three{{form.showForm==3?'_active':''}}.png"></span><span>Add Device</span>
+                </li>
+                <li class="col-xs-3 pull-left">
+                    <span><img src="../home/img/four{{form.showForm===4?'_active':''}}.png"></span><span>Abstract</span>
+                </li>
+            </ul>
+        </div>
+        <!--TODO  需要修改回来-->
+        <form novalidate class="form-horizontal" name="forms.form1" ng-show="form.showForm==1">
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Name <span class="label-require">*</span></label>
+                <div class="col-xs-4">
+                    <input class="form-control" name="shopName" type="text" ng-model="row.shopName" required
+                           ajax-valid="validShopName" ng-pattern="/^[^0-9]/" ng-maxlength="20">
+                </div>
+                <div class="ng-error col-xs-4" ng-show="forms.form1.shopName.$dirty" ng-messages="forms.form1.shopName.$error">
+                    <div ng-message="required">Please enter</div>
+                    <div ng-message="maxlength">Up to 20 characters.</div>
+                    <div ng-message="pattern">The name cannot start with digits.</div>
+                    <div ng-message="ajaxValid-2">The site already exists.</div>
+                    <div ng-message="ajaxValid-3">Input error.</div>
+                    <div ng-message="ajaxValid-4">Network anomaly.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Industry<span class="label-require">*</span></label>
+                <div class="col-xs-4">
+                    <select name="owned_industry" required class="form-control" ng-model="row.owned_industry" ng-options="a.id as a.industryName for a in industry">
+                    </select>
+                </div>
+                <div class="ng-error col-xs-4" ng-show="forms.form1.owned_industry.$dirty" ng-messages="forms.form1.owned_industry.$error">
+                    <div ng-message="required">Please select affiliated industry</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Region<span class="label-require">*</span></label>
+                <div class="col-xs-7">
+                    <select id="cmbProvince" class="form-control" name="province" required> </select>
+                    <select id="cmbCitys" class="form-control" name="city" required> </select>
+                    <select id="cmbArea" class="form-control" name="area" required> </select>
+                    <span ng-show="form1.province.$invalid||form1.city.$invalid||form1.area.$invalid" style="color:red;font-size:12px;">Please select the province,city and district.</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Address</label>
+                <div class="col-xs-4">
+                    <input class="form-control" name="address" type="text" ng-model="row.address" ng-maxlength="150">
+                </div>
+                <div class="col-xs-4 ng-error" ng-show="forms.form1.address.$dirty" ng-messages="forms.form1.address.$error">
+                    <div ng-message="maxlength">Up to 150 characters.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Phone</label>
+                <div class="col-xs-4">
+                    <input class="form-control" name="phone" type="text" ng-model="row.phone"
+                           ng-pattern="/^((0086|\+86)?\s*1[34578]\d{9}|(\d{3,4}-)?\d{7,8})$/">
+                </div>
+                <div class="col-xs-4 ng-error" ng-show="forms.form1.phone.$dirty" ng-messages="forms.form1.phone.$error">
+                    <div ng-message="pattern">Invalid phone number format.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Description</label>
+                <div class="col-xs-4">
+                    <textarea class="form-control" name="shopProfile" type="text" ng-model="row.shopDesc" ng-maxlength="500"></textarea>
+                </div>
+                <div class="col-xs-4 ng-error" ng-show="forms.form1.shopProfile.$dirty" ng-messages="forms.form1.shopProfile.$error">
+                    <div ng-message="maxlength">Up to 500 characters.</div>
+                </div>
+            </div>
+        </form>
+        <form novalidate class="form-horizontal" name="forms.form2" ng-show="form.showForm==2">
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Scenario <span class="label-require">*</span></label>
+                <div class="col-xs-5">
+                    <select name="scenario_category_name" class="form-control" ng-model="row.scenario_category_name"
+                            ng-options="scen.id as scen.namedesc for scen in scens">
+                    </select>
+                </div>
+            </div>
+            <table bs-table="options"></table>
+        </form>
+        <!--TODO 需要修改回来-->
+        <form novalidate class="form-horizontal" name="forms.form3" ng-show="form.showForm==3">
+            <!--<form novalidate class="form-horizontal" name="forms.form3">-->
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Alias <span class="label-require">*</span></label>
+                <div class="col-xs-5">
+                    <input class="form-control" name="devAlias" type="text" ng-model="addDev.devAlias" placeholder="Please enter an alias." ng-maxlength="30" required>
+                </div>
+                <div class="col-xs-3 ng-error" ng-show="forms.form3.devAlias.$dirty" ng-messages="forms.form3.devAlias.$error">
+                    <div ng-message="required">Please enter an alias.</div>
+                    <div ng-message="maxlength">Up to 30 characters.</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Type </label>
+                <div class="col-xs-3">
+                    <select name="" class="form-control" ng-model="addDev.devType">
+                        <option value="1" selected>Physical device</option>
+                        <option value="4">Virtual device</option>
+                    </select>
+                </div>
+                <div class="col-xs-2 text-right irf-field">
+                    <span><input type="checkbox" ng-model="addDev.isIRF"></span>
+                    <span>IRF device</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">SN <span class="label-require">*</span></label>
+                <div class="col-xs-5">
+                    <input class="form-control" name="devSn" type="text" ng-model="addDev.devSn" placeholder="Please enter the serial number." ng-pattern="/^[0-9a-zA-Z]{9,64}$/" ajax-valid="validDevSn" required>
+                </div>
+                <div class="col-xs-3 ng-error" ng-show="forms.form3.devSn.$dirty" ng-messages="forms.form3.devSn.$error">
+                    <div ng-message="required">Please enter the serial number.</div>
+                    <div ng-message="pattern">Please enter a string of 9 to 64 characters that contain digits or letters.</div>
+                    <div ng-message="ajaxValid-1">The SN already exists.</div>
+                </div>
+            </div>
+            <div class="form-group" ng-show="addDev.isIRF">
+                <label class="col-xs-3 control-label">IRF Fabric <span class="label-require">*</span></label>
+                <div class="col-xs-5">
+                    <select ng-model="addDev.groupId" class="form-control">
+                        <option value="-1">New</option>
+                        <option ng-repeat="name in groupNameList" value="{{name}}" ng-bind="name"></option>
+                    </select>
+                </div>
+            </div>
+            <div class="form-group" ng-show="addDev.isIRF && addDev.groupId==-1">
+                <label class="col-xs-3 control-label">New fabric name <span class="label-require">*</span></label>
+                <div class="col-xs-5">
+                    <input class="form-control" name="groupName" type="text" ng-model="addDev.groupName" placeholder="Please enter group name">
+                </div>
+            </div>
+            <div>
+                <div class="col-xs-2 pull-right" style="margin-bottom:20px;">
+                    <button class="btn btn-cus" ng-disabled="addDev.devAddBtnDisabled" ng-click="addDevModel()">Add</button>
+                </div>
+                <table bs-table="addOptions"></table>
+            </div>
+        </form>
+        <form novalidate class="form-horizontal" name="forms.form4" ng-show="form.showForm==4">
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Name <span class="label-require">*</span></label>
+                <div class="col-xs-5 text-center" style="padding-top:7px;">
+                    {{row.shopName}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Description</label>
+                <div class="col-xs-5 text-center" style="padding-top:7px;">
+                    {{row.shopDesc}}
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Region<span class="label-require">*</span></label>
+                <div class="col-xs-5 text-center" style="padding-top:7px;" ng-bind="row.addr">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Address</label>
+                <div class="col-xs-5 text-center" style="padding-top:7px;" ng-bind="row.addr+row.address">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Phone</label>
+                <div class="col-xs-5 text-center" style="padding-top:7px;">
+                    {{row.phone}}
+                </div>
+            </div>
+            <div style="margin-bottom:20px;">
+                <table bs-table="addOptions2"></table>
+            </div>
+
+        </form>
+        <!--底部按钮-->
+        <div class="text-center form-footer">
+            <button class="btn btn-cus" name="next1" ng-show="form.showForm==1" ng-disabled="forms.form1.$invalid">Next</button>
+            <button class="btn btn-cus" name="prev1" ng-show="form.showForm==2">Previous</button>
+            <button class="btn btn-cus" name="next2" ng-disabled="!row.scenario_category_name" ng-show="form.showForm==2">Next</button>
+            <button class="btn btn-cus" name="prev2" ng-show="form.showForm==3">Previous</button>
+            <button class="btn btn-cus" name="next3" ng-show="form.showForm==3" ng-disabled="forms.form3.$invalid && !$scope.devices.length">Next</button>
+            <button class="btn btn-cus" name="cancel" ng-show="form.showForm!=4">Cancel</button>
+            <button class="btn btn-cus" name="complete" ng-show="form.showForm==4" ng-click="complete()">Close</button>
+        </div>
+    </div>
+
+    <form id="addAreaModal" novalidate bs-modal="addAreaModal" class="form-horizontal" name="formAddArea">
+        <div class="form-group">
+            <div class="col-xs-2 control-label">Area name</div>
+            <div class="col-xs-5">
+                <input class="form-control" name="name_area" ng-model="treeNode.areaName" placeholder='1-30 chars' required ng-maxlength="30">
+            </div>
+            <div class="col-xs-4 ng-error" ng-messages="formAddArea.name_area.$error" ng-show="formAddArea.name_area.$dirty">
+                <div ng-message="required">This field is required.</div>
+                <div ng-message="maxlength">Up to 30 characters.</div>
+            </div>
+        </div>
+    </form>
+    <form id="modifyAreaModal" novalidate bs-modal="modifyAreaModal" class="form-horizontal" name="formModifyArea">
+        <div class="form-group">
+            <div class="col-xs-2 control-label">Area name </div>
+            <div class="col-xs-5">
+                <input class="form-control" name="name_area" ng-model="treeNode.areaName" placeholder='1-10 chars' required ng-maxlength="30">
+            </div>
+            <div class="col-xs-4 ng-error" ng-messages="formModifyArea.name_area.$error" ng-show="formModifyArea.name_area.$dirty">
+                <div ng-message="required">This field is required.</div>
+                <div ng-message="maxlength">Up to 30 characters.</div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="home_not_allow" ng-show="!REGION_READ">
+    <img src="../home/img/notallow.png" alt="No access">
+</div>
+<div class="home_not_allow" ng-show="NO_PERMISSION && REGION_READ">
+    <img src="../home/img/adminallow.png" alt="Administrator authorization">
+</div>
+<div class="read_rc" id="home_rc"
+     support="Supported Device Models."
+     device-number="SN"
+     device-ailas="Alias"
+     delete="Delete"
+     confirm-delete="Are you sure you want to delete , "
+     delete-device="Delete"
+     success="Success"
+     error="Request error."
+     up-to-five="You can add a maximum of five device."
+     number-exist="The SN already exists."
+     add-shop-sucess="Scenario added successfully."
+     add-shop-error="Scenario added fail."
+     add-sucess="Device added successfully."
+     add-error="Device added fail."
+     add-dev-msg="The device models are not supported."
+     add-region="Add Area"
+     delete-region="Delete area"
+     modify-name="Modify name"
+     modify-region="Modify Area"
+     not-modify="Area name not modified."
+     table-header=""
+     single-group="Single Device"
+     Group-name="Group name"
+     data="Data loading failed"
+     addDevTitle="Group Name,Device SN,Device Alias,Delete"
+     first-completed="Your information is not complete.Complete it now?"
+>
+</div>

@@ -1,0 +1,93 @@
+<div class="col-xs-12 app-colum pagetemplate5">
+    <div id='listView' class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">Page Template</span>
+        </div>
+        <div class="panel-body">
+            <div class="btn btn-cus" ng-click="addAccount()" ng-if="permission.write">
+                <i class="btn-icon icon-add"></i>Add
+            </div>
+            <div class="box-body no-height">
+                <div bs-table="pageOption" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<form name="addForm" novalidate bs-modal="accountAdd.options">
+    <div class="form-group">
+        <label class="col-sm-3 control-label required">Template Name</label>
+        <div class="col-sm-9">
+            <input ng-model="add.themeName" type="text" class="string big " id="themeName" name="themeName"
+                   ng-maxlength="32" required/>
+            <label class="info-explain">(1-32 chars)</label>
+            <label ng-show="addForm.themeName.$dirty" ng-messages="addForm.themeName.$error"
+                   style="display:inline-block;">
+                <label ng-message="required" class="error" style="display: inline-block;">This field is
+                    required.</label>
+                <label ng-message="maxlength" class="error" style="display: inline-block;">Please enter a string of 1 to
+                    32 characters.</label>
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label ">Description</label>
+        <div class="col-sm-9">
+            <input ng-model="add.themeDec" type="text" class="string big " id="themeDec" name="themeDec"
+                   ng-maxlength="128"/>
+            <label class="info-explain">(1-128 chars)</label>
+            <label ng-show="addForm.themeDec.$dirty" ng-messages="addForm.themeDec.$error"
+                   style="display:inline-block;">
+                <label ng-message="maxlength" class="error" style="display: inline-block;">Please enter a string of 1 to
+                    128 characters.</label>
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-3 control-label ">Template theme</label>
+        <div class="col-sm-9">
+            <div class="col-sm-4">
+                <div class="xb-input xb-radio">
+                    <input type="radio" id="tType_3" name="tType" class="input-element" value="3" ng-model="add.tType">
+                    <span class="input-icon radio-icon" ng-class="{'checked':add.tType == 3}"></span>
+                    <label class="input-label" for="tType_3"></label>
+                </div>
+                <label for="tType_3">2017Vigour</label>
+            </div>
+            <div class="col-sm-3">
+                <div class="xb-input xb-radio">
+                    <input type="radio" id="tType_1" name="tType" class="input-element" value="1" ng-model="add.tType">
+                    <span class="input-icon radio-icon" ng-class="{'checked':add.tType == 1}"></span>
+                    <label class="input-label" for="tType_1"></label>
+                </div>
+                <label for="tType_1">Simple</label>
+            </div>
+            <div class="col-sm-5">
+                <div class="xb-input xb-radio">
+                    <input type="radio" id="tType_2" name="tType" class="input-element" value="2" ng-model="add.tType">
+                    <span class="input-icon radio-icon" ng-class="{'checked':add.tType == 2}"></span>
+                    <label class="input-label" for="tType_2"></label>
+                </div>
+                <label for="tType_2">Sky</label>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div id="add_user_Dlag" class="hide modal fade"></div>
+<div id="page_rc" class="rc-define"
+     Page_HEADER="Page Template,Type,Description"
+     ADDPAGE_TITLE="Add Page Template"
+     EDITPAGE_TITLE="Modify Page Template"
+     ADD_SUCCESS="Added successfully"
+     ADD_FAILED="Adding failed"
+     DELETE_FAILED="Failed to delete the page template."
+     DELETE_SUCCESS="Deleted successfully"
+     DELETE_OR_CANCEL="Are you sure you want to delete the selected data?"
+     FAILURE_RETRY="Request error.Please try again."
+     CANNOT_DELETE="This page template is already published and cannot be deleted."
+     DELETE_FILE_FAILED="File system error.Failed to delete the page template."
+     MODIFY_SUCCESS="Modified successfully"
+     MODIFY_FAILED="Modification failed"
+     PAGE_EXIST="The page template name already exists."
+></div>

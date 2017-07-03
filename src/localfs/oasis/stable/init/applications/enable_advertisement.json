@@ -1,0 +1,26 @@
+{
+  "error_code": 0,
+  "error_message": "o2o.oasis.mng.query.success",
+  "data": [
+    {
+      "place_name": "绿洲微信连WiFi实验局",
+      "adver_status": "场所未发布或只启用微信连WiFi认证不能启用广告",
+      "modify": "修改"
+    },
+    {
+      "place_name": "DKG测试环境",
+      "adver_status": "场所未分布不能发布广告",
+      "modify": "修改"
+    },
+    {
+      "place_name": "未来教室",
+      "adver_status": "场所未分布不能发布广告",
+      "modify": "修改"
+    },
+    {
+      "place_name": "未来教室巡展（勿动）",
+      "adver_status": "场所未分布不能发布广告",
+      "modify": "修改"
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+[
+  {
+    "mould_name": "基础数据",
+    "mould_brief": "用户注册信息、场所信息",
+    "mould_li": {
+      "count": 1,
+      "rows": [
+        {
+          "name": "userdata.txt",
+          "creater": "xiaocai",
+          "lasttime": "2017-05-16 00:00:00",
+          "size": "500kb"
+        }
+      ]
+    }
+  },
+  {
+    "mould_name": "DPI数据",
+    "mould_brief": "DPI数据",
+    "mould_li": {
+      "count": 2,
+      "rows": [
+        {
+          "name": "dpidata-20170516.txt",
+          "creater": "xiaocai",
+          "lasttime": "2017-05-16 00:00:00",
+          "size": "500kb"
+        },
+        {
+          "name": "dpidata-20170517.txt",
+          "creater": "xiaocai",
+          "lasttime": "2017-05-17 00:00:00",
+          "size": "500kb"
+        }
+      ]
+    }
+  },
+  {
+    "mould_name": "client数据",
+    "mould_brief": "client数据",
+    "mould_li": {
+      "count": 2,
+      "rows": [
+        {
+          "name": "clientdata-20170516.txt",
+          "creater": "xiaocai",
+          "lasttime": "2017-05-16 00:00:00",
+          "size": "500kb"
+        },
+        {
+          "name": "clientdata-20170517.txt",
+          "creater": "xiaocai",
+          "lasttime": "2017-05-17 00:00:00",
+          "size": "500kb"
+        }
+      ]
+    }
+  },
+  {
+    "mould_name": "AP数据",
+    "mould_brief": "AP数据",
+    "mould_li": {
+      "count": 2,
+      "rows": [
+        {
+          "name": "apdata-20170516.txt",
+          "creater": "xiaocai",
+          "lasttime": "2017-05-16 00:00:00",
+          "size": "500kb"
+        },
+        {
+          "name": "apdata-20170517.txt",
+          "creater": "xiaocai",
+          "lasttime": "2017-05-17 00:00:00",
+          "size": "500kb"
+        }
+      ]
+    }
+  }
+]

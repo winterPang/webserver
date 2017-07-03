@@ -1,0 +1,42 @@
+.oasis-spinner {
+  display: inline-block;
+}
+.oasis-spinner.disabled label,
+.oasis-spinner.disabled input {
+  cursor: not-allowed;
+}
+.oasis-spinner label {
+  font-weight: lighter;
+  text-align: right;
+}
+.oasis-spinner label::after {
+  content: ":";
+}
+.oasis-spinner .form-control {
+  width: auto;
+  text-align: center;
+  margin: 0 -7px;
+  -moz-appearance: textfield;
+  -webkit-appearance: textfield;
+}
+.oasis-spinner .form-control[disabled] {
+  border-color: #bdbdbd;
+}
+.oasis-spinner .btn {
+  border: 1px solid #bdbdbd;
+  width: 40px;
+  padding: 0;
+  line-height: 30px;
+  font-size: 20px;
+  outline: none !important;
+}
+.oasis-spinner .btn.btn-left {
+  border-radius: 4px 0 0 4px;
+}
+.oasis-spinner .btn.btn-right {
+  border-radius: 0 4px 4px 0;
+}
+.oasis-spinner .btn[disabled] {
+  background: #E5E9F2;
+  opacity: 1;
+}

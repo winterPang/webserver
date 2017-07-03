@@ -1,0 +1,77 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 10,
+  "rows": [
+    {
+      "appname": "百度地图",
+      "user_time": 521,
+      "MAC": "2E:59:FF:51:35:53",
+      "online": "8556h",
+      "flow": "6686MB"
+    },
+    {
+      "appname": "WebStorm",
+      "user_time": 152,
+      "MAC": "A8:88:12:66:86:4B",
+      "online": "771h",
+      "flow": "6805MB"
+    },
+    {
+      "appname": "微信",
+      "user_time": 787,
+      "MAC": "E7:43:34:0C:08:1A",
+      "online": "2100h",
+      "flow": "454MB"
+    },
+    {
+      "appname": "谷歌地图",
+      "user_time": 290,
+      "MAC": "3E:76:3E:9D:7C:4B",
+      "online": "5843h",
+      "flow": "4280MB"
+    },
+    {
+      "appname": "淘宝",
+      "user_time": 488,
+      "MAC": "06:75:38:68:50:30",
+      "online": "9068h",
+      "flow": "3497MB"
+    },
+    {
+      "appname": "Beyond Compare",
+      "user_time": 442,
+      "MAC": "F7:92:DA:E2:A0:DC",
+      "online": "9332h",
+      "flow": "6930MB"
+    },
+    {
+      "appname": "优酷视频",
+      "user_time": 629,
+      "MAC": "B3:E8:45:37:70:72",
+      "online": "2115h",
+      "flow": "8854MB"
+    },
+    {
+      "appname": "淘宝",
+      "user_time": 991,
+      "MAC": "43:A5:81:7C:D9:92",
+      "online": "7444h",
+      "flow": "9185MB"
+    },
+    {
+      "appname": "英雄联盟",
+      "user_time": 828,
+      "MAC": "09:67:69:10:F7:DD",
+      "online": "4556h",
+      "flow": "2571MB"
+    },
+    {
+      "appname": "优酷视频",
+      "user_time": 982,
+      "MAC": "01:02:18:CA:20:6D",
+      "online": "3873h",
+      "flow": "541MB"
+    }
+  ]
+}

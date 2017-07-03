@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/frame.css">
+    <link rel="stylesheet" href="../../css/content.css">
+    <link rel="stylesheet" href="../../css/common.css">
+    <script type="text/javascript" src="../jquery/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="bootModal.js"></script>
+    <script type="text/javascript">
+        $(function () {
+//            $.modal.alert('nsaiojdhaiohdfoiahdfio');
+//            $.modal.prompt('请输入密码', function (v) {
+//                console.log(v);
+//            }, 'textarea', '99999999999999');
+            $.modal.DEFAULTS.buttonAlign = 'center';
+            $.modal.modal('bbb', function () {
+                return $('<div>aaa</div>');
+            }, function (modal, content) {
+                console.log('ok', modal, content);
+            }, function (modal, content) {
+                console.log('cancel', modal, content);
+            });
+//            var modal = $.modal.create({
+//                // 显示动画
+//                animate: true,
+//                // modal标题
+//                title: 'Modal111111',
+//                // modal尺寸 lg,sm
+//                modalSize: '',
+//                // 显示头部
+//                showHeader: true,
+//                // 显示头部按钮
+//                showClose: true,
+//                // 显示尾部
+//                showFooter: true,
+//                // =====尾部按钮=====
+//                // 按钮对齐方式  left,right,center
+//                buttonAlign: 'center',
+//                // 按钮尺寸
+//                buttonSize: '', //  lg,sm,xs
+//                // 关闭操作   destroy -> 直接在页面上删除  hide -> 隐藏
+//                closeAction: 'hide',
+//                // 按钮配置
+//                buttons: [
+//                    {
+//                        text: '确定',
+//                        //自定义样式 btn-success,btn-info,btn-warning,btn-primary,btn-danger
+//                        btnCls: 'primary',
+//                        /**
+//                         * 点击按钮响应的函数
+//                         * @param modal
+//                         * @param element
+//                         */
+//                        handler: function (modal, element) {
+//                            element.html('kakkakkakk');
+//                        }
+//                    }
+//                ],
+//                content: function () {
+//                    return $('<div>ndsf;lkfjsl;fjls;ajfl;sjfdl;sj</div>');
+//                },
+//                /**
+//                 * 显示之前
+//                 * @param modal
+//                 * @param content
+//                 */
+//                beforeShow: function (modal, content) {
+//                    console.log('beforeShow', modal, content);
+//                },
+//                /**
+//                 * 显示之后
+//                 * @param modal
+//                 * @param content
+//                 */
+//                onShow: function (modal, content) {
+//                    console.log('onShow');
+//                },
+//                /**
+//                 * 隐藏之前
+//                 * @param modal
+//                 * @param content
+//                 */
+//                beforeHide: function (modal, content) {
+//                    console.log('beforeHide');
+//                },
+//                /**
+//                 * 隐藏之后
+//                 * @param modal
+//                 * @param content
+//                 */
+//                onHide: function (modal, content) {
+//                    console.log('onHide');
+//                }
+//            });
+//            modal.show();
+        });
+    </script>
+</head>
+<body>
+
+</body>
+</html>

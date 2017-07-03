@@ -1,0 +1,20 @@
+[
+  {
+    "name":"北京龙冠",
+    "local":"北京",
+    "group":"98",
+    "equipment":"105230"
+  },
+  {
+    "name":"北京东电",
+    "local":"北京",
+    "group":"45",
+    "equipment":"92800"
+  },
+  {
+    "name":"北京瑞萨",
+    "local":"北京",
+    "group":"10",
+    "equipment":"4530"
+  }
+]

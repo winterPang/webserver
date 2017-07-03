@@ -1,0 +1,145 @@
+<html>
+<head>
+</head>
+<body>
+<div>
+	<dl class="headline">
+        <dt id="back_to_index"><a class="back" href="#M_Dashboard"></a><span>Cilent Detail</span></span></dt>
+    </dl>
+
+    <div class="dashboard" id="client_container">
+        <div class="btn_h_return" id="return_to_dashboard"></div>
+        <div class="page-row">
+            <div id="clients_box_1" class="col-xs-6 app-colum">
+            	<div class="app-box double-height">
+	            	<div class="box-footer">
+			        <span class="title">性能</span>
+					</div>
+					<div class="box-body" id="client_performance">
+					    <div class="form-group summary-view">
+					        <div class="col-sm-3">
+				            <span class="sum-title">总数量（个）</span>
+					        </div>
+					        <div class="col-sm-9">
+					            <span class="sum-content" id="Total"></span>
+					        </div>
+					    </div>
+						<div class="form-group">
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11b</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="11b">0</strong></span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11a</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="11a">0</strong></span>
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11g</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="11g">0</strong></span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-title"> 802.11gn</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="11gn">0</strong></span>
+					        </div>
+					    </div>
+					    <div class="form-group">
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11an</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="11an">0</strong></span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-title">802.11ac</span>
+					        </div>
+					        <div class="col-sm-3">
+					            <span class="type-num"><strong id="11ac">0</strong></span>
+					        </div>
+					    </div>
+					    
+					    <div class="form-group summary-view">
+					    	<div class="echart"  style="margin-top:34px;">
+						    	<div class="sysinfo-footer">
+							        <span class="sum-title">信噪比（dB）</span>
+								</div>
+					            
+				                <div>
+				                    <div id="snr" class="col-sm-12 myEchart"></div>
+				                    <div id="snr_label" style="height:25px;"></div>
+				                </div>
+			                </div>
+					    </div>
+					    <div class="form-group summary-view">
+					    	<div class="echart">
+						    	<div class="sysinfo-footer">
+							        <span class="sum-title">速率（Mbps）</span>
+								</div>
+					            
+				                <div>
+				                    <div id="speed" class="col-sm-12 myEchart"></div>
+				                    <div id="speed_label" style="background: transparent;height:25px;width: 100%;margin-left:2px;"></div>
+				                </div>
+			                </div>
+				       
+					    </div>
+					</div>
+            </div>
+            </div>
+
+            <div id="clients_box_2" class="col-xs-6 app-colum right-block">
+            	<div class="app-box" id="apTopUsage">
+			        <div class="box-footer">
+			           <div class="col-xs-12">
+			               <span class="title">使用率前五</span>
+			                <div class="text-right link-container">
+		                	<div class="btn-group">
+			                    <a type="button" id="UpStream" class="link-detail active top5" val=".rate-top">上行流</a>
+			                    &nbsp;|&nbsp;
+                        		<a type="button" id="DownStream" class="link-detail top5" val=".num-top">下行流</a>
+			                </div>
+			                </div> 
+			            </div>		               
+			        </div>
+
+				    <div class="no-height box-body" >
+		                <div class="sysinfo-body">
+			                <div id="TxTop5" class="simple-list"></div>
+			                <div id="RxTop5" class="simple-list hide"></div>
+		                </div>
+				    </div> 
+			 	</div>
+
+			 	<div class="app-box">
+			        <div class="sysinfo-footer">
+			            <span class="title">客户端类型</span>
+			        </div>
+			        <div class="page-row-nohover sysinfo-body" style="height: 184px;">
+                        <div id="deviceType" class="col-xs-12 myEchart"></div>
+                    </div>
+			 	</div>
+            </div>
+        </div>
+    <div id="client_detail_rc" class="rc-define"
+    	OTHERTYPE="其它类型"
+    	TX_HEADER="MAC地址,IP地址,用户名,SSID,上行速率（Kbps）"
+    	RX_HEADER="MAC地址,IP地址,用户名,SSID,下行速率（Kbps）"
+    	MODE=",802.11b(2.4GHz),802.11a(5GHz),802.11g(2.4GHz),802.11gn(2.4GHz),802.11an(5GHz),802.11ac(5GHz)"
+    	CLIENT_HEADER="MAC地址,IP地址,用户名,SSID,AP名称,射频模式,VLAN,吞吐量（发送/接收，KB）,在线时长（天:时:分:秒）"
+    	DISCONNECT="断开连接"
+    ></div>
+</div>
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+	Utils.Pages.loadJS("city_dashboard.client_detail");
+</script>

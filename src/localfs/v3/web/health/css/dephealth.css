@@ -1,0 +1,39 @@
+.form-group .loadingDiv {
+    position: absolute;
+    left: 330px;
+    top: 300px;
+    height: 57px;
+    line-height: 57px;
+    padding-left: 8px;
+    padding-right: 8px;
+    border: 2px solid #95B8E7;
+    color: #696969;
+    font-family: Microsoft YaHei;
+}
+.form-horizontal.form-bordered.form.edit{
+    height:700px;
+}
+#btnCancel{
+    padding-top:180px;
+}
+.btn.btn-primary{
+    margin-left:360px;
+}
+.col-sm-12.checkagain{
+    margin-top:120px;
+    margin-left:108px;
+    font-size:18px;
+    float:left;
+}
+#deepcheck{
+    cursor:pointer;
+    text-decoration:underline;
+    color:#4cc1b2;
+}
+.status{
+    padding-left:18px
+}
+.col-sm-12.cancel{
+    margin-top:200px;
+    padding-bottom:80px
+}

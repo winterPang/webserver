@@ -1,0 +1,94 @@
+.oasis-menu {
+  margin-left: -10px;
+}
+.oasis-menu ul {
+  list-style: none;
+  padding: 0;
+  font-weight: bolder;
+}
+.oasis-menu ul a {
+  display: inline-block;
+  width: 100%;
+  vertical-align: middle;
+  color: #b8c7ce;
+  line-height: 30px;
+  cursor: pointer;
+}
+.oasis-menu ul a:hover,
+.oasis-menu ul a:focus {
+  text-decoration: none;
+  color: #fff;
+  background: #1e282c;
+  border-radius: 5px;
+}
+.oasis-menu ul i {
+  color: #03a9f4;
+  margin-right: 5px;
+}
+.oasis-menu ul .oasis-link {
+  display: block;
+  position: absolute;
+  background: rgba(4, 220, 40, 0.3);
+  border-radius: 100%;
+  -webkit-transform: scale(0);
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -o-transform: scale(0);
+  transform: scale(0);
+}
+.oasis-menu ul .animate-ink {
+  animation: ripple .5s linear;
+}
+@-webkit-keyframes ripple {
+  100% {
+    opacity: 0;
+    -webkit-transform: scale(2.5);
+  }
+}
+@-moz-keyframes ripple {
+  100% {
+    opacity: 0;
+    -moz-transform: scale(2.5);
+  }
+}
+@-o-keyframes ripple {
+  100% {
+    opacity: 0;
+    -o-transform: scale(2.5);
+  }
+}
+@keyframes ripple {
+  100% {
+    opacity: 0;
+    transform: scale(2.5);
+  }
+}
+.oasis-menu ul .menu-open {
+  display: block;
+}
+.oasis-menu ul.tree-first a {
+  font-size: 18px;
+  padding-left: 12px;
+}
+.oasis-menu ul .tree-second a {
+  font-size: 15px;
+  padding-left: 22px;
+}
+.oasis-menu ul .tree-three a {
+  font-size: 12px;
+  padding-left: 32px;
+}
+.oasis-menu ul.horizontal li.treeview {
+  display: inline-block;
+}
+.oasis-menu ul.horizontal .treeview ul {
+  position: absolute;
+  background-color: red;
+  display: none;
+}
+.oasis-menu ul.horizontal .tree-second ul {
+  position: relative;
+}
+.oasis-menu ul.vertical .treeview ul {
+  display: none;
+}

@@ -1,0 +1,24 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 l-map">
+            <div>
+                <img ng-src="{{detail.path}}">
+            </div>
+        </div>
+        <div class="col-md-6 r-word">
+            <div>
+                <!--<div>
+                    <label>上传用户：{{detail.userName}}</label>
+                </div>
+                <div>
+                    <label>上传时间：{{detail.dateTime}}</label>
+                </div>-->
+                <div ng-if="map.type != 'vectorgram'">
+                    <label>经度：{{detail.longitude}}</label>
+                    <br/>
+                    <label>纬度：{{detail.latitude}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

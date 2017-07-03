@@ -1,0 +1,232 @@
+<html>
+<head>
+<style>
+    .cn-formart{
+        font-size: inherit;
+        line-height: 30px;
+        color: #444;
+    }
+    .num-formart{
+        font-size: 20px;
+        line-height: 30px;
+        color: #333;
+    }
+    .new-title{
+        font-size: 21px;
+        color: #343e4e;
+        padding-left: 25px;
+        float: left;
+    }
+    .bottom-border{
+        height:32px;
+    }
+    .modal-header {
+        margin-left: 3px;
+        font-size: 14px;
+        line-height: 35px;
+    }
+    .title-img {
+        display: inline-block;
+        cursor: pointer;
+        float: left;
+    }
+    .cancel-actions {
+        position: static;
+        margin: 8px 15px 0 0;
+        display: inline-block;
+        float: right;
+        background: url(css/image/xb-icons.png) no-repeat;
+        height: 16px;
+        width: 18px;
+    }
+    /*calendar按钮设置，及日历背景设置*/
+    .daterangepicker table thead tr th {
+        background: #69C4C5;
+        color: #fff;
+    }
+    .daterangepicker td.active, .daterangepicker td.active:hover {
+        color: #fff;
+        background-color: #69C4C5;
+    }
+    .btn-small {
+        width: 100px;
+        /* height: 28px; */
+        display: inline-block;
+        background-color: #69C4C5;
+        margin: 10px 10px 10px 10px;
+        padding-top: 0px;
+        text-align: center;
+        color: #FFF;
+        cursor: pointer;
+    }
+
+    .cancel-actions.hover-action {
+        background-position: -663px -42px;
+        cursor: pointer;
+    }
+    .cancel-actions.hover-action:hover{
+        background-position: -594px -42px;
+        cursor: pointer;
+    }
+
+    .set-background{
+        background: url(./css/image/calender.png) 10px 10px;
+        background-repeat: no-repeat;
+        padding-left: 21px;
+        padding-top: 1px;
+        margin-top: -2px;
+        color: #fff;
+        font-weight: bolder;
+        font-family: monospace;
+        width: 45px;
+        height: 45px;
+    }
+    
+</style>
+</head>
+<body>
+
+<div class="page-row">
+
+    <div class="col-xs-12 app-colum app-box left-block">
+        <div class="box-footer" style="background: #F5F6F7">
+            <span class="new-title">统计</span>
+        </div>
+        <div class="app-box col-xs-12">
+            <div class="col-xs-1"></div>
+            <div class="col-xs-11">
+                <div class="col-xs-12"><br/></div>
+                <div class="col-xs-12">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-2">
+                        <span class="cn-formart"> 总数</span>
+                    </div>
+                    <div class="col-xs-2">
+                        <span class="cn-formart"> 严重</span>
+                    </div>
+                    <div class="col-xs-2">
+                        <span class="cn-formart"> 错误</span>
+                    </div>
+                    <div class="col-xs-2">
+                        <span class="cn-formart"> 警告</span>
+                    </div>
+                    <div class="col-xs-2">
+                        <span class="cn-formart"> 普通</span>
+                    </div>
+                    <div class="col-xs-1"></div>
+                </div>
+
+                <div class="col-xs-12">
+                    <div class="col-xs-1"></div>
+                    <div class="col-xs-2">
+                        <span class="num-formart" id="TotalNumber"> 0</span>
+                    </div>
+                    <div class="col-xs-2">
+                        <span class="num-formart" id="crit"> 0</span>
+                    </div>
+                    <div class="col-xs-2">
+                        <span class="num-formart" id="error"> 0</span>
+                    </div>
+                    <div class="col-xs-2">
+                        <span class="num-formart" id="warn"> 0</span>
+                    </div>
+                    <div class="col-xs-2">
+                        <span class="num-formart" id="info"> 0</span>
+                    </div>
+                    <div class="col-xs-1"></div>
+                </div>
+                <div class="col-xs-12"><br/></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 去掉app-box -->
+    <div class="col-xs-12 app-box app-colum left-block">
+
+        <div class="col-xs-12">
+            <div class="box-footer" style="background: #F5F6F7">
+                <div class="col-xs-12">
+                    <div class="col-xs-3">
+                        <div class="col-xs-3" id="msg_select" style="cursor: pointer">
+                            <div class="set-background"></div>
+                        </div>
+                        <div class="col-xs-9" id="trendId" style="margin-left:-29px;">（今天）</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="top-box hide" id="select_option">
+                <div class="bottom-border col-xs-12">
+                    <div class="col-xs-12">
+                        <div class="col-xs-11" style="height: 32px">
+                            <div class="col-xs-5">
+                                <div class="col-xs-2">
+                                    <label style="color: #807474; margin-left: 20px">周期</label>
+                                </div>
+                                <div class="col-xs-2">
+                                    <div class="col-xs-1"></div>
+                                    <input type="radio" id="statisOneday" name="StatisCycle" checked value="0">
+                                    <label for="statisOneday">今天</label>
+                                </div>
+                                <div class="col-xs-2">
+                                    <input type="radio" id="statisAweek" name="StatisCycle" value="1">
+                                    <label for="statisAweek">七天</label>
+                                </div>
+                                <div class="col-xs-2">
+                                    <input type="radio" id="statisMonth" name="StatisCycle" value="2">
+                                    <label for="statisMonth">一月</label>
+                                </div>
+                                <div class="col-xs-2">
+                                    <input type="radio" id="statisYear" name="StatisCycle" value="3">
+                                    <label for="statisYear">一年</label>
+                                </div>
+                                <div class="col-xs-2">
+                                    <input type="radio" id="otherTime" name="StatisCycle" placeholder="选择日期" value="4">
+                                    <label for="otherTime">其它</label>
+                                </div>
+                            </div>
+                            <div class="col-xs-5 hide" id="getOtherTime">
+                                <input type="text"  id="starttime" class="daterange" style="width:175px"/>
+                            </div>
+                        </div>
+                        <div class="col-xs-1">
+                            <div class="cancel-actions hover-action" id="remove"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="col-xs-12 app-colum">
+                <div class="list-height sysinfo-body">
+                    <div id="log_chart" class="myEchart"></div>
+                </div>
+            </div>
+
+            <div class="col-xs-12" id = "newLines"></div>
+            <div class="col-xs-12 app-colum">
+                <div class="list-height sysinfo-body">
+                    <div id="log_list" class="simple-list"></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div id="log_monitor_rc" class="rc-define"
+     Level="类别"
+     Module="模块"
+     LOG_HEAD="用户名,IP,模块名,严重级别,详细信息,日期"
+     SHOWTIME="日"
+     NUMBER="数量"
+     CRIT="严重"
+     WARN="警告"
+     COMMON="普通"
+     ERROR="错误">
+    </div>
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("log.log");
+</script>

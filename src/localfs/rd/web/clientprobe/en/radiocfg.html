@@ -1,0 +1,27 @@
+<html>
+<head>
+</head>
+<style>
+    .notestyle{
+        position: absolute;
+        margin-top: -60px;
+        margin-left: 6px;
+    }    
+</style>
+<body>
+    <div class="mlist" id="Probe_Editlist">   
+    </div>
+    <div><span class="notestyle">Client Proximity Sensor and WIPS can`t be enabled simultaneously.</span></div>
+    <div id="Probe_rc" class="rc-define"
+        LIST_HEADER="AP Name,Radio ID,Status"
+        STATUS="On,Off"
+		DISABLE='Off'
+		ENABLE='On'
+        >
+    </div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("clientprobe.radiocfg");
+</script>

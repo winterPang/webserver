@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <title>index 登录界面Teste dsgsddg cessscdse cedfew </title>
+    <link rel="stylesheet" href="../../web/frame/libs/css/bootstrap.css">
+    <link rel="stylesheet" href="../../web/frame/css/login.css">
+    <link rel="stylesheet" href="../../web/frame/css/login-responsive.css">
+    <link rel="stylesheet" href="../../web/frame/libs/css/font-awesome.min.css">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body class="login-body">
+<div class="container">
+    <!-- <div id="browser_not_support" class="browser_info error hide text_lang"></div> -->
+
+    <form  id="loginform" class="form-signin">
+        <div class="form-signin-heading text-center">
+            <h1 class="sign-title">H3C绿洲云平台</h1>
+            <!-- <img src="images/login-logo.png" alt=""/> -->
+        </div>
+        <div class="login-wrap">
+
+            <div class="form-group hide">
+                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+                <span class="alert alert-error">
+                    <div class="msg"></div>
+                </span>
+            </div>
+            <input  type="text" class="form-control " placeholder="用户名" id= "user_name" name="user_name" autofocus />
+            <input  type="password" class="form-control " placeholder="密码" id ="password" name="password" />
+            <button class="btn btn-lg btn-login btn-block" id="login_button" type="submit">
+                <i class="fa fa-check"></i>
+            </button>
+
+            <div class="registration">
+                <span>如果还没有账号?</span>
+                <a class="" href="">
+                    <span>立即注册</span>
+                </a>
+            </div>
+            <label class="checkbox">
+                <input type="checkbox" /><span>记住用户名和密码</span>
+                <span class="pull-right">
+                    <a data-toggle="modal" href=""><span>忘记密码？</span></a>
+                </span>
+            </label>
+        </div>
+    </form>
+</div>
+<script type="text/javascript" src="../../web/frame/libs/js/jquery.js"></script>
+<script type="text/javascript" src="../../web/frame/libs/js/bootstrap.min.js"></script>
+<script src="../../web/frame/login.js" type="text/javascript" charset="gbk"></script>
+<script>
+    jQuery(document).ready(function() {
+        Login.init();
+    });
+</script>
+</body>
+
+</html>

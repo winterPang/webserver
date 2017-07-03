@@ -1,0 +1,133 @@
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box">
+            <div class="box-footer">
+                <span class="title">店铺统计</span>
+            </div>
+            <div class="box-body no-height">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <label>选择地图</label>
+                            <select id="SetfigUpport" name="SetfigUpport" class="big singleSelect" ng-click="setConfigUpport()">
+                                <option>请选择...</option>
+                                <option ng-repeat="items in aIntList">{{items}}</option>
+                            </select>
+                    </div>
+                    <div class="col-xs-3">                       
+                        <label>选择店铺</label>
+                            <select id="SetfigUpport" name="SetfigUpport" class="big singleSelect" ng-click="setConfigUpport()">
+                                <option>请选择...</option>
+                                <option ng-repeat="items in aIntList">{{items}}</option>
+                            </select>
+                    </div>                  
+                </div>
+            </div>
+            <div class="box-body no-height" ng-style="style.relative">
+                <img id="mapImage"
+                    ng-style="style.map"
+                    ng-src="{{'https://v3webtest.h3c.com/v3/wloc/map' + mapInfo.curMapIterm.imagePath}}"/>
+                <div id="heatMap" ng-style="style.map"></div>
+                <canvas id="areaCanvas"
+                        ng-style="style.map"
+                        ng-click="mapInfo.onMouseClick($event)"></canvas>
+            </div>
+
+
+            <div class="col-xs-6 app-colum left-block"> 
+                <div class="page-row xxb" id="userflow">
+                    <div class="col-xs-12 app-colum " debug="getnewuser">
+                        <div class="app-box no-bk-color">
+                            <div class="box-footer">
+                                <span style="margin-left:450px">总数</span>
+                                <span class="number-count" id="Total">0</span>                       
+                            </div>
+                            <div class="box-body userflow-height form-group body-nopadding">
+                                <div id="Terminal_firm" class="col-xs-12" style="height:230px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6 app-colum left-block"> 
+                <div class="page-row xxb" id="userflow">
+                    <div class="col-xs-12 app-colum " debug="getnewuser">
+                        <div class="app-box no-bk-color">
+                            <div class="box-footer">
+                                
+                                <div class="time-change" id="total">
+                                    <a id="days" class="time-link active" value='1' ng-click="clickTest($event)">今天</a>
+                                    <a id="weeks" class="time-link" value='2' ng-click="clickTest($event)">昨天</a>
+                                    <input id="dater" class="daterange time-select" placeholder="选择日期" ctrl="daterang">
+                                </div>
+                            </div>
+                            <div class="box-body userflow-height form-group body-nopadding">
+                                <div id="loginusermit" class="col-xs-12" style="height:230px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 app-colum left-block"> 
+                <div class="page-row xxb" id="userflow">
+                    <div class="col-xs-12 app-colum " debug="getnewuser">
+                        <div class="app-box no-bk-color">
+                            <div class="box-footer">                               
+                                <div class="time-change" id="total">
+                                    <a id="days" class="time-link active" value='1' ng-click="clickTest($event)">今天</a>
+                                    <a id="weeks" class="time-link" value='2' ng-click="clickTest($event)">昨天</a>
+                                    <input id="daterange" class="daterange time-select" placeholder="选择日期" ctrl="daterang">
+                                </div>
+                            </div>
+                            <div class="box-body userflow-height form-group body-nopadding">
+                                <div id="comeshop" class="col-xs-12" style="height:230px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 app-colum left-block"> 
+                <div class="page-row xxb" id="userflow">
+                    <div class="col-xs-12 app-colum " debug="getnewuser">
+                        <div class="app-box no-bk-color">
+                            <div class="box-footer">                               
+                                <div class="time-change" id="total">
+                                    <a id="days" class="time-link active" value='1' ng-click="clickTest($event)">今天</a>
+                                    <a id="weeks" class="time-link" value='2' ng-click="clickTest($event)">昨天</a>
+                                    <input id="date" class="daterange time-select" placeholder="选择日期" ctrl="daterang">
+                                </div>
+                            </div>
+                            <div class="box-body userflow-height form-group body-nopadding">
+                                <div id="outshop" class="col-xs-12" style="height:230px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</div>
+<div bs-modal="options.clientModal">
+    <div bs-table="options.clientTable"></div>
+</div>
+
+<div id="shoptotal_rc"
+     DRP_APPLYLABEL = "确定"
+     DRP_CANCELLABEL = "取消"
+     DRP_FROMLABEL = "起始时间"
+     DRP_TOLABEL = "结束时间"
+     DRP_CUSTOMRANGELABEL = "自定义"
+     DRP_DAYSOFWEEK = "日,一,二,三,四,五,六"
+     DRP_MONTHNAMES = "一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月"
+     CLIENT_MODAL_HEADER = "客户端列表"
+     CLIENT_TABLE_HEADER = "MAC,IP,微信昵称,手机,账号,驻留时长,来访时间,离开时间"
+     stayType = "半小时以内,一小时内,两小时内,两小时以上"
+     custCount="来访次数,驻留时长"
+     shopName="驻留客户数"
+     shopin="进店客户"
+     shopout="出店客户"
+    >
+</div>

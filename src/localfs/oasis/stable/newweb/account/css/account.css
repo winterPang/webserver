@@ -1,0 +1,21 @@
+.accountList {
+    margin-top: 15px;
+    padding: 8px 15px;
+    margin-bottom: 0;
+    list-style: none;
+    border-radius: 4px;
+}
+.accountList > li {
+    display: inline-block;
+    cursor: pointer;
+}
+.accountList > li:after {
+    padding: 0 5px;
+    color: #cccccc;
+    content: ">";
+}
+.ang-error span {
+    color: red;
+    font-size: 12px;
+    line-height: 30px;
+}

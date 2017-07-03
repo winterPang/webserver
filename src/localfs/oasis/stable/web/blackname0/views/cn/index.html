@@ -1,0 +1,49 @@
+<style>
+    .form-horizontal .control-label {
+        text-align: left !important;
+        padding-top: 2px;
+    }
+    .form-group {
+        margin-bottom:0px;
+    }
+    .form-horizontal [class^="col-md-"], 
+    .form-horizontal [class*="col-md-"],
+    .form-horizontal [class^="col-xs-"],
+    .form-horizontal [class*="col-xs-"],
+    .form-horizontal [class^="col-sm-"], 
+    .form-horizontal [class*="col-sm-"] {
+        line-height: 30px;
+    }
+</style>
+<div class="col-xs-12 app-colum">
+    <div id='listView' class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">黑名单</span>
+        </div>
+        <div class="panel-body">
+            <div class="btn btn-cus" ng-click="deleteMAC()" ng-disabled="delBtnDisable">解除</div>
+            <div class="btn btn-cus" ng-click="addMAC()" ng-disabled="macBtnDisable">添加</div>
+            <div class="box-body no-height">
+                <div bs-table="blackListOption"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<form name="myForm" novalidate bs-modal="bindMAC.options">
+    <div class="form-group">
+        <label class="col-sm-3 control-label required">MAC地址</label>
+        <div class="col-md-9">
+            <textarea cols="4" rows="1" ng-model="add.macList" id="getmac" class="digits big" name="bindMAC" style="min-width:200px;height:142px;" placeholder="AA-BB-CC-DD-EE-FF">
+            </textarea>
+            <label class="info-explain">请按提示格式输入，并以英文逗号分隔</label>
+        </div>
+    </div>
+</form>
+<div id="user_rc" class="rc-define"
+    USER_HEADER="MAC地址,添加时间"
+    Title="添加MAC,详情"
+    ADD_SUCCESS="添加成功,解除成功"
+    ADD_ERROR="已经加入黑名单,请以英文逗号分隔MAC地址"
+    MAC_ERROR="MAC地址格式不正确！MAC地址格式为AA-BB-CC-DD-EE-FF,无效的MAC地址"
+>
+</div>

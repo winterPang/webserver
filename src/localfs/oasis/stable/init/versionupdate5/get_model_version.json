@@ -1,0 +1,38 @@
+{
+  "error_code": 0,
+  "error_message": null,
+  "data_list":[
+    {
+      "url":"https://lvzhou.h3c.com/o2o/o2omng/ver/7.1.064 C5117P11/4fce8053-2dcc-422e-90aa-137e39f7a75d.ipe",
+      "size":114696192,
+      "type":2,
+      "version":"7.1.064 C5117P11",
+      "description":"小贝粉丝第六版（D012SP11）",
+      "publication_date":"2016-05-10"
+    },
+    {
+      "description": "小贝粉丝第七版（D012SP17）",
+      "publication_date": "2016-09-22",
+      "size": 116017152,
+      "type": 2,
+      "url": "http://lvzhou.h3c.com/o2o/o2omng/ver/7.1.064 Release 5117P17/b2f1222e-2b1e-451a-be31-e721b821184d.ipe",
+      "version": "7.1.064 Release 5117P17"
+    },
+    {
+      "url": "https://lvzhou.h3c.com/o2o/o2omng/ver/WAC350/7e76d9e1-8625-40e9-a212-3892efa64358.ipe",
+      "size": 129662976,
+      "type": 2,
+      "version": "WAC350",
+      "description": "受限版本，d016sp03，请勿下载！！",
+      "publication_date": "2016-10-11"
+    },
+    {
+      "url":"https://lvzhoutest.h3c.com/o2o/o2omng/ver/wac350d017/a371c67a-43ec-43c4-9490-a8926c4d31ad.ipe",
+      "size":130003968,
+      "type":1,
+      "version":"wac350d017",
+      "description":"受限版本，测试专用，请勿下载！！",
+      "publication_date":"2016-10-13"
+    }
+  ]
+}

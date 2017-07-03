@@ -1,0 +1,51 @@
+
+<div class="container-fluid col-md-12 col-lg-12">
+    <div id="editMapDiv">
+        <div class="showList">
+            <span class="spanList" ng-click="toLocationList()"><img src="../locationmanage/img/icon-back.png">返回</span>
+            <span class="spanList" ng-click="refreshLocationList()"><img src="../locationmanage/img/icon-refresh.png">刷新</span>
+            <div class="biliChi">
+                <label style="font-size: 14px;">比例尺： 1px&nbsp;：</label>&nbsp;<label id="scaleLbl"></label><span>m</span>
+            </div>
+        </div>
+        <div class="right-list" style="right:150px;">
+            <form class="form-inline serchForm">
+                <div class="form-group">
+                    <label class="sr-only" for="InputSearch"></label>
+                    <div class="input-group">
+                        <div class="input-group-addon">MAC</div>
+                        <input type="text" class="form-control" id="InputSearch"
+                               placeholder="请输入MAC地址" style="height:37px;border:none;" >
+                        <div class="input-group-addon" style="width: 33px;cursor: pointer;">
+                            <img id="searchBtn" src="../locationmanage/img/icon-search.png" ng-click="searchSubmit()">
+                            <img class="imgBtn" src="../locationmanage/img/icon-clickUp.png" ng-click="toggleTable()">
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <div class="clientShow" style="display: none">
+                <table id="clientList" ></table>
+            </div>
+        </div>
+        <div id="editMapTitle" class="clearfix">
+            <div class="pull-left">
+                <p><a ui-sref="global.content.application.locationmanage({mode: mode})">{{modeName}}</a> > 终端显示</p>
+            </div>
+            <div class="pull-right">
+                <span class="heatmap" ng-click="changeCanvas()"><img src="../locationmanage/img/icon-p.png" alt="thermodynamic chart">热力图</span>
+                <a id="quanping" bs-full="fullOption" class="btn btn-lvzhou btnClient"><span class="glyphicon glyphicon-fullscreen"></span></a>
+            </div>
+        </div>
+    </div>
+    <div id="mapContain">
+        <div id="imageView_container" style="position: relative" bs-drag="dragOption">
+            <canvas id="canvas" bs-scale  ng-show="isClientMap"></canvas>
+            <canvas id="heatMap" bs-scale ng-hide="isClientMap"></canvas>
+        </div>
+    </div>
+</div>
+<ul id="contextmenu1" style="display: none;padding-left:5px;">
+    <li id="queryClientStep" ng-if="mode !== 1" ng-click="locationByMacAddress()"><a>轨迹追踪</a></li>
+    <li id="stopUpdate"><a>停止更新</a></li>
+    <li id="startUpdate" style="display: none;"><a>开始更新</a></li>
+</ul>

@@ -1,0 +1,9 @@
+# Created by .ignore support plugin (hsz.mobi)
+.idea
+.babelrc
+.package.json
+
+*.xml
+/node_modules/*
+/canvas
+/debug

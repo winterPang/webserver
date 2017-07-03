@@ -1,0 +1,185 @@
+
+{
+  "upFlow":
+  [
+    {
+      "family": "0",
+      "direct": "0",
+      "UserMAC": "11-22-33-44-55-66",
+      "ACMAC": "66-55-44-33-22-11-00",
+      "APPName": "qq",
+      "IfName": "interfaces1",
+      "APPGroupName": "chat",
+      "Pkt": "741",
+      "PktBytes": "852",
+      "DropPkt": "963",
+      "DropPktBytes": "159",
+      "FirstTime": "753",
+      "LastTime": "96333"
+    },
+    {
+      "family": "0",
+      "direct": "0",
+      "UserMAC": "11-22-33-44-55-44",
+      "ACMAC": "66-55-44-33-22-11-00",
+      "APPName": "qq2",
+      "IfName": "interfaces2",
+      "APPGroupName": "chat",
+      "Pkt": "741",
+      "PktBytes": "852",
+      "DropPkt": "963",
+      "DropPktBytes": "159",
+      "FirstTime": "753",
+      "LastTime": "96333"
+    }
+
+  ],
+  "downFlow":
+          [
+            {
+              "family": "0",
+              "direct": "1",
+              "UserMAC": "11-22-33-44-55-66",
+              "ACMAC": "66-55-44-33-22-11-00",
+              "APPName": "qq",
+              "IfName": "interfaces1",
+              "APPGroupName": "chat",
+              "Pkt": "741",
+              "PktBytes": "852",
+              "DropPkt": "963",
+              "DropPktBytes": "159",
+              "FirstTime": "753",
+              "LastTime": "96333"
+            },
+            {
+              "family": "0",
+              "direct": "1",
+              "UserMAC": "11-22-33-44-55-44",
+              "ACMAC": "66-55-44-33-22-11-00",
+              "APPName": "qq2",
+              "IfName": "interfaces2",
+              "APPGroupName": "chat",
+              "Pkt": "741",
+              "PktBytes": "852",
+              "DropPkt": "963",
+              "DropPktBytes": "159",
+              "FirstTime": "753",
+              "LastTime": "96333"
+            }
+          ],
+  "upInterfaces":
+  [
+    {
+      "family": "0",
+      "direct": "0",
+      "UserMAC": "11-22-33-44-55-66",
+      "ACMAC": "66-55-44-33-22-11-00",
+      "APPName": "qq",
+      "IfName": "interfaces1",
+      "APPGroupName": "chat",
+      "Pkt": "741",
+      "PktBytes": "852",
+      "DropPkt": "963",
+      "DropPktBytes": "159",
+      "FirstTime": "753",
+      "LastTime": "96333"
+    },
+    {
+      "family": "0",
+      "direct": "0",
+      "UserMAC": "11-22-33-44-55-44",
+      "ACMAC": "66-55-44-33-22-11-00",
+      "APPName": "qq2",
+      "IfName": "interfaces2",
+      "APPGroupName": "chat",
+      "Pkt": "741",
+      "PktBytes": "852",
+      "DropPkt": "963",
+      "DropPktBytes": "159",
+      "FirstTime": "753",
+      "LastTime": "96333"
+    }
+  ],
+  "downinterfaces":
+  [
+    {
+      "family": "0",
+      "direct": "1",
+      "UserMAC": "11-22-33-44-55-66",
+      "ACMAC": "66-55-44-33-22-11-00",
+      "APPName": "qq",
+      "IfName": "interfaces1",
+      "APPGroupName": "chat",
+      "Pkt": "741",
+      "PktBytes": "852",
+      "DropPkt": "963",
+      "DropPktBytes": "159",
+      "FirstTime": "753",
+      "LastTime": "96333"
+    },
+    {
+      "family": "0",
+      "direct": "1",
+      "UserMAC": "11-22-33-44-55-44",
+      "ACMAC": "66-55-44-33-22-11-00",
+      "APPName": "qq2",
+      "IfName": "interfaces2",
+      "APPGroupName": "chat",
+      "Pkt": "741",
+      "PktBytes": "852",
+      "DropPkt": "963",
+      "DropPktBytes": "159",
+      "FirstTime": "753",
+      "LastTime": "96333"
+    }
+  ],
+  "upurl":
+  [
+    { "family":"0",
+      "direct":"0",
+      "UserMAC":"11-22-33-44-55-66",
+      "ACMAC": "99-88-77-ff-gg",
+      "WebSiteName":"taobao",
+      "CategoryName":"shoping",
+      "DstIP":"192.168.2.22",
+      "FirstTime":222,
+      "LastTime":333
+    },
+    { "family":"0",
+      "direct":"0",
+      "UserMAC":"11-22-33-44-55-55",
+      "ACMAC": "99-88-77-ff-gg",
+      "WebSiteName":"taobao44",
+      "CategoryName":"shopingt",
+      "DstIP":"192.168.2.22",
+      "FirstTime":222,
+      "LastTime":333
+    }
+
+  ],
+  "downurl":
+  [
+    { "family":"0",
+      "direct":"1",
+      "UserMAC":"11-22-33-44-55-66",
+      "ACMAC": "99-88-77-ff-gg",
+      "WebSiteName":"taobao",
+      "CategoryName":"shoping",
+      "DstIP":"192.168.2.22",
+      "FirstTime":222,
+      "LastTime":333
+    },
+    { "family":"0",
+      "direct":"1",
+      "UserMAC":"11-22-33-44-55-55",
+      "ACMAC": "99-88-77-ff-gg",
+      "WebSiteName":"taobao44",
+      "CategoryName":"shopingt",
+      "DstIP":"192.168.2.22",
+      "FirstTime":222,
+      "LastTime":333
+    }
+
+  ]
+
+}

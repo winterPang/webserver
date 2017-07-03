@@ -1,0 +1,200 @@
+<html>
+<head>
+	<!-- <link rel="stylesheet" type="text/css" href="/v3/web/h_stamgrclients/m_clients.css"> -->
+</head>
+<body>
+<!-- <dl class="headline wlan-headline">
+    <span class="headbutton">
+        <div class="btn-group shortcut">
+            <a class="btn btn-default" href="#M_WIPS?np=wips.help" title="Help"><i class="icon-book"> </i></a>
+        </div>
+    </span>
+</dl> -->
+<div class="dashboard">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block" debug="clients NumRZ">
+            <div class="bg-bor">
+                <div class="head-bar">
+                    <div class="box-footer">
+                        <div class="col-xs-10">
+                           <span class="title sysinfo-footer-title">Clients</span>
+                        </div>  
+                        <div class="text-right link-container">
+                           <a type="button" class="
+                           link-detail" id="submit_scan" data-hrefLink="h_stamgrclients.clients" title="More">
+                                <i class="detail-icon icon"></i>
+                           </a>
+                        </div>
+                      <!--   <div class="text-right link-container">
+                            <a type="button" class="link-detail" href="apmgr.allaps" id="AllAps_detail" title="More">
+                                <i class="detail-icon icon"></i>
+                            </a>
+                        </div> -->
+						<div class="text-rightandlink-container">
+							
+						</div>						
+                   </div>
+                    <div class="col-xs-3">
+                        <div class="syslog-info-mine-Total">
+                            <div class="left-icon Total-icon">
+                                
+                            </div>
+                            <div class="right-text">      
+                                <span class="number-count" id="Total">0</span>
+                                <br />
+                                <span class="number-title">Total</span>
+                            </div>                      
+                        </div>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <div class="syslog-info-mine-Num2G">
+                            <div class="left-icon Num2G-icon">
+                                
+                            </div>
+                            <div class="right-text">      
+                                <span class="number-count" id="Num2G">0</span>
+                                <br />
+                                <span class="number-title">2.4GHz</span>
+                            </div>			
+                        </div>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <div class="syslog-info-mine-Num5G">
+                            <div class="left-icon Num5G-icon">
+                                
+                            </div>
+                            <div class="right-text">      
+                                <span class="number-count" id="Num5G">0</span>
+                                <br />
+                                <span class="number-title">5GHz</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <div class="syslog-info-mine-NumRZ">
+                            <div class="left-icon NumRZ-icon">
+                                
+                            </div>
+                            <div class="right-text">      
+                                <span class="number-count" id="NumRZ">0</span>
+                                <br />
+                                <span class="number-title">Authenticated clients</span>
+                            </div>
+                        </div>
+                    </div>                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="page-row">
+
+        <div class="col-xs-6 app-colum left-block"> 
+            <div class="app-box no-bk-color" debug="byApList ap"> 
+                <div class="box-footer"> 
+                    <span class="title">AP-Based Client Statistics</span> 
+                </div> 
+                <div class="sysinfo-body app-box-slist"> 
+                    <div id="byApList" class="simple-list"></div> 
+                </div> 
+            </div> 
+            <div class="app-box no-bk-color" debug="deviceType MobileCompany">        
+                <div id="baseOnAu">
+                    <div class="box-footer">
+                        <span class="title">Mobile-Phone-Manufacturer-Based Client Statistics</span>
+                    </div>
+                    <div class="box-body echart-height">
+                        <div id="deviceType" class="myEchart col-xs-12"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xs-6 app-colum left-block"> 
+            <div class="app-box no-bk-color" debug="bySsidList ssid"> 
+                <div class="box-footer"> 
+                    <span class="title">SSID-Based Client Statistics</span> 
+                </div> 
+                <div class="sysinfo-body app-box-slist"> 
+                    <div id="bySsidList" class="simple-list"></div> 
+                </div> 
+            </div> 
+
+            <div class="app-box no-bk-color" debug="wireless_pie 80211wirelessMode">  
+                <div id="detect_container">
+                    <div class="box-footer">
+                        <span class="title">Wireless-Mode-Based Client Statistics</span>
+                    </div>
+                    <div class="box-body echart-height">
+                        <div id="wireless_pie" class="myEchart col-xs-12"></div>
+                    </div>
+                </div>
+            </div>           
+        </div>
+    </div>
+
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block" debug="loginuser">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <div class="col-xs-4">
+                        <span class="title">Online Client Change Within the Past 30 Days</span>
+                    </div>
+                    
+                </div>
+                <div class="box-body userflow-height form-group body-nopadding">
+                    <div id="loginuser" class="col-xs-10 myEchart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block" debug="newuser">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <div class="col-xs-3">
+                        <span class="title">New Client Change Within the Past 30 Days</span>
+                    </div>
+                    
+                </div>
+                <div class="box-body userflow-height form-group body-nopadding">
+                    <div id="newuser" class="col-xs-10 myEchart"></div>
+                </div>
+            </div>
+        </div>
+    </div>    
+    
+    <div id="maoxian">
+
+    </div>
+</div>
+
+
+        
+<div id="summary_rc" class="rc-define"
+    AP_HEADER="AP Name, 5 GHz Clients, 2.4 GHz Clients"
+    SSID_HEADER="SSID, 5 GHz Clients, 2.4 GHz Clients"
+    USER_COUNT="Client Count"
+
+    WIRELESS_MODE='802.11b(2.4GHz),802.11a(5GHz),802.11g(2.4GHz),802.11gn(2.4GHz),802.11an(5GHz),802.11ac(5GHz)'
+AKM_METHOD="No Authentication, 802.1X, Static PSK, Statis WEP, MAC, Portal, Dynamic WEP, 802.1X (non-encryption)"
+
+    AKM_METHOD2="No Authentication, 802.1X, MAC, Portal, MAC&Portal"
+    UNKNOW="Unknown"
+    DAY="Days"
+    CLIENTTOTAL="Total clients"
+    NEWCLIENTCOUNT="New clients"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_stamgrclients.m_clients");
+</script>

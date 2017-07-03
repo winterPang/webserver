@@ -1,0 +1,234 @@
+<div class="networkmap0">
+    <div>
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box default-height">
+                <div id="detect_container7" style="width:1100px;">
+                    <div class="box-footer" style="width:1100px;">
+                        <div class="col-xs-12">
+                            <div class="top editMap" ng-model="mapname">Edit Map: {{mapname}}</div>
+                            <div class="top">Scale(<span class="mapScale">1px:<i id="mapScale">1</i>m</span>)</div>
+                            <div class="top" id="back" ng-click="back()">
+                                <img src="../networkmap0/cocos/res/icon-back.png" />
+                                <span>Back</span>
+                            </div>
+                            <div class="top" id="save" ng-click="save()">
+                                <img src="../networkmap0/cocos/res/icon-save.png" />
+                                <span>Save</span>
+                            </div>
+                            <!--<div class="top">
+                                <img src="../position/cocos/res/icon-big.png" id="big" ng-click="big()"/>
+                                <sapn>放大</sapn>
+                            </div>
+                            <div class="top">
+                                <img src="../position/cocos/res/icon-small.png" id="small" ng-click="small()"/>
+                                <sapn>缩小</sapn>
+                            </div>-->
+                        </div>
+                    </div>
+                    <div class="box-body" style="width:1024px;margin:0 auto;height:600px;padding:0;">
+                        <div id="imgContainer">
+                            <div id="contextmenu_ap" class="contextmenu">
+                                <ul>
+                                    <li><a id="APInfo_a" ng-click="searchApInfo()">Details</a></li>
+                                    <li><a id="editAP_a" ng-click="editAp()">Coordinates</a></li>
+                                    <li class="last_li"><a id="deleteAP_a" ng-click="deleteap()">Delete</a></li>
+                                </ul>
+                            </div>
+                            <div id="contextmenu_area" class="contextmenu">
+                                <ul>
+                                    <li class="last_li">
+                                        <a id="deleteArea_a" ng-click="deleteArea()">Delete region</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div id="contextmenu" class="contextmenu">
+                                <ul>
+                                    <li><a id="addAP_a" ng-click="addAp()">Add AP</a></li>
+                                    <li><a id="addArea_a" ng-click="addArea()">Add region</a></li>
+                                    <li><a id="editMap_a" ng-click="editMap()">Edit picture</a></li>
+                                    <li class="last_li"><a id="editScale_a" ng-click="editScale()">Edit scale</a></li>
+                                </ul>
+                            </div>
+                            <div class="canvasContain" id="canvasContain">
+                                <canvas id="bgCanvas"></canvas>
+                            </div>
+                            <canvas id="backgroundCanvas" hidden></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--添加AP-->
+    <form name="addApForm" novalidate bs-modal="apAdd.options">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">AP</label>
+            <div class="col-sm-9">
+                <!--<select id="apNameList" class="singleSelect" allowClear="true" name="apNameList"-->
+                        <!--ng-model="apName" ng-options="x for x in apNameList" ng-change="apNameChange()" style="width: 180px">-->
+                <!--</select>-->
+                <select id="apNameList" name="apNameList" class="singleSelect" ng-change="apNameChange()"
+                        ng-model="apName1"
+                        ng-options="x for x in apNameList"
+                        style="width: 180px">
+
+                </select>
+
+                <label class="error" id="addap_error"></label>
+            </div>
+        </div>
+    </form>
+    <!--添加区域-->
+    <form name="addAreaForm" novalidate bs-modal="areaAdd.options">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">Points</label>
+            <div class="col-sm-9">
+                <input ng-model="add.vertices" type="number" id="vertices" name="vertices" errid="vertices_error" required ng-pattern="/^[2-9]$|^10$/"/>
+                <label class="info-explain">(2-10)</label>
+                <label class="error" id="vertices_error"></label>
+                <label ng-show="addAreaForm.vertices.$dirty" ng-messages="addAreaForm.vertices.$error" style="display:inline-block;">
+                    <!--<label ng-message="required" class="error" style="display: inline-block;">该参数必须配置。</label>-->
+                    <!--<label ng-message="pattern" class="error" style="display: inline-block;">顶点数须大于等于2且小于10的正整数</label>-->
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">Region name</label>
+            <div class="col-sm-9">
+                <input type="text" ng-model="add.areaName" id="areaName" ng-pattern="/^(([^\^\.<>%&',;=?$\:#@!~\]\[{}\\/`\|])*)$/" class="big string" name="areaName" errid="areaName_error" ng-maxlength="32" maxlength="32" required/>
+                <label class="info-explain">(1-32 chars)</label>
+                <label class="error" id="areaName_error"></label>
+                <label ng-show="addAreaForm.areaName.$dirty" ng-messages="addAreaForm.areaName.$error" style="display:inline-block;">
+                    <!--<label ng-message="required" class="error" style="display: inline-block;">该参数必须配置。</label>-->
+                    <!--<label ng-message="maxlength" class="error" style="display: inline-block;">请输入1-32字符。</label>-->
+                    <!--<label ng-message="pattern" class="error" style="display: inline-block;">参数不能为特殊字符</label>-->
+                </label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">Region type</label>
+
+            <div class="col-sm-9">
+                <input type="text" id="areaType"  value="Digital fence" name="areaType" errid="areaType_error"  required/>
+                <!--<select class="singleSelect required" id="areaType" name="areaType" errid="areaType_error"></select>-->
+                <!--<select style="width:237px;" id="areaType" class="singleSelect" allowClear="true" name="areaType"-->
+                        <!--ng-model="areaType" ng-options="x for x in areaTypeList" ng-change="areaTypeChange()" style="width: 180px" required>-->
+                <!--</select>-->
+                <label class="info-explain"></label>
+                <label class="error" id="areaType_error"></label>
+                <label ng-show="addAreaForm.areaType.$dirty" ng-messages="addAreaForm.areaType.$error" style="display:inline-block;">
+                    <!--<label ng-message="required" class="error" style="display: inline-block;">该参数必须配置。</label>-->
+                    <!--<label ng-message="maxlength" class="error" style="display: inline-block;">请输入1-32字符。</label>-->
+                </label>
+            </div>
+        </div>
+    </form>
+    <!--修改地图-->
+    <form name="editMapForm" novalidate bs-modal="mapEdit.options">
+        <div class="form-group">
+            <div style="margin: 0px auto; position:relative">
+                <label class="col-xs-2 control-label" style="margin-top: 10px;">Picture</label>
+                <div class="col-xs-9 file"  style="margin-top: 10px;">
+                    <a class="btn">Browse</a>
+                    <label class="error" id="file_error"></label>
+                    <br/>
+                    <label class="info-explain">(In JPG,GIF,PNG,or BMP format.Cannot exceed 2 M)</label>
+                    <input type="file" name="photo" id="upload_file" onchange ="angular.element(this).scope().uploadfile(this.file)" required />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <img id="picture1" src="" style="text-align: center"/>
+        </div>
+    </form>
+    <!--修改比例尺-->
+    <form name="setScaleForm" novalidate bs-modal="setScale.options">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">Scale</label>
+            <div class="col-sm-10">
+                1px &nbsp; : &nbsp;
+                <input ng-model="set.scaleValue" name="scaleValue" type="number" id="scaleValue" errid="mapScale_error"
+                       ng-pattern="/^(?!(0[0-9]{0,}$))[0-9]{1,}[.]{0,}[0-9]{0,}$/" placeholder="0.001 to 1000">&nbsp; m
+                <label class="error" id="scaleValue_error" style="margin:10px 0 0 50px;"></label>
+                <label ng-show="setScaleForm.scaleValue.$dirty" ng-messages="setScaleForm.scaleValue.$error" style="display:inline-block;">
+                    <!--<label ng-message="required" class="error" style="display: inline-block;">该参数必须配置。</label>-->
+                    <!--<label ng-message="pattern" class="error" style="display: inline-block;">比例应大于0</label>-->
+                </label>
+            </div>
+        </div>
+    </form>
+    <!--查看ap信息-->
+    <div class="modal-body" bs-modal="searchAp_modalOptions">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">AP name:</label>
+            <div class="col-sm-9 ap_info">
+                <span id="info_apName"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">MAC address:</label>
+            <div class="col-sm-9 ap_info">
+                <span id="info_apMac"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">X coordinate:</label>
+            <div class="col-sm-9 ap_info">
+                <span id="info_X"></span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">Y coordinate:</label>
+            <div class="col-sm-9 ap_info">
+                <span id="info_Y"></span>
+            </div>
+        </div>
+    </div>
+    <!--修改AP坐标-->
+    <div class="modal-body" bs-modal="updateAp_modalOptions">
+        <div class="login-input">
+            <label class="col-sm-4 control-label required">X coordinate:</label>
+            <div class="col-sm-8">
+                <input type="number" class="required" id="editX" name="editX"  errid="editX_error"/>
+                <label class="info-explain"></label>
+                <label class="error" id="editX_error"></label>
+            </div>
+        </div>
+        <div class="login-input">
+            <label class="col-sm-4 control-label required">Y coordinate:</label>
+            <div class="col-sm-8">
+                <input type="number" class="required" id="editY" name="editY" errid="editY_error"/>
+                <label class="info-explain"></label>
+                <label class="error" id="editY_error"></label>
+            </div>
+        </div>
+    </div>
+
+    <div id="editmap_rc" class="rc-define"
+         EDITMAP_TITLE ="Edit picture"
+         SETSCALE_TITLE="Edit scale"
+         ADDAP_TITLE="Add AP"
+         ADDAREA_TITLE="Add region"
+         UPDATEAP_TITLE="Coordinates"
+         SEARCHAP_TITLE="Details"
+         CLOSE="Close"
+         GETAP_FAILED="Failed to obtain APs."
+         GETUSEAP_FAILED="Failed to obtain available APs."
+         UPLOADPIC_INFO="Please upload a picture."
+         PICBIG_INFO="The picture size cannot exceed 2 M."
+         SCALE_INFO="Valid range:0.001 to 1000."
+         LOCATIONX_INFO="Valid range:0 to the picture width."
+         LOCATIONY_INFO="Valid range:0 to the picture height."
+         ALERADYADD_INFO="The AP already exists in another map."
+         GET_INFO="Failed to obtain the picture."
+         VERTICEERROR_INFO="Valid range:2 to 10."
+         AREAEXIT_INFO="The region already exists."
+         PARAMMUST_INFO="This field is required."
+         SPECIAL_INFO="The name can contain only digits and letters."
+         KONGGE_INFO="The name cannot contain spaces."
+         LOCATIONAREA="Locating region"
+         ZHANGAI="Obstacle region"
+         DATALAN="Digital fence"
+         PICTYPE_ERROR="Incorrect picture format."
+    ></div>
+</div>

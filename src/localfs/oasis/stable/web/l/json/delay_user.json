@@ -1,0 +1,67 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 10,
+  "rows": [
+    {
+      "MAC": "56:D7:6C:93:EF:1E",
+      "delay_num": 61,
+      "delay_max": "2293ms",
+      "delay_time": "2016-11-08 22:10:37"
+    },
+    {
+      "MAC": "1C:64:B3:7E:FF:6D",
+      "delay_num": 40,
+      "delay_max": "2525ms",
+      "delay_time": "2016-10-26 12:38:02"
+    },
+    {
+      "MAC": "03:C5:25:A6:70:60",
+      "delay_num": 92,
+      "delay_max": "532ms",
+      "delay_time": "2016-10-18 01:19:33"
+    },
+    {
+      "MAC": "27:97:96:FE:CA:C1",
+      "delay_num": 48,
+      "delay_max": "174ms",
+      "delay_time": "2016-10-10 03:02:32"
+    },
+    {
+      "MAC": "54:01:CE:D0:75:77",
+      "delay_num": 28,
+      "delay_max": "2169ms",
+      "delay_time": "2016-11-06 17:14:34"
+    },
+    {
+      "MAC": "B1:4E:B7:57:CD:72",
+      "delay_num": 39,
+      "delay_max": "3635ms",
+      "delay_time": "2016-10-13 14:00:09"
+    },
+    {
+      "MAC": "6C:F4:8C:28:70:44",
+      "delay_num": 55,
+      "delay_max": "3038ms",
+      "delay_time": "2016-11-01 08:07:14"
+    },
+    {
+      "MAC": "CF:CF:3D:74:C3:BF",
+      "delay_num": 58,
+      "delay_max": "3835ms",
+      "delay_time": "2016-10-24 12:43:09"
+    },
+    {
+      "MAC": "EC:AA:9F:23:E4:CA",
+      "delay_num": 84,
+      "delay_max": "3571ms",
+      "delay_time": "2016-10-11 00:50:57"
+    },
+    {
+      "MAC": "B0:7E:3D:62:2B:77",
+      "delay_num": 82,
+      "delay_max": "823ms",
+      "delay_time": "2016-10-27 14:17:56"
+    }
+  ]
+}

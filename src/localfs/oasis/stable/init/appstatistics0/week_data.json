@@ -1,0 +1,46 @@
+{
+  "url": "/read_dpi_app",
+  "message": [
+    {
+      "name": "微信",
+      "APPName": "WeChat",
+      "value": 430
+    },
+    {
+      "name": "腾讯网",
+      "APPName": "TengXunWang",
+      "value": 34
+    },
+    {
+      "name": "百度地图",
+      "APPName": "BaiDuMap",
+      "value": 6
+    },
+    {
+      "name": "2345网址导航",
+      "APPName": "2345DaoHang",
+      "value": 6
+    },
+    {
+      "name": "今日头条",
+      "APPName": "JinRiTouTiao",
+      "value": 5
+    },
+    {
+      "name": "腾讯视频",
+      "APPName": "TencentVideo",
+      "value": 4
+    },
+    {
+      "name": "内涵段子",
+      "APPName": "NeiHanDuanZi",
+      "value": 4
+    },
+    {
+      "name": "淘宝",
+      "APPName": "TaoBao",
+      "value": 4
+    }
+  ],
+  "retCode": 0
+}

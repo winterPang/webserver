@@ -1,0 +1,129 @@
+<style>
+
+</style>
+<div class="fileSystem">
+	<div class="panel panel-default">
+		<div class="panel-heading">
+			<div class="row">
+				<div class="col-xs-5">
+					<h3 class="panel-title">文件系统</h3>
+				</div>
+				<div class="col-xs-7" style="line-height:49px">
+					<div class="pull-right">
+						<oasis-select labelwidth="40" placeholder="请选择设备" os-trigger="#toggleSlectDevice" os-data="devicedata" os-model="regionSlect"></oasis-select>
+						<span id="toggleSlectDevice" class="toggleSlect">
+							<span class="fa fa-exchange"></span>
+						</span>
+					</div>
+					<div class="pull-right">
+						<oasis-select placeholder="请选择分支"  os-trigger="#toggleSlectregion" os-data="regiondata" os-model="regionSlect"></oasis-select>
+						<span id="toggleSlectregion" class="toggleSlect">
+							<span class="fa fa-exchange"></span>
+						</span>
+					</div>
+				</div>
+			</div>
+
+		</div>
+		<div class="panel-body">
+			<div style="max-height: 450px; overflow: auto; height: 450px;">
+				<table id="fileSystemTable" style="color: #000">
+					<thead>
+					<tr>
+						<th>文件名称</th>
+						<th>文件类型</th>
+						<th>文件大小</th>
+						<th>修改时间</th>
+					</tr>
+					</thead>
+				</table>
+			</div>
+			<div class="form-horizontal" bs-modal="renameOptions">
+				<div class="form-group">
+					<label for="fileName" class="col-xs-3 control-label">新文件名 <span class="label-require">*</span></label>
+					<div class="col-xs-6">
+						<input id="renameFile" type="text" name="fileName" ng-model="filesystem.rename" class="form-control" >
+					</div>
+				</div>
+			</div>
+			<div class="form-horizontal" bs-modal="uploadOptions" >
+				<form id="uploadForm" action="/v3/fs/uploadFile/" enctype="multipart/form-data" method="post"
+					 onsubmit="return false">
+					<div class="form-group">
+						<div class="col-xs-6" class="htmleaf-container" style="margin-left: 32%">
+							<input id="uploadFile" type="file" required data-min-file-count="1" name="sysFile">
+							<div>提示：上传过程中不能中止</div>
+						</div>
+					</div>
+				</form>
+			</div>
+
+			<div class="form-horizontal" bs-modal="progressOptions">
+				<div class="form-group">
+					<div style="color: #14A89D; font-size: 18px; text-align: center; margin: 6px;">
+						<span id="sysprogressbar" class="title"></span>
+					</div>
+					<div id="systemfilebarrate" style="position: absolute;margin-top: 10px;margin-left: 36px;">
+						<span>100KB/S</span>
+					</div>
+					<div class="progress" style="width: 66%; margin: auto; margin-bottom: 16px; margin-top: 16px">
+						<div id="systemfilebar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+							<span class="sr-only">60% Complete</span>
+						</div>
+					</div>
+					<div id="systemfilebarnum" style="position: absolute;margin-top: -35px;margin-left: 49%;">
+						<span>0%</span>
+					</div>
+				</div>
+			</div>
+			<div class="col-xs-12" style="margin-top: 40px; margin-bottom: 40px; text-align: center">
+				<button id="uploadFileBtn" class="btn btn-cus disabled" ng-click="upload()" ng-if="permission.write">发送文件到设备</button>
+				<button id="downloadFileBtn" class="btn btn-cus disabled" ng-click="download()"  ng-if="permission.read">从设备提取文件</button>
+				<button id="renameFileBtn" class="btn btn-cus disabled" ng-click="rename()"  ng-if="permission.write">文件重新命名</button>
+				<button id="deleteFileBtn" style="background-color: #fe808b" class="btn btn-cus disabled" ng-click="delete()"  ng-if="permission.write">删除设备文件</button>
+			</div>
+		</div>
+	</div>
+	<iframe id="filerecive" name="filerecive" style="display: none"></iframe>
+</div>
+<div id="fileSystem_rc" class="rc-define"
+	 NOTFOUND_LINK = "云端没有找到设备的主链接，请确认设备的状态!"
+	 NOOPERATE_ACCESS = "该用户没有设备的操作权限!"
+	 OPERATE_FAILED = "操作失败!"
+	 UPLOADING_FILE = "设备正在下载文件或者上传文件，请稍候!"
+	 UPLOAD_SUCCESS = "文件上传成功!"
+	 NOENOUGH_SPACE = "设备空间不足!"
+	 EXIST_SAMEFILE = "设备上已有相同名字的文件!"
+	 DEVICEINIT_FAILED = "设备初始化失败!"
+	 LOCALFILETO_CLOUD = "文件从本地上传到云"
+	 DEVICEFILETO_CLOUD = "文件从设备上传到云"
+	 CLOUDFILETO_DEVICE = "文件从云上传到设备"
+	 MAKESURE_DELETE = "你确定要删除该文件么?(不可恢复)"
+	 FILE_NOTEXIST = "文件不存在!"
+	 SYSTEM_IMPORTANTFILE = "系统重要文件,不能操作!"
+	 DELETE_FAILED = "删除失败!"
+	 DELETE_FOLDER = "不能删除文件夹!"
+	 SELECT_FILE = "请选择文件!"
+	 OPERATEMAY_FAILED = "此次操作可能失败!"
+	 DOWNLOAD_FOLDER = "不能下载文件夹!"
+	 CHINESE_CHATARATERS = "文件名不可以是中文或含有空格符!"
+	 UPLOAD_EMPTYFILE = "请不要上传空文件!"
+	 ILLEGAL_FILENAME = "文件名不合法!"
+	 MODIFY_FILENAME = "确定修改该文件名?"
+	 MODIFY_FOLDER = "不能修改文件夹名!"
+	 REQUEST_TIMEOUT = "设备响应超时"
+	 ERROR = "错误"
+	 EMPTYFILE = "文件名不能为空"
+	 UPLOADSUCCESS = "文件上传成功"
+	 MAKESURE_DOWNLOADFILE = "提取文件过程中不能被中止,是否继续?"
+	 SENDFILE2DEVICE = "发送文件到设备"
+	 FILEPROGRESS = "文件进度条"
+	 CLOSEPROGRESS = "关闭进度条"
+	 RENAMEFILE = "文件重命名"
+	 EMPTYFILE = "文件名不能为空"
+	 UPLOADSUCCESS = "文件上传成功"
+	 FILEPROGRESS = "文件进度条"
+	 CLOSEPROGRESS = "关闭进度条"
+     RENAME_SUCCESSFULLY = "文件改名成功"
+     DELETE_SUCCESSFULLY = "文件删除成功">
+</div>

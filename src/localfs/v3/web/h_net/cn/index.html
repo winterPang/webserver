@@ -1,0 +1,65 @@
+<html>
+
+<head>
+</head>
+
+<body>
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height default-bottom">
+            <div class="box-footer">
+                <span class="title">网络配置</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="net_list" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="net_rc" class="rc-define"
+     NET_ITEM = "WiFi名称(SSID),隐藏SSID,终端上传速率,终端下载速率,加密,状态"
+     LIST = "状态,设备标签,序列号,关联场所,型号"
+     HIDE = "不隐藏"
+     ENCRYPTION = "否"
+     TIME = "00天04小时30分39秒"
+     LOCATION = "东电B1实验局"
+     OFF = "关闭"
+     ON = "开启"
+     FRESH = "刷新"
+     STATE = "在线"
+        ></div>
+
+<div class="modal fade modal-super" id="flowdetailDlg" tabindex="-1" aria-hidden="true" style="margin-top: -148px; display: none;">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3>WLAN详情</h3>
+    </div>
+    <form class="form-horizontal form" id="flowdetail_form">
+        <div class="box-body no-height form-group">
+            <div class="page-row">
+                <div class="col-xs-12 app-colum">
+                    <div class="app-box no-height default-bottom">
+                        <div class="box-footer">
+                            <span class="title">设备列表</span>
+                        </div>
+                        <div class="box-body no-height">
+                            <div id="flowdetail_list" class="simple-list" style=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer form-actions"></div>
+    </form>
+    <div class="editor-alert">
+
+    </div>
+</div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_net.index");
+</script>

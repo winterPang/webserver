@@ -1,0 +1,163 @@
+<html>
+
+<head>
+</head>
+
+<body>
+<div class="page-row">
+    <div class="col-xs-12 app-colum left-block" debug="wireless_list">
+        <div class="app-box"> 
+            <div class="box-footer"> 
+                <span class="title">无线服务</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="wireless_list" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="wireless_rc" class="rc-define"
+     WIRELESS_ITEM = "无线服务名称,SSID,状态,安全IE,加密套件,认证位置,客户端数量"
+     WIRELESS_ITEM1 = "无线服务名称,SSID,SSID状态,隐藏SSID,最大终端数,最大发送速率,最大接收速率"
+     STATUS = ",使能,去使能"
+     HIDE_SSID = "不隐藏,隐藏"
+     TYPE = "本地转发&策略转发"
+     TYPES = "集中式转发"
+     AUTH = "静态WEP密钥"
+     NOAUTH = "不认证"
+     ON = "开启"
+     OFF = "关闭"
+     LIST = "服务模板名称,AP名称,射频,绑定VLAN,VLAN组,NAS-ID,NAS-Port-ID,隐藏SSID"
+     HIDE = "不隐藏"
+     ENCRYPTION = "否"
+     TIME = "00天04小时30分39秒"
+     LOCATION = "东电B1实验局"
+     OFF = "关闭"
+     ON = "开启"
+     AUTHLOCATION=",Central-AC,AC,,AP,,,,Other"
+     CIPHERSUITE="Not configured,WEP40,TKIP,CCMP,TKIP/CCMP,WEP104,WEP128"
+     SECURITYIE="Not configured,WPA,RSN,OSEN";
+     FRESH = "刷新"
+     STATE = "在线"
+     TERINFO="详情"
+     TITLE_TERINFO="AP详情"
+     AKMMODE="Not configured,DOT1X,PSK,FT-OVER-DOT1X,
+                                   FT—USING-PSK,DOT1X-256,PSK-256, PRIVATE-PSK,DOT1X-WFA"
+     FWDLOCATION=",MAC,NAC,,AP,,,,Other"
+     
+        ></div>
+
+<div class="hide modal fade" id="TerminalInfoDlg">
+    <form class="form-horizontal form" id="view_client_form">
+        <!-- <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+              <h3 class="modal-title">终端基本信息</h3>
+        </div> --> 
+        <div class="col-sm-12">
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">无线服务名称</label>
+                  <span class="label form-if-setHtml" id="stName">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">SSID</label>
+                  <span class="label form-if-setHtml" id="ssidName">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">状态</label>
+                  <span class="label form-if-setHtml" id="status">--</span>
+            </div>
+        
+            <!-- <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">转发位置</label>
+                  <span class="label form-if-setHtml" id="FwdLocation">--</span>
+            </div> -->
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">安全IE类型</label>
+                  <span class="label form-if-setHtml" id="securityIE">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">加密套件</label>
+                  <span class="label form-if-setHtml"  id="cipherSuite">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">认证位置</label>
+                  <span class="label form-if-setHtml" id="authLocation">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">客户端数量</label>
+                  <span class="label form-if-setHtml" id="clinetCount">--</span>
+            </div>
+           <!--  <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain"></label>
+                  <span class="label form-if-setHtml" id="acSN">--</span>
+            </div> -->
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">身份认证与秘钥管理模式</label>
+                  <span class="label form-if-setHtml" id="akmMode">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">隐藏SSID</label>
+                  <span class="label form-if-setHtml" id="hideSSID">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">最大上线终端个数</label>
+                  <span class="label form-if-setHtml" id="maxClients">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">最大接收速率</label>
+                  <span class="label form-if-setHtml" id="maxReceiveRatio">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">最大发送速率</label>
+                  <span class="label form-if-setHtml" id="maxSendRatio">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">VLANID</label>
+                  <span class="label form-if-setHtml" id="vlanId">--</span>
+            </div>
+            <!-- <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">休眠次数</label>
+                  <span class="label form-if-setHtml" id="PowerSaveMode">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5  control-label "><strong></strong></label>
+            </div> -->
+        </div>
+    </form>
+</div>
+<div class="modal fade modal-super" id="flowdetailDlg" tabindex="-1" aria-hidden="true" style="margin-top: -148px; display: none;">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3>WLAN详情</h3>
+    </div>
+    <form class="form-horizontal form" id="flowdetail_form">
+        <div class="box-body no-height form-group">
+            <div class="page-row">
+                <div class="col-xs-12 app-colum">
+                    <div class="app-box no-height default-bottom">
+                        <div class="box-footer">
+                            <span class="title">绑定AP</span>
+                        </div>
+                        <div class="box-body no-height" id="frameList">
+                            <div id="flowdetail_list" class="simple-list" style=""></div>
+                        </div>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <label class="info-explain">无线客户端上线时，会通过发送给RADIUS服务器的RADIUS请求报文中携带的NAS-ID属性，标识客户端的接入位置。</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer form-actions"></div>
+    </form>
+    <div class="editor-alert">
+
+    </div>
+</div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_wireless.index");
+</script>

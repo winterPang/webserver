@@ -1,0 +1,87 @@
+<html>
+
+<head>
+</head>
+
+<body>
+<div class="page-row">
+    <div class="col-xs-12 app-colum left-block">
+        <div class="app-box"> 
+            <div class="box-footer"> 
+                <span class="title">发布管理</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="release_list" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hide" id="pageToggle">
+    <form class="form-horizontal form" id="view_release_form">      
+        <div class="form-group">
+            <label class="col-sm-4  control-label required">名称</label>
+            <div class="col-sm-8">
+                <input type="text" class="string required big" errid="oldpassword_error" min="1" maxlength=64 id="name" name="name">
+                <!-- <span class="info-explain">（8-32个非空字符）</span> -->
+                <br/>
+                <span class="error" id="oldpassword_error"></span>  
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4  control-label ">SSID</label>
+            <div class="col-sm-8">
+                <select id="ssidName" name="ssidName" class="big singleSelect"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4  control-label ">微信公众号</label>
+            <div class="col-sm-8">
+                <select id="weixinAccountName" name="weixinAccountName" class="big singleSelect"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4  control-label required">认证</label>
+            <div class="col-sm-8">
+                <select id="authCfgName" name="authCfgName" class="big singleSelect"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4  control-label required">页面</label>
+            <div class="col-sm-8">
+                <select id="themeTemplateName" name="themeTemplateName" class="big singleSelect"></select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4  control-label required">描述</label>
+            <div class="col-sm-8">
+                <input type="text" class="string required big" errid="description_error" maxlength=256 id="description" name="description">
+                <!-- <span class="info-explain">（8-32个非空字符）</span> -->
+                <br/>
+                <span class="error" id="description_error"></span>  
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-4 control-label">发布状态</label>
+            <div class="col-sm-8">
+                <input type="checkbox" class="switch" id="isPublished" name="isPublished" checked />
+            </div>
+        </div>
+    </form>
+</div>
+<div class="hide modal fade" id="AddReleaseDlg">
+    
+</div>
+<div id="release_rc" class="rc-define"
+    RELEASE_HEAD = "名称,SSID,微信公众号,认证,页面,描述,发布状态"
+    ADD = "新增" 
+    FLUSH = "刷新"
+    STATUS = "未发布,已发布"
+    ADD_PUBMNG = "新增发布模版"
+    EDIT_PUBMNG = "修改发布模版"
+    ></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_release.index");
+</script>

@@ -1,0 +1,33 @@
+[
+  {
+
+    "appList": [
+      {
+        "appName": "广告家",
+        "appImg": "../../web/applications/images/adver1.jpg",
+        "appUsed": 1,
+        "appState": true,
+        "appIntro": "可以将品牌历程、企业文化、发展战略、荣誉资质、服务介绍等企业信息发布到该应用。简洁悦目的信息..",
+        "btns": [
+          { "text": "启用", "cls": "cus", "click": "linkToEnable" },
+          { "text": "关闭", "cls": "cus", "click": "alert" },
+          { "text": "暂停", "cls": "cus", "click": "" },
+          { "text": "广告平台", "cls": "cus", "click": "linkToPlatform" }
+        ]
+      },
+      {
+        "appName": "奥菲广告传媒",
+        "appImg": "../../web/applications/images/adver2.jpg",
+        "appUsed": 1,
+        "appState": true,
+        "appIntro": "可以将品牌历程、企业文化、发展战略、荣誉资质、服务介绍等企业信息发布到该应用。简洁悦目的信息..",
+        "btns": [
+          { "text": "启用", "cls": "cus", "click": "linkToEnable" },
+          { "text": "关闭", "cls": "cus", "click": "alert" },
+          { "text": "暂停", "cls": "cus", "click": "" },
+          { "text": "广告平台", "cls": "cus", "click": "aofei_media" }
+        ]
+      }
+    ]
+  }
+]

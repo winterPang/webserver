@@ -1,0 +1,34 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">黑名单</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="RegisterUserList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+
+<div id="user_rc" class="rc-define"
+     USER_LIST_HEADER = "账户名,认证方式"
+     USER_TYPE="一键认证,短信认证,微信客户端认证,支付宝认证,QQ认证,微信公众户认证,微信连Wi-Fi,APP认证,固定账户认证"
+     ADD_BLACK_LIST="加入黑名单"
+     REMOVE_BLACK_LIST="解除黑名单"
+     Visitor_LIST_HEADER = "账户名,用户IP,接入时间,接入时长,认证方式"
+     CONFIGURE_SUCCESS = "配置成功"
+     QUERY_DATA_UNUSUAL = "查询数据异常"
+
+        >
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("user.black_white_list");
+</script>

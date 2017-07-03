@@ -1,0 +1,50 @@
+ <div class="page-row">
+        
+        <div class="col-xs-7 app-colum left-block">
+            <div class="app-box">
+                <div class="box-footer">
+                    <!-- title -->
+                    <span class="title">Guest Behavior Analysis</span>
+
+                    <!-- Form的按钮 -->
+                    <div class="form-actions top" style="display: block;" ng-show="drsOperateBtnDisp" ng-hide="!drsOperateBtnDisp">
+                        <a href="javascript:void(0)" class="form-btn icon-ok" ng-click="drsValueSET()"></a>
+                        <a href="javascript:void(0)" class="form-btn icon-remove" ng-click="drsValueBACK()"></a>
+                    </div>
+
+                </div>
+                
+                <div class="box-body no-height">
+                    <form class="form-horizontal form">
+                        <div class="form-group">
+                            <!-- label -->
+                            <label class="col-sm-3 control-label">Guest Behavior Analysis</label>
+
+                            <!-- checkbox -->
+                            <div class="col-sm-9">
+                                <div class="xb-input">
+                                    <div class="input-icon checkbox-icon switch" ng-class="{'checked':drsValueIsEnable}" ng-click="drsValueChange()"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- 调试 -->
+                <!-- <span ng-bind="drsValueIsEnable"></span> -->
+            </div>
+        </div>
+    </div>
+
+    <div id="RC" class="rc-define"
+        DRS_GET="Failed to obtain the status of this feature." 
+
+        DRS_Cancel="Configuration cancelled."     
+        DRS_OPEN="Enabled this feature successfully.,Failed to enable this feature."     
+        DRS_CLOSE="Disabled this feature successfully.,Failed to disable this feature." 
+        because3="Because the device connection timed out,"
+        because4="Because the main connection was broken down,"
+
+        Notice_Title = "Note"
+    >
+    </div>

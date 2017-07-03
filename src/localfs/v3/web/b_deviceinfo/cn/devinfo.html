@@ -1,0 +1,108 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="/v3/web/b_device/dashboard.css">
+    <style type="text/css">
+        .middle-cell-minheight{
+            min-height: 83px;
+        }
+        .dev_info{
+             font-size: 14pt;
+             /*margin-left: 100px;*/
+         }
+        .dev_info_content{
+            /*font-size: 20px;*/
+            /*margin-left: 50px;*/
+        }
+        .margin-top-20{
+            margin-top: 20px;
+        }
+        .padding-top-10{
+            padding-top:10px;
+        }
+    </style>
+</head>
+<body>
+<!--<div class="head-bar col-xs-12" style="background:initial;" id="level">-->
+<div class="app-colum" id="level">
+    <div class="box-footer"  style="background:initial;">
+        <div class="col-xs-12">
+            <span class="title">设备信息</span>
+        <!--<div class="text-right link-container"> -->
+            <!--&lt;!&ndash; <a type="button" class="refresh" id="refresh_logs">-->
+                <!--<i class="refresh-icon icon"></i>-->
+            <!--</a> &ndash;&gt;-->
+            <!--<a type="button" class="link-detail" id="submit_scan" href="waring.index" title="更多">-->
+                <!--<i class="detail-icon icon"></i>-->
+            <!--</a>-->
+        <!--</div>-->
+        </div>
+    </div>
+    <div class="box-body echart-height" id="version_block" style="padding: 0 0 0 60px;">
+        <div class="col-sm-6" style="margin-top: -8px;">
+            <div class="form-group">
+                <label class="col-sm-4 control-label">设备组</label>
+                <div class="col-sm-8">
+                    <span class="label dev_content" id="DeviceGroup" name="DeviceGroup">apx000</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">设备名</label>
+                <div class="col-sm-8">
+                    <span class="label dev_content" id="DeviceName" name="DeviceName">WAC5540-abc</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">设备型号</label>
+                <div class="col-sm-8">
+                    <span class="label dev_content" id="DeviceType" name="DeviceType">H3C WAC360</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">序列号</label>
+                <div class="col-sm-8">
+                    <span class="label dev_content" id="SerialNumber" name="seriNUm">210235A1SQC15A000045</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Bootrom版本</label>
+                <div class="col-sm-8">
+                    <span class="label dev_content" id="FirmwareRev" name="boot_version">5.0</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">硬件版本</label>
+                <div class="col-sm-8">
+                    <span class="label dev_content" id="HardwareRev" name="hardware_version">7.1.064</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">软件版本</label>
+                <div class="col-sm-8">
+                    <span class="label dev_content" id="SoftwareRev" name="software_version">Release 5116P11</span>                <!--<a class="xb-link" id="version">查看版本列表-->
+
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6" style="margin-top: -8px;">
+            <!--<div class="echart-label">CPU</div>-->
+            <div class="row-nohover row-clear padding0" style="padding: 0px;">
+                <div id="cpu_pie" class="myEchart chartStyle"></div>
+            </div>
+            <!--<div class="echart-label">内存</div>-->
+            <div class="row-nohover row-clear padding0" style="padding: 0px; margin-top: -35px;">
+                <div id="storage_pie" class="myEchart chartStyle"></div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="app_devinfo_rc" class="rc-define"
+     CPUSTATUS = "CPU运行,CPU空闲"
+     STORESTATUS = "内存占有率,内存空闲"
+     TITLE = "CPU速率,内存占有率"
+            ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("b_deviceinfo.devinfo");
+</script>

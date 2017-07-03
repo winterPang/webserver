@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html  lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        div.smartschool .slist-link{
+            color:#4ec1b2;
+            /*margin-left:5px;*/
+            border-bottom: 1px solid #4ec1b2;
+        }
+        /*div.smartschool  .slist-link:hover, div.smartschool .slist-link:active, div.smartschool .slist-link:focus {*/
+            /*color: #4ec1b2;*/
+            /*border-bottom: 1px solid #4ec1b2;*/
+        /*}*/
+        .app-box .top-box {
+            position:absolute;
+            right:45px;
+            width:750px;
+            display:none;
+        }
+        div.time-zone {
+            height:300px;
+
+        }
+
+        .time-zone .form-actions {
+            display: none;
+        }
+        .app-box .form-actions.bottom {
+            margin: 80px 1px 0 0;
+        }
+        .radio-name .grade-month{
+            margin:0 10px  0 20px;
+        }
+        .business-wifi-devinfo .time-zone .form-actions {
+            display: none;
+        }
+        .app-box .form-actions.bottom {
+            margin: 6px -5px 0 0;
+            float: right;
+        }
+        .editGrade{
+            margin-left:20px;
+            display:none;
+        }
+        .smartschool .stuType{
+            margin: 0px 0px 10px 0;
+        }
+       .smartschool .modal .select2-container {
+            width: 176px;
+        }
+        .daterangepicker .ranges .input-mini {
+            width: 125px;
+        }
+
+        select.hourselect, .daterangepicker select.minuteselect, .daterangepicker select.secondselect{
+            width: 60px;
+            margin:0;
+            /*//margin-bottom: 0;*/
+        }
+        .btn-small {
+            width: 100px;
+        }
+        .edittable-table {
+            padding:0;
+            border:none;
+        }
+
+        .edittable-row i[class*="icon-"].icon-plus {
+            height: 43px;
+        }
+
+        i.icon.config-icon {
+            background-position: -345px -58px;
+        }
+
+        i.icon.config-icon:hover {
+            background-position: -379px -58px;
+        }
+
+        /*.radio-name{*/
+            /*float:left;*/
+        /*}*/
+        .grade-config{
+            margin-top:10px;
+        }
+        .configcontent{
+            margin-left: 30px;
+        }
+        .config{
+            margin-top:30px;
+        }
+        a#CurType.xb-link{
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+<div class="page-row smartschool">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box wrap_c">
+            <div class="box-footer">
+                <span class="title">学生管理</span>
+                <div class="text-right link-container">
+                    <a class="link-detail">
+                        当前年级类型
+                    </a>
+                    ：
+                    <a type="button" class="xb-link" id="CurType" style="font-size:15px;">未配置</a>
+                    &nbsp; &nbsp; &nbsp;
+                    <a type="button"  class="filter" id="filter">
+                        <i class="filter-icon icon"></i>
+                    </a>
+                </div>
+             </div>
+            <div class="top-box">
+                 <div class="filter-container">
+                    <!--<div class="form-actions top">-->
+                        <!--<a class="form-btn icon-ok" title="确定"></a>-->
+                        <!--<a class="form-btn icon-remove" title="取消"></a>-->
+                    <!--</div>-->
+                    <form id="gradetype_form" class="time-zone form-horizontal form edit float-left">
+                        <div class="form-group">
+                            <span>请选择年级类型及升级月份：</span>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-xs-2">升级月份</span>
+                            <div class="col-xs-10">
+                                <input type="radio" id="Janu" name="Month" value="1">
+                                <label for="Janu">一月</label>
+                                <input type="radio" id="Feb" name="Month" value="2">
+                                <label for="Feb">二月</label>
+                                <input type="radio" id="March" name="Month" value="3">
+                                <label for="March">三月</label>
+                                <input type="radio" id="Apr" name="Month" value="4">
+                                <label for="Apr">四月</label>
+                                <input type="radio" id="May" name="Month" value="5">
+                                <label for="May">五月</label>
+                                <input type="radio" id="June" name="Month" value="6">
+                                <label for="June">六月</label>
+                                <input type="radio" id="July" name="Month" value="7">
+                                <label for="July">七月</label>
+                                <input type="radio" id="Aug" name="Month" value="8">
+                                <label for="Aug">八月</label>
+                                <input type="radio" id="Sept" name="Month" value="9" checked>
+                                <label for="Sept">九月</label>
+                                <input type="radio" id="Oct" name="Month" value="10">
+                                <label for="Oct">十月</label>
+                                <input type="radio" id="Nove" name="Month" value="11">
+                                <label for="Nove">十一月</label>
+                                <input type="radio" id="Dec" name="Month" value="12">
+                                <label for="Dec">十二月</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-xs-2">年级类型</span>
+                            <div class="col-xs-10">
+                                <div class="radio-name">
+                                    <input type="radio" id="Primary" name="SchoolType" value="1" checked>
+                                    <label for="Primary">六年制小学</label>
+                                    <span  style="color:#80878c">(<span id="primarySpan">一年级,二年级,三年级,四年级,五年级,六年级</span>)</span>
+                                </div>
+                                <div class="radio-name">
+                                    <input type="radio" id="Junior" name="SchoolType" value="2">
+                                    <label for="Junior">三年制初中</label>
+                                    <span  style="color:#80878c">(<span id="juniorSpan" >初中一年级,初中二年级,初中三年级</span>)</span>
+                                </div>
+                                <div class="radio-name">
+                                    <input type="radio" id="Senior" name="SchoolType" value="3">
+                                    <label for="Senior">三年制高中</label>
+                                    <span  style="color:#80878c">(<span id="seniorSpan">高中一年级,高中二年级,高中三年级</span>)</span>
+                                </div>
+                                <div class="radio-name">
+                                    <input type="radio" id="MidSchool" name="SchoolType" value="4">
+                                    <label for="MidSchool">综合中学</label>
+                                    <span  style="color:#80878c">(<span id="midSpan">初中一年级,初中二年级,初中三年级,高中一年级,高中二年级,高中三年级</span>)</span>
+                                </div>
+                                <div class="radio-name">
+                                    <input type="radio" id="Diy" name="SchoolType" value="5">
+                                    <label for="Diy">自定义</label>
+                                    <span  style="color:#80878c" >(<span id="gradeName">请自定义您的年级名称</span>)</span>
+                                </div>
+                                <div class="radio-name editGrade">
+                                    <div class="m-input" id="diyGradeName"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <a id="filter_ok" class="form-btn icon-ok" style="float:right;padding-bottom:20px;margin-right:20px"></a>
+                            <a id="filter_Remove" class="form-btn icon-remove" style="float:right;padding-bottom:20px;margin-right:10px"></a>
+                        </div>
+                    </form>
+                    <!--<div class="form-actions bottom">-->
+                        <!--<a class="btn btn-apply">确定</a>-->
+                        <!--<a class="btn btn-cancel">取消</a>-->
+                    <!--</div>-->
+                 </div>
+            </div>
+            <div class="box-body no-height">
+                <div id="studentList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hide modal fade" id="parentDlg">
+    <form id="parent_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-3">家长姓名</div>
+            <div class="col-xs-7" id="parentName1"></div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-3">亲属关系</div>
+            <div class="col-xs-7" id="parentRelate"></div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-3">家长联系方式</div>
+            <div class="col-xs-7" id="parentPhone"></div>
+        </div>
+    </form>
+</div>
+
+<div class="hide modal fade" id="StatuDlg">
+    <form id="Statu_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-2">学生姓名</div>
+            <div class="col-xs-7 stuType" id="studentName"></div>
+        </div>
+        <div class="form-group leaving" >
+            <div class="col-xs-2"></div>
+            <div class="col-xs-2" style="margin-top:10px;">是否销假</div>
+            <div class="col-xs-7">
+                <select class="singleSelect stuType" id="stu-type" ></select>
+            </div>
+        </div>
+        <div class="form-group ining" style="display:none;">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-2" style="margin-top:10px;">是否请假</div>
+            <div class="col-xs-7">
+                <select class="singleSelect stuType" id="stu-type2"></select>
+            </div>
+        </div>
+        <div class="form-group leavingtime" style="display:none;">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-2" style="margin-top:10px;">请假时间</div>
+            <div class="col-xs-7">
+                <input type="text" id="leaveTime" class="datetimerange" yearRangeClose="false"/>
+            </div>
+        </div>
+        <div class="form-group leavingtime" style="display:none;">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-2" style="margin-top:10px;">请假天数</div>
+            <div class="col-xs-7">
+                <input type="text" class="number big required" id="leaveDays" name="leaveDays_name" errid="leaveDays_name_error" maxlength="3">
+                <label class="info-explain">天</label>
+                <label class="error" id="stu_name_error"></label>
+            </div>
+        </div>
+        <div class="form-group leaveReason">
+            <div class="col-xs-2"></div>
+            <div class="col-xs-2" style="margin-top:10px;">请假缘由</div>
+            <div class="col-xs-7">
+                <select class="singleSelect stuType" id="leaveReason" allowClear=false></select>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="hide modal fade" id="EditDlg">
+    <form id="addStudent_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">学号</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="stu_num" name="stu_num" errid="stu_num_error" maxlength="32">
+                <label class="info-explain">(1-32字符)</label>
+                <label class="error" id="stu_num_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">学生姓名</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="stu_name" name="stu_name" errid="stu_name_error" maxlength="32">
+                <label class="info-explain">(1-32字符)</label>
+                <label class="error" id="stu_name_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">年级</label>
+            <div class="col-sm-9">
+                <select class="big singleSelect required" id="grade_name"  errid="grade_name_error"></select>
+                <label class="error" id="grade_name_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">班号</label>
+            <div class="col-sm-9">
+                <select class="big singleSelect required" id="class_name" errid="class_name_error"></select>
+                <label class="error" id="class_name_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">生日</label>
+            <div class="col-sm-9">
+                <div id="birthdaydate" class="datewidget" errid="birthday_error"></div>
+                <label class="error" id="birthday_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">性别</label>
+            <div class="col-sm-9">
+                <select  class="big singleSelect required" id="sex" errid="sex_error"></select>
+                <label class="error" id="sex_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">手环id</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" placeholder="" id="hand_mac" name="hand_mac" errid="hand_mac_error" min="1" maxlength="63">
+                <label class="info-explain"></label>
+                <label class="error" id="hand_mac_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-3 " style="margin-top:10px;">添加家长</div>
+            <div class="col-sm-7">
+                <div class="edittable" id="AddParent"></div>
+                <label class="error" id="AddParent_error"></label>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="device_rc" class="rc-define"
+     STUDENT_LIST="学号,姓名,年级,班号,生日,性别,手环ID,是否请假,家长"
+     SEX_STATU = "男,女"
+     EDIT_TITLE="新增,注销,导出,报告,编辑学生信息,新增学生信息,进校"
+     STU_STATU="修改状态"
+     STATU_NAME="在校状态"
+     LIST_HEADER="家长姓名,亲缘关系,联系方式"
+     STRING="张三,父亲,150xxxxxxxx"
+     GRADE_COUNT = "一,二,三,四,五,六,七,八,九,十,十一,十二"
+     GRADE_TYPE = "年级"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.scholastic");
+</script>

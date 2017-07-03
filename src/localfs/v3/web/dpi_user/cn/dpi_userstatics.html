@@ -1,0 +1,463 @@
+<html>
+<head>
+</head>
+<style> 
+ .valueStyle
+ {
+   width:30px;
+   height: 20px;
+  /* background: #90C258;*/
+ }
+ .NewUser
+ {
+    width:45px;
+   height: 20px;
+  /* background: #90C258;*/
+ }
+ .OldUser
+ {
+    width:45px;
+   height: 20px;
+  /* background: #31D0DB;*/
+ }
+ .dateSelectstyle
+ {
+      margin-left: 10px;
+ }
+ .newcircle 
+ {
+    width: 30px;
+    height: 30px;
+    background: #8BC04F; 
+    border-radius: 50px;
+}
+.oldcircle 
+{
+    width: 30px;
+    height: 30px;
+    background: #38D1DA; 
+    border-radius: 50px;
+}
+/*统计信息图标*/
+ .background-User{ 
+    position: relative;
+    width: 57px;
+    height: 53px;
+    display: block;
+    left: 20px;
+    top: 2px;
+  }
+  .background-User.TotalUserNum{
+      background: url(./css/image/pic/userpic.jpg) no-repeat -703px -345px;
+  }
+  .background-User.manUserNum{
+      background: url(./css/image/pic/userpic1.jpg) no-repeat -703px -345px;
+  }
+  .background-User.womanUserNum{
+      background: url(./css/image/pic/userpic2.jpg) no-repeat -703px -345px;
+  }
+  .background-User.unknouUserNum{
+      background: url(./css/image/pic/userpic3.jpg) no-repeat -703px -345px;
+  }
+
+  .background-User.NetplayNum{
+      background: url(./css/image/pic/userpic.jpg) no-repeat -252px -526px;
+  }
+  .background-User.useAppNum{
+      background: url(./css/image/pic/userpic.jpg) no-repeat -340px -351px;
+  }
+
+ .SelectTime{
+    color: #4ec1b2!important;
+    text-decoration: underline!important;
+  }
+  
+</style>
+<body> 
+<div class="page-row"> 
+    <div class="col-xs-12 app-colum">  
+        <div style="background: #EDF9F7;height: 36px;margin-bottom: 5px;">
+            <div style="padding-top: 6px;    margin-left: 10px;">
+              <span>周期:</span>
+              <a href="javascript:void(0)"  class="SelectTime" id="today" value="0">
+                <span class="dateSelectstyle">今天</span>
+              </a>
+              <a href="javascript:void(0)" id="aweek" value="1">
+                <span class="dateSelectstyle">七天</span>
+              </a>
+              <a href="javascript:void(0)" id="amonth" value="2">
+                <span class="dateSelectstyle">一月</span>
+              </a> 
+              <a href="javascript:void(0)" id="year" value="3">
+                <span class="dateSelectstyle">一年</span>
+              </a>
+              <span class="dateSelectstyle" id="otherTime" style="color: #000;">自定义</span> 
+              <input id="daterange" class="daterange" style="width:170px" placeholder="选择日期"> 
+            </div>
+        </div> 
+        <div class="app-box">
+          <div class="col-md-2" style="margin-top: 12px;">
+            <div class="col-xs-4 background-User TotalUserNum" style="margin-left: 22px;">
+              <!-- <img src='./css/image/pic/totalUser.jpg'  height='80px'/> -->
+            </div>
+            <div class="col-xs-5" style="margin-left: 11px;"> 
+              <div style="margin-top: 2px;">
+                <span style="font-size: 15px;margin-left: 22px;">总数<span>
+              </div>
+              <div style="margin-top: 3px;">
+                <span style="margin-left: 22px;font-size: 28px;" id="TotalUserNum">0</span>
+              </div>
+            </div> 
+            <div class="col-xs-1" style="padding-left: 11px;margin-top: -5px;">
+                <table style="height: 80px;border-color: #E0DEDE;border-left-style: solid; 
+               border-width: 1px;">
+                    <tr><td valign="top"></td></tr>
+               </table>
+            </div> 
+          </div>
+          <div class="col-md-6">
+            <div class="col-xs-4" style="margin-top: 11px;">
+              <div class="col-xs-5  background-User manUserNum">
+               <!--  <img src='./css/image/pic/nan.jpg'  height='80px'/> -->
+              </div>
+              <div class="col-xs-7" style="margin-left: 5px;"> 
+                  <div style="margin-top: 4px;margin-left: 32px;">
+                    <span style="font-size: 15px;">男<span>
+                  </div>
+                   <div style="margin-top: 3px;">
+                    <span style="margin-left: 25px;font-size: 28px;" id="manUserNum">0</span>
+                  </div>
+              </div>
+            </div>
+            <div class="col-xs-4" style="margin-left: -11px;margin-top: 11px;">
+              <div class="col-xs-5 background-User womanUserNum">
+               <!--  <img src='./css/image/pic/nv.jpg'  height='80px'/> -->
+              </div>
+              <div class="col-xs-7"> 
+                  <div style="margin-top: 4px;margin-left: 32px;">
+                    <span style="font-size: 15px;">女<span>
+                  </div>
+                  <div style="margin-top: 3px;">
+                    <span style="margin-left: 25px;font-size: 28px;" id="womanUserNum">0</span>
+                  </div>
+              </div>
+            </div>
+            <div class="col-xs-4" style="margin-left: -25px;margin-top: 11px;">
+              <div class="col-xs-5 background-User unknouUserNum">
+                <!-- <img src='./css/image/pic/weizhi.jpg'  height='80px'/> -->
+              </div>
+              <div class="col-xs-5" style="margin-left: 13px;"> 
+                  <div style="margin-top: 4px;margin-left:15px">
+                    <span style="font-size: 15px;">未知<span>
+                  </div>
+                  <div style="margin-top: 3px;">
+                    <span style="margin-left: 13px;font-size: 28px;" id="UnknowSexNum">0</span>
+                  </div>
+              </div> 
+               <div class="col-xs-1" style="margin-left: 15px;margin-top: -5px;">
+                <table style="height: 80px;border-color: #E0DEDE;border-left-style: solid; 
+               border-width: 1px;">
+                    <tr><td valign="top"></td></tr>
+               </table>
+            </div> 
+            </div>  
+          </div> 
+          <div class="col-md-2" style="margin-left: -43px;margin-top: 14px;">
+            <div class="col-xs-5 background-User NetplayNum">
+              <!-- <img src='./css/image/pic/diannao.jpg'  height='80px'/> -->
+            </div>
+            <div class="col-xs-7"> 
+              <div style="margin-top: 2px;text-align: center;">
+                <span style="font-size: 15px;">联网人数<span>
+              </div>
+              <div style="margin-top: 3px;margin-left: 16px;">
+                <span style="margin-left: 13px;font-size: 28px;" id="NetPlayNum">0</span>
+              </div>
+            </div>  
+          </div>
+          <div class="col-md-2" style="margin-bottom: 5px;">
+            <div class="col-xs-1" style="margin-top: 6px;">
+                <table style="height: 80px;border-color: #E0DEDE;border-left-style: solid; 
+               border-width: 1px;">
+                    <tr><td valign="top"></td></tr>
+               </table> 
+            </div>
+            <div class="col-xs-4 background-User useAppNum" style="margin-top: 22px; margin-left: -15px;">
+              <!--  <img src='./css/image/pic/shouji.jpg'  height='80px'/> -->
+            </div>
+            <div class="col-xs-7" style="margin-top: 18px;"> 
+              <div style="margin-left: 5px;">
+                <span style="font-size: 15px; margin-left: 10px;">未联网人数<span>
+              </div>
+              <div style="margin-top: 3px; margin-bottom: 15px;margin-left: 27px;">
+                <span style="margin-left: 14px;font-size: 28px;" id="NotNetworkNum">0</span>
+              </div>
+            </div> 
+          </div>  
+        </div>
+        <div class="app-box" style="overflow-x: hidden;">
+          <div class="col-md-4" style="margin-top: 10px;">
+            <div class="col-xs-12">
+              <span style="margin-left: 10px;">新老用户</span> 
+              <!-- 新老用户圆环 -->
+              <div class="col-xs-12">
+                  <div id="UserRate_pie" class="myEchart"></div>
+              </div>
+              <div class="col-xs-12">
+                <div class="col-xs-4 text-center">
+                  <span>用户总数</span> 
+                </div>
+                <div class="col-xs-4 text-center">
+                   <span>新用户</span>
+                </div>
+                <div class="col-xs-4 text-center">
+                  <span>老用户</span>
+                </div>
+                   
+              </div>
+              <div class="col-xs-12" style="margin-top: 5px;margin-bottom: 5px;margin-left: 20px;">
+                <HR width="85%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5"  color="#C7B9B9" />
+              </div>
+              <div class="col-xs-12">
+                  <div class="col-xs-4 text-center">
+                    <span id="TotalUser">0人</span>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                     <span id="NewUser">0人</span>
+                  </div>
+                  <div class="col-xs-4 text-center">
+                    <span id="OldUser">0人</span>
+                  </div> 
+              </div>
+            </div> 
+          </div>
+          
+          <div class="col-md-4" style="margin-top: 10px;">
+            <div class="col-xs-12" >
+                 <span>来访次数</span>
+                 <div class="col-xs-12" id="drawAgebar">
+                    <div id="UserAccessNum_pie" class="myEchart"></div>
+                    <div id="UserAccessNum_message" class="panel leg-panel"></div> 
+                 </div>
+                 <div class="col-xs-12">
+                   <div class="col-xs-2 text-center">
+                     <span>1次</span>
+                   </div>
+                   <div class="col-xs-2 text-center">
+                     <span>2次</span>
+                   </div> 
+                   <div class="col-xs-2 text-center">
+                     <span>3次</span>
+                   </div> 
+                   <div class="col-xs-2 text-center">
+                     <span>4次</span>
+                   </div> 
+                   <div class="col-xs-2 text-center">
+                    <span>>=5次</span>
+                   </div>  
+                </div>
+                <div class="col-xs-12" style="margin-top: 5px;margin-bottom: 5px;margin-left: 20px;">
+                  <HR width="75%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5"  color="#C7B9B9" />
+                </div>
+                <div class="col-xs-12" style="margin-bottom: 10px;">
+                    <div class="col-xs-2 text-center">
+                      <span id="onetime">0人</span>
+                    </div>
+                    <div class="col-xs-2 text-center">
+                      <span id="twotime">0人</span> 
+                    </div> 
+                    <div class="col-xs-2 text-center">
+                      <span id="thretime">0人</span>
+                    </div> 
+                    <div class="col-xs-2 text-center">
+                      <span id="fourtime">0人</span>
+                    </div> 
+                    <div class="col-xs-2 text-center">
+                      <span id="fivetime">0人</span>
+                    </div> 
+                </div>
+            </div> 
+          </div>
+          <div class="col-md-4" style="margin-top: 10px;">
+            <div class="col-xs-12" style="margin-left: 10px;">
+                <span>上线次数</span>
+                <div class="col-xs-12" id="drawEdubar">
+                  <div id="visiteCount_pie" class="myEchart"></div>
+                  <div id="visiteCount_message" class="panel leg-panel"></div>
+                </div>
+                <div class="col-xs-12">
+                   <div class="col-xs-2 text-center">
+                     <span>1次</span>
+                   </div>
+                   <div class="col-xs-2 text-center">
+                     <span>2次</span>
+                   </div> 
+                   <div class="col-xs-2 text-center">
+                     <span>3次</span>
+                   </div> 
+                   <div class="col-xs-2 text-center">
+                     <span>4次</span>
+                   </div> 
+                   <div class="col-xs-2 text-center">
+                    <span>>=5次</span>
+                   </div>  
+                </div>
+                <div class="col-xs-12" style="margin-top: 5px;margin-bottom: 5px;margin-left: 20px;">
+                  <HR width="75%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5"  color="#C7B9B9" />
+                </div>
+                <div class="col-xs-12" style="margin-bottom: 10px;">
+                    <div class="col-xs-2 text-center">
+                      <span id="visiteonetime">0人</span>
+                    </div>
+                    <div class="col-xs-2 text-center">
+                      <span id="visitetwotime">0人</span> 
+                    </div> 
+                    <div class="col-xs-2 text-center">
+                      <span id="visitethretime">0人</span>
+                    </div> 
+                    <div class="col-xs-2 text-center">
+                      <span id="visitefourtime">0人</span>
+                    </div> 
+                    <div class="col-xs-2 text-center">
+                      <span id="visitefivetime">0人</span>
+                    </div> 
+                </div>
+            </div> 
+          </div>
+          <div>
+              <HR width="100%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px 11px -1px"  align="center" size="5" color=#C7B9B9 />
+          </div>
+          <div class="col-md-6" style="margin-left: -2px;">
+            <div class="col-xs-12">
+                <span style="margin-left: 10px;">来访用户趋势</span>
+                <div class="col-xs-12" id="drawEdubar">
+                  <div id="visiteCount_Chart" class="myEchart"></div> 
+                </div>
+            </div>  
+          </div>
+          <div class="col-md-6"style="margin-bottom: 15px;">
+            <div class="col-xs-12">
+                <span style="margin-left: 10px;">上线用户趋势</span>
+                <div class="col-xs-12" id="drawEdubar">
+                  <div id="AccessUser_Chart" class="myEchart"></div> 
+                </div>
+            </div> 
+          </div>
+          
+        </div> 
+    </div> 
+    <div class="col-xs-12 app-colum" style="margin-top: 10px;">
+      <div class="col-xs-12" style="margin-bottom: 0px;">
+         <ul class="nav nav-tabs">
+            <li class="active"><a href="javascript:void(0)" data-toggle="tab"  id="NetplayMsg" value="0">上网信息</a></li>
+            <li ><a href="javascript:void(0)" data-toggle="tab" id="LocationMsg" value="1">位置信息</a></li> 
+        </ul> 
+      </div> 
+      <div class="col-xs-12 app-box" id="showNetplayMsg" style="border-top-color: #fff;"> 
+        <div class="col-md-12">
+          <div class="col-md-4">
+            <div style="margin-left: 10px;    margin-top: 10px;">
+              <span>应用类型</span>
+            </div>
+            <div id="AppType_pie" class="myEchart"></div> 
+            <div id="AppType_message" class="panel leg-panel"></div> 
+          </div>
+          <div class="col-md-8">
+              <div style="margin-left: 10px;    margin-top: 10px;">
+                <span>应用类型趋势</span>
+              </div>
+              <div class="col-xs-12">
+                <div id="AppType_chart" class="myEchart"></div> 
+              </div>
+          </div> 
+        </div>
+        <div>
+          <HR width="100%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+        </div>
+        <div class="col-md-12">
+          <div class="col-md-4">
+            <div style="margin-left: 10px;    margin-top: 10px;">
+              <span>网站类型</span>
+            </div>
+            <div id="UrlType_pie" class="myEchart"></div> 
+            <div id="UrlType_message" class="panel leg-panel"></div> 
+          </div>
+          <div class="col-md-8">
+              <div style="margin-left: 10px;    margin-top: 10px;">
+                <span>网站类型趋势</span>
+              </div>
+              <div class="col-xs-12">
+                <div id="UrlType_chart" class="myEchart"></div> 
+              </div>
+          </div> 
+        </div>
+      </div>
+      <div class="col-xs-12 app-box hide" id="showLocaltionMsg" style="border-top-color: #fff;"> 
+        <div class="col-md-12">
+          <div class="col-md-4">
+            <div style="margin-left: 10px;    margin-top: 10px;">
+              <span>最常访问场所</span>
+            </div>
+            <div id="WelcomeType_pie" class="myEchart"></div> 
+            <div id="WelcomeType_message" class="panel leg-panel"></div> 
+          </div>
+          <div class="col-md-8">
+              <div style="margin-left: 10px;    margin-top: 10px;">
+                <span>来访趋势</span>
+              </div>
+              <div class="col-xs-12">
+                <div id="WelcomeType_chart" class="myEchart"></div> 
+              </div>
+          </div> 
+        </div>
+        <div>
+          <HR width="100%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+        </div>
+        <div class="col-md-12">
+          <div class="col-xs-12">
+            <div style="margin-left: 10px;    margin-top: 10px;">
+              <span>最少访问场所</span>
+            </div>
+            <div class="simple-list" id="NotWelcomeLocaltion_list"></div>
+          </div>
+          <!-- <div class="col-md-4">
+            <div style="margin-left: 10px;    margin-top: 10px;">
+              <span>最少访问场所</span>
+            </div>
+            <div id="NotWelcomeType_pie" class="myEchart"></div> 
+            <div id="NotWelcomeType_message" class="panel leg-panel"></div> 
+          </div>
+          <div class="col-md-8">
+              <div style="margin-left: 10px;    margin-top: 10px;">
+                <span>来访趋势</span>
+              </div>
+              <div class="col-xs-12">
+                <div id="NotWelcomeType_chart" class="myEchart"></div> 
+              </div>
+          </div> --> 
+        </div>
+      </div>  
+    </div>
+    <!-- <div class="col-xs-12 app-colum">
+       
+      <div class="col-xs-12 app-box">
+        <div style="margin-left: 10px;    margin-top: 10px;">
+              <span>用户轨迹</span>
+          </div>
+          <div id="Usertrail" class="myEchart"></div>
+      </div>  
+    </div> -->
+</div>
+</div>
+<div id="User_monitor_rc" class="rc-define"
+   LocalName="场所名称,访问次数,访问时长"
+   TIME="时间"
+   MANNUM="人数"
+   USERNUM="用户数"
+   >
+</div> 
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("dpi_user.dpi_userstatics");
+</script>

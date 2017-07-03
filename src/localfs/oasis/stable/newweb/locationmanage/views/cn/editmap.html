@@ -1,0 +1,148 @@
+<div class="container-fluid col-md-12 col-lg-12 editmap">
+    <div id="editMapDiv">
+        <div class="showList">
+            <span class="spanList" id="goLocationList"  ng-click="toLocationList()"><img src="../locationmanage/img/icon-back.png">返回</span>
+            <span class="spanList" id="saveLocationInfo" ng-click="saveLocationInfo()"><img src="../locationmanage/img/icon-s.png">保存</span>
+            <div class="biliChi">
+                <label style="font-size: 14px;">比例尺： 1px&nbsp;：</label>&nbsp;<label id="scaleLbl" ng-cloak>{{scale}}</label><span>m</span>
+            </div>
+        </div>
+        <div id="editMapTitle" class="clearfix">
+            <div class="pull-left">
+                <p><a ui-sref="global.application.locationmanage({mode: mode})">{{mode === 0 ? '云端定位' : '探针定位'}}</a> > 地图列表</p>
+            </div>
+            <div class="pull-right">
+                <a id="quanping" bs-full="fullOption" class="btn btn-lvzhou btnClient"><span class="glyphicon glyphicon-fullscreen"></span></a>
+            </div>
+        </div>
+    </div>
+    <div id="mapContain" >
+        <div id="imageView_container" bs-drag="dragOption">
+            <canvas id="canvas" bs-scale></canvas>
+        </div>
+    </div>
+</div>
+<ul id="contextmenu1" style="display: none;padding-left: 5px;">
+    <li id="addaps" ng-click="modalFadeIn('addAp')"><a>增加AP</a></li>
+    <li id="addAreaButto" ng-click="modalFadeIn('addArea')" ng-if="!mode"><a>增加区域</a></li>
+    <!--<li style="display: none;" id="changeImgBtn" ng-click="modalFadeIn('changeImg')"><a>更改图片</a></li>-->
+    <li id="updateScaleBtn" ng-click="modalFadeIn('modifyScale')"><a>修改比例尺</a></li>
+    <li id="delLocationButton" ng-click="modalFadeIn('delMap')"><a>删除地图</a></li>
+</ul>
+<!-- shop all aps -->
+<div class="addapwrap" bs-modal="addAp_modalOptions">
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <table id="example" class="display" width="100%">
+                <thead>
+                <tr>
+                    <td align="center">AP名称</td>
+                    <td align="center">AP序列号</td>
+                </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<!-- add area  -->
+<form novalidate name="addArea" class="form-inline" bs-modal="addArea_modalOptions" >
+    <div class="login-input form-inline">
+        <label for="areaPoint">顶点数：</label>
+        <input class="form-control" id="areaPoint" type="number" name="areaPoint" ng-model="areaPoint" required ng-pattern="/^[3-9]$|^10$|^11$/"/>
+        <span class="error" style="display: inline-block;color: #000" ng-show="addArea.areaPoint.$dirty && addArea.areaPoint.$error.pattern">顶点数须大于等于3且小于12的正整数</span>
+        <span class="error" style="display: inline-block;color: #000" ng-show="addArea.areaPoint.$dirty && addArea.areaPoint.$error.required">顶点数不能为空</span>
+    </div>
+
+    <div class="login-input form-inline">
+        <label for="areaName">区域名称：</label>
+        <input type="text" class="form-control" name="areaName" id="areaName" required ng-model="areaName" ng-maxlength="20" maxlength="20">
+        <span class="error" style="display: inline-block;color: #000" ng-show="addArea.areaName.$dirty && addArea.areaName.$error.required">名称不能为空</span>
+    </div>
+    <div class="login-input form-inline">
+        <label for="areaType">区域类型：</label>
+        <select required class="form-control" id="areaType">
+            <option value="4" selected="selected">定位区域</option>
+            <option value="5" selected="selected">障碍物</option>
+            <option value="6" selected="selected">数字围栏</option>
+        </select>
+    </div>
+</form>
+<!-- edit pic-->
+<!--<div style="height: 80px;" bs-modal="changeImg_modalOptions">
+    <div class="row">
+        <div class="col-xs-5">
+            <input id="file" class="form-control" name="mapImg" type="file" ng-file-select/></div>
+        <div class="col-xs-7" style="margin-top:7px;">
+            <span style="color:#999999;">仅支持JPG/GIF/PNG、BMP格式，且不超过2M</span>
+        </div>
+    </div>
+</div>-->
+<!-- edit scale -->
+<form name="scaleForm" bs-modal="modifyScale_modalOptions" novalidate>
+    <div class="form-inline">
+        <label for="modifyScale">比例尺：</label>
+        <input class="form-control" name="updatescale" id="modifyScale" type="number"
+               ng-pattern="/^(?:0\.\d{1,2}|[1-9]\d{0,2}(?:\.\d{1,2})?|1000)$/"
+               ng-model="updatescale" required/>
+        <div ng-show="scaleForm.updatescale.$dirty" style="margin-left:20px;display: inline-block" ng-messages="scaleForm.updatescale.$error">
+            <label ng-message="pattern" class="error" style="display: inline-block">比例尺范围0-1000，且小数点后不超过2位</label>
+            <label ng-message="required" class="error" style="display: inline-block;">比例尺为必填项</label>
+        </div>
+    </div>
+</form>
+<!-- del map  -->
+<div class="modal-body" bs-modal="delMap_modalOptions">
+    <p>确认删除选择的地图信息？</p>
+</div>
+
+<ul id="contextmenu" style="display: none;">
+    <li id="queryAp"  ng-click="modalFadeIn('searchAp')"><a>查看AP信息</a></li>
+    <li id="updateAp" ng-click="modalFadeIn('updateAp')"><a>修改AP坐标</a></li>
+    <li id="deleteAp" ng-click="delApNode()"><a>删除该AP</a></li>
+</ul>
+<!-- inquire ap info  -->
+<div class="modal-body" bs-modal="searchAp_modalOptions">
+    <div class="login-input">
+        <label for="apName">AP名称：</label>
+        <output type="text" id="apName"></output>
+    </div>
+    <div class="login-input">
+        <label for="apSn">AP序列号：</label>
+        <output type="text" id="apSn"/>
+    </div>
+    <div class="login-input">
+        <label for="xqueryAp">横坐标：</label>
+        <output type="text" id="xqueryAp"></output>
+    </div>
+    <div class="login-input">
+        <label for="yqueryAp">纵坐标：</label>
+        <output type="text" id="yqueryAp"></output>
+    </div>
+</div>
+<!-- edit node position -->
+<div id="editAP" class="modal-body" bs-modal="updateAp_modalOptions">
+    <div>
+        <label for="xupdate" style="margin: 6px 0;">横坐标：</label>
+        <input type="number" id="xupdate" value=0 >
+        <label class="error">横坐标为必填项,范围为0 - </label>
+    </div>
+    <div>
+        <label for="yupdate" style="margin: 6px 0;">纵坐标：</label>
+        <input type="number" id="yupdate" value=0 >
+        <label class="error">纵坐标为必填项，范围为0 - </label>
+    </div>
+</div>
+
+<ul id="areaNodeMenu" style="display: none;">
+    <li id="deleteAreaLi" ng-click="deleteAreaNode()"><a>删除区域</a></li>
+</ul>
+<div id="spinContainer" ng-class='{front:isAjaxLoading}'>
+    <img src="../frame/images/icon_waiting_54x54.gif" alt="ajax-loading" ng-show="isAjaxLoading">
+</div>
+
+
+
+
+

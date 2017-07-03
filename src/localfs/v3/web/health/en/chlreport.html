@@ -1,0 +1,47 @@
+<html>
+<head>
+    <style>
+    .box-body.no-height.myEchart{
+       margin-top:50px;
+       margin-left:50px;
+    }
+    .form-group.button{
+        margin-top:80px;
+        margin-left:360px;
+        margin-bottom: 40px;
+    }
+    #chl{
+        height:160px;
+    }
+    </style>
+</head>
+<body>
+<div class="modal-header">
+    <button class="close" type="button" data-dismiss="modal" aria-hidden="true"></button>
+    <h3>Channel Quality Report</h3>
+</div>
+
+<form class="form-horizontal form edit" id="form">
+    <div class="form-group">
+        <div class="page-row">
+            <div class="col-sm-12 app-colum">
+                <div class="box-body no-height myEchart">
+                    <div id="chl"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="form-group button">
+        <a type="button" class="btn btn-primary" data-dismiss="modal" dlgtype="Close">Close</a>
+    </div>
+</form>
+<div id="chlreport_rc" class="rc-define"
+     channel="Channel"
+     Aquality="Average quality"
+></div>
+</body>
+</html>
+<script>
+    Utils.Pages.loadJS("health.chlreport");
+</script>

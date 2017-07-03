@@ -1,0 +1,20 @@
+.dataset .row div[id^='slider']>div[id^='custom-handle']{
+    width: 3em;
+    height: 1.6em;
+    top: 50%;
+    margin-top: -.8em;
+    text-align: center;
+    line-height: 1.6em;
+}
+.oneBox.one{
+
+}
+
+.leftTitle{
+    text-align: right;
+    padding-right: 30px;
+}
+
+.dataset .row  .btn.btn-cus{
+    margin:10px 10px 0 0;
+}

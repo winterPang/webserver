@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6 l-map">
+            <div>
+                <div>
+                    <img ng-src="{{detail.path}}">
+                    <div ng-if="detail.mapStatus !=0" class="map-backdrop">
+                        <div ng-if="detail.mapStatus==1">绘制中...</div>
+                        <div ng-if="detail.mapStatus==2">请修改图片</div>
+                        <div ng-if="detail.mapStatus==3">已失效</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 r-word">
+            <div>
+                <div>
+                    <label>地址：{{detail.address}}</label>
+                </div>
+                <div>
+                    <label>经度：{{detail.longitude}}</label>
+                </div>
+                <div>
+                    <label>纬度：{{detail.latitude}}</label>
+                </div>
+                <div ng-if="detail.scale">
+                    <label>比例尺：1：{{detail.scale}}</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

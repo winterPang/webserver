@@ -1,0 +1,72 @@
+<html>
+<head>
+</head>
+<body>
+<div class="dashboard" id="dev_location">
+    <div class="btn_h_return" id="return"></div>
+    <div class="page-row">
+        <div class="col-xs-9  col-sm-9 app-colum left-block">
+            <div class="app-box" style="height:600px;">  
+                <div id="detect_container">
+                    <div class="sysinfo-footer">
+                        <div class="text-right link-container" style="position:static;">
+                            <a type="button" class="refresh" id="refresh_Scatter">
+                                <i class="refresh-icon icon"></i>
+                            </a>
+                            <a type="button" class="link-detail" id="dev_detail" title="更多">
+                            <i class="detail-icon icon"></i>
+                            </a>
+                        </div> 
+                    </div>
+                    <div class="row-nohover row-clear padding0">
+                        <div id="Scatter" class=" col-xs-12 myEchart newpie-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-3  col-sm-3 app-colum right-block">
+            <div class="app-box" style="height:600px;">  
+                <span class="online_condition">在线情况</span>
+                <div class="dev_range">
+                    <div class="dev_online">
+                        <div class="ont_img inline_img"></div>
+                        <span class="dev_status">设备在线</span>
+                        <span class="dev_number" id="onlinedevice"></span>
+                    </div>
+                    <div class="dev_online">
+                        <div class="ont_img outline_img"></div>
+                        <span class="dev_status">设备离线</span>
+                        <span class="dev_number"  id="outlinedevice"></span>
+                    </div>
+                </div>
+                <div class="link_history">
+                    <span class="connect_history">连接历史</span>
+                    <span class="history_choice" id="day_history" >日</span>
+                    <span class="history_choice" id="week_history" >周</span>
+                    <span class="history_choice" id="moun_history" >月</span>
+                    <div class="row-nohover row-clear padding0">
+                        <div id="link_history_chart" class=" col-xs-12 myEchart newpie-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hide modal fade" id="showDeviceDlg">
+        <form id="device_form" class="form edit">
+            <div id="deviceList" class="simple-list" style="margin:0 10px;"></div>
+        </form>
+    </div>
+
+    <div id="location_rc" class="rc-define"
+         WEEK="星期日,星期一,星期二,星期三,星期四,星期五,星期六"
+         ON_LINE="查看在线设备"
+         OUT_LINE="查看离线设备"
+         DEVICE_LIST="设备名,位置,SN,设备组,在线时长,评分"
+            ></div>
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("b_device.device_location");
+</script>

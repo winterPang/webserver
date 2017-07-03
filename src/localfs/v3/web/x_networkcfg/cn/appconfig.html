@@ -1,0 +1,84 @@
+<html>
+<head>
+<style>
+    .warn-style{
+        color: #ef2311;
+        margin-left: 30px;
+    }
+    .tips{
+            padding: 10px 20px 0px 20px;margin-bottom: -10px;color: #000
+          }
+</style>
+</head>
+<body>
+
+<div class="app-colum">
+    <div class="col-xs-7 app-colum left-block">
+        <div class="app-box">
+            <div class="box-footer" id="DrsBtn">
+                <span class="title">应用分析</span>
+            </div>
+            <div class="box-body no-height">
+                <form class="form-horizontal form" id="DrsidForm">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">应用分析</label>
+                        <div class="col-sm-9">
+                            <div class="xb-input xb-checkbox hidemodify" style="top: 0px;">
+                                <input type="checkbox" class="switch input-element" id="Drsid" name="Drsid"  checked/>
+                                <!--<span class="input-icon checkbox-icon switch checked"></span>-->
+                                <label class="input-label" for="Drsid"></label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    
+   
+
+    <div class="hide modal fade " id="failcfgDlg" >
+        <div id="client_diag">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" id="closeX"></button>
+                <h3 class="modal-title">配置失败列表</h3>
+            </div>
+            <div class="tips">
+              <strong>Tips：设备版本过低不支持此配置，请先升级设备版本</strong> 
+            </div>
+            <div class="modal-body">
+                <div id="failList" class="simple-list showList"></div>
+            </div>
+            <div class="modal-footer form-actions">
+                <!-- <a class="btn btn-primary" id="failConform">确定</a>
+                <a class="btn btn-primary" id="failClose">关闭</a> -->
+            </div>
+        </div>
+    </div>
+    
+   
+
+<div id="ws_ssid_rc" class="rc-define"
+     LIST_TITLE = "AP名称,射频,无线探针"
+     EDIT_TITLE = "修改配置参数"
+     CONGFG = "正在下发配置"
+     WIPS_WAIT="请稍等..."
+     WIPS_TITLE = "无线攻击防御"
+     ON_OFF = "关闭,开启"
+     WIPS_TYPE = "无,无线探针,无线攻击防御"
+     PROBE_SATUS_MSG="配置成功！,主连接失败！,服务器端失败！,配置失败！"
+     TIP_MSG="开启应用分析功能,关闭应用分析功能"
+     MSG_INFO="失败,成功,已取消,数据请求失败！"
+     FAILD="数据请求失败！"
+     CANCEL="已取消"
+     FAIL_INFO ="设备端配置失败请重新配置"
+     FAIL_INFO ="设备端配置失败请重新配置"
+     FAIL_CFGLIST="配置失败列表"
+     DEV_LIST="设备序列号,状态"
+     STATE="在线,离线"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_networkcfg.appconfig");
+</script>

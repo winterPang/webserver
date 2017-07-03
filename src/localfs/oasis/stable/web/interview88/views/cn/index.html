@@ -1,0 +1,137 @@
+<div class="interview js-apinfo">
+	<!--<div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+        	<button type="button" ng-click ="swithTotal($event)" class="btn btn-default pull-right link-btn">
+        	<span class="glyphicon glyphicon-transfer"></span>网站统计
+        	</button>
+        </div>
+     </div>-->
+	<div class="page-row">
+        <div class="col-xs-12 app-colum left-block tips">
+            <span><b>Tips：</b>请先开启设备<strong>应用分析</strong>功能</span> 
+        </div>
+     </div>
+	<div class="page-row">
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">应用访问人次</span>
+                </div>
+                <div class="box-body no-height table-padding">
+                    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+                    <div class="col-xs-7">
+                        <div  ng-show="!showNodataFlag" id="visited_user" style="width: 99%;height:200px;"></div>
+                        <echart-nodata-pie ng-if="showNodataFlag" style="width: 99%;height:200px;" id='visited_user_nodata'></echart-nodata-pie>
+                        <!--<div style="height:100px">
+                            <div class="value-ui">
+                                <span class="value-ui-font" ng-bind="maxTimeVal"></span>
+                                <span class="value-ui-fontSize">最大值</span>
+                            </div>
+                            <div class="value-ui">
+                                <span  class="value-ui-font" ng-bind="averageTimeVal"></span>
+                                <span class="value-ui-fontSize">平均值</span>
+                            </div>
+                            <div class="value-ui">
+                                <span  class="value-ui-font" ng-bind="minTimeVal"></span>
+                                <span class="value-ui-fontSize">最小值</span>
+                            </div>
+                        </div>-->
+                    </div>
+                    <div class="col-xs-5">
+                        <span class="top-title">应用使用TOP5(人次)</span>
+                        <div class="top-progress-block" ng-repeat = "v in topVistedList">
+                            <span  ng-bind="v.name"></span>
+                            <span  class="topUnit" ng-bind="v.value"></span>
+                            <div class="progress top-progress">
+                                <div class="progress-bar progress-bar-success" 
+                                ng-class="v.color"
+                                role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" 
+                                ng-style="{width:v.percent}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">应用访问流量</span>
+                </div>
+                <div class="box-body no-height table-padding">
+                    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+                   <div class="col-xs-7">
+                        <div ng-show="!showFlowNodataFlag" id="visited_flow" style="width: 99%;height:200px;"></div>
+                        <echart-nodata-pie ng-if="showFlowNodataFlag" style="width: 99%;height:200px;" id='visited_flow_nodata'></echart-nodata-pie>
+                        <!--<div style="height:100px">
+                            <div class="value-ui">
+                                <span class="value-ui-font" ng-bind="maxTimeVal"></span>
+                                <span class="value-ui-fontSize">最大值</span>
+                            </div>
+                            <div class="value-ui">
+                                <span  class="value-ui-font" ng-bind="averageTimeVal"></span>
+                                <span class="value-ui-fontSize">平均值</span>
+                            </div>
+                            <div class="value-ui">
+                                <span  class="value-ui-font" ng-bind="minTimeVal"></span>
+                                <span class="value-ui-fontSize">最小值</span>
+                            </div>
+                        </div>-->
+                    </div>
+                    <div class="col-xs-5">
+                        <span class="top-title">访问流量TOP5</span>
+                        <div class="top-progress-block" ng-repeat = "v in topVistedFlowList">
+                            <span  ng-bind="v.name"></span>
+                            <span  class="topUnit" ng-bind="v.value"></span>
+                            <div class="progress top-progress">
+                                <div class="progress-bar progress-bar-success" 
+                                    ng-class="v.color"
+                                    role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" 
+                                    ng-style="{width:v.percent}">
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+        	<div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">详情列表</span>
+                </div>
+                <div class="box-body no-height table-padding">
+                	<div bs-table="visitedDetailList"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="read_rc" id="interview88"
+         Life="生活"
+         Office="办公"
+         Communication="通讯"                       
+         Video="视频"                         
+         Game="游戏"
+         Tool="工具"  
+         News="新闻"                     
+         Navigation="导航"
+         Finance="金融" 
+         Unknown="其他"
+         Entertainment="娱乐"
+         News="新闻"
+         Shopping="购物"
+         Technology="科技"
+         Downloads="下载"
+         Search="搜索"
+         Transportation="交通"
+         Other = '未知'
+    >   
+    </div>
+</div>
+
+

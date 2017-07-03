@@ -1,0 +1,47 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading" style="padding-right:0">
+        	<div style="height:50px;line-height:50px;">
+	        	<div style="float:left;">
+	        		<h3 class="panel-title">设备操作</h3>
+	        	</div>
+	        	<div style="float:right;height:50px;line-height:50px;position: relative;right:2.14285714rem;">
+	        		<div class="xb-input xb-radio" ng-click='initData("headquarters")'>
+                        <input id="headquarters" class="input-element" name="headquarters" type="radio" value="headquarters"
+                                       ng-model="template.filterBranch" >
+                        <span class="input-icon radio-icon " ng-class="{'checked':template.filterBranch=='headquarters'}"></span>
+                                <label for="headquarters" class="input-label"></label>
+                    </div>
+                    <label for="headquarters">总部</label>
+                            &nbsp &nbsp
+                    <div class="xb-input xb-radio" ng-click='initData("branch")'>
+                        <input id="branch" class="input-element" name="branch" type="radio" value="branch"
+                               ng-model="template.filterBranch" >
+                        <span class="input-icon radio-icon " ng-class="{'checked':template.filterBranch=='branch'}"></span>
+                        <label for="branch" class="input-label"></label>
+                    </div>
+                    <label for="branch">分组</label>&nbsp&nbsp
+                    <div style="width: 200px;float: right;">
+                        <div ng-show="template.filterBranch=='branch'" style="display: inline-block;" >
+                           <!--  <select class="singleSelect" style="width: 200px;" ng-model="branch"
+                                    ng-options="branchOne.alias for branchOne in branchLists">
+                            </select> -->
+                             <select class="singleSelect" style="width: 200px;" ng-model="branchone" ng-options="branchOne as branchOne.alias for branchOne in branchLists">
+                                   
+                            </select>
+                        </div>
+                    </div>
+	        	</div>	        		        	
+        	</div>        
+        </div>
+        <div class="panel-body">
+            <button class="btn btn-cus" ng-click="retryFn()" ng-disabled="retry">重启</button>
+             <div style="color: #69c4c5;margin-bottom:14px"> 若当前设备不在线或正在重启,则该设备无法被选中且无法进行单独重启。</div>
+
+            <!-- <div class="btn btn-cus" ng-click="refresh()">保存配置重启</div>
+            <div class="btn btn-cus" ng-click="refresh()">主链接断开</div> -->
+            <table bs-table="options"></table>
+        </div>
+    </div>
+</div>
+

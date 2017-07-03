@@ -1,0 +1,197 @@
+<style>
+    .app-box.no-border {
+        border: #FFF solid 0px !important;
+    }
+    .ml20 {
+        margin-left: 20px;
+    }
+    .ml7 {
+        margin-left: -7px;
+    }
+    .custom-table table {
+        border: #e7e7e9 solid 1px;
+    }
+    .custom-table table td {
+        height: 90px;
+        text-align: center;
+    }
+    .custom-table table{
+        table-layout:fixed;
+        word-wrap:break-word;
+    }
+    .custom-table table td {
+        width: 20%;
+    }
+    .text-cn{
+        font-size: inherit;
+        color: #444;
+    }
+    .text-num{
+        font-size: 20px;
+        color: #333;
+    }
+    .column5 {
+        width: 10% !important;
+    }
+    .calender_icon {
+        background: url(../frame/images/calender_icon.png) no-repeat -1px -3px;
+        background-repeat: no-repeat;
+        display: inline-block;
+        vertical-align: middle;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .calender-n {
+        color: #fff;
+        display: block;
+        margin: -11px 0 0 0;
+    }
+    .select-time {
+        vertical-align: middle;
+        height: 40px;
+        line-height: 40px;
+    }
+    .select-time input[type="radio"] {
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    .select-time label {
+        cursor: pointer;
+    }
+    #daterange {
+        margin-left: 2px;
+        padding-left: 2px;
+        height: 25px;
+        width: 165px;
+    }
+    .cancel-actions.hover-action {
+        background-position: -663px -42px;
+        cursor: pointer;
+    }
+    .cancel-actions.hover-action:hover {
+        background-position: -593px -42px;
+        cursor: pointer;
+    }
+    .cancel-actions {
+        position: static;
+        margin: 8px 15px 0 0;
+        display: inline-block;
+        float: right;
+        background: url(../frame/images/xb-icons.png) no-repeat;
+        height: 16px;
+        width: 18px;
+    }
+    .view-height {
+        height: 260px;
+    }
+    .mtb20 {
+        margin: 20px 0 20px 0;
+    }
+    .no-overflow {
+        overflow: hidden;
+    }
+</style>
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="col-xs-12 app-box no-border">
+            <div class="box-footer">
+                <span class="title">统计</span>
+            </div>
+            <div class="col-xs-12 custom-table">
+                <table class="col-xs-12">
+                    <tr>
+                        <td class="column5"></td>
+                        <td>
+                            <div>
+                                <div class="text-cn">总数</div>
+                                <div class="text-num">{{totalNum}}</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <div class="text-cn">严重</div>
+                                <div class="text-num">{{critNum}}</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <div class="text-cn">错误</div>
+                                <div class="text-num">{{errorNum}}</div>
+                            </div>
+                        </td>
+                        <td>    
+                            <div>
+                                <div class="text-cn">警告</div>
+                                <div class="text-num">{{warnNum}}</div>
+                            </div>
+                        </td>
+                        <td>
+                            <div>
+                                <div class="text-cn">普通</div>
+                                <div class="text-num">{{commonNum}}</div>
+                            </div>
+                        </td>
+                        <td class="column5"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 app-colum">
+        <div class="col-xs-12 app-box no-border">
+            <div class="box-footer">
+                <div class="calender_icon ml20" ng-click="showSelectTime()">
+                    <span class="calender-n">{{strToday}}</span>
+                </div>
+                <span class="ml7">{{selectTime}}</span>
+            </div>
+            <div class="col-xs-12" ng-show="show_cycle">
+                <div class="menu-content select-time">
+                    <span class="ml20">周期</span>
+                    <input type="radio" name="time" id="aDay" ng-click="initViewsByTime('aDay')" checked />
+                    <label for="aDay">今天</label>
+                    <input type="radio" name="time" id="aWeek" ng-click="initViewsByTime('aWeek')" /> 
+                    <label for="aWeek">七天</label>
+                    <input type="radio" name="time" id="aMonth" ng-click="initViewsByTime('aMonth')" /> 
+                    <label for="aMonth">一月</label>
+                    <input type="radio" name="time" id="aYear" ng-click="initViewsByTime('aYear')" /> 
+                    <label for="aYear">一年</label>
+                    <input type="radio" name="time" id="otherTime" ng-click="showOtherTime('otherTime')"/>
+                    <label for="otherTime">自定义</label>
+                    <input id="daterange" class="daterange time-select" placeholder="选择日期" ctrl="daterang" ng-show="show_other">
+                    <span class="cancel-actions hover-action" id="remove" ng-click="showSelectTime()"></span>
+                </div>
+            </div>
+            <div class="col-xs-12 no-overflow">
+                <div id="log_chart" class="view-height"></div>
+            </div>
+        </div> 
+    </div>
+
+    <div class="col-xs-12 app-colum"> 
+        <div class="app-box" debug="byApList log"> 
+            <div class="box-footer"> 
+                <span class="title">日志详情</span>
+            </div> 
+            <div class="box-body no-height"> 
+                <div bs-table="logTable"></div>
+            </div> 
+        </div> 
+    </div>
+
+    <div id="log_rc"
+         MODULE-NAME="命令助手,"
+         LEGEND="严重,错误,警告,普通"
+         LOG-HEAD="用户名,IP地址,模块名,严重级别,详细信息,日期"
+         NUMBER="数量"
+         CYCLE-TIME="（今天）,（七天）,（一月）,（一年）"
+         APPLY="应用"
+         CANCEL="取消"
+         WEEK="日, 一, 二, 三, 四, 五, 六"
+         MONTH="一月, 二月, 三月, 四月, 五月, 六月, 七月, 八月, 九月, 十月, 十一月, 十二月"
+         
+    ></div>
+</div>

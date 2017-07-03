@@ -1,0 +1,188 @@
+.reset-list() {
+  ul {
+    padding-left: 0;
+    margin-bottom: 0;
+    &>li {
+      float: left;
+      list-style: none;
+    }
+  }
+}
+.devsn_hover_style(){
+  cursor: pointer;
+  background-color: #ff9c9e;
+  color: #fff;
+  &:last-child{
+    font-size: 12px;
+    color: #c20c0c;
+  }
+}
+.title_{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#select_devsn_step_two{
+  @edge-color: #e7e7e9;
+  .font(@color, @size, @family) {
+    font: @size @family;
+    color: @color;
+  }
+  .arrow(@color, @right) {
+    position: absolute;
+    top: -1px;
+    right: @right;
+    width: 0;
+    height: 0;
+    border-top: 19px solid transparent;
+    border-bottom: 19px solid transparent;
+    border-right: none;
+    border-left: 10px solid @color;
+  }
+  .arrow(bottom) {
+    .arrow(@edge-color, -11px);
+  }
+  .arrow(top) {
+    z-index: 1;
+    .arrow(#f5f5f5, -10px);
+  }
+  // CSS
+  #adManageModule {
+    clear: both;
+    .reset-list();
+    // 箭头菜单
+    @w: 98%;
+    @h: 38px;
+    .arrow-nav {
+      width: @w;
+      height: @h;
+      border: 1px solid @edge-color;
+      background-color: #f5f5f5;
+      & > li {
+        position: relative;
+        &:first-child {
+          padding-left: 20px;
+        }
+        &:before {
+          content: "";
+          .arrow(top);
+        }
+        &:after {
+          content: "";
+          .arrow(bottom);
+        }
+        &:last-child {
+          &:before{
+            content: none;
+          }
+          &:after {
+            content: none;
+          }
+        }
+        padding-left: 30px;
+        width: 25%;
+        height: @h - 2px;
+        .font(#80878c, 14px, "Microsoft Yahei");
+        line-height: @h - 2px;
+        &.active {
+          background-color: #80878c;
+          &:before {
+            border-left-color: #80878c;
+          }
+          color: #fff;
+        }
+      }
+    }
+    // 内容主题
+    .arrow-body {
+      width: @w;
+      height: 338px;
+      border: 1px solid @edge-color;
+      border-top: none;
+      > li {
+        padding-top: 10px;
+        width: 25%;
+        height: 338px;
+        overflow: auto;
+        border-right: 1px solid @edge-color;
+        &:last-child {
+          border-right: none;
+        }
+        // 前三列
+        &:not(:last-child) div {
+          height: 30px;
+          margin-top:4px;
+          div{
+            .font(#343e4e, 14px, "Microsoft Yahei");
+            height: 30px;
+            line-height: 30px;
+            padding-left:20px;
+            cursor: pointer;
+          }
+          &.active, &:hover {
+            color: #fff;
+            background-color: #78cec3;
+            .status{
+              color:#5e9192;
+            }
+          }
+          label{
+            width: 90%;
+            padding-left: 5px;
+            cursor: pointer;
+            /*&.active {
+              color: #fff;
+              background-color: #78cec3;
+            }*/
+          }
+          .status{
+            color:#c3c5c7;
+            font-size: 12px;
+          }
+          .status_0{
+            &:after{
+              content: "未启用";
+              float: right;
+            }
+          }
+          .status_1{
+            &:after{
+              content: "已启用";
+              float: right;
+            }
+          }
+          .status_2{
+            &:after{
+              content: "已暂停";
+              float: right;
+            }
+          }
+
+        }
+        // 最后一列
+        &:last-child {
+          width: 25%;
+          margin: 0 auto;
+          button {
+            cursor: pointer;
+            display: block;
+            text-align: center;
+            width: 120px;
+            margin: 0 auto;
+            &.btn-confirm {
+              margin-top: 35px;
+            }
+            &.btn-repeat {
+              color: #80878c !important;
+              background-color: #e7e7e9;
+              &:hover {
+                background-color: #dcdcdc;
+              }
+            }
+          }
+
+        }
+      }
+    }
+  }
+}

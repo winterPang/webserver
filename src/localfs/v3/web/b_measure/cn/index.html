@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<link href="../measure/measure.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="col-xs-12 app-colum">
+    	<div class="app-box no-height">
+	        <div class="box-footer">
+	            <span class="title">终端测量</span>
+	        </div>
+					<div id="measure">
+						<input id="input_mac" maxlength="14" placeholder="客户端MAC：xxxx-xxxx-xxxx"></input>
+						<button id="measure_btn">测量</button>
+					</div>
+					<div id="Test11kContent">
+						<div id="Test11kTitleResult"></div>
+						<div>
+							<table>
+								<tbody id="measureResult"></tbody>
+							</table>
+						</div>
+					</div>
+					<div id="rfpingContent">
+						<div>
+							<table>
+								<tbody id="rfpingResult" style="display: none;">
+								  <tr id="rfpingTitle">
+										<th>MCS</th>
+										<th>Rate(Mbps)</th>
+										<th>Tx/Rx</th>
+										<th>RSSI</th>
+										<th>RTT(ms)</th>
+									</tr>
+								</tbody>
+								<tbody>
+								  <tr>
+										<td id="rfpingFailedInfo"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+    	</div>
+	</div>
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("b_measure.index");
+</script>

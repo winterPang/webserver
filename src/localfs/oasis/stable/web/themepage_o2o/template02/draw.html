@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>绘制</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link href="../resources/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <link href="../resources/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <link href="../resources/jqueryui-bootstrap/jquery-ui-1.9.2.custom.css" type="text/css" rel="stylesheet">
+    <link href="../resources/jqueryui-bootstrap/bootstrap.custom.css" type="text/css" rel="stylesheet">
+    <link href="../resources/css/custom.css" type="text/css" rel="stylesheet">
+    <link href="../resources/css/jquery.bootstrap.custom.css" type="text/css" rel="stylesheet">
+    <link href="css/common.css" type="text/css" rel="stylesheet">
+    <link href="css/template_three.css" type="text/css" rel="stylesheet">
+
+    <script type="text/javascript" src="../resources/angular.js"></script>
+    <script type="text/javascript" src="../resources/angular-resource.js"></script>
+    <script type="text/javascript" src="../resources/jqueryui-bootstrap/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript" src="../resources/jqueryui-bootstrap/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../resources/jqueryui-bootstrap/jquery-ui-1.9.2.custom.min.js"></script>
+    <script type="text/javascript" src="../resources/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript" src="../resources/jquery-ui-timepicker-zh-CN.js"></script>
+    <script type="text/javascript" src="../resources/ueditor.config.js"></script>
+    <script type="text/javascript" src="../resources/ueditor.all.min.js"></script>
+    <script type="text/javascript" src="../resources/jquery.custom2.js"></script>
+    <script type="text/javascript" src="../resources/base64.js"></script>
+    <script type="text/javascript" src="../resources/jquery.i18n.properties-min-1.0.9.js"></script>
+    <script type="text/javascript" src="../resources/language-init.js"></script>
+    <script type="text/javascript" src="../resources/draw2.js"></script>
+
+    <script>
+        var jq = jQuery.noConflict();
+        jq(function () {
+            // Tabs
+            jq('#tabs').tabs();
+        });
+        var jq = jQuery.noConflict();
+        var indexCtrl;
+    </script>
+    <style>
+        .label-info {
+            padding: 10px 0 0 10px;
+            color: #4ec1b2;
+            background-color: transparent;
+        }
+
+        .weather {
+            background-color: #fff;
+        }
+    </style>
+
+</head>
+<body style="min-width:1080px;min-height:560px;background: url(../resources/images/bg.jpg) 50% 50% no-repeat fixed;background-repeat:repeat;" ng-app="mainApp">
+
+<div id="create-o2oThemeTemplate" class="page-content" ng-controller="o2oThemeTemplateController">
+    <div id="tabs">
+        <ul>
+            <li ng-class="type==1?'ui-tabs-active ui-state-active':''">
+                <a href="#tabs-a" ng-click="changeValue(1);">首页</a></li>
+            <li ng-class="type==2?'ui-tabs-active ui-state-active':''">
+                <a href="#tabs-a" ng-click="changeValue(2);">登录</a></li>
+            <li ng-class="type==3?'ui-tabs-active ui-state-active':''">
+                <a href="#tabs-a" ng-click="changeValue(3);">登录成功</a></li>
+            <li ng-class="type==4?'ui-tabs-active ui-state-active':''">
+                <a href="#tabs-a" ng-click="changeValue(4);">主页</a></li>
+            <li><label class="label-info">说明：不是所有的认证方式，都完整包含“首页、登录、登录成功、主页”这4个页面，视实际采用的认证方式而定。</label></li>
+        </ul>
+
+        <div id="tabs-a" style='position:relative;'>
+            <div style='position:absolute; top:4px; left:7px;'>
+                <div ng-hide="dShow" style='display:inline-block;'>
+                    <span class="label-info">是否推送页面</span>
+                    <input type="radio" id="Introduction_1" name="Introduction" value="1" ng-model="Introduction_v">
+                    <label for="Introduction_1">是</label>
+                    <input type="radio" id="Introduction_2" name="Introduction" value="0" ng-model="Introduction_v">
+                    <label for="Introduction_2">否</label>
+                    <span class="label-info" ng-hide="tShow">自动退出时间</span>
+                    <input type="text" id="time_v" ng-model="time_v" ng-hide="tShow" style='padding:2px 5px;width:40px;'>
+                    <label for="time_v" ng-hide="tShow">秒</label>
+                    <span class="label-info" ng-hide="tShow">提示：（1-9）</span>
+                </div>
+                <div style='display:inline-block;'>
+                    <!--天气-->
+                    <span class="label-info">是否推送天气</span>
+                    <input type="radio" id="Weather_1" name="Weather" value="1" ng-model="Weather_v">
+                    <label for="Weather_1">是</label>
+                    <input type="radio" id="Weather_2" name="Weather" value="0" ng-model="Weather_v">
+                    <label for="Weather_2">否</label>
+                    <span class="label-info" ng-show="Template_v">天气模板</span>
+                    <select ng-model="Template" ng-show="Template_v">
+                        <option value="1">经典风格</option>
+                        <option value="2">3D渲染</option>
+                        <option value="3">简约风格</option>
+                    </select>
+                    <span class="label-info" ng-show="Style_v">样式</span>
+                    <select ng-model="Style" ng-show="Style_v">
+                        <option value="1">纯文字</option>
+                        <option value="2">3D小图</option>
+                        <option value="3">经典小图</option>
+                    </select>
+                    <span class="label-info" ng-show="Day_v">推送几天</span>
+                    <select ng-model="Day" ng-show="Day_v">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                    </select>
+                </div>
+            </div>
+            <div class="setting-container" style='margin-top: -13px;'>
+                <a class="btn btn-info" role="button" href="#" ng-click="publishData()"><i class="fa fa-list-ul fa-1x green"></i>发布</a>
+            </div>
+            <div id="widgets" class="canvas-widgets">
+                <iframe allowtransparency="true" ng-show="Weather_v == '1'" style="display: block;" class="weather" frameborder="0" width="100%" height="{{h}}" scrolling="no" src={{kk}}></iframe>
+                <div id="indexContent" class="widget-content"></div>
+            </div>
+            <div id="tools" class="canvas-tools"></div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

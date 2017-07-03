@@ -1,0 +1,127 @@
+<div class="beforeLogin">
+    <div class="banner"></div>
+    <div class="content">
+        <img src="../img/logo-en.png" class="logo">
+        <div class="go-login"><a href="../../../login.html">Log in</a> to an existing account</div>
+        <div class="top-line"></div>
+        <div class="title">
+            <div>Reset password</div>
+        </div>
+        <div class="line"></div>
+        <div class="step">
+            <div class="first" ng-if="step.firstStep">
+                <div class="first">Confirm account</div>
+                <div class="second">Reset password</div>
+                <div class="center"></div>
+            </div>
+            <div class="second" ng-if="step.secondStep">
+                <div class="first">Confirm account</div>
+                <div class="second">Reset password</div>
+                <div class="center"></div>
+            </div>
+        </div>
+        <form class="form pb50" name="byPhone" novalidate>
+            <div ng-show="step.firstStep">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" placeholder="Enter username/phone/email" ng-model="findPas.name"
+                           ng-change="clearError('name')" ng-keyup="keySubmitone($event)">
+                    <div class="error" ng-show="checkError.nameError">
+                        <span ng-bind="checkError.nameMessage"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Characters</label>
+                    <input class="h142" type="text" placeholder="Enter the characters" ng-model="findPas.code"
+                           ng-change="clearError('code')" ng-keyup="keySubmitone($event)">
+                    <div class="code" ng-click="changeCode()">
+                        <img ng-src="{{getCode}}">
+                    </div>
+                    <div class="error" ng-show="checkError.codeError">
+                        <span ng-bind="checkError.codeMessage"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label></label>
+                    <div class="btn mt30" ng-click="step.next()">Next</div>
+                </div>
+            </div>
+            <div ng-show="step.secondStep">
+                <div class="form-group" ng-show="step.secondStepPhone">
+                    <label>Verification code</label>
+                    <input type="text" placeholder="Enter verification code" ng-model="findPas.checkCode"
+                           ng-change="clearError('check')" ng-keyup="keySubmittwo($event)">
+                    <div class="error" ng-show="checkError.checkCodeError">
+                        <span ng-bind="checkError.checkCodeMessage"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>New password</label>
+                    <input class="pr37" id="password" type="password" placeholder="8 to 32 characters" required
+                           ng-pattern="passwordpat"
+                           name="password" ng-model="register.password" ng-hide="showPassword"
+                           ng-blur="change.password=true" ng-focus="change.password=false" oncopy="return false;"
+                           onpaste="return false;" oncut="return false;" ng-keyup="keySubmittwo($event)">
+                    <input class="pr37" type="text" placeholder="8 to 32 characters" ng-model="findPas.password"
+                           ng-show="showPassword"
+                           name="password1" ng-blur="change.password=true" ng-focus="change.password=false"
+                           oncopy="return false;" onpaste="return false;" oncut="return false;" ng-keyup="keySubmittwo($event)">
+                    <i class="icon-eye" ng-class="{'open':toggleEye}" ng-click="togglePassword()"></i>
+                    <div class="error"
+                         ng-show="byPhone.password.$invalid&&change.password&&(byPhone.password.$dirty||byPhone.password1.$dirty)"
+                         ng-messages="byPhone.password.$error">
+                        <span ng-message="required">This field is required</span>
+                        <span ng-message="pattern">8 to 32 chars without spaces</span>
+                    </div>
+                    <div class="success" ng-show="byPhone.password.$valid&&change.password&&(byPhone.password.$dirty||byPhone.password1.$dirty)"></div>
+                    <div class="password-level" ng-show="passwordLevel">
+                        <div class="word">
+                            <div class="word1"><span ng-show="pw.l">弱</span></div>
+                            <div class="word2"><span ng-show="pw.m">中</span></div>
+                            <div class="word3"><span ng-show="pw.h">强</span></div>
+                        </div>
+                        <div class="level">
+                            <div class="level1" ng-show="pw.l"></div>
+                            <div class="level2" ng-show="pw.m"></div>
+                            <div class="level3" ng-show="pw.h"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Confirm</label>
+                    <input class="pr37" type="password" placeholder="Confirm password" name="conpassword" ng-model="conpassword"
+                           ng-hide="showPasswordCon" required pw-check="password" ng-blur="change.conpassword=true"
+                           ng-focus="change.conpassword=false" oncopy="return false;" onpaste="return false;"
+                           oncut="return false;" ng-keyup="keySubmittwo($event)">
+                    <input class="pr37" type="text" placeholder="Confirm password" name="conpassword1" ng-model="conpassword"
+                           ng-show="showPasswordCon" ng-blur="change.conpassword=true"
+                           ng-focus="change.conpassword=false" oncopy="return false;" onpaste="return false;"
+                           oncut="return false;" ng-keyup="keySubmittwo($event)">
+                    <i class="icon-eye" ng-class="{'open':toggleEyeCon}" ng-click="togglePasswordCon()"></i>
+                    <div class="error"
+                         ng-show="byPhone.conpassword.$invalid&&change.conpassword&&(byPhone.conpassword.$dirty||byPhone.conpassword1.$dirty)"
+                         ng-messages="byPhone.conpassword.$error">
+                        <span ng-message="required">This field is required</span>
+                        <span ng-message="pwCheck">Inconsistent passwords</span>
+                    </div>
+                    <div class="success"
+                         ng-show="byPhone.conpassword.$valid&&change.conpassword&&(byPhone.conpassword.$dirty||byPhone.conpassword1.$dirty)"></div>
+                </div>
+                <div class="form-group">
+                    <label></label>
+                    <div class="btn mt30" ng-click="step.dataSubmit()">Reset</div>
+                </div>
+            </div>
+            <div class="form-group mt0" ng-show="error.show">
+                <label></label>
+                <div class="backstageError" ng-bind="error.message"></div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="read_rc" id="findPas_rc"
+     request-error="Request sending failed. Please try again"
+     code-error="Failed to load characters. Please update it,Enter the characters,Incorrect characters,Expired. Please update it"
+     user-required="This field is required,Invalid username"
+     phone-required="Enter verification code">
+</div>

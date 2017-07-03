@@ -1,0 +1,182 @@
+{
+  "aProbeStatistics":
+  [
+    {
+      "AssocNum": "10", "DissocNum": "10", "RssiMaxNum": "10",
+      "RssiMiddleNum": "10", "RssiMinNum": "10", "Time": "2015-06-21T12:10:12", "TotalNum": "40"
+    }
+  ,{
+    "AssocNum": "10", "DissocNum": "10", "RssiMaxNum": "20",
+    "RssiMiddleNum": "30", "RssiMinNum": "10", "Time": "2015-06-21T12:20:12", "TotalNum": "60"
+  }
+  ,{
+    "AssocNum": "10", "DissocNum": "10", "RssiMaxNum": "30",
+    "RssiMiddleNum": "10", "RssiMinNum": "40", "Time": "2015-06-21T12:30:12", "TotalNum": "80"
+  }
+  ,{
+    "AssocNum": "10", "DissocNum": "10", "RssiMaxNum": "10",
+    "RssiMiddleNum": "20", "RssiMinNum": "30", "Time": "2015-06-21T12:40:12", "TotalNum": "60"
+  }
+  ,{
+    "AssocNum": "10", "DissocNum": "10", "RssiMaxNum": "10",
+    "RssiMiddleNum": "30", "RssiMinNum": "10", "Time": "2015-06-21T12:50:12", "TotalNum": "50"
+  }
+  ,{
+    "AssocNum": "10", "DissocNum": "10", "RssiMaxNum": "10",
+    "RssiMiddleNum": "10", "RssiMinNum": "10", "Time": "2015-06-21T13:00:12", "TotalNum": "40"
+  }
+  ,{
+    "AssocNum": "10", "DissocNum": "10", "RssiMaxNum": "10",
+    "RssiMiddleNum": "10", "RssiMinNum": "10", "Time": "2015-06-21T13:10:12", "TotalNum": "40"
+  }
+  ,{
+    "AssocNum": "10", "DissocNum": "10", "RssiMaxNum": "2",
+    "RssiMiddleNum": "3", "RssiMinNum": "5", "Time": "2015-06-21T13:20:12", "TotalNum": "10"
+  }
+  ,{
+    "AssocNum": "10", "DissocNum": "10", "RssiMaxNum": "10",
+    "RssiMiddleNum": "34", "RssiMinNum": "16", "Time": "2015-06-21T13:30:12", "TotalNum": "50"
+  }
+  ],
+  "aClientProbes":
+  [
+    {
+      "DissociativeStatus": "1",
+      "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-14 12:15:12",
+      "MacAddress": "aa-ee-cc-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+      "RssiMin": "10","Ssid": "web1","Status": "0","StatusDurationTime": "10000","Vendor": "HTC"
+    }
+  ,{
+    "DissociativeStatus": "1",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-14 12:16:12",
+    "MacAddress": "aa-ee-cc-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web2","Status": "1","StatusDurationTime": "10","Vendor": "ZTE"
+  }
+  ,{
+    "DissociativeStatus": "1",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-15 12:18:12",
+    "MacAddress": "aa-ee-cc-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web3","Status": "1","StatusDurationTime": "1000","Vendor": "Huawei"
+  }
+  ,{
+    "DissociativeStatus": "1",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-12 12:20:12",
+    "MacAddress": "aa-ee-cc-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web4","Status": "1","StatusDurationTime": "300","Vendor": "Samsung"
+  }
+  ,{
+    "DissociativeStatus": "1",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-13 12:22:12",
+    "MacAddress": "aa-ee-cc-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web4","Status": "1","StatusDurationTime": "1200","Vendor": "Samsung"
+  }
+  ,{
+    "DissociativeStatus": "1",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-12 12:30:12",
+    "MacAddress": "aa-ee-cc-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web5","Status": "1","StatusDurationTime": "200","Vendor": "Samsung"
+  }
+  ,{
+    "DissociativeStatus": "1",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-11 12:59:12",
+    "MacAddress": "aa-ee-cc-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web6","Status": "1","StatusDurationTime": "100","Vendor": "Apple"
+  }
+  ,{
+    "DissociativeStatus": "1",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-11 17:38:12",
+    "MacAddress": "aa-ee-cc-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web7","Status": "1","StatusDurationTime": "1000","Vendor": "Apple"
+  }
+  ,{
+    "DissociativeStatus": "1",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-11 18:50:12",
+    "MacAddress": "aa-ee-cc-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web9","Status": "1","StatusDurationTime": "50","Vendor": "Apple"
+  }
+  ,{
+    "DissociativeStatus": "1",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-11 19:52:12",
+    "MacAddress": "aa-ee-cc-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web9","Status": "1","StatusDurationTime": "100","Vendor": "Apple"
+  }
+  ,{
+    "DissociativeStatus": "1",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-11 13:58:12",
+    "MacAddress": "aa-ee-cc-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web9","Status": "1","StatusDurationTime": "100","Vendor": "Apple"
+  }
+  ,{
+    "DissociativeStatus": "1",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-11 13:15:12",
+    "MacAddress": "aa-ee-cc-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web9","Status": "1","StatusDurationTime": "600","Vendor": "Apple"
+  }
+  ,{
+    "DissociativeStatus": "2",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-11 12:56:12",
+    "MacAddress": "aa-ee-cc-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web9","Status": "1","StatusDurationTime": "10","Vendor": "Apple"
+  }
+  ,{
+    "DissociativeStatus": "2",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-11 12:55:12",
+    "MacAddress": "12-12-12-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web9","Status": "1","StatusDurationTime": "600","Vendor": "Apple"
+  }
+  ,{
+    "DissociativeStatus": "2",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-13 13:12:12",
+    "MacAddress": "12-12-12-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web9","Status": "1","StatusDurationTime": "100","Vendor": "Apple"
+  }
+  ,{
+    "DissociativeStatus": "0",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-19 13:12:12",
+    "MacAddress": "12-12-12-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web9","Status": "1","StatusDurationTime": "100","Vendor": "Apple"
+  }
+  ,{
+    "DissociativeStatus": "1",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-11 12:18:12",
+    "MacAddress": "aa-bb-cc-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web9","Status": "0","StatusDurationTime": "100","Vendor": "MX"
+  }
+  ,{
+    "DissociativeStatus": "0",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-11 12:18:12",
+    "MacAddress": "aa-bb-cc-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web9","Status": "0","StatusDurationTime": "700","Vendor": "MX"
+  }
+  ,{
+    "DissociativeStatus": "0",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-11 12:17:12",
+    "MacAddress": "aa-bb-cc-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web9","Status": "0","StatusDurationTime": "100","Vendor": "MX"
+  }
+  ,{
+    "DissociativeStatus": "0",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-11 12:15:12",
+    "MacAddress": "aa-bb-cc-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web9","Status": "0","StatusDurationTime": "1200","Vendor": "MX"
+  }
+  ,{
+    "DissociativeStatus": "0",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-11 12:25:12",
+    "MacAddress": "aa-bb-cc-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web9","Status": "0","StatusDurationTime": "100","Vendor": "MX"
+  }
+  ,{
+    "DissociativeStatus": "0",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-11 12:30:12",
+    "MacAddress": "aa-bb-cc-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web9","Status": "0","StatusDurationTime": "500","Vendor": "MX"
+  }
+  ,{
+    "DissociativeStatus": "false",
+    "FirstReportTime": "2015-1-11 12:12:12","LastReportTime": "2015-1-11 12:34:12",
+    "MacAddress": "ff-ee-cc-dd-ff-11","ReportSensorNum": "5","Rssi": "50","RssiMax": "90",
+    "RssiMin": "10","Ssid": "web9","Status": "0","StatusDurationTime": "100","Vendor": "Mi"
+  }
+  ]
+}

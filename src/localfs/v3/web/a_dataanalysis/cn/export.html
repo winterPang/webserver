@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .rui-grid-main {
+            display:block;
+            overflow:hidden;
+            border:solid #DDDDDD;
+            border-width:1px 1px 0px 1px;
+            position:relative;
+        }
+        .rui-grid-main-border {
+            border:#DDDDDD 1px solid
+        }
+        .rui-grid-header {
+            display:block;
+            overflow:hidden;
+            background:#f1f7fc
+        }
+        .rui-grid-table {
+            border:none;
+            border-collapse:collapse;
+            table-layout:fixed;
+        }
+        .rui-grid-header-th {
+            border:#E2E2E2;
+            *border-bottom:0;
+            border-right:1px solid #DDDDDD;
+            padding:0;
+            text-align:center;
+            background-color:#F1F1F1;
+            vertical-align:middle;
+            height:33px;
+            line-height:33px;
+            font-weight:normal;
+            color:#3c3c3c;
+            cursor:default;
+        }
+        .rui-grid-header-multi {
+            width:40px;text-align:center
+        }
+        .rui-grid-header-th .rui-grid-td-div {
+            font-weight:bold;
+        }
+        .rui-grid-scroller {
+            display:block;
+            position:relative;
+            overflow:auto;
+        }
+        .rui-grid-body-td {
+            border:1px solid #DDDDDD;
+            border-width:1px 1px 1px 0;
+            height:34px;
+            text-align:center;
+            padding:0;
+            text-overflow:ellipsis;
+            overflow:hidden;
+            vertical-align:middle;
+        }
+        .cont1 {
+            width: 311px;
+        }
+
+        .daterange{
+            width: 200px;
+            height: 33px;
+            padding-left: 20px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border: #ccc solid 1px;
+
+        }
+
+        .underline{
+            text-decoration:underline;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+
+
+
+<div class="col-xs-12 app-colum">
+    <div class="col-sm-12 app-colum app-box no-bk-color" style="height: 600px">
+        <div class="box-footer" style="background: #F1EFEF; margin-left: -17px; margin-right: -15px">
+            <div class="title">
+                <span >报表导出</span> &nbsp;&nbsp;&nbsp;
+                <span class="underline" style="color:#4ec1b2" id="timeing">定时导出</span>
+            </div>
+        </div>
+        <div class="box-body echart-height" style="height: 600px">
+            <div class="response-block col-sm-6 ">
+                <div class="form-group top">
+                    <h4 style="padding-left: 0px; color: black">选择场所</h4>
+                    <div style="padding-left: 0px; margin-top: 50px; margin-left: 30px;">
+                        <select id="select1" allowClear="false" name=""  class="singleSelect"></select>
+                        <select id="select2" allowClear="false" name="" class="singleSelect"></select>
+                    </div>
+                </div>
+                <div class="form-group position" style="margin-top: 70px">
+                    <h4 style="padding-left: 0px; color: black">选择时间</h4>
+                    <div style="padding-left: 0px; padding-top: 0px; margin-top: 50px; margin-left: 22px">
+                        <div id = "reportrange" style="background: #fff; cursor: pointer;width: 215px;margin-top:10px;">
+                            <!--<i class="glyphicon glyphicon-calendar fa fa-calendar" style="padding: 0px 0px;margin-top:2px">-->
+                            <!--</i>-->
+                            <!--<span id ="reportrange_span"></span>-->
+                            <!--<b class="caret"></b>-->
+                            <input id="daterange" class="daterange"  style=" margin-left: 10px" placeholder="选择日期">
+                        </div>
+                    </div>
+                    <div style="margin: 100px 0px 0px 180px">
+                        <button type="button" class="btn btn-default export-excel"  data-dismiss="modal" id="export">报表导出</button>
+                    </div>
+                </div>
+            </div>
+            <div class="response-block col-sm-6 ">
+                <h4 style="padding-left: 0px; color: black;" >选择维度</h4>
+                    <div id="area-grid" class="rui-grid-main rui-grid-main-border" style="width:302px; margin-left: 80px">
+                        <div class="rui-grid-header sub-open">
+                            <div class="rui-grid-thead" id="area-grid_thead">
+                                <table id="area-grid_headerTable" class="rui-grid-table" style="width: 300px;">
+                                    <thead>
+                                    <tr>
+                                        <th align="center" class="rui-grid-header-th rui-grid-header-multi">
+                                            <div class="rui-grid-td-div"><input type="checkbox" id="all"></div>
+                                        </th>
+                                        <th class="rui-grid-header-th" align="center" width="200px">
+                                            <div class="rui-grid-td-div">所有指标</div>
+                                        </th>
+                                    </tr>
+                                    </thead>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="rui-grid-scroller" id="area-grid_scroller" style="display:block">
+                            <table class="rui-grid-table" id="target-grid_tableContent" style="width: 300px;">
+                                <tbody>
+                                <tr class="">
+                                    <td class="rui-grid-body-td rui-grid-header-multi" align="center"><input
+                                            type="checkbox" id="zhongkeliuliang"
+                                            name="target-grid_row_checkbox" value="0"></td>
+                                    <td class="rui-grid-body-td" align="center" width="200px">
+                                        <div class="rui-grid-td-div">总客流量</div>
+                                    </td>
+                                </tr>
+                                <tr class="rui-grid-row-interval">
+                                    <td class="rui-grid-body-td rui-grid-header-multi" align="center"><input
+                                            type="checkbox" id="daofangkeliuliang"
+                                            name="target-grid_row_checkbox" value="1"></td>
+                                    <td class="rui-grid-body-td" align="center" width="200px">
+                                        <div class="rui-grid-td-div">到访客流量</div>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td class="rui-grid-body-td rui-grid-header-multi" align="center"><input
+                                            type="checkbox" id="zhuliukeliuliang"
+                                            name="target-grid_row_checkbox" value="2"></td>
+                                    <td class="rui-grid-body-td" align="center" width="200px">
+                                        <div class="rui-grid-td-div">驻留客流量</div>
+                                    </td>
+                                </tr>
+                                <tr class="rui-grid-row-interval">
+                                    <td class="rui-grid-body-td rui-grid-header-multi" align="center"><input
+                                            type="checkbox" id="daofanglv"
+                                            name="target-grid_row_checkbox" value="3"></td>
+                                    <td class="rui-grid-body-td" align="center" width="200px">
+                                        <div class="rui-grid-td-div">到访率</div>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td class="rui-grid-body-td rui-grid-header-multi" align="center"><input
+                                            type="checkbox" id="zhuliulv"
+                                            name="target-grid_row_checkbox" value="4"></td>
+                                    <td class="rui-grid-body-td" align="center" width="200px">
+                                        <div class="rui-grid-td-div">驻留率</div>
+                                    </td>
+                                </tr>
+                                <tr class="rui-grid-row-interval">
+                                    <td class="rui-grid-body-td rui-grid-header-multi" align="center"><input
+                                            type="checkbox" id="pingjunzhuliushichang"
+                                            name="target-grid_row_checkbox" value="5"></td>
+                                    <td class="rui-grid-body-td" align="center" width="200px">
+                                        <div class="rui-grid-td-div">平均驻留时长</div>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td class="rui-grid-body-td rui-grid-header-multi" align="center"><input
+                                            type="checkbox" id="xinzhengguke"
+                                            name="target-grid_row_checkbox" value="6"></td>
+                                    <td class="rui-grid-body-td" align="center" width="200px">
+                                        <div class="rui-grid-td-div">新增顾客数</div>
+                                    </td>
+                                </tr>
+                                <tr class="rui-grid-row-interval">
+                                    <td class="rui-grid-body-td rui-grid-header-multi" align="center"><input
+                                            type="checkbox" id="wifishiyonglv"
+                                            name="target-grid_row_checkbox" value="7"></td>
+                                    <td class="rui-grid-body-td" align="center" width="200px">
+                                        <div class="rui-grid-td-div">使用Wi-Fi比率</div>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td class="rui-grid-body-td rui-grid-header-multi" align="center"><input
+                                            type="checkbox" id="pingjunfangwen"
+                                            name="target-grid_row_checkbox" value="8"></td>
+                                    <td class="rui-grid-body-td" align="center" width="200px">
+                                        <div class="rui-grid-td-div">平均访问次数</div>
+                                    </td>
+                                </tr>
+                                <tr class="rui-grid-row-interval">
+                                    <td class="rui-grid-body-td rui-grid-header-multi" align="center"><input
+                                            type="checkbox" id="dizhuliu"
+                                            name="target-grid_row_checkbox" value="9"></td>
+                                    <td class="rui-grid-body-td" align="center" width="200px">
+                                        <div class="rui-grid-td-div">低驻留人数</div>
+                                    </td>
+                                </tr>
+                                <tr class="">
+                                    <td class="rui-grid-body-td rui-grid-header-multi" align="center"><input
+                                            type="checkbox" id="zhongzhuliu"
+                                            name="target-grid_row_checkbox" value="10"></td>
+                                    <td class="rui-grid-body-td" align="center" width="200px">
+                                        <div class="rui-grid-td-div">中驻留人数</div>
+                                    </td>
+                                </tr>
+                                <tr class="rui-grid-row-interval">
+                                    <td class="rui-grid-body-td rui-grid-header-multi" align="center"><input
+                                            type="checkbox" id="gaozhuliu"
+                                            name="target-grid_row_checkbox" value="11"></td>
+                                    <td class="rui-grid-body-td" align="center" width="200px">
+                                        <div class="rui-grid-td-div">高驻留人数</div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div style="width:100%" id="area-grid_autoDiv"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hide modal fade" id="tableDlg">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3>选项设置</h3>
+    </div>
+    <form class="form-horizontal form" id="tableForm">
+        <div class="col-xs-12 app-colum left-block">
+            <div>
+                <label class="col-sm-3 control-label required">选择场所：</label>
+                <select id="changshuoselect"   name="changshuoselect" class="singleSelect" style=" margin-top: 5px;"></select>
+                <select id="changdiselect"   name="changshuoselect" class="singleSelect" style=" margin-top: 5px;"></select>
+            </div>
+            <div>
+                <label class="col-sm-3 control-label required">选择时间间隔：</label>
+                <select id="timeinterval" class="singleSelect"></select>
+                <!--<input class="inputArea" type="text" id="interval">-->
+            </div>
+            <div>
+                <label class="col-sm-3 control-label required">选择维度：</label>
+                <div class="col-sm-9" style="padding-left:0px">
+                    <input type="checkbox" name="checkitem" id="zkll"/>
+                    <label for="zkll">总客流量</label>
+                    <input type="checkbox" name="checkitem" id="dfkll" />
+                    <label for="dfkll">到访客流量</label>
+                    <input type="checkbox" name="checkitem" id="zlkll"/>
+                    <label for="zlkll">驻留客流量</label>
+                    <input type="checkbox" name="checkitem" id="dfl" />
+                    <label for="dfl">到访率</label>
+                    <input type="checkbox" name="checkitem" id="zll"/>
+                    <label for="zll">驻留率</label>
+                    <input type="checkbox" name="checkitem" id="pjzlsc" />
+                    <label for="pjzlsc">平均驻留时长</label>
+                    <input type="checkbox" name="checkitem" id="xzgks"/>
+                    <label for="xzgks">新增顾客数</label>
+                    <input type="checkbox" name="checkitem" id="sywfbl" />
+                    <label for="sywfbl">使用Wi-FI比率</label>
+                    <input type="checkbox" name="checkitem" id="pjdfcs"/>
+                    <label for="pjdfcs">平均到访次数</label>
+                    <input type="checkbox" name="checkitem" id="dzl" />
+                    <label for="dzl">低驻留</label>
+                    <input type="checkbox" name="checkitem" id="zzl"/>
+                    <label for="zzl">中驻留</label>
+                    <input type="checkbox" name="checkitem" id="gzl" />
+                    <label for="gzl">高驻留</label>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <label id="selectall" class="underline" style="color:#4ec1b2">全选</label>
+                </div>
+            </div>
+            <div>
+                <label class="col-sm-3 control-label required">Ftp地址：</label>
+                <input class="inputArea" type="text" id="ftpaddr">
+                <button type="button" class="btn btn-default">检查</button>
+            </div>
+        </div>
+    </form>
+    <div class="modal-footer form-actions">
+        <div class="form-group">
+            <button type="button" class="btn btn-default" data-dismiss="modal" id="success_aplist">确定</button>
+            <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        </div>
+    </div>
+</div>
+
+<iframe id="exportFile" name="exportFile" style="display: none" ></iframe>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("a_dataanalysis.export");
+</script>

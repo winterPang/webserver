@@ -1,0 +1,32 @@
+<html>
+<head>
+</head>
+<body>
+
+<!--分支列表-->
+<div class="app-colum xxb">
+    <div class="app-box">
+        <div class="box-footer">
+            <span class="title">分支配置</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="brconfig" class="xxb-list simple-list"></div>
+        </div>
+    </div>
+</div>
+
+<div id="ws_ssid_rc" class="rc-define"
+     LIST_TITLE = "名称,类型,本地管理权限"
+     APGROUP_LIST = "Ap组,描述,所属分支"
+     LOCALAC_LIST = "本地AC,描述,所属分支"
+     EDIT_TITLE = "添加,删除,同步"
+     AP_LIST = "AP,描述,所属分支,所属Ap组"
+     ADD_TITLE = "添加"
+     ADDLMAP_TITLE = "添加本地管理AP"
+        ></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("hq_branchesmanage.index_config");
+</script>

@@ -1,0 +1,49 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 30,
+  "rows": [
+    {
+      "id": 10,
+      "devAlias":"shop0",
+      "devSn":"xiaocai",
+      "devModel": "地址11",
+      "softVer":"北京市东城区",
+      "hardVer": "园区wifi",
+      "status":1,
+      "selected": true,
+      "showDetail": true,
+      "showDelete": true,
+      "otherpage": true,
+      "showEdit": true
+    },
+    {
+      "id": 11,
+      "devAlias":"shop1",
+      "devSn":"xiaocai1",
+      "devModel": "地址11",
+      "softVer":"北京市东城区",
+      "hardVer": "园区wifi",
+      "status":2,
+      "selected": true,
+      "showDetail": true,
+      "showDelete": true,
+      "otherpage": true,
+      "showEdit": true
+    },
+    {
+      "id": 12,
+      "devAlias":"shop2",
+      "devSn":"xiaocai2",
+      "devModel": "地址11",
+      "softVer":"北京市东城区",
+      "hardVer": "园区wifi",
+      "status":"",
+      "selected": true,
+      "showDetail": true,
+      "showDelete": true,
+      "otherpage": true,
+      "showEdit": true
+    }
+  ]
+}

@@ -1,0 +1,177 @@
+/*head-bar da kuang*/
+
+.bg-white{
+    border: 1px solid #e7e7e9;  
+    margin-bottom: 25px;  
+}
+
+
+
+/*head-bar de biao ti he an niu*/
+.sysinfo-footer-title{
+	display: inline ! important;
+	
+}
+
+
+.sysinfo-footer-button{
+    width: 18px;
+    height: 16px;
+
+    float: right;
+
+    margin-left: 8px;
+    margin-right: 10px;
+    margin-top: 5px;
+
+    background-image: url("image/dashboard-icon.png");
+    background-position: -215px -58px;	
+}
+
+
+
+
+/*head-bar de li mian bu fen*/
+
+/*3 ge xiao kuang*/
+.syslog-info-mine-Total{
+    border-right: 1px solid #e7e7e9;
+    text-align: center;    	
+}
+
+
+.syslog-info-mine-Num2G{
+    border-right: 1px solid #e7e7e9;
+    text-align: center;     
+}
+
+
+.syslog-info-mine-Num5G{
+    text-align: center;     
+}
+
+
+/*zuo you */
+.left-icon,.right-text{
+    display: inline-block;
+}
+
+
+/*zuo : tu biao*/
+.left-icon{
+    width: 50px;
+    height: 70px;    
+
+    background-image: url("image/hangyeac.png");
+ 
+}
+
+
+.Total-icon{
+    background-position: -115px -150px; 
+}  
+
+
+.Num2G-icon{
+    background-position: -235px -150px; 
+} 
+
+
+.Num5G-icon{
+    background-position: -345px -150px; 
+}
+
+
+/*you : wen zi*/
+.right-text{
+    width:90px;
+}
+
+.number-count{
+    font-size: 38px;
+    color:#333e4e ! important;
+}
+
+.number-title{
+    font-size: 12px;
+    color:#80878c ! important;
+}
+
+
+
+/*-----------------slist xiaokuang------------------*/
+/*box de title bu fen*/
+.box-footer{
+    background:#fff ! important;
+}
+
+/*box de body bu fen*/
+.app-box-slist{
+	padding-left:2px;
+	padding-right:2px;
+}
+
+/*slist de bian kuang bu fen*/
+.sysinfo-body .simple-list .slist-body{
+    
+    border-left:1px solid #fff ! important;
+    border-right:1px solid #fff ! important;
+    
+}
+
+/*slist de zhuang tai lan bu fen*/
+.sysinfo-body .simple-list .page-bar{
+    background: #fff;
+    border-bottom:0px ! important;
+}
+
+/*.row i{
+    margin-top:0px;
+}*/
+
+
+
+
+/*canvas zheng ti you yi*/
+/*.zr-element{    
+    margin-left: 75px;
+}*/
+
+
+.city-pielist
+{
+    margin: 0;
+    top: 50%;
+    left: 45%;
+    transform: translate(0,-50%);
+}
+
+.city-pielist1
+{
+    margin: 0;
+    top: 50%;
+    left: 65%;
+    transform: translate(0,-50%);
+}
+
+.city-select
+{
+    height: 42px;
+    background: #edf9f7;
+    border: #e7e7e9 solid 1px;
+    margin-bottom: 20px;
+}
+.city-span
+{
+    margin-left: 25px;
+    line-height: 42px;
+}
+
+.city-location
+{
+    margin-right: 64%;
+    margin-top: 8px;
+    height: 26px;
+    background-color: white;
+}
+

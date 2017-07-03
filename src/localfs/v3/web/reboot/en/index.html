@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div class="modal-dialog hide" id ="content">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" id="close" class="close" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+                <h4 class="modal-title">Confirmation</h4>
+            </div>
+            <div class="modal-body" id="rebootMsg">
+                <p>Reboot the device immediately? Unsaved configuration will get lost after the restart.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="saveReboot">
+                    <i class="btn-icon fa fa-floppy-o"></i>
+                    Save configuration and restart
+                </button>
+                <button type="button" class="btn btn-primary" id="reboot">
+                    <i class="btn-icon fa fa-power-off"></i>
+                    Restart only
+                </button>
+                <button type="button" id="closeBtn" class="btn btn-default" >
+                    <i class="btn-icon fa fa-times"></i>
+                    Cancel
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+
+    <div id="reboot_info_rc" class="rc-define"
+         VER_ERROR = "Configuration saved. Restarting…, Configuration saving failed, Restarting failed, Others">
+    </div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("reboot.index");
+</script>

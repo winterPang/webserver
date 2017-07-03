@@ -1,0 +1,319 @@
+<style>
+    .dropdown > .dropdown-toggle {
+        margin-top: -5px;
+        margin-top: -0.35714286rem;
+        background: transparent !important;
+        border: none;
+        color: #555;
+        outline: none !important;
+        -webkit-box-shadow: none;
+        -moz-box-shadow: none;
+        -o-box-shadow: none;
+        box-shadow: none;
+    }
+    .dropdown .dropdown-menu {
+        min-width: 115px;
+        min-width: 8.21428571rem;
+        list-style: none;
+        padding: 0;
+        margin: 0 0 0 50px;
+        margin: 0 0 0 3.57142857rem;
+        border: 1px solid #d6dce3;
+        border: 0.07142857rem solid #d6dce3;
+        width: 102px;
+        width: 7.28571429rem;
+        color: #383e4e;
+        /* position: absolute; */
+        z-index: 999;
+    }
+    .dropdown .dropdown-menu > li a:hover {
+        background: #383e4e;
+        color: #fff;
+    }
+    .dropdown .dropdown-menu > li a {
+        background: #fff;
+        height: 33px;
+        height: 2.35714286rem;
+        padding-left: 15px;
+        padding-left: 1.07142857rem;
+        line-height: 33px;
+        line-height: 2.35714286rem;
+        cursor: pointer;
+    }
+</style>
+<nav class="navbar navbar-default navbar-top" >
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">H3C绿洲平台</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <!--<img src="../newdesign/frame/image/h3clogo.png" alt="" width="50px" style="vertical-align: middle">-->
+            <span style="vertical-align: middle;font-size: 24px;line-height: 50px;margin-left: -12px;">Oasis Demo</span>
+            <ul class="nav navbar-nav navbar-right">
+                <!-- <li><a href="https://lvzhoutest.h3c.com/o2o/o2omng/appmng/appCenter.jsf">应用中心</a></li> -->
+                <li  ng-repeat="menuName in menu" ng-class="{active:$state.current.name.indexOf('{{menuName.id}}')!=-1}" ui-sref="{{menuName.sref}}">
+                    <a ng-bind="menuName.name"></a>
+                </li>
+            </ul>
+            <!--<div id="branch" style="background-color: #4188ce;float: right;margin-right: 15px;color: #ffffff;padding: 3px 5px;margin-top: 12px;cursor: pointer" ng-click="goAnother()">分支版</div>
+            <div id="simple" style="background-color: #dddddd;float: right;color: #ffffff;padding: 3px 5px;margin-top: 12px;cursor: pointer" ng-click="goAnother()">简单版</div>-->
+            <div class="dropdown" style="float: right;height: 50px;line-height: 50px">
+                <button class="btn btn-default dropdown-toggle"
+                        type="button" id="userdrop" data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="true">
+                    {{userInfo.attributes.name}} <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="userdrop">
+                    <!--<li><a ui-sref="newdesign.content.set.information">信息修改</a></li>
+                    &lt;!&ndash;<li><a ng-click="goHome()">返回首页</a></li>&ndash;&gt;
+                    <li><a ui-sref="newdesign.content.set.password">密码修改</a></li>-->
+                    <li><a>个人资料</a></li>
+                    <li><a ng-bind="changeType" ng-click="goAnother()"></a></li>
+                    <li><a ng-click="logout()">注销</a></li>
+                </ul>
+            </div>
+            <div class="pull-right global-user-img" id="chatHeadImg" style="height: 50px;line-height: 50px;">
+                <img style="margin-right: 12px" src="images/wechat.png" id="chatimg">
+                <img src="images/jay.png" id="headImg" style="width:30px;height:30px;">
+            </div>
+            <div class="pull-right">
+                <ul style="margin: 10px 20px 0 auto;">
+                    <li ng-click="changeLange('cn');" style="display: inline-block;
+            cursor: pointer;"
+                        ng-class="cnLanguage">
+                        中文
+                    </li>
+                    <div style="border-left: 1px solid darkgray;
+                        display:inline-block;
+                        height: 20px;
+                        position: relative;top: 5px"></div>
+                    <li ng-click="changeLange('en')"
+                        style="display: inline-block;
+                cursor: pointer;"
+                        ng-class="enLanguage">
+                        English
+                    </li>
+                </ul>
+            </div>
+            <!--<div class="pull-right global-head-wechat" style="margin-right:10px;margin-top:-2px;" id="chat_html">
+
+            </div>-->
+        </div>
+    </div>
+</nav>
+<div id="warningmsg" style="height: 30px;background-color: #4188ce;padding-left: 250px;color: #ffffff;line-height: 30px">
+    Oasis Demo
+</div>
+<!--<div id="wrapper" class="wrapper" ng-click="sysNotice()">
+    <div id="scrolling" class="scroll" >
+        <p ng-repeat="x in messages"><img src="../frame/images/icon-tz.png" alt="通知" style="margin-top:-5px">&nbsp  {{x}}</p>     
+    </div>
+</div>-->
+<!-- 系统通知modal开始 -->
+<!--<div bs-modal="sysNoticeModal.options">
+    <ul class="ul1">
+        <li class="li1 active">全部</li>
+        <li class="li1 li2">官方通知</li>
+        <li class="li1">系统通知</li>
+    </ul>
+
+    <button class="btn1 btn2">标为已读</button>
+    <button class="btn1 btn3">删除</button>  
+
+    <table class="table1">
+        <tr>
+            <td class="td1">
+                <div class="xb-input xb-checkbox mgb">
+                    <input type="checkbox" class="input-element" id="weixin8"  name="weixin8"  ng-model="info.weixin8"/>
+                    <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.weixin8 == true}"></span>
+                    <label for="weixin8" class="input-label"></label>
+                </div> 
+            </td>
+            <td class="td2">
+                <span class="span1">
+                    
+                </span>
+                <span  class="span2">
+                    定位2.0功能更新
+                    <b class="b1"></b>
+                </span>
+            </td>
+            <td class="td3">
+                <p class="inp">
+                   定位2.0功能更新，提升了用户使用效率，更好的定位2.0功能更新，提升了用户使用效率，更好的 
+                </p>
+            </td>
+            <td class="td4">2017-4-15</td>
+        </tr>
+    </table>
+
+    <table class="table1">
+        <tr>
+            <td class="td1">
+                <div class="xb-input xb-checkbox">
+                    <input type="checkbox" class="input-element" id="weixin8"  name="weixin8"  ng-model="info.weixin8"/>
+                    <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.weixin8 == true}"></span>
+                    <label for="weixin8" class="input-label"></label>
+                </div> 
+            </td>
+            <td class="td2">
+                <span class="span1">
+                    
+                </span>
+                <span  class="span2">
+                    定位2.0功能更新
+                    <b></b>
+                </span>
+            </td>
+            <td class="td3">
+                <p class="inp">
+                   定位2.0功能更新，提升了用户使用效率，更好的定位2.0功能更新，提升了用户使用效率，更好的 
+                </p>
+            </td>
+            <td class="td4">2017-4-15</td>
+        </tr>
+    </table>
+
+    <table class="table1">
+        <tr>
+            <td class="td1">
+                <div class="xb-input xb-checkbox">
+                    <input type="checkbox" class="input-element" id="weixin8"  name="weixin8"  ng-model="info.weixin8"/>
+                    <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.weixin8 == true}"></span>
+                    <label for="weixin8" class="input-label"></label>
+                </div> 
+            </td>
+            <td class="td2">
+                <span class="span1">
+                    
+                </span>
+                <span  class="span2">
+                    定位2.0功能更新
+                    <b ></b>
+                </span>
+            </td>
+            <td class="td3">
+                <p class="inp">
+                   定位2.0功能更新，提升了用户使用效率，更好的定位2.0功能更新，提升了用户使用效率，更好的 
+                </p>
+            </td>
+            <td class="td4">2017-4-15</td>
+        </tr>
+    </table>
+
+    <table class="table1">
+        <tr>
+            <td class="td1">
+                <div class="xb-input xb-checkbox">
+                    <input type="checkbox" class="input-element" id="weixin8"  name="weixin8"  ng-model="info.weixin8"/>
+                    <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.weixin8 == true}"></span>
+                    <label for="weixin8" class="input-label"></label>
+                </div> 
+            </td>
+            <td class="td2">
+                <span class="span3">
+                    
+                </span>
+                <span  class="span2">
+                    定位2.0功能更新
+                    <b ></b>
+                </span>
+            </td>
+            <td class="td3">
+                <p class="inp">
+                   定位2.0功能更新，提升了用户使用效率，更好的定位2.0功能更新，提升了用户使用效率，更好的 
+                </p>
+            </td>
+            <td class="td4">2017-4-15</td>
+        </tr>
+    </table>
+
+    <table class="table1">
+        <tr>
+            <td class="td1">
+                <div class="xb-input xb-checkbox">
+                    <input type="checkbox" class="input-element" id="weixin8"  name="weixin8"  ng-model="info.weixin8"/>
+                    <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.weixin8 == true}"></span>
+                    <label for="weixin8" class="input-label"></label>
+                </div> 
+            </td>
+            <td class="td2">
+                <span class="span3">
+                    
+                </span>
+                <span  class="span2">
+                    定位2.0功能更新
+                    <b ></b>
+                </span>
+            </td>
+            <td class="td3">
+                <p class="inp">
+                   定位2.0功能更新，提升了用户使用效率，更好的定位2.0功能更新，提升了用户使用效率，更好的 
+                </p>
+            </td>
+            <td class="td4">2017-4-15</td>
+        </tr>
+    </table>
+
+    <table class="table1">
+        <tr>
+            <td class="td1">
+                <div class="xb-input xb-checkbox">
+                    <input type="checkbox" class="input-element" id="weixin8"  name="weixin8"  ng-model="info.weixin8"/>
+                    <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.weixin8 == true}"></span>
+                    <label for="weixin8" class="input-label"></label>
+                </div> 
+            </td>
+            <td class="td2">
+                <span class="span3">
+                    
+                </span>
+                <span  class="span2">
+                    定位2.0功能更新
+                    <b ></b>
+                </span>
+            </td>
+            <td class="td3">
+                <p class="inp">
+                   定位2.0功能更新，提升了用户使用效率，更好的定位2.0功能更新，提升了用户使用效率，更好的 
+                </p>
+            </td>
+            <td class="td4">2017-4-15</td>
+        </tr>
+    </table>
+
+    <div bs-pager="pagination"></div>
+
+    <p>共有30条记录，当前第1-6，第1/10页</p>
+
+</div>-->
+<!-- 系统通知modal结束 -->
+
+<!--<div class="main container-fluid" ng-if="content.show" style="padding-right: 0">
+    <div ui-view></div>
+</div>-->
+
+<!--
+<div class="read_rc" id="sysNotice_detail_rc"
+     sysNotice="系统通知"
+     >
+</div>-->
+<div class="newdesign" ui-view></div>
+<div class="operates">
+    <div class="operate">
+        <div class="icon" ng-click="clickOperate = !clickOperate">
+            <span>快捷<br/>操作</span>
+        </div>
+        <div class="link" ng-show="clickOperate">
+            <img src="../newdesign/newhome/images/yunwei.png">
+            <img src="../newdesign/newhome/images/dingwei.png">
+            <span style="background-color: #374d63">命令<br/>助手</span>
+            <span>升<br/>级</span>
+        </div>
+    </div>
+</div>

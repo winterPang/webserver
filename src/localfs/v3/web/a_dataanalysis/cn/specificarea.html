@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        #userTrace{
+            background-image: url(../soon/image/shangchang.png);
+        }
+        #backtobmap{
+            float: left;
+            cursor:pointer;
+        }
+
+        .clientMacAddr{
+            height:500px;
+            width:300px;
+            float: right;
+        }
+        #userTrace{
+            float:left;
+        }
+        .backImg{
+            background-image: url(../soon/image/1213.PNG);
+            margin-top: 10px;
+        }
+
+        .daterange button{
+            width: 100px;
+            background-color: #69C4C5;
+            padding: 0;
+        }
+        .daterangepicker table thead tr th {
+            background: #69C4C5;
+            color: #fff;
+        }
+        .daterangepicker td.active, .daterangepicker td.active:hover {
+            color: #fff;
+            background-color: #69C4C5;
+        }
+        .daterangepicker .ranges .range_inputs .btn-success,.daterangepicker .ranges .range_inputs .btn-success:hover{
+            margin: 10px;
+            color: #fff;
+            background-color: #69C4C5;
+            border-color: #fff;
+            min-width: 40px;
+        }
+
+        /*slist 调整*/
+        .slist-body .slist-center .slist-row,.slist-body .slist-head{
+            border-bottom: 0px;
+        }
+        .slist-body .slist-center .slist-row.even{
+            background-color: #ffffff;
+            transition:background 0.5s;
+            -moz-transition:background 0.5s; /* Firefox 4 */
+            -webkit-transition:background 0.5s; /* Safari and Chrome */
+            -o-transition:background 0.5s; /* Opera */
+        }
+        .slist-body .slist-head{
+            background-color: #EDF0F2;
+            transition:background 0.5s;
+            -moz-transition:background 0.5s; /* Firefox 4 */
+            -webkit-transition:background 0.5s; /* Safari and Chrome */
+            -o-transition:background 0.5s; /* Opera */
+        }
+        .slist-body .slist-center .slist-row.odd{
+            background-color: #ffffff;
+            transition:background 0.5s;
+            -moz-transition:background 0.5s; /* Firefox 4 */
+            -webkit-transition:background 0.5s; /* Safari and Chrome */
+            -o-transition:background 0.5s; /* Opera */
+        }
+        .simple-list .slist-body {
+            border-style: solid;
+            border-color: #dedddd;
+            border-width: 0 1px 0 1px;
+        }
+        .slist-body .slist-center .slist-row:hover{
+            color:white;
+            background: #EDF0F2;
+        }
+        .slist-body .slist-center .slist-row.active{
+            background: rgba(0 0 0 0);
+        }
+
+        .probe-choice input{
+            width: 200px;
+            height: 33px;
+            padding-right: 40px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+        }
+        .probe-choice.input-height{
+            height: 33px;
+        }
+        .probe-choice input{
+            z-index: 2;
+        }
+        .probe-choice input.probe-input{
+            z-index: 2;
+        }
+        .probe-choice .choice-show{
+            width: 100%;
+            height: 0px;
+            overflow: hidden;
+            position: relative;
+            background-color: #fff;
+            -webkit-box-shadow: 0 0 1px 1px #ccc;
+            -moz-box-shadow: 0 0 1px 1px;
+            box-shadow: 0 0 6px 0px;
+            z-index: 2;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            -webkit-transition: height 0.3s;
+            -moz-transition: height 0.3s;
+            -ms-transition: height 0.3s;
+            -o-transition: height 0.3s;
+            transition: height 0.3s;
+        }
+        .probe-choice .choice-show li{
+            background: #fff;
+            line-height: 35px;
+            font-size: 14px;
+            padding: 0px 0 0px 18px;
+            list-style-type: none;
+            -webkit-transition: background 0.3s;
+            -moz-transition: background 0.3s;
+            -ms-transition: background 0.3s;
+            -o-transition: background 0.3s;
+            transition: background 0.3s;
+        }
+        .probe-choice .choice-show li:not(:first-child) {
+            border-top: rgba(204, 204, 204, 0.36) dashed 1px;
+        }
+        .probe-choice .choice-show li:first-child{
+            border-top: rgba(204, 204, 204, 0.36) solid 1px;
+        }
+        .probe-choice .choice-show li:hover{
+            background: #ccc;
+            cursor: pointer;
+        }
+        .probe-choice .probesearch-icon{
+            position: absolute;
+            top: 10px;
+            right: 0;
+            width: 35px;
+            height: 31px;
+            border-left: #E9E9E9 solid 1px;
+            margin: 1px 6px 1px 0;
+        }
+        .probe-choice .choice-show.height-change{
+            height: auto;
+        }
+        .probe-choice input.probe-input{
+            width: 183px;
+            margin: 10px;
+        }
+        .choice-head{
+            width: 100%;
+            height: 33px;
+            padding-right: 0px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border-radius: 3px;
+            border: #ccc solid 1px;
+        }
+        .choice-head:hover{
+            border-color: #4ec1b2;
+            cursor: pointer;
+        }
+        .choice-head span:first-child{
+            margin-left: 15px;
+            line-height: 33px;
+        }
+        .choice-head span:last-child{
+            height: 33px;
+            width: 30px;
+            float: right;
+        }
+
+        /*向下箭头*/
+        .arrow-down{
+            background: url(css/image/dashboard-icon.png) no-repeat -376px -94px;
+        }
+        .probesearch-icon{
+            background: url(css/image/dashboard-icon.png) no-repeat -209px -97px;
+            cursor: pointer;
+        }
+        /*全页面覆盖*/
+        .cover-body{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+
+        .page-row .new-posistion{
+            margin-bottom: 20px;
+        }
+
+        #probe_time5+label+.time-zone{
+            display: none;
+        }
+        #probe_time5:checked +label + .time-zone{
+            display: inline-block;
+        }
+
+
+        .choice-show .time-zone{
+            padding: 10px;
+        }
+        .choice-show .time-zone .daterange{
+            width: 180px;
+        }
+
+        .probe-back div{
+            padding-left: 5px;
+            color: #ffffff;
+            overflow: hidden;
+            height: 40px;
+            width: 100px;
+            float: right;
+        }
+        .probe-back span:first-child{
+            margin-top: 10px;
+            float: left;
+        }
+
+        .page-row .choice-head{
+            background: #fff;
+        }
+        #datechoice{
+            width: 200px;
+            float: right;
+        }
+
+        /*样式调整*/
+        .leg-panel .leg-row,.leg-panel .leg-row .leg-percent{
+            color: #ffffff;
+            border-bottom: 1px solid #43607d;
+        }
+        .dayHotMapOne{
+            background-image: url(../soon/image/dayhotmapone.jpg);
+        }
+        .dayHotMapTwo{
+            background-image: url(../soon/image/dayhotmaptwo.jpg);
+        }
+        .dayHotMapThree{
+            background-image: url(../soon/image/dayhotmapthree.jpg);
+        }
+    </style>
+</head>
+
+<body>
+<div id="body_over" class="cover-body dashboard hide"></div>
+
+<div class="col-xs-12 app-colum xxb" id="advertmanage" debug="getShopNameID initserver queryImgTime">
+    <div class="app-box no-height">
+        <div class="box-body no-height">
+            <div class="col-xs-12 app-colum" id="content">
+                <div id="local-model" class="cont">
+                    <ul class="nav nav-tabs">
+                        <div>
+                            <img id="backtobmap" title="返回大地图" src="../soon/image/back.png">
+                        </div>
+
+                        <li role="presentation" class="active"><a href="#index" data-toggle="tab" ><span class="nav-cont">每日热图</span></a></li>
+                        <li role="presentation"><a href="#login" data-toggle="tab"><span>实时定位</span> </a></li>
+                        <li role="presentation"><a href="#loginsuccess" data-toggle="tab">用户轨迹</a></li>
+
+
+                        <div id="datechoice" class="col-xs-12 input-height probe-choice">
+                            <div id="probe_choice" class="choice-head" value="3">
+                                <span class="current-state">楼层1</span>
+                                <span id="img-down" class="arrow-down"></span>
+                            </div>
+                            <div class="choice-show">
+                                <div>
+                                    <input type="text" class="probe-input">
+                                    <div class="probesearch-icon"></div>
+                                </div>
+                                <div>
+                                    <li value="1">楼层1</li>
+                                    <li value="2">楼层2</li>
+                                    <li value="3">楼层3</li>
+                                </div>
+                            </div>
+                        </div>
+                    </ul>
+
+                    <div class="tab-content tabstyle">
+                        <div class="tab-pane active " id="index">
+                            <div class="adverleft col-xs-6 app-colum left-block" adver="index">
+                                <div  class="dayHotMapOne" id="dayHotMap" style="height:572px;width:900px;"></div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane " id="login">
+                            <div class="backImg" style="width:882px;height:564px;">
+                                <div id="ap" style="width: 882px;height:564px;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane"  id="loginsuccess">
+                            <div  style="padding-top: 20px;">
+                                <div class="col-xs-9">
+                                    <div id="userTrace"  style="height : 500px;width : 800px;"></div>
+                                </div>
+
+                                <div class="col-xs-3">
+                                    <div id="macAddr">
+                                           <!--<div class="box-footer" style="background-color:#F7F5F5">
+                                                <span class="title">手机Mac地址</span>
+                                            </div>-->
+                                        <div class="" style="width:260px;height: 300px;">
+                                            <div id="macaddr_info_list" class="simple-list"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div id="macaddr_infor_rc" class="rc-define" MAC_LABELS="名字,Mac地址"></div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("a_dataanalysis.specificarea");
+</script>
+
+
+

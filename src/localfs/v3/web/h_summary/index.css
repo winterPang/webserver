@@ -1,0 +1,189 @@
+.index_out_div{
+    float:right;
+    margin-right:33px;
+}
+.xx-link{
+    color: #2E8BB3;
+    text-decoration: underline;
+    cursor: pointer;
+    line-height: 35px;
+    margin-right: 10px;
+}
+.index_inner_div{
+    width: 47%;
+    height: 110px;
+}
+.index_inner_div_left_top{
+    margin-left: 3%;
+    margin-top: 5px;
+    float: left;
+    border-bottom: 1px solid lightgray;
+    border-right: 0px solid lightgray;
+}
+.index_inner_div_left_top_noborder{
+    margin-left: 3%;
+    margin-top: 5px;
+    float: left;
+}
+.index_inner_div_right_top{
+    margin-right: 3%;
+    margin-top: 5px;
+    float: right;
+    border-bottom: 1px solid lightgray;
+    border-left: 1px solid lightgray;
+}
+.index_inner_div_right_top_noborder{
+    margin-right: 3%;
+    margin-top: 5px;
+    float: right;
+}
+.index_inner_div_left_bottom{
+    margin-left: 3%;
+    margin-bottom: 5px;
+    float: left;
+    border-top: 0px solid lightgray;
+    border-right: 0px solid lightgray;
+}
+.index_inner_div_left_bottom_noborder{
+    margin-left: 3%;
+    margin-bottom: 5px;
+    float: left;
+}
+.index_inner_div_right_bottom{
+    margin-right: 3%;
+    margin-bottom: 5px;
+    float: right;
+    border-top: 0px solid lightgray;
+    border-left: 1px solid lightgray;
+}
+.index_inner_div_right_bottom_noborder{
+    margin-right: 3%;
+    margin-bottom: 5px;
+    float: right;
+}
+.index_div_wrapper_multiple{
+    float: left;
+    width: 48%;
+    padding: 10px;
+}
+.index_div_lu{
+    text-align: center;
+    width: inherit;
+    margin-top: 30px;
+    margin-left: 5px;
+}
+.index_div_lu2{
+    text-align: center;
+    width: inherit;
+    margin-top: 30px;
+    margin-left: 15px;
+}
+.index_div_lu_amount{
+    font-size: x-large;
+}
+.index_up_text{
+    float: left; 
+    vertical-align: middle; 
+    font-size: 15pt;
+    margin-top:40%; 
+    margin-left:25px; 
+    font-weight: 800; 
+    word-wrap: break-word;
+}
+.index_div_lu_desc{
+    white-space: nowrap;
+    margin-left: 5px;
+    margin-top: 0px;
+    color: #7B7070;
+}
+.index_div_lu_desc2{
+    white-space: nowrap;
+    margin-left: 12px;
+    margin-top: 0px;
+    color: #7B7070;
+}
+.index_div_lu_desc_2{
+    margin-left: 25%; 
+    margin-top: 12%;
+    white-space: nowrap; 
+    color: #7B7070;
+}
+.index_div_lu_icon_wrapper{
+        float: left;
+        width: 48%;
+    }
+.index_icon_image_1{
+    background: url("/v3/web/frame/css/image/message3.png");
+    background-position: -80px -200px;
+    background-repeat: no-repeat;
+    width: 108px;
+    height: 90px;
+    margin-top: 10px;
+    margin-left: auto;
+}
+.index_icon_image_2{
+    background: url("/v3/web/frame/css/image/message3.png");
+    background-position: -255px -200px;
+    background-repeat: no-repeat;
+    width: 108px;
+    height: 90px;
+    margin-top: 10px;
+    margin-left: auto;
+}
+.index_icon_image_3{
+    background: url("/v3/web/frame/css/image/message3.png");
+    background-position: -545px -240px;
+    background-repeat: no-repeat;
+    width: 115px;
+    height: 50px;
+    margin-top: 25px;
+    margin-left: auto;
+}
+.index_icon_image_4{
+    background: url("/v3/web/frame/css/image/message3.png");
+    background-position: -390px -240px;
+    background-repeat: no-repeat;
+    width: 115px;
+    height: 50px;
+    margin-top: 25px;
+    margin-left: auto;
+}
+.index_icon_image_5{
+    background: url("/v3/web/frame/css/image/message3.png");
+    background-position: -650px -840px;
+    background-repeat: no-repeat;
+    width: 70px;
+    height: 65px;
+    margin-top: 40px;
+}
+.index_icon_image_6{
+    background: url("/v3/web/frame/css/image/message3.png");
+    background-position: -765px -840px;
+    background-repeat: no-repeat;
+    width: 70px;
+    height: 65px;
+    margin-top: 40px;
+}
+.index_icon_image_7{
+    background: url("/v3/web/frame/css/image/message3.png");
+    background-position: -882px -840px;
+    background-repeat: no-repeat;
+    width: 70px;
+    height: 65px;
+    margin-top: 40px;
+}
+.index_icon_image_8{
+    background: url("/v3/web/frame/css/image/message3.png");
+    background-position: -992px -840px;
+    background-repeat: no-repeat;
+    width: 70px;
+    height: 65px;
+    margin-top: 40px;
+}
+
+.text-style {
+    position: relative;
+    top: -160px;
+    margin: 0 auto;
+    width: 100px;
+}

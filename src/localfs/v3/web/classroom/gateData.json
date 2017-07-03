@@ -1,0 +1,59 @@
+/*
+    {name: 'Location', value: 'String'},
+    {name: 'GateAp', value: 'String'},
+    {name: 'GateApId', value: 'String'},
+    {name: 'GateMId', value: 'String'},
+    {name: 'GateSerial', value: 'String'},
+*/
+
+{
+  "东1门":[
+    {'Location':"门内",'GateAp':'ap1','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap2','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap3','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap4','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap5','GateApId':'2','1','3','1111111','111111'}
+  ],
+  "东2门":[
+    {'Location':"门内",'GateAp':'ap1','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap2','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap3','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap4','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap5','GateApId':'2','1','3','1111111','111111'}
+  ],
+  "东1门":[
+    {'Location':"门内",'GateAp':'ap1','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap2','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap3','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap4','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap5','GateApId':'2','1','3','1111111','111111'}
+  ],
+  "东1门":[
+    {'Location':"门内",'GateAp':'ap1','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap2','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap3','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap4','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap5','GateApId':'2','1','3','1111111','111111'}
+  ],
+  "东1门":[
+    {'Location':"门内",'GateAp':'ap1','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap2','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap3','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap4','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap5','GateApId':'2','1','3','1111111','111111'}
+  ],
+  "东1门":[
+    {'Location':"门内",'GateAp':'ap1','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap2','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap3','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap4','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap5','GateApId':'2','1','3','1111111','111111'}
+  ],
+  "东1门":[
+    {'Location':"门内",'GateAp':'ap1','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap2','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap3','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap4','GateApId':'2','1','3','1111111','111111'},
+    {'Location':"门内",'GateAp':'ap5','GateApId':'2','1','3','1111111','111111'}
+  ],
+}

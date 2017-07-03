@@ -1,0 +1,195 @@
+<html>
+<head>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">WeChat Official Account</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="chatList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="hide" id="chatToggle">
+    <div class="info-tip">Make sure the following configuration is identical with the configuration on WeChat.</div>
+    <form id="chattoggle_form" class="form edit">
+        <div class="col-sm-6 response-block">
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">Name</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="chatname" maxlength="20" name = "name" error_id="chatname_error"/>
+                    <label class="info-explain">(6 to 20 characters that can contain letters, digits, underscores, and minus signs. The first character of the name must be a letter)</label>
+                    <label class="error" id="chatname_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">TOKEN</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="token" maxlength="32" name="token" error_id="token_error"/>
+                    <label class="info-explain">(3 to 32 characters)</label>
+                    <label class="error" id="token_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Account type</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-4">
+                        <input type="radio" id="publicNumber1" name="type" value="1" checked />
+                        <label for="publicNumber1">Subscription account</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="radio" id="publicNumber2" name="type" value="2" />
+                        <label for="publicNumber2" >Service account</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="radio" id="publicNumber3" name="type" value="3"/>
+                        <label for="publicNumber2" >Enterprise account</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Verified by Tencent</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-4">
+                        <input type="radio" id="chatAuthType1" name="ifWeixinAuth" value="1" />
+                        <label for="chatAuthType1">Yes</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="radio" id="chatAuthType2" name="ifWeixinAuth" value="0" checked />
+                        <label for="chatAuthType2" >No</label>
+                    </div>
+                    <!--<div>
+                        <input type="text" class="url big required" id="url" name = "url" error_id="chatUrl_error" placeholder=""/>
+                        <label class="info-explain">（http://lvzhou.h3c.com/weixin/xxxx/xxxx）</label>
+                        <label class="error" id="chatUrl_error"></label>
+                    </div>-->
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Authentication address
+                     <span class="toggle" contents="#IdentityGroupInfo">
+                        <i class="icon-question-sign"></i>
+                    </span>
+                </label>
+                <div class="col-sm-9">
+                    <div>
+                        <input type="text" class="url big" id="url" name = "url" error_id="chatUrl_error" placeholder=""/>
+                        <button class="btn btn-primary" id="url_rand">Generate Randomly</button>
+                        
+                        <label class="error" id="chatUrl_error"></label>
+                        <label class="info-help hide" id="IdentityGroupInfo">
+                            Please configure the address as the authentication server address for the WeChat official account.
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 response-block">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Description</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big" id="chatDescription" maxlength="256" name = "description"/>
+                    <label class="info-explain">(1 to 256 characters)</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">APP ID
+                    <span class="toggle" contents="#appIdInfo">
+                        <i class="icon-question-sign"></i>
+                    </span>
+                </label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" maxlength="64" id="appId" name = "appId" error_id="appId_error"/>
+                    <label class="info-explain">(1 to 64 characters)</label>
+                    <label class="error" id="appId_error"></label>
+                    <label class="info-help hide" id="appIdInfo">
+                        Please obtain the APP ID from Basic Configuration on the WeChat official account platform.
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">APP SECRET
+                    <span class="toggle" contents="#appSecretInfo">
+                        <i class="icon-question-sign"></i>
+                    </span>
+                </label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" maxlength="64" id="appSecret" name = "appSecret" error_id="appSecret_error"/>
+                    <label class="info-explain">(1 to 64 characters)</label>
+                    <label class="error" id="appSecret_error"></label>
+                    <label class="info-help hide" id="appSecretInfo">
+                        Please obtain the APP SECRET from Basic Configuration on the WeChat official account platform.
+                    </label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">Encrypted password</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" maxlength="43" id="encodingAesKey" name = "encodingAesKey" error_id="key_error"/>
+                    <label class="info-explain"></label>
+                    <button class="btn btn-primary" id="rand">Generate Randomly</button>
+                    <label class="error" id="key_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">Encryption type</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-4">
+                        <input type="radio" id="encryptionType1" name="cipherMode" value="1" checked />
+                        <label for="encryptionType1">Plaintext</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="radio" id="encryptionType2" name="cipherMode" value="2" checked />
+                        <label for="encryptionType2" >Compatible</label>
+                    </div>
+                    <div class="col-sm-4">
+                        <input type="radio" id="encryptionType3" name="cipherMode" value="3"/>
+                        <label for="encryptionType3" >Secure</label>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="form-group">-->
+                <!--<label class="col-sm-3 control-label">Auto response</label>-->
+                <!--<div class="col-sm-9">-->
+                  <!--<a href="#" style="color:#0078ff;border-bottom:1px solid #0078ff;font-size:13px" id = "detail">Details</a>-->
+                <!--</div>-->
+            <!--</div>-->
+        </div>
+    </form>
+</div>
+
+<div class="hide modal fade" id="AddChatTempDlg"></div>
+
+<div id="ws_ssid_rc" class="rc-define"
+     AUTH_Status        = "Disable, Enable"
+     Chat_HEADER        = "Official Account, APP ID, APP SECRET, TOKEN"
+     ADDChat_TITLE      = "Add WeChat Official Account"
+     REG_NAME           = "The name can contain letters, digits, underscores, and minus signs"
+     REG_NAME_LENGTH    = "The name must contain at least 6 characters"
+     REG_NAME_START     = "The name must start with a letter"
+     REG_TOKEN          = "3 to 32 characters that contain only letters or digits"
+     REG_AESKEY         = "The AesKey must contain only letters or digits"
+     REG_APPID          = "The APP ID cannot contain spaces"
+     REG_APP_SECRET     = "The APP SECRET cannot contain spaces"
+     CONFIG_SUCCESS     = "Official account added successfully"
+     WX_COUNT_ERR_CODE_1504  = "The official account already exists"
+     WX_DEL_COUNT_ERR_1506 = "The WeChat official account is bound to a published template and cannot be deleted."
+     DEL_SUCCESS        = "Official account deleted successfully"
+     DEL_FAILED         = "Failed to delete the official account"
+     SEARCH_DATA_ERR    = "Error occurred during data querying"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("auth.pubmessage");
+</script>

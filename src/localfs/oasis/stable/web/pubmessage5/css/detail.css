@@ -1,0 +1,53 @@
+.info-tip {
+    margin-bottom:16px;
+    font-size: 17px;
+    color: #4ec1b2;
+}
+.detail-content{
+    overflow: hidden;
+    margin-top:30px;
+    padding-left: 12px;
+}
+.float-left {
+    float: left;
+}
+.advan_set {
+    background: url(../img/advanceset.png) no-repeat -47px -57px;
+    background-color: #FFF;
+}
+.advan_icon {
+    width: 29px;
+    height: 29px;
+}
+.advan_btn {
+    background-position: -145px -59px;
+    width: 20px;
+    height: 23px;
+    margin-top: -4px;
+}
+.advan_open {
+    background-position: -116px -59px;
+}
+
+.bottomline {
+    border-bottom: 1px solid #dedddd;
+    width: 85%;
+    display: inline-block;
+    margin-top: 12px;
+    margin-left: 5px;
+}
+@media screen and (max-height: 900px) {
+    .alretModel{
+        max-height: 540px !important;
+    }
+}
+@media screen and (max-height: 800px) {
+    .alretModel{
+        max-height: 490px !important;
+    }
+}
+@media screen and (max-height: 768px) {
+    .alretModel{
+        max-height: 460px !important;
+    }
+}

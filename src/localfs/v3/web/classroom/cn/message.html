@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html  lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        div.smartschool .slist-link{
+            color:#4ec1b2;
+            /*margin-left:5px;*/
+            border-bottom: 1px solid #4ec1b2;
+        }
+        /*div.smartschool  .slist-link:hover, div.smartschool .slist-link:active, div.smartschool .slist-link:focus {*/
+        /*color: #4ec1b2;*/
+        /*border-bottom: 1px solid #4ec1b2;*/
+        /*}*/
+        .app-box .top-box {
+            position:absolute;
+            right:45px;
+            width:750px;
+            display:none;
+        }
+        div.time-zone {
+            height:300px;
+
+        }
+
+        .time-zone .form-actions {
+            display: none;
+        }
+        .app-box .form-actions.bottom {
+            margin: 80px 1px 0 0;
+        }
+        .radio-name .grade-month{
+            margin:0 10px  0 20px;
+        }
+        .business-wifi-devinfo .time-zone .form-actions {
+            display: none;
+        }
+        .app-box .form-actions.bottom {
+            margin: 6px -5px 0 0;
+            float: right;
+        }
+        .editGrade{
+            margin-left:20px;
+            display:none;
+        }
+        .smartschool .stuType{
+            margin: 0px 0px 10px 0;
+        }
+        .smartschool .modal .select2-container {
+            width: 176px;
+        }
+        .daterangepicker .ranges .input-mini {
+            width: 125px;
+        }
+
+        select.hourselect, .daterangepicker select.minuteselect, .daterangepicker select.secondselect{
+            width: 60px;
+            margin:0;
+            /*//margin-bottom: 0;*/
+        }
+        .btn-small {
+            width: 100px;
+        }
+        .edittable-table {
+            padding:0;
+            border:none;
+        }
+
+        .edittable-row i[class*="icon-"].icon-plus {
+            height: 43px;
+        }
+
+        i.icon.config-icon {
+            background-position: -345px -58px;
+        }
+
+        i.icon.config-icon:hover {
+            background-position: -379px -58px;
+        }
+
+        /*.radio-name{*/
+        /*float:left;*/
+        /*}*/
+        .grade-config{
+            margin-top:10px;
+        }
+        .configcontent{
+            margin-left: 30px;
+        }
+        .config{
+            margin-top:30px;
+        }
+    </style>
+</head>
+<body>
+<div class="page-row smartschool">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box wrap_c">
+            <div class="box-footer">
+                <span class="title">接入应用管理</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="enterAppList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-row smartschool">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box wrap_c">
+            <div class="box-footer">
+                <span class="title">进出校门通知</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="studentList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-row smartschool">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box wrap_c">
+            <div class="box-footer">
+                <span class="title">健康消息通知</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="healthList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hide modal fade" id="editDlg">
+    <form id="addMessage_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <label class="col-sm-2 control-label required">消息名称</label>
+            <div class="col-sm-9">
+                <select class="big singleSelect required" id="messageName"  errid="messageName_error"></select>
+                <label class="error" id="messageName_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label required">消息接口</label>
+            <div class="col-sm-9">
+                <input type="text" class="big required" id="messageAPI" name="messageAPI" errid="messageAPI_error" maxlength="1024">
+                <label class="info-explain" name="messageAPI">(1-1024字符)</label>
+                <label class="error" id="messageAPI_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" id="userName" name="username" errid="username_error" maxlength="32">
+                <label class="info-explain">(1-32字符)</label>
+                <label class="error" id="username_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" id="password" name="password" errid="password_error" maxlength="64">
+                <label class="info-explain">(1-64字符)</label>
+                <label class="error" id="password_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">鉴权方式</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" id="authority" name="authority" errid="authority_error" maxlength="64">
+                <label class="info-explain">(1-64字符)</label>
+                <label class="error" id="authority_error"></label>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="hide modal fade" id="editEnAppDlg">
+    <form id="editEnAppDlg_form" class="form-horizontal form edit">
+        <!--<div class="form-group">-->
+            <!--<label class="col-sm-2 control-label required">消息名称</label>-->
+            <!--<div class="col-sm-9">-->
+                <!--<select class="big singleSelect required" id="message_name"  errid="message_name_error"></select>-->
+                <!--<label class="error" id="message_name_error"></label>-->
+            <!--</div>-->
+        <!--</div>-->
+        <div class="form-group">
+            <label class="col-sm-2 control-label required">应用名称</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="appname" name="appname" errid="appname_error" maxlength="64">
+                <label class="info-explain" name="appname_label">(1-64字符)</label>
+                <label class="error" id="appname_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">应用用户名</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" id="app_username" name="app_username" errid="app_username_error" maxlength="32">
+                <label class="info-explain">(1-32字符)</label>
+                <label class="error" id="app_username_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" id="app_password" name="app_password" errid="app_password_error" maxlength="64">
+                <label class="info-explain">(1-64字符)</label>
+                <label class="error" id="app_password_error"></label>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div class="hide modal fade" id="editHealthDlg">
+    <form id="editHealthInfo_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <label class="col-sm-2 control-label required">消息名称</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="health_mesg" name="health_mesg" errid="health_mesg_error" maxlength="32">
+                <label class="info-explain" name="health_mesg_label">(1-32字符)</label>
+                <label class="error" id="health_mesg_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label required">消息接口</label>
+            <div class="col-sm-9">
+                <input type="text" class="big required" id="health_mesg_api" name="health_mesg_api" errid="health_mesg_api_error" maxlength="1024">
+                <label class="info-explain">(1-1024字符)</label>
+                <label class="error" id="health_mesg_api_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">用户名</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" id="health_user_name" name="health_user_name" errid="health_user_name_error" maxlength="32">
+                <label class="info-explain">(1-32字符)</label>
+                <label class="error" id="health_user_name_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">密码</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" id="secret_code" name="secret_code" errid="secret_code_error" maxlength="64">
+                <label class="info-explain">(1-64字符)</label>
+                <label class="error" id="secret_code_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">鉴权方式</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" id="health_auth" name="health_auth" errid="health_auth_error" maxlength="64">
+                <label class="info-explain">(1-64字符)</label>
+                <label class="error" id="health_auth_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label required">消息发布时间</label>
+            <div class="col-sm-9">
+                <!--<div id="datetime" class="datewidget" ctrl="datetime"></div>-->
+                <div id="clocktime" class="timewidget" ctrl="clocktime"></div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="device_rc" class="rc-define"
+     STUDENT_LIST="消息名称,消息接口,用户名,密码,鉴权方式"
+
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.message");
+</script>

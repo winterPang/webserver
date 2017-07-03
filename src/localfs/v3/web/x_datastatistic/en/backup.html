@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+</head>
+
+<body>
+<div class="page-row">
+    <div class="col-xs-12 app-colum xxb" debug="getDeviceInfo GetBackupTime">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">Cloud Backup</span>
+            </div>
+            <div class="box-body no-height">
+                <div class="restore_detail">
+                    <div id="cfg_restore_left">
+                        <label class="control-label">Last backup time</label>
+                        <span class="label" id="totlefileNum"></span>
+                        <div class="form-group-backup">
+                            <button class="btn btn_ok btn_big forbid" id="backup_btn">Back Up</button>
+                            <button class="btn btn_danger btn_big forbid" id="recovery_btn">Restore</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!---------------------------创建还原点-------------------->
+
+
+        <div class="hide modal fade" id="backupDlg">
+            <form class="form-horizontal form" id="backupForm">
+                <div class="form-group">
+                    <label class="col-sm-9 control-label"  id="dlgtext"><span></span> all AP configuration. Continue?</label>
+                </div>
+            </form>
+        </div>
+
+        <div id="cfg_restore_rc" class="rc-define"
+             MODE_SELECT="Restore,Back up"
+             CONFIRM_TITLE="Confirmation"
+             NEVER_BACKUP="AP configuration has never been backed up"
+             BackupAllCfg="Backup failed,Backup succeeded"
+             RestoreCurcfg="Restore failed,Restore succeeded"
+             DATE="-,-, ,h,m,s"
+             DATA_ERRORMSG="Failed to connect to the database,No data has been backed up"
+                ></div>
+    </div>
+</div>
+</body>
+
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_datastatistic.backup");
+
+</script>

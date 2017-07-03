@@ -1,0 +1,49 @@
+<style>
+    .form-horizontal .control-label {
+        text-align: left !important;
+        padding-top: 2px;
+    }
+    .form-group {
+        margin-bottom:0px;
+    }
+    .form-horizontal [class^="col-md-"], 
+    .form-horizontal [class*="col-md-"],
+    .form-horizontal [class^="col-xs-"],
+    .form-horizontal [class*="col-xs-"],
+    .form-horizontal [class^="col-sm-"], 
+    .form-horizontal [class*="col-sm-"] {
+        line-height: 30px;
+    }
+</style>
+<div class="col-xs-12 app-colum">
+    <div id='listView' class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">Blacklist</span>
+        </div>
+        <div class="panel-body">
+            <div class="btn btn-cus" ng-click="deleteMAC()" ng-disabled="delBtnDisable">Remove</div>
+            <div class="btn btn-cus" ng-click="addMAC()" ng-disabled="macBtnDisable">Add</div>
+            <div class="box-body no-height">
+                <div bs-table="blackListOption"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<form name="myForm" novalidate bs-modal="bindMAC.options">
+    <div class="form-group">
+        <label class="col-sm-3 control-label required">MAC Address</label>
+        <div class="col-md-9">
+            <textarea cols="4" rows="1" ng-model="add.macList" id="getmac" class="digits big" name="bindMAC" style="min-width:200px;height:142px;" placeholder="AA-BB-CC-DD-EE-FF">
+            </textarea>
+            <label class="info-explain">Enter comma-separated MAC addresses in the format as displayed.</label>
+        </div>
+    </div>
+</form>
+<div id="user_rc" class="rc-define"
+    USER_HEADER="MAC Address,Added At"
+    Title="Add MAC Address,details"
+    ADD_SUCCESS="Visitor added to the blacklist successfully,Visitor removed from the blacklist successfully"
+    ADD_ERROR="has been added to the blacklist,Please separate by comma"
+    MAC_ERROR="Valid format:AA-BB-CC-DD-EE-FF,Invalid MAC address"
+>
+</div>

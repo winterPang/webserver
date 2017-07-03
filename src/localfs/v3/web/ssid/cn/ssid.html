@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+    </style>
+</head>
+
+<body>
+
+<!--switch-->
+<!--<div>-->
+    <!--<table style="background-color: #dcdcdc;width: 600px;height: 50px">-->
+        <!--<tr>-->
+            <!--<td style="padding: 5px">-->
+                <!--&nbsp&nbsp信道强度-->
+            <!--</td>-->
+
+            <!--&lt;!&ndash;<td align="center">&ndash;&gt;-->
+                <!--&lt;!&ndash;<a id="dot_id" style="color: #4ec1b2">2.4G</a>&ndash;&gt;-->
+                <!--&lt;!&ndash;|&ndash;&gt;-->
+                <!--&lt;!&ndash;<a id="five_id">5G</a>&ndash;&gt;-->
+            <!--&lt;!&ndash;</td>&ndash;&gt;-->
+        <!--</tr>-->
+    <!--</table>-->
+
+<!--</div>-->
+
+<!--AP-Radio choose-->
+<div class="page-row">
+    <!--AP choose-->
+    <label style="font-weight: bold; color: #000e17">&nbsp&nbspAP&nbsp&nbsp</label>
+    <select id="apSelect" class="singleSelect" allowClear="false" name=""
+            style="width: 150px; font-weight: bold; color: #000303">
+    </select>
+
+    <!--Radio choose-->
+    <label style="margin-left: 10px; font-weight: bold; color: #000e17">&nbspRadio&nbsp&nbsp</label>
+    <select id="radioSelect" class="singleSelect" allowClear="false" name=""
+            style="width: 150px; font-weight: bold; color: #000303">
+    </select>
+
+    <!--Insert-->
+    <button id="check_exist" style="margin-left: 10px" type="submit" value="Submit">go</button>
+</div>
+
+<!--chart-->
+<div class="page-row">
+    <div style="margin-top: 1px" class="col-xs-12 app-colum left-block">
+        <div class="app-box no-bk-color">
+
+            <!--&lt;!&ndash;title&ndash;&gt;-->
+            <!--<div class="box-footer">-->
+                <!--<span class="title">SSID&#45;&#45;2.4G信道强度</span>-->
+            <!--</div>-->
+
+            <div class="chartContent">
+                <div id="echartsforssid" class="myEchart chartStyle" style="width: 600px; height: 600px"></div>
+                <div class="chartClear"></div>
+            </div>
+
+        </div>
+    </div>
+</div class="page-row">
+
+<!--提示信息，选择有效的ap-->
+<div class="modal fade modal-super" id="chooseValidAp" tabindex="-1" aria-hidden="true">
+    <!--  下面的表单是用来弹窗的,弹出的窗是具体的信息 -->
+    <form class="form-horizontal form" id="chooseAp">
+        <div class="box-body no-height form-group">
+            <div class="page-row">
+                <div class="col-xs-12 app-colum">
+                    <div class="app-box no-height default-bottom">
+                        <div>
+                            <!-- 这个div就是和下面的div有一个间距而已 -->
+                            <form >
+                                <ul>
+                                    <li><span>您选择了无效的ap.</span></li>
+                                    <li><span>请选择有效的ap.</span></li>
+                                </ul>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer form-actions"></div><!-- 这里是用来绑定取消按钮的 -->
+    </form>
+    <div class="editor-alert">
+    </div>
+</div>
+
+<!--提示信息，选择有效的radio-->
+<div class="modal fade modal-super" id="chooseValidRadio" tabindex="-1" aria-hidden="true">
+    <!--  下面的表单是用来弹窗的,弹出的窗是具体的信息 -->
+    <form class="form-horizontal form" id="chooseRadio">
+        <div class="box-body no-height form-group">
+            <div class="page-row">
+                <div class="col-xs-12 app-colum">
+                    <div class="app-box no-height default-bottom">
+                        <div>
+                            <!-- 这个div就是和下面的div有一个间距而已 -->
+                            <form >
+                                <ul>
+                                    <li><span>您选择了无效的radio.</span></li>
+                                    <li><span>请选择有效的radio.</span></li>
+                                </ul>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer form-actions"></div><!-- 这里是用来绑定取消按钮的 -->
+    </form>
+    <div class="editor-alert">
+    </div>
+</div>
+
+<!--提示信息，当前radio没开启扫描没有信息-->
+<div class="modal fade modal-super" id="noRadioStatus" tabindex="-1" aria-hidden="true">
+    <!--  下面的表单是用来弹窗的,弹出的窗是具体的信息 -->
+    <form class="form-horizontal form" id="radioStatus">
+        <div class="box-body no-height form-group">
+            <div class="page-row">
+                <div class="col-xs-12 app-colum">
+                    <div class="app-box no-height default-bottom">
+                        <div>
+                            <!-- 这个div就是和下面的div有一个间距而已 -->
+                            <form >
+                                <ul>
+                                    <li><span>当前radio未扫描到数据.</span></li>
+                                </ul>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer form-actions"></div><!-- 这里是用来绑定取消按钮的 -->
+    </form>
+    <div class="editor-alert">
+    </div>
+</div>
+
+
+<!--提示信息，是否开启扫描以便收集数据-->
+<div class="modal fade modal-super" id="setScan" tabindex="-1" aria-hidden="true">
+    <!--  下面的表单是用来弹窗的,弹出的窗是具体的信息 -->
+    <form class="form-horizontal form" id="setScanForm">
+        <div class="box-body no-height form-group">
+            <div class="page-row">
+                <div class="col-xs-12 app-colum">
+                    <div class="app-box no-height default-bottom">
+                        <div>
+                            <!-- 这个div就是和下面的div有一个间距而已 -->
+                            <form >
+                                <ul>
+                                    <li><span>当前的射频没有相关数据，收集数据需开启扫描</span></li>
+                                    <li><span>请问是否开启扫描?(提示：扫描过程需要1分钟)</span></li>
+                                </ul>
+                            </form>
+
+                            <button id="do_scan" class="btn btn-primary" style="margin-top: 20px;margin-left: 90px" type="button" value="button">确认</button>
+                            <button id="not_scan" class="btn btn-primary" dlgtype="Close" data-dismiss="modal" style="margin-top: 20px;margin-left: 70px" type="button" value="button">取消</button>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer form-actions"></div><!-- 这里是用来绑定取消按钮的 -->
+    </form>
+    <div class="editor-alert">
+    </div>
+</div>
+
+    <!--ssid.js���õ���һЩ����-->
+    <div id="ssid_rc" class="rc-define"
+         NOSCAN="扫描未开启"
+         INALIDAP="无效AP"
+         INALIDRADIO="无效RADIO"
+         CHANNEL="信道"
+         CHANNELSTRENGTH="信道强度"
+         DOTCHANNEL="2.4G信道"
+         FIVECHNNEL="5G信道"
+         CHOOSE="==请选择==">
+    </div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("ssid.ssid");
+</script>

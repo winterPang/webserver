@@ -1,0 +1,60 @@
+<html>
+<head>
+    <style type="text/css">
+        .wifipng{
+            background: url(../h_mchannel/pic/wifi.png) no-repeat;
+            width: 352px;
+            height: 439px;
+        }
+    </style>
+</head>
+<body>
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">微信商家主页</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="RegisterUserList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+
+<div class="hide" id="pageToggle">
+    <form id="adduser_form" class="form edit">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">名称</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="userName" name = "userName" maxlength="128" error_id="userName_error"/>
+
+                <label class="error" id="userName_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">描述</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="description" name = "description" maxlength="128"/>              
+                <label class="error" id="description_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="wifipng" id="wifipng">
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="add_user_Dlag" class="hide modal fade"></div>
+
+<div id="wehome_rc" class="rc-define"
+     USER_LIST_HEADER = "名称,描述,绘制"
+     ADD_USER="增加商家主页"
+     EDIT_USER="修改用户密码"
+     InputContentError = "参数输入错误。"
+        >
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_mchannel.wehome");
+</script>

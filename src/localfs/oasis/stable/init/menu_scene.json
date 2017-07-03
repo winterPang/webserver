@@ -1,0 +1,130 @@
+{
+    "retCode": 0,
+    "data": {
+        "menu": {
+            "88": [
+                {
+                    "name": "监控",
+                    "id": "monitor",
+                    "sref": "scene.content.monitor.dashboard88",
+                    "tabs": [
+                        {
+                            "name": "网络概览",
+                            "id": "dashboard88",
+                            "sref": "scene.content.monitor.dashboard88",
+                            "tabs": [],
+                            "permission": [
+                                "MONITOR_READ",
+                                "MONITOR_WRITE",
+                                "MONITOR_EXEC"
+                            ]
+                        },
+                        {
+                            "name": "用户体验",
+                            "id": "serexperience88",
+                            "sref": "scene.content.monitor.serexperience88",
+                            "tabs": [],
+                            "permission": [
+                                "MONITOR_READ",
+                                "MONITOR_WRITE",
+                                "MONITOR_EXEC"
+                            ]
+                        },
+                        {
+                            "name": "终端分析",
+                            "id": "customer",
+                            "sref": "",
+                            "tabs": [
+                                {
+                                    "name": "活跃度分析",
+                                    "id": "liveness88",
+                                    "sref": "scene.content.monitor.liveness88",
+                                    "permission": [
+                                        "MONITOR_READ",
+                                        "MONITOR_WRITE",
+                                        "MONITOR_EXEC"
+                                    ]
+                                },
+                                {
+                                    "name": "访问分析",
+                                    "id": "interview88",
+                                    "sref": "scene.content.monitor.interview88",
+                                    "permission": [
+                                        "MONITOR_READ",
+                                        "MONITOR_WRITE",
+                                        "MONITOR_EXEC"
+                                    ]
+                                },
+                                {
+                                    "name": "异常分析",
+                                    "id": "public5",
+                                    "sref": "scene.content.monitor.exception88",
+                                    "permission": [
+                                        "MONITOR_READ",
+                                        "MONITOR_WRITE",
+                                        "MONITOR_EXEC"
+                                    ]
+                                }
+                            ]
+                        },  
+                        {
+                            "name": "AP分析",
+                            "id": "apanalysis88",
+                            "sref": "",
+                            "tabs": [
+                                {
+                                    "name": "AP信息",
+                                    "id": "apinfo88",
+                                    "sref": "scene.content.monitor.apinfo88",
+                                    "permission": [
+                                        "MONITOR_READ",
+                                        "MONITOR_WRITE",
+                                        "MONITOR_EXEC"
+                                    ]
+                                },
+                                {
+                                    "name": "AP指标",
+                                    "id": "apindex88",
+                                    "sref": "scene.content.monitor.apindex88",
+                                    "permission": [
+                                        "MONITOR_READ",
+                                        "MONITOR_WRITE",
+                                        "MONITOR_EXEC"
+                                    ]
+                                }
+                            ],
+                            "permission": [
+                                "MONITOR_READ",
+                                "MONITOR_WRITE",
+                                "MONITOR_EXEC"
+                            ]
+                        },
+                        {
+                            "name": "告警日志",
+                            "id": "warning",
+                            "sref": "scene.content.monitor.warning",
+                            "tabs": [],
+                            "permission": [
+                                "MONITOR_READ",
+                                "MONITOR_WRITE",
+                                "MONITOR_EXEC"
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        "permission": {
+            "MONITOR_READ": true,
+            "MONITOR_WRITE": true,
+            "MONITOR_EXEC": true,
+            "CONFIG_READ": true,
+            "CONFIG_WRITE": true,
+            "OPERATION_READ": true,
+            "OPERATION_WRITE": true,
+            "MAINTENANCE_READ": true,
+            "MAINTENANCE_WRITE": true,
+            "MAINTENANCE_EXEC": true
+        }
+    }
+}

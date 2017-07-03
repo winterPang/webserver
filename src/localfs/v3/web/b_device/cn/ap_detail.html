@@ -1,0 +1,65 @@
+<html>
+<head>
+    <style type="text/css">
+        div.radio-css{
+            float: left;
+            margin-right: 24px;
+        }
+        div.control-content{
+            height:35px;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="page-row ap-detail">
+    <div class="btn_h_return" id="return"></div>
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height default-bottom">
+            <div class="box-footer">
+                <span class="title">AP信息</span>
+            </div>
+            <div class="box-body no-height">
+                <div class="control-content edit-content">
+                    <div class="radio-css">
+                        <input type="radio" class="public" id="BaseInfo" name="type" value="1" checked />
+                        <label for="BaseInfo">基本信息</label>
+                    </div>
+                    <div class="radio-css">
+                        <input type="radio" class="public" id="RadioInfo" name="type" value="2" />
+                        <label for="RadioInfo">射频信息</label>
+                    </div>
+                    <div class="radio-css">
+                        <input type="radio" class="public" id="TotalInfo" name="type" value="3" />
+                        <label for="TotalInfo">统计信息</label>
+                    </div>
+                    <div class="radio-css">
+                        <input type="radio" class="public" id="WifiInfo" name="type" value="3" />
+                        <label for="WifiInfo">无线信息</label>
+                    </div>
+                </div>
+                <div id="BaseInfoList"  class="simple-list"></div>
+                <div id="RadioInfoList" class="simple-list hide"></div>
+                <div id="TotalInfoList" class="simple-list hide"></div>
+                <div id="WifiInfoList" class="simple-list hide"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="apinfo_aplist_rc" class="rc-define" 
+     BASE_HEADER ="AP名称,AP型号,序列号,MAC地址,AP组名称"
+     RADIO_HEADER="AP名称,序列号,射频信息,信道信息,功率,终端数"
+     TOTAL_HEADER="AP名称,序列号,上行流量,下行流量,在线时长（天:时:分:秒)"
+     WIFI_HEADER="AP名称,内部SSID,访客SSID,1,2,3"
+     DISCONNECT="断开连接"
+     AP_STATUS=",在线,离线,正在下载版本"
+        ></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("b_device.ap_detail");
+</script>

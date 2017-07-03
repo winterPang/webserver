@@ -1,0 +1,443 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <link href="../health/css/health.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" air-hidden="true"></button>
+    <div class="title">体检报告</div>
+</div>
+<form class="form-horizontal form" id="healthform">
+
+    <div class="chartContent" style="margin-right:10px;">
+        <div id="apphealth" class="myEchart chartStyle"></div>
+        <div class="chartClear"></div>
+    </div>
+
+    <div class="healthContent">
+        <ul id="healthTab" class="nav nav-tabs">
+            <li class="active healthTab">
+                <a id="healthTabFirst" href="#examination" data-toggle="tab" class="healthTabLink">状态概览</a>
+            </li>
+            <li class="healthTab">
+                <a id="healthTabLast" href="#diagnosis" data-toggle="tab" class="healthTabLink">体检分析</a>
+            </li>
+        </ul>
+        <div id="healthTabContent" class="tab-content">
+            <div class="tab-pane fade in active" id="examination">
+                <div class="page-row">
+                    <div class="col-xs-12 app-colum right-block">
+                        <div class="report_list">
+                            <h2 style="cursor:pointer;" id="toggle-btn1" onclick="displayDetail2('one')">上行带宽 <div id="toggle-btnone" class="toggle-btn row-open"></div></h2>
+                            <div class="gm_safe" id="ldstate">
+                                <p id="result11"></p>
+                                <div id="loadAnalyse11"></div>
+                            </div>
+                            <table id="toggleTable11" style="display:none;width: 74%;margin-left: 13%;">
+                                <tr>
+                                    <th style="padding-top:2%; font-weight:bold">接口名称</th>
+                                    <th id="Portname" style="padding-top:2%; padding-left:0%; padding-right:4%"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">描述信息</th>
+                                    <th id="Descripinfo" style="padding-left:0%; padding-right:4%"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">上行WAN口速率</th>
+                                    <th id="Uplinkrate" style="padding-left:0%; padding-right:4%"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">下行WAN口速率</th>
+                                    <th id="Descendingrate" style="padding-left:0%; padding-right:4%"></th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="report_list">
+                            <h2 style="cursor:pointer;" id="toggle-btn2" onclick="displayDetail2('two')">AP统计信息<div id="toggle-btntwo" class="toggle-btn row-open"></div></h2>
+                            <div class="gm_safe" id="ldstate">
+                                <p id="result12"></p>
+                                <div id="loadAnalyse12"></div>
+                            </div>
+                            <table id="toggleTable12"  style="display:none;width: 74%;margin-left: 13%;">
+                                <tr>
+                                    <th style="font-weight:bold; padding-top:2%;">AP在线率</th>
+                                    <th id="APpercent" style="padding-top:2%; padding-left:0%; padding-right:4%"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">AP在线个数</th>
+                                    <th id="APOnlinenum" style="padding-left:0%; padding-right:4%"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">AP离线个数</th>
+                                    <th id="APOfflinenum" style="padding-left:0%; padding-right:4%"></th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="report_list">
+                            <h2 style="cursor:pointer;" id="toggle-btn3" onclick="displayDetail2('three')">终端速率<div id="toggle-btnthree" class="toggle-btn row-open"></div></h2>
+                            <div class="gm_safe" id="ldstate">
+                                <p id="result13"></p>
+                                <div id="loadAnalyse13"></div>
+                            </div>
+                            <table id="toggleTable13"  style="display:none;width: 74%;margin-left: 13%;">
+                                <tr>
+                                    <th style="padding-top:2%; font-weight:bold">终端在线个数</th>
+                                    <th id="Termstatistics" style="padding-top:2%; padding-left:0%; padding-right:4%"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">最高速率</th>
+                                    <th id="highestrate" style="padding-left:0%; padding-right:4%"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">最低速率</th>
+                                    <th id="lowestrate" style="padding-left:0%; padding-right:4%"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">平均速率</th>
+                                    <th id="averagerate2" style="padding-left:0%; padding-right:4%"></th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="report_list">
+                            <h2 style="cursor:pointer;" id="toggle-btn4" onclick="displayDetail2('four')">安全评价<div id="toggle-btnfour" class="toggle-btn row-open"></div></h2>
+                            <div class="gm_safe" id="ldstate">
+                                <p id="result14"></p>
+                                <div id="loadAnalyse14"></div>
+                            </div>
+                            <table id="toggleTable14" style="display:none;width: 74%;margin-left: 13%;">
+                                <tr>
+                                    <th style="padding-top:2%; font-weight:bold">非法AP</th>
+                                    <th id="illegalap" style="padding-top:2%; padding-left:0%; padding-right:4%"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">私接代理</th>
+                                    <th id="Privateagent" style="padding-left:0%; padding-right:4%"></th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="report_list">
+                            <h2 style="cursor:pointer;" id="toggle-btn5" onclick="displayDetail2('five')">设备状态<div id="toggle-btnfive" class="toggle-btn row-open"></div></h2>
+                            <div class="gm_safe" id="ldstate">
+                                <p id="result15"></p>
+                                <div id="loadAnalyse15"></div>
+                            </div>
+                            <table id="toggleTable15" style="display:none; width:74%; margin-left:13%;">
+                                <tr>
+                                    <th style="padding-top:2%; font-weight:bold">CPU利用率</th>
+                                    <th id="cpuutilization" style="padding-top:2%; padding-left:0%; padding-right:4%"></th>
+                                </tr>
+                                <!--<tr>
+                                    <th style="font-weight:bold">CPU温度</th>
+                                    <th id="cputemperature" style="padding-left:0%; padding-right:4%"></th>
+                                </tr>-->
+                                <tr>
+                                    <th style="font-weight:bold">内存利用率</th>
+                                    <th id="Memoryutilization" style="padding-left:0%; padding-right:4%"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">Flash剩余空间</th>
+                                    <th id="flash" style="padding-left:0%; padding-right:4%"></th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="report_list">
+                            <h2 style="cursor:pointer;" id="toggle-btn6" onclick="displayDetail2('six')">无线环境<div id="toggle-btnsix" class="toggle-btn row-open"></div></h2>
+                            <div class="gm_safe" id="ldstate">
+                                <p id="result16"></p>
+                                <div id="loadAnalyse16"></div>
+                            </div>
+                            <table id="toggleTable16"  style="display:none;width: 77%;margin-left: 13%;">
+                                <tr>
+                                    <th style="width:48%; padding-top:2%;font-weight:bold">状态</th>
+                                    <th style="width:33%; padding-top:2%;font-weight:bold">2.4G(个)</th>
+                                    <th style="width:33%; padding-top:2%;padding-left:10%;font-weight:bold">5G(个)</th>
+                                </tr>
+                                <tr>
+                                    <th style="width:48%; font-weight:bold" >好</th>
+                                    <th style="width:33%;" id="beststate1"></th>
+                                    <th style="width:33%; padding-left:10%" id="beststate2"></th>
+                                </tr>
+                                <tr>
+                                    <th style="width:48%; font-weight:bold" >较好</th>
+                                    <th style="width:33%;" id="betterstate1"></th>
+                                    <th style="width:33%; padding-left:10%" id="betterstate2"></th>
+                                </tr>
+                                <tr>
+                                    <th style="width:48%; font-weight:bold" >一般</th>
+                                    <th style="width:33%;" id="generalstate1"></th>
+                                    <th style="width:33%; padding-left:10%" id="generalstate2"></th>
+                                </tr>
+                                <tr>
+                                    <th style="width:48%; font-weight:bold" >较差</th>
+                                    <th style="width:33%;" id="poorerstate1"></th>
+                                    <th style="width:33%; padding-left:10%" id="poorerstate2"></th>
+                                </tr>
+                                <tr>
+                                    <th style="width:48%; font-weight:bold" >差</th>
+                                    <th style="width:33%;" id="worsestate1"></th>
+                                    <th style="width:33%; padding-left:10%" id="worsestate2"></th>
+                                </tr>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--在线诊断页面模块代码-->
+            <div class="tab-pane fade" id="diagnosis">
+                <div class="page-row">
+                    <div class="col-xs-6 app-colum right-block">
+                        <div class="report_list">
+                            <table style="width: 80%;margin-left: 20%;">
+                                <tr>
+                                    <th style="font-weight:bold;width:69%">Radio负载</th>
+                                    <th class="fc_security" id="loadValue"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">接收信号强度</th>
+                                    <th class="fc_security" id="rssiValue"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">终端协商速率</th>
+                                    <th class="fc_security" id="clientConsultValue"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">空口占用率</th>
+                                    <th class="fc_security" id="apValue"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">终端业务流量</th>
+                                    <th class="fc_security" id="clientFlowValue"></th>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="report_list">
+                            <h2 style="cursor:pointer;" onclick="displayDetail('one')">Radio负载<div id="togglebuttonone" class="toggle-btn row-open"></div></h2>
+                            <table id="Table1" style="display:none;width: 80%;margin-left: 20%;">
+                                <tr>
+                                    <th style="font-weight:bold;padding-top:2%;width:69%">负载/资源比</th>
+                                    <th style="font-weight:bold;padding-top:2%">占比</th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">负载/资源<10</th>
+                                    <th id="loadResouce2"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">10<负载/资源<50</th>
+                                    <th id="loadResouce3"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">50<负载/资源<100</th>
+                                    <th id="loadResouce4"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">负载/资源>100</th>
+                                    <th id="loadResouce5"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold;">优化建议</th>
+                                    <th id="loadAnalyse"></th>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="report_list">
+                            <h2  style="cursor:pointer;" onclick="displayDetail('two')">接收信号强度<div id="togglebuttontwo" class="toggle-btn row-open"></div></h2>
+                            <table id="Table2" style="display:none;width: 80%;margin-left: 20%;">
+                                <tr>
+                                    <th style="font-weight:bold;padding-top:2%;width:69%">RSSI</th>
+                                    <th style="font-weight:bold;padding-top:2%">占比</th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">RSSI>40</th>
+                                    <th id="clientRssi1"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">40>	RSSI>35</th>
+                                    <th id="clientRssi2"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">35>	RSSI>30</th>
+                                    <th id="clientRssi3"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">30>RSSI>25</th>
+                                    <th id="clientRssi4"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">25>RSSI>20</th>
+                                    <th id="clientRssi5"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">20>RSSI>15</th>
+                                    <th id="clientRssi6"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">15>RSSI</th>
+                                    <th id="clientRssi7"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold;">优化建议</th>
+                                    <th id="rssiAnalyse"></th>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="report_list">
+                            <h2 style="cursor:pointer;" onclick="displayDetail('three')">终端协商速率<div id="togglebuttonthree"  class="toggle-btn row-open"></div></h2>
+                            <table id="Table3" style="display:none;width: 80%;margin-left: 20%;">
+                                <tr>
+                                    <th style="font-weight:bold;padding-top:2%;width:69%">协商速率</th>
+                                    <th style="font-weight:bold;padding-top:2%">占比</th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">TX>300</th>
+                                    <th id="consult1"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">300>TX>100</th>
+                                    <th id="consult2"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">100>TX>56</th>
+                                    <th id="consult3"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">56>TX>36</th>
+                                    <th id="consult4"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">36>TX>11</th>
+                                    <th id="consult5"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">TX<11</th>
+                                    <th id="consult6"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold;">优化建议</th>
+                                    <th id="clientConsultAnalyse"></th>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="report_list">
+                            <h2  style="cursor:pointer;" onclick="displayDetail('four')">空口占用率<div id="togglebuttonfour" class="toggle-btn row-open"></div></h2>
+                            <table id="Table4" style="display:none;width: 80%;margin-left: 20%;">
+                                <tr>
+                                    <th style="font-weight:bold;padding-top:2%;width:69%">空口占用率</th>
+                                    <th style="font-weight:bold;padding-top:2%">占比</th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">CtlBusy<30</th>
+                                    <th id="clienttooR1"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">50>CtlBusy>30</th>
+                                    <th id="clienttooR2"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">70>CtlBusy>50</th>
+                                    <th id="clienttooR3"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">CtlBusy>70</th>
+                                    <th id="clienttooR4"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold;">优化建议</th>
+                                    <th id="apAnalyse"></th>
+                                </tr>
+                            </table>
+                        </div>
+
+                        <div class="report_list">
+                            <h2  style="cursor:pointer;" onclick="displayDetail('five')">终端业务流量<div id="togglebuttonfive" class="toggle-btn row-open"></div></h2>
+                            <table id="Table5" style="display:none;width: 80%;margin-left: 20%;">
+                                <tr>
+                                    <th style="font-weight:bold;padding-top:2%;width:69%">RX(下载速率)</th>
+                                    <th style="font-weight:bold;padding-top:2%">占比</th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">RX>10Mbps</th>
+                                    <th id="clientRX1"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">10M>RX>2M</th>
+                                    <th id="clientRX2"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">2M>RX>1M</th>
+                                    <th id="clientRX3"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">1M>RX>300K</th>
+                                    <th id="clientRX4"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">300K>RX>100K</th>
+                                    <th id="clientRX5"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">RX<100K</th>
+                                    <th id="clientRX6"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">TX(上传速率)</th>
+                                    <th style="font-weight:bold">占比</th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">TX>10Mbps</th>
+                                    <th id="clientTX1"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">10M>TX>2M</th>
+                                    <th id="clientTX2"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">2M>TX>1M</th>
+                                    <th id="clientTX3"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">1M>TX>300K</th>
+                                    <th id="clientTX4"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">300K>TX>100K</th>
+                                    <th id="clientTX5"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold">TX<100K</th>
+                                    <th id="clientTX6"></th>
+                                </tr>
+                                <tr>
+                                    <th style="font-weight:bold;">优化建议</th>
+                                    <th id="clientFlowAnalyse"></th>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div style="clear:both;"></div>
+    </div>
+
+    <div class="form-group" style="margin-top:50px;">
+       <div class="col-sm-12">
+           <a type="button" class="btn btn-primary" dlgtype="Close" data-dismiss="modal" style="margin-left:370px;">关闭</a>
+       </div>
+    </div>
+</form>
+</body>
+<div class="rc-define" id="checkreport_rc"
+        title="上行剩余宽带,AP在线率,终端速率,安全评价,无线环境,系统健康度"
+        count="个"
+
+        >
+</div>
+</html>
+<script>
+    Utils.Pages.loadJS("health.checkreport");
+</script>

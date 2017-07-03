@@ -1,0 +1,87 @@
+<div ng-init="
+    STATUS_onoff='Disabled,Enabled';
+    SECURITYIE='Not configured,WPA,RSN,OSEN';
+    CIPHERSUITE='Not configured,WEP40,TKIP,CCMP,TKIP/CCMP,WEP104,WEP128';
+    AUTHLOCATION=',Central-AC,AC,,AP,,,,Other';
+    AKMMODE='Not configured,DOT1X,PSK,FT-OVER-DOT1X,FT—USING-PSK,DOT1X-256,PSK-256, PRIVATE-PSK,DOT1X-WFA';
+    HIDE_SSID = 'Disabled,Enabled';
+    
+    getDataFailed = 'Failed to obtain data.';
+    ">
+
+    
+    <!--注释 -->
+    <!-- <div ng-init='
+    STATUS_onoff="0,1"
+    SECURITYIE="0,1,2,3"
+
+    CIPHERSUITE="0,2,4,16,24,32,128"
+    AUTHLOCATION=",1,2,,4,,,,8"
+    AKMMODE="0,1,2,4,8,16,32,64,128"
+
+    HIDE_SSID = "0,1"
+'> -->
+
+    
+    <!--信息-->
+    <div class="page-row">        
+        <div class="col-sm-12">
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">Wireless service name</label>
+                <span class="label form-if-setHtml" ng-bind="data.stName">--</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">SSID</label>
+                <span class="label form-if-setHtml" ng-bind="data.ssidName">--</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">Status</label>
+                <span class="label form-if-setHtml" ng-bind="data.status">--</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">Security IE</label>
+                <span class="label form-if-setHtml" ng-bind="data.securityIE">--</span>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">Cipher suite</label>
+                <span class="label form-if-setHtml"  ng-bind="data.cipherSuite">--</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">Authenticator</label>
+                <span class="label form-if-setHtml" ng-bind="data.authLocation">--</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">Clients</label>
+                <span class="label form-if-setHtml" ng-bind="data.clinetCount">--</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">AKM mode</label>
+                <span class="label form-if-setHtml" ng-bind="data.akmMode">--</span>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">Hide SSID</label>
+                <span class="label form-if-setHtml" ng-bind="data.hideSSID">--</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">Max. online clients</label>
+                <span class="label form-if-setHtml" ng-bind="data.maxClients">--</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">Max. Rx rate(Kbps)</label>
+                <span class="label form-if-setHtml" ng-bind="data.maxReceiveRatio">--</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">Max. Tx rate(Kbps)</label>
+                <span class="label form-if-setHtml" ng-bind="data.maxSendRatio">--</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">VLAN ID</label>
+                <span class="label form-if-setHtml" ng-bind="data.vlanId">--</span>
+            </div>
+        </div>  
+                                   
+    </div>                          
+
+</div>

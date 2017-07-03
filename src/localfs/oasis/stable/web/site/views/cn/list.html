@@ -1,0 +1,175 @@
+<div id="listView" class="site">
+    <ul class="tab-pages">
+        <li class="shop-list active">
+            <span class="tab-content tab-content-first" ng-click="changeList('shop-list')">场所列表</span>
+            <i class="tab-edging tab-edging-right"></i>
+        </li>
+        <li class="sta-dev-list" ng-if="!flags.is_fat_ap">
+            <i class="tab-edging tab-edging-left"></i>
+            <span class="tab-content"
+                  ng-click="changeList('sta-dev-list')">独立设备列表 - {{flags.shop_of_dev_list.id}}</span>
+            <i class="tab-edging tab-edging-right"></i>
+        </li>
+        <li class="irf-dev-list" ng-if="!flags.is_fat_ap">
+            <i class="tab-edging tab-edging-left"></i>
+            <span class="tab-content"
+                  ng-click="changeList('irf-dev-list')">IRF设备列表 - {{flags.shop_of_dev_list.id}}</span>
+            <i class="tab-edging tab-edging-right"></i>
+        </li>
+        <li class="dev-list" ng-if="flags.is_fat_ap">
+            <i class="tab-edging tab-edging-left"></i>
+            <span class="tab-content" ng-click="changeList('dev-list')">设备列表 - {{flags.shop_of_dev_list.id}}</span>
+            <i class="tab-edging tab-edging-right"></i>
+        </li>
+    </ul>
+    <div class="table-content">
+        <div class="operates">
+            <button type="button" class="btn-customer btn-isolation" ng-click="addSite()" ng-show="showHide.write">
+                <i class="btn-icon icon-add"></i>增加
+            </button>
+            <button type="button" class="btn-customer btn-isolation" ng-click="refreshShop()">
+                <i class="btn-icon icon-refresh"></i>刷新
+            </button>
+            <input id="file" type="file" name="file" style="display: none">
+            <button type="button" class="btn-customer" ng-click="batchAddSite()">
+                <i class="btn-icon icon-addLot"></i>批量增加
+            </button>
+            <div class="pull-right" ng-show="flags.shop_list">
+                <input id="sitename_search" class="search-box" type="text" ng-model="sitename" placeholder="场所名称">
+                <button class="btn-customer btn-search" ng-click="search()">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </div>
+        </div>
+        <div ng-show="flags.shop_list">
+            <div bs-table="siteOptions"></div>
+        </div>
+        <div ng-show="flags.sta_dev_list">
+            <div bs-table="options"></div>
+        </div>
+        <div ng-show="flags.irf_dev_list">
+            <div bs-table="irfOptions"></div>
+        </div>
+        <div ng-show="flags.dev_list">
+            <div bs-table="options"></div>
+        </div>
+    </div>
+    <ul class="toggle_operates shop_list">
+        <li ng-show="showHide.devShow && (!flags.is_branch_user || (flags.is_branch_user && flags.branch_shop))"><i
+                class="manage"></i><a>管理</a></li>
+        <li ng-show="flags.show_shop_maintenance && !flags.is_branch_user"><i class="maintenance"></i><a>运维</a></li>
+        <li ng-show="showHide.devShow"><i class="dev_show"></i><a>显示设备</a></li>
+        <li ng-show="showHide.regionRead && showHide.write"><i class="edit"></i><a>编辑</a></li>
+        <li ng-show="showHide.regionRead && showHide.write"><i class="delete"></i><a>删除</a></li>
+    </ul>
+    <ul class="toggle_operates dev_list">
+        <li ng-show="!flags.is_branch_user || (flags.is_branch_user && flags.branch_shop)"><i class="manage"></i><a>管理</a></li>
+        <li ng-show="flags.show_dev_maintenance && !flags.is_branch_user"><i class="maintenance"></i><a>运维</a></li>
+        <li ng-show="showHide.devWrite"><i class="edit"></i><a>编辑</a></li>
+        <li ng-show="showHide.devWrite"><i class="delete"></i><a>删除</a></li>
+    </ul>
+    <div bs-modal="detailModal">
+        <div>软件版本：{{detail.softVer}}</div>
+        <div>硬件版本：{{detail.hardVer}}</div>
+        <div>设备类型：{{detail.devTypeStr || '无'}}</div>
+        <div>添加时间：{{detail.addTime || '无'}}</div>
+    </div>
+    <form bs-modal="modify_dev_alias_model" name="modAlias" class="form-horizontal">
+        <div class="form-group">
+            <label class="col-xs-3 control-label">设备别名 <span class="label-require">*</span></label>
+            <div class="col-xs-4">
+                <input name="aliasName" placeholder="请输入30位以下的字符" class="form-control" type="text"
+                       ng-model="dev.devAlias" required ng-maxlength="30">
+            </div>
+            <div class="col-xs-4 ng-error" ng-show="modAlias.aliasName.$dirty" ng-messages="modAlias.aliasName.$error">
+                <div ng-message="required">请输入设备别名！</div>
+                <div ng-message="maxlength">不能超过30位！</div>
+            </div>
+        </div>
+    </form>
+    <form bs-modal="add_dev_model" class="form-horizontal" name="devAddForm">
+        <div class="form-group">
+            <label class="col-xs-3 control-label">设备别名 <span class="label-require">*</span></label>
+            <div class="col-xs-4">
+                <input class="form-control" placeholder="请输入30位以下的字符" name="devAlias" type="text"
+                       ng-model="addDev.devAlias"
+                       required ng-maxlength="30">
+            </div>
+            <div class="col-xs-4 ng-error" ng-show="devAddForm.devAlias.$dirty"
+                 ng-messages="devAddForm.devAlias.$error">
+                <div ng-message="required">请输入设备别名！</div>
+                <div ng-message="maxlength">不能超过30位！</div>
+            </div>
+        </div>
+        <div class="form-group" ng-show="!flags.is_fat_ap">
+            <label class="col-xs-3 control-label">设备类型 <span class="label-require">*</span></label>
+            <div class="col-xs-2">
+                <select class="form-control" name="dev_model" ng-model="addDev.devType"
+                        ng-options="type.value as type.name for type in devtype" required>
+                </select>
+            </div>
+            <div class="col-xs-2 text-right irf-field">
+                <span><input type="checkbox" ng-model="addDev.isIRF"></span>
+                <span>IRF设备</span>
+            </div>
+            <div class="col-xs-4 ng-error" ng-show="devAddForm.dev_model.$dirty"
+                 ng-messages="devAddForm.dev_model.$error">
+                <div ng-message="required">请选择设备类型！</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label">设备序列号 <span class="label-require">*</span></label>
+            <div class="col-xs-4">
+                <input class="form-control" name="devSn" type="text" ng-model="addDev.devSn" placeholder="由9-64位字母数字组成"
+                       required ng-pattern="/^[0-9a-zA-Z]{9,64}$/" ajax-valid="validDevSn">
+            </div>
+            <div class="col-xs-4 ng-error" ng-show="devAddForm.devSn.$dirty" ng-messages="devAddForm.devSn.$error">
+                <div ng-message="required">请输入设备序列号！</div>
+                <div ng-message="pattern">包含数字或字母,长9-64位</div>
+                <div ng-message="ajaxValid-1">设备序列号已存在！</div>
+            </div>
+        </div>
+
+        <div class="form-group" ng-show="addDev.isIRF">
+            <label class="col-xs-3 control-label">分组名称 <span class="label-require">*</span></label>
+            <div class="col-xs-4">
+                <select ng-model="addDev.groupId" class="form-control">
+                    <option value="-1">新建分组</option>
+                    <option ng-repeat="g in addDev.groupTypeList" value="{{g.id}}">{{g.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group" ng-show="addDev.isIRF && addDev.groupId==-1">
+            <label class="col-xs-3 control-label">新分组名称 <span class="label-require">*</span></label>
+            <div class="col-xs-4">
+                <input class="form-control" name="groupName" type="text" ng-model="addDev.groupName"
+                       placeholder="请输入分组名称">
+            </div>
+        </div>
+    </form>
+    <div class="read_rc" id="listView_rc"
+         error="请求出错啦~"
+         table-data="场所名称,创建者,场所（总部）地址,描述,所属区域,场景名称,管理,显示设备,修改,删除,运维"
+         table-title="分组名称,设备别名,设备SN,管理,设备型号,设备状态"
+         sure-delete="确定删除吗？"
+         delete-site="删除场所"
+         success="成功"
+         tipforno-devices="该场所下没有设备！"
+         file-format="文件限于.txt、.xls、.xlsx格式"
+         modify="修改"
+         delete="删除"
+         online="在线"
+         offline="离线"
+         dev-detail="设备详情"
+         close-text="关闭"
+         modify-alias="修改设备别名"
+         delete-device="删除设备"
+         reset-alias="更改设备别名"
+         alias-success="更改设备别名成功"
+         w-device="物理设备"
+         x-device="虚拟设备"
+         add-device="增加设备"
+         add-success="增加设备成功"
+    >
+    </div>
+</div>

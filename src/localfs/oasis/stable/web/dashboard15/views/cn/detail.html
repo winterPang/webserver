@@ -1,0 +1,128 @@
+<div class="dashboard container-fluid">
+    <div class="page-row xxb">
+        <div ng-init="
+    onlineAp='在线AP数';
+    offlineAp='离线AP数'
+">
+            <div class="col-xs-6 app-colum left-block">
+                <!--<div class="page-row">-->
+                <div class="app-box no-bk-color ap-status-count">
+                    <div class="box-footer">
+                        <div class="col-xs-3">
+                            <span class="title">AP</span>
+                        </div>
+                        <div class="text-right link-container">
+                            <a type="button" class="refresh" id="refresh_ssid" ng-click="refreshAP()">
+                                <i class="refresh-icon icon"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <span class="client-title online-ap">在线AP数</span>
+                    <span id="Current" class="client-count online-ap online-ap-num">{{apOnline}}</span>
+                    <span class="client-title total-ap">AP总数</span>
+                    <span id="totalAp" class="client-count  total-ap total-ap-num">{{apTotal}}</span>
+
+                    <div class="box-body echart-height form-group">
+                        <div id="pie_aps" class="col-xs-12 myEchart pie-height"></div>
+                    </div>
+                </div>
+                <!--</div>-->
+            </div>
+        </div>
+    </div>
+    <div ng-init="terminalNumber='终端数'">
+        <div class="col-xs-6 app-colum left-block" debug="getUserChange">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <div class="col-xs-4">
+                        <span class="title">在线宾客变化</span>
+                    </div>
+                    <div class="time-change">
+                        <a id="days" class="time-link" ng-class="{active:time=='clientstat_cloud_yesterday'}" ng-click="initUserChange('clientstat_cloud_yesterday')">一天</a>
+                        <a id="weeks" class="time-link" ng-class="{active:time=='clientstat_cloud_lastweek'}" ng-click="initUserChange('clientstat_cloud_lastweek')">一周</a>
+                        <a id="mounth" class="time-link" ng-class="{active:time=='clientstat_cloud_lastmonth'}" ng-click="initUserChange('clientstat_cloud_lastmonth')">一月</a>
+                    </div>
+                </div>
+                <div class="box-body echart-height body-nopadding">
+                    <div id="userchange" class="col-xs-12 myEchart online-echarts-height"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="col-sm-4 col-xs-4">
+                    <div class="box-footer align-center">
+                        <span class="c-title">认证终端</span>
+                    </div>
+                    <div class="box-body echart-height form-group padding-top-zero">
+                        <div id="pie_terminal" class="col-xs-12 myEchart pie-height"></div>
+					</div>
+				</div>
+				<div class="col-sm-4 col-xs-4">
+                        <div class="box-footer align-center">
+                            <span class="c-title">终端类型</span>
+                        </div>
+                        <div class="box-body echart-height form-group padding-top-zero">
+                            <div id="Terminal_type" class="col-xs-12 myEchart pie-height"></div>
+                        </div>
+
+                    </div>
+                <div class="col-sm-4 col-xs-4">
+                    <div class="box-footer align-center">
+                        <span class="c-title">终端厂商</span>
+                    </div>
+                    <div class="box-body echart-height form-group padding-top-zero">
+                        <div id="Terminal_firm" class="col-xs-12 myEchart pie-height"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="dashboard container-fluid" ng-init="
+        RC_TITLE_WISER='无线服务';
+
+        RC_TITLE_AUTH_TYPE_UNKNOW = '未知认证方式';
+        RC_TITLE_AUTH_TYPE_NOAUTH = '不认证';
+        RC_TITLE_AUTH_TYPE_ONEKEY = '一键登录';
+        RC_TITLE_AUTH_TYPE_ACCOUNT = '账号认证';
+
+        RC_TITLE_WISER_STATUS_ON = '开启';
+        RC_TITLE_WISER_STATUS_OFF = '关闭';
+
+        RC_TITLE_SSID_TYPE_IN = '内部Wi-Fi';
+        RC_TITLE_SSID_TYPE_BUSINESS = '商业Wi-Fi';
+
+        RC_TABLE_COLUMN_SSID = 'SSID';
+        RC_TABLE_COLUMN_SSID_STATUS = 'SSID状态';
+        RC_TABLE_COLUMN_SSID_TYPE = 'SSID类型';
+        RC_TABLE_COLUMN_AUTH_TYPE = '认证方式';
+        RC_TABLE_COLUMN_CLIENT_COUNT = '客户端数';
+        RC_TABLE_COLUMN_AP_COUNT = '绑定AP数';
+        RC_TABLE_COLUMN_AP_GROUP_COUNT = '绑定AP组数';
+
+    ">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color no-height default-bottom">
+                <div class="box-footer ">
+                    <span class="title">{{RC_TITLE_WISER}}</span>
+                </div>
+                <div class="sysinfo-body box-body no-height">
+                    <div bs-table="option"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div  id="wireless_service_rc"
+      WEIZHI="未知"
+      PORTALSTA="认证终端,非认证终端"
+      TERMINAL_NUMBER="终端数"
+        >
+</div>

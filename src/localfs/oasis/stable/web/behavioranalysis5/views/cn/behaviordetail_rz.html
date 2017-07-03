@@ -1,0 +1,97 @@
+<style type="text/css">
+	.mb20 {
+		margin-bottom: 20px;
+	}
+	.title {
+		color: #323232;
+	    font-size: 14px;
+	    font-weight: 900;
+	}
+    /* 未被访问的链接 */
+	a:link {color:#80878c;}
+    /* 已被访问的链接 */   
+	a:visited {color:#80878c;}
+    /* 鼠标指针移动到链接上 */
+	a:hover {color:#80878c;} 
+    /* 正在被点击的链接 */
+	a:active {color:#80878c;}
+    .pos-rel{
+        position:relative;
+    }
+    .pos-abs{
+        position:absolute;
+    }
+    .bac{
+        background:url(../frame/images/grid-loading.gif) no-repeat;
+        width:60px;
+        height:60px;
+        background-size:60px 60px;
+        top:50%;
+        left:50%;
+        margin-left:-30px;
+        margin-top:-30px;
+    }
+</style>
+<div class="btn_h_return" ng-click="return()"></div>
+<div class="page-row custom">
+    <div class="col-xs-12 app-colum top-block">
+        <div class="app-box" debug="byApList log"> 
+            <div class="box-footer"> 
+                <span class="title">详细信息</span>
+            </div>
+            <div class="col-xs-12">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="JavaScript:void(0)" data-toggle="tab" ng-click="initStatisticView('App')">应用统计</a>
+                    </li>
+                    <li>
+                        <a href="JavaScript:void(0)" data-toggle="tab" ng-click="initStatisticView('Network')">网站统计</a>
+                    </li>
+                    <li>
+                        <a href="JavaScript:void(0)" data-toggle="tab" ng-click="initStatisticView('User')">用户流量</a>
+                    </li>
+                    <li>
+                        <a href="JavaScript:void(0)" data-toggle="tab" ng-click="initStatisticView('Interface')">接口流量</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-body no-height appContent" ng-show="show_app">
+                <div bs-table="appStatisticOption"></div>
+            </div>
+            <div class="box-body no-height netContent" ng-show="show_network">
+                <div bs-table="networkStatisticOption"></div>
+            </div>
+            <div class="box-body no-height userContent" ng-show="show_userFlow">
+                <div bs-table="userFlowOption"></div>
+            </div>
+            <div class="box-body no-height flowContent" ng-show="show_interfaceFlow">
+                <div bs-table="interfaceFlowOption"></div>
+            </div>
+        </div> 
+    </div>
+</div>
+
+<div id="behavior_rz_rc"
+     APP-HEADER="应用名称,应用类型,用户Mac地址,上行流量,下行流量,访问时刻"
+     WEB-HEADER="网站名称,网站类型,用户Mac地址,访问时刻"
+     USER-HEADER="用户Mac地址,上行流量,下行流量,丢弃流量"
+     INTERFACE-HEADER="接口名称,上行流量,下行流量,丢弃流量"
+     Life="生活"
+     Office="办公"
+     Communication="通讯"                       
+     Video="视频"                         
+     Game="游戏"
+     Tool="工具"  
+     News="新闻"                     
+     Navigation="导航"
+     Finance="金融" 
+     Unknown="其他"
+     Entertainment="娱乐"
+     News="新闻"
+     Shopping="购物"
+     Technology="科技"
+     Downloads="下载"
+     Search="搜索"
+     Transportation="交通"
+     PageTips="显示第,到第,条记录，总共,条记录"
+></div>

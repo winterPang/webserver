@@ -1,0 +1,27 @@
+{"devList":[
+	{"devsn":"210235A1JTB162000011",
+	 "dev_name":"sunshangxiang",
+ 	 "state":"on",
+ 	 "devCnt":"5"
+ 	},
+ 	{"devsn":"210235A1JTB162000012",
+	 "dev_name":"yuanshao",
+ 	 "state":"on",
+ 	 "devCnt":"5"
+ 	},
+ 	{"devsn":"210235A1JTB162000013",
+	 "dev_name":"guojia",
+ 	 "state":"on",
+ 	 "devCnt":"5"
+ 	},
+ 	{"devsn":"210235A1JTB162000014",
+	 "dev_name":"diaochan",
+ 	 "state":"on",
+ 	 "devCnt":"5"
+ 	},
+    {"devsn":"210235A1JTB162000015",
+     "dev_name":"zhaoyun",
+ 	 "state":"off",
+ 	 "devCnt":"5"
+ 	}],"devTotalCnt":5,"code":0
+}

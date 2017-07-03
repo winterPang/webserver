@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<link  href="resources/jqueryui-bootstrap/bootstrap.custom.css" type="text/css" rel="stylesheet" ></link>
+<title></title>
+</head>
+<body ng-app="uploadEnApp">
+	<div  ng-controller="UploaderEnController" >
+	    <input type="file" file-model="myFile" >
+	    <button ng-click="save()" >Save</button>
+	    <div>
+			<span ng-bind="prompt"></span>
+	    </div>
+	</div>
+
+</body>
+<script type="text/javascript"  src="resources/jquery-1.11.3.min.js"></script>
+<script type="text/javascript"  src="resources/angular.js"></script>
+<script type="text/javascript"  src="resources/angular-resource.js"></script>
+<script type="text/javascript"  src="resources/uploadEn.js"></script>
+</html>

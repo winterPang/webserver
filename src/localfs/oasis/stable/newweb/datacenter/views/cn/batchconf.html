@@ -1,0 +1,252 @@
+<div class="newdevmanage batchconf">
+    <div class="panel">
+        <div class="panel-body">
+            <!--
+            <div class="order-guide">
+                <label ng-class="{active:flags.currentStep==1}" ng-click="evts.changeStep(1)">1. 配置场景</label>
+                <label ng-class="{active:flags.currentStep==2}" ng-click="evts.changeStep(2)">2. 筛选设备</label>
+                <label ng-class="{active:flags.currentStep==3}" ng-click="evts.changeStep(3)">3. 确认下发</label>
+                <button class="btn-customer his-log pull-right" ng-click="showHisConfListModal()">历史下发配置记录</button>
+            </div>
+            <hr>
+            <div class="conf-content">
+                <form class="step1" ng-show="flags.currentStep==1">
+                    请选择场景类型：
+                    <select name="scene-type">
+                        <option value="0" selected>请选择场景</option>
+                        <option value="1">园区Wi-Fi</option>
+                        <option value="2">商铺Wi-Fi Beta</option>
+                        <option value="3">中小企业-智慧网络</option>
+                        <option value="4">园区商业Wi-Fi Beta</option>
+                        <option value="5">中小企业-智慧无线</option>
+                        <option value="6">ComwareV5</option>
+                        <option value="7">中小企业-安全网络</option>
+                    </select>
+                    <div class="scene-list">
+                        <label class="scene-title">A. 园区Wi-Fi</label><br>
+                        <ul ng-show="sceneType==0||sceneType==1">
+                            <li>园区Wi-Fi1</li>
+                            <li>园区Wi-Fi2</li>
+                            <li>园区Wi-Fi3</li>
+                            <li>园区Wi-Fi4</li>
+                            <li>园区Wi-Fi5</li>
+                            <li>园区Wi-Fi6</li>
+                            <li>园区Wi-Fi7</li>
+                            <li>园区Wi-Fi8</li>
+                        </ul>
+                        <label class="scene-title">B. 商铺Wi-Fi Beta</label><br>
+                        <ul ng-show="sceneType==0||sceneType==2">
+                            <li>商铺Wi-Fi Beta1</li>
+                            <li>商铺Wi-Fi Beta2</li>
+                            <li>商铺Wi-Fi Beta3</li>
+                            <li>商铺Wi-Fi Beta4</li>
+                            <li>商铺Wi-Fi Beta5</li>
+                        </ul>
+                        <label class="scene-title">C. 中小企业-智慧网络</label><br>
+                        <ul ng-show="sceneType==0||sceneType==3">
+                            <li>中小企业-智慧网络1</li>
+                            <li>中小企业-智慧网络2</li>
+                            <li>中小企业-智慧网络3</li>
+                            <li>中小企业-智慧网络4</li>
+                            <li>中小企业-智慧网络5</li>
+                        </ul>
+                        <label class="scene-title">D. 园区商业Wi-Fi Beta</label><br>
+                        <ul ng-show="sceneType==0||sceneType==4">
+                            <li>园区商业Wi-Fi Beta1</li>
+                            <li>园区商业Wi-Fi Beta2</li>
+                            <li>园区商业Wi-Fi Beta3</li>
+                            <li>园区商业Wi-Fi Beta4</li>
+                        </ul>
+                        <label class="scene-title">E. 中小企业-智慧无线</label><br>
+                        <ul ng-show="sceneType==0||sceneType==5">
+                            <li>中小企业-智慧无线</li>
+                            <li>中小企业-智慧无线</li>
+                            <li>中小企业-智慧无线</li>
+                            <li>中小企业-智慧无线</li>
+                            <li>中小企业-智慧无线</li>
+                        </ul>
+                        <label class="scene-title">F. ComwareV5</label><br>
+                        <ul ng-show="sceneType==0||sceneType==6">
+                            <li>ComwareV5</li>
+                            <li>ComwareV5</li>
+                            <li>ComwareV5</li>
+                            <li>ComwareV5</li>
+                        </ul>
+                        <label class="scene-title">G. 中小企业-安全网络</label><br>
+                        <ul ng-show="sceneType==0||sceneType==7">
+                            <li>中小企业-安全网络</li>
+                            <li>中小企业-安全网络</li>
+                            <li>中小企业-安全网络</li>
+                            <li>中小企业-安全网络</li>
+                        </ul>
+                    </div>
+                </form>
+                <div class="step2" ng-show="flags.currentStep==2">
+                    <p class="screen-method">
+                        <label>
+                            设备类型：
+                            <select>
+                                <option value="wireless-controller">无线控制器</option>
+                                <option value="wireless-access-point">交换机</option>
+                                <option value="router">路由器</option>
+                            </select>
+                        </label>
+                        <br>
+                        <label class="label-select"><input ng-model="screen_method" type="radio" value="lb"
+                                                           name="screen">按标签筛选</label>
+                        <label class="branch"><input ng-model="screen_method" type="radio" value="br"
+                                                     name="screen">按分支筛选</label>
+                    </p>
+                    <div class="options-box">
+                        <div class="label-opt" ng-show="screen_method=='lb'">
+                            <li class="c1">label1</li>
+                            <li class="c2">label2</li>
+                            <li class="c3">label3</li>
+                            <li class="c4">label4</li>
+                            <li class="c5">label5</li>
+                        </div>
+                        <div class="branch-opt" ng-show="screen_method=='br'">
+                            选择的分支：<input type="text" ng-model="branchName" class="branch-text">
+                            <ul id="branchTree" class="ztree"></ul>
+                        </div>
+                        <button class="un-select-all btn-customer pull-right" ng-click="evts.unSelectAll()"
+                                ng-show="screen_method=='lb'">取消选择
+                        </button>
+                        <button class="btn-customer pull-right" ng-click="evts.sureScreen()">确认筛选
+                        </button>
+                    </div>
+                </div>
+                <div class="step3" ng-show="flags.currentStep==3">
+                    <div class="operates" ng-if="flags.currentStep==3">
+                        <div class="pull-right">
+                            <input class="search-box" type="text" placeholder="search">
+                            <button class="btn-customer btn-search" ng-click="search()">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </div>
+                    </div>
+                    <div bs-table="confList"></div>
+                </div>
+            </div>
+            <div class="conf-footer">
+                <button class="btn-customer pull-right" ng-if="flags.currentStep==3" ng-click="evts.sureScreen()">确认下发
+                </button>
+            </div>-->
+            <ul class="conf-mould" ng-show="flags.show_mould_li_table=='false'">
+                <li class="common-conf" ng-repeat="mould in moulds" ng-click="evts.showMouldLiTable()">
+                    <div class="mould-name">
+                        <h3 ng-bind="mould.mould_name"></h3>
+                    </div>
+                    <div class="mould-info">
+                        <span ng-bind="mould.mould_brief"></span>
+                        <span class="badge pull-right"
+                              ng-class="{warning:mould.mould_li.count<3,greate:mould.mould_li.count>4}"
+                              ng-bind="mould.mould_li.count"></span>
+                    </div>
+                </li>
+            </ul>
+            <div ng-show="flags.show_mould_li_table=='true'">
+                <div class="operates">
+                    <button type="button" class="btn-customer" ng-click="evts.retMould()">
+                        <i class="btn-icon icon-add"></i>返回
+                    </button>
+                    <button type="button" class="btn-customer" ng-click="evts.delLot()">
+                        <i class="btn-icon icon-add"></i>批量删除
+                    </button>
+                    <div class="pull-right">
+                        <input class="search-box" type="text" placeholder="search">
+                        <button class="btn-customer btn-search" ng-click="search()">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                </div>
+                <div bs-table="mouldLiTable"></div>
+            </div>
+            <div class="step3" ng-show="flags.currentStep==3">
+                <div class="operates" ng-if="flags.currentStep==3">
+                    <button type="button" class="btn-customer" ng-click="evts.retMould()">
+                        <i class="btn-icon icon-add"></i>返回
+                    </button>
+                    <button type="button" class="btn-customer" ng-click="evts.sureConf()">
+                        <i class="btn-icon icon-add"></i>确认下发
+                    </button>
+                    <div class="pull-right">
+                        <input class="search-box" type="text" placeholder="search">
+                        <button class="btn-customer btn-search" ng-click="search()">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </div>
+                </div>
+                <div bs-table="confList"></div>
+            </div>
+        </div>
+    </div>
+    <div bs-modal="hisConfListModal">
+        <div bs-table="hisConfListTable"></div>
+    </div>
+    <form class="form-horizontal" bs-modal="screenMore">
+        <div class="form-group">
+            <label>设备类型：</label>
+            <select>
+                <option value="wireless-controller">无线控制器</option>
+                <option value="wireless-access-point">交换机</option>
+                <option value="router">路由器</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="label-select"><input ng-model="screen_method" type="radio" value="lb"
+                                               name="screen">按标签筛选</label>
+            <label class="branch"><input ng-model="screen_method" type="radio" value="br"
+                                         name="screen">按分支筛选</label>
+        </div>
+        <div class="form-group">
+            <div class="label-opt" ng-show="screen_method=='lb'">
+                <li class="c1">label1</li>
+                <li class="c2">label2</li>
+                <li class="c3">label3</li>
+                <li class="c4">label4</li>
+                <li class="c5">label5</li>
+            </div>
+            <div class="branch-opt" ng-show="screen_method=='br'">
+                <ul id="branchTree" class="ztree"></ul>
+            </div>
+        </div>
+        <div class="form-group">
+            <button class="un-select-all btn-customer pull-right" ng-click="evts.unSelectAll()"
+                    ng-show="screen_method=='lb'">取消选择
+            </button>
+        </div>
+    </form>
+    <div bs-modal="confInfoModal">
+        <div class="form-horizontal">
+            <div class="form-group">
+                <label class="col-xs-4 control-label">模板名称</label>
+                <span class="col-xs-7">公共配置1</span>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-4 control-label">DNS服务器地址</label>
+                <span class="col-xs-7">192.168.1.1</span>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-4 control-label">无线探针</label>
+                <span class="col-xs-7">关闭</span>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-4 control-label">SSID</label>
+                <span class="col-xs-7">xiaocaiwifi</span>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-4 control-label">无线服务状态</label>
+                <span class="col-xs-7">开启</span>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-4 control-label">加密</label>
+                <span class="col-xs-7">加密</span>
+            </div>
+            <div class="form-group">
+                <label class="col-xs-4 control-label">认证</label>
+                <span class="col-xs-7">不认证</span>
+            </div>
+        </div>
+    </div>
+</div>

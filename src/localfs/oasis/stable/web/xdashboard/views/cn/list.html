@@ -1,0 +1,72 @@
+<style>
+    .toggle_operates {
+        width: 130px;
+        margin: 0;
+        padding: 10px 0;
+        background-color: #fff;
+        border: 1px solid #ddd;
+        display: none;
+        position: absolute;
+        z-index: 1000;
+        list-style: none;
+        line-height: 30px;
+    }
+
+    .toggle_operates > li {
+        cursor: pointer;
+        padding: 0 10px;
+    }
+
+    .toggle_operates > li a {
+        color: #333;
+        text-decoration: none;
+    }
+
+    .toggle_operates > li:hover {
+        background-color: #4ec1b2;
+    }
+
+    .toggle_operates > li:hover a {
+        color: #fff;
+    }
+
+    .dev_status_base {
+        display: inline-block;
+        position: relative;
+        top: 2px;
+        margin-right: 5px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #00FF00;
+    }
+
+    .dev_status_unmanaged {
+        background-color: #808080;
+    }
+</style>
+<div id="listView">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">场所列表</h3></div>
+        <div class="panel-body">
+            <div class="btn btn-cus" ng-click="addShop()">增加</div>
+            <div class="btn btn-cus" ng-click="deleteshop()">删除</div>
+            <div class="btn btn-cus" ng-click="refresh()">刷新</div>
+            <div class="form-group pull-right">
+                <button class="btn btn-cus"><span class="glyphicon glyphicon-search" ng-click="search()"></span>
+                </button>
+            </div>
+            <div class="form-group pull-right input-group">
+                <input type="text" ng-model="shopname" class="form-control" placeholder="场所名称">
+            </div>
+            <table id="table"></table>
+        </div>
+    </div>
+    <ul class="toggle_operates">
+        <li><a>修改</a></li>
+        <li ng-if="row.dev_sn"><a>删除设备</a></li>
+        <li ng-if="row.dev_sn"><a>修改设备别名</a></li>
+        <li ng-if="!row.dev_sn"><a>增加设备</a></li>
+        <li><a>删除场所</a></li>
+    </ul>
+</div>

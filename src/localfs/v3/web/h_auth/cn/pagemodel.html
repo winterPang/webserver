@@ -1,0 +1,97 @@
+﻿<html>
+<head>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">页面模板</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="pageList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+<div class="hide" id="pageToggle">
+    <form id="pagetoggle_form" class="form edit">
+        <div class="col-sm-6 response-block">
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">模板名称</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="themeName" name = "themeName" error_id="themeName_error"/>
+                    <label class="info-explain">（1-32字符）</label>
+                    <label class="error" id="themeName_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">描述</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big" id="description" name="description" maxlength="128"/>
+                    <label class="info-explain">（1-128字符）</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 response-block">
+            <div class="form-group">
+                <div class="col-sm-9 col-sm-offset-3">
+                    <div class="col-sm-3">
+                        <input type="radio" id="simple1" name="pagemodel" value="1" checked/>
+                        <label for="simple1">简约</label>
+                    </div>
+                    <div class="col-sm-2">
+                        <a id="simpledraw" style="color:#0078ff;border-bottom:1px solid #0078ff;font-size:13px">预览</a>
+                        <!--<a href="#" id="simpleview">预览</a>-->
+                    </div>
+                </div>
+            </div>
+            <!--<div class="form-group">-->
+            <!--<div class="col-sm-9 col-sm-offset-3">-->
+            <!--<div class="col-sm-3">-->
+            <!--<input type="radio" id="classic1" name="pagemodel" value="2"/>-->
+            <!--<label for="classic1">经典</label>-->
+            <!--</div>-->
+            <!--<div class="col-sm-2">-->
+            <!--<a href="#"style="color:#0078ff;border-bottom:1px solid #0078ff;font-size:13px">预览</a>-->
+            <!--&lt;!&ndash; <a href="#" id = "classicview">预览</a>&ndash;&gt;-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+            <!--<div class="col-sm-9 col-sm-offset-3">-->
+            <!--<div class="col-sm-3">-->
+            <!--<input type="radio" id="custom1" name="pagemodel" value="3" />-->
+            <!--<label for="custom1">自定义</label>-->
+            <!--</div>-->
+            <!--<div class="col-sm-2">-->
+            <!--<a href="#"style="color:#0078ff;border-bottom:1px solid #0078ff;font-size:13px">预览</a>-->
+            <!--&lt;!&ndash; <a href="#" id = "customview">预览</a>&ndash;&gt;-->
+            <!--</div>-->
+            <!--<div class="col-sm-2">-->
+            <!--<a href="#"style="color:#0078ff;border-bottom:1px solid #0078ff;font-size:13px" >绘制</a>-->
+            <!--&lt;!&ndash;<a href="#" id = "draw">绘制</a>&ndash;&gt;-->
+            <!--</div>-->
+            <!--</div>-->
+            <!--</div>-->
+        </div>
+    </form>
+</div>
+
+<div class="hide modal fade" id="AddPageTempDlg"></div>
+<div id="ws_ssid_rc" class="rc-define"
+     SSID_HEADER = "认证模板,一键登录,短信认证,微信认证,固定账号认证"
+     AUTH_Status ="关闭,开启"
+     Page_HEADER = "页面模板,描述"
+     Chat_HEADER = "公众号名称,AppID,AppSECRET,TOKEN"
+     ADD_TITLE = "增加认证模板"
+     ADDPage_TITLE = "增加页面模板"
+     ADDChat_TITLE = "增加微信公众号"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_auth.pagemodel");
+</script>

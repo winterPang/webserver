@@ -1,0 +1,178 @@
+<html>
+<head>
+    <!--<link rel="stylesheet" type="text/css" href="/v3/web/b_device/m_clients.css">-->
+</head>
+<body>
+
+<div class="dashboard summary-station">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div class="bg-white">
+                <div class="head-bar">
+                    <div class="sysinfo-footer">
+                       <div class="col-xs-12">
+                            <div class="box-footer">
+                                <div class="col-xs-10">
+                                    <span class="title">客户端数量</span>
+                                </div>
+                                <div class="text-right link-container">
+                                    <a type="button" class="link-detail" id="submit_scan" href="h_Stamgrclients.clients" title="详情">
+                                        <i class="detail-icon icon"></i>
+                                    </a>
+                                </div> 
+                            </div>
+                       </div>
+                        <div class="text-rightandlink-container">
+                        </div>                      
+                   </div>
+                    <div class="col-xs-3">
+                        <div class="syslog-info-mine-Total">
+                            <div class="left-icon Total-icon">
+                            </div>
+                            <div class="right-text">      
+                                <span class="number-count" id="Total">30</span>
+                                <br />
+                                <span class="number-title">总计</span>
+                            </div>                      
+                        </div>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <div class="syslog-info-mine-Num2G">
+                            <div class="left-icon Num2G-icon">
+                                
+                            </div>
+                            <div class="right-text">
+                                <!--// number-count-->
+                                <span class="number-count" id="Num2G">15</span>
+                                <br />
+                                <span class="number-title">2.4GHz</span>
+                            </div>          
+                        </div>
+                    </div>
+
+                    <div class="col-xs-3">
+                        <div class="syslog-info-mine-Num5G">
+                            <div class="left-icon Num5G-icon">
+                                
+                            </div>
+                            <div class="right-text">      
+                                <span class="number-count" id="Num5G">15</span>
+                                <br />
+                                <span class="number-title">5GHz</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="syslog-info-mine-NumRZ">
+                            <div class="left-icon NumRZ-icon">
+                                
+                            </div>
+                            <div class="right-text">      
+                                <span class="number-count" id="NumRZ">20</span>
+                                <br />
+                                <span class="number-title">认证终端</span>
+                            </div>
+                        </div>
+                    </div>  
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-6 app-colum">
+
+            <!--<div class="app-box default-height"> -->
+            <div class="app-box echart-height no-bk-color">
+                <div class="box-footer"> 
+                    <span class="title">基于设备分类</span>
+                </div> 
+                <div class="list-height sysinfo-body"> 
+                    <div id="byDevList" class="simple-list"></div>
+                </div> 
+            </div>
+            <div class="app-box no-height default-bottom  no-bk-color">
+                <div id="baseOnAu">
+                    <div class="box-footer">
+                        <span class="title">基于手机厂商分类</span>
+                    </div>
+                    <div class="box-body no-height">
+                        <div id="deviceType" class="myEchart col-xs-12"></div>
+                    </div>
+                </div>
+            </div>            
+        </div>
+        <div class="col-xs-6 app-colum right-block">
+            
+            <!--<div class="app-box default-height"> -->
+            <div class="app-box echart-height  no-bk-color">
+                <div class="box-footer"> 
+                    <span class="title">基于SSID分类</span>
+                </div> 
+                <div class="list-height sysinfo-body"> 
+                    <div id="bySsidList" class="simple-list"></div> 
+                </div> 
+            </div>
+            
+            <div class="app-box no-height default-bottom  no-bk-color">
+                <div id="detect_container">
+                    <div class="box-footer">
+                        <span class="title">基于无线模式分类</span>
+                    </div>
+                    <div class="box-body no-height">
+                        <div id="wireless_pie" class="myEchart col-xs-12"></div>
+                    </div>
+                </div>
+            </div>           
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <div class="col-xs-9">
+                        <span class="title">在线宾客变化</span>
+                    </div>
+                    <div class="col-xs-3 index_out_div station-change text-right" style="padding-right: 10px;">
+                        <a id="days" class="xx-link active">一天</a>
+                        <a id="weeks" class="xx-link">一周</a>
+                        <a id="mounth" class="xx-link">一月</a>
+                    </div>
+                </div>
+                <div class="box-body echart-height form-group body-nopadding">
+
+                    <div id="userchange" class="col-xs-12 myEchart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="client_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">客户端统计</h3>
+    </div>
+    <div class="modal-body">
+        <div id="popList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">关闭</a>
+    </div>
+</div>
+        
+<div id="summary_rc" class="rc-define"
+AP_HEADER="设备名称,AP名称,5GHz客户端数量（个）,2.4GHz客户端数量（个）"
+SSID_HEADER="SSID,5GHz客户端数量（个）,2.4GHz客户端数量（个）"
+POP_HEADER="mac,ip,名称,厂商,接入点名称,关联的ssid名,信号强度
+(db),发送速率(Kbps),接收速率(Kbps),上线时长(时:分:秒),关联,模式,关联的radio信道,协商速率(Mbps)"
+WIRELESS_MODE='802.11b(2.4GHz),802.11a(5GHz),802.11g(2.4GHz),802.11gn(2.4GHz),802.11an(5GHz),802.11ac(5GHz)'
+AKM_METHOD="不认证,802.1X 认证,静态PSK密钥,静态WEP密钥,MAC地址认证,Portal认证,动态WEP密钥,802.1X 认证（不加密）"
+AKM_METHOD2="不认证,802.1X 认证,MAC地址认证,Portal认证,MAC地址认证 & Portal认证"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("b_device.summary_station");
+</script>
+

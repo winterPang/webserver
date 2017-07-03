@@ -1,0 +1,53 @@
+
+<div class="avatar-view border-radius">
+    <img >
+</div>
+<button type="button" class="btn btn-primary" ng-click="showModal()" style="margin-left: 70px">
+    修改头像
+</button>
+<div id="avatar-modal" bs-modal="modal">
+    <form class="avatar-form" action="/v3/ace/oasis/oasis-rest-map/restapp/uploadfile/imageUpload">
+        <div class="avatar-body">
+            <!-- Upload image and data -->
+            <div class="avatar-upload">
+                <input type="hidden" class="avatar-src" name="avatar_src">
+                <label for="avatarInput">选择图片</label>
+                <input type="file" class="avatar-input" id="avatarInput" name="avatar_file">
+            </div>
+            <!-- Crop and preview -->
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="avatar-wrapper"></div>
+                </div>
+                <div class="col-md-3">
+                    <div class="avatar-preview preview-lg border-radius"></div>
+                    <div class="avatar-preview preview-md border-radius"></div>
+                    <div class="avatar-preview preview-sm border-radius"></div>
+                </div>
+            </div>
+
+            <div class="row avatar-btns">
+                <div class="col-md-9">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary" data-method="rotate" data-option="-90">
+                            向左旋转
+                        </button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary" data-method="rotate" data-option="90">
+                            向右旋转
+                        </button>
+                    </div>
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-primary" data-method="reset">
+                            重置图片
+                        </button>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <button type="submit" class="btn btn-primary btn-block avatar-save">保存修改</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

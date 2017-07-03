@@ -1,0 +1,187 @@
+<html>
+<head>
+</head>
+<style>
+    #command_line input{
+        border:0;
+        outline: none;
+        width:60%;
+    }
+    #command_line{
+        background-color:black;
+        height:550px;
+    }
+    .backgroud-color{
+        background-color:black!important;
+        color: white!important;
+        font-size:18px;
+        font-weight: normal;
+        font-family: "Courier New";
+    }
+    .display-block-span{
+        display: block;
+    }
+    .backgroud-color-red{
+        position: absolute;
+        top: 14px;
+        width:100%;
+        color: #A30500;
+        font-size:18px;
+        font-weight: bold;
+        font-family: "Courier New";
+        text-align: center;
+    }
+    #window_command{
+        overflow:auto;
+        background-color: black;
+    }
+    .test_box {
+        width: 400px;
+        min-height: 120px;
+        max-height: 100000px;
+        _height: 120px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 3px;
+        outline: 0;
+        border: 1px solid #a0b3d6;
+        font-size: 12px;
+        word-wrap: break-word;
+        overflow-x: hidden;
+        overflow-y: auto;
+        _overflow-y: visible;
+    }
+    .box-body-new{
+        padding: 4px 4px 4px 4px;
+    }
+    #button_right{
+        float: right;
+        margin-right: 20px;
+    }
+    #large_textarea{
+        width: 867px;
+        height: 482px;
+        font-size:18px;
+        font-weight: normal;
+    }
+    .new-panel-footer{
+        padding: 10px 15px;
+        background-color: rgba(255,204,94,1);
+        border-top: 1px solid #FFCA5F;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+    .footer-cmd
+    {
+        padding: 10px 15px;
+        background-color: rgba(255,204,94,1);
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+
+    }
+    .body-cmd
+    {
+        padding: 10px 15px;
+        background-color: #F7F7F7;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        height: 200px;
+
+    }
+    .title-cmd{
+        position: absolute;
+        width: 500px;
+        top:-300px;
+    }
+    label{
+        line-height: 18px!important;
+    }
+    input{
+        margin:0 0 0 0!important;
+        padding: 0 0 0 4px !important;
+        line-height: 18px!important;
+        height:20px!important;
+    }
+    #button_largeset,#button_help{
+        cursor: pointer;
+    }
+    .warning-panel{
+        position: absolute;
+        height: 45px;
+        width: 100%;
+        background: orange;
+        text-align: center;
+        padding: 13px 12px 0 0;
+        top: 0;
+        color: #ffffff;
+    }
+    .head-title-center{
+        text-align: center;
+    }
+    .title-style{
+        color: #343e4e;
+        font-size: 14pt;
+    }
+
+
+</style>
+<body>
+    <div class="page-row" id="Probe_Monitor"  unselectable="off">
+        <div class="app-colum">
+            <div class="app-box default-height col-xs-12">
+                <div class="box-footer col-xs-12" >
+                    <div class="col-xs-12 head-title-center">
+                        <span class="title-style">命令助手</span>
+                        <span id="button_right">
+                            <span id="button_largeset">批量下发</span>
+                            <span>&nbsp;&nbsp;</span>
+                            <span id="button_help">帮助</span>
+                        </span>
+                    </div>
+                </div>
+                <div class="box-body-new col-xs-12" >
+                    <div class="col-xs-12">
+                        <div id="window_command">
+                            <div id="command_line" class="col-xs-12">
+
+                                <div class="col-xs-12">
+                                    <label class="backgroud-color">[Connecting to device]</label>
+                                    <input type="text" class="backgroud-color">
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="warning-panel">
+                            <button type="button" class="close"></button>
+                            警告:请在专业人员指导下使用！
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="hide modal fade" id="largeCmdSetDlg">
+            <form class="form-horizontal form" id="largeCmdSetForm">
+                <textarea id="large_textarea" type="text" rows="3" cols="20"></textarea>
+            </form>
+        </div>
+
+
+    </div>
+
+<div id="wips_rc" class="rc-define"
+	MOUDEL_NAME="命令助手" 
+	WARN_NORMAL="普通"
+	
+        >
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("b_commandline.commandline");
+</script>
+

@@ -1,0 +1,443 @@
+/**
+ * Created by liuyanping lkf6877 on 2017/6/03.
+ */
+/**
+ * Created by liuyanping lkf6877 on 2017/6/03.
+ */
+/**
+ * Created by liuyanping lkf6877 on 2017/6/03.
+ */
+/* oasis-homepage-header start */
+/* oasis-homepage-header end */
+/* oasis-homepage-banner start */
+/* oasis-homepage-banner end */
+/* oasis-homepage-title start */
+/* oasis-homepage-title end */
+/* oasis-homepage-first start */
+/* oasis-homepage-first end */
+/* oasis-homepage-second start */
+/* oasis-homepage-second start */
+.public,
+.oasis-home .oasis-home-header .oasis-header-main,
+.oasis-home .oasis-home-title .oasis-title-main,
+.oasis-home .oasis-home-content-first > div:last-child ul,
+.oasis-home .oasis-home-content-second > div:nth-child(2) ul,
+.oasis-home .oasis-home-content-second > div:nth-child(3),
+.oasis-home .oasis-home-content-third > div:nth-child(3) > div,
+.oasis-home .oasis-home-content-third > ul,
+.oasis-home .oasis-home-content-fourth > div:nth-child(2) ul,
+.oasis-home .oasis-home-content-fourth > div:nth-child(3),
+.oasis-home .oasis-home-content-fourth > div:nth-child(4),
+.oasis-home .oasis-home-content-fifth > div,
+.oasis-home .oasis-home-content-sixth > div,
+.oasis-home .oasis-home-footer .row,
+.oasis-home .oasis-home-footer .oasis-footer-bottom {
+  width: 1000px;
+  margin: 0 auto;
+}
+.content-title-common,
+.oasis-home .oasis-home-content-first > div:first-child,
+.oasis-home .oasis-home-content-second > div:first-child,
+.oasis-home .oasis-home-content-fourth > div:first-child {
+  height: 45px;
+  border-bottom: 1px solid #e7e7e9;
+  text-align: center;
+}
+.content-title-common > div,
+.oasis-home .oasis-home-content-first > div:first-child > div,
+.oasis-home .oasis-home-content-second > div:first-child > div,
+.oasis-home .oasis-home-content-fourth > div:first-child > div {
+  width: 120px;
+  display: inline-block;
+  font-size: 24px;
+  margin-top: 28px;
+}
+.oasis-home {
+  min-width: 1000px;
+  color: #fffdf8;
+}
+.oasis-home .oasis-home-header {
+  background-color: #292f34;
+}
+.oasis-home .oasis-home-header .oasis-header-main .oasis-header-logo {
+  float: left;
+  margin-right: 30px;
+  line-height: 78px;
+}
+.oasis-home .oasis-home-header .oasis-header-main .oasis-header-nav {
+  height: 78px;
+  line-height: 78px;
+  font-size: 16px;
+  float: left;
+}
+.oasis-home .oasis-home-header .oasis-header-main .oasis-header-nav li {
+  float: left;
+  margin: auto 15px;
+  cursor: pointer;
+}
+.oasis-home .oasis-home-header .oasis-header-main .oasis-header-nav li:hover {
+  color: #59ddcc;
+}
+.oasis-home .oasis-home-header .oasis-header-main .oasis-header-nav li.active {
+  color: #59ddcc;
+}
+.oasis-home .oasis-home-header .oasis-header-main .oasis-header-right {
+  float: right;
+  height: 78px;
+  text-align: center;
+  line-height: 78px;
+}
+.oasis-home .oasis-home-header .oasis-header-main .oasis-header-right > div {
+  display: inline-block;
+}
+.oasis-home .oasis-home-header .oasis-header-main .oasis-header-right > div:nth-child(1) {
+  position: relative;
+}
+.oasis-home .oasis-home-header .oasis-header-main .oasis-header-right > div:nth-child(1) > input {
+  width: 154px;
+  height: 32px;
+  color: #80878c;
+  background-color: #323a3f;
+  border: none;
+}
+.oasis-home .oasis-home-header .oasis-header-main .oasis-header-right > div:nth-child(1) > input::-webkit-input-placeholder {
+  color: #80878c;
+}
+.oasis-home .oasis-home-header .oasis-header-main .oasis-header-right > div:nth-child(1) > input:-moz-placeholder {
+  color: #80878c;
+}
+.oasis-home .oasis-home-header .oasis-header-main .oasis-header-right > div:nth-child(1) > input::-moz-placeholder {
+  color: #80878c;
+}
+.oasis-home .oasis-home-header .oasis-header-main .oasis-header-right > div:nth-child(1) > input:-ms-input-placeholder {
+  color: #80878c;
+}
+.oasis-home .oasis-home-header .oasis-header-main .oasis-header-right > div:nth-child(1) > span {
+  position: absolute;
+  top: 34px;
+  right: 10px;
+}
+.oasis-home .oasis-home-header .oasis-header-main .oasis-header-right > div:nth-child(2) {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+}
+.oasis-home .oasis-home-header .oasis-header-main .oasis-header-right > div:nth-child(3) {
+  width: 80px;
+  height: 30px;
+  line-height: 30px;
+  cursor: pointer;
+  background: linear-gradient(to bottom, #5eddcc, #4ec1b2);
+}
+.oasis-home .oasis-home-banner img {
+  width: 100%;
+}
+.oasis-home .oasis-home-banner .carousel-indicators li {
+  width: 26px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.3);
+  margin: 0;
+  border: none;
+}
+.oasis-home .oasis-home-banner .carousel-indicators .active {
+  background-color: #ffffff;
+}
+.oasis-home .oasis-home-title {
+  height: 150px;
+  background-color: #384147;
+}
+.oasis-home .oasis-home-title .oasis-title-main > div {
+  float: left;
+  width: 33.333%;
+  height: 150px;
+  border-left: 1px solid #4d5961;
+  padding-left: 20px;
+  display: table;
+}
+.oasis-home .oasis-home-title .oasis-title-main > div:last-child {
+  border-right: 1px solid #4d5961;
+}
+.oasis-home .oasis-home-title .oasis-title-main > div .oasis-title-content {
+  display: table-cell;
+  vertical-align: middle;
+}
+.oasis-home .oasis-home-title .oasis-title-main > div .oasis-title-content.oasis-question-mark {
+  background: url("../img/question_mark.png") no-repeat 90%;
+}
+.oasis-home .oasis-home-title .oasis-title-main > div .oasis-title-content.oasis-exclamatory-mark {
+  background: url("../img/exclamatory_mark.png") no-repeat 90%;
+}
+.oasis-home .oasis-home-title .oasis-title-main > div .oasis-title-content > div:first-child {
+  font-size: 24px;
+  padding-bottom: 10px;
+}
+.oasis-home .oasis-home-title .oasis-title-main > div .oasis-title-content > div:last-child {
+  color: #a5a7a6;
+}
+.oasis-home .oasis-home-content-first {
+  height: 350px;
+  background-color: #f9fafa;
+}
+.oasis-home .oasis-home-content-first.oasis-home-maintenance {
+  background: url("../img/maintenance.png") no-repeat bottom;
+}
+.oasis-home .oasis-home-content-first > div:first-child > div {
+  color: #292f34;
+  background-color: #f9fafa;
+}
+.oasis-home .oasis-home-content-first > div:last-child {
+  text-align: center;
+  padding-top: 25px;
+}
+.oasis-home .oasis-home-content-first > div:last-child ul li {
+  display: inline-block;
+  color: #292f34;
+  margin-right: 25px;
+  font-size: 16px;
+}
+.oasis-home .oasis-home-content-first > div:last-child ul li:before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #292f34;
+  margin-right: 10px;
+}
+.oasis-home .oasis-home-content-second {
+  height: 445px;
+  background: url("../img/portal-bg.png") no-repeat;
+  background-size: cover;
+}
+.oasis-home .oasis-home-content-second > div:first-child > div {
+  color: #292f34;
+  background-color: #f0f2f3;
+}
+.oasis-home .oasis-home-content-second > div:nth-child(2) {
+  text-align: center;
+  padding-top: 25px;
+}
+.oasis-home .oasis-home-content-second > div:nth-child(2) ul li {
+  display: inline-block;
+  margin-right: 25px;
+  color: #292f34;
+  font-size: 16px;
+}
+.oasis-home .oasis-home-content-second > div:nth-child(2) ul li:before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #292f34;
+  margin-right: 10px;
+}
+.oasis-home .oasis-home-content-second > div:nth-child(3) {
+  padding-top: 65px;
+}
+.oasis-home .oasis-home-content-second > div:nth-child(3) > div {
+  width: 310px;
+  height: 245px;
+  background-color: #ffffff;
+  float: left;
+  text-align: center;
+  padding: 30px 25px 0 25px;
+  color: #292f34;
+  font-size: 16px;
+}
+.oasis-home .oasis-home-content-second > div:nth-child(3) > div:not(:last-child) {
+  margin-right: 35px;
+}
+.oasis-home .oasis-home-content-second > div:nth-child(3) > div > div {
+  padding-top: 30px;
+}
+.oasis-home .oasis-home-content-third {
+  height: 510px;
+  background-color: #384147;
+}
+.oasis-home .oasis-home-content-third > div:first-child {
+  height: 78px;
+  line-height: 78px;
+  text-align: center;
+  font-size: 22px;
+}
+.oasis-home .oasis-home-content-third > div:nth-child(3) {
+  height: 360px;
+  background-color: #2f363c;
+  margin-top: 20px;
+  padding: 20px 0;
+}
+.oasis-home .oasis-home-content-third > div:nth-child(3) > div > div {
+  float: left;
+  position: relative;
+}
+.oasis-home .oasis-home-content-third > div:nth-child(3) > div > div:not(:last-child) {
+  margin-right: 13px;
+}
+.oasis-home .oasis-home-content-third > div:nth-child(3) > div > div:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(41, 47, 52, 0.6);
+}
+.oasis-home .oasis-home-content-third > div:nth-child(3) > div > div:hover:before {
+  display: none;
+}
+.oasis-home .oasis-home-content-third > div:nth-child(3) > div > div > div:nth-child(2) {
+  position: absolute;
+  top: 120px;
+  font-size: 24px;
+  width: 100%;
+  text-align: center;
+  text-shadow: 1px 2px 5px rgba(0, 0, 0, 0.6);
+}
+.oasis-home .oasis-home-content-third > div:nth-child(3) > div > div > div:nth-child(3) {
+  position: absolute;
+  bottom: 0;
+  height: 75px;
+  width: 100%;
+  background-color: rgba(41, 47, 52, 0.6);
+  padding: 10px;
+}
+.oasis-home .oasis-home-content-third > ul {
+  text-align: center;
+}
+.oasis-home .oasis-home-content-third > ul li {
+  display: inline-block;
+  font-size: 16px;
+  color: #e3e2de;
+  margin-right: 25px;
+}
+.oasis-home .oasis-home-content-third > ul li:before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #fffefc;
+  margin-right: 10px;
+}
+.oasis-home .oasis-home-content-fourth {
+  height: 560px;
+  background-color: #f0f2f3;
+}
+.oasis-home .oasis-home-content-fourth > div:first-child > div {
+  color: #292f34;
+  background-color: #f0f2f3;
+}
+.oasis-home .oasis-home-content-fourth > div:nth-child(2) {
+  text-align: center;
+  padding-top: 25px;
+}
+.oasis-home .oasis-home-content-fourth > div:nth-child(2) ul li {
+  display: inline-block;
+  font-size: 16px;
+  color: #292f34;
+  margin-right: 25px;
+}
+.oasis-home .oasis-home-content-fourth > div:nth-child(2) ul li:before {
+  content: "";
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #292f34;
+  margin-right: 10px;
+}
+.oasis-home .oasis-home-content-fourth > div:nth-child(3) {
+  padding-top: 55px;
+}
+.oasis-home .oasis-home-content-fifth {
+  background-color: #fafafa;
+  padding-top: 30px;
+}
+.oasis-home .oasis-home-content-fifth > div .oasis-fifth-title {
+  font-size: 22px;
+  color: #292f34;
+  text-align: center;
+}
+.oasis-home .oasis-home-content-fifth > div .oasis-fifth-title-small {
+  font-size: 16px;
+  color: #53575a;
+  text-align: center;
+}
+.oasis-home .oasis-home-content-fifth > div .row {
+  margin-top: 20px;
+  color: #737c84;
+}
+.oasis-home .oasis-home-content-fifth > div .row h3 {
+  color: #737c84;
+  font-size: 30px;
+}
+.oasis-home .oasis-home-content-fifth > div .row h4 {
+  color: #737c84;
+  font-size: 18px;
+}
+.oasis-home .oasis-home-content-fifth > div .map_side {
+  padding-top: 50px;
+}
+.oasis-home .oasis-home-content-fifth > div .map_side > .row {
+  margin-bottom: 50px;
+}
+.oasis-home .oasis-home-content-fifth > div hr {
+  margin: 10px auto;
+  width: 80%;
+  border-color: rgba(41, 47, 52, 0.6);
+}
+.oasis-home .oasis-home-content-fifth > div > div:nth-child(4) > div {
+  float: left;
+  width: 125px;
+  overflow: hidden;
+}
+.oasis-home .oasis-home-content-sixth {
+  height: 175px;
+  background: url("../img/register-bg.png") no-repeat;
+  background-size: cover;
+}
+.oasis-home .oasis-home-content-sixth > div {
+  display: table;
+  height: 175px;
+  line-height: 175px;
+  text-align: center;
+}
+.oasis-home .oasis-home-content-sixth > div span {
+  font-size: 22px;
+  color: #f6f9fe;
+}
+.oasis-home .oasis-home-content-sixth > div span:first-child {
+  margin-right: 40px;
+}
+.oasis-home .oasis-home-content-sixth > div span:last-child {
+  border: 1px solid #f6f9fe;
+  padding: 10px 35px;
+  background-color: rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+}
+.oasis-home .oasis-home-footer {
+  height: 410px;
+  background: url("../img/footer-bg.png") #292f34 left;
+  color: #d7d6d2;
+}
+.oasis-home .oasis-home-footer .row {
+  text-align: center;
+}
+.oasis-home .oasis-home-footer .row ul {
+  line-height: 30px;
+  margin-top: 55px;
+  display: inline-block;
+  text-align: left;
+  padding: 0;
+}
+.oasis-home .oasis-home-footer .row ul li:first-child {
+  line-height: 55px;
+}
+.oasis-home .oasis-home-footer .row ul li > a {
+  color: #2381ec;
+}
+.oasis-home .oasis-home-footer .oasis-footer-bottom {
+  padding-top: 90px;
+  text-align: center;
+  color: #d7d6d3;
+}
+.oasis-home .mt9 {
+  margin-top: 9px;
+}

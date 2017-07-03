@@ -1,0 +1,45 @@
+<html>
+<head>
+</head>
+<body>
+<div class="app-colum" style="height:250px;" id="aps_page" debug="AP">
+  <!-- <div class="app-box echart-height"> -->
+    <div class="box-footer" style="background: initial;">
+       <div class="col-xs-12">
+          <span class="title">AP</span>
+          <div class="text-right link-container">
+              <a type="button" class="refresh" id="refresh_AP"><i class="refresh-icon icon"></i></a>
+              <!-- <a type="button" class="link-detail" tab="0" title="更多"><i class="detail-icon icon"></i></a> -->
+          </div> 
+       </div>
+       
+    </div>
+    <div class="row-nohover row-clear padding0">
+       <div class="col-xs-5 row-left">
+            <div id="pie_aps" class="myEchart"></div>
+        </div>
+       <div class="col-xs-7">
+           <div class="dev_online">
+               <div class="ont_img inline_img"></div>
+               <span class="dev_status">在线AP</span>
+               <span style="text-decoration: none"class="dev_number" id="onlinedevice">3</span>
+           </div>
+           <div class="dev_online">
+               <div class="ont_img outline_img"></div>
+               <span class="dev_status">离线AP</span>
+               <span style="text-decoration: none" class="dev_number"  id="outlinedevice">1</span>
+           </div>
+        </div>
+    </div>
+  <!-- </div> -->
+</div>
+<div id="summary_ap_rc" class="rc-define"
+      STATUS="在线,离线"
+      AP_NUMBER="数量"
+      AP_TIME="时间"
+    ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("city_dashboard.aps");
+</script>

@@ -1,0 +1,20 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">
+            <a href="#/global/content/system/site" style="color:#2fa4e7;">场所管理</a> > <a style="cursor:pointer;color:#2fa4e7;" class="devlistshow">设备列表</a> > 子设备列表</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="btn btn-cus" ng-click="refresh()">刷新</div>
+            </div>
+            <table bs-table="options"></table>
+        </div>
+    </div>
+    <div class="read_rc" id="sub_device_rc"
+        error="请求出错啦~"
+        online="在线"
+        offline="不在线"
+        table-title="设备别名,设备sn,设备型号,软件版本,硬件版本,设备状态"
+     >
+    </div>
+</div>

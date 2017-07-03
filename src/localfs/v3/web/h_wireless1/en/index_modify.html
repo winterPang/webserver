@@ -1,0 +1,208 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+  <div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height default-bottom">
+            <div class="box-footer">
+                <span class="title">Modification List</span>
+            </div>
+           
+            <div class="col-sm-12 " id="ssidToggle">
+                <form class="form-horizontal form edit" id="toggle_form">
+                    <div class="col-sm-6 response-block">
+                        <div class="form-group">
+                            <label class="col-sm-3" for="stName">Wireless Service Name</label>
+                            <div class="col-sm-9 string big">
+                                <span name="stName" id="stName"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3" for="ssidName">SSID</label>
+                            <div class="col-sm-9 string big">
+                                <span  name="ssidName" id="ssidName"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label  ">Status</label>
+                            <div class="col-sm-9 string big">
+                                <input type="radio" id="status_enable" name="status" value="1" />
+                                <label class=" control-label  " for="status">Enabled</label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" id="status_go" name="status" value="2" />
+                                <label class=" control-label  " for="status_go">Disabled</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group hide" id="cipherSuiteq">
+                            <label class="col-sm-3 control-label  " for="cipherSuiteq" id="cipherSuite_right">Whether to Encrypt</label>
+                            <div class="col-sm-9 string big">
+                                <input type="radio" id="cipherSuite_false" ctrlBlock="#cipherKey_out"  name="cipherSuites" value="0" />
+                                <label class=" control-label  " for="cipherSuite_false">No</label>
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="radio" id="cipherSuite_true" ctrlBlock="#cipherKey_out" content="#cipherKey_out" name="cipherSuites" value="1" />
+                                <label class=" control-label  " for="cipherSuite_true">Yes</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group hide" id="cipherKey_out">
+                            <label class="col-sm-3 control-label required">Key</label>
+                            <div class="col-md-9">
+                                <input type="password" class="string big required" id="restByte" name="IDLE_CUT_FLOW" error_id="restByte_error" />
+                                <label class="error" id="restByte_error">This parameter is required.</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 response-block">
+                        <div class="form-group" id="authTypes">
+                            <label class="col-sm-3 control-label">Authentication Method</label>
+                            <div class="col-sm-9">
+                                <div class="col-sm-12">
+                                    <input type="radio" value="AT1" id="AT1" name="AuthenType" ctrlBlock=".ath-type" content="" checked/>
+                                    <label for="AT1">No Authentication</label>
+                                </div>
+                                <div class="col-sm-12">
+                                    <input type="radio" value="AT2" id="AT2" name="AuthenType" ctrlBlock=".ath-type" content="" />
+                                    <label for="AT2">One-Key Authentication</label>
+                                </div>
+                                <div class="col-sm-12 st-type" id="MailBlock">
+                                    <input type="radio" value="AT3" id="AT3" name="AuthenType" ctrlBlock=".ath-type" content="#LoginWays" />
+                                    <label for="AT3">Account Login</label>
+                                    <div id="LoginWays" class="ath-type hide">
+                                        <div class="col-sm-2">
+                                            <input type="checkbox" value="1" id="Message" name="LoginWays" />
+                                            <label for="Message">Short Message</label>
+                                        </div>
+                                        <div class="col-sm-3 account_style">
+                                            <input type="checkbox" value="2" id="WeChart" name="LoginWays" />
+                                            <label for="WeChart">WeChat Official Account</label>
+                                        </div>
+                                        <div class="col-sm-3 account_style">
+                                            <input type="checkbox" value="3" id="FixAccount" name="LoginWays" />
+                                            <label for="FixAccount">Fixed Account</label>
+                                        </div>
+                                        <div class="col-sm-3 account_style">
+                                            <input type="checkbox" value="4" id="isWeChatWifi" name="LoginWays" />
+                                            <label for="isWeChatWifi">WeChat Wi-Fi</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12 st-type" id="WeixinBlock">
+                                    <input type="radio" value="AT4" id="AT4" name="AuthenType" ctrlBlock=".ath-type" content="#ModelSelect" />
+                                    <label for="AT4">Select Authentication Template</label>
+                                    <div class="ath-type hide" id="ModelSelect">
+                                        <select class="singleSelect" allowClear="true" id="AuthCfgList" name="AuthCfgList">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="denglu">
+                            <label class="col-sm-3 control-label">Login Page</label>
+                            <div class="col-sm-9">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-3">
+                                        <input type="radio" id="LP1" value="LP1" name="LoginPage" value="1" ctrlBlock=".lg-page" checked/>
+                                        <label for="LP1">Simple</label>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12" id="yemian">
+                                    <input type="radio" id="LP4" value="LP4" name="LoginPage" ctrlBlock=".lg-page" content="#LoginPageSelect">
+                                    <label for="LP4">Select Page Template</label>
+                                    <div class="lg-page hide" id="LoginPageSelect">
+                                        <!--allowClear="false" Attribute-->
+                                        <select class="singleSelect" id="LoginPageList" name="LoginPageList">
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="weixinPub">
+                            <label class="col-sm-3 control-label">WeChat Official Account</label>
+                            <div class="col-sm-9" id="WeChartSelect">
+                                <select class="singleSelect" id="WeChartList" name="WeChartList">
+                                </select>
+                                <!--&nbsp;&nbsp;-->
+                                <!--<a class="xb-link">Create</a>-->
+                            </div>
+                        </div>
+                        <div class="form-group" id ="freeCertification">
+                            <label class="col-sm-3 control-label">Authentication Free for Reconnection</label>
+                            <div class="col-sm-9">
+                                <input type="checkbox" class="switch" id="auto_study_enable" name="auth_study_group"  ctrlBlock=".Learn-MAC"/>
+                                <div class="Learn-MAC hide">
+                                    <div class="Learn-Time">
+                                        <input type="text" class="string big" id="impose_auth_time" value="7" />
+                                        <label class="info-explain">(1 to 30) days</label>
+                                    </div>
+                                    <label class="info-explain">Note: Authenticated offline users can come online without reauthentication during the free authentication period.</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </form>
+
+            </div>
+            <div class="modal-footer form-actions">
+                <a class="btn btn-apply" id="ensure">OK</a>
+                <a class="btn btn-cancel" id="cancel">Cancel</a>
+            </div>
+        </div>
+
+    </div>
+  </div>
+
+  <div id="h_wireless_indexModifys" class="rc-define"
+        SSID_HEADER="SSID, Authentication Method"
+        ALLAP_HEADER2="Wireless Service Name, SSID, Authentication Method, Status, Bound APs, Bound AP Groups, Operation"
+        TERINFO="AP List"
+        TITLE_TERINFO="AP Details"
+        APGROUP="AP Group"
+        ALLAP_HEADER3="AP Name, SN, AP Model, Bound"
+        ALLAP_HEADER4="AP Group Name, Bound"
+        ADD_TITLE="Add Service"
+        AUTH_CFG="No Authentication, WeChat Authentication, SMS Authentication, One-Key Authentication, Select Page Template"
+        DEL_AUTH_FAIL="Failed to delete the published template."
+        DEL_PUB_SUCC = "Modification succeeded."
+        PUB_SUCC="Publishing succeeded."
+        ADD_SUCCESS="Wireless service added successfully."
+        ADD_FAIL="Failed to add a wireless service."
+        ADD_NULL_SSID="SSID cannot be null."
+        DEL_SUCCESS="Deletion succeeded."
+        DEL_FAIL="Deletion failed."
+        AUTHEN_TYPE="No Authentication, One-Key Authentication, Account Authentication"
+        CHECK_AUTH="Please select an authentication template." 
+        SYN="Synchronize"
+        LINK="Failed to add a wireless service because the main connection is disconnected."
+        LINK_delete="Failed to delete the wireless service because the main connection is disconnected."
+        ADD_Limit="Failed to add a wireless service because the maximum number of wireless services is already reached."
+        CIPHERSUITE="Not configured,WEP40,TKIP,CCMP,TKIP/CCMP,WEP104,WEP128"
+        SECURITYIE="Not configured,WPA,RSN,OSEN"
+        STATUS=",Enable, Disable"
+        AKMMODE="No, Yes"
+        MAINLINK="Failed to modify the wireless service because the main connection is broken down."
+"
+        PENDING="Retrieving data"
+        SYN_FAILED="Synchronization failed."
+        SYN_FAILED_HAND="Automatic synchronization failed. Please synchronize the configuration manually."
+        GET_DATA_ERROR="Error occurred for data retrieval."
+        CONFIGURATION_SUC="Configuration succeeded."
+        CONFIGURATION_FAILED="Configuration failed."
+        SELECT="Please select at least one authentication method."
+
+        AUTHType_Errorcode1112="at least have one authType."
+        AUTHName_Errorcode1001"="authCfgName can not be null."
+        THEMEName_Errorcode1001"="themeName can not be null."
+  ></div>
+</body>
+
+</html>
+<script language="javascript" type="text/javascript">
+Utils.Pages.loadJS("h_wireless1.index_modify");
+</script>

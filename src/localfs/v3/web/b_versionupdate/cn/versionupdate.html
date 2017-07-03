@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <!-- <link href="../soon/soon.css" rel="stylesheet" type="text/css"> -->
+</head>
+<body>
+	<div class="col-xs-12 col-sm-12 app-colum" id="device_verlist">
+		<div class="app-box no-height">
+	        <div class="box-footer">
+	            <span class="title">设备版本</span>
+	        </div>
+    	<form class="form-horizontal form" >
+    		<div class="modal-body">
+        		<div id="device_version_list" class="simple-list"></div>
+    		</div>
+		</form>
+	    </div>
+	</div>
+	<div class="col-xs-12 col-sm-12 app-colum hide" id="verlist">
+		<div class="app-box no-height">
+	        <div class="box-footer">
+	            <span class="title">AP版本</span>
+	        </div>
+    	<form class="form-horizontal form" >
+    		<div class="modal-body">
+        		<div id="apversion_info_list" class="simple-list"></div>
+    		</div>
+		</form>
+	    </div>
+	</div>
+	<div class="col-xs-12 col-sm-12 app-colum hide" id="applyDB">
+		<div class="app-box no-height">
+			<div class="box-footer">
+				<span class="title">应用分析特征库</span>
+			</div>
+			<form class="form-horizontal form" >
+				<div class="modal-body">
+					<div id="apply_info_list" class="simple-list"></div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<div class="col-xs-12 col-sm-12 app-colum hide" id="StationTypeDB">
+		<div class="app-box no-height">
+			<div class="box-footer">
+				<span class="title">终端类型特征库</span>
+			</div>
+			<form class="form-horizontal form" >
+				<div class="modal-body">
+					<div id="station_type_list" class="simple-list"></div>
+				</div>
+			</form>
+		</div>
+	</div>
+<div id="device_infor_rc" class="rc-define"
+	 Version_HEADER="存放地址,大小（Mb）,类型,版本号,描述"
+	 DPI_HEADER="存放地址,文件名,大小（Mb）,版本号,描述"
+     UPDATE_HISTORY="日期,时间,版本,描述"
+     DOWNLOAD="版本下载"
+	 REBOOTDOWN="下载且重启"
+	 SAVEREBOOTDOWN="保存配置下载且重启"
+	 OFFDOWNLOAD="离线下载"
+     VERSION_TYPE=",正式版本,开发版本,安全补丁版本"
+     DOWNLOAD_ERROR="升级成功,升级失败,只能选择一个版本"></div>
+</div>
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("b_versionupdate.index");
+</script>

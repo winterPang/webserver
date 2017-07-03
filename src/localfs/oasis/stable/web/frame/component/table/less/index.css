@@ -1,0 +1,54 @@
+.oasis-table.table thead tr {
+  line-height: 19px;
+  line-height: 1.35714286rem;
+  background: none #EDF0F2 !important;
+  color: #707070;
+  height: 35px;
+  height: 2.5rem;
+  border-bottom: 1px solid #ddd;
+}
+.oasis-table.table thead tr td,
+.oasis-table.table thead tr th {
+  font-size: 13px !important;
+  font-family: Arial, "Microsoft YaHei", Helvetica, sans-serif !important;
+  user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  -webkit-user-select: none !important;
+  height: 40px;
+  height: 2.85714286rem;
+  border-bottom: none;
+}
+.oasis-table.table tbody tr tr,
+.oasis-table.table tbody tr td {
+  font-size: 13px !important;
+  font-family: Arial, "Microsoft YaHei", Helvetica, sans-serif !important;
+}
+.fixed-table-pagination .pagination {
+  border-radius: 0;
+  margin: 35px 0 0;
+  margin: 2.5rem 0 0;
+}
+.fixed-table-pagination .pagination > .active > a,
+.fixed-table-pagination .pagination > .active > a:focus,
+.fixed-table-pagination .pagination > .active > a:hover,
+.fixed-table-pagination .pagination > .active > span,
+.fixed-table-pagination .pagination > .active > span:focus,
+.fixed-table-pagination .pagination > .active > span:hover {
+  color: #fff;
+  border-color: #78cec3;
+  background-color: #78cec3;
+}
+.fixed-table-pagination .pagination .page-list select.form-control {
+  border-color: #ddd;
+  border-left: 0;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -o-box-shadow: none;
+  box-shadow: none;
+}
+.fixed-table-pagination .pagination .page-list select.form-control:hover,
+.fixed-table-pagination .pagination .page-list select.form-control:focus,
+.fixed-table-pagination .pagination .page-list select.form-control:active {
+  border-color: #ddd !important;
+}

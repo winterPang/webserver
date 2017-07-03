@@ -1,0 +1,36 @@
+<html>
+<head>
+</head>
+<body>
+
+
+
+    
+    <div id="ap_diag">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">AP统计</h3>
+        </div>
+        <div class="modal-body">
+            <div id="popList" class="simple-list"></div>
+        </div>
+        <div class="modal-footer form-actions">
+            <a class="btn btn-primary" id="guanbi">关闭</a>
+        </div>
+    </div> 
+
+    <div id="view_ap_rc" class="rc_define" 
+        POP_HEADER="MAC地址,IPv4地址,IPv6地址,AP名称,AP类型"
+
+        VIEW_TITLE="查看 "
+        PowerSaveMode="激活,休眠"
+        QOSMODE="N/A,WMM,11e,WMM and 11e"
+        CLIENTTYPE="pre-rsn,WPA,WPA2"
+        ENCRYPTIONCIPHER="USEGROUP,WEP 40,TKIP,CCMP,WEP 104,BIP,WEP 128,CLEAR"
+        WIRELESS_MODE="802.11b,802.11a,802.11g,802.11gn,802.11an,802.11ac"
+    ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("hq_apinfo.view_aplist_bypie");
+</script>

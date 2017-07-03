@@ -1,0 +1,65 @@
+<html>
+<head>
+</head>
+<body>
+
+<div class="app-colum xxb">
+    <div class="app-box">
+        <div class="box-footer">
+            <span class="title">本地AC</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="localac_list" class="xxb-list simple-list"></div>
+        </div>
+    </div>
+</div>
+
+<div class="hide modal fade" id="AddLacDlg">
+    <div class="modal-body">
+        <form class="form edit" id="AddLacForm">
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label required" style="height:48px; line-height:48px">型号</label>
+
+                <div class="col-sm-9">
+                    <select class="singleSelect" id="modeSelect_v" allowClear="false" disabled>
+                    </select>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">名称</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="Lac_Name" name ="Lac_Name" errid="ap_name_error" maxlength=64 />
+                    <label class="info-explain">（1-64字符）</label>
+                    <label class="error" id="ap_name_error"></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">序列号</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="Lac_SN" name ="Lac_SN" errid="ap_name_error" maxlength=64 />
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<div id="maoxian">
+</div>
+
+<div id="ws_ssid_rc" class="rc-define"
+     LOACLAC_TITLE = "名称,序列号,型号,AP关联地址"
+     EDIT_TITLE = "添加,删除,同步"
+     EDITLAC_TITLE = "修改"
+     ADDLAC_TITLE = "添加"
+     DEV_STATUS = "在线,离线,版本下载"
+        ></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("hq_branchesmanage.index_localac");
+</script>

@@ -1,0 +1,302 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style type="text/css">
+        .pic_font{
+            position: absolute;
+            width: 83%;
+            text-align: center;
+            height: 40px;
+            line-height: 40px;
+            background-color: #fff;
+            color: #ddd;
+            font-weight: bold;
+            top: 2px;
+            left: 14px;
+        }
+    </style>
+</head>
+
+<div class="col-xs-12 app-colum xxb" id="networkcfg" debug="GetSsisCfg initTemplate queryAuthCfgName queryWeChartAccount getShoplist">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">WLAN Configuration</span>
+        </div>
+        <div class="box-body no-height">
+            <div class="col-xs-12">
+                <div class="col-xs-4">
+                    <label class="control-label">Signal strength:</label>
+                    <span class="label"  id="signalStrength" ></span>
+                    <button class="btn btn-primary btn_ok hidemodify" id="signalStrength_btn">Modify</button>
+                </div>
+                <div class="col-xs-8">
+                    <label class="control-label">WLAN Schedule:</label>
+                    <div class="ctrl-btn openORclose open en status btn forbid" id="wifiBtn"></div>
+                    <label class="control-label">Schedule time:</label>
+                    <div id="StartValidityDateTime1" style="display: inline-block;width:160px;">
+                        <div id="clocktime1" class="timewidget_nosecond"></div>
+                    </div>
+                    <span>to</span>
+                    <div id="StartValidityDateTime2" style="display: inline-block;width:160px;">
+                        <div id="clocktime2" class="timewidget_nosecond"></div>
+                    </div>
+                    <button class="btn btn-primary btn_ok hidden forbid" id="comfire">OK</button>
+                </div>
+            </div>
+            <!-- <Radio config start >-->
+            <div class="space-44"></div>
+            <div >
+                <div class="content-title">
+                    <h2>Radio</h2>
+                </div>
+                <div id="XXB-MSR_02" class="detail-content" spName="sp_channel_00"  >
+                    <div class="radio-config "><span>2.4GHZ</span></div>
+                    <div class="col-xs-11 content-offset">
+                        <div class="col-xs-5 response-block align-left title">
+                            <span class="channel">Channel:</span>
+                            <select class="singleSelect" id="RadioCogfig1" name="RadioCogfig" >
+                            </select>
+                            <div class="v_spaceLine dynamic-marginR"></div>
+                        </div>
+                        <div class="col-xs-6 response-block align-left">
+                            <span class="space-4"></span>
+                            <div class="ctrl-btn openORclose open en status float-left btn forbid" id="Radio_Config_Btn1"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="XXB-MSR_02" class="detail-content" spName="sp_channel_00"  >
+                    <div class="radio-config "><span>5GHZ</span></div>
+                    <div class="col-xs-11 content-offset">
+                        <div class="col-xs-5 response-block align-left title">
+                            <span class="channel">Channel:</span>
+                            <select class="singleSelect"  id="RadioCogfig2" name="RadioCogfig">
+                            </select>
+                            <div class="v_spaceLine dynamic-marginR"></div>
+                        </div>
+                        <div class="col-xs-6 response-block align-left">
+                            <span class="space-4"></span>
+                            <div class="ctrl-btn openORclose open en status float-left btn forbid" id="Radio_Config_Btn2"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <Radio config end > -->
+            <div class="space-44"></div>
+            <div id="manage-wifi">
+                <div class="content-title">
+                    <h2>Internal WLAN</h2>
+                    <span>You can access the internal WLAN to manage WAP422 devices.</span>
+                </div>
+                <div id="XXB-MSR_02" class="detail-content" spName="sp_manage_00"  >
+                    <div class="bg-img wifi-open"></div>
+                    <div class="col-xs-11 content-offset">
+                        <div class="col-xs-5 response-block align-left title">
+                            WLAN name:<span class="ssidName">N/A</span>
+                            <br> Encrypted:<span class="securityMode">N/A</span>
+                            <div class="v_spaceLine dynamic-margin"></div>
+                        </div>
+                        <div class="col-xs-6 response-block align-left">
+                            <span class="space-4"></span>
+                            <div class="ctrl-btn openORclose open en status btn float-left btn forbid"></div>
+                            <button class="btn btn-primary modify btn_ok hidemodify" href="x_networkcfg.addwlan" wifi-type="manage-wifi">Modify</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="space-44"></div>
+            <div id="business-wifi">
+                <div class="content-title">
+                    <h2>Commercial WLAN</h2>
+                        <span>
+                         You can push customized advertisements in commercial WLANs.
+                        </span>
+                    <button class="btn btn-primary btn_ok float-right" id="accreditation">Auth Method</button>
+                </div>
+                <div id="XXB-ADV_01"  class="detail-content"  spName="sp_visitor_01" radio>
+                    <div class="bg-img wifi-close"></div>
+                    <div class="col-xs-11 content-offset">
+                        <div class="col-xs-5 response-block align-left title">
+                            WLAN name:<span class="ssidName" id="businessone">N/A</span>
+                            <br> Encrypted: <span class="securityMode">N/A</span>
+                            <div class="v_spaceLine dynamic-margin"></div>
+                        </div>
+                        <div class="col-xs-6 response-block align-left">
+                            <span class="space-4"></span>
+                            <div class="ctrl-btn openORclose en status float-left btn forbid"></div>
+                            <button class="btn btn-primary modify btn_ok hidemodify" href="x_networkcfg.addwlan" wifi-type="business-wifi">Modify</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="XXB-ADV_02" class="detail-content" spName="sp_visitor_02" radio>
+                    <div class="bg-img wifi-close"></div>
+                    <div class="col-xs-11 content-offset">
+                        <div class="col-xs-5 response-block align-left title">
+                            WLAN name:<span class="ssidName" id="businesstwo">N/A</span>
+                            <br> Encrypted: <span class="securityMode">N/A</span>
+                            <div class="v_spaceLine dynamic-margin"></div>
+                        </div>
+                        <div class="col-xs-6 response-block align-left">
+                            <span class="space-4"></span>
+                            <div class="ctrl-btn openORclose en status float-left btn forbid"></div>
+                            <button class="btn btn-primary modify btn_ok hidemodify" href="x_networkcfg.addwlan" wifi-type="business-wifi">Modify</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="XXB-ADV_03" class="detail-content" spName="sp_visitor_03" radio>
+                    <div class="bg-img wifi-close"></div>
+                    <div class="col-xs-11 content-offset">
+                        <div class="col-xs-5 response-block align-left title">
+                            WLAN name:<span class="ssidName" id="businessthree">N/A</span>
+                            <br> Encrypted:<span class="securityMode">N/A</span>
+                            <div class="v_spaceLine dynamic-margin"></div>
+                        </div>
+                        <div class="col-xs-6 response-block align-left">
+                            <span class="space-4"></span>
+                            <div class="ctrl-btn openORclose en status float-left btn forbid"></div>
+                            <button class="btn btn-primary modify btn_ok hidemodify" href="x_networkcfg.addwlan" wifi-type="business-wifi">Modify</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade hide" id="accredDlg">
+    <div class="modal-body">
+        <form class="form edit" id="acc">
+            <div class="col-xs-12" style="min-height:200px;">
+                <div class="form-content xxb"  style="border-top:0;">
+                    <div class="col-xs-2 auth-width">
+                        <div class="auth-icon wechart-icon"></div>
+                    </div>
+                    <div class="col-xs-10 auth-width">
+                    <div class="col-xs-12 content-title" style="border-bottom: 0;">
+                        <h2>WeChat WiFi</h2>
+                        <span>Use WeChat client to scan a QR code for WLAN access authentication.</span>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="col-xs-4">
+                            <div>
+                                <span>Official account:</span>
+                                <select id="accountName" class="select_middle">
+                                    <option>Official account</option>
+                                    <option>Disable</option>
+                                </select>
+                            </div>
+                            <div>
+                                <span id="auth-selectT" class="auth-selectT">Store:</span>
+                                <select class="select_middle" id="shop-list">
+                                    <option>Store</option>
+                                    <option>Disable</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-xs-2" style="text-align: center;" id="qrcode0">
+                            <div><span></span></div>
+                            <div><img style=" width: 110px; height: 110px;"></div>
+                            <div><p><a></a></p></div>
+                        </div>
+                        <div class="col-xs-2" style="text-align: center;" id="qrcode1">
+                            <div><span></span></div>
+                            <div><img style=" width: 110px; height: 110px;"></div>
+                            <div><p><a></a></p></div>
+                        </div>
+                        <div class="col-xs-2" style="text-align: center;" id="qrcode2">
+                            <div><span></span></div>
+                            <div><img style=" width: 110px; height: 110px;"></div>
+                            <div><p><a></a></p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <div class="col-xs-12" style="min-height:180px;">
+        <div class="form-content xxb">
+            <div class="col-xs-2 auth-width">
+                <div class="auth-icon onekey-icon"></div>
+            </div>
+            <div class="col-xs-10 auth-width">
+            <div class="content-title" style="border-bottom: 0;">
+                <h2>Anonymous authentiaction</h2>
+                <span>Click the Click here button on the pushed advertisement for WLAN access authentication.</span>
+            </div>
+             <div class="ctrl-btn auth en openORclose  status btn" authType='onekey'></div>
+        </div>
+    </div>
+</div>
+<div class="col-xs-12" style="min-height:180px;">
+    <div class="form-content xxb">
+        <div class="col-xs-2 auth-width">
+            <div class="auth-icon message-icon"></div>
+        </div>
+        <div class="col-xs-10 auth-width"">
+        <div class="content-title" style="border-bottom: 0;">
+            <h2>SMS auth</h2>
+            <span>Use the verification code in the received short message for WLAN access authentication.</span>
+        </div>
+        <div class="ctrl-btn auth openORclose en status btn " authType='message'></div>
+    </div>
+</div>
+</div>
+</div>
+</form>
+</div>
+</div>
+
+<div class="modal fade hide" id="signalDlg">
+    <div class="modal-body">
+        <form class="form edit" id="sign">
+            <div class="form-body col-xs-4" style="position:relative;">
+                <div class="pic_font">Healthy</div>
+                <img id="jiankang" class="sign_img gray" src="../../web/frame/css/image/jiankang.png"/>
+            </div>
+            <div class="form-body col-xs-4" style="position:relative;">
+                <div class="pic_font">Balanced</div>
+                <img id="junheng" class="sign_img gray" src="../../web/frame/css/image/junheng.png"/>
+            </div>
+            <div class="form-body col-xs-4" style="position:relative;">
+                <div class="pic_font">Wall-through</div>
+                <img id="chuanqiang" class="sign_img gray" src="../../web/frame/css/image/chuanqiang.png"/>
+            </div>
+        </form>
+        <div id="signMessage" class="signal-text">&nbsp</div>
+    </div>
+</div>
+
+<div id="index_rc" class="rc-define"
+     ADD_TITLE="Authentication Management"
+     ADD_TITLE2="Signal Strength"
+     ADD_TITLE3="WLAN Schedule"
+     SECURITY_MODE="No,Yes"
+     Alipay_HEADER="Alipay Account,APP ID,APP SECRET,TOKEN"
+     SUCCESS="Configuration succeeded"
+     PENDING="Issuing configuration"
+     ADD_FAIL="Failed to issue configuration."
+     TIP1 = "2% of the max. transmit power. Low radiation."
+     TIP2 = "50% of the max. transmit power. Coverage and low radiation."
+     TIP3 = "Signal gain enabled. Best user experience."
+     MSG_INFO1="Failed to obtain WLAN configuration.,Failed to obtain device mode.,Incorrect data format."
+     MSG_INFO2="Failed to issue configuration.,Configuration issued successfully.,Failed to issue configuration."
+     MSG_INFO3="Failed to obtain WeChat store list.,Failed to obtain information about the current store."
+     MSG_INFO4="Please reconfigure settings.,Failed to initialize the authentication template.,The authentication configuration cannot be empty.,Incorrect WeChat WiFi configuration."
+     MSG_PENDING="Issuing configuration.,Updating signal strength.,Updating WLAN schedule information."
+     MSG_PENDING1="Obtaining WeChat store list.,Obtaining QR code.,Initializing authentication template."
+     SINGAL_TEXT="Wall-through,Healthy,Balanced"
+     WIFI_CONTENT="In the WLAN closing time,In the WLAN opening time"
+     WIFI_STATUS="Disabled,Enabled"
+     HTML_STR="WLAN schedule,Select an account,disable"
+     SSID_STATUS="Change , WLAN state to, enabled, disabled"
+     SHOPNAMELIST_VAL="Select a shop,disable"
+     FAIL_INFO ="Cloud has been configured successfully, device configuration failed"
+
+        >
+</div>
+</body>
+
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_networkcfg.index");
+
+</script>

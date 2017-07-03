@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="libs/css/jquery.slider.min.css" type="text/css" rel="stylesheet" />
+</head>
+<style type="text/css">
+    .tips{
+            padding: 10px 20px 0px 20px;margin-bottom: -10px;color: #000
+          }
+</style>>
+<body>
+    <div class="col-xs-12 app-colum xxb ratelimit" id="ratelimit" debug="GetQoSCfg">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">宾客限速</span>
+            </div>
+            <div class="box-body no-height padding0">
+                <div class="main-content">
+                    <div id="limitswitch" class="content-title limitswitch">
+                        <h2>限速开关</h2>
+                        <div class="col-sm-2 ctrl-btn openORclose btn forbid"></div>
+                    </div>
+                    <div id="switchon">
+                        <div id="bandwidth">
+                            <div class="limit_head float-left">Wi-Fi带宽比</div>
+                            <div class="bottomline"></div>
+                            <div class="limit-slider" class="col-xs-12">
+                                <div>
+                                    <label class="control-label">整体带宽</label>
+                                    <input type="text" id="totalBand"class="totalBand" maxlength=3 onkeyup="this.value=this.value.replace(/\D/g,'')"/><span >Mbps</span>
+                                    <label class="info-explain" for="limit"><span></span></label>
+                                </div>
+                                <div class="limit-sliders">
+                                    <div class="slider-before">
+                                        <!--<span>商业Wi-Fi</span><br/>
+                                        <span class="span"><span id="bussinessWifi">0.00</span><span>Mbps</span></span>
+                                    </div>-->
+                                        <span >内部Wi-Fi保障比例</span><br/>
+                                            <span class="span"><span id="manageWifi">0</span><span>Mbps</span></span>
+                                        </div>
+                                    <span class="slider">
+                                        <input id="Slider1" type="slider" name="price" value="0"/>
+                                   </span>
+                                    <div class="slider-after">
+                                        <!--<span >内部Wi-Fi</span><br/>
+                                        <span class="span"><span id="manageWifi">0.00</span><span>Mbps</span></span>-->
+                                        <label class="info-explain" for="limit1"><span></span></label>
+                                    </div>
+                                </div>
+                                <!--<label class="info-explain" for="limit1"><span></span></label>-->
+                                <label class="info-manageWifi">开启宾客限速功能后，设备会根据配置优先保障内部Wi-Fi用户的带宽，并对商业Wi-Fi用户进行限速，确保在网络繁忙时内部Wi-Fi用户也可以正常访问网络，<br>商业Wi-Fi用户的实际速率会低于分配的带宽值
+                                </label>
+                                <!--<label class="info-manageWifi">内部Wi-Fi可以通过配置保障比例,确保在网络繁忙时,内部Wi-Fi也可以正常使用网络,而保障内部无线业务功能正常</label>-->
+                            </div>
+                        </div>
+                        <div class="btn_foot">
+                            <button class="btn btn_ok forbid" id="ok">确定</button>
+                            <button class="btn btn_cancel" id="cancel">取消</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hide modal fade " id="failcfgDlg">
+        <div id="client_diag">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="closeX"></button>
+                <h3 class="modal-title">配置失败列表</h3>
+            </div>
+            <div class="tips">
+              <strong>Tips：设备版本低不支持此配置，请先升级设备版本</strong> 
+            </div>
+            <div class="modal-body">
+                <div id="failList" class="simple-list showList"></div>
+            </div>
+            <div class="modal-footer form-actions">
+                <!-- <a class="btn btn-primary" id="failConform">确定</a>
+                <a class="btn btn-primary" id="failClose">关闭</a> -->
+            </div>
+        </div>
+    </div>
+    <div id="x_ratelimit_rc" class="rc-define"
+    CONFIG_QOS="正在下发配置"
+    CONFIG_SUCCESS="配置成功"
+    CONFIG_ERROR="配置失败"
+    PROMPT_INFO="整体带宽不能为0,内部Wi-Fi保障比例不能为0%,内部Wi-Fi保障比例不能为100%"
+    FAIL_INFO ="设备端配置失败请重新配置"
+         FAIL_CFGLIST="配置失败列表"
+         DEV_LIST="设备序列号,状态"
+         STATE="在线,离线"
+    ></div>
+</body>
+
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_networkcfg.ratelimit");
+
+</script>

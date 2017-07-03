@@ -1,0 +1,113 @@
+<div class="networkmap0">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div style="border:1px solid #e7e7e9;margin-bottom:20px;">
+                <div class="app-box default-height" style="border:none;">
+                    <div id="detect_container7">
+                        <div class="box-footer">
+                            <div class="col-xs-12">
+                                <div class="a1">
+                                    <span>Maps</span>
+                                </div>
+                                <div class="a2" id="refresh" ng-click="refresh()">
+                                    <img src="../networkmap0/cocos/res/icon-refresh.png" />
+                                    <span>Refresh</span>
+                                </div>
+                                <div class="a3" id="addMapBtn" ng-click="addmap()">
+                                    <img src="../networkmap0/cocos/res/icon-addMap.png" />
+                                    <span>Add</span>
+                                </div>
+                                <!--<div class="pagination" id="pagination"></div>-->
+                            </div>
+                        </div>
+                        <div class="box-body1" id="MapList" >
+                            <div class="add" id="emptyAdd" >
+                                <div class="add_icon" data-toggle="modal" data-target="#foraddicon" ng-click="addmap()"></div>
+                                <!--<a href="#" class="add_icon" data-toggle="modal" data-target="#foraddicon" ></a>-->
+                            </div>
+                            <div id="MapList1"></div>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div style="width:100%;height:100px;">
+                    <hr/>
+                    <div index-page="region" style="display:block;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <form name="addForm" novalidate bs-modal="mapAdd.options">
+        <div class="form-group">
+            <div style="margin: 0px auto; width:800px;">
+                <label class="col-xs-2 control-label required">Map</label>
+                <div class="col-xs-10">
+                    <!--ng-pattern="/^[\u4E00-\u9FA5]{0,10}$|^[a-zA-Z]{0,32}$/" -->
+                    <input ng-model="add.mapName" type="text" class="string " ng-pattern="/^(([^\^\.<>%&',;=?$\:#@!~\]\[{}\\/`\|])*)$/" id="mapName" name="mapName" maxlength="32" ng-maxlength="32" required/>
+                    <label class="info-explain">(1-32 chars)</label>
+                    <label ng-show="addForm.mapName.$dirty" ng-messages="addForm.mapName.$error" style="display:inline-block;">
+                        <!--<label ng-message="required" class="error" style="display: inline-block;">该参数必须配置。</label>-->
+                        <!--<label ng-message="maxlength" class="error" style="display: inline-block;">请输入1-32字符。</label>-->
+                        <!--<label ng-message="pattern" class="error" style="display: inline-block;">参数不能为特殊字符</label>-->
+                    </label>
+                    <label class="error" id="mapName_error"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div style="margin: 0px auto; width:800px;">
+                <label class="col-xs-2 control-label required">Scale</label>
+                <div class="col-xs-10">1px &nbsp; : &nbsp;
+                    <input ng-model="add.scaleValue" type="number" id="scaleValue" name="scaleValue" errid="mapScale_error"
+                           ng-pattern="/^(?!(0[0-9]{0,}$))[0-9]{1,}[.]{0,}[0-9]{0,}$/" placeholder="0.001 to 1000" required />&nbsp; m
+                    <label ng-show="addForm.scaleValue.$dirty" ng-messages="addForm.scaleValue.$error" style="display:inline-block;">
+                        <!--<label ng-message="required" class="error" style="display: inline-block;">该参数必须配置。</label>-->
+                        <!--<label ng-message="pattern" class="error" style="display: inline-block;">比例应大于0</label>-->
+                    </label>
+                    <label class="error" id="mapScale_error"></label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <div style="margin: 0px auto; width: 800px;position:relative">
+                <label class="col-xs-2 control-label required" style="margin-top: 10px;">Picture</label>
+                <div class="col-xs-10 file"  style="margin-top: 10px;">
+                    <a class="btn">Browse</a><br/>
+                    <label class="info-explain">(In JPG,GIF,PNG,or BMP format.Cannot exceed 2 M)</label>
+                    <label class="error" id="file_error"></label>
+                    <input type="file" id="upload_file" onchange ="angular.element(this).scope().uploadfile(this.file)" />
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <img id="picture" src="" style="text-align: center"/>
+            <!--<canvas id="gameCanvas" width="800" height="450"></canvas>-->
+        </div>
+        <input type="checkbox" class="hide" id="test">
+    </form>
+
+
+
+</div>
+
+<div id="page_rc" class="rc-define"
+     ADDMAP_TITLE = "Add Map"
+     ADD_FAILED="Failed to add the map"
+     GETMAP_FAILED="Failed to obtain the picture."
+     DELETE_OR_CANCEL="Are you sure you want to delete the selected item?"
+     DELETE_FAILED="Failed to delete the map."
+     DELETE_SUCCESS="Map deleted successfully."
+     PARAMMUST_INFO="This field is required."
+     PARAMSPECIAL_INFO="The name can contain only digits and letters."
+     PARAMSKONG_INFO="The name cannot contain spaces."
+     SCALE_INFO="Valid range:0.001 to 1000."
+     UPLOADPIC_INFO="Please upload a picture."
+     MAPEXIT_INFO="The map name already exists."
+     PICBIG_INFO="The picture size cannot exceed 2 M."
+     PICTYPE_ERROR="Incorrect picture format."
+></div>
+</div>
+
+
+

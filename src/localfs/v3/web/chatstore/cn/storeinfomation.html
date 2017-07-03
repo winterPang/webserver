@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+    </head>
+    <body>
+    	<div class="col-xs-12 app-colum">
+	        <div class="app-box no-height">
+	            <!-- 头部文件 -->
+	            <div class="box-footer">
+	           	   <!-- 左侧 -->
+	               <span class="title">导入已申请的门店</span>
+	               <!-- 右侧按钮 -->
+	               <div class="text-right link-container">
+						<!-- <a type="button" class="filter" id="filter_weixinstore">
+							<i class="filter-icon icon"></i>
+						</a> -->
+		                <div id="weixinstore_block" >
+			            	<div class="filter-container" style="border: none;background: #EDF9F7;box-shadow: none;height: 50px;top: -10px;right: -2px;">
+			            		<label>选择微信公众号：</label>
+			            		<select id="PublicWeixin" name="SetfigUpport" class="singleSelect"big></select>
+			            	</div>
+			            </div>
+	            	</div>	  
+	            </div>
+				<!-- 表格内容 -->
+	            <div class="box-body no-height">
+	                <div id="storeinfomationList" class="simple-list"></div>
+	            </div>
+	        </div>	
+    	</div>
+    	<!-- 定义变量 -->
+	    <div id="storeinfomation_rc" class="rc-define"
+			storeInfomation_HEADER = "门店名称,关联SSID,当前状态"
+			comeback="返回"
+			redirectBtn = "插入"
+            updateResult = "导入成功,导入失败"
+            shopExist = "门店已存在"
+            getLvzhouwifi_Err = "查询门店失败"
+            poiIdNotExist_Err = "门店不存在"
+            getLvzhouShop_Err = "查询门店失败"
+            WechatNotFind = "该微信公众号不存在"
+            available_state="系统错误,审核中,审核通过,审核驳回"
+            insertSuc = "导入门店成功"
+            insertWifiShopFail = "导入wifi门店失败"
+            insertShopFail = "导入门店失败">
+    	</div>
+    	
+    </body>
+</html>
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("chatstore.storeinfomation");
+</script>

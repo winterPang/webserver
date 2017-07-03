@@ -1,0 +1,1591 @@
+/*
+ * jQuery UI CSS Framework 1.8.11
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Theming/API
+ */
+
+/* Layout helpers
+----------------------------------*/
+.ui-helper-hidden { display: none; }
+.ui-helper-hidden-accessible { clip: rect(1px 1px 1px 1px); clip: rect(1px,1px,1px,1px);position: absolute !important;}
+.ui-helper-reset {  border: 0; list-style: none;margin: 0;outline: 0;  padding: 0; text-decoration: none; }
+.ui-helper-clearfix:after { content: "."; clear: both;display: block; height: 0;  visibility: hidden; }
+/* required comment for clearfix to work in Opera \*/
+* html .ui-helper-clearfix { height:1%; }
+.ui-helper-clearfix { display:block; }
+/* end clearfix */
+.ui-helper-zfix { position: absolute; top: 0; left: 0;height: 100%;  opacity: 0; filter:Alpha(Opacity=0);width: 100%;  }
+
+
+/* Interaction Cues
+----------------------------------*/
+.ui-state-disabled {color: #999; cursor: default !important; }
+
+
+
+
+
+/*
+ * jQuery UI CSS Framework 1.8.11
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Theming/API
+ *
+ * To view and modify this theme, visit http://jqueryui.com/themeroller/?ffDefault=Helvetica,%20Arial,%20sans-serif&fwDefault=bold&fsDefault=1.1em&cornerRadius=2px&bgColorHeader=dddddd&bgTextureHeader=03_highlight_soft.png&bgImgOpacityHeader=50&borderColorHeader=dddddd&fcHeader=444444&iconColorHeader=0073ea&bgColorContent=ffffff&bgTextureContent=01_flat.png&bgImgOpacityContent=75&borderColorContent=dddddd&fcContent=444444&iconColorContent=ff0084&bgColorDefault=f6f6f6&bgTextureDefault=03_highlight_soft.png&bgImgOpacityDefault=100&borderColorDefault=dddddd&fcDefault=0073ea&iconColorDefault=666666&bgColorHover=0073ea&bgTextureHover=03_highlight_soft.png&bgImgOpacityHover=25&borderColorHover=0073ea&fcHover=ffffff&iconColorHover=ffffff&bgColorActive=ffffff&bgTextureActive=02_glass.png&bgImgOpacityActive=65&borderColorActive=dddddd&fcActive=ff0084&iconColorActive=454545&bgColorHighlight=ffffff&bgTextureHighlight=01_flat.png&bgImgOpacityHighlight=55&borderColorHighlight=cccccc&fcHighlight=444444&iconColorHighlight=0073ea&bgColorError=ffffff&bgTextureError=01_flat.png&bgImgOpacityError=55&borderColorError=ff0084&fcError=222222&iconColorError=ff0084&bgColorOverlay=eeeeee&bgTextureOverlay=01_flat.png&bgImgOpacityOverlay=0&opacityOverlay=80&bgColorShadow=aaaaaa&bgTextureShadow=01_flat.png&bgImgOpacityShadow=0&opacityShadow=60&thicknessShadow=4px&offsetTopShadow=-4px&offsetLeftShadow=-4px&cornerRadiusShadow=0px
+ */
+
+
+/* Component containers
+----------------------------------*/
+
+/*****************************************************************************
+@CssName:.ui-widget。
+@DateCreated: 2010-07-22。
+@Author: jquery-ui
+@Description:这个类是修改文本字体大小，与整体框架字体相符合,增加行高，使段落行距均匀分布,增加color属性，使得网页内容文字颜色统一。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-widget 
+{ 
+    line-height:21px;    
+}
+
+.ui-widget-content { }
+//.ui-widget-content a { color: #444444; }
+
+/*****************************************************************************
+@CssName:.ui-widget-header。
+@DateCreated: 2010-07-18。
+@Author: jquery-ui
+@Description:这个类是修改提示框标题的字体样式、边距。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-widget-header 
+{  
+	background: #D3E5F3 url(images/ui-bg_highlight-soft_75_cccccc_1x100.png);
+    font-size:16px;
+    font-weight:bold;
+    margin-bottom:6px;
+    padding:10px; 
+}
+
+/*****************************************************************************
+@CssName:.ui-widget-header a。
+@DateCreated: 2010-08-10。
+@Author: jquery-ui
+@Description:这一类标记的复合时改变菜单栏箭头按钮的无下划线。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-widget-header a 
+{ 
+    text-decoration:none;
+}
+
+/*****************************************************************************
+@CssName:.ui-widget-content td。
+@DateCreated: 2010-07-14。
+@Author: jquery-ui
+@Description:这个类与标记的复合是修改表格中文本字体样式，与整体框架字体相符合。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-widget-content td
+{
+}
+
+/* Interaction states
+----------------------------------*/
+
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default{font-weight: normal; }
+.ui-state-highlight {background-color:#d0d0d0;}
+.ui-state-hover {background-color:#c0c0c0;}
+.ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited {text-decoration: none;}
+//.ui-state-hover a{text-decoration: none;}
+.ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited {text-decoration: none;}
+.ui-widget :active {outline: none;}
+
+/* Interaction Cues
+----------------------------------*/
+
+.ui-state-highlight a { color: #444444; }
+.ui-state-error, .ui-widget-content .ui-state-error, .ui-widget-header .ui-state-error {border-top: 1px solid #9A9A9A; 50% 50% repeat-x; color: #222222; }
+.ui-state-error a, .ui-widget-content .ui-state-error a, .ui-widget-header .ui-state-error a { color: #222222; }
+.ui-state-error-text, .ui-widget-content .ui-state-error-text, .ui-widget-header .ui-state-error-text { color: #222222; }
+.ui-priority-primary, .ui-widget-content .ui-priority-primary, .ui-widget-header .ui-priority-primary { font-weight: bold; }
+.ui-priority-secondary, .ui-widget-content .ui-priority-secondary,  .ui-widget-header .ui-priority-secondary { font-weight: normal;opacity: .7; filter:Alpha(Opacity=70);  }
+
+/* Icons
+----------------------------------*/
+
+/* states and images */
+
+/*****************************************************************************
+@CssName:.ui-icon。
+@DateCreated: 2010-07-20。
+@Author: jquery-ui 
+@Description:这个类是修改提示框的按钮的样式，删除background-image属性，使得提示框中右上close按钮的背景显示不发生冲突。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+
+.ui-icon { display: block;width: 16px; height: 16px; background-image: url(images/ui-icons_228ef1_256x240.png);background-repeat: no-repeat; text-indent: -99999px; overflow: hidden; }
+.ui-state-highlight .ui-icon {background-image: url(images/ui-icons_454545_256x240.png); }
+.ui-state-disabled .ui-icon, .ui-state-disabled.ui-icon {background-image: url(images/ui-icons_999999_256x240.png); cursor: default;}
+.ui-state-error .ui-icon, .ui-state-error-text .ui-icon {background-image: url(ui-icons_a83300_256x240.png); }
+.ui-widget-content .ui-icon-hover {background-image: url(images/ui-icons_228ef1_256x240.png); }
+.ui-state-active .ui-icon {background-image: url(images/ui-icons_454545_256x240.png); }
+
+.ui-accordion .ui-state-default .ui-icon 
+{
+    /* background-image:none;*/
+}
+.ui-accordion .ui-state-active .ui-icon 
+{
+    /* background-image:none;*/
+}
+.ui-accordion-icons .ui-state-hover 
+{
+    background-image:none;
+}
+.ui-accordion .ui-state-default {background-image:url(images/submenu-item-closed.jpg);}
+.ui-accordion .ui-state-active {background-image:url(images/submenu-item-open.jpg);}
+.ui-accordion .ui-state-focus 
+{
+}
+
+
+/* positioning */
+.ui-icon-carat-1-n { background-position: 0 0; }
+.ui-icon-carat-1-ne { background-position: -16px 0; }
+.ui-icon-carat-1-e { background-position: -32px 0; }
+.ui-icon-carat-1-se { background-position: -48px 0; }
+.ui-icon-carat-1-s { background-position: -64px 0; }
+.ui-icon-carat-1-sw { background-position: -80px 0; }
+.ui-icon-carat-1-w { background-position: -96px 0; }
+.ui-icon-carat-1-nw { background-position: -112px 0; }
+.ui-icon-carat-2-n-s { background-position: -128px 0; }
+.ui-icon-carat-2-e-w { background-position: -144px 0; }
+.ui-icon-carat-2-e { background-position: -160px 0; }
+.ui-icon-carat-2-w { background-position: -176px 0; }
+.ui-icon-plot { background-position: -240px 0; }
+.ui-icon-triangle-1-n { background-position: 0 -16px; }
+.ui-icon-triangle-1-ne { background-position: -16px -16px; }
+.ui-icon-triangle-1-e { background-position: -32px -16px; }
+.ui-icon-triangle-1-se { background-position: -48px -16px; }
+.ui-icon-triangle-1-s { background-position: -64px -16px; }
+.ui-icon-triangle-1-sw { background-position: -80px -16px; }
+.ui-icon-triangle-1-w { background-position: -96px -16px; }
+.ui-icon-triangle-1-nw { background-position: -112px -16px; }
+.ui-icon-triangle-2-n-s { background-position: -128px -16px; }
+.ui-icon-triangle-2-e-w { background-position: -144px -16px; }
+.ui-icon-arrow-1-n { background-position: 0 -32px; }
+.ui-icon-arrow-1-ne { background-position: -16px -32px; }
+.ui-icon-arrow-1-e { background-position: -32px -32px; }
+.ui-icon-arrow-1-se { background-position: -48px -32px; }
+.ui-icon-arrow-1-s { background-position: -64px -32px; }
+.ui-icon-arrow-1-sw { background-position: -80px -32px; }
+.ui-icon-arrow-1-w { background-position: -96px -32px; }
+.ui-icon-arrow-1-nw { background-position: -112px -32px; }
+.ui-icon-arrow-2-n-s { background-position: -128px -32px; }
+.ui-icon-arrow-2-ne-sw { background-position: -144px -32px; }
+.ui-icon-arrow-2-e-w { background-position: -160px -32px; }
+.ui-icon-arrow-2-se-nw { background-position: -176px -32px; }
+.ui-icon-arrowstop-1-n { background-position: -192px -32px; }
+.ui-icon-arrowstop-1-e { background-position: -208px -32px; }
+.ui-icon-arrowstop-1-s { background-position: -224px -32px; }
+.ui-icon-arrowstop-1-w { background-position: -240px -32px; }
+.ui-icon-arrowthick-1-n { background-position: 0 -48px; }
+.ui-icon-arrowthick-1-ne { background-position: -16px -48px; }
+.ui-icon-arrowthick-1-e { background-position: -32px -48px; }
+.ui-icon-arrowthick-1-se { background-position: -48px -48px; }
+.ui-icon-arrowthick-1-s { background-position: -64px -48px; }
+.ui-icon-arrowthick-1-sw { background-position: -80px -48px; }
+.ui-icon-arrowthick-1-w { background-position: -96px -48px; }
+.ui-icon-arrowthick-1-nw { background-position: -112px -48px; }
+.ui-icon-arrowthick-2-n-s { background-position: -128px -48px; }
+.ui-icon-arrowthick-2-ne-sw { background-position: -144px -48px; }
+.ui-icon-arrowthick-2-e-w { background-position: -160px -48px; }
+.ui-icon-arrowthick-2-se-nw { background-position: -176px -48px; }
+.ui-icon-arrowthickstop-1-n { background-position: -192px -48px; }
+.ui-icon-arrowthickstop-1-e { background-position: -208px -48px; }
+.ui-icon-arrowthickstop-1-s { background-position: -224px -48px; }
+.ui-icon-arrowthickstop-1-w { background-position: -240px -48px; }
+.ui-icon-arrowreturnthick-1-w { background-position: 0 -64px; }
+.ui-icon-arrowreturnthick-1-n { background-position: -16px -64px; }
+.ui-icon-arrowreturnthick-1-e { background-position: -32px -64px; }
+.ui-icon-arrowreturnthick-1-s { background-position: -48px -64px; }
+.ui-icon-arrowreturn-1-w { background-position: -64px -64px; }
+.ui-icon-arrowreturn-1-n { background-position: -80px -64px; }
+.ui-icon-arrowreturn-1-e { background-position: -96px -64px; }
+.ui-icon-arrowreturn-1-s { background-position: -112px -64px; }
+.ui-icon-arrowrefresh-1-w { background-position: -128px -64px; }
+.ui-icon-arrowrefresh-1-n { background-position: -144px -64px; }
+.ui-icon-arrowrefresh-1-e { background-position: -160px -64px; }
+.ui-icon-arrowrefresh-1-s { background-position: -176px -64px; }
+.ui-icon-arrow-4 { background-position: 0 -80px; }
+.ui-icon-arrow-4-diag { background-position: -16px -80px; }
+.ui-icon-extlink { background-position: -32px -80px; }
+.ui-icon-newwin { background-position: -48px -80px; }
+.ui-icon-refresh { background-position: -64px -80px; }
+.ui-icon-shuffle { background-position: -80px -80px; }
+.ui-icon-transfer-e-w { background-position: -96px -80px; }
+.ui-icon-transferthick-e-w { background-position: -112px -80px; }
+.ui-icon-folder-collapsed { background-position: 0 -96px; }
+.ui-icon-folder-open { background-position: -16px -96px; }
+.ui-icon-document { background-position: -32px -96px; }
+.ui-icon-document-b { background-position: -48px -96px; }
+.ui-icon-note { background-position: -64px -96px; }
+.ui-icon-mail-closed { background-position: -80px -96px; }
+.ui-icon-mail-open { background-position: -96px -96px; }
+.ui-icon-suitcase { background-position: -112px -96px; }
+.ui-icon-comment { background-position: -128px -96px; }
+.ui-icon-person { background-position: -144px -96px; }
+.ui-icon-print { background-position: -160px -96px; }
+.ui-icon-trash { background-position: -176px -96px; }
+.ui-icon-locked { background-position: -192px -96px; }
+.ui-icon-unlocked { background-position: -208px -96px; }
+.ui-icon-bookmark { background-position: -224px -96px; }
+.ui-icon-tag { background-position: -240px -96px; }
+.ui-icon-home { background-position: 0 -112px; }
+.ui-icon-flag { background-position: -16px -112px; }
+.ui-icon-calendar { background-position: -32px -112px; }
+.ui-icon-cart { background-position: -48px -112px; }
+.ui-icon-pencil { background-position: -64px -112px; }
+.ui-icon-mdf { background-position: -64px -112px; }
+.ui-icon-clock { background-position: -80px -112px; }
+.ui-icon-disk { background-position: -96px -112px; }
+.ui-icon-save { background-position: -96px -112px; }
+.ui-icon-calculator { background-position: -112px -112px; }
+.ui-icon-zoomin { background-position: -128px -112px; }
+.ui-icon-zoomout { background-position: -144px -112px; }
+.ui-icon-search { background-position: -160px -112px; }
+.ui-icon-wrench { background-position: -176px -112px; }
+.ui-icon-gear { background-position: -192px -112px; }
+.ui-icon-heart { background-position: -208px -112px; }
+.ui-icon-star { background-position: -224px -112px; }
+.ui-icon-link { background-position: -240px -112px; }
+.ui-icon-abort { background-position: 0 -128px; }
+.ui-icon-plus { background-position: -16px -128px; }
+.ui-icon-plusthick { background-position: -32px -128px; }
+.ui-icon-minus { background-position: -48px -128px; }
+.ui-icon-minusthick { background-position: -64px -128px; }
+.ui-icon-close { background-position: -80px -128px; }
+.ui-icon-closethick { background-position: -96px -128px; }
+.ui-icon-key { background-position: -112px -128px; }
+.ui-icon-lightbulb { background-position: -128px -128px; }
+.ui-icon-scissors { background-position: -144px -128px; }
+.ui-icon-clipboard { background-position: -160px -128px; }
+.ui-icon-copy { background-position: -176px -128px; }
+.ui-icon-contact { background-position: -192px -128px; }
+.ui-icon-image { background-position: -208px -128px; }
+.ui-icon-video { background-position: -224px -128px; }
+.ui-icon-script { background-position: -240px -128px; }
+.ui-icon-alert { background-position: 0 -144px; }
+.ui-icon-info { background-position: -16px -144px; }
+.ui-icon-notice { background-position: -32px -144px; }
+.ui-icon-help { background-position: -48px -144px; }
+.ui-icon-check { background-position: -64px -144px; }
+.ui-icon-bullet { background-position: -80px -144px; }
+.ui-icon-radio-off { background-position: -96px -144px; }
+.ui-icon-radio-on { background-position: -112px -144px; }
+.ui-icon-pin-w { background-position: -128px -144px; }
+.ui-icon-pin-s { background-position: -144px -144px; }
+.ui-icon-play { background-position: 0 -160px; }
+.ui-icon-pause { background-position: -16px -160px; }
+.ui-icon-seek-next { background-position: -32px -160px; }
+.ui-icon-seek-prev { background-position: -48px -160px; }
+.ui-icon-seek-end { background-position: -64px -160px; }
+.ui-icon-seek-start { background-position: -80px -160px; }
+/* ui-icon-seek-first is deprecated, use ui-icon-seek-start instead */
+.ui-icon-seek-first { background-position: -80px -160px; }
+.ui-icon-stop { background-position: -96px -160px; }
+.ui-icon-eject { background-position: -112px -160px; }
+.ui-icon-volume-off { background-position: -128px -160px; }
+.ui-icon-volume-on { background-position: -144px -160px; }
+.ui-icon-power { background-position: 0 -176px; }
+.ui-icon-signal-diag { background-position: -16px -176px; }
+.ui-icon-signal { background-position: -32px -176px; }
+.ui-icon-battery-0 { background-position: -48px -176px; }
+.ui-icon-battery-1 { background-position: -64px -176px; }
+.ui-icon-battery-2 { background-position: -80px -176px; }
+.ui-icon-battery-3 { background-position: -96px -176px; }
+.ui-icon-circle-plus { background-position: 0 -192px; }
+.ui-icon-circle-minus { background-position: -16px -192px; }
+.ui-icon-circle-close { background-position: -32px -192px; }
+.ui-icon-circle-triangle-e { background-position: -48px -192px; }
+.ui-icon-circle-triangle-s { background-position: -64px -192px; }
+.ui-icon-circle-triangle-w { background-position: -80px -192px; }
+.ui-icon-circle-triangle-n { background-position: -96px -192px; }
+.ui-icon-circle-arrow-e { background-position: -112px -192px; }
+.ui-icon-circle-arrow-s { background-position: -128px -192px; }
+.ui-icon-circle-arrow-w { background-position: -144px -192px; }
+.ui-icon-circle-arrow-n { background-position: -160px -192px; }
+.ui-icon-circle-zoomin { background-position: -176px -192px; }
+.ui-icon-circle-zoomout { background-position: -192px -192px; }
+.ui-icon-circle-check { background-position: -208px -192px; }
+.ui-icon-circlesmall-plus { background-position: 0 -208px; }
+.ui-icon-circlesmall-minus { background-position: -16px -208px; }
+.ui-icon-circlesmall-close { background-position: -32px -208px; }
+.ui-icon-squaresmall-plus { background-position: -48px -208px; }
+.ui-icon-squaresmall-minus { background-position: -64px -208px; }
+.ui-icon-squaresmall-close { background-position: -80px -208px; }
+.ui-icon-grip-dotted-vertical { background-position: 0 -224px; }
+.ui-icon-grip-dotted-horizontal { background-position: -16px -224px; }
+.ui-icon-grip-solid-vertical { background-position: -32px -224px; }
+.ui-icon-grip-solid-horizontal { background-position: -48px -224px; }
+.ui-icon-gripsmall-diagonal-se { background-position: -64px -224px; }
+.ui-icon-grip-diagonal-se { background-position: -80px -224px; }
+
+/*custom-icon*/
+.ui-icon-warning1 {background-position: -208px -64px;}
+.ui-icon-warning2 {background-position: -224px -64px;}
+.ui-icon-warning3 {background-position: -240px -64px;}
+.ui-icon-realtime { background-position: -224px -192px; }
+.ui-icon-history  { background-position: -240px -192px; }
+.ui-icon-apply { background-position: 0px -240px; }
+.ui-icon-cancel { background-position: -16px -240px; }
+.ui-icon-del { background-position: -32px -240px; }
+.ui-icon-refresh { background-position: -48px -240px; }
+.ui-icon-up { background-position: -64px -240px; }
+.ui-icon-down { background-position: -80px -240px; }
+.ui-icon-list { background-position: -128px -240px; }
+.ui-icon-expand { background-position: -144px -240px; }
+/* Misc visuals
+----------------------------------*/
+
+/* Corner radius */
+.ui-corner-tl { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; border-top-left-radius: 4px; }
+.ui-corner-tr { -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px; border-top-right-radius: 4px; }
+.ui-corner-bl { -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px; border-bottom-left-radius: 4px; }
+.ui-corner-br { -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; border-bottom-right-radius: 4px; }
+.ui-corner-top { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; border-top-left-radius: 4px; -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px; border-top-right-radius: 4px; }
+.ui-corner-bottom { -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px; border-bottom-left-radius: 4px; -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; border-bottom-right-radius: 4px; }
+.ui-corner-right {  -moz-border-radius-topright: 4px; -webkit-border-top-right-radius: 4px; border-top-right-radius: 4px; -moz-border-radius-bottomright: 4px; -webkit-border-bottom-right-radius: 4px; border-bottom-right-radius: 4px; }
+.ui-corner-left { -moz-border-radius-topleft: 4px; -webkit-border-top-left-radius: 4px; border-top-left-radius: 4px; -moz-border-radius-bottomleft: 4px; -webkit-border-bottom-left-radius: 4px; border-bottom-left-radius: 4px; }
+.ui-corner-all { -moz-border-radius: 4px; -webkit-border-radius: 4px; border-radius: 4px; }
+
+/* Overlays */
+
+/*****************************************************************************
+@CssName:.ui-widget-overlay。
+@DateCreated: 2010-07-20。
+@Author: jquery-ui
+@Description:这个类是通过修改了透明度值，使得点击按钮时，整个页面的透明度发生适当变化，使得整个页面颜色以及透明度适宜。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-widget-overlay 
+{ 
+    background: #000 ;
+    opacity: .10;
+    filter:Alpha(Opacity=10);
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+.ui-widget-shadow {border-radius: 0px; background: #aaaaaa url(images/ui-bg_flat_0_aaaaaa_40x100.png) 50% 50% repeat-x;margin: -4px 0 0 -4px; padding: 4px;  opacity: .60;filter:Alpha(Opacity=60); -moz-border-radius: 0px; -webkit-border-radius: 0px;  }/*
+ * jQuery UI Resizable 1.8.11
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Resizable#theming
+ */
+.ui-resizable { position: relative;}
+.ui-resizable-handle { font-size: 0.1px; display: block;position: absolute;z-index: 99999;}
+.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none; }
+.ui-resizable-n { cursor: n-resize; height: 7px;left: 0; top: -5px;  width: 100%; }
+.ui-resizable-s { cursor: s-resize; height: 7px; bottom: -5px;left: 0; width: 100%; }
+.ui-resizable-e { cursor: e-resize; height: 100%;right: -5px; top: 0;  width: 7px; }
+.ui-resizable-w { cursor: w-resize;height: 100%;left: -5px; top: 0; width: 7px; }
+.ui-resizable-se { cursor: se-resize;height: 12px; bottom: 1px;right: 1px;width: 12px; }
+.ui-resizable-sw { cursor: sw-resize;height: 9px; left: -5px; bottom: -5px;width: 9px; }
+.ui-resizable-nw { cursor: nw-resize;height: 9px; left: -5px; top: -5px;width: 9px; }
+.ui-resizable-ne { cursor: ne-resize; height: 9px; right: -5px; top: -5px; width: 9px;}/*
+ * jQuery UI Selectable 1.8.11
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Selectable#theming
+ */
+.ui-selectable-helper { position: absolute; z-index: 100; border:1px dotted black; }
+/*
+ * jQuery UI Accordion 1.8.11
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Accordion#theming
+ */
+/* IE/Win - Fix animation bug - #4615 */
+.ui-accordion {padding:0px; }
+.ui-accordion .ui-accordion-header {border: 1px solid #c0c0c0; cursor: pointer; font-size: 14px; position: relative; margin-bottom: 2px; zoom: 1; }
+.ui-accordion .ui-accordion-li-fix { display: inline; }
+.ui-accordion .ui-accordion-header-active { border-bottom: 0 !important; }
+.ui-accordion .ui-accordion-header a { display: block; }
+.ui-accordion-icons .ui-accordion-header a { }
+.ui-accordion .ui-accordion-header .ui-icon { position: absolute; top: 20%; }
+.ui-accordion .ui-accordion-content 
+{  
+	position: relative;
+	overflow: visible; 
+	display: none; 
+	zoom: 1; 
+	background-color:#ffffff;
+}
+.ui-accordion .ui-accordion-content-active { display: block; }
+/*
+ * jQuery UI Autocomplete 1.8.11
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Autocomplete#theming
+ */
+.ui-autocomplete {background: white; border:1px solid #81AABC; position: absolute; cursor: default; }
+.ui-autocomplete { overflow:auto; }  
+/* workarounds */
+* html .ui-autocomplete { width:1px; } /* without this, the menu expands to 100% in IE6 */
+
+
+/*
+ * jQuery UI Menu 1.8.11
+ *
+ * Copyright 2010, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Menu#theming
+ */
+.ui-menu {
+    list-style:none;
+    padding: 2px;
+    margin: 0;
+    display:block;
+    float: left;
+}
+.ui-menu .ui-menu {
+    margin-top: -3px;
+}
+.ui-menu .ui-menu-item {
+    color:blue;
+    margin:0;
+    padding: 0;
+    zoom: 1;
+    float: left;
+    clear: left;
+    width: 100%;
+}
+.ui-menu .ui-menu-item a {
+    text-decoration:none;
+    display:block;
+    padding:.2em .4em;
+    line-height:1.5;
+    zoom:1;
+}
+.ui-menu .ui-menu-item a.ui-state-hover,
+.ui-menu .ui-menu-item a.ui-state-active 
+{
+    font-weight: normal;
+    margin: 0px;
+}
+
+/*
+ * jQuery UI Button 1.8.11
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Button#theming
+ */
+
+/*****************************************************************************
+@CssName:.ui-button 。
+@DateCreated: 2010-07-14。
+@Author: jquery-ui
+@Description:这个类是修改按钮的样式，按钮的边框和背景，修改按钮的边距，增加了border属性，使得按钮hover时背景图不发生偏移。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-button 
+{ 
+	display: inline-block; 
+	position: relative;
+	padding: 2px 10px;
+	margin:0px 2px;
+	text-decoration: none !important; 
+	cursor: pointer; 
+	text-align: center; 
+	zoom: 1; 
+	overflow: visible; 
+	background-color: #a0a0a0;
+	border:none;
+}
+/* the overflow property removes extra width in IE */
+.ui-button-icon-only { width: 2.2em; } /* to make room for the icon, a width needs to be set here */
+button.ui-button-icon-only { width: 2.4em; } /* button elements seem to need a little more width */
+.ui-button-icons-only { width: 3.4em; } 
+button.ui-button-icons-only { width: 3.7em; } 
+
+/*button text element */
+.ui-button .ui-button-text { display: block; line-height: 1.4em;}
+.ui-button-text-only .ui-button-text { padding: .3em 1em;}
+.ui-button-icon-only .ui-button-text, .ui-button-icons-only .ui-button-text { padding: .4em; text-indent: -9999999px; }
+.ui-button-text-icon-primary .ui-button-text, .ui-button-text-icons .ui-button-text { padding: .4em 1em .4em 2.1em; }
+.ui-button-text-icon-secondary .ui-button-text, .ui-button-text-icons .ui-button-text { padding: .4em 2.1em .4em 1em; }
+.ui-button-text-icons .ui-button-text { padding-left: 2.1em; padding-right: 2.1em; }
+/* no icon support for input elements, provide padding by default */
+
+	.ui-button.ui-state-hover{background-color:#b0b0b0;}
+
+/*button icon element(s) */
+
+/*****************************************************************************
+@CssName:.ui-button-icon-only .ui-icon, .ui-button-text-icon-primary .ui-icon, .ui-button-text-icon-secondary .ui-icon, .ui-button-text-icons .ui-icon, .ui-button-icons-only .ui-icon 。
+@DateCreated: 2010-07-25。
+@Author: jquery-ui
+@Description:修改top属性，使得测试按钮的背景图标垂直居中。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-button-icon-only .ui-icon, .ui-button-text-icon-primary .ui-icon, .ui-button-text-icon-secondary .ui-icon, .ui-button-text-icons .ui-icon, .ui-button-icons-only .ui-icon 
+{ 
+    position: absolute; 
+    top: 10%; 
+}
+.ui-button-icon-only .ui-icon { left: 50%; margin-left: -8px; }
+.ui-button-text-icon-primary .ui-button-icon-primary, .ui-button-text-icons .ui-button-icon-primary, .ui-button-icons-only .ui-button-icon-primary { left: .5em; }
+.ui-button-text-icon-secondary .ui-button-icon-secondary, .ui-button-text-icons .ui-button-icon-secondary, .ui-button-icons-only .ui-button-icon-secondary { right: .5em; }
+.ui-button-text-icons .ui-button-icon-secondary, .ui-button-icons-only .ui-button-icon-secondary { right: .5em; }
+
+/*****************************************************************************
+@CssName:.ui-widget .ui-widget-content .ui-button-disabled。
+@DateCreated: 2010-08-09。
+@Author: jquery-ui
+@Description: 按钮的 disable 外观。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-button-disabled 
+{
+    background-color: #c0c0c0;
+    color: #e0e0e0;
+}
+
+/*button sets*/
+.ui-buttonset { margin-right: 7px; }
+.ui-buttonset .ui-button { margin-left: 0; margin-right: -.3em; }
+button.ui-button::-moz-focus-inner { border: 0; padding: 0; } /* reset extra padding in Firefox */
+button.ui-button-icons-only { width: 3.7em; }
+/* workarounds */
+/*
+ * jQuery UI Dialog 1.8.11
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Dialog#theming
+ */
+
+/*****************************************************************************
+@CssName:.ui-dialog。
+@DateCreated: 2010-70-21。
+@Author: jquery-ui
+@Description:这个类是修改提示框的样式，删除了提示框中padding的属性，使得标题背景距离左、右没有空白，增加了圆角属性，使得提示框显示美观，
+             增加了box-shadow属性，使得提示框显示美观。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-dialog 
+{ 
+    box-shadow:2px 2px 5px #666;overflow: hidden;position: absolute;
+    -moz-box-shadow:2px 2px 5px #666;-webkit-box-shadow:2px 2px 5px #666;   
+    -moz-border-radius-bottomleft: 2px; -webkit-border-bottom-left-radius: 2px; border-bottom-left-radius: 2px;
+    -moz-border-radius-bottomright: 2px; -webkit-border-bottom-right-radius: 2px; border-bottom-right-radius: 2px;
+}
+
+/*****************************************************************************
+@CssName:.ui-dialog .ui-dialog-titlebar。
+@DateCreated: 2010-07-21。
+@Author: jquery-ui
+@Description:这个类的复合是修改提示框中标题的样式，修改了padding属性，使得右上close按钮背景不发生偏移，增加圆角属性并赋值为零，使得提示框中标题行底部与中部边框处完全合并。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-dialog .ui-dialog-titlebar
+{ 
+    border-bottom-right-radius: 0px;
+    border-bottom-left-radius: 0px;
+    -moz-border-radius-bottomleft: 0px;  
+    -moz-border-radius-bottomright: 0px;
+    padding: 0; 
+    position: relative;    
+    -webkit-border-bottom-right-radius:0px;
+    -webkit-border-bottom-left-radius:0px;     
+}
+.ui-dialog .ui-dialog-title { float: left; margin: .1em 16px .1em 0; } 
+
+/*****************************************************************************
+@CssName:.ui-dialog .ui-dialog-titlebar-close。
+@DateCreated: 2010-7-20。
+@Author: songzhenwei
+@Description:修改width和height属性，使得提示框中右上close按钮背景显示完全，修改了padding属性，使得右上close按钮背景不发生偏移。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-dialog .ui-dialog-titlebar-close 
+{ 
+    height: 19px;
+    margin: -10px 0 0 0;
+    padding: 0;
+    position: absolute;
+    right: .3em; 
+    width: 21px;
+}
+.ui-dialog .ui-dialog-titlebar-close span { display: block; }
+.ui-dialog .ui-dialog-titlebar-close:hover, .ui-dialog .ui-dialog-titlebar-close:focus { padding: 0; }
+
+/*****************************************************************************
+@CssName:.ui-dialog .ui-dialog-content。
+@DateCreated: 2010-7-22。
+@Author: songzhenwei
+@Description:增加background-color属性，使得提示框中间部分背景为白色，增加边框属性，使得提示框边框显示完全
+             删除了overflow属性，使得在IE下提示框不出现异常显示滚动条。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-dialog .ui-dialog-content 
+{ 
+    background-color: #fff;
+    border-left:4px solid #5189C8;
+    border-right:4px solid #5189C8;
+    position: relative;    
+    /*padding: .5em 1em;  */
+    zoom: 1; 
+}
+
+/*****************************************************************************
+@CssName:.ui-dialog .ui-dialog-buttonpane。
+@DateCreated: 2010-07-21。
+@Author: jquery-ui
+@Description:这个类的复合是修改提示框的部分样式，如修改background-color属性，使得提示框下部分背景为白色，增加border属性使得，提示框轮廓清晰与整体颜色搭配
+             增加圆角属性，使得提示框圆角显示，更加美观。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-dialog .ui-dialog-buttonpane
+{ 
+    background-color: #fff;
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-width: 1px 0 0 0;
+    border-left:4px solid #5189C8;
+    border-right:4px solid #5189C8;
+    border-bottom:4px solid #5189C8;   
+    -moz-border-radius-bottomright: 2px;text-align: left;
+    -webkit-border-bottom-left-radius: 2px; 
+    -webkit-border-bottom-right-radius: 2px;    
+}
+.ui-dialog .ui-dialog-buttonpane .ui-dialog-buttonset { float: right; }
+
+
+/*****************************************************************************
+@CssName:.ui-dialog .ui-dialog-buttonpane button 。
+@DateCreated: 2010-07-14。
+@Author: jquery-ui
+@Description:这个类的复合是修改提示框中按钮的样式，修改提示框中按钮的背景、边距。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-dialog .ui-dialog-buttonpane button 
+{ 
+    /*background-color:#D0DFF7;*/
+    cursor: pointer;
+    margin: .5em .4em .5em 0;      
+}
+.ui-dialog .ui-resizable-se { width: 14px; height: 14px; right: 3px; bottom: 3px; }
+.ui-dialog .ui-state-hover{}
+/*****************************************************************************
+@CssName:.ui-draggable .ui-dialog-titlebar。
+@DateCreated: 2010-07-21。
+@Author: jquery-ui
+@Description:这个类的复合是修改提示框中标题行的样式，如修改提示框中标题行的背景色,并且增加了透明度属性，使得提示框标题背景透明，增加margin属性
+             使得提示框顶部与中部无间隔，背景可以完全显示，增加border属性，使得中部背景完全显示，修改了
+             高和行高属性，使得标题行高度适宜。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-draggable .ui-dialog-titlebar 
+{ 
+    border-bottom:3px solid #5189C8;
+    background-color:#5189C8;
+    cursor: move;
+    color:#FDFEFF; 
+    font-weight:bold;
+    height:28px;
+    font-size:14px;
+    margin:0px;
+    opacity: .90;
+    filter: Alpha(Opacity=90);
+    padding-left:5px;     
+}
+
+/*****************************************************************************
+@CssName:.ui-widget-content .ui-dialog-titlebar .ui-dialog-titlebar-close。
+@DateCreated: 2010-07-20。
+@Author: jquery-ui
+@Description:这个类的复合是修改提示框中按钮“close”的样色，如通过background-image属性修改背景，使得提示框中右上close按钮背景图显示正确。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+   
+
+/*****************************************************************************
+@CssName:.ui-widget-content .ui-dialog-titlebar .ui-state-hover。
+@DateCreated: 2010-07-20。
+@Author: jquery-ui
+@Description:这个类的复合是修改提示框中“close”按钮在鼠标“hover”时背景图的变化，使得提示框中右上close按钮在hover时背景图显示正确。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-widget-content .ui-dialog-titlebar .ui-state-hover 
+{ 
+    background-position: -47px 0px;    
+}
+
+/*
+ * jQuery UI Tabs 1.8.11
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Tabs#theming
+ */
+.ui-tabs 
+{ 
+	position: relative; 
+	padding: 0px; 
+	zoom: 1;
+} /* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+.ui-tabs .ui-tabs-nav 
+{  
+	/*-moz-border-radius: 6px;
+	-webkit-border-radius: 6px;
+	border-radius: 6px;*/
+	background: #c0c0c0;
+	border: 1px solid #c0c0c0;
+	height:30px;
+	margin: 0px;
+	padding:0px 5px;
+	_height:15px !important;/*For IE，解决页签下边框一像素线的差距*/
+}
+.ui-tabs .ui-tabs-nav li 
+{
+	background: #e0e0e0;
+	border: 1px solid #a0a0a0;
+	border-bottom-color: #c0c0c0;
+	float:left;/*For IE 解决IE中，inline-block,IE6不支持，浮动可以使得页签续接，页面内容也正常*/
+	list-style: none;
+	position: relative; 
+	white-space: nowrap;
+	margin-right:3px;
+	margin-top:0px;
+	padding: 0;	/* LI里面不能有空白， 否则鼠标点击时不会触发A的事件，导致浏览器的地方栏不会改变，使后退功能不正确 */
+	text-align:center;
+	top:4px;
+}
+
+/*****************************************************************************
+@CssName:.ui-tabs .ui-tabs-nav li a 。
+@DateCreated: 2010-07-22。
+@Author: jquery-ui
+@Description:这个类的复合是修改选项卡页签的字体样式，位置，如修改font-family属性，使得在IE、FireFox、Chrome下选项卡中的字体一致。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-tabs .ui-tabs-nav li a 
+{ 
+    color:#4275A2;
+    font-weight:normal;
+    float: left; 
+    text-align:center;
+    padding: 0 20px;
+    text-decoration: none;   
+}
+.ui-tabs .ui-tabs-nav li a:hover,.ui-tabs .ui-tabs-nav li.ui-tabs-selected a:hover 
+{ 
+	color:#A84D58;
+	cursor: pointer; 
+}
+
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected 
+{ 
+	/*border: 1px solid #899C95;
+	background:url(images/tab/tab_current_bg.png) top center;*/
+	background: white;
+	border-bottom-color:white;
+}
+.ui-tabs .ui-tabs-nav li.ui-state-hover{} 
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a {color:#000000;}
+.ui-tabs .ui-tabs-nav li.ui-tabs-selected a, .ui-tabs .ui-tabs-nav li.ui-state-disabled a, .ui-tabs .ui-tabs-nav li.ui-state-processing a 
+{ 	  
+	/*background:url(images/tab/seltab_line.png) right top no-repeat;*/
+    cursor: text;
+    -webkit-border-radius: 3px;
+}
+.ui-tabs .ui-tabs-nav li a, .ui-tabs.ui-tabs-collapsible .ui-tabs-nav li.ui-tabs-selected a 
+{ 
+	cursor: pointer; 
+} /* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+
+/*****************************************************************************
+@CssName:.ui-tabs .ui-tabs-panel 。
+@DateCreated: 2010-08-08。
+@Author: jquery-ui
+@Description:这一组类的复合是改变窗口内容页面的整体布局，增加了padding属性，使得内容页面整体与菜单区有一定间隔。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-tabs-panel
+{
+    padding:0px;
+    margin: 0px;
+    overflow: auto;
+}
+
+.ui-tabs .ui-tabs-hide 
+{ 
+	display: none !important; 
+}
+
+/*
+ * jQuery UI Datepicker 1.8.11
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Datepicker#theming
+ */
+
+/*****************************************************************************
+@CssName:.ui-datepicker。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类是修改日历整体样式，可以修改边框、背景、边距。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker 
+{ 
+    background-color:#fff;  
+    display: none;
+    padding: .2em .4em 0;
+    width:30em;
+}
+
+.ui-datepicker .ui-datepicker-today .ui-state-highlight 
+{
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker .ui-datepicker-header。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类的复合是修改标题部分样式，通过padding属性修改边距，通过position属性，是给标题部分的按钮图标定位设定相对位置。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker .ui-datepicker-header
+{
+    position:relative; 
+    padding:2px 0px 0px 0px;
+    height:35px;
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类的复合是修改日历标题部分的按钮的样式，通过position属性给图标定位，通过width、height属性是图标显示完全。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next 
+{ 
+    position:absolute;
+    top: 2px;
+    width: 1.8em;
+    height: 1.8em;
+}
+
+/*****************************************************************************
+@CssName:.ui-widget-content td .ui-state-hover,.ui-widget-content .ui-datepicker-buttonpane .ui-state-hover。
+@DateCreated: 2010-07-19。
+@Author: jquery-ui
+@Description:这个类的复合是修改日历中被选中的日期“天”的样式，如修改backgrond属性，使得日历中被选中日期“天”的背景发生变化。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker-calendar .ui-datepicker-current-day .ui-state-active
+{
+    background-color:#376EA6;
+    font-weight:normal;
+    color:#fff;
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-next-hover 。
+@DateCreated: 2010-07-08。
+@Author: jquery-ui
+@Description:这个类的复合是修改日历中按钮“上月”和“下月”的hover时的背景。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker .ui-datepicker-group .ui-datepicker-prev-hover, .ui-datepicker .ui-datepicker-group .ui-datepicker-next-hover
+{
+    background-image:none;
+}
+.ui-datepicker .ui-datepicker-header .ui-state-hover 
+{
+    background-image:none;
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker .ui-datepicker-prev.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类的复合是修改日历标题部分的按钮定位，与.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next关联。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker .ui-datepicker-prev 
+{ 
+    left:2px;
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker .ui-datepicker-prev.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类的复合是修改日历标题部分的按钮定位，与.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next关联。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker .ui-datepicker-next 
+{ 
+    right:2px; 
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker .ui-datepicker-prev-hover。
+@DateCreated: 2010-07-08。
+@Author: jquery-ui 
+@Description:去掉这个样式，防止hover时候图标icon发生向左偏移
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker .ui-datepicker-prev-hover 
+{
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker .ui-datepicker-next-hover  。
+@DateCreated: 2010-07-08。
+@Author: jquery-ui
+@Description:去掉这个样式，防止hover时候图标icon发生向右偏移
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker .ui-datepicker-next-hover 
+{ 
+}
+/*****************************************************************************
+@CssName:.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span  。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类的复合是修改日历中顶部小按钮图标样式，如修改边框、定位、宽高与.ui-datepicker .ui-datepicker-prev, .ui-datepicker .ui-datepicker-next和
+             .ui-datepicker .ui-datepicker-prev、.ui-datepicker .ui-datepicker-next关联。
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker .ui-datepicker-prev span, .ui-datepicker .ui-datepicker-next span 
+{
+    border:none;
+    display: block;
+    height: 16px;
+    margin-top: -3px;
+    margin-left: -8px;  
+    position: absolute; 
+    left: 50%;    
+    top: 50%;    
+    width: 16px;
+    cursor:pointer;
+}
+.ui-datepicker .ui-datepicker-prev span
+{
+    background-image:url(images/ui-icons_999999_256x240.png);
+    background-position:-96px -16px;
+}
+.ui-datepicker .ui-datepicker-next span
+{
+    background-image:url(images/ui-icons_999999_256x240.png);
+    background-position:-32px -16px;
+}
+/*****************************************************************************
+@CssName:.ui-datepicker .ui-datepicker-title。
+@DateCreated: 2010-07-19。
+@Author: jquery-ui
+@Description:这个类的复合是修改日历顶部的字体样式、行高、文本位置。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker .ui-datepicker-title 
+{ 
+    background:url(images/datapicker_title.gif);
+    color:#6E6E6E;
+    font-size:14px;
+    font-weight:bold;
+    line-height: 38px; 
+    text-align: center;
+    height:38px;
+    margin-bottom:1px;             
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker .ui-datepicker-title select。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类、标记的复合是修改日历顶部下拉框的样式，字体样式、边距。
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker .ui-datepicker-title select 
+{ 
+    margin:1px 0;
+    width:106px; 
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker select.ui-datepicker-month-year。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类、标记的复合是修改日历顶部下拉框中年份的样式。
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker select.ui-datepicker-month-year 
+{
+    width: 100%;
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker select.ui-datepicker-month,.ui-datepicker select.ui-datepicker-year。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类、标记的复合是修改日历顶部两个下拉框的样式，去掉了width属性，使得两个下拉框可以在同一行显示。
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker select.ui-datepicker-month,.ui-datepicker select.ui-datepicker-year 
+{ 
+    margin-left:5px;
+    margin-right:5px;
+    margin-top:7px;
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker table 。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类、标记的复合是修改日历内容部分的样式，可以修改宽、字体样式、边距。
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker table 
+{
+    width: 100%;    
+    /* border-collapse: collapse; */
+    margin:0 0 .4em;
+    border-spacing:0px;
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker th 。
+@DateCreated: 2010-07-08。
+@Author: jquery-ui
+@Description:这个类标记的复合是修改日历星期那一行的背景，修改日历“月”的字体样式、以及文本位置。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker th 
+{ 
+    color: #23241F;
+    font-weight: bold;
+    margin-bottom:3px;
+    padding: .5em .3em;
+    text-align: center;
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker td 。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类标记的复合是修改日历中日期“天”所在的单元格的样式，修改边框、边距。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker td 
+{ 
+    padding:0px;
+    height:33px;
+    width:38px;
+    border-top:1px solid #DDDDDD;
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker td span, .ui-datepicker td a  。
+@DateCreated: 2010-07-19。
+@Author: jquery-ui
+@Description:这个两个类标记的复合是日历中文本的样式，如修改文本位置为居中即“text-align: center”，修改color属性，改变日历中代表“天”的数字颜色
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker td span, .ui-datepicker td a 
+{ 
+    color:#0066CC;
+    font-weight:normal;
+    display: block;
+    height:21px;
+    line-height:15px;
+    padding-top:8px;
+    text-align: center;
+    text-decoration: none; 
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker .ui-datepicker-calendar td.ui-datepicker-other-month。
+@DateCreated: 2010-09-09。
+@Author: jquery-ui
+@Description:这个类复合是修改日历中不是本月应显示的日期天的样式，通过background-image、border属性修改背景和边框。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker .ui-datepicker-calendar td.ui-datepicker-other-month
+{
+    background-image:none;
+}
+/*****************************************************************************
+@CssName:.ui-datepicker td span, .ui-datepicker td a  。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类的复合是修改日历底部的按钮区的样式，通过修改padding、margin属性确定按钮的位置，border属性修改边框。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker .ui-datepicker-buttonpane 
+{ 
+    background-image:none;
+    border-left: 0; 
+    border-right: 0; 
+    border-top: 1px solid #999;
+    margin: .7em 0 0 0; 
+    padding:0 .2em;
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker .ui-datepicker-buttonpane button。
+@DateCreated: 2010-07-08。
+@Author: jquery-ui
+@Description: 这个类的复合是修改按钮的样式，如修改文字样式，修改按钮的背景、背景定位、文本位置。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker .ui-datepicker-buttonpane button 
+{
+    border:none; 
+    background:url(images/button/but_90.png) no-repeat;
+    cursor: pointer;
+    display:block;
+    font-weight:normal;
+    float: right;  
+    height:35px; 
+    margin: .5em .2em .4em ;
+    overflow:visible;
+    padding:0px 33px 0px 33px;width:auto;
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker .ui-datepicker-calendar .ui-state-disabled .ui-state-default。
+@DateCreated: 2010-08-03。
+@Author: songzhenwei
+@Description:增加一个类的复合，修改日历中不能被点击的代表“天”的数字颜色，以及背景色。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker .ui-datepicker-calendar .ui-state-disabled .ui-state-default
+{
+    color:#999;
+}
+.ui-datepicker .ui-priority-secondary { font-weight: normal;opacity: .7; filter:Alpha(Opacity=70);color:gray;}
+
+/*****************************************************************************
+@CssName:.ui-widget-content .ui-datepicker-calendar .ui-state-hover。
+@DateCreated: 2010-08-03。
+@Author: songzhenwei
+@Description:增加一个类的复合，鼠标划过日期时效果
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker-calendar .ui-state-hover
+{ 
+    background-color:#376EA6;
+    font-weight:normal;
+    color:#fff;
+}
+/*****************************************************************************
+@CssName:.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current 。
+@DateCreated: 2010-08-03。
+@Author: jquery-ui
+@Description:这个类的复合，修改日历中按钮的位置，与.ui-datepicker .ui-datepicker-buttonpane button关联，通过float属性使得按钮同行显示。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker .ui-datepicker-buttonpane button.ui-datepicker-current 
+{ 
+    float:left; 
+}
+
+/* with multiple calendars */
+
+/*****************************************************************************
+@CssName:.ui-datepicker.ui-datepicker-multi。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类的复合，是修改日历同时显示两个月份时候的宽，是日历完全显示，width:auto是让日历宽度自适应。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker.ui-datepicker-multi 
+{ 
+    width:auto; 
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker-multi .ui-datepicker-group。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类的复合，是在日历同时显示两个月份时候，通过float属性，使得两个月份并排显示，不会折行显示。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker-multi .ui-datepicker-group 
+{ 
+    float:left; 
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker-multi .ui-datepicker-group table。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类的复合是修改日历的内容部分的整体样式，修改width属性，可以改变内容区域占整个日历的宽度，修改margin属性，可以改变内容区域边距。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker-multi .ui-datepicker-group table 
+{ 
+    
+    margin:0 auto .4em; 
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker-multi-2 .ui-datepicker-group。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类的复合是在日历同时显示两个月份时候，修改width属性，使得日历两个月份可以并排显示完全。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker-multi-2 .ui-datepicker-group 
+{ 
+    width:50%; 
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker-multi-3 .ui-datepicker-group。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类的复合是在日历同时显示三个月份时候，修改width属性，使得日历三个月份可以并排显示完全。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker-multi-3 .ui-datepicker-group 
+{ 
+    width:33.3%; 
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker-multi-4 .ui-datepicker-group。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类的复合是在日历同时显示四个月份时候，修改width属性，使得日历四个月份可以并排显示完全。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker-multi-4 .ui-datepicker-group 
+{ 
+    width:25%; 
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类的复合是在日历最后月份标题部分的边框样式。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker-multi .ui-datepicker-group-last .ui-datepicker-header 
+{ 
+    border-left-width:0; 
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类的复合是在日历中部月份标题部分的边框样式。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker-multi .ui-datepicker-group-middle .ui-datepicker-header 
+{ 
+    border-left-width:0; 
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker-multi .ui-datepicker-buttonpane。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类的复合是在日历同时显示两个月份时候，与.ui-datepicker-row-break关联，使得日历中按钮上方边框正常显示。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker-multi .ui-datepicker-buttonpane 
+{ 
+    clear:left; 
+}
+
+/*****************************************************************************
+@CssName:.ui-datepicker-row-break。
+@DateCreated: 2010-08-24。
+@Author: jquery-ui
+@Description:这个类的复合是在日历同时显示两个月份时候，与.ui-datepicker-multi .ui-datepicker-buttonpane关联，使得日历中按钮上方边框正常显示。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-datepicker-row-break 
+{ 
+    clear:both; 
+    width:100%; 
+}
+
+/* RTL support */
+.ui-datepicker-rtl { direction: rtl; }
+.ui-datepicker-rtl .ui-datepicker-prev { right: 2px; left: auto; }
+.ui-datepicker-rtl .ui-datepicker-next { left: 2px; right: auto; }
+.ui-datepicker-rtl .ui-datepicker-prev:hover { right: 1px; left: auto; }
+.ui-datepicker-rtl .ui-datepicker-next:hover { left: 1px; right: auto; }
+.ui-datepicker-rtl .ui-datepicker-buttonpane { clear:right; }
+.ui-datepicker-rtl .ui-datepicker-buttonpane button { float: left; }
+.ui-datepicker-rtl .ui-datepicker-buttonpane button.ui-datepicker-current { float:right; }
+.ui-datepicker-rtl .ui-datepicker-group { float:right; }
+.ui-datepicker-rtl .ui-datepicker-group-last .ui-datepicker-header { border-right-width:0; border-left-width:1px; }
+.ui-datepicker-rtl .ui-datepicker-group-middle .ui-datepicker-header { border-right-width:0; border-left-width:1px; }
+
+/* IE6 IFRAME FIX (taken from datepicker 1.5.3 */
+.ui-datepicker-cover {
+    display: none; /*sorry for IE5*/
+    display/**/: block; /*sorry for IE5*/
+    position: absolute; /*must have*/
+    z-index: -1; /*must have*/
+    filter: mask(); /*must have*/
+    top: -4px; /*must have*/
+    left: -4px; /*must have*/
+    width: 200px; /*must have*/
+    height: 200px; /*must have*/
+}
+
+/*
+ * jQuery UI Progressbar 1.8.11
+ *
+ * Copyright 2011, AUTHORS.txt (http://jqueryui.com/about)
+ * Dual licensed under the MIT or GPL Version 2 licenses.
+ * http://jquery.org/license
+ *
+ * http://docs.jquery.com/UI/Progressbar#theming
+ */
+
+/*****************************************************************************
+@CssName:#myprog。
+@DateCreated: 2010-07-28。
+@Author: jquery-ui
+@Description:此ID是改变基本信息页面中的进度条外观，修改进度条的长、宽、位置、圆角。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-progressbar
+{
+    border:1px solid #999;
+    border-radius: 2px;
+    height:20px; 
+    margin-left:5px;
+    margin-right:5px;
+    -moz-border-radius: 2px;
+    -webkit-border-radius: 2px;
+    width:auto;
+}
+
+/*****************************************************************************
+@CssName:.progressbar-value。
+@DateCreated: 2010-07-28。
+@Author: jquery-ui
+@Description:这个类复合，修改进度条长中代表进度值的颜色。
+@Usage:
+@Caution: 
+@Reference: 
+@ Modification:
+*****************************************************************************/
+.ui-progressbar .ui-progressbar-value
+{
+    background-color:#999;
+    border:none;
+    background-image:none;
+    height:100%;
+    margin:0;    
+}

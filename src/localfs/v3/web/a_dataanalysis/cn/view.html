@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+
+        /*周期选择*/
+        .time-zone{
+            display: inline-block;
+        }
+
+        .daterange{
+            width: 200px;
+            height: 33px;
+            padding-left: 20px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border: #ccc solid 1px;
+        }
+
+        .radio-name{
+            display: inline-block;
+            margin: 0 20px 0 0;
+        }
+
+        .app-box .top-box{
+            border-bottom: #dedddd solid 1px;
+            padding: 10px 0 10px 28px;
+            box-shadow: 1px 1px 3px #dedddd;
+        }
+
+        .set-background{
+            background: url(./css/image/calendar.jpg) 10px 10px;
+            background-repeat: no-repeat;
+            font-weight: bolder;
+        }
+
+        .width-style{
+            width: 20%;
+        }
+    </style>
+</head>
+<body>
+
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="col-xs-12 box-footer">
+            <div class="set-background col-xs-1" id="calendar"></div>
+            <div class="col-xs-4" id="cycle_date" style="margin-left: -2.5%">（今天）</div>
+            <div class="text-right">
+                <a type="button" class="refresh" id="refresh_view">
+                    <i class="refresh-icon icon"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="col-xs-12 top-box hide">
+            <div class="time-zone">
+                <span class="radio-name">周期</span>
+                <div class="radio-name">
+                    <input type="radio" id="WT1" name="WipsType" value="today" checked/>
+                    <label for="WT1">今天</label>
+                </div>
+                <div class="radio-name">
+                    <input type="radio" id="WT2" name="WipsType" value="oneWeek"/>
+                    <label for="WT2">七天</label>
+                </div>
+                <div class="radio-name">
+                    <input type="radio" id="WT3" name="WipsType" value="oneMonth"/>
+                    <label for="WT3">一月</label>
+                </div>
+                <div class="radio-name">
+                    <input type="radio" id="WT4" name="WipsType" value="oneYear"/>
+                    <label for="WT4">一年</label>
+                </div>
+                <div class="radio-name">
+                    <input type="radio" id="WT5" name="WipsType" value="custom"/>
+                    <label for="WT5">其他</label>
+                </div>
+            </div>
+            <div class="time-zone hide" id="timezone">
+                <input id="daterange" class="daterange hide" placeholder="选择日期">
+            </div>
+        </div>
+
+        <div class="col-xs-12 box-body no-height">
+            <div class="col-xs-12 app-box"  style="background: #F7F5F5; height: 140px">
+                <div class="col-xs-3 width-style">
+                    <div class="col-md-12" style="margin-top:35px">
+                        <div class="col-md-2"></div>
+                        <div>
+                            <span class="data-title">总客流量</span>
+                            <img class="help_img" style="margin-top: -3px" src="../../web/soon/image/help.png"
+                                 title="按天、周、月或年计算，统计周期内的累计客流量，总客流量=到访客流量（停留时长大于15s）+ 未到访客流量"/>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-2"></div>
+                        <div>
+                            <span class="view-font" id="total_traffic_count">0</span>
+                            <span id = "unit_total_traffic">人次</span>
+                            <img id="total_traffic_img" />
+                            <span id="total_traffic_than">0</span>
+                            <span id = "unit_total_traffic_than">人次</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 width-style">
+                    <div class="col-md-12" style="margin-top:35px">
+                        <div class="col-md-1"></div>
+                        <div>
+                            <span class="data-title">总到访客流量</span>
+                            <img class="help_img" style="margin-top: -3px;" src="../../web/soon/image/help.png"
+                                 title="按天、周、月或年计算，统计周期内的累计到访客流量，到访客流量是指停留时长大于等于15s人次" />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-1"></div>
+                        <div>
+                            <span class="view-font" id="into_shop_count">0</span>
+                            <span id="unit_into_shop">人次 </span>
+                            <img id="into_shop_img" />
+                            <span id="into_shop_than">0</span>
+                            <span id="unit_into_shop_than">人次</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 width-style">
+                    <div class="col-md-12" style="margin-top:35px">
+                        <div class="col-md-1"></div>
+                        <div>
+                            <span class="data-title">总顾客数</span>
+                            <img class="help_img" style="margin-top: -3px" src="../../web/soon/image/help.png"
+                                 title="指定场所指定日期内到访顾客总人数,mac去重的客流量"/>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-1"></div>
+                        <div>
+                            <span class="view-font" id="total_customer_count">0</span>
+                            <span id="unit_total_customer">人次</span>
+                            <img id="total_customer_img" />
+                            <span id="total_customer_than">0</span>
+                            <span id="unit_total_customer_than">人次</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 width-style">
+                    <div class="col-md-12" style="margin-top:35px">
+                        <div class="col-md-1"></div>
+                        <div>
+                            <span class="data-title">新增顾客数</span>
+                            <img class="help_img" style="margin-top: -3px"
+                                 src="../../web/soon/image/help.png" title="指定场所指定日期内新增顾客人数"/>
+                            <br/>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-1"></div>
+                        <div>
+                            <span class="view-font" id="increase_customer_count">0</span>
+                            <span id="unit_increase_customer">人次</span>
+                            <img id="increase_customer_img" />
+                            <span id="increase_customer_than">0</span>
+                            <span id="unit_increase_customer_than">人次</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3 width-style">
+                    <div class="col-md-12" style="margin-top:35px">
+                        <div class="col-md-2"></div>
+                        <div>
+                            <span class="data-title">平均驻留时长</span>
+                            <img id="help_img_reside" class="help_img" style="margin-top: -3px;" src="../../web/soon/image/help.png"
+                                 title="所有场所指定日期内顾客平均驻留时间 = 每个驻留人的顾客的在线时长总和/总的驻留顾客数"/>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-2"></div>
+                        <div>
+                            <span class="view-font" id="averge_reside_time">0</span>
+                            <span id="unit_averge_reside">分钟</span>
+                            <img id="averge_reside_img" />
+                            <span id="averge_reside_than">0</span>
+                            <span id="unit_averge_reside_than">分钟</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-12 app-box" style="margin-top: 20px">
+                <div class="col-xs-3 app-colum width-style" style="margin-top: 30px">
+                    <div style="text-align: center">
+                        <span class="center-text">平均到访率</span>
+                        <img class="help_img" style="margin-top: -5px" src="../../web/soon/image/help.png"
+                                title="到访率 = 总到访客流量/总客流量"/>
+                    </div>
+                    <div class="box-body echart-height body-nopadding">
+                        <div id="averge_into_shop_rate" class="myEchart col-xs-12"></div>
+                    </div>
+                </div>
+                <div class="col-xs-3 app-colum width-style" style="margin-top: 30px">
+                    <div style="text-align: center">
+                        <span class="center-text">平均驻留率</span>
+                        <img class="help_img" style="margin-top: -5px;" src="../../web/soon/image/help.png"
+                                title="驻留率 = 总驻留客流量/总到访客流量"/>
+                    </div>
+                    <div class="box-body echart-height body-nopadding">
+                        <div id="averge_reside_rate" class="myEchart col-xs-12"></div>
+                    </div>
+                </div>
+                <div class="col-xs-3 app-colum width-style" style="margin-top: 30px;">
+                    <div style="text-align: center">
+                        <span class="center-text">新顾客比率</span>
+                        <img  class="help_img"  style="margin-top: -5px;" src="../../web/soon/image/help.png"
+                                title="新顾客比率 = 新增顾客数/总顾客数"/>
+                    </div>
+                    <div class="box-body echart-height body-nopadding">
+                        <div id="new_customers_rate" class="myEchart col-xs-12"></div>
+                    </div>
+                </div>
+                <div class="col-xs-3 app-colum width-style" style="margin-top: 30px;">
+                    <div style="text-align: center">
+                        <span class="center-text">平均到访次数</span>
+                        <img class="help_img" style="margin-top: -5px" src="../../web/soon/image/help.png"
+                             title="到访次数 = 总到访客流量/总顾客人数" />
+                    </div>
+                    <div class="box-body echart-height body-nopadding">
+                        <div id="averge_into_shop_many" class="myEchart col-xs-12"></div>
+                    </div>
+                </div>
+                <div class="col-xs-3 app-colum width-style" style="margin-top: 30px;">
+                    <div style="text-align: center">
+                        <span class="center-text">平均驻留时长</span>
+                        <img class="help_img" style="margin-top: -5px" src="../../web/soon/image/help.png"
+                                title="平均驻留时长 = 每个驻留人的顾客的在线时长总和/总的驻留顾客数"/>
+                    </div>
+                    <div class="box-body echart-height body-nopadding">
+                        <div id="averge_reside_time_rate" class="myEchart col-xs-12"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div id="view_rc" class="rc-define"  DATE_CYCLE="（今天）,（七天）,（一月）,（一年）">
+</div>
+</body>
+</html>
+<script>
+    Utils.Pages.loadJS("a_dataanalysis.view");
+</script>

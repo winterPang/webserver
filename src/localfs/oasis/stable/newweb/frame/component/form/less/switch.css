@@ -1,0 +1,66 @@
+.oasis-switch {
+  display: inline-block;
+}
+.oasis-switch.disabled {
+  cursor: not-allowed;
+}
+.oasis-switch.disabled label,
+.oasis-switch.disabled div {
+  pointer-events: none;
+}
+.oasis-switch .switch-box {
+  display: inline-block;
+  height: 32px;
+  vertical-align: middle;
+  overflow: hidden;
+  border-radius: 16px;
+}
+.oasis-switch .switch-handler {
+  width: 200%;
+  height: 100%;
+  font-size: 14px;
+  transition: all 200ms linear;
+}
+.oasis-switch .switch-handler.active {
+  margin-left: -100%;
+}
+.oasis-switch .switch-handler > div {
+  height: 100%;
+  float: left;
+  width: 50%;
+  position: relative;
+  line-height: 32px;
+  user-select: none;
+}
+.oasis-switch .switch-handler > div > div {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+  top: 6px;
+  z-index: 10;
+  background: #fff;
+}
+.oasis-switch .switch-handler > div:first-child {
+  padding-left: 15px;
+  background: #4ec1b2;
+  color: #fff;
+}
+.oasis-switch .switch-handler > div:first-child > div {
+  right: 8px;
+}
+.oasis-switch .switch-handler > div:last-child {
+  padding-right: 15px;
+  background: #E5E9F2;
+  text-align: right;
+}
+.oasis-switch .switch-handler > div:last-child > div {
+  left: 8px;
+}
+.oasis-switch label {
+  font-weight: lighter;
+  text-align: right;
+}
+.oasis-switch label::after {
+  content: ":";
+}

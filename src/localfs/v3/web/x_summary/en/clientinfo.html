@@ -1,0 +1,39 @@
+<html>
+<head>
+    <style>
+    </style>
+</head>
+<body>
+<div class="btn_h_return" id="iBack"></div>
+<div class="col-xs-12 app-colum" debug="getPlaceInfo getOnlineUser">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">Online Guests</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="OnlineVisitorList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+
+
+<div id="user_rc" class="rc-define"
+     USER_LIST_HEADER = "Account,Site,Auth Method,Registered At"
+     USER_TYPE="No auth,Anonymous,SMS,WeChat client,Alipay,QQ,Wechat account,Fixed account,WeChat WiFi"
+     ADD_USER="Add fixed account"
+     EDIT_USER="Change password"
+     ADD_BLACK_LIST="Add to Blacklist"
+     REMOVE_BLACK_LIST="Remove from Blacklist"
+     Visitor_LIST_HEADER = "MAC Address,IP Address,Associated At,Online Duration,Auth Method,Auth Account"
+     KICK_OUT = "Log off"
+     InputContentError = "Invalid parameter."
+     HISTORY_TITLE = "History Details"
+     TIME="d,h,m"
+     AUTH_ACCOUNT="Not-authenticated"
+        >
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_summary.clientinfo");
+</script>

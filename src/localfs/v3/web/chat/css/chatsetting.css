@@ -1,0 +1,188 @@
+/*chatsetting*/
+#chatSettingClose{
+    position: absolute;
+    font-size: 28px;
+    font-weight: 500;
+    top: 4px;
+    right: 10px;
+}
+#chatSettingModal{
+    /*top: 49%;*/
+    width: 560px;
+    display: none;
+}
+#chatSettingModal .modal-content{
+    width: 600px;
+    border-radius: 8px 8px 6px 6px;
+}
+
+#chatSettingIconHead {
+    width: 100px;
+    display: inline-block;
+    border: 1px solid;
+    box-sizing: content-box;
+}
+
+#chatSettingTitle{
+    height: 40px;
+    background-color: #52B6AB;
+    font-size: 18px;
+    line-height: 40px;
+    padding-left: 20px;
+    color: #fff;
+    border-radius: 6px 6px 0px 0px;
+}
+
+.container{
+}
+.resizer{
+    /*    overflow: hidden;*/
+}
+.resizer.have-img button.ok{
+    display: inline-block;
+}
+.resizer.have-img .inner {
+    display: block;
+}
+.inner{
+    float: left;
+    position: relative;
+    font-size: 0;
+    overflow: hidden;
+    display: none;
+}
+.frames{
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 1px solid black;
+    cursor: move;
+    outline: rgba(0, 0, 0, 0.6) solid 10000px;
+}
+button.ok{
+    float:right;
+    margin-left: 5px;
+    display: none;
+}
+canvas{
+    max-width: 100%;
+    width: 120px;
+    height: 120px;
+    margin:auto;
+    display: block;
+    border:1px solid black;
+}
+/*img{*/
+/*width: 100%;*/
+/*}*/
+#chatSettingModalBody{
+    max-height: 450px;
+    margin-bottom: 0px;
+    padding-top: 15px;
+    padding-bottom: 0px;
+}
+#chatSettingFooter{
+    margin-top: 0px;
+    position: relative;
+    height: 42px;
+}
+#chatSettingBtnCancel{
+    top: 5px;
+    position: absolute;
+    right: 12px;
+    height: 30px;
+    line-height: 2px;
+    width: 80px;
+}
+#chatSettingBtnOk{
+    top: 5px;
+    position: absolute;
+    right: 102px;
+    height: 30px;
+    line-height: 2px;
+    width: 80px;
+    border-color: #52B6AB;
+    background-color: #52B6AB;
+}
+#chatSettingHeadImgToolsContent{
+    position: relative;
+    height: 35px
+}
+#chatSettingHeadImgToolsTip{
+    font-weight: normal;
+    font-size: 16px;
+    width: 97px;
+    position: absolute;
+}
+/*#chatSettingHeadImgToolsChoise{*/
+    /*width: 291px;*/
+    /*position: relative;*/
+    /*left: 2px;*/
+    /*font-size: 16px;*/
+/*}*/
+
+.fileBtn {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 16px;
+    height: 28px;
+    width: 82px;
+}
+.fileBtn input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.fileBtn:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+.showFileName{
+    position: relative;
+    top: -4px;
+    left: 5px;
+    font-size: 16px;
+    max-width: 352px;
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+}
+#chatSettingHeadImgToolsUpload{
+    position: absolute;
+    right: -4px;
+    height: 26px;
+    line-height: 0.5px;
+    top: -2px;
+}
+#chatSettingHeadImgOKimgContent{
+    height: 280px;
+    text-align: center;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+#chatSettingHeadImgOKimgContent img{
+    height: 200px;
+    width: 200px;
+}
+/*.modal-body{*/
+    /*max-height: 450px;*/
+/*}*/
+/*
+.double-border{
+    border: 5px solid #ddd;
+
+    background: #fff;
+}*/

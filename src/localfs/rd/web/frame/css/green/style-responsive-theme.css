@@ -1,0 +1,46 @@
+@media (max-width: 979px) { 
+	.header .nav > li:last-child {
+        border-right: 1px solid #012c56;
+	}
+	/* mobile */
+	.mobile .page-sidebar {
+		background: #1a4f95;
+	}
+    .mobile .header {
+		background: #1a4f95;
+		border-bottom: 1px solid #1a4f95;
+    }
+    .mobile .header .nav .open > a, 
+    .mobile .header .nav .open > a:hover, 
+    .mobile .header .nav .open > a:focus {
+        background-color: #1c3264;
+    }
+    .mobile .header .nav .dropdown-menu {
+        background: #1c3264;
+    }
+    .mobile .header .nav > li.open .shortcut .menu-icon, 
+    .mobile .header .nav > li.open:hover .shortcut .menu-icon {
+        background: url(image/mobile-menu-oper.png) no-repeat;
+    }
+    .mobile .dropdown-menu .divider hr {
+        border-top: 2px solid #2d4577;
+        margin: 0;
+    }
+    .mobile .header .nav > li.open .shortcut span {
+        color: #fffffa;
+    }
+    .mobile .dropdown .lang-contrainer select {
+        background: #1c3264;
+        border: 1px solid #3d659c;
+        color: #69a5f0;
+        margin: -6px 0 0 -5px;
+    }
+    .mobile a:hover.menu-toggle,
+    .mobile a:focus.menu-toggle,
+    .mobile .menu-toggle.active {
+        background: #3161a0;
+    }
+	ul.page-sidebar-menu > li {
+		border-bottom: 0px solid #002037;
+	}
+}

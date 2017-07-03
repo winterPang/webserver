@@ -1,0 +1,117 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 30,
+  "rows": [
+    {
+      "id": 1,
+      "BOM_code":"BOMcode11",
+      "dev_model":"HWX324311",
+      "D_field":"Dfield11",
+      "selected": true,
+      "showDetail": true,
+      "showDelete": true,
+      "otherpage": true,
+      "showEdit": true
+    },
+    {
+      "id": 2,
+      "BOM_code":"BOMcode22",
+      "dev_model":"HWX324322",
+      "D_field":"Dfield22",
+      "selected": true,
+      "showDetail": true,
+      "showDelete": true,
+      "otherpage": true,
+      "showEdit": true
+    },
+    {
+      "id": 3,
+      "BOM_code":"BOMcode33",
+      "dev_model":"HWX324333",
+      "D_field":"Dfield33",
+      "selected": true,
+      "showDetail": true,
+      "showDelete": true,
+      "otherpage": true,
+      "showEdit": true
+    },
+    {
+      "id": 4,
+      "BOM_code":"BOMcode44",
+      "dev_model":"HWX324344",
+      "D_field":"Dfield44",
+      "selected": true,
+      "showDetail": true,
+      "showDelete": true,
+      "otherpage": true,
+      "showEdit": true
+    },
+    {
+      "id": 5,
+      "BOM_code":"BOMcode55",
+      "dev_model":"HWX324355",
+      "D_field":"Dfield55",
+      "selected": true,
+      "showDetail": true,
+      "showDelete": true,
+      "otherpage": true,
+      "showEdit": true
+    },
+    {
+      "id": 6,
+      "BOM_code":"BOMcode66",
+      "dev_model":"HWX324366",
+      "D_field":"Dfield66",
+      "selected": true,
+      "showDetail": true,
+      "showDelete": true,
+      "otherpage": true,
+      "showEdit": true
+    },
+    {
+      "id": 7,
+      "BOM_code":"BOMcode77",
+      "dev_model":"HWX324377",
+      "D_field":"Dfield77",
+      "selected": true,
+      "showDetail": true,
+      "showDelete": true,
+      "otherpage": true,
+      "showEdit": true
+    },
+    {
+      "id": 8,
+      "BOM_code":"BOMcode88",
+      "dev_model":"HWX324388",
+      "D_field":"Dfield88",
+      "selected": true,
+      "showDetail": true,
+      "showDelete": true,
+      "otherpage": true,
+      "showEdit": true
+    },
+    {
+      "id": 9,
+      "BOM_code":"BOMcod99",
+      "dev_model":"HWX324399",
+      "D_field":"Dfield99",
+      "selected": true,
+      "showDetail": true,
+      "showDelete": true,
+      "otherpage": true,
+      "showEdit": true
+    },
+    {
+      "id": 10,
+      "BOM_code":"BOMcode10",
+      "dev_model":"HWX324310",
+      "D_field":"Dfield10",
+      "selected": true,
+      "showDetail": true,
+      "showDelete": true,
+      "otherpage": true,
+      "showEdit": true
+    }
+  ]
+}

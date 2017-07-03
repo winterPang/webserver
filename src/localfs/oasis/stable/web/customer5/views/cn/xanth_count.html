@@ -1,0 +1,44 @@
+<div ng-init="
+    header_1='MAC地址';
+    header_2='IP地址';
+    header_3='终端厂商';
+    header_4='AP';
+    header_5='SSID';
+    header_6='未知';
+    ngModel='客户端统计';
+    autoClose='关闭';
+    viewTittle='未知';
+    ">
+    <div class="page-row">
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="col-sm-12 col-xs-12 app-colum">
+                    <div class="box-footer">
+                        <span class="title">终端类型</span>
+                    </div>
+                    <div class="box-body echart-height form-group">
+                        <div id="Terminal_type" class="col-xs-12" style="height:230px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="col-sm-12 col-xs-12">
+                    <div class="box-footer">
+                        <span class="title">终端厂商</span>
+                    </div>
+                    <div class="box-body echart-height form-group">
+                        <div id="Terminal_firm" class="col-xs-12" style="height:230px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div bs-modal="clientTypeOf">
+        <div bs-table="clientType"></div>
+    </div>
+    <div bs-modal = "clientModeOf">
+        <div bs-table = "clientMode"></div>
+    </div>
+</div>

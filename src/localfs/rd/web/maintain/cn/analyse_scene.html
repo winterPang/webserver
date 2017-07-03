@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="dashboard">
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">场景(最多)</span>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div class="myEchart" id="most" style="height:280px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">场景(最少)</span>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div class="myEchart" id="least" style="height:280px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">场景分布详细信息</span>
+                </div>
+                <div class="box-body">
+                    <div class="simple-list" id="sceneInfo"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="rc-define" id="rc_scene"
+     sceneInfoList="场景,日期,ac数量,ap数量,在线ap数量,离线ap数量"
+        ></div>
+</body>
+</html>
+<script>
+    Utils.Pages.loadJS("maintain.analyse_scene");
+</script>

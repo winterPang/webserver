@@ -1,0 +1,26 @@
+<div class="oasis-menu">
+	<ul  ng-class="menuType" class="tree-first">
+		<li ng-repeat="x in data" class="treeview">
+			<a ui-sref="{{x.sref}}"ng-click="targatMenu($event)">
+				<i ng-class="x.icon"></i>
+				<span ng-bind="x.name"></span>
+			</a>
+			<ul>
+				<li ng-repeat=" y in x.child" class="tree-second">
+					<a  ui-sref="{{y.sref}}"ng-click="targatMenu($event)">
+						<i ng-class="y.icon"></i>
+						<span ng-bind="y.name"></span>
+					</a>
+					<ul>
+						<li ng-repeat="z in y.child" class="tree-three">
+							<a sref="z.sref">
+								<i ng-class="z.icon"></i>
+								<span ng-bind="z.name"></span>
+							</a>
+						</li>
+					</ul>
+				</li>
+			</ul>
+		</li>
+	</ul>
+</div>

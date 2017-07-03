@@ -1,0 +1,1366 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style type="text/css">
+.app-colum .app-box {
+    overflow: hidden;
+}
+.warning-icon {
+    /*background: url(css/image/warning-icon.png) no-repeat -3px -3px;*/
+    background: #fe808b;
+    position: absolute;
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin: 7px 0 0 -3px;
+    opacity: 1;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+}
+.new-footer {
+    height: 50px;
+    line-height: 50px;
+}
+.new-footer div {
+    padding: 0px 0px 0px 20px;
+    font-size: 10pt;
+    color: #343e4e;
+}
+.new-footer .period-time {
+    font-weight: 100;
+    font-size: 10px;
+}
+
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+#image_table table {
+    width: 90%;
+    height: 90px; 
+    margin: 0px 0px 0px 30px;
+    border-bottom: 1px solid #e7e7e9;
+}
+#image_table table td, #image_table table tr {
+    border: 0px solid gray;
+}
+#image_table table td.align-left {
+    text-align: left;
+}
+#image_table table td.align-center {
+    text-align: center;
+}
+#image_table table td.align-right {
+    text-align: right;
+}
+#image_table table tr .image {
+    background: url(css/image/xiaoxiaobei1.png) no-repeat;
+    display: inline-block;
+    width: 64px;
+    height: 60px;
+    vertical-align: top;
+}
+#image_table table tr .image.new-position1 {
+    background-position: -771px -846px;
+}
+#image_table table tr .image.new-position2 {
+    background-position: -886px -846px;
+}
+#image_table table tr .image.new-position3 {
+    background-position: -995px -846px;
+}
+
+#image_table table td span {
+    display: block;
+    text-align: center;
+}
+#image_table table td span:first-child {
+    font-size: 30px;
+    color: #343e4e;
+}
+#image_table table td span:last-child {
+    color: #b9b8bb;
+}
+#image_table table tr td div {
+    display: inline-block !important;
+}
+
+.period-time table {
+    width: 40%;
+    margin: 0 0 0 50%;
+}
+.period-time table td {
+    /*border: 1px solid #DEDEDE;*/
+    /*text-decoration: underline;*/
+}
+.period-time table td span {
+    border-bottom: 1px solid #80878c;
+    cursor: pointer;
+}
+.period-time table td span:hover {
+    color: #4ec1b2;
+    border-bottom-color: #4ec1b2;
+}
+span.selected {
+    color: #4ec1b2; 
+    border-bottom-color: #4ec1b2!important;
+}
+.period-time table td.align-left{
+    text-align: left;
+    
+}
+.period-time table td.align-center {
+    text-align: center;
+}
+.period-time table td.align-right {    
+    text-align: right;
+}
+
+.modal-header h3 {
+    margin-left: 3px;
+    font-size: 13pt;
+    line-height: 35px;
+}
+#health_AP .right-border {
+    border-right:  1px solid #e7e7e9;
+}
+.SimbleListStyle{
+    padding-bottom: 2px;
+    display: inline-block;
+}
+#rougeAPDetails, #nat_detectDetails{
+    color: #4ec1b2;
+    float: right;
+    cursor: pointer;
+    margin-right: 20px;
+}
+
+.modal .form-actions, .modal .form-action, .modal .button-group {
+    margin: 0;
+    padding: 0;
+    border: 0 solid #fff;
+}
+.btn.btn-cancel {
+    background: #4ec1b2;
+    color: rgba(255,255,255,0.5);
+}
+.btn.btn-cancel:hover {
+    background: #4ec1b2;
+    color: rgba(255,255,255,255);
+}
+.modal-super {
+    width: 800px;
+    margin-left: -320px;
+}
+#specialOptimForm .btn, #specialOptAllocation .btn {
+    background: #c8c3e1;
+    color: rgba(255,255,255,0.5);
+}
+#specialOptimForm .btn:hover, #specialOptAllocation .btn:hover {
+    background: #c8c3e1;
+    color: rgba(255,255,255,255);
+}
+#specialOptimForm .modal-header, #specialOptAllocation .modal-header {
+    padding: 10px 15px;
+    background: #c8c3e1;
+    color: white;
+    border-bottom: 1px solid #c8c3e1;
+    border-radius: 6px 6px 0 0;
+}
+/*设置非法AP和私接代理的表格样式*/
+#listID .simple-list .slist-body.with-page {
+    padding-bottom: 0px; 
+}
+#listID .simple-list .slist-body {
+    position: relative;
+    width: 100%;
+    border: 0px solid #dedddd;
+    border-bottom: none;
+}
+#listID .slist-body .slist-center .slist-row {
+    position: relative;
+    height: 25px;
+    line-height: 25px;
+    border-bottom: 0px solid #DEDDDD;
+}
+#listID .slist-body .slist-head {
+    width: 100%;
+    background: #ffffff;
+    color: #131a2d;
+    position: relative;
+    height: 24px;
+    line-height: 12px;
+    font-size: 14px;
+    border-bottom: 0px solid #dedddd;
+}
+
+.btn-optimization {
+    margin: 0 0 30px 0;
+}
+.one-touch-optimize {
+    height: 100px;
+    width: 100%;
+    /*float: left;*/
+    background: #78cec3;
+    border: 1px solid #e7e7e9;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 0;
+}
+.one-touch-optimize:hover {
+    background: #41c1b2;
+}
+.special-optimization {
+    height: 100px;
+    width: 100%;
+    /*float: left;*/
+    background: #c8c3e1;
+    border: 1px solid #e7e7e9;
+    border-radius: 4px;
+    cursor: pointer;
+    z-index: 0;
+}
+.special-optimization:hover {
+    background: #a1a6d3;
+}
+.btn-optimization span {
+    color: #fff;
+    font-size: 12pt;
+}
+.btn-optimization .first-line {
+    display: block;
+    height: 52px;
+}
+.btn-optimization .flag-span {
+    display: inline-block;
+    margin: 5px 0 0 15px;
+    font-size: 22pt;
+}
+.btn-optimization .open-icon {
+    background: url(css/image/v7_icon.png) no-repeat -540px -164px;
+    float: right;
+    display: inline-block;
+    margin: 5px 7px 0px 0px;
+    width: 19px;
+    height: 20px;
+    cursor: pointer;
+    opacity: 0.5;
+    z-index: 1;
+}
+.btn-optimization .open-icon:hover {
+    opacity: 1;
+}
+.btn-optimization .open-state {
+    float: right;
+    display: inline-block;
+    margin: 3px 5px 0px 0px;   
+}
+.btn-optimization .check-info {
+    display: inline-block;
+    margin: 0 0 0 15px;
+}
+.btn-optimization .progress_bar {
+    height: 5px;
+    width: 100%;
+    background: #fff;
+    margin: 8px 0 0 0px;
+}
+#onetouchbar {
+    background-color: #4ec1b2; 
+    width: 0px; 
+    height: 5px;
+}
+#specialbar {
+    background-color: #a1a6d3; 
+    width: 0px; 
+    height: 5px;
+}
+#oneTouchOptimForm .oneTouchSelect, #specialOptimForm .oneTouchSelect {
+    width: 80%;
+    margin: 0 0 0 10%;
+}
+
+.basic-footer {
+    font-size: 13pt;
+    border-bottom: 1px solid #ccc;
+    vertical-align: middle;
+    margin: 20px 0 10px 0;
+}
+.basic-footer label {
+    margin: 6px 15px 0 0;
+}
+.basic-content {
+    padding: 5px 0 2px 7%;
+}
+.basic-content label {
+    color: #343e4e;
+    font-size: 11pt;
+    line-height: 20px;
+}
+.basic-content span {
+    font-size: 9pt;
+    vertical-align: middle;
+    color: #80878c;
+    /*padding: 0 0 0 5px;*/ /*为了后台自动添加--所以注掉，用空格代替*/
+}
+.expand-icon {
+    background: url(../networkoptimization/css/icon.png) no-repeat;
+    width: 10px;
+    height: 7px;
+    /*position: absolute;*/
+    float: right;
+    margin: 13px 0 0 0;
+    cursor: pointer;
+}
+.expand-icon.down-icon{
+    background-position: -270px -409px;
+}
+.expand-icon.up-icon {
+    background-position: -311px -409px;
+}  
+.add-line {
+    display: inline-block;
+    border-bottom: 1px solid #CCC;
+    height: 0;
+    width: 80%;
+    vertical-align: middle;
+    margin-left: 15px;
+}
+#oneTouchOptAllocation table td, #specialOptAllocation table td{
+    vertical-align:top;
+    border:0px solid #e7e7e9;
+    padding: 0 0 10px 0;
+}
+#oneTouchOptAllocation table tr .first-column, #specialOptAllocation table tr .first-column {
+    width: 22%;
+    text-align: right;
+    font-size: 11pt;
+    padding: 4px 20px 0 0;
+}
+#oneTouchOptAllocation table tr, #specialOptAllocation table tr { 
+    border:0px solid #e7e7e9;
+}
+
+table .basic-content {
+    padding:2px 0 0 0;
+}
+#oneTouchOptAllocation .modal-super {
+    /*z-index: 0;*/
+}
+#oneTouchOptAllocation table a:hover {
+    color: #272856;
+}
+.page-over1, .page-over2, .page-over3 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 10;
+}
+#executTime1, #executTime2, #executTime3, #executTime4, #executTime5, #executTime6 {
+    position: absolute;
+    background: #FFF;
+    z-index: 10;
+}
+#executTime1 {
+    top: 65px;
+    left: 128px;
+}
+#executTime2 {
+    top: 65px;
+    left: 258px;
+}
+#executTime3 {
+    top: 110px;
+    left: 128px;
+}
+#executTime4 {
+    top: 110px;
+    left: 258px;
+}
+#executTime5 {
+    top: 148px;
+    left: 128px;
+}
+#executTime6{
+    top: 148px;
+    left: 258px;
+}
+.executTime1, .executTime2, .executTime3, .executTime4, .executTime5, .executTime6 {
+    border: 1px solid #ccc;
+    text-align: center;
+    width: 100px;
+    height: 27px;
+    font-size: 11pt !important;
+    line-height: 25px;
+}
+#oneTouchOptAllocation .time-choice {
+    width: 150px;
+    height: 60px;
+    text-align: center;
+    padding: 0;
+    border: 1px solid #CCC;
+}
+.time-hours, .time-minutes, .time-seconds  {
+    height: 60px;
+    display: inline-block;
+    padding: 14px 0 0px 0;
+}
+.expand-icon.time-down {
+    background-position: -273px -312px;
+    position: absolute;
+    display: block;
+    margin: 6px 0 0 5px;
+}
+.expand-icon.time-up {
+    background-position: -292px -311px;
+    position: absolute;
+    display: block;
+    padding: 0;
+    margin: -8px 0 0px 5px;  
+}
+.expand-icon.time-up:hover {
+    background-position: -311px -409px;
+}
+.expand-icon.time-down:hover {
+    background-position: -270px -409px;
+}
+.time-words {
+    display: block;
+    border: 1px solid #ccc;
+    width: 20px;
+    height: 21px;
+    margin: 5px 0 0 0;
+}
+#oneTouchOptimForm .modal-body, #oneTouchOptAllocation .modal-body {
+    max-height: 2000px !important;
+    height: auto !important;
+    min-height: 650px !important;
+}
+#specialOptimForm .modal-body, #specialOptAllocation .modal-body {
+    max-height: 2000px !important;
+    height: auto !important;
+    min-height: 650px !important;
+}
+.waitting-icon {
+    background: url(css/image/loading_icon.gif) no-repeat;
+    position: absolute;
+    margin: 310px 0 0 400px;
+    z-index: 10;
+    height: 52px;
+    width: 52px;
+}
+.basic-content input[type='checkbox'] {
+    opacity: 0;
+    cursor: pointer;
+}    
+.basic-content .checkbox-icon {
+    background: url(css/image/xb-icons.png) no-repeat;
+}
+.selected-icon {
+    background-position: -821px -124px !important;
+}
+.un-selected-icon {
+    background-position: -855px -124px !important;
+}
+
+/*.warning-icon:hover {
+    opacity: 1;
+}*/
+.font-style {
+    font-size: 10px !important;
+    font-weight: 700;
+    text-align: center;
+}
+input.ant-add-width {
+    width: 60px !important;
+    padding: 0;
+}
+#DayOfTheWeek label {
+    margin: 0 10px 0 0;
+}
+.ant-br-block {
+    display: block;
+    margin-left: 18px;
+}
+</style>
+</head>
+<body>
+    <div class="col-xs-12 page-row app-colum">
+        <table class="col-xs-12 btn-optimization">
+            <tr>
+                <td style="/*float: right;*/ padding: 0 30px 0 0;">
+                    <div class="one-touch-optimize" id="one_touch_optimize">
+                        <div class="first-line">
+                            <span class="flag-span">一键优化</span>
+                            <span class="warning-icon font-style" id="warning1">12</span>
+                            <span class="open-icon" id="open_touch_icon"></span>
+                            <span class="open-state">已开启自动优化</span>
+                        </div>
+                        <span class="check-info">检测到配置有风险，请立即优化</span>
+                        <div class="progress_bar">
+                            <div id="onetouchbar"></div>
+                        </div>
+                    </div>
+                </td>
+                <td style="float: initial; padding: 0 0 0 30px;">
+                    <div class="special-optimization" id="special_optimization">
+                        <div class="first-line">
+                            <span class="flag-span">专项优化</span>
+                            <span class="warning-icon font-style" id="warning2">2</span>
+                            <span class="open-icon" id="open_special_icon"></span>
+                            <span class="open-state"></span>
+                        </div>
+                        <span class="check-info">正在优化兼容性配置项...</span>
+                        <div class="progress_bar">
+                            <div id="specialbar"></div>
+                        </div>
+                    </div>
+                </td>
+            </tr>
+        </table>
+        <div class="col-xs-12 app-box">
+            <div class="col-xs-12 new-footer">
+                <div class="col-xs-6"><span>AP健康信息</span></div>
+                <div class="col-xs-6"><span>终端体验指示</span></div>
+            </div>
+            <div class="col-xs-12" style="padding-bottom:40px;">
+                <div class="col-xs-6" style="border-right: 1px solid #e7e7e9; height: 385px">
+                    <div class="col-xs-12" id="image_table">
+                        <table>
+                            <tr>
+                                <td class="align-left">
+                                    <div class="image new-position1"></div>
+                                    <div ><span id="online_AP">0</span><span>AP在线数</span></div> 
+                                </td>
+                                <td class="align-center">
+                                    <div class="image new-position2"></div>
+                                    <div ><span id="offline_AP">0</span><span>AP离线数</span></div> 
+                                </td>
+                                <td class="align-right">
+                                    <div class="image new-position3"></div>
+                                    <div ><span id="unhealthy_AP">0</span><span>不健康AP数</span></div> 
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="col-xs-12 new-footer">
+                            <div class="col-xs-6"><span>非健康AP分类统计</span></div>
+                            <div class="col-xs-6 period-time">
+                                <table id="AP_ClassificationTime">
+                                    <tr>
+                                        <td class="align-left">
+                                            <span class="selected time-range one-day">一天</span>
+                                        </td>
+                                        <td class="align-center">
+                                            <span class="time-range one-week">一周</span>
+                                        </td>
+                                        <td class="align-right">
+                                            <span class="time-range one-month">一月</span>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="col-xs-6"></div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div id="no_health_AP_class_static" class="myEchart" style="height: 385px"></div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div id="terminal_pie" class="myEchart" style="height: 385px"></div>
+                </div>
+            </div> 
+        </div>
+        <div class="col-xs-12 app-box" id="health_AP">
+            <div class="col-xs-12 new-footer">
+                <div class="col-xs-3" style="width:20%;"><span>综合健康度</span></div>
+                <div class="col-xs-3" style="width:30%;"><span>健康度分析</span></div>
+                <div class="col-xs-6" style="width:50%;"><span>综合健康度历史</span></div>
+            </div>
+            <div class="col-xs-12">
+                <div class="col-xs-3 period-time" style="float:right; padding-right:20px;">
+                    <table id="TimeOfHealth">
+                        <tr>
+                            <td class="align-left">
+                                <span class="selected time-range one-week">一周</span>
+                            </td>
+                            <td class="align-center">
+                                <span class="time-range one-month">一月</span>
+                            </td>
+                            <td class="align-right">
+                                <span class="time-range half-year">半年</span>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-xs-12" style="height:251px">
+                <div class="col-xs-3 right-border" style="width:20%;">
+                    <div id="compre_health_Dgr" class="myEchart"></div>
+                </div>
+                <div class="col-xs-3 right-border" style="width:30%">
+                    <div id="hlth_dgr_analysis" class="myEchart"></div>
+                </div>
+                <div class="col-xs-6" style="width:50%">
+                    <div id="htry_compre_health_Dgr" class="myEchart"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="col-xs-6">
+                <div class="app-box" style="height: 310px; width: 98%;">
+                    <div class="col-xs-12 new-footer">
+                        <div class="col-xs-6"><span>带宽分析</span></div>
+                        <div class="col-xs-6 period-time">
+                            <table id="broadbandAnalysisTime">
+                                <tr>
+                                    <td class="align-left">
+                                        <span class="selected time-range one-week">一周</span>
+                                    </td>
+                                    <td class="align-center">
+                                        <span class="time-range one-month">一月</span>
+                                    </td>
+                                    <td class="align-right">
+                                        <span class="time-range half-year">半年</span>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div style="position: absolute;left: 376px;top: 77px;font-size: 10px;">
+                        <span id="TotalExportUpBandwidth"></span>
+                    </div>
+                    <div style="position: absolute;left: 376px;top: 270px;font-size: 10px;">
+                        <span id="TotalExportDownBandwidth"></span>
+                    </div>
+                    <div class="col-xs-12">
+                        <div id="broadband_analysis" class="myEchart"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-xs-6 app-box" style="height: 310px;">
+                <div class="col-xs-12 new-footer">
+                    <div class="col-xs-12"><span>系统状态</span></div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="col-xs-4">
+                        <div id="cpu_usage" class="myEchart"></div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div id="memory_usage" class="myEchart"></div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div id="storage_usage" class="myEchart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+          
+        <div class="col-xs-12" id="listID">
+            <div class="col-xs-4">
+                <div class="app-box" style="width:98%; height: 235px;">
+                    <div class="col-xs-12 new-footer">
+                        <div>AP在线</div>
+                    </div> 
+                    <div class="myEchart" id="ApOnlineRate"></div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="app-box" style="width:98%; height: 235px;">
+                    <div class="col-xs-12 new-footer">
+                        <div style="display: inline-block">非法AP:<span id="rougeAP_num" style="font-size: 20px;">0</span>个</div>
+                        <span id="rougeAPDetails">详情</span>
+                    </div> 
+                    <div class="col-xs-12">
+                        <div id="rouge_AP" class="simple-list"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-4">
+                <div class="app-box" style="width:100%; height: 235px;">
+                    <div class="col-xs-12 new-footer">
+                        <div style="display: inline-block">私接代理:<span id="net_detect_num" style="font-size: 20px;">0</span>个</div>
+                        <span id="nat_detectDetails">详情</span>
+                    </div> 
+                    <div class="col-xs-12">
+                        <div id="nat_detect" class="simple-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12">
+            <div class="col-xs-12 app-box" style="height: 270px;">
+                <div class="col-xs-12 new-footer">
+                    <div>终端速率</div>
+                </div>
+                <div class="col-xs-6" style="border-right:1px solid #e7e7e9;">
+                    <div id="xinzaobi_Chart" class="myEchart"></div> 
+                </div>
+                <div class="col-xs-6">
+                    <div id="consult_Chart" class="myEchart"></div> 
+                </div> 
+            </div>
+            <div class="col-xs-12 app-box" style="height:320px;">
+                <div class="col-xs-12 new-footer">
+                    <div>无线环境</div>
+                </div>
+                <div class="col-xs-3"> 
+                    <div class="myEchart" id="2GDisplay"></div>
+                </div>
+                <div class="col-xs-6">
+                    <div id="Wireless_Bar" class="myEchart"></div> 
+                </div>
+                <div class="col-xs-3">
+                    <div class="myEchart" id="5GDisplay"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 一键优化：待优化项 -->
+    <form class="form-horizontal form hide" id="oneTouchOptimForm">
+        <!-- <div class="page-over1"></div> -->
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">待优化项</h3>
+        </div>
+        <div class="modal-body col-xs-12">
+            <div class="row" id="waitting1">
+                <div class="waitting-icon"></div>
+            </div>
+            <div class="oneTouchSelect" id="oneTouchSelect">
+                <div class="wireless-load">
+                    <div class="basic-footer">
+                        <span>无线负载（ 共 2 项 ）</span>
+                        <label class="expand-icon up-icon" for="wireless_load1"></label>    
+                    </div>
+                    <div id="wireless_load1" class="hide">
+                        <div class="basic-content">
+                            <span class="checkbox-icon selected-icon">
+                                <input type="checkbox" id="5G_priority0" />    
+                            </span>
+                            <label for="5G_priority0">优先使用5GHz频段</label>
+                            <span></span>
+                        </div>
+                        <div class="basic-content">
+                            <span class="checkbox-icon selected-icon">
+                                <input type="checkbox" id="AP_load_balance0" />    
+                            </span>
+                            <label for="AP_load_balance0">AP间负载均衡</label>
+                            <span>均衡各个AP上线终端的数量，避免某一个AP负载过高</span>
+                        </div>     
+                    </div>
+                </div>
+                <div class="radio-resource">
+                    <div class="basic-footer">
+                        <span>射频资源（ 共 9 项 ）</span>
+                        <label class="expand-icon up-icon" for="radio_resource1"></label>    
+                    </div>
+                    <div id="radio_resource1" class="hide">
+                        <div class="basic-content">
+                            <span class="checkbox-icon selected-icon">
+                                <input type="checkbox" id="airRate0"> 
+                            </span>
+                            <label for="airRate0">动态调整发送速率</label>
+                            <span>射频会动态调整速率，实现通信的最优速率</span>
+                        </div>
+                        <div class="basic-content">
+                            <span class="checkbox-icon selected-icon">
+                                <input type="checkbox" id="ignoreWeakSignalMsg0">
+                            </span>
+                            <label for="ignoreWeakSignalMsg0">忽略弱信号报文</label>
+                            <span>避免弱信号干扰，提高射频利用率</span>
+                        </div>
+                        <div class="basic-content">
+                            <span class="checkbox-icon selected-icon">
+                                <input type="checkbox" id="autoChannelAdjust0">
+                            </span>
+                            <label for="autoChannelAdjust0">自动信道调整</label>
+                            <span class="ant-br-block">根据当前工作信道的拥情况，自动调整工作信道到最优信道，本优化主要用于高密会环境</span>
+                        </div>
+                        <div class="basic-content">
+                            <span class="checkbox-icon selected-icon">
+                                <input type="checkbox" id="autoPowerAdjust0">
+                            </span>
+                            <label for="autoPowerAdjust0">自动功率调整</label>
+                            <span>blablablablablablablablablablablablabla</span>
+                        </div>
+                        <div class="basic-content">
+                            <span class="checkbox-icon selected-icon">
+                                <input type="checkbox" id="ChannelReuseAdjustment0">
+                            </span>
+                            <label for="ChannelReuseAdjustment0">信道重用能力调整</label>
+                            <span>开启之后，会根据当前环境，自动调整干扰的阀值</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-gather">
+                    <div class="basic-footer">
+                        <span>信息收集（ 共 1 项 ）</span>
+                        <label class="expand-icon down-icon" for="info_gather1"></label>    
+                    </div>
+                    <div id="info_gather1" class="hide">
+                         
+                    </div>
+                </div>
+                <div class="terminal-behavior">
+                    <div class="basic-footer">
+                        <span>终端行为（ 共 2 项 ）</span>
+                        <label class="expand-icon down-icon" for="terminal_behavior1"></label>    
+                    </div>
+                    <div id="terminal_behavior1" class="hide">
+                         
+                    </div>
+                </div>
+                <div style="height:40px;"></div>
+            </div>
+        </div>
+        <div class="modal-footer form-actions">
+            <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">优化</a>
+        </div>
+    </form>
+    <!-- 一键优化：优化配置-->
+    <form class="form-horizontal form hide" id="oneTouchOptAllocation">
+        <div class="page-over2 hide"></div>
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">优化配置</h3>
+        </div>
+        <div class="modal-body col-xs-12">
+            <div class="col-xs-12" style="width:81%;margin-left: 10%;">
+                <div style="margin:20px 0 0 10px;font-size: 12pt;">
+                    <span>基础优化设置</span>
+                    <span class="add-line"></span>
+                </div>
+                <table class="col-xs-12" style="width:90%;">
+                    <tr>
+                        <td class="first-column">无线负载</td>
+                        <td>
+                            <div class="basic-content">
+                                <span class="checkbox-icon selected-icon">
+                                    <input type="checkbox" name="wireless_load" checked id="5G_priority1" />
+                                </span>
+                                <label for="5G_priority1">优先使用5GHz频段</label>
+                                <span></span>
+                            </div>
+                            <div class="basic-content" >
+                                <span class="checkbox-icon selected-icon">
+                                    <input type="checkbox" name="wireless_load" id="AP_load_balance1" />
+                                </span>
+                                <label for="AP_load_balance1">AP间负载均衡</label>
+                                <span>均衡各个AP上线终端的数量，避免某一个AP负载过高</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="first-column">终端行为</td>
+                        <td>   
+                            <div class="basic-content">
+                                <span class="checkbox-icon selected-icon">
+                                    <input type="checkbox" name="terminal_behavior" checked id="ProhibitLowerSignal1">
+                                </span>
+                                <label for="ProhibitLowerSignal1">禁止信号较低的终端接入网络</label>
+                                <span>小于30属于低信号</span>
+                                <input class="ant-add-width" type="text" name="" />
+                            </div>
+                            <div class="basic-content">
+                                <span class="checkbox-icon selected-icon">
+                                    <input type="checkbox" name="terminal_behavior" checked id="ProhibitUseLowRate1">
+                                </span>
+                                <label for="ProhibitUseLowRate1">禁止客户端使用低速率传输报文</label>
+                                <span></span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="first-column">射频资源</td>
+                        <td>
+                            <div class="basic-content">
+                                <span class="checkbox-icon selected-icon">
+                                    <input type="checkbox" name="radio_resource" id="airRate1">  
+                                </span>
+                                <label for="airRate1">动态调整发送速率</label>
+                                <span>射频会动态调整速率，实现通信的最优速率</span>
+                            </div>
+                            <div class="basic-content">
+                                <span class="checkbox-icon selected-icon">
+                                    <input type="checkbox" name="radio_resource" id="ignoreWeakSignalMsg1">
+                                </span>
+                                <label for="ignoreWeakSignalMsg1">忽略弱信号报文</label>
+                                <span>避免弱信号干扰，提高射频利用率</span>
+                            </div>
+                            <div class="basic-content">
+                                <span class="checkbox-icon selected-icon">
+                                    <input type="checkbox" name="radio_resource" id="autoChannelAdjust1">
+                                </span>
+                                <label for="autoChannelAdjust1">自动信道调整</label>
+                                <span class="ant-br-block">根据当前工作信道的拥情况，自动调整工作信道到最优信道，本优化主要用于高密会环境</span>
+                            </div>
+                            <div class="basic-content">
+                                <span class="checkbox-icon selected-icon">
+                                    <input type="checkbox" name="radio_resource" id="autoPowerAdjust1">
+                                </span>
+                                <label for="autoPowerAdjust1">自动功率调整</label>
+                                <span>blablablablablablablablablablablablabla</span>
+                            </div>
+                            <div class="basic-content">
+                                <span class="checkbox-icon selected-icon">
+                                    <input type="checkbox" name="radio_resource" id="ChannelReuseAdjustment1">
+                                </span>
+                                <label for="ChannelReuseAdjustment1">信道重用能力调整</label>
+                                <span>开启之后，会根据当前环境，自动调整干扰的阀值</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="first-column">信息收集</td>
+                        <td>   
+                            <div class="basic-content">
+                                <span class="checkbox-icon selected-icon">
+                                    <input type="checkbox" name="info_gather" checked id="802_11K_Info1">
+                                </span>
+                                <label for="802_11K_Info1">802.11k</label>
+                                <span>收集网络参数，为进一步分析网络，为更精确的优化做准备</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="col-xs-12" style="width:81%;margin-left: 10%;">
+                <div style="margin:5px 0 0 10px; font-size: 12pt;">
+                    <span >智能优化设置</span>
+                    <span class="add-line"></span>
+                </div>
+                <table class="col-xs-12" style="width:90%;">
+                    <tr>
+                        <td class="first-column">时间重复</td>
+                        <td>
+                            <div class="basic-content" id="DayOfTheWeek">
+                                <span class="checkbox-icon selected-icon">
+                                    <input id="Mon" type="checkbox" name="Mon" checked />
+                                </span>
+                                <label for="Mon">周一</label>
+                                <span class="checkbox-icon selected-icon">
+                                    <input id="Tues" type="checkbox" name="Tues" checked />
+                                </span>
+                                <label for="Tues">周二</label>
+                                <span class="checkbox-icon selected-icon">
+                                    <input id="Wed" type="checkbox" name="Wed" checked />
+                                </span>
+                                <label for="Wed">周三</label>
+                                <span class="checkbox-icon selected-icon">
+                                    <input id="Thur" type="checkbox" name="Thur" checked />
+                                </span>
+                                <label for="Thur">周四</label>
+                                <span class="checkbox-icon selected-icon">
+                                    <input id="Fri" type="checkbox" name="Fri" checked />          
+                                </span>
+                                <label for="Fri">周五</label>
+                                <span class="checkbox-icon selected-icon">
+                                    <input id="Sat" type="checkbox" name="Sat" checked />           
+                                </span>
+                                <label for="Sat">周六</label>
+                                <span class="checkbox-icon selected-icon">
+                                    <input id="Sun" type="checkbox" name="Sun" checked />      
+                                </span>
+                                <label for="Sun">周日</label>
+                                <span class="ant-br-block">设置执行信息收集和优化行为的重复时间</span>
+                            </div>
+                            <div class="basic-content" >
+                                <span class="checkbox-icon selected-icon">
+                                    <input type="checkbox" id="AP_load_balance">           
+                                </span>
+                                <label for="AP_load_balance">自动调整优化时间</label>
+                                <span class="ant-br-block">勾此选项，设备将会根据用户设定的时间，并结合用户量，自动调整忙时和闲时。在忙时收集数据，闲时执行优化</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="first-column">优化执行时间段</td>
+                        <td>
+                            <div style="">
+                                <div class="time-choice hide" id="executTime1">
+                                    <div class="time-hours">
+                                        <span class="time-up expand-icon"></span>
+                                        <span class="time-words Time">08</span>
+                                        <span class="time-down expand-icon"></span>
+                                    </div>
+                                    <span>&nbsp;:&nbsp;</span>
+                                    <div class="time-minutes">
+                                        <span class="time-up expand-icon"></span>
+                                        <span class="time-words Time">22</span>
+                                        <span class="time-down expand-icon"></span>
+                                    </div>
+                                    <span>&nbsp;:&nbsp;</span>
+                                    <div class="time-seconds">
+                                        <span class="time-up expand-icon"></span>
+                                        <span class="time-words Time">34</span>
+                                        <span class="time-down expand-icon"></span>
+                                    </div>
+                                </div>
+                                <div class="time-choice hide" id="executTime2">
+                                    <div class="time-hours">
+                                        <span class="time-up expand-icon"></span>
+                                        <span class="time-words Time">08</span>
+                                        <span class="time-down expand-icon"></span>
+                                    </div>
+                                    <span>&nbsp;:&nbsp;</span>
+                                    <div class="time-minutes">
+                                        <span class="time-up expand-icon"></span>
+                                        <span class="time-words Time">22</span>
+                                        <span class="time-down expand-icon"></span>
+                                    </div>
+                                    <span>&nbsp;:&nbsp;</span>
+                                    <div class="time-seconds">
+                                        <span class="time-up expand-icon"></span>
+                                        <span class="time-words Time">34</span>
+                                        <span class="time-down expand-icon"></span>
+                                    </div>
+                                </div>
+                                <label class="executTime1" for="executTime1">09:23</label>
+                                <label>&nbsp;至&nbsp;</label>
+                                <label class="executTime2" for="executTime2">08：33</label>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="first-column">信息收集时间段</td>
+                        <td>
+                            <div style="margin-top:0px;">
+                                <div>
+                                    <div class="time-choice hide" id="executTime3">
+                                        <div class="time-hours">
+                                            <span class="time-up expand-icon"></span>
+                                            <span class="time-words Time">08</span>
+                                            <span class="time-down expand-icon"></span>
+                                        </div>
+                                        <span>&nbsp;:&nbsp;</span>
+                                        <div class="time-minutes">
+                                            <span class="time-up expand-icon"></span>
+                                            <span class="time-words Time">22</span>
+                                            <span class="time-down expand-icon"></span>
+                                        </div>
+                                        <span>&nbsp;:&nbsp;</span>
+                                        <div class="time-seconds">
+                                            <span class="time-up expand-icon"></span>
+                                            <span class="time-words Time">34</span>
+                                            <span class="time-down expand-icon"></span>
+                                        </div>
+                                    </div>
+                                    <div class="time-choice hide" id="executTime4">
+                                        <div class="time-hours">
+                                            <span class="time-up expand-icon"></span>
+                                            <span class="time-words Time">08</span>
+                                            <span class="time-down expand-icon"></span>
+                                        </div>
+                                        <span>&nbsp;:&nbsp;</span>
+                                        <div class="time-minutes">
+                                            <span class="time-up expand-icon"></span>
+                                            <span class="time-words Time">22</span>
+                                            <span class="time-down expand-icon"></span>
+                                        </div>
+                                        <span>&nbsp;:&nbsp;</span>
+                                        <div class="time-seconds">
+                                            <span class="time-up expand-icon"></span>
+                                            <span class="time-words Time">34</span>
+                                            <span class="time-down expand-icon"></span>
+                                        </div>
+                                    </div>
+                                    <a href="#executTime3">
+                                        <label class="executTime3" for="executTime3">09:23</label>
+                                    </a>
+                                    <label>&nbsp;至&nbsp;</label>
+                                    <a href="#executTime4">
+                                        <label class="executTime4" for="executTime4">08：33</label>
+                                    </a>
+                                </div>
+                                <div style="margin-top:3px;">
+                                    <div class="time-choice hide" id="executTime5">
+                                        <div class="time-hours">
+                                            <span class="time-up expand-icon"></span>
+                                            <span class="time-words Time">08</span>
+                                            <span class="time-down expand-icon"></span>
+                                        </div>
+                                        <span>&nbsp;:&nbsp;</span>
+                                        <div class="time-minutes">
+                                            <span class="time-up expand-icon"></span>
+                                            <span class="time-words Time">22</span>
+                                            <span class="time-down expand-icon"></span>
+                                        </div>
+                                        <span>&nbsp;:&nbsp;</span>
+                                        <div class="time-seconds">
+                                            <span class="time-up expand-icon"></span>
+                                            <span class="time-words Time">34</span>
+                                            <span class="time-down expand-icon"></span>
+                                        </div>
+                                    </div>
+                                    <div class="time-choice hide" id="executTime6">
+                                        <div class="time-hours">
+                                            <span class="time-up expand-icon"></span>
+                                            <span class="time-words Time">08</span>
+                                            <span class="time-down expand-icon"></span>
+                                        </div>
+                                        <span>&nbsp;:&nbsp;</span>
+                                        <div class="time-minutes">
+                                            <span class="time-up expand-icon"></span>
+                                            <span class="time-words Time">22</span>
+                                            <span class="time-down expand-icon"></span>
+                                        </div>
+                                        <span>&nbsp;:&nbsp;</span>
+                                        <div class="time-seconds">
+                                            <span class="time-up expand-icon"></span>
+                                            <span class="time-words Time">34</span>
+                                            <span class="time-down expand-icon"></span>
+                                        </div>
+                                    </div>
+                                    <a href="#executTime5">
+                                        <label class="executTime5" for="executTime5">09: 23</label>
+                                    </a>
+                                    <label>&nbsp;至&nbsp;</label>
+                                    <a href="#executTime6">
+                                        <label class="executTime6" for="executTime6">08：33</label>
+                                    </a>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="modal-footer form-actions">
+            <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">确定</a>
+        </div>
+    </form>
+    <!-- 专项优化：待专项优化项 -->
+    <form class="form-horizontal form hide" id="specialOptimForm">
+        <!-- <div class="page-over3"></div> -->
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">待专项优化项</h3>
+        </div>
+        <div class="modal-body col-xs-12" style="height: 850px;">
+            <div class="row" id="waitting2">
+                <div class="waitting-icon"></div>
+            </div>
+            <div class="oneTouchSelect" id="specialSelect">
+                <div class="terminal">
+                    <div class="basic-footer">
+                        <span>终端（ 共 1 项 ）</span>
+                        <label class="expand-icon up-icon" for="terminal"></label>    
+                    </div>
+                    <div id="terminal">
+                        <div class="basic-content">
+                            <span class="checkbox-icon selected-icon">
+                                <input type="checkbox" checked id="RoamingOptimization0">    
+                            </span>
+                            <label for="RoamingOptimization0">漫游优化</label>
+                            <span>终端会优先连接5G高速的服务</span>
+                        </div>
+                        <div class="basic-content" >
+                            <span class="checkbox-icon selected-icon">
+                                <input type="checkbox" id="OnlineSpeedOpti0">    
+                            </span>
+                            <label for="OnlineSpeedOpti0">上线速度优化</label>
+                            <span>均衡各个AP上线终端的数量，避免某一个AP负载过高</span>
+                        </div>   
+                    </div>
+                </div>
+                <div class="scenario">
+                    <div class="basic-footer">
+                        <span>场景（ 共 2 项 ）</span>
+                        <label class="expand-icon up-icon" for="scenario"></label>    
+                    </div>
+                    <div id="scenario">
+                        <div class="basic-content">
+                            <span class="checkbox-icon selected-icon">
+                                <input type="checkbox" checked id="HighDensityVenue0">    
+                            </span>
+                            <label for="HighDensityVenue0">高密会场</label>
+                            <span>接收信号强度较低的设备将无法接入相应的网络</span>
+                        </div>
+                        <div class="basic-content">
+                            <span class="checkbox-icon selected-icon">
+                                <input type="checkbox" name="radio_resource" id="enhanceEnergyInterference0">
+                            </span>
+                            <label for="enhanceEnergyInterference0">增强能量干扰能力</label>
+                            <span>调整能量干扰的门限。本优化主要用于高密会环境</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-gather">
+                    <div class="basic-footer">
+                        <span>兼容性配置（ 共 2 项 ）</span>
+                        <label class="expand-icon down-icon" for="CompatibilityConfiguration"></label>    
+                    </div>
+                    <div id="CompatibilityConfiguration" class="hide">
+                         <div class="basic-content">
+                            <span class="checkbox-icon selected-icon">
+                                <input type="checkbox" id="IphoneTerminalOpti0">    
+                            </span>
+                            <label for="IphoneTerminalOpti0">苹果终端优化</label>
+                            <span>提升苹果终端的无线连接体检</span>
+                        </div>
+                        <div class="basic-content">
+                            <span class="checkbox-icon selected-icon">
+                                <input type="checkbox" id="ProhibitPortalPage0">    
+                            </span>
+                            <label for="ProhibitPortalPage0">禁止Portal页面弹出</label>
+                            <span>如果说明内容较长就换行放置blablablablablablablablablablablabla</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="height:40px;"></div>
+            </div>
+        </div>
+        <div class="modal-footer form-actions">
+            <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">优化</a>
+        </div>
+    </form>
+    <!-- 专项优化：专项优化配置 -->
+    <form class="form-horizontal form hide" id="specialOptAllocation">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">专项优化配置</h3>
+        </div>
+        <div class="modal-body col-xs-12" style="height: 850px;">
+            <div class="col-xs-12" style="width: 90%; margin-left: 3%;">
+                <table class="col-xs-12" style="margin-top:15px;">
+                    <tr>
+                        <td class="first-column">终端</td>
+                        <td>
+                            <div class="basic-content">
+                                <span class="checkbox-icon selected-icon">
+                                    <input type="checkbox" checked id="RoamingOptimization1">    
+                                </span>
+                                <label for="RoamingOptimization1">漫游优化</label>
+                                <span>终端会优先连接5G高速的服务</span>
+                            </div>
+                            <div class="basic-content" >
+                                <span class="checkbox-icon selected-icon">
+                                    <input type="checkbox" id="OnlineSpeedOpti1">    
+                                </span>
+                                <label for="OnlineSpeedOpti1">上线速度优化</label>
+                                <span>均衡各个AP上线终端的数量，避免某一个AP负载过高</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="first-column">场景</td>
+                        <td>   
+                            <div class="basic-content">
+                                <span class="checkbox-icon selected-icon">
+                                    <input type="checkbox" checked id="HighDensityVenue1">    
+                                </span>
+                                <label for="HighDensityVenue1">高密会场</label>
+                                <span>接收信号强度较低的设备将无法接入相应的网络</span>
+                            </div>
+                            <div class="basic-content">
+                                <span class="checkbox-icon selected-icon">
+                                    <input type="checkbox" name="radio_resource" id="enhanceEnergyInterference1">
+                                </span>
+                                <label for="enhanceEnergyInterference1">增强能量干扰能力</label>
+                                <span>调整能量干扰的门限。本优化主要用于高密会环境</span>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="first-column">兼容性配置</td>
+                        <td>
+                            <div class="basic-content">
+                                <span class="checkbox-icon selected-icon">
+                                    <input type="checkbox" id="IphoneTerminalOpti1">    
+                                </span>
+                                <label for="IphoneTerminalOpti1">苹果终端优化</label>
+                                <span>提升苹果终端的无线连接体检</span>
+                            </div>
+                            <div class="basic-content">
+                                <span class="checkbox-icon selected-icon">
+                                    <input type="checkbox" id="ProhibitPortalPage1">    
+                                </span>
+                                <label for="ProhibitPortalPage1">禁止Portal页面弹出</label>
+                                <span>如果说明内容较长就换行放置blablablablablablablablablablablabla</span>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="modal-footer form-actions">
+            <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">确定</a>
+        </div>
+    </form>
+    <!-- 可优化AP列表 -->
+    <form class="form-horizontal form hide" id="optimizeAPlist">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">可优化AP列表</h3>
+        </div>
+        <div class="modal-body col-xs-12" style="height:700px;">
+            <div id="optimizeAP_list" class="simple-list"></div>
+        </div>
+        <div class="modal-footer form-actions">
+            <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+                <i class="icon-remove"></i>关闭
+            </a>
+        </div>
+    </form>
+    <!-- 非法AP详情列表 -->
+    <form class="form-horizontal form hide" id="rougeAPForm">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">非法AP详情列表</h3>
+        </div>
+        <div class="modal-body col-xs-12">
+            <div id="rougeAP_details" class="simple-list"></div>
+        </div>
+        <div class="modal-footer form-actions">
+            <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+                <i class="icon-remove"></i>关闭
+            </a>
+        </div>
+    </form>
+    <!-- 私接代理详情列表 -->
+    <form class="form-horizontal form hide" id="nat_detactForm">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">私接代理详情列表</h3>
+        </div>
+        <div class="modal-body col-xs-12">
+            <div id="nat_detact_details" class="simple-list"></div>
+        </div>
+        <div class="modal-footer form-actions">
+            <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+                <i class="icon-remove"></i>关闭
+            </a>
+        </div>
+    </form>
+
+    <div id="optimization_rc" class="rc-define" 
+        ANALYSIS-OF-AP="AP名称,健康评分,终端数量,待提升体验终端数,功率,信号强度,状态,优化"
+        LIST-HEAD="MAC,最近发现时间" 
+        AP-ONLINE="在线AP"
+        UNHEALTHY-TYPE-OF-AP="过载, 频繁漫游,WI-FI干扰,其他,总量"
+        SERIES-NAME="访问来源,综合分析"
+        STATISTC-TERMINAL="灾区,文字信息,网络电话,网页浏览,高清视频"
+        SCORE="分"
+        DEPTH-HEALTH-ANALYSIS="宽带分析,AP在线率,终端速率,安全评价,无线环境,系统健康度"
+        BANDWIDTH="出口上行带宽,出口下行带宽"
+        USAGE-RATE="CPU使用率,内存使用率,存储使用率"
+        TERMINAL-SPEED="协商速率,信噪比分布"
+        WIRELESS-ENVIRONMENT="较好,好,一般,差,较差"
+        BAND="2.4G分布,2.5G分布"
+    ></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("networkoptimization.optimization");
+</script>

@@ -1,0 +1,20 @@
+{"shopList":[
+	{"shop_name":"b1",
+	 "brief":"rfdsfsd",
+     "dev_sn":"210235A1JTB162000011",
+ 	 "locationCount":"2",
+ 	 "locationOpenState":"on",
+ 	 "locationState":"able",
+ 	 "cycle":"3",
+ 	 "devCnt":"5"
+ 	},
+    {"shop_name":"LBS-test",
+     "brief":"rfdsfsd",
+     "dev_sn":"210235A1JTB162000011",
+ 	 "locationCount":"2",
+ 	 "locationOpenState":"off",
+ 	 "locationState":"disable",
+ 	 "cycle":"3",
+ 	 "devCnt":"5"
+ 	}],"shopTotalCnt":2,"code":0
+}

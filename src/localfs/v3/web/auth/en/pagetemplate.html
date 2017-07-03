@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">Page Template</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="pageList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+    <div class="hide" id="pageToggle">
+        <form id="pagetoggle_form" class="form edit">
+            <div class="col-sm-6 response-block">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label required">Template name</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="string big required" id="themeName" name = "themeName"  maxlength="32" error_id="themeName_error"/>
+                        <label class="info-explain">(1 to 32 characters)</label>
+                        <label class="error" id="themeName_error"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Description</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="string big" id="description" name="description" maxlength="128" error_id="description_error"/>
+                        <label class="info-explain">(1 to 128 characters)</label>
+                        <label class="error" id="description_error"></label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 response-block">
+                <div class="form-group">
+                    <div class="col-sm-9 col-sm-offset-3">
+                        <div class="col-sm-3">
+                            <input type="radio" id="simple1" name="pagemodel" value="1" checked/>
+                            <label for="simple1">Simple</label>
+                        </div>
+                        <div class="col-sm-2">
+                            <a id="simpledraw" style="color:#0078ff;border-bottom:1px solid #0078ff;font-size:13px;cursor:pointer">Edit</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <div class="hide modal fade" id="AddPageTempDlg"></div>
+    <div id="ws_ssid_rc" class="rc-define"
+         Page_HEADER = "Page Template, Description"
+         ADDPAGE_TITLE = "Add Page Template"
+         SEARCH_DATA_FAILED = "Error occurred during data querying"
+         DEL_TEMPLATE_ERROR_CODE_60015 = "The page template is bound to a published template and cannot be deleted"
+         DEL_TEMPLATE_ERROR_CODE_0     = "Page template deleted successfully"
+         DEL_TEMPLATE_ERROR_CODE_FAILED= "Failed to delete the page template"
+         ADD_TEMPLATE_ERROR_CODE_0     = "Page template added successfully"
+         ADD_TEMPLATE_ERROR_CODE_1201  = "The page template already exists"
+         ADD_TEMPLATE_ERROR_CODE_1001  = "Please enter the page template name"
+   
+            ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("auth.pagetemplate");
+</script>

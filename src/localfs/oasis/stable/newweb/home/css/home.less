@@ -1,0 +1,469 @@
+@import "tree";
+
+.oasis-main-home{
+  .home{
+    .nav-tabs{
+      border-bottom-color: #d1d7da;
+      margin-bottom: 20px;
+      li{
+        &:first-child{
+          margin-left: 20px;
+        }
+        a{
+          width: 113px;
+          text-align: center;
+          color: #34495e;
+        }
+        &.active{
+          a{
+            background-color: #efefef;
+            border-color: #d1d7da;
+            border-bottom-color: #efefef;
+            &:before{
+              content: "";
+              position: absolute;
+              width: 111px;
+              height: 4px;
+              background-color: #f27935;
+              top: 0;
+              left: 0;
+              border-radius: 3px 3px 0 0;
+            }
+          }
+        }
+
+      }
+    }
+    .info{
+      margin-right: 15px;
+      color: #ffffff;
+      .up{
+        font-size: 16px;
+        text-align: center;
+        //line-height: 47px;
+        padding: 18px 0 12px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.4);
+      }
+      .down{
+        padding-top: 14px ;
+        padding-bottom: 14px;
+        >div{
+          float: left;
+          width: 50%;
+          text-align: center;
+          font-size: 14px;
+          position: relative;
+          >div{
+            span{
+              font-size: 18px;
+            }
+            &:first-child{
+              padding-bottom: 8px;
+            }
+
+          }
+          &.four{
+            width: 25%;
+          }
+          .right-line{
+            position: absolute;
+            height: 30px;
+            border-right: 1px solid rgba(255,255,255,0.4);
+            right: 0;
+            top: 10px;
+          }
+        }
+      }
+    }
+    .all{
+      /*>div{
+        box-shadow: 0 1px 3px rgba(65,69,86,.3);
+      }*/
+      /*div{
+        background-color: #ffffff;
+        margin-right: 15px;
+        &:last-child{
+          margin-right: 0;
+        }
+      }*/
+
+    }
+    .pie{
+      /*border: 1px solid #E7E7E9;*/
+      margin-right: 15px;
+      background-color: #f6f6f6;
+      font-size: 16px;
+      color: #34495e;
+      /*box-shadow: 0 1px 3px rgba(65,69,86,.2);*/
+      /*.dot{
+        position: absolute;
+        right: 32px;
+        span{
+          width: 4px;
+          height: 4px;
+          border-radius: 4px;
+          background-color: #e7e7e9;
+          position: absolute;
+          top: 26px;
+          &:nth-child(1){
+            right: 0;
+          }
+          &:nth-child(2){
+            right: 8px;
+          }
+          &:nth-child(3){
+            right: 16px;
+          }
+        }
+
+      }*/
+      > div:first-child{
+        padding-top: 20px;
+        padding-left: 20px;
+      }
+    }
+    .other-info{
+      //margin-top: 10px;
+      //margin-bottom: 60px;
+      background-color: #f6f6f6;
+      padding: 20px;
+      //border: 1px solid #E7E7E9;
+      .btn-cus{
+        margin: 5px auto 15px auto;
+      }
+      .table{
+        table{
+          .tbtn{
+            margin-right: 5px;
+            font-size: 12px;
+            color: #ffffff;
+            background-color: #78cec3;
+            padding: 3px 10px;
+            border-radius: 2px;
+            cursor: pointer;
+            &:hover{
+              background-color: #4ec1b2;
+            }
+          }
+        }
+      }
+      .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+        border-bottom: 1px solid #ffffff;
+        background: none;
+      }
+      .tbtn{
+        margin-right: 5px;
+        font-size: 12px;
+        color: #ffffff;
+        background-color: #78cec3;
+        padding: 3px 10px;
+        border-radius: 2px;
+        cursor: pointer;
+        &:hover{
+          background-color: #4ec1b2;
+        }
+      }
+    }
+    .mr0{
+      margin-right: 0;
+    }
+    .oasis-home-myapp{
+      padding-top: 20px;
+      >div{
+        display: inline-block;
+        width: 160px;
+        text-align: center;
+        img{
+          width: 100px;
+          height: 100px;
+          border-radius: 100px;
+        }
+        div{
+          line-height: 34px;
+        }
+      }
+    }
+  }
+  .oasis-home-content{
+    margin-left: 220px;
+    padding: 20px 20px 50px 20px;
+    overflow: auto;
+    /*.home{
+      .nav-tabs{
+        border-bottom-color: #d1d7da;
+        margin-bottom: 20px;
+        li{
+          &:first-child{
+            margin-left: 20px;
+          }
+          a{
+            width: 113px;
+            text-align: center;
+            color: #34495e;
+          }
+          &.active{
+            a{
+              background-color: #efefef;
+              border-color: #d1d7da;
+              border-bottom-color: #efefef;
+              &:before{
+                content: "";
+                position: absolute;
+                width: 111px;
+                height: 4px;
+                background-color: #f27935;
+                top: 0;
+                left: 0;
+                border-radius: 3px 3px 0 0;
+              }
+            }
+          }
+
+        }
+      }
+      .info{
+        margin-right: 15px;
+        color: #ffffff;
+        .up{
+          font-size: 16px;
+          text-align: center;
+          //line-height: 47px;
+          padding: 18px 0 12px 0;
+          border-bottom: 1px solid rgba(255,255,255,0.4);
+        }
+        .down{
+          padding-top: 14px ;
+          padding-bottom: 14px;
+          >div{
+            float: left;
+            width: 50%;
+            text-align: center;
+            font-size: 14px;
+            position: relative;
+            >div{
+              span{
+                font-size: 18px;
+              }
+              &:first-child{
+                padding-bottom: 8px;
+              }
+
+            }
+            &.four{
+              width: 25%;
+            }
+            .right-line{
+              position: absolute;
+              height: 30px;
+              border-right: 1px solid rgba(255,255,255,0.4);
+              right: 0;
+              top: 10px;
+            }
+          }
+        }
+      }
+      .all{
+        >div{
+          box-shadow: 0 1px 3px rgba(65,69,86,.3);
+        }
+        !*div{
+          background-color: #ffffff;
+          margin-right: 15px;
+          &:last-child{
+            margin-right: 0;
+          }
+        }*!
+
+      }
+      .pie{
+        !*border: 1px solid #E7E7E9;*!
+        margin-right: 15px;
+        background-color: #f6f6f6;
+        font-size: 16px;
+        color: #34495e;
+        !*box-shadow: 0 1px 3px rgba(65,69,86,.2);*!
+        !*.dot{
+          position: absolute;
+          right: 32px;
+          span{
+            width: 4px;
+            height: 4px;
+            border-radius: 4px;
+            background-color: #e7e7e9;
+            position: absolute;
+            top: 26px;
+            &:nth-child(1){
+              right: 0;
+            }
+            &:nth-child(2){
+              right: 8px;
+            }
+            &:nth-child(3){
+              right: 16px;
+            }
+          }
+
+        }*!
+        > div:first-child{
+          padding-top: 20px;
+          padding-left: 20px;
+        }
+      }
+      .other-info{
+        margin-top: 10px;
+        //margin-bottom: 60px;
+        background-color: #ffffff;
+        padding: 20px;
+        border: 1px solid #E7E7E9;
+        .btn-cus{
+          margin: 5px auto 15px auto;
+        }
+        .table{
+          table{
+            .tbtn{
+              margin-right: 5px;
+              font-size: 12px;
+              color: #ffffff;
+              background-color: #78cec3;
+              padding: 3px 10px;
+              border-radius: 2px;
+              cursor: pointer;
+              &:hover{
+                background-color: #4ec1b2;
+              }
+            }
+          }
+        }
+        .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {
+          border-bottom: 1px solid #ffffff;
+          background: none;
+        }
+        .tbtn{
+          margin-right: 5px;
+          font-size: 12px;
+          color: #ffffff;
+          background-color: #78cec3;
+          padding: 3px 10px;
+          border-radius: 2px;
+          cursor: pointer;
+          &:hover{
+            background-color: #4ec1b2;
+          }
+        }
+      }
+      .mr0{
+        margin-right: 0;
+      }
+      .mt15{
+        margin-top: 15px;
+      }
+    }*/
+  }
+  .oasis-home-content-simple{
+    padding: 20px 20px 50px 20px;
+    overflow: auto;
+  }
+  .oasis-modal,.modal-content{
+    border-radius: 0;
+    .modal-header{
+      color: #fff;
+      padding: 11px 20px 11px 28px;
+      background: none #1bbc9b;
+      border-bottom: 1px solid #1bbc9b;
+      border-radius: 0;
+      height: 46px;
+      .modal-title{
+        font-size: 16px;
+      }
+      .close {
+        margin-top: 2px;
+      }
+    }
+    .oasis-home-addBranch{
+      padding-left: 28px;
+      .modal-body{
+        padding: 0;
+      }
+      .addBranch-group{
+        margin-bottom: 4px;
+        .title{
+          font-size: 14px;
+          padding-top: 16px;
+          padding-bottom: 10px;
+          color: #34495e;
+        }
+        .addBranch-btn{
+          width: 80px;
+          height: 34px;
+          line-height: 34px;
+          text-align: center;
+          font-size: 14px;
+          color: #34495e;
+          background-color: #ffffff;
+          border: 1px solid #c4cebd;
+          display: inline-block;
+          &.add{
+            margin-right: 18px;
+            cursor: pointer;
+            &:hover,&.active{
+              background-color: #1bbc9b;
+              border: 1px solid #1bbc9b;
+              color: #ffffff;
+            }
+          }
+          &.edit{
+            margin-right: 18px;
+            cursor: pointer;
+            &:hover,&.active{
+              background-color: #428ace;
+              border: 1px solid #428ace;
+              color: #ffffff;
+            }
+          }
+          &.delete{
+            cursor: pointer;
+            &:hover,&.active{
+              background-color: #d03b25;
+              border: 1px solid #d03b25;
+              color: #ffffff;
+            }
+          }
+        }
+        select{
+          background: #fff none;
+          border-radius: 0;
+          border: 1px solid #bdbdbd;
+          box-sizing: border-box;
+          color: #404040;
+          display: inline-block;
+          font-size: 14px;
+          letter-spacing: normal;
+          margin: 0;
+          height: 32px;
+          outline: none;
+          padding: 4px 20px;
+          text-align: left;
+          text-indent: 0;
+          vertical-align: middle;
+          box-shadow: none;
+          &:hover{
+            border-color: #bdbdbd !important;
+          }
+          &:focus{
+            border-color: #bdbdbd !important;
+          }
+        }
+      }
+
+    }
+  }
+}
+.oasis-home-equipment{
+  .mr30{
+    margin-right: 30px;
+  }
+  .eqLine{
+    font-size: 16px;
+    color: #34495e;
+  }
+}

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="col-xs-12 app-colum xxb" id="addWechat" debug="getWeChatDetail">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title" id="Title">Modify WeChat Official Account</span>
+        </div>
+        <div class="box-body no-height wechat-content">
+            <form id="adduser_form" class="form edit adduser_form">
+                <span class="info-tip">Make sure the following configuration is identical with the configuration on WeChat.</span>
+                <!--<form id="adduser_form" class="form edit">-->
+                <div class="form-group margin_bot">
+                    <div class="label-title">
+                        <label class="control-label float-left">Account type</label>
+                    </div>
+                    <div class="control-content edit-content radio-group">
+                        <div class="col-sm-2">
+                            <input type="radio" id="publicNumber1" name="type" value="1" checked />
+                            <label for="publicNumber1">Subscription</label>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="radio" id="publicNumber2" name="type" value="2" />
+                            <label for="publicNumber2">Service</label>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="radio" id="publicNumber3" name="type" value="3" />
+                            <label for="publicNumber3">Enterprise</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group margin_bot">
+                    <div class="label-title">
+                        <label class="control-label float-left required" name="name">Name</label>
+                        <!--<div class="float-left star-required" name="name"></div>-->
+                    </div>
+                    <div class="control-content edit-content">
+                        <input type="text" class="string bigger required float-left" id="chatname" maxlength="20" name="name" error_id="chatname_error"/>
+                        <label class="info-explain float-left" name="name">(6 to 20 characters that contain letters, digits, underscores, or minus signs)</label>
+                        <label class="error float-left" id="chatname_error"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="label-title">
+                        <label class=" control-label float-left required">APPID</label>
+                    </div>
+                    <div class="control-content edit-content">
+                        <input type="text" class="string bigger required" maxlength="64" id="appId" spellcheck="false" name="appId" error_id="appId_error"/>
+                        <label class="error" id="appId_error"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="label-title">
+                        <label class="control-label float-left required">TOKEN</label>
+                    </div>
+                    <div class="control-content edit-content">
+                        <input type="text" class="string bigger required" id="token" spellcheck="false" minlength="3" maxlength="32" name="token" error_id="token_error"/>
+                        <label class="error" id="token_error"></label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="label-title">
+                        <label class=" control-label float-left required">APP SECRET</label>
+                    </div>
+                    <div class="control-content edit-content">
+                        <input type="text" class="string bigger required" spellcheck="false" maxlength="64" id="appSecret" name="appSecret" error_id="appSecret_error"/>
+                        <label class="error" id="appSecret_error"></label>
+                    </div>
+                </div>
+                <div class="form-group detail-content" id="senior">
+                    <div class="advan_content">
+                        <div id="advanceBtn">
+                            <div class="float-left">
+                                <div class="advan_set advan_set1 float-left"></div>
+                                <a class="float-left ad-button" id="ad-button">
+                                    <span class="text">Advanced settings</span>
+                                </a>
+                                <div class="advan_set advan_set2 float-left" id="AdvanceClose"></div>
+                            </div>
+                            <div class="bottomline float-left"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="WeChat_Toggle" class="hide">
+                    <div class="space-8"></div>
+                    <div class="form-group margin_jiami">
+                        <div class="label-title" style="width: 144px">
+                            <label class="control-label float-left">Encrypt/Decrypt type</label>
+                        </div>
+                        <div class="radio-group">
+                            <div class="col-sm-1" id="encryption1">
+                                <input type="radio" id="encryptionType1" name="cipherMode" value="1" checked />
+                                <label for="encryptionType1">Plaintext</label>
+                            </div>
+                            <div class="col-sm-1" id="encryption2">
+                                <input type="radio" id="encryptionType2" name="cipherMode" value="2" />
+                                <label for="encryptionType2">Compatible</label>
+                            </div>
+                            <div class="col-sm-1" id="encryption3">
+                                <input type="radio" id="encryptionType3" name="cipherMode" value="3" />
+                                <label for="encryptionType3">Secure</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" id="advanceDetail">
+                        <div class="label-title">
+                            <label class="control-label float-left">Encrypted key</label>
+                        </div>
+                        <div class="control-content edit-content">
+                            <input type="text" class="string bigger" spellcheck="false" minlength="43" maxlength="43" id="encodingAesKey" name="encodingAesKey" error_id="key_error"/>
+                            <label class="info-explain">(43 chars)</label>
+                            <!--<button class="btn btn-primary" id="rand">Generate Key</button>-->
+                            <label class="error" id="key_error"></label>
+                        </div>
+                    </div>
+                </div>
+                <!--</form>-->
+            </form>
+        </div>
+        <div class="btn_foot detail-content">
+            <!--<button class="btn btn_ok" id="checkId" style="display: none;">Confirmation</button>-->
+            <button class="btn btn_ok" id="applyInfo">OK</button>
+            <button class="btn btn_cancel" id="cancelInfo">Cancel</button>
+        </div>
+    </div>
+</div>
+<div id="x_addWeChat_rc" class="rc-define"
+     NAME_CHECKMSG="The name must contain a minimum of 6 characters.,The name can contain letters, digits, underscores, and minus signs.,The first character of the name must be a letter."
+     APPID_CHECKMSG="The APP ID cannot contain more than 64 characters.,The APP ID cannot be empty.,The APP ID can contain only letters and digits."
+     TOKEN_CHECKMSG="The Token must be a string of 3 to 32 characters that contain only letters and digits."
+     KEY_CHECKMSG="encodingAesKey must be in English or number"
+     APP_CHECKMSG="The APP SECRET cannot contain spaces.,The APP SECRET cannot be empty."
+     SUBMIT_CHECKMSG="Invalid data format.,Configuration succeeded.,Abnormal network service.,Failed to submit the configuration."
+     TITLE_TEXT="Add WeChat official account,Modify WeChat official account"
+     GETDATA_ERROR="Error occurred during data querying."
+</div>
+</body>
+</html>
+<div id="we_chat_rc" class="rc-define" USER_LIST_HEADER="Store Name,Official Account,SSID,Status,Store Configuration" CHECK_SHOP="View store">
+</div>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_networkcfg.addwechat");
+</script>

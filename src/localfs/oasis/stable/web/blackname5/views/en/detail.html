@@ -1,0 +1,37 @@
+<style>
+    .black {
+        background: url("images/black.png") no-repeat;
+        padding-left: 20px;
+    }
+</style>
+
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">Blacklist</span>
+        </div>
+        <div class="panel-body">
+            <div class="btn-group" id="blacklistBtnGrp" ng-if="permission.write">
+                <button class="btn btn-cus"
+                     ng-disabled="blacklistBtn.addDisabled"
+                     ng-click="blacklistBtn.click('add')">Add to Blacklist</button>
+                <button class="btn btn-cus"
+                     ng-disabled="blacklistBtn.removeDisabled"
+                     ng-click="blacklistBtn.click('remove')">Remove from Blacklist</button>
+            </div>
+            <div class="box-body no-height">
+                <div bs-table="blacklistOpts"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="RC"
+
+     BLACK_LIST_HEADER = "Username,Authentication Method"
+     USER_TYPE = "Anonymous Authentication,SMS Authentication,WeChat Client Authentication,Ali Pay Authentication,QQ Authentication,WeChat Official Account Authentication,WeChat Wi-Fi,App authentication,Fixed Account Authentication"
+
+     CONFIGURE_SUCCESS = "Configuration succeeded"
+     CONFIGURE_ERROR = "Configuration failed"
+
+></div>

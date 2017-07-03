@@ -1,0 +1,48 @@
+{
+  "errorcode":0,
+  "histdataList":[
+    {
+      "interfaceName": "GigabitEthernet1/0/8",
+      "dataList": [
+        {
+          "_id": "580440661b1d6b01005913c2",
+          "speed_up": 1,
+          "speed_down": 9,
+          "downflow": 10278683,
+          "upflow": 7359997,
+          "status": 1,
+          "describe": "GigabitEthernet1/0/8 Interface",
+          "interfaceName":"GigabitEthernet1/0/8",
+          "devSN":"210235A1JNB161000011",
+          "updateTime":"2016-10-17T03:07:18.519Z",
+          "__v":0
+        },
+        {
+          "_id":"58043bb61b1d6b0100590bb9",
+          "speed_up":1,
+          "speed_down":11,
+          "downflow":10266687,
+          "upflow":7359171,
+          "status":1,
+          "describe":"GigabitEthernet1/0/8 Interface",
+          "interfaceName":"GigabitEthernet1/0/8",
+          "devSN":"210235A1JNB161000011",
+          "updateTime":"2016-10-17T02:47:18.387Z",
+          "__v":0
+        },
+        {
+          "_id":"58043b8e3f5bdd010018f91d",
+          "speed_up":1,
+          "speed_down":11,
+          "downflow":10266485,
+          "upflow":7359154,
+          "status":1,
+          "describe":"GigabitEthernet1/0/8 Interface",
+          "interfaceName":"GigabitEthernet1/0/8",
+          "devSN":"210235A1JNB161000011",
+          "updateTime":"2016-10-17T02:46:38.856Z",
+          "__v":0
+        }
+      ]
+  }]
+}

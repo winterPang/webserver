@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	>
+  <head>
+    <f:loadBundle basename="com.h3c.o2o.auth.LocalStrings" var="o2ouammsgs" />
+    <title>#{o2ouammsgs['o2ouam.theme.draw.title']}</title>
+
+    <link href="../resources/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" ></link>
+
+    <link  href="../resources/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" ></link>
+    <link  href="../resources/jqueryui-bootstrap/jquery-ui-1.9.2.custom.css" type="text/css" rel="stylesheet" ></link>
+    <link  href="../resources/jqueryui-bootstrap/bootstrap.custom.css" type="text/css" rel="stylesheet" ></link>
+    <link  href="../resources/css/custom.css" type="text/css" rel="stylesheet" ></link>
+    <link  href="../resources/css/jquery.bootstrap.custom.css" type="text/css" rel="stylesheet" ></link>
+    <link  href="../template03/css/common.css" type="text/css" rel="stylesheet" ></link>
+    <link  href="../template03/css/template_three.css" type="text/css" rel="stylesheet" ></link>
+
+
+    <script type="text/javascript"  src="../resources/angular.js"></script>
+    <script type="text/javascript"  src="../resources/angular-resource.js"></script>
+    <script type="text/javascript"  src="../resources/jqueryui-bootstrap/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript"  src="../resources/jqueryui-bootstrap/jquery-ui-1.9.2.custom.min.js"></script>
+    <script type="text/javascript"  src="../resources/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript"  src="../resources/jquery-ui-timepicker-zh-CN.js"></script>
+    <script type="text/javascript"  src="../resources/ueditor.config.js"></script>
+    <script type="text/javascript"  src="../resources/ueditor.all.min.js"></script>
+    <script type="text/javascript"  src="../resources/jquery.custom3.js"></script>
+    <script type="text/javascript"  src="../resources/base64.js"></script>
+    <script type="text/javascript"  src="../resources/draw3.js"></script>
+
+    <script>
+      var jq = jQuery.noConflict();
+      var contextPath = '#{facesContext.externalContext.request.contextPath}';
+      jq(function () {
+          // Tabs
+          jq('#tabs').tabs();
+      });
+    </script>
+  </head>
+  <body style="min-width:1080px;min-height:560px;background: url(../resources/images/bg.jpg) 50% 50% no-repeat fixed;background-repeat:repeat;" ng-app="mainApp">
+
+    <div id="create-o2oThemeTemplate"  class="page-content" ng-controller="o2oThemeTemplateController">
+        <div id="tabs">
+          <ul>
+              <li ng-class="type==1?'ui-tabs-active ui-state-active':''"><a href="#tabs-a" ng-click="changeValue(1);" >#{o2ouammsgs['o2ouam.theme.draw.index']}</a></li>
+              <li ng-class="type==2?'ui-tabs-active ui-state-active':''"><a href="#tabs-a" ng-click="changeValue(2);">#{o2ouammsgs['o2ouam.theme.draw.login']}</a></li>
+              <li ng-class="type==3?'ui-tabs-active ui-state-active':''"><a href="#tabs-a" ng-click="changeValue(3);">#{o2ouammsgs['o2ouam.theme.draw.loginsuccess']}</a></li>
+              <li ng-class="type==4?'ui-tabs-active ui-state-active':''"><a href="#tabs-a" ng-click="changeValue(4);">#{o2ouammsgs['o2ouam.theme.draw.home']}</a></li>
+          </ul>
+
+          <div id="tabs-a">
+              <div class="setting-container">
+                  <a class="btn btn-info" role="button" href="#" ng-click="publishData()"><i class="fa fa-list-ul fa-1x green"></i>#{o2ouammsgs['o2ouam.theme.draw.publish']}</a>
+              </div>
+              <div id="widgets" class="canvas-widgetstemp2">
+                 <div id="indexContent" class="widget-content"></div>
+              </div>
+              <div id="tools" class="canvas-tools"></div>
+              <div id="texttools" class="canvas-texttools"></div>
+          </div>
+         </div>
+    </div>
+  </body>
+</html>

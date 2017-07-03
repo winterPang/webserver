@@ -1,0 +1,104 @@
+<style type="text/css">
+    .mb20 {
+        margin-bottom: 20px;
+    }
+    .m21{
+        padding:0 30px;
+    }
+    .m22{
+        margin-left:30px;
+    }
+    .title {
+        color: #323232;
+        font-size: 14px;
+        font-weight: 900;
+    }
+    /* 未被访问的链接 */
+    a:link {color:#80878c;}
+    /* 已被访问的链接 */   
+    a:visited {color:#80878c;}
+    /* 鼠标指针移动到链接上 */
+    a:hover {color:#80878c;} 
+    /* 正在被点击的链接 */
+    a:active {color:#80878c;}
+    .pos-rel{
+        position:relative;
+    }
+    .pos-abs{
+        position:absolute;
+    }
+    .bac{
+        background:url(../frame/images/grid-loading.gif) no-repeat;
+        width:60px;
+        height:60px;
+        background-size:60px 60px;
+        top:50%;
+        left:50%;
+        margin-left:-30px;
+        margin-top:-30px;
+    }
+</style>
+<div class="btn_h_return" ng-click="return()"></div>
+<div class="page-row custom">
+    <div class="col-xs-12 app-colum top-block">
+        <div class="app-box" debug="byApList log"> 
+            <div class="box-footer"> 
+                <span class="title">Detailed information</span>
+            </div>
+            <div class="col-xs-12">
+                <ul class="nav nav-tabs">
+                    <li class="active">
+                        <a href="JavaScript:void(0)" data-toggle="tab" ng-click="initStatisticView('App')">Application Statistics</a>
+                    </li>
+                    <li>
+                        <a href="JavaScript:void(0)" data-toggle="tab" ng-click="initStatisticView('Network')">Website Statistics</a>
+                    </li>
+                    <li>
+                        <a href="JavaScript:void(0)" data-toggle="tab" ng-click="initStatisticView('User')">User Traffic</a>
+                    </li>
+                    <li>
+                        <a href="JavaScript:void(0)" data-toggle="tab" ng-click="initStatisticView('Interface')">Interface Traffic</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="box-body no-height appContent" ng-show="show_app">
+                <div bs-table="appStatisticOption"></div>
+            </div>
+            <div class="box-body no-height netContent" ng-show="show_network">
+                <div bs-table="networkStatisticOption"></div>
+            </div>
+            <div class="box-body no-height" ng-show="show_userFlow">
+                <div bs-table="userFlowOption"></div>
+            </div>
+            <div class="box-body no-height" ng-show="show_interfaceFlow">
+                <div bs-table="interfaceFlowOption"></div>
+            </div>
+        </div> 
+    </div>
+</div>
+
+<div id="behavior_rz_rc"
+     APP-HEADER="Application Name, Application Type, User MAC, Upstream Traffic, Downstream Traffic,Visit Time"
+     WEB-HEADER="Website Name, Website Type, User MAC,Visit Time"
+     USER-HEADER="User MAC, Upstream Traffic, Downstream Traffic, Discarded Traffic"
+     INTERFACE-HEADER="Interface Name, Upstream Traffic, Downstream Traffic, Discarded Traffic"
+     
+     Life="Life"
+     Office="Office"
+     Communication="Communication"                       
+     Video="Video"                         
+     Game="Game"
+     Tool="Tool"  
+     News="News"                     
+     Navigation="Navigation"
+     Finance="Finance" 
+     Unknown="Others" 
+
+     Entertainment="Entertainment"
+     News="News"
+     Shopping="Shopping"
+     Technology="Technology"
+     Downloads="Download"
+     Search="Search"
+     Transportation="Transportation"
+></div>

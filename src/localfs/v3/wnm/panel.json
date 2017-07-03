@@ -1,0 +1,156 @@
+{"oAccount":{
+  "CloudAccountName": "XiaoBei","CloudConnectionState": "2"
+}
+,"aDeviceInfo":[
+    {"Class": "3", "Name": "HP 870", "PhysicalIndex": "2", "VendorType": "1.3.6.1.4.1.25506.1.951"}
+    ,{"Class": "3", "Name": "HP 870", "PhysicalIndex": "3", "VendorType": "1.3.6.1.4.1.25506.1.951"}
+    ,{"Class": "3", "Name": "HP 870", "PhysicalIndex": "11", "VendorType": "1.3.6.1.4.1.25506.1.951"}
+  ]
+,"aEntityExtInfo":
+[{"PhysicalIndex":"26951","AdminState":"4","OperState":"3","CpuUsage":"1","CpuUsageThreshold":"100","MemUsage":"13","MemUsageThreshold":"100","MemSize":"3575717888","Temperature":"27","CpuMaxUsage":"1","PhyMemSize":"3456000000","CpuAvgUsage":"10","MemAvgUsage":"92"}
+,{"PhysicalIndex":"1","AdminState":"1","OperState":"3","CpuUsage":"40","MemUsage":"50","MAC":"38-22-D6-59-5A-00"}
+,{"PhysicalIndex":"4","AdminState":"1","OperState":"3","Uptime":"258313","CpuUsage":"20","MemUsage":"50","MAC":"38-22-D6-59-5A-00"}
+,{"PhysicalIndex":"159","AdminState":"1","OperState":"3","CpuUsage":"30","MemUsage":"50","MemSize":"2048"}
+,{"PhysicalIndex":"160","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"60","MemSize":"1024"}
+,{"PhysicalIndex":"161","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50","MemSize":"3072"}
+,{"PhysicalIndex":"162","AdminState":"1","OperState":"3","CpuUsage":"60","MemUsage":"50","MemSize":"4096"}
+,{"PhysicalIndex":"163","AdminState":"1","OperState":"3","CpuUsage":"10","MemUsage":"50","MemSize":"5120"}
+,{"PhysicalIndex":"164","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50","MemSize":"6144"}
+,{"PhysicalIndex":"165","AdminState":"1","OperState":"3","CpuUsage":"40","MemUsage":"90","MemSize":"7168"}
+,{"PhysicalIndex":"166","AdminState":"1","OperState":"3","CpuUsage":"20","MemUsage":"50","MemSize":"8192"}
+,{"PhysicalIndex":"167","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"10"}
+,{"PhysicalIndex":"168","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"169","AdminState":"1","OperState":"3","CpuUsage":"10","MemUsage":"50"}
+,{"PhysicalIndex":"170","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"171","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"172","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50","CpuUsage":"50"}
+,{"PhysicalIndex":"173","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"174","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"175","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"176","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"177","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"195","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"197","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"198","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"199","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"200","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"201","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"202","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"221","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"225","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"226","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"3016","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"3018","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"3019","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"3020","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"3041","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"3043","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"3044","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"3045","AdminState":"1","OperState":"3","CpuUsage":"50","MemUsage":"50"}
+,{"PhysicalIndex":"3109","AdminState":"1","OperState":"3"}
+,{"PhysicalIndex":"3118","AdminState":"1","OperState":"3"}
+,{"PhysicalIndex":"3119","AdminState":"1","OperState":"3"}
+,{"PhysicalIndex":"3120","AdminState":"1","OperState":"3"}
+,{"PhysicalIndex":"3234","AdminState":"1","OperState":"3"}
+,{"PhysicalIndex":"3243","AdminState":"1","OperState":"3"}
+,{"PhysicalIndex":"3244","AdminState":"1","OperState":"3"}
+,{"PhysicalIndex":"3245","AdminState":"1","OperState":"3"}
+,{"PhysicalIndex":"3268","AdminState":"1","OperState":"3"}
+,{"PhysicalIndex":"3269","AdminState":"1","OperState":"3"}
+,{"PhysicalIndex":"3418","AdminState":"1","OperState":"3"}
+,{"PhysicalIndex":"3419","AdminState":"1","OperState":"3"}
+,{"PhysicalIndex":"16513","AdminState":"1","OperState":"3"}
+,{"PhysicalIndex":"16599","AdminState":"1","OperState":"3"}
+,{"PhysicalIndex":"16600","AdminState":"1","OperState":"3"}
+,{"PhysicalIndex":"16623","AdminState":"1","OperState":"3"}
+,{"PhysicalIndex":"17027","AdminState":"1","OperState":"3"}
+,{"PhysicalIndex":"18239","AdminState":"1","OperState":"3","Temperature":"22"}
+,{"PhysicalIndex":"18240","AdminState":"1","OperState":"3","Temperature":"87"}
+,{"PhysicalIndex":"18241","AdminState":"1","OperState":"3","Temperature":"28"}
+,{"PhysicalIndex":"18255","AdminState":"1","OperState":"3","Temperature":"22"}
+,{"PhysicalIndex":"18256","AdminState":"1","OperState":"3","Temperature":"27"}
+,{"PhysicalIndex":"18257","AdminState":"1","OperState":"3","Temperature":"29"}
+,{"PhysicalIndex":"18303","AdminState":"1","OperState":"3","Temperature":"30"}
+,{"PhysicalIndex":"18304","AdminState":"1","OperState":"3","Temperature":"31"}
+,{"PhysicalIndex":"18305","AdminState":"1","OperState":"3","Temperature":"33"}
+,{"PhysicalIndex":"18383","AdminState":"1","OperState":"3","Temperature":"31"}
+,{"PhysicalIndex":"18384","AdminState":"1","OperState":"3","Temperature":"33"}
+,{"PhysicalIndex":"18385","AdminState":"1","OperState":"3","Temperature":"39"}
+,{"PhysicalIndex":"18399","AdminState":"1","OperState":"3","Temperature":"32"}
+,{"PhysicalIndex":"18400","AdminState":"1","OperState":"3","Temperature":"59"}
+,{"PhysicalIndex":"18495","AdminState":"1","OperState":"3","Temperature":"27"}
+,{"PhysicalIndex":"18496","AdminState":"1","OperState":"3","Temperature":"47"}
+,{"PhysicalIndex":"26951","AdminState":"4","OperState":"3","CpuUsage":"1","CpuUsageThreshold":"100","MemUsage":"13","MemUsageThreshold":"100","MemSize":"3575717888","Temperature":"27","CpuMaxUsage":"1","PhyMemSize":"3456","CpuAvgUsage":"10","MemAvgUsage":"92"}
+,{"PhysicalIndex":"26952","AdminState":"4","OperState":"3","CpuUsage":"1","CpuUsageThreshold":"100","MemUsage":"17","MemUsageThreshold":"100","MemSize":"3575558144","Temperature":"27","CpuMaxUsage":"13","PhyMemSize":"3456","CpuAvgUsage":"2","MemAvgUsage":"16"}
+,{"PhysicalIndex":"26955","AdminState":"4","OperState":"3","CpuUsage":"1","CpuUsageThreshold":"100","MemUsage":"62","MemUsageThreshold":"100","MemSize":"522485760","Temperature":"31","CpuMaxUsage":"3","PhyMemSize":"512","CpuAvgUsage":"2","MemAvgUsage":"61"}
+,{"PhysicalIndex":"26960","AdminState":"4","OperState":"3","CpuUsage":"1","CpuUsageThreshold":"100","MemUsage":"30","MemUsageThreshold":"100","MemSize":"792481792","Temperature":"33","CpuMaxUsage":"2","PhyMemSize":"1024","CpuAvgUsage":"1","MemAvgUsage":"29"}
+,{"PhysicalIndex":"26961","AdminState":"4","OperState":"3","CpuUsage":"1","CpuUsageThreshold":"100","MemUsage":"46","MemUsageThreshold":"100","MemSize":"124665856","Temperature":"59","CpuMaxUsage":"4","PhyMemSize":"128","CpuAvgUsage":"1","MemAvgUsage":"46"}
+,{"PhysicalIndex":"26967","AdminState":"4","OperState":"3","CpuUsage":"1","CpuUsageThreshold":"100","MemUsage":"46","MemUsageThreshold":"100","MemSize":"124665856","Temperature":"47","CpuMaxUsage":"4","PhyMemSize":"128","CpuAvgUsage":"1","MemAvgUsage":"46"}
+,{"PhysicalIndex":"28146","AdminState":"4","OperState":"3"}
+,{"PhysicalIndex":"28155","AdminState":"4","OperState":"3"}
+,{"PhysicalIndex":"28175","AdminState":"4","OperState":"3"}
+,{"PhysicalIndex":"28220","AdminState":"4","OperState":"3"}
+,{"PhysicalIndex":"84071","AdminState":"4","OperState":"3"}
+,{"PhysicalIndex":"84072","AdminState":"4","OperState":"3"}
+,{"PhysicalIndex":"84073","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84074","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84075","AdminState":"4","OperState":"3"}
+,{"PhysicalIndex":"84076","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84077","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84078","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84079","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84080","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84081","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84082","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84083","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84084","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84085","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84086","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84087","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84088","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84089","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84090","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84091","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84092","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84093","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84094","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84095","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84096","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84097","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84098","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84099","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84100","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84101","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84102","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84103","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84104","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84105","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84106","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84107","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84108","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84109","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84110","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84111","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84112","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84113","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84114","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84115","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84116","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84117","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"84118","AdminState":"2","OperState":"3"}
+,{"PhysicalIndex":"87431","AdminState":"2","OperState":"2"}
+,{"PhysicalIndex":"87432","AdminState":"2","OperState":"2"}
+]
+,"aManualAP":{}
+,"aPortList":
+[{"IfIndex":"2","Name":"GigabitEthernet1/0/1","AbbreviatedName":"GE1/0/1","PortIndex":"2","ifTypeExt":"19","ifType":"6","Description":"GigabitEthernet1/0/1 Interface","AdminStatus":"1","OperStatus":"1","ConfigSpeed":"1","ActualSpeed":"100000","ConfigDuplex":"3","ActualDuplex":"1","PortLayer":"2","LinkType":"1","PVID":"1","MAC":"38-91-D5-2F-4D-F1","Loopback":"0","MDI":"4","ActualBandwidth":"100000","SubPort":"false"}
+,{"IfIndex":"3","Name":"GigabitEthernet1/0/2","AbbreviatedName":"GE1/0/2","PortIndex":"3","ifTypeExt":"19","ifType":"6","Description":"GigabitEthernet1/0/2 Interface","AdminStatus":"1","OperStatus":"2","ConfigSpeed":"1","ActualSpeed":"0","ConfigDuplex":"3","ActualDuplex":"3","PortLayer":"1","LinkType":"1","PVID":"1","MAC":"38-91-D5-2F-4D-F2","Loopback":"0","MDI":"4","ActualBandwidth":"0","SubPort":"false"}
+,{"IfIndex":"4","Name":"GigabitEthernet1/0/3","AbbreviatedName":"GE1/0/3","PortIndex":"4","ifTypeExt":"19","ifType":"6","Description":"GigabitEthernet1/0/3 Interface","AdminStatus":"1","OperStatus":"2","ConfigSpeed":"1","ActualSpeed":"0","ConfigDuplex":"3","ActualDuplex":"3","PortLayer":"1","LinkType":"1","PVID":"1","MAC":"38-91-D5-2F-4D-F3","Loopback":"0","MDI":"4","ActualBandwidth":"0","SubPort":"false"}
+,{"IfIndex":"5","Name":"GigabitEthernet1/0/4","AbbreviatedName":"GE1/0/4","PortIndex":"5","ifTypeExt":"19","ifType":"6","Description":"GigabitEthernet1/0/4 Interface","AdminStatus":"1","OperStatus":"2","ConfigSpeed":"1","ActualSpeed":"0","ConfigDuplex":"3","ActualDuplex":"3","PortLayer":"1","LinkType":"1","PVID":"1","MAC":"38-91-D5-2F-4D-F4","Loopback":"0","MDI":"4","ActualBandwidth":"0","SubPort":"false"}
+,{"IfIndex":"6","Name":"GigabitEthernet1/0/5","AbbreviatedName":"GE1/0/5","PortIndex":"6","ifTypeExt":"23","ifType":"6","Description":"GigabitEthernet1/0/5 Interface","AdminStatus":"1","OperStatus":"2","ConfigSpeed":"1","ActualSpeed":"0","ConfigDuplex":"3","ActualDuplex":"3","PortLayer":"2","MAC":"38-91-D5-2F-4D-F5","ForwardingAttributes":"17","Loopback":"0","ConfigMTU":"1500","ActualMTU":"1500","ActualBandwidth":"0","SubPort":"false"}
+,{"IfIndex":"8","Name":"NULL0","AbbreviatedName":"NULL0","ifTypeExt":"30","ifType":"1","Description":"NULL0 Interface","AdminStatus":"1","OperStatus":"1","PortLayer":"2","MAC":"00-00-00-00-00-00","ForwardingAttributes":"18","ConfigMTU":"1500","ActualMTU":"1500","ActualBandwidth":"1000000","SubPort":"false"}
+,{"IfIndex":"9","Name":"InLoopBack0","AbbreviatedName":"InLoop0","ifTypeExt":"15","ifType":"24","Description":"InLoopBack0 Interface","AdminStatus":"1","OperStatus":"1","PortLayer":"2","InetAddressIPV4":"127.0.0.1","InetAddressIPV4Mask":"255.0.0.0","MAC":"00-00-00-00-00-00","ForwardingAttributes":"20","ConfigMTU":"1536","ActualMTU":"1536","ActualBandwidth":"0","SubPort":"false"}
+,{"IfIndex":"200","Name":"Vlan-interface1","AbbreviatedName":"Vlan1","ifTypeExt":"41","ifType":"136","Description":"Vlan-interface1 Interface","AdminStatus":"1","OperStatus":"1","PortLayer":"2","InetAddressIPV4":"192.168.0.209","InetAddressIPV4Mask":"255.255.0.0","MAC":"38-91-D5-2F-4D-E0","ForwardingAttributes":"17","ConfigMTU":"1500","ActualMTU":"1500","ActualBandwidth":"1000000","SubPort":"false"}
+,{"IfIndex":"201","Name":"CMTunnel4093","AbbreviatedName":"CMTunnel4093","ifTypeExt":"120","ifType":"1","Description":"CMTunnel4093 Interface","AdminStatus":"1","OperStatus":"2","PortLayer":"2","MAC":"00-00-00-00-00-00","ForwardingAttributes":"2","ConfigMTU":"1500","ActualMTU":"1500","ActualBandwidth":"64","SubPort":"false"}
+]
+}

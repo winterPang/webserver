@@ -1,0 +1,16 @@
+[
+    {
+        "pv":2,
+        "pu":5,       
+        "clickCount":6,
+        "ctr":"7",
+        "visitorTimeAver":1   
+    },
+    {
+        "pv":14,
+        "pu":15,
+        "clickCount":6,
+        "ctr":"12",
+        "visitorTimeAver":10  
+    }        
+]

@@ -1,0 +1,110 @@
+<div class="container-fluid">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">AP Groups</h3>
+        </div>
+        <div class="panel-body">
+            <div class="btn btn-cus" ng-click="addApGroup()" ng-if="write"><i class="btn-icon icon-add"></i>Add</div>
+            <button class="btn btn-cus" ng-click="deleteApGroup()" ng-if="write" ng-disabled="modDelGroupBtnDisable">Delete</button>
+            <button class="btn btn-cus" ng-click="synConfig()">Synchronize</button>
+            <div ng-if="modDelGroupBtnDisable && modDelShowDisable">
+				<lable>The default AP group and AP groups that contain APs cannot be deleted,Please select another one.</lable>
+			</div>
+            <!--ap group table-->
+            <div bs-table="apgroup_table"></div>
+        </div>
+    </div>
+</div>
+
+<!--增加AP组-->
+<div bs-modal="apgroup.options">
+    <!--/style>-->
+    <div>
+        <form name="addGroupForm" novalidate>
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">AP Group Name</label>
+                <div>
+                    <input type="text" class="string big required" name="groupName" maxlength="31" ng-model="apGroupModel.groupName" ng-blur="change=true"
+                        ng-focus="change=false" required ng-pattern="/^[a-zA-Z0-9_\-\[\]\\]+$/" />
+                    <label class="info-explain">（1-31 chars）</label>
+                    <label style="color:red" ng-if="addGroupForm.groupName.$error.required && change">This field is required.</label>
+                    <label style="color:red" ng-if="addGroupForm.groupName.$error.pattern && change">Valid characters include digits,letters,underscores (_),hyphens (-),left brackets ([),right brackets (]), and forward slashes (/).</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label label class="col-sm-3 control-label">Description</label>
+                <div>
+                    <input type="text" class="string big" id="description" name="description" maxlength="64" error_id="description_error" ng-blur="deschange=true"
+                        ng-focus="deschange=false" ng-model="apGroupModel.description" ng-pattern="/^[a-zA-Z0-9_\-\[\]\\]+$/"/>
+                    <label class="info-explain">（1-64 chars）</label>
+                    <label style="color:red" ng-if="addGroupForm.description.$error.pattern && deschange">Valid characters include digits,letters,underscores (_),hyphens (-),left brackets ([),right brackets (]), and forward slashes (/).</label>
+                    <label class="error" id="description_error"></label>
+                </div>
+            </div>
+            <div class="form-group" id="apModel">
+                <label class="col-sm-3 control-label">AP Model</label>
+                <div>
+                    <div class="multi_select2">
+                        <select ng-model="apGroupModel.apmodel" name="apmodelselect" select2 class="string big" ng-options="apmodel.apmodel for apmodel in apModels" ng-blur="selectchange=true" ng-focus="selectchange=false" required></select>
+                        <ul>
+                            <li ng-repeat="s in selected.apModel">
+                                <span>{{s}}</span>
+                                <a class="list-link"><span class="pull-right fa fa-del" ng-click="removeData(s)"></span></ a> 
+                                </li> 
+                            </ul> 
+                        </div> 
+                       <!--<select select2 class="string big" name="apmodelselect" ng-model="apGroupModel.apmodel", ng-blur="selectchange=true" ng-focus="selectchange=false" required ng-options="apmodel.apmodel for apmodel in apModels"></select>-->
+                       <label ng-if="addGroupForm.apmodelselect.$error.required && selectchange">请选择入组AP型号。</label>
+                   </div>
+               </div>
+               <div align = "center">
+                   <button class="btn btn-cus" ng-disabled="addGroupForm.groupName.$error.required || addGroupForm.groupName.$error.pattern || addGroupForm.apmodelselect.$error.required" ng-click="createApGroupDescripeModel()">Next</button>
+              </div>
+           </form>
+        </div>
+</div>
+
+<!--AP入组-->
+<!--<div bs-modal="ap.options">
+    <div class="page-row">
+        <div class="info-tip">以下AP为经apModel筛选的未入组AP！</div>
+        <div class="btn btn-cus" ng-click="addAp()" ng-disabled="modAddApBtnDisable">加入组</div>-->
+        <!--ap table-->
+        <!--<div bs-table="ap_table"></div>
+    </div>
+</div>-->
+
+<div bs-modal="ap.options">
+    <div class="info-tip">以下AP为经apModel筛选的未入组AP！</div>
+    <div class="panel-body">
+        <button class="btn btn-cus" ng-click="addAp()" ng-disabled="modAddApBtnDisable">加入组</button>
+        <!--ap table-->
+        <div bs-table="ap_table"></div>
+    </div>
+</div>
+
+<!--AP in the group-->
+<div bs-modal="apInGroupModal">
+    <div class="page-row">
+        <div bs-table="apInGroup_table"></div>
+    </div>
+</div>
+
+<div class="read_rc" 
+     id="apgroup_rc"
+     apgroup-table-title="AP Group Name,Description,AP List,Operation"
+     ap-table-title="AP Name,Model,AP SN,MAC Address"
+     modal-title="Add AP Group,Member APs"
+     ADD-FAILED="Failed to add an AP group"
+     ADD-SUCCESS="Ap group added successfully"
+     ADD-DES-FAILED="Failed to add description for the AP group"
+     ADD-MODEL-FAILED="Failed to add AP group type"
+     ADD-AP-SUCCESS="Joined the AP group successfully"
+     ADD-AP-FAILED="Failed to add the AP group"
+     DEL-SUCCESS="Deleted successfully"
+     DEL-FAILED="Failed to delete the AP group"
+     SYN-SUCCESS="Synchronization succeeded"
+     SYN-FAILED="Synchronization failed"
+     DEL-ERROR-CONTINUE="The default group cannot be deleted,To delete an AP group that has APs, first remove the APs from the AP group. </br> Continue to delete other AP group?"
+     DEL-ERROR="The default group cannot be deleted,To delete an AP group that has APs, first remove the APs from the AP group.">
+</div>

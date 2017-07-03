@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table{border:1px solid gray}
+        thead>tr>td{border:1px solid gray;text-align:center;font-size:15px;color:#343e4e}
+        tbody>tr>td{border:1px solid gray;text-align:center;font-size:15px;color:#343e4e}
+        .btn.btn-info.gray
+        {
+            opacity:0.4;
+            cursor:not-allowed;
+            pointer-events:none;
+        }
+    </style>
+</head>
+<body>
+<div class="dashboard">
+    <div class="col-xs-12 app-colum xxb">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">Certification by Partner</span>
+            </div>
+            <div class="box-body">
+                <div class="row" style="margin-top:25px;">
+                    <div class="col-xs-6">
+                        <div class="col-xs-3" style="font-size:17px;color:#343e4e">
+                            <span style="margin-top:5px;">Certification by Tencent</span>
+                            <div style="float:right;width:1px;background-color:#CFD2D5;opacity:0.6;height:34px;"></div>
+                        </div>
+                        <div class="col-xs-9">
+                            <div class="col-xs-1"></div>
+                            <div class="ctrl-btn openORclose open en status float-left" id="authBtn"></div>
+                            <div class="col-xs-4" style="padding-top:6px;" id="authDescribe"></div>
+                            <div class="col-xs-4" style="color:#fe808b;cursor:pointer;margin-top:5px;"  id="changeRegisterInfo">Modify registration info</div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <!--认证详细信息-->
+                        <div class="auth_TX row hide" id="auth_TX">
+                            <div class="row">
+                                <span style="color:#343e4e;font-size:17px">Registration info:</span>
+                            </div>
+                            <!-- 用户腾讯认证详细信息 -->
+                            <div class="row" style="color:#343e4e;font-size:14px">
+                                <div class="row">
+                                    <div class="col-xs-4">
+                                        <div class="row" style="text-align:center;color:#80878c">Retailer name</div>
+                                        <div class="row" style="text-align:center;color:#80878c" id="name"></div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="row" style="text-align:center;color:#80878c">Address</div>
+                                        <div class="row" style="text-align:center;color:#80878c" id="address"></div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="row" style="text-align:center;color:#80878c">Postcode</div>
+                                        <div class="row" style="text-align:center;color:#80878c" id="postcode"></div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top:10px;">
+                                    <div class="col-xs-4">
+                                        <div class="row" style="text-align:center;color:#80878c">Administrator name</div>
+                                        <div class="row" style="text-align:center;color:#80878c" id="apName"></div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="row" style="text-align:center;color:#80878c">Phone number</div>
+                                        <div class="row" style="text-align:center;color:#80878c" id="apPhone"></div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="row" style="text-align:center;color:#80878c">Email address</div>
+                                        <div class="row" style="text-align:center;color:#80878c" id="apEmail"></div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top:10px;">
+                                    <div class="col-xs-4">
+                                        <div class="row" style="text-align:center;color:#80878c">Device SN</div>
+                                        <div class="row" style="text-align:center;color:#80878c" id="devSN"></div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="row" style="text-align:center;color:#80878c">SSID</div>
+                                        <div class="row" style="text-align:center;color:#80878c" id="ssid"></div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="row" style="text-align:center;color:#80878c">Account name</div>
+                                        <div class="row" style="text-align:center;color:#80878c" id="userName"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--腾讯认证注册模态框-->
+    <div class="modal fade" id="authDlg">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h4>Registration for Tencent Certification</h4>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal form edit" style="width:800px;">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group row">
+                            <label class="required">Retailer name:</label>
+                            <input type="text" placeholder="Enter the retailer name" id="business_name" name="business_name" />
+                            <label class="hide" style="color:red;" id="business_name_errorMsg">Please enter the retailer name</label>
+                        </div>
+                        <div class="form-group row" style="margin-top:20px">
+                            <label class="required">Address:</label>
+                            <input type="text" placeholder="Enter the retailer address" id="business_address" name="business_address" style="margin-left:35px;" />
+                            <label class="hide" style="color:red;" id="business_address_errorMsg">Please enter the retailer address</label>
+                        </div>
+                        <div class="form-group row" style="margin-top:20px">
+                            <label class="required">Postcode:</label>
+                            <input type="text" placeholder="Enter the retailer postcode" id="business_postcode" name="business_postcode" style="margin-left:28px;" />
+                            <label class="hide" style="color:red;" id="business_postcode_errorMsg"></label>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="form-group row">
+                            <label class="required">Administrator name:</label>
+                            <input type="text" placeholder="Enter the AP administrator name" id="ap_manager" name="ap_manager" />
+                            <label class="hide" style="color:red;" id="ap_manager_errorMsg">Please enter the administrator name</label>
+                        </div>
+                        <div class="form-group row" style="margin-top:20px">
+                            <label class="required">Phone number:</label>
+                            <input type="text" placeholder="Enter the AP administrator phone number" id="ap_phone" name="ap_phone" style="margin-left:30px;" />
+                            <label class="hide" style="color:red;" id="ap_phone_errorMsg"></label>
+                        </div>
+                        <div class="form-group row" style="margin-top:20px">
+                            <label class="required">Email address:</label>
+                            <input type="text" placeholder="Enter the AP administrator email address" id="ap_email" name="ap_email" style="margin-left:32px;" />
+                            <label class="hide" style="color:red;" id="ap_email_errorMsg"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row" style="margin-top:50px;text-align:center;">
+                    <button type="button" class="btn btn-info gray"     id="authSubmitBtn">submit</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="authCancleBtn">close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<div class="rc-define" id="auth_rc"
+     ACCOUNT_INFO  ="Obtaining account information."
+     GETWIFI_ERROR ="Failed to obtain the WLAN name."
+     NOT_TENCENT_CERTIFIED="(No registered)"
+     TENCENT_CERTIFIED_CLOSE="(Registered and disabled)"
+     TENCENT_CERTIFIED_OPEN="(Registered and enabled)"
+     CLOSE_TENCENT_CERTIFIED="Are you sure to disable  Tencent certification?"
+     OPEN_TENCENT_CERTIFIED="Are you sure to enable  Tencent certification?"
+     NOT_TENCENT_REGISTER="Please first finish registration for Tencent certification."
+     TENCENT_REGISTER="Registering..."
+     CLOSEING_TENCENT="Disabling Tencent certification."
+     CLOSE_SUCCESS="Disabling successed."
+     CLOSE_ERROR="Disabling failed."
+     OPENING_TENCENT="Enabling Tencent certification."
+     OPEN_SUCCESS="Enabling success."
+     OPEN_ERROR="Enabling failed."
+     TENCENT_FAIL="Registration failed."
+     TENCENT_SUCCESS="Registration successed."
+     PLATFORM="h3c"
+     POSTCODE="Please enter the retailer postcode"
+     POSTCODE_FORMAT="Invalid postcode format"
+     PHONE="Please enter the administrator phone number"
+     PHONE_FORMAT="Invalid phone number format"
+     EMAIL="Please enter the administrator email address"
+     EMAIL_FORMAT="Invalid email address format"
+     OPEN_TENCENT="Please enable Tencent certification"
+></div>
+</body>
+</html>
+<script type="text/javascript">
+    Utils.Pages.loadJS("x_networkcfg.auth");
+</script>

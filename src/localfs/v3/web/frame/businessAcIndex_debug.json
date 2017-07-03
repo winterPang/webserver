@@ -1,0 +1,198 @@
+{
+	"summary":{
+        "W_SummaryInfo":{
+            "getLogStats": {
+                "name": "getLogStats",
+                "type": "GET",
+                "url": "/devlogserver/getlogstats?devSN=FrameInfo.ACSN",
+                "author": "zhaoyanxin"
+            },
+            "AP": {
+                "name": "getAP",
+                "type": "GET",
+                "url": "/apmonitor/getApCountByStatus?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            },
+            "getHealth":{
+                "name": "getHealth",
+                "type": "GET",
+                "url": "/health/home/health?devSN=FrameInfo.ACSN",
+                "author": "zhangbing"
+            },
+            "getGaugeCpu":{
+                "name": "getGaugeCpu",
+                "type": "GET",
+                "url": "/devmonitor/web/system?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            },
+            "getWireless":{
+                "name": "getWireless",
+                "type": "POST",
+                "url": "/ssidmonitor/getssidlist?devSN=FrameInfo.ACSN",
+                "dataType": "json",
+                "contentType": "application/json",
+                "data": {
+                 "tenant_name": "FrameInfo.g_user.user",
+                 "dev_snlist": [
+                      "FrameInfo.ACSN"
+                 ]
+                },
+                "author": "yuxiaofeng"
+            },
+            "getClient":{
+                "name": "getClient",
+                "type": "GET",
+                "url": "/stamonitor/getclientstatisticbymode?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            },
+            "getUsage":{
+                "name": "getUsage",
+                "type": "GET",
+                "url": "/devmonitor/setUpLinkInterface?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            }
+        },
+		"W_Clients":{
+            "clients":{
+                "name": "getclients",
+                "type": "GET",
+                "url": "/stamonitor/getclientstatisticbybandtype?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            },
+            "NumRZ":{
+                "name": "getNumRZ",
+                "type": "GET",
+                "url": "/portalmonitor/portalusercount?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            },
+            "byApList":{
+            	"name": "getByApList",
+                "type": "GET",
+                "url": "/stamonitor/getclientstatisticbyap?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            },
+            "ap":{
+                "name": "getap",
+                "type": "GET",
+                "url": "/stamonitor/getclientstatisticbyap_detail?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            },
+            "deviceType":{
+            	"name": "getdeviceType",
+                "type": "GET",
+                "url": "/stamonitor/getclientstatisticbybyod?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            },
+            "80211wirelessMode":{
+                "name": "get1wirelessMode",
+                "type": "GET",
+                "url": "/stamonitor/getclientstatisticbymode_detail?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            },
+            "bySsidList":{
+            	"name": "getbySsidList",
+                "type": "GET",
+                "url": "/stamonitor/getclientstatisticbyssid?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            },
+            "ssid":{
+                "name": "getssid",
+                "type": "GET",
+                "url": "/stamonitor/getclientstatisticbyssid_detail?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            },
+            "wireless_pie":{
+            	"name": "getwireless_pie",
+                "type": "GET",
+                "url": "/stamonitor/getclientstatisticbymode?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            },
+            "MobileCompany":{
+                "name": "getMobileCompany",
+                "type": "GET",
+                "url": "/stamonitor/getclientstatisticbybyod_detail?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            },
+            "loginuser":{
+                "name": "getloginuser",
+                "type": "GET",
+                "url": "/stamonitor/histclientstatistic?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            },
+            "newuser":{
+                "name": "newuser",
+                "type": "GET",
+                "url": "/stamonitor/getNewClientsStatistics?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            },
+            "radioAnNiu":{
+                "name": "getRadioAnNiu",
+                "type": "POST",
+                "url": "/v3/fs/exportClientsList",
+                "dataType": "json",
+                "contentType": "application/json",
+                "data": {
+                    "devSN": "FrameInfo.ACSN"
+                },
+                "author": "yuxiaofeng"
+            }
+
+		},
+		"W_APs":{
+            "Aps":{
+                "name": "getAps",
+                "type": "GET",
+                "url": "/apmonitor/getApCountByStatus?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            },
+            "APModel_bar":{
+            	"name": "getAPModel_bar",
+                "type": "GET",
+                "url": "/apmonitor/getApCountByModel?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            },
+            "According_client":{
+            	"name": "getAccording_client",
+                "type": "GET",
+                "url": "/stamonitor/getapstaticbyclientnum?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            },
+            "ApGroup_list":{
+            	"name": "getApGroup_list",
+                "type": "GET",
+                "url": "/apmonitor/getApCountByGroup?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            },
+            "ApType_pie":{
+            	"name": "getApType_pie",
+                "type": "GET",
+                "url": "/apmonitor/getApCountByMethod?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+            },
+            "onlineuser_list":{
+            	"name": "getonlineuser_list",
+                "type": "GET",
+                "url": "/v3/apmonitor/aplist_page?devSN=FrameInfo.ACSN",
+                "data": {
+                    "skipnum":"0",
+                    "limitnum":"1"
+                },
+                "author": "yuxiaofeng"
+            }
+		},
+		"W_SerTem":{
+			"wireless_list":{
+				"name": "getwireless_list",
+                "type": "GET",
+                "url": "/ssidmonitor/getssidlist?devSN=FrameInfo.ACSN",
+                "author": "yuxiaofeng"
+			}
+		}
+	},
+	"network": {
+
+	},
+	"operation": {
+
+	}
+}

@@ -1,0 +1,78 @@
+    <html>
+    <head>
+    </head>
+    <body>
+     <div >
+           <!--  <a  class="btn btn-success" id="bindAP">绑定AP</a>
+            <a  class="btn btn-success" enabled id="bindAPGroups">绑定AP组</a> -->
+            <button class="btn btn-success" id="bindAP">绑定AP</button>
+            
+    </div>
+       <br/><br/><br/>
+    <button class="btn btn-success" enabled id="bindAPGroups">绑定AP组</button>
+    &nbsp;&nbsp;&nbsp;
+    
+    <div class="modal fade modal-super" id="TerminalInfoDlg" tabindex="-1" aria-hidden="true">
+       <!--  下面的表单是用来弹窗的,弹出的窗是具体的信息 -->
+        <form class="form-horizontal form" id="view_client_form">
+            <div class="box-body no-height form-group">
+                <div class="page-row">
+                    <div class="col-xs-12 app-colum">
+                        <div class="app-box no-height default-bottom">
+                            <div class="box-body no-height" id="frameList">
+                            <!-- 这个div就是和下面的div有一个间距而已 -->
+                                <div id="flowdetail_listAP" class="simple-list"></div>
+                                <!-- 所有的弹框信息，每条数据都在这个div里呢 -->
+                            </div>
+                           <!--  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label class="info-explain">
+                              共<em></em>条数据,匹配出<em></em>条,已选中<em></em>条,当前为第页,共<em></em>页。
+                            </label> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer form-actions"></div><!-- 这里是用来绑定取消按钮的 -->
+        </form>
+        <div class="editor-alert">
+        </div>
+    </div>
+    <div class="modal fade modal-super" id="TerminalInfoDlg1" tabindex="-1" aria-hidden="true" style="margin-top: -148px; display: none;">
+       <!--  下面的表单是用来弹窗的,弹出的窗是具体的信息 -->
+        <form class="form-horizontal form" id="view_client_form1">
+            <div class="box-body no-height form-group">
+                <div class="page-row">
+                    <div class="col-xs-12 app-colum">
+                        <div class="app-box no-height default-bottom">
+                            <div class="box-body no-height" id="frameList"><!-- 这个div就是和下面的div有一个间距而已 -->
+                                <div id="flowdetail_listAPGroup" class="simple-list" style=""></div><!-- 所有的弹框信息，每条数据都在这个div里呢 -->
+                            </div>
+                           <!--  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <label class="info-explain">
+                              共<em></em>条数据,匹配出<em></em>条,已选中<em></em>条,当前为第页,共<em></em>页。
+                            </label> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer form-actions"></div><!-- 这里是用来绑定取消按钮的 -->
+        </form>
+        <div class="editor-alert">
+        </div>
+    </div>
+   
+          
+    <div id="h_wireless_indexGonext" class="rc-define"
+            ALLAP_HEADER2="无线服务名称,SSID,认证方式,状态,绑定AP,绑定AP组,操作"
+            STATUS=",在线,离线,正在下载版本"
+            TERINFO="绑定到AP"
+            TITLE_TERINFO="AP详情"
+            APGROUP="绑定到AP组"
+            ALLAP_HEADER3="AP名称,SN,AP型号,绑定"
+            ALLAP_HEADER4="AP组名称,绑定"
+    ></div>
+    </body>
+    </html>
+    <script language="javascript" type="text/javascript">
+      Utils.Pages.loadJS("h_wireless.index_gonext");
+    </script>

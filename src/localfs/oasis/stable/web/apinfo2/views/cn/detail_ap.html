@@ -1,0 +1,91 @@
+<style>
+    .form-horizontal .control-label{
+        text-align: left !important;
+        padding-top: 2px;
+        /*margin-right: 200px;*/
+    }
+    .form-horizontal .form-group, .form-group {
+        margin: 0;
+        padding: 0;
+        clear: both;
+    }
+    .form-horizontal [class^="col-md-"],
+    .form-horizontal [class*="col-md-"],
+    .form-horizontal [class^="col-xs-"],
+    .form-horizontal [class*="col-xs-"],
+    .form-horizontal [class^="col-sm-"],
+    .form-horizontal [class*="col-sm-"] {
+        line-height: 30px;
+    }
+</style>
+<div class="btn_h_return" ui-sref="^.apinfo2"></div>
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">AP列表</span>
+            </div>
+            <div class="box-body no-height">
+                <div bs-table="tableOptions" ></div>
+            </div>
+        </div>
+    </div>
+    <!-- 弹出框 -->
+    <div id="flowdetailDlg" bs-modal='modalOptions'>
+        <form class="form-horizontal form" id="flowdetail_form">
+            <div class="col-sm-12">
+                <div class="form-group detail-even">
+                    <label class="col-sm-5  control-label"><strong>AP名称</strong></label>
+                    <span id="apName">{{modalData.apName}}</span>
+                </div>
+                <!--<div class="form-group">
+                    <label class="col-sm-5  control-label "><strong>AP型号</strong></label>
+                    <span id="apModel">{{modalData.apModel}}</span>
+                </div>-->
+                <div class="form-group">
+                    <label class="col-sm-5  control-label"><strong>序列号</strong></label>
+                    <span id="apSN">{{modalData.apSN}}</span>
+                </div>
+                <!--<div class="form-group">
+                    <label class="col-sm-5  control-label "><strong>MAC地址</strong></label>
+                    <span id="macAddr">{{modalData.macAddr}}</span>
+                </div>-->
+                <div class="form-group detail-even">
+                    <label class="col-sm-5  control-label"><strong>AP组名称</strong></label>
+                    <span id="apGroupName">{{modalData.apGroupName}}</span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5  control-label "><strong>射频信息</strong></label>
+                    <span id="radioList1">{{modalData.radioText}}</span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-5  control-label"><strong>AP状态</strong></label>
+                    <span id="status1">{{modalData.apStatus}}</span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5  control-label "><strong>吞吐量(发送/接收，KB)</strong></label>
+                    <span id="transmit_receive_Traffic">{{modalData.transmitTraffic+' / '+modalData.receiveTraffic}}</span>
+                </div>
+                <div class="form-group detail-even">
+                    <label class="col-sm-5  control-label"><strong>在线时长(天:时:分:秒)</strong></label>
+                    <span id="onlineTime1">{{modalData.onlineTime}}</span>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-5  control-label "><strong>客户端数量</strong></label>
+                    <span id="clientCount">{{modalData.clientCount}}</span>
+                </div>
+            </div>
+        </form>
+    </div>   
+
+
+    <!-- 弹出框：认证 -->
+
+<iframe id="exportFile" name="exportFile" style="display: none" ng-src="{{exportUrl}}"></iframe>
+<div id="clients_rc" class="rc-define"
+    close="关闭"
+    LIST_HEADER="AP名称,AP型号,序列号,AP组名称,射频信息,AP状态,在线时长,客户端数量"
+    MODAL_TITLE="AP详情"
+    STATUS="在线,离线,版本下载,其他"
+     ></div>
+
+

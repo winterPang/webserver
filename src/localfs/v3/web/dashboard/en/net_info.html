@@ -1,0 +1,105 @@
+<html>
+<head>
+</head>
+<body>
+<div class="page-row">
+  <div class="col-xs-12 app-colum left-block">
+    <div class="app-box">
+      <div class="box-footer">
+        <span class="title">WAN Interface Information</span>
+      </div>
+      <div class="box-body no-height">
+        <div id="wan_info_list" class="simple-list"></div> 
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<div class="hide" id="wan_toggle">
+  <div class="col-xs-6 response-block">
+    <div class="form-group">
+      <label class="col-sm-6 control-label info-explain">Type</label>
+      <div class="col-sm-6">
+        <span class="label form-if-setHtml" id="AllocEnable" name="AllocEnable"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-6 control-label info-explain">IP address</label>
+      <div class="col-sm-6">
+        <span class="label form-if-setHtml" id="InetAddressIPV4" name="InetAddressIPV4"></span>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-6 response-block">
+    <div class="form-group">
+      <label class="col-sm-6 control-label info-explain">Gateway</label>
+      <div class="col-sm-6">
+        <span class="label form-if-setHtml" id="InetAddressIPV4Mask" name="InetAddressIPV4Mask"></span>
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-6 control-label info-explain">DNS</label>
+      <div class="col-sm-6">
+        <span class="label form-if-setHtml" id="DNS" name="DNS"></span>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-row">
+  <div class="col-xs-12 app-colum left-block">
+    <div class="app-box">
+      <div class="box-footer">
+        <span class="title">Unauthorized AP</span>
+      </div>
+      
+      <div class="box-body no-height">
+        <div id="unanthorized_ap_list" class="simple-list"></div>  
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div class="page-row">
+  <div class="col-xs-12 app-colum left-block">
+    <div class="app-box">
+      <div class="box-footer">
+        <span class="title">NAT-Configured Clients</span>
+      </div>
+      
+      <div class="box-body no-height">
+        <div id="unanthorized_agent_list" class="simple-list"></div>  
+      </div>
+      
+    </div>
+  </div>
+</div>
+<div id="net_info_rc" class="rc-define"
+    WAN_LABELS = "Interface, Description, State, Uplink Traffic (KB), Downlink Traffic (KB)"
+    WAN_MODE="Route"
+    WAN_STSTUS = "UP, DOWN, TESTING, UNKNOWN, DORMANT, NOTPRESENT, LOWERLAYERDOWN"
+    WAN_TYPE = "PPPoE, DHCP, Manually configured"
+    DHCP_LABELS = "MAC, IP, Device Type, Remaining Lease Time"
+    DEVICE_TYPE="AP, Wired client"
+     UNAUTH_AP = "MAC, IP, Name, Suspicious Action, Discovery Count, Last Discovery at"
+     UNAUTH_AGENT = "MAC, IP, Last Discovery at"
+    DESTRIBTION_1 = "Telecom"
+    DESTRIBTION_2 = "Unicom"
+    DEVICE_TYPE_1 = "PC"
+    DEVICE_TYPE_2 = "Xiaomi"
+    DEVICE_TYPE_3 = "Printer"
+    BEFORE = "Before"
+    MIN = "Minute"
+    HOUR = "Hour"
+    DAY = "Day"
+    ACTION_0 = "N/A"
+    ACTION_1 = "Honeypot AP attack"
+    ACTION_2 = "MITM attack"
+    KEYIXINGWEI = "Hotspot AP, Soft AP, Honeypot AP"
+    >
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("dashboard.Net_info");
+</script>

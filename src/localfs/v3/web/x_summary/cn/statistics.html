@@ -1,0 +1,475 @@
+<html>
+<head>
+</head>
+<style  type="text/css">
+    .page-row{
+        position: relative;
+    }
+    .app-box{
+        margin-left:3px;
+        margin-right:3px
+    }
+    #pie4{
+        padding-left:20px;
+    }
+	
+    .filter-container{
+        display:inline-block;
+        height:auto;
+        background: #fff;
+        box-shadow: 0 1px 8px rgba(0,0,0,0.1);
+        border:1px solid #a7b7c1;
+        z-index: 999;
+        position: relative;
+        right: 0;
+        padding: 8px;
+        clear: both;
+    }
+
+    .app-box .box-footer .link-container1{
+        position: absolute;
+        right: 5px;
+    }
+    .page-row #revolution-id{
+        margin: 11px 2px 2px 10px;
+        width: 60px;
+        text-align: center;
+    }
+    .page-row #Interval{
+        margin: 0 2px 2px 10px;
+        width: 60px;
+        text-align: center;
+    }
+    .black-temp{
+        position: absolute;
+        left: 88px;
+        opacity: 0.5
+    }
+    .newback-temp{
+        background: url(./css/image/map6floor.png);
+    }
+    .newback-temp{
+        background:rgba(0,0,0,0.5) url(./css/image/map6floor.png) no-repeat;
+    }
+    .footer-cmd
+    {
+        padding: 10px 15px;
+        background-color: #4EC1B1;
+    }
+    .body-cmd
+    {
+        padding: 10px 15px;
+        background-color: #F7F7F7;
+    }
+    .title-cmd{
+        position: absolute;
+        top:-300px;
+    }
+    .margin-left-little{
+        margin:0 20px 0 0;
+    }
+    #hotmap_btn,#map_btn{
+        cursor: pointer;
+    }
+    .app-box .box-body{
+        height: 691px;
+        padding: 10px 30px;
+    }
+    .radio-name{
+        display: inline-block;
+        margin: 0 20px 0 0;
+    }
+    .radio-name .datewidget input{
+        width: 121px;
+        height: 30px;
+    }
+    .radio-name .datewidget span{
+        left: 95px;
+        padding:0 0 0 0;
+    }
+    .app-box .top-box{
+        border-bottom: #dedddd solid 1px;
+        padding: 10px 0 10px 28px;
+        box-shadow: 1px 1px 3px #dedddd;
+    }
+    .top-box .time-zone{
+        display: inline-block;
+    }
+    #Probe_Monitor .hide{
+        display: none!important;
+    }
+    .cancel-actions {
+        position: static;
+        margin: 8px 15px 0 0;
+        display: inline-block;
+        float: right;
+        background: url(css/image/xb-icons.png) no-repeat;
+        height: 16px;
+        width: 18px;
+    }
+    .cancel-actions.hover-action {
+        background-position: -663px -42px;
+        cursor: pointer;
+    }
+
+    .cancel-actions.hover-action:hover{
+        background-position: -594px -42px;
+        cursor: pointer;
+    }
+    .forbidden-click{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+    .forbidden-click.on{
+        z-index:999
+    }
+    .forbidden-click.off{
+        z-index: -999;
+    }
+    .daterange button{
+        width: 100px;
+        background-color: #69C4C5;
+        padding: 0;
+    }
+    .daterangepicker table thead tr th {
+        background: #69C4C5;
+        color: #fff;
+    }
+    .daterangepicker td.active, .daterangepicker td.active:hover {
+        color: #fff;
+        background-color: #69C4C5;
+    }
+    .daterangepicker .ranges .range_inputs .btn-success,.daterangepicker .ranges .range_inputs .btn-success:hover{
+        margin: 10px;
+        color: #fff;
+        background-color: #69C4C5;
+        border-color: #fff;
+        min-width: 40px;    
+    }
+    .btn-small{
+        width: 100px;
+        padding: 0;
+    }
+    input.daterange{
+        border: #ccc solid 1px;
+        width: 165px;
+        height: 30px;
+        text-align: center;
+    }
+    /*.title-img img{*/
+        /*cursor: pointer;*/
+        /*float: left;*/
+    /*}*/
+    .title-img{
+        display: inline-block;
+        float: left;
+        width: 320px;
+    }
+    .title-img + div{
+        display: inline-block;
+        float: right;
+    }
+
+
+    @media screen and (max-width:1023px) {
+        .app-box .box-body{
+            height: 100%;
+            padding: 10px 30px;
+        }
+        #pie1{
+            width: 100%;
+        }
+        #pie2{
+            width: 100%;
+        }
+        #pie3{
+            width: 100%;
+        }
+        #pie4{
+            width: 100%;
+            padding-left: 0;
+        }
+        #probe_Ssid_all{
+            width: 100%;
+        }
+    }
+    @media screen and (max-width:1279px) {
+        .app-box .box-body{
+            height: 100%;
+            padding: 10px 30px;
+        }
+
+        #pie4{
+            width: 100%;
+            padding-left: 0;
+        }
+        #probe_Ssid_all{
+            width: 100%;
+        }
+    }
+
+    @media screen and (min-width:1400px) {
+        .app-box .box-body{
+            height: 100%;
+            padding: 10px 30px;
+        }
+
+        #pie4{
+            width: 65%;
+            padding-left: 0;
+        }
+        #probe_Ssid_all{
+            width: 35%;
+        }
+    }
+
+    .set-background{
+        background: url(./css/image/calender.png) 10px 10px;
+        background-repeat: no-repeat;
+        padding-left: 21px;
+        padding-top: 1px;
+        margin-top: -2px;
+        color: #fff;
+        font-weight: bolder;
+        font-family: monospace;
+        width: 45px;
+        height: 45px;
+    }
+    #reDevSelect .scenes_panel{
+        top:6px;
+        left:15px;
+        position:absolute !important;
+        background:#EDF9F7 !important;
+        border:none !important;;
+
+    }
+    #reDevSelect #switchScenesBtn{
+        margin:10px 0;
+    }
+    #reDevSelect .scenes_panel_content{
+        margin-bottom:42px;
+        padding:0 !important;
+    }
+    #reDevSelect select{
+        width:100% !important;
+    }
+    #reDevSelect .form-group{
+        line-height:35px !important;
+    }
+
+</style>
+
+<body>
+<div class="page-row" id="Probe_Monitor">
+
+    <div class="col-xs-12 app-colum">
+        <div class="page-row xxb" id="reDevSelect">
+            <div class="col-xs-12 app-colum">
+                <div class="app-box">
+                    <div class="box-footer">
+                        <div id="scene-contain" class="change_scenes">
+                            <div class="change_scenes_trigger change_station" style="visibility:hidden;" id="change_scenes_trigger">
+                                <!--<span class="fa fa-sort-down"></span>-->
+                                <span class="glyphicon-transfer glyphicon"></span>
+                                <span class="pos" id="switch-text">设备切换</span>
+                            </div>
+                            <div class="scenes_panel ng-show" id="scenes_panel" name="scenes_panel">
+                                <div class="scenes_panel_content">
+                                    <div class="form-group hide">
+                                        <label class="col-xs-3 control-label hide"><span id="switch-shop"></span>选择设备：</label>
+                                        <div class="col-xs-9">
+                                            <select id="selectedScene" class="select"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="device-contain">
+                                        <label class="col-xs-3 control-label"><span id="switch-device"></span>：</label>
+                                        <div class="col-xs-9">
+                                            <select id="devSn" class="select"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="scenes_panel_footer">
+                                    <button class="btn btn-cus hide" id="switchScenesBtn">确认</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="forbidden-click off"></div>
+    <div class="app-colum">
+        <div class="app-box default-height">
+        <div class="box-footer" >
+            <div class="col-xs-12">
+                <div class="title-img">
+                    <div class="col-xs-4" id="senior_filter" style="cursor: pointer">
+                        <div class="set-background"></div>
+                    </div>
+                    <div class="col-xs-7" id="cycle_date" style="margin-left: -67px;">（今天）</div>
+                </div>
+            </div>
+        </div>
+        <div class="top-box hide">
+            <div class="time-zone">
+                <span class="radio-name">周期</span>
+                <div class="radio-name">
+                    <input type="radio" id="WT1" name="WipsType" value="0" checked/>
+                    <label for="WT1">今天</label>
+                </div>
+                <div class="radio-name">
+                    <input type="radio" id="WT2" name="WipsType" value="1"/>
+                    <label for="WT2">七天</label>
+                </div>
+                <div class="radio-name">
+                    <input type="radio" id="WT3" name="WipsType" value="2"/>
+                    <label for="WT3">一月</label>
+                </div>
+                <div class="radio-name">
+                    <input type="radio" id="WT4" name="WipsType" value="3"/>
+                    <label for="WT4">一年</label>
+                </div>
+                <div class="radio-name">
+                    <input type="radio" id="WT5" name="WipsType" value="4"/>
+                    <label for="WT4">其他</label>
+                </div>
+            </div>
+            <div class="time-zone hide" id="timezone">
+                <input id="daterange" class="daterange" placeholder="选择日期">
+            </div>
+
+            <div class="cancel-actions hover-action">
+            </div>
+        </div>
+        <div class="box-body default-height" >
+
+            <div class="col-xs-12">
+                <div id="pie1" class="col-xs-4">
+                    <div class="col-xs-12">
+                        <span class="title">用户</span>
+                    </div>
+
+                    <div class="col-xs-12" >
+                        <div class="col-xs-6">
+                            <div class="myEchart" id="Assco_client"></div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="myEchart" id="Active_pie"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <!--<div class="col-xs-2 text-center"  style="color:gray;border-right-style:solid;border-width:1px;border-color:#e5e8e8;">总计</div>
+                        <div class="col-xs-2 text-center" style="color:gray">关联</div>
+                        <div class="col-xs-3 text-center" style="color:gray;border-right-style:solid;border-width:1px;border-color:#e5e8e8;">非关联</div>-->
+                        <div class="col-xs-4 text-center" style="color:gray">活跃</div>
+                        <div class="col-xs-6 text-center" style="color:gray">非活跃</div>
+                        <!-- <hr/> -->
+                        <!--<div id = "client_block">
+                            <div class="col-xs-2 text-center"  style="color:black;border-right-style:solid;border-width:1px;border-color:#e5e8e8;">
+                                <span id="Total_Total" style="color:black"></span>
+                            </div>
+                            <div class="col-xs-2 text-center" >
+                                <span id="Total_associated" style="color:black"></span>
+                            </div>
+                            <div class="col-xs-3 text-center" style="color:black;border-right-style:solid;border-width:1px;border-color:#e5e8e8;">
+                                <span id="Total_dissociated" style="color:black"></span>
+                            </div>
+                        </div>-->
+                        <div id = "Status_block">
+                            <div class="col-xs-4 text-center">
+                                <span id="Total_Active" style="color:black"></span>
+                            </div>
+                            <div class="col-xs-6 text-center">
+                                <span id="Total_Inactive" style="color:black"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="pie2" class="col-xs-4">
+                    <div class="col-xs-12">
+                        <span class="title">停留时间</span>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class="myEchart" id="Rssi_Pie"></div>
+                    </div>
+                </div>
+                <div id="pie3" class="col-xs-4">
+                    <div class="col-xs-12">
+                        <span class="title">终端厂商</span>
+                    </div>
+                    <div class="col-xs-12">
+                        <div class=" myEchart" id="Vender_pie"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <br/>
+                <hr/>
+                <br/>
+            </div>
+            <div class="col-xs-12 col-md-12 default-height">
+                <!--<div id="probe_Ssid_all" class="col-xs-5">
+                    <span class="title">SSID统计</span>
+                    <div id="probe_Ssid_pie" class="myEchart col-xs-12 "></div>
+                    <div id="probe_Ssid" class="panel "></div>
+                </div>-->
+                <div id="pie4" class="col-xs-7">
+                    <span class="title">访客统计</span>
+                    <div id="probe_line" class="myEchart"></div>
+                </div>
+
+            </div>
+        </div>
+        </div>
+    </div>
+    <div class="col-xs-12 app-colum">
+        <div class="hide modal fade" id="warnnigDlg">
+
+            <div class="title-cmd col-xs-12">
+                <div class="footer-cmd col-xs-12">
+                    <span>设备位置地图</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="body-cmd col-xs-12">
+                    <div class="" style="width:900px;" >
+                            <div class="myEchart newback-temp" id="probeHotMap"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hide modal fade" id="warnnigDlg1">
+
+            <div class="title-cmd col-xs-12">
+                <div class="footer-cmd col-xs-12">
+                    <span>设备热图</span>
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                </div>
+                <div class="body-cmd col-xs-12">
+                    <div class="" style="width:900px;" id="">
+                            <div class="myEchart newback-temp" id="HotMapprobe"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+    <div id="probe_statistics_rc" class="rc-define"
+         TYPE="人数"
+         NAME="关联的,活跃的"
+         INTERVAL="一天,一周,1小时,2小时,3小时,4小时,5小时,6小时,7小时,8小时,9小时,10小时,11小时,12小时,13小时,14小时,15小时,16小时,17小时"
+         VENDER="苹果,HTC,魅族,小米,三星,其他"
+         CLIENTTIME="<3分钟,3~10分钟,10~30分钟,30~120分钟,>2小时"
+         AXIS="人数,时间"
+         RC_OTHERS="其他"
+         RC_UNKNOWN="未知"
+         DATE_CYCLE="（今天）,（七天）,（一月）,（一年）"
+         CHERT="热力图,标注1,"
+         switchBtn="切换场所"
+            ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_summary.statistics");
+</script>

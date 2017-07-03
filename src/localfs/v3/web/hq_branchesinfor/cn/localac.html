@@ -1,0 +1,72 @@
+<html>
+<head>
+	
+</head>
+<body>
+<!--<div class="dashboard">-->
+	<!--<div class="page-row">-->
+		<div class="app-colum xxb">
+			<div class="app-box">
+				<div class="box-footer">
+					<span class="title">本地AC</span>
+				</div>
+				<div class="box-body no-height">
+					<div class="simple-list" id="localACList""></div>
+				</div>
+			</div>
+		</div>
+
+<!--<div class="app-colum xxb">
+    <div class="app-box">
+        <div class="box-footer">
+            <span class="title">分支配置</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="brconfig" class="xxb-list simple-list"></div>
+        </div>
+    </div>
+</div>-->
+	<!--</div>-->
+<!--</div>-->
+
+<div class="hide modal fade" id="localACDetailDlg">
+	<div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">AC</h3>
+    </div>
+    <form class="form-horizontal form">
+        <div class="form-group detail-even">
+            <label class="col-sm-3  control-label"><strong>版本号</strong></label>
+            <span id="version" style="line-height:35px"></span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3  control-label "><strong>Boot版本号</strong></label>
+            <span id="boot_id" style="line-height:35px"></span>
+        </div>
+        <div class="form-group detail-even">
+            <label class="col-sm-3  control-label "><strong>启动时长</strong></label>
+            <span id="starttime" style="line-height:35px"></span>
+        </div>
+        <!--<div class="form-group">
+            <label class="col-sm-3  control-label "><strong>AP关联IP</strong></label>
+            <span id="AssoIp" style="line-height:35px">xxx</span>
+        </div>-->
+        <!-- <div class="form-group detail-even">
+            <label class="col-sm-3  control-label "><strong></strong></label>
+            <span id="clientSSID">xxx</span>
+        </div> -->
+        <div class="modal-footer form-actions">
+            <a class="btn btn-primary" id="guanbi">关闭</a>
+        </div>               
+    </form>
+</div>
+<div id="maoxian"></div>
+<iframe id="exportFile" name="exportFile" style="display: none" ></iframe>
+<div class="rc-define" id="localac_rc"
+LOCALACLIST_HEADER="AC名称,序列号,型号,关联时长,IP,归属地,AP列表"
+EXPORT_BUTTON="导出"></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+	Utils.Pages.loadJS("hq_branchesinfor.localac");
+</script>

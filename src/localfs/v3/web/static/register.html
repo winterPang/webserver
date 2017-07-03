@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<!-- 新 Bootstrap 核心 CSS 文件 -->
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css">
+		
+		<!-- 可选的Bootstrap主题文件（一般不用引入） -->
+		<link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+		<link href="/v3/web/static/register.css" rel="stylesheet" type="text/css"/>
+		<link id="favicon_link" rel="icon" href="../static/image/h3clogo.png">
+		
+		<!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+		<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+		
+		<!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+		<script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+	</head>
+	<body>
+	<div class="backgroud_image">
+	    <img src="/v3/web/static/image/register.jpg " width="100%" height="100%">
+		<div class="register">
+			<form class="form-horizontal form-bordered form edit " onsubmit="return false">
+				<div class="register_page">
+					<ul class="nav sub-nav nav-tabs">
+						<li>
+							<a href="#phone" data-toggle="tab" class="phone_register"><span class="phone_icon"></span>注册新账号</a>
+						</li>
+					</ul>
+				</div>
+				<div class="tab-content" id="tabContent">
+					<div class="tab-pane fade in active" id="phone">
+						<form id = "registerFrom" class="form-horizontal form">
+							<div class="form-group">
+								<label class="text_word"><span class="emphsis"></span>邮箱地址</label>
+								<input type="text" class="string required" errid="mail_err" maxlength=32 id="email" name="email">
+								<span class="error" id="mail_err" hidden>邮箱格式错误</span>
+							</div>
+							<div class="form-group">
+								<label class="text_word"><span class="emphsis"></span>手机号码</label>
+								<input type="text" class=" string required" errid="telephone_error" maxlength=32 id="telephone" name="telephone">
+								<button class="send" hidden>发送验证码</button>
+								<span class="error" id="telephone_error" hidden>手机格式错误</span>
+							</div>
+							<!-- <div class="form-group" hidden>
+								<label class="text_word"><span class="emphsis"></span>验证码</label>
+								<input type="text" class=" string required" errid="identify_error" maxlength=32 id="identify" name="identify">
+								<span class="error" id="identify_error" hidden></span>
+							</div> -->
+							<div class="form-group">
+								<label class="text_word"><span class="emphsis"></span>用户名</label>
+								<input type="text" class=" string required" errid="hname_error" maxlength=32 id="hname" name="hname">
+								<span class="error" id="hname_error" hidden>昵称不能为空</span>
+							</div>
+							<div class="form-group">
+								<label class="text_word"><span class="emphsis"></span>登录密码</label>
+									<input type="password" class=" string required" errid="password_error" maxlength=32 id="password" name="password">
+									<input type="text" id="text" style="display:none" maxlength=32>
+									<span class="icon_eye" id="switch"></span>
+									<span class="error" id="password_error" hidden>密码长度至少为8位</span>
+							</div>
+							<div class="form-group">
+								<label class="text_word"><span class="emphsis"></span>确认密码</label>
+									<input type="password" class=" string required" errid="conpassword_error" maxlength=32 id="conpassword" name="conpassword">
+									<input type="text" id="text_con" style="display:none" maxlength=32>
+									<span class="icon_eye" id="switch_con"></span>
+									<span class="error" id="conpassword_error" hidden>两次密码不一致</span>
+							</div>
+							</form>
+							<div class="modal-footer">
+								<span class="register_error"></span>
+								<button class="btn btn-primary" id="registBtn">注册</button>
+								<button class="btn btn-primary" id="backLogin">取消</button>
+							</div>
+					</div>
+				</div>
+			</form>
+			<a href="#" class="protocol">《绿洲》用户协议</a>
+		</div>
+	</div>
+	</body>
+	
+	<script>
+		$(function(){
+
+			$("#email").change(function(){
+				var re = /^[\w+\.]+@[\w+\.]+\.\w+$/;
+				re.test($(this).val()) ? $("#mail_err").hide() : $("#mail_err").show();
+				re.test($(this).val()) ? $("input[name='email']").removeClass("warning"):$("input[name='email']").addClass("warning")
+			});
+			$("#telephone").change(function(){
+				var re = /^[0-9]{11}$/;
+				re.test($(this).val()) ? $("#telephone_error").hide() : $("#telephone_error").show();
+				re.test($(this).val()) ? $("input[name='telephone']").removeClass("warning"):$("input[name='telephone']").addClass("warning");
+			});
+			$("#hname").change(function(){
+				$(this).val().length > 0 ? $("#hname_error").hide() : $("#hname_error").show();
+				$(this).val().length > 0 ? $("input[name='hname']").removeClass("warning"):$("input[name='hname']").addClass("warning");
+			})
+			$("#switch").click(function(){
+				if($(this).hasClass('show_word'))
+				{
+					$(this).removeClass('show_word');
+					$("#text").hide();
+					$("#password").show();
+					$("#password").val($("#text").val());
+				}
+				else{
+					$(this).addClass('show_word');
+					$("#text").show();
+					$("#password").hide();
+					$("#text").val($("#password").val());
+				}
+			});
+
+			$("#switch_con").click(function(){
+				if($(this).hasClass('show_word'))
+				{
+					$(this).removeClass('show_word');
+					$("#text_con").hide();
+					$("#conpassword").show();
+					$("#conpassword").val($("#text_con").val());
+				}
+				else{
+					$(this).addClass('show_word');
+					$("#text_con").show();
+					$("#conpassword").hide();
+					$("#text_con").val($("#conpassword").val());
+				}
+			});
+			$("#text").keyup(function(){
+				
+				$("#password").val($("#text").val());					
+				
+			});
+			$("#text_con").keyup(function(){
+				
+				$("#conpassword").val($("#text_con").val());	
+			});
+			$("#password,#text").change(function(){
+				$(this).val().length >= 8 ? $("#password_error").hide() : $("#password_error").show();
+				$(this).val().length >= 8 ? $("input[name='password']").removeClass("warning"):$("input[name='password']").addClass("warning");
+			});
+			$("#conpassword,#text_con") .change(function(){
+				$(this).val() == $("#password").val() ? $("#conpassword_error").hide() : $("#conpassword_error").show();
+				$(this).val() == $("#password").val() ? $("input[name='conpassword']").removeClass("warning"):$("input[name='conpassword']").addClass("warning");
+			});
+			
+
+			$("#registBtn").on("click", function(){
+				var status = 0;
+				$("input[name]").each(function(i){
+					$(this).hasClass("warning") == true?status++:status;
+				});
+				if (status == 0){
+					$.ajax({
+						type: "post",
+						url: "/v3/ace/o2oportal/sso/registUser",
+						contentType: "application/json",
+						dataType: "json",
+						username: "security_super",
+						password: "lvzhou1-super",
+						data: JSON.stringify({
+							user_name: $("#hname").val(),
+							user_password: $("#password").val(),
+							user_phone: $("#telephone").val(),
+							user_email: $("#email").val(),
+						}),
+						success: function(data){
+							if (data.error_code == 1){
+								$(".register_error").html(data.error_message);
+								$(".register_error").css("display","block");
+							}
+							else {
+								//alert("注册成功");
+								location.href = "/v3/web/login.html";
+							}
+						},
+						error:function(err){
+							alert("服务器内部错误");
+						}
+					})
+				}
+			});
+			$("#backLogin").on("click",function(){
+				location.href = "/v3/web/login.html";
+			});
+			
+		})
+	</script>
+</html>

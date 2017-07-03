@@ -1,0 +1,494 @@
+<!-- Content -->
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">微信公众号</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="chatList">
+                <div class="btn btn-cus" ng-click="AddChatModal()" ng-if="permission.write">添加</div>
+                <!-- Form Content -->
+                <div bs-table="tableOptions"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- 添加-模态框 -->
+<form class="form edit alretModel" name="addPubNumForm" bs-modal="add_modalOptions" novalidate>
+    <div class="info-tip">请务必保证以下配置与微信平台上的配置保持一致！</div>
+    <div class="col-sm-6 response-block">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">公众号类型</label>
+            <div class="col-sm-9">
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="pubNum1" name="type" value="1" checked class="input-element" ng-model="newUser.type"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':newUser.type==1}"></span>
+                        <label class="input-label" for="pubNum1"></label>
+                    </div>
+                    <label for="pubNum1">订阅号</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="pubNum2" name="type" value="2" class="input-element" ng-model="newUser.type"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':newUser.type==2}"></span>
+                        <label class="input-label" for="pubNum2"></label>
+                    </div>
+                    <label for="pubNum2">服务号</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="pubNum3" name="type" value="3" class="input-element" ng-model="newUser.type"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':newUser.type==3}"></span>
+                        <label class="input-label" for="pubNum3"></label>
+                    </div>
+                    <label for="pubNum3">企业号</label>
+                </div>   
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">经过腾讯认证</label>
+            <div class="col-sm-9">
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="AuthType1" name="ifWeixinAuth" value="1" class="input-element" ng-model="newUser.ifWeixinAuth"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':newUser.ifWeixinAuth==1}"></span>
+                        <label class="input-label" for="AuthType1"></label>
+                    </div>
+                    <label for="AuthType1">是</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="AuthType2" name="ifWeixinAuth" checked value="0" class="input-element" ng-model="newUser.ifWeixinAuth"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':newUser.ifWeixinAuth==0}"></span>
+                        <label class="input-label" for="AuthType2"></label>
+                    </div>
+                    <label for="AuthType2">否</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" style="margin-top:16px;">
+            <label class="col-sm-3 control-label required">名称</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" required ng-minlength="6" ng-maxlength="20" maxlength="20" name="add_name" ng-model="newUser.name" />
+                <label class="info-explain" style="display:block ">（名称长度为3-30个字符，不能含有特殊字符及"微信"等保留字）</label>
+                <div ng-show="addPubNumForm.add_name.$dirty && addPubNumForm.add_name.$error" ng-messages="addPubNumForm.add_name.$error" style="display: inline-block;">
+                    <label ng-message="maxlength" class="error" style="display: inline-block;">名称不得超过20个字符。</label>
+                    <label ng-message="minlength" class="error" style="display: inline-block;">名称不得少于6个字符。</label>
+                    <label ng-message="required" class="error" style="display: inline-block;">此项为必填项。</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group" style="margin-top:16px;">
+            <label class="col-sm-3 control-label required">微信号</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" required name="add_biz" ng-model="newUser.biz" maxlength="20" minlength="6" ng-pattern="/^[a-zA-Z][a-zA-Z0-9\_\-]*$/"/>
+                 <label class="info-explain">（微信号必须是以字母开头的6-20个字母、数字、下划线或减号的组合）</label>
+                <div ng-show="addPubNumForm.add_biz.$dirty && addPubNumForm.add_biz.$error" ng-messages="addPubNumForm.add_biz.$error" style="display: inline-block;">
+                    <label ng-message="minlength" class="error" style="display: inline-block;">名称不得少于6个字符。</label>
+                    <label ng-message="required" class="error" style="display: inline-block;">此项为必填项。</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+         <label class="col-sm-3 control-label">描述</label>
+        <div class="col-sm-9">
+                <input type="text" class="string big" ng-maxlength="256" name = "add_description"  ng-model="newUser.description"/>
+                <label class="info-explain">（1-256字符）</label>
+                <div ng-show="addPubNumForm.add_description.$dirty" ng-messages="addPubNumForm.add_description.$error" style="display: inline-block;">
+                    <label ng-message="maxlength" class="error" style="display: inline-block;">
+                        不得超过256个字符。
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">APP ID
+                <span class="toggle">
+                    <i class="icon-question-sign" ng-click="State.appId=!State.appId"></i>
+                </span>
+            </label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" required ng-maxlength="64" name="add_appId" ng-model="newUser.appId"/>
+                <label class="info-explain">（1-64字符）</label>
+                <label class="info-help" id="addAppIdInfo" ng-show="State.appId">
+                    请从微信公众号平台【基本配置】中取值，复制到此。
+                </label>
+                <div ng-show="addPubNumForm.add_appId.$dirty" ng-messages="addPubNumForm.add_appId.$error" style="display: inline-block;">
+                    <label ng-message="maxlength" class="error" style="display: inline-block;">
+                        名称不得超过64个字符。
+                    </label>
+                    <label ng-message="required" class="error" style="display: inline-block;">
+                        此项为必填项。
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">APP SECRET
+                <span class="toggle">
+                    <i class="icon-question-sign" ng-click="State.appSecret=!State.appSecret"></i>
+                </span>
+            </label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" required ng-maxlength="64" name = "add_appSecret" ng-model="newUser.appSecret"/>
+                <label class="info-explain">（1-64字符）</label>
+                <label class="info-help" id="addAppSecretInfo" ng-show="State.appSecret">
+                    请从微信公众号平台【基本配置】中取值，复制到此。
+                </label>
+                <div ng-show="addPubNumForm.add_appSecret.$dirty" ng-messages="addPubNumForm.add_appSecret.$error" style="display: inline-block;">
+                    <label ng-message="maxlength" class="error" style="display: inline-block;">
+                        名称不得超过64个字符。
+                    </label>
+                    <label ng-message="required" class="error" style="display: inline-block;">
+                        此项为必填项。
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group detail-content">
+        <div class="advan_content">
+            <div>
+                <div class="float-left" style="cursor:pointer" ng-click="State.isAdvanOpen=!State.isAdvanOpen">
+                    <div class="advan_set advan_icon float-left"></div>
+                    <a class="float-left ad-button">
+                        <span class="text">高级设置</span>
+                    </a>
+                    <div class="advan_set float-left advan_btn" ng-class="{true: 'advan_open', false: ''}[State.isAdvanOpen]"></div>
+                </div>
+                <div class="bottomline float-left"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 response-block" ng-show="State.isAdvanOpen">
+        <div class="form-group">
+            <label class="col-sm-5 control-label info-explain">以下配置项请谨慎配置</label>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">TOKEN</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" placeholder="default" required ng-maxlength="32" ng-minlength="3" name="add_token" ng-model="newUser.token" ng-pattern="/^[a-zA-Z0-9]*$/"/>
+                <label class="info-explain">（3-32个字母或数字且不能包含中文和@、#、￥等特殊字符。）</label>
+                <div ng-show="addPubNumForm.add_token.$dirty" ng-messages="addPubNumForm.add_token.$error" style="display: inline-block;">
+                    <label ng-message="maxlength" class="error" style="display: inline-block;">名称不得超过32个字符。</label>
+                    <label ng-message="minlength" class="error" style="display: inline-block;">名称不得少于3个字符。</label>
+                    <label ng-message="required" class="error" style="display: inline-block;">此项为必填项。</label>
+                    <label ng-message="pattern" class="error" style="display: inline-block;">
+                    不能包含中文和@、#、￥等特殊字符。
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">认证地址
+                <span class="toggle">
+                <i class="icon-question-sign" ng-click="State.url=!State.url"></i>
+            </span>
+            </label>
+            <div class="col-sm-9">
+                <div>
+                    <input type="text" class="url big readonly" disabled name = "add_url" ng-model="newUser.url"/>
+                    <button class="btn btn-primary" id="url_rand" ng-click="addUrl($event)">随机生成</button>
+                    <label class="info-help" id="IdentityUrlInfo" ng-show="State.url">
+                        请将生成的url与微信公众号平台的认证服务器地址配置一致。
+                    </label>
+                    <div ng-show="addPubNumForm.add_url.$dirty" ng-messages="addPubNumForm.add_url.$error" style="display: inline-block;">
+                        <label ng-message="required" class="error" style="display: inline-block;">
+                            此项为必填项。
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">加密密钥</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" disabled maxlength="43" id="encodingAesKey" name = "add_encodingAesKey" ng-model="newUser.encodingAesKey"/>
+                <button class="btn btn-primary" id="addRand" ng-click="generatingKey('add',$event)">随机生成</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">加解密类型</label>
+            <div class="col-sm-9">
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="cipherMode1" name="cipherMode" value="1" checked class="input-element" ng-model="newUser.cipherMode"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':newUser.cipherMode==1}"></span>
+                        <label class="input-label" for="cipherMode1"></label>
+                    </div>
+                    <label for="cipherMode1">明文</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="cipherMode2" name="cipherMode" value="2" class="input-element" ng-model="newUser.cipherMode"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':newUser.cipherMode==2}"></span>
+                        <label class="input-label" for="cipherMode2"></label>
+                    </div>
+                    <label for="cipherMode1">兼容</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="cipherMode3" name="cipherMode" value="3" class="input-element" ng-model="newUser.cipherMode"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':newUser.cipherMode==3}"></span>
+                        <label class="input-label" for="cipherMode3"></label>
+                    </div>
+                    <label for="cipherMode1">安全</label>
+                </div>   
+            </div>
+        </div>
+    </div>
+</form>
+    <!-- 修改-模态框 -->
+<form class="form edit alretModel" name="chattoggleForm" bs-modal="edit_modalOptions" style="max-height:400px;overflow:auto" novalidate>
+    <div class="info-tip">请务必保证以下配置与微信平台上的配置保持一致！</div>
+    <div class="col-sm-6 response-block">
+        <div class="form-group">
+            <label class="col-sm-3 control-label">公众号类型</label>
+            <div class="col-sm-9">
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="publicNumber1" name="type" value="1" class="input-element" ng-model="rowData.type"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':rowData.type==1}"></span>
+                        <label class="input-label" for="publicNumber1"></label>
+                    </div>
+                    <label for="publicNumber1">订阅号</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="publicNumber2" name="type" value="2" class="input-element" ng-model="rowData.type"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':rowData.type==2}"></span>
+                        <label class="input-label" for="publicNumber2"></label>
+                    </div>
+                    <label for="publicNumber2">服务号</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="publicNumber3" name="type" value="3" class="input-element" ng-model="rowData.type"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':rowData.type==3}"></span>
+                        <label class="input-label" for="publicNumber3"></label>
+                    </div>
+                    <label for="publicNumber3">企业号</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">经过腾讯认证</label>
+            <div class="col-sm-9">
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="chatAuthType1" name="ifWeixinAuth" value="1" class="input-element" ng-model="rowData.ifWeixinAuth"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':rowData.ifWeixinAuth==1}"></span>
+                        <label class="input-label" for="chatAuthType1"></label>
+                    </div>
+                    <label for="chatAuthType1">是</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="chatAuthType2" name="ifWeixinAuth" value="0" class="input-element" ng-model="rowData.ifWeixinAuth"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':rowData.ifWeixinAuth==0}"></span>
+                        <label class="input-label" for="chatAuthType2"></label>
+                    </div>
+                    <label for="chatAuthType2">否</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">名称</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="chatname" name = "name" ng-model="rowData.name" disabled/>
+                <!--<label class="info-explain">（名称必须是以字母开头的6-20个字母、数字、下划线或减号的组合）</label>-->
+            </div>
+        </div>
+
+        <div class="form-group" style="margin-top:16px;">
+            <label class="col-sm-3 control-label required">微信号</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" required name="edit_biz" ng-model="rowData.biz" disabled/>
+                <!-- <label class="info-explain">（微信号必须是以字母开头的6-20个字母、数字、下划线或减号的组合）</label> -->
+                <div ng-show="chattoggleForm.edit_biz.$dirty" ng-messages="chattoggleForm.edit_biz.$error" style="display: inline-block;">
+                    <label ng-message="required" class="error" style="display: inline-block;">此项为必填项。</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">描述</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" ng-maxlength="256" name = "description"  ng-model="rowData.description"/>
+                <label class="info-explain">（1-256字符）</label>
+                <div ng-show="chattoggleForm.description.$dirty" ng-messages="chattoggleForm.description.$error" style="display: inline-block;">
+                    <label ng-message="maxlength" class="error" style="display: inline-block;">
+                        不得超过256个字符。
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">APP ID
+                <span class="toggle">
+                    <i class="icon-question-sign" ng-click="State.appId=!State.appId"></i>
+                </span>
+            </label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" required ng-maxlength="64" name="appId" ng-model="rowData.appId"/>
+                <label class="info-explain">（1-64字符）</label>
+                <label class="info-help" id="AppIdInfo" ng-show="State.appId">
+                    请从微信公众号平台【基本配置】中取值，复制到此。
+                </label>
+                <div ng-show="chattoggleForm.appId.$dirty" ng-messages="chattoggleForm.appId.$error" style="display: inline-block;">
+                    <label ng-message="maxlength" class="error" style="display: inline-block;">
+                        名称不得超过64个字符。
+                    </label>
+                    <label ng-message="required" class="error" style="display: inline-block;">
+                        此项为必填项。
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">APP SECRET
+                <span class="toggle">
+                    <i class="icon-question-sign" ng-click="State.appSecret=!State.appSecret"></i>
+                </span>
+            </label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" required ng-maxlength="64" name = "appSecret" ng-model="rowData.appSecret"/>
+                <label class="info-explain">（1-64字符）</label>
+                <label class="info-help" id="appSecretInfo" ng-show="State.appSecret">
+                    请从微信公众号平台【基本配置】中取值，复制到此。
+                </label>
+                <div ng-show="chattoggleForm.appSecret.$dirty" ng-messages="chattoggleForm.appSecret.$error" style="display: inline-block;">
+                    <label ng-message="maxlength" class="error" style="display: inline-block;">
+                        名称不得超过64个字符。
+                    </label>
+                    <label ng-message="required" class="error" style="display: inline-block;">
+                        此项为必填项。
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group detail-content">
+        <div class="advan_content">
+            <div>
+                <div class="float-left" style="cursor:pointer" ng-click="State.isAdvanOpen=!State.isAdvanOpen">
+                    <div class="advan_set advan_icon float-left"></div>
+                    <a class="float-left ad-button">
+                        <span class="text">高级设置</span>
+                    </a>
+                    <div class="advan_set float-left advan_btn" ng-class="{true: 'advan_open', false: ''}[State.isAdvanOpen]"></div>
+                </div>
+                <div class="bottomline float-left"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-sm-6 response-block" ng-show="State.isAdvanOpen">
+        <div class="form-group">
+            <label class="col-sm-5 control-label info-explain">以下配置项请谨慎配置</label>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">TOKEN</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" required ng-maxlength="32" ng-minlength="3" name="token" ng-model="rowData.token" ng-pattern="/^[a-zA-Z0-9]*$/"/>
+                <label class="info-explain">（3-32字符）</label>
+                <div ng-show="chattoggleForm.token.$dirty" ng-messages="chattoggleForm.token.$error" style="display: inline-block;">
+                    <label ng-message="maxlength" class="error" style="display: inline-block;">名称不得超过32个字符。</label>
+                    <label ng-message="minlength" class="error" style="display: inline-block;">名称不得少于3个字符。</label>
+                    <label ng-message="required" class="error" style="display: inline-block;">此项为必填项。</label>
+                    <label ng-message="pattern" class="error" style="display: inline-block;">不能包含中文和@、#、￥等特殊字符。</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">认证地址
+                <span class="toggle">
+                    <i class="icon-question-sign" ng-click="State.url=!State.url"></i>
+                </span>
+                </span>
+            </label>
+            <div class="col-sm-9">
+                <div>
+                    <input type="text" class="url big readonly" disabled name = "url" ng-model="rowData.url"/>
+                    <label class="info-help" id="IdentityUrlInfo" ng-show="State.url">
+                        请将生成的url与微信公众号平台的认证服务器地址配置一致。
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">加密密钥</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" disabled maxlength="43" name = "encodingAesKey" ng-model="rowData.encodingAesKey"/>
+                <button class="btn btn-primary" id="rand" ng-click="generatingKey('item',$event)">随机生成</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">加解密类型</label>
+            <div class="col-sm-9">
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="encryptionType1" name="cipherMode" value="1" class="input-element" ng-model="rowData.cipherMode"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':rowData.cipherMode==1}"></span>
+                        <label class="input-label" for="encryptionType1"></label>
+                    </div>
+                    <label for="encryptionType1">明文</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="encryptionType2" name="cipherMode" value="2" class="input-element" ng-model="rowData.cipherMode"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':rowData.cipherMode==2}"></span>
+                        <label class="input-label" for="encryptionType2"></label>
+                    </div>
+                    <label for="encryptionType2">兼容</label>
+                </div>
+                <div class="col-sm-4">
+                    <div class="xb-input xb-radio">
+                        <input type="radio" id="encryptionType3" name="cipherMode" value="3" class="input-element" ng-model="rowData.cipherMode"/>
+                        <span class="input-icon radio-icon" ng-class="{'checked':rowData.cipherMode==3}"></span>
+                        <label class="input-label" for="encryptionType3"></label>
+                    </div>
+                    <label for="encryptionType3">安全</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+    <!-- del-modal -->
+<div bs-modal="del_modalOptions">确定要删除选中的数据吗？</div>
+
+<!--info tip-->
+<div id="controllerInfo"
+    tableTitle="公众号名称"
+    addTitle="增加微信公众号"
+    editTitle="修改微信公众号"
+    delTitle="确认提示"
+    okText="确定"
+    cancelText="取消"
+    msgAddSuc="添加成功"
+    msgAddNameExist="该名称已存在，请重新输入"
+    msgAddAIExist="该APP ID已存在，请重新输入"
+    msgAddError="添加失败，请重试"
+    msgEditSuc="修改成功"
+    msgEditError="修改失败，请重试"
+    msgDelSuc="删除成功"
+    msgDelDontExist="该名称不存在"
+    msgDelPub="该公众号已被发布管理使用，不能删除"
+    msgDelError="删除失败，请重试"
+    weSerCantReutrn="没有收到微信服务器的校验结果"
+    bizError="微信号输入有误"
+    appIdError="AppId校验失败，请重试"
+    appSecretError="AppSecret校验失败，请重试"
+    err1502=" Token必须为英文或数字，长度为3-32个字符。"
+    err1503="消息加密密钥由43位字符组成，可以是数字或字母。"
+    msgDel1309="请先导出公众号下的门店"
+    err80003="参数不合法"
+    err80018="公众号名称已存在"
+    err1505="公众号名称不存在"
+    err80016="公众号被认证配置使用，不允许删除"
+    err80017="公众号下门店被导入，不允许删除"
+    err90011="无效的公众号"
+    err90013="无效的appId、appSecret"
+  ></div>
+
+  <!-- add the seven translate and  -->

@@ -1,0 +1,19 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+            <h3 class="panel-title">Import Store
+                <span class="pull-right">
+                <small>Select WeChat account：</small>
+                <select ng-model="appId" title="" select2="appselect" ng-options="s.appId as s.name for s in appList"></select>
+            </span>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div class="lead">
+                <a class="btn btn-cus" ui-sref="scene.content.netdeploy.chatstore5">return</a>
+            </div>
+            <table bs-table="options"></table>
+        </div>
+    </div>
+</div>
+<div class="read_rc" id="model_rc" table-title="Store Name,SSID,Status,Store information imported successfully.,Store information already exists.,Failed to import store information.,WeChat official account exception."></div>

@@ -1,0 +1,150 @@
+<html>
+
+<head>
+</head>
+<style>
+    .link-container {
+        position: absolute;
+        right: 5px;
+    }
+    
+    a {
+        cursor: pointer;
+    }
+    
+    .new-left-right-block {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+    
+    #box-body2015 {
+        height: auto!important;
+    }
+    
+    .new_app-box {
+        outline: 1px solid #dedddd;
+        margin-bottom: 20px;
+        background: #fff;
+        overflow-y: hidden;
+        border: 0!important;
+    }
+    
+    #Cocos2dGameContainer {
+        border: 1px solid #EDF9f7;
+        height: 450px;
+        width: 800px;
+    }
+    
+    .period {
+        padding-left: 2px;
+    }
+</style>
+
+<body>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum app-box left-block">
+            <div id="detect_container1">
+                <div class="app-box">
+                    <div class="box-footer">
+                        <div class="col-xs-12">
+                            <!--<div class="col-xs-6" style="width:285px">-->
+                            <div class="col-xs-8">
+                                <label style="font-size: 16px">&nbsp&nbsp地图&nbsp&nbsp</label>
+                                <select id="MapSelect" class="singleSelect" allowClear="false" name="" style="width: 180px">
+
+                                </select>
+                            </div>
+                            <div class="col-xs-3 text-right">
+                                <!--<a class="period" style="color:#80878c;"><span>终端周期:</span></a>-->
+                                <span>终端周期:</span>
+                                <a class="oper-btn period" time="1" title="小时">小时</a>
+                                <a class="oper-btn period" time="24" title="天">天</a>
+                                <a class="oper-btn period" time="168" title="周">周</a>
+                                <!--
+                            <a class="period" id="history_hour"><span>小时</span></a>
+                            <a class="period" id="history_day"><span>天</span></a>
+                            <a class="period" id="history_week"><span>周</span></a>
+                            -->
+
+                            </div>
+                            <!--<div class="col-xs-2 text-left" class="interval">-->
+                            <!--<label class="col-xs-6" style="margin-right:-45px;margin-top:8px;">足迹间隔</label>-->
+                            <!--<input id="footer_interval" style="margin:10px 5px 10px 0px;" type="text" class="string col-xs-3" maxlength=5 value=""  clientidmode="Static"/>-->
+                            <!--<label class="info-explain">秒</label>-->
+                            <!--</div>-->
+                            <div class="text-right">
+                                <a type="button" class="refresh" value="1" id="refreshPie">
+                                    <i class="refresh-icon icon"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-xs-6" style="width: 100%;padding: 25px;">
+                            <div class="col-xs-9 app-colum" id="canvas">
+                                <canvas id="gameCanvas" width="800px" height="450px"></canvas>
+                            </div>
+                            <div class="col-xs-3">
+                                <div id="client_slist" class="simple-list"></div>
+                            </div>
+                            <!--<div class="col-xs-12" style="height: 120px"></div>-->
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="hide" id="clientToggle">
+                <form id="toggle_form" class="form edit">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">周期</label>
+                        <div class="col-sm-9">
+                            <div class="col-sm-5">
+                                <input type="radio" name="TimeSelect" id="dayTime" value="24" checked="checked" name="dayTime">
+                                <label for="dayTime">一天</label>
+                            </div>
+                            <div class="col-sm-5">
+                                <input type="radio" name="TimeSelect" id="halfDayTime" value="12" name="halfDayTime">
+                                <label for="halfDayTime">半天</label>
+                            </div>
+                            <div class="col-sm-5">
+                                <input type="radio" name="TimeSelect" id="hourTime" value="1" name="hourTime">
+                                <label for="hourTime">一小时</label>
+                            </div>
+                        </div>
+                    </div>
+                    <!--
+            <div class="form-group">
+                <label class="col-sm-3 control-label">周期</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-5">
+                        <label class="col-xs-6" style="margin-right:-45px;margin-top:8px;">足迹间隔</label>
+                        <input id="footer_interval" style="margin:10px 5px 10px 0px;" type="text" class="string col-xs-3" maxlength=5 value=""  clientidmode="Static"/>
+                        <label class="info-explain">秒</label>
+                    </div>
+                </div>
+            </div>
+            -->
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">足迹间隔</label>
+                        <div class="col-sm-9">
+                            <div class="col-sm-5">
+                                <input value="5" id="footer_interval" style="margin:10px 5px 10px 0px;" type="text" class="string col-xs-3" maxlength=5 value=""
+                                clientidmode="Static" />
+                                <label class="info-explain" for="footer_interval">秒</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+        <div class="hide modal fade" id="AddAuthTempDlg"></div>
+        <div id="wloc_rc" class="rc-define" CLIENT_TIP="开始时间不能迟于结束时间" CLIENTMAC_LIST="终端列表" HISTORY_TIME="一天,半天,一小时" STOP_BEGIN="开启,停止"></div>
+</body>
+
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("city_position.client_manage");
+
+</script>

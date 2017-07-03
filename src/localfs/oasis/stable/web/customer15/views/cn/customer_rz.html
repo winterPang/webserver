@@ -1,0 +1,194 @@
+<div class="container-fluid">
+
+    <!--toggle-->
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box">
+                <div class="select-footer">
+                    <div class="col-xs-3 ml20">
+                        <div class="form-group">
+                            <div class="col-xs-6">
+                                <input type="radio" name="terminal" id="allterminal" value="1" ng-click="redirectCustomer()">
+                                <label for="allterminal">关联终端</label>
+                            </div>
+                            <div class="col-xs-6">
+                                <input type="radio" name="terminal" id="terminal" value="2" checked="checked">
+                                <label for="terminal">认证终端</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--page content-->
+    <div class="dashboard total_clients">
+        <!--client-num-->
+        <div class="col-xs-12 app-colum left-block" debug="clients NumRZ">
+            <div class="bg-bor">
+                <div class="head-bar">
+                    <div class="box-footer">
+                        <div class="col-xs-10">
+                            <span class="title sysinfo-footer-title">客户端数量</span>
+                        </div>
+                        <div class="text-right link-container">
+                            <a type="button" class="
+	                            link-detail" id="submit_scan" ui-sref="^.customerdetail_rz" title="更多">
+                                <i class="detail-icon icon"></i>
+                            </a>
+                        </div>
+                        <div class="text-rightandlink-container"></div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="syslog-info-mine-Total">
+                            <div class="left-icon Total-icon"></div>
+                            <div class="right-text">
+                                <span class="number-count" id="portalTotal"></span>
+                                <br />
+                                <span class="number-title">总计</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="syslog-info-mine-Total">
+                            <div class="left-icon Num2G-icon"></div>
+                            <div class="right-text">
+                                <span class="number-count" id="portalNum2G"></span>
+                                <br />
+                                <span class="number-title">2.4GHz</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="syslog-info-mine-Num2G">
+                            <div class="left-icon Num5G-icon"></div>
+                            <div class="right-text">
+                                <span class="number-count" id="portalNum5G"></span>
+                                <br />
+                                <span class="number-title">5GHz</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--customer total-->
+        <div ng-init="
+    customerCount='人数';
+    newCustomer='新增宾客';
+    allCustomer='宾客总数';
+    ">
+            <div class="col-xs-6 app-colum left-block">
+                <div class="page-row xxb" id="userflow">
+                    <div class="col-xs-12 app-colum " debug="getnewuser">
+                        <div class="app-box no-bk-color">
+                            <div class="box-footer">
+                                <div class="col-xs-3">
+                                    <span class="title">宾客统计</span>
+                                </div>
+                                <div class="time-change" id="total">
+                                    <a id="days" class="time-link active" value='1' ng-click="clickTest($event)">一天</a>
+                                    <a id="weeks" class="time-link" value='2' ng-click="clickTest($event)">一周</a>
+                                    <a id="mounth" class="time-link" value='3' ng-click="clickTest($event)">一月</a>
+                                </div>
+                            </div>
+                            <div class="box-body userflow-height form-group body-nopadding">
+                                <div id="portalUser" class="col-xs-12" style="height:230px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--customer flow total-->
+        <div ng-init="
+    stayType_1='半小时以内';
+    stayType_2='一小时内';
+    stayType_3='两小时内';
+    stayType_4='两小时以上';
+    custCount='驻留时长';
+    visit='来访次数';
+    visitCount_1='一次';
+    visitCount_2='两次';
+    visitCount_3='三次';
+    visitCount_4='四次以上';
+    ">
+            <div class="col-xs-6 app-colum left-block">
+                <div class="page-row xxb">
+                    <div class="col-xs-12 app-colum " debug="getAccessTime getOnlineTime">
+                        <div class="app-box no-bk-color">
+                            <div class="box-footer">
+                                <div class="col-xs-3">
+                                    <span class="title">客流统计</span>
+                                </div>
+                                <div class="time-change" id="detail">
+                                    <a id="oDetail" class="time-link" ng-click="redirectOnlineCustomer_rz()">在线宾客</a>
+                                    <a id="hDetail" class="time-link" ng-click="redirectHistoryCustomer_rz()">历史明细</a>
+                                </div>
+                            </div>
+                            <div class="box-body userflow-height form-group body-nopadding">
+                                <!--<div class="col-xs-6 pietop">-->
+                                    <!--<div class="row-clear padding0">-->
+                                        <!--<div id="onlinePie" class=" col-xs-12" style="height:230px;"></div>-->
+                                    <!--</div>-->
+                                <!--</div>-->
+                                <div class="col-xs-12 pietop">
+                                    <div class="row-clear padding0">
+                                        <div id="ViewPie" class=" col-xs-12" style="height:230px;"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--client vonder and mode-->
+        <div ng-init="
+    header_1='MAC地址';
+    header_2='IP地址';
+    header_3='终端厂商';
+    header_4='AP';
+    header_5='SSID';
+    header_6='未知';
+    ngModel='客户端统计';
+    autoClose='关闭';
+    viewTittle='未知';
+    ">
+            <div class="page-row">
+                <div class="col-xs-6 app-colum left-block">
+                    <div class="app-box no-bk-color">
+                        <div class="col-sm-12 col-xs-12 app-colum">
+                            <div class="box-footer">
+                                <span class="title">终端类型</span>
+                            </div>
+                            <div class="box-body echart-height form-group">
+                                <div id="pTerminal" class="col-xs-12" style="height:230px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6 app-colum left-block">
+                    <div class="app-box no-bk-color">
+                        <div class="col-sm-12 col-xs-12">
+                            <div class="box-footer">
+                                <span class="title">终端厂商</span>
+                            </div>
+                            <div class="box-body echart-height form-group">
+                                <div id="pTermianlFirm" class="col-xs-12" style="height:230px"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--<div bs-modal="clientTypeOf">-->
+                <!--<div bs-table="clientType"></div>-->
+            <!--</div>-->
+        </div>
+
+    </div>
+</div>

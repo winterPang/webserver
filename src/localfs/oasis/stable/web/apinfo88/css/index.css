@@ -1,0 +1,128 @@
+.apinfo88 {
+
+}
+
+.apinfo88 .value-ui {
+    display: inline-block;
+    height: 80px;
+    text-align: center;
+    width: 25%;
+    border: 1px solid gray;
+    border-radius: 10px;
+    margin: 15px 5px 0;
+}
+
+.apinfo88 .value-ui-font {
+    display: block;
+    font-size: 28px;
+    padding: 7px 0;
+    font-weight: bolder
+}
+
+.apinfo88 .value-ui-fontSize {
+    display: block;
+    border-top: 1px solid gray;
+    width: 80%;
+    margin: 0 auto;
+}
+
+.apinfo88 .top-title {
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(94, 123, 191);
+}
+
+.apinfo88 .top-progress-block {
+    margin-top: 3px;
+    font-size: 10px;
+}
+
+.apinfo88 .top-progress {
+    height: 7px;
+    border-radius: 3px;
+    margin-top: 3px;
+    margin-bottom: 10px;
+}
+
+.apinfo88 .top-one {
+    /*background-color: rgb(98, 220, 184);*/
+    background-color: #4ec1b2;
+}
+
+.apinfo88 .top-two {
+    /*background-color: rgb(255, 156, 158);*/
+    background-color: #78cec3;
+}
+
+.apinfo88 .top-three {
+    /*background-color: rgb(21, 194, 169);*/
+    background-color: #f2bc98;
+}
+
+.apinfo88 .top-four {
+    /*background-color: rgb(72, 121, 223);*/
+    background-color: #fe808b;
+}
+
+.apinfo88 .top-five {
+    /*background-color: rgb(98, 220, 184);*/
+    background-color: #4fc4f6;
+}
+
+.apinfo88 .top-six {
+    background-color: rgb(255, 156, 158);
+}
+
+.apinfo88 .top-seven {
+    background-color: rgb(21, 194, 169);
+}
+
+.apinfo88 .time-link {
+    text-decoration: none
+}
+
+.apinfo88 ul {
+    margin: 0;
+    padding: 0
+}
+
+.apinfo88 li {
+    list-style-type: none;
+}
+
+.apinfo88 .link-btn {
+    width: 100%;
+    height: 31px;
+    /*background-color: rgb(238,238,238);
+    color: rgb(178,178,178);*/
+}
+
+.apinfo88 .link-btn:hover {
+    height: 35px;
+    background-color: #4ec1b2;
+}
+
+.apinfo88 .top-progress-block span {
+    font-weight: 100;
+    margin-left: 10px
+}
+
+.apinfo88 .link-btn {
+    width: 100px;
+    height: 31px;
+    /* background-color: rgb(238,238,238); */
+    background-color: #4ec1b2;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.apinfo88 .link-btn:focus,
+.apinfo88 .link-btn:hover {
+    height: 31px;
+    color: #fff;
+    background-color: #4ec1b2;
+
+}
+.apinfo88 .topUnit{
+    float: right;
+}

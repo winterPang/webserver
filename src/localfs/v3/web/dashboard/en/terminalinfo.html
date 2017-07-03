@@ -1,0 +1,153 @@
+<html>
+<head>
+</head>
+<body>
+  <div class="page-row">
+    <div class="col-xs-12 app-colum left-block">
+      <div class="app-box no-bk-color">
+        <div class="box-footer">
+          <span class="title">Client Statistics</span>
+        </div>
+        <div class="box-body no-height" id="terminal-num">
+          <div class="col-xs-6 response-block">
+            <div class="center-terminal">
+              <div class="col-xs-4 align-left">  
+                <label class="info-explain">Total clients</label><br/>
+                <label class="title-font" id="SUM">0</label>
+              </div>
+              <div class="col-xs-4 align-left">   
+                <label class="info-explain">Wireless clients</label><br/>
+                <label class="title-font" id="wireless">0</label>         
+              </div>
+              <div class="col-xs-4 align-left">            
+                <label class="info-explain">Wired clients</label><br/>
+                <label class="title-font" id="wired">0</label>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 response-block">
+            <div class="center-summary">
+              <div class="col-xs-4 align-left">  
+                
+                <label class="info-explain">802.11b</label><br/>
+                <label class="larger-font" id="wsm1">0</label><br/>
+                <label class="info-explain basic-color">802.11n(2.4GHz)</label><br/>
+                <label class="larger-font"id="wsm8">0</label>
+              </div>
+              <div class="col-xs-4 align-left">   
+                <label class="info-explain">802.11a</label><br/>
+                <label class="larger-font" id="wsm2">0</label><br/>
+                <label class="info-explain basic-color">802.11n(5GHz)</label><br/>
+                <label class="larger-font" id="wsm16">0</label>
+              </div>
+              <div class="col-xs-4 align-left">            
+                <label class="info-explain">802.11g</label><br/>
+                <label class="larger-font" id="wsm4">0</label><br/>
+                <label class="info-explain basic-color">802.11ac</label><br/>
+                <label class="larger-font" id="wsm64">0</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div class="page-row">
+    <div class="col-xs-6 app-colum left-block">
+      <div class="app-box no-bk-color">
+        <div class="box-footer">
+          <span class="title">Wireless Quality</span>
+        </div>
+        <div class="box-body doubleechart-height">
+          <div class="form-group col-sm-12">
+              <span class="title">SNR</span>
+            <div id="signalstrength" class="myEchart"></div>
+            <div id="signalstrengthLabel" class="chartlable"></div>
+          </div>
+
+          <div class="form-group col-sm-12" style="margin-top:80px;">
+              <span class="title">Rate</span>
+            <div id="rate" class="myEchart"></div>
+            <div id="rateLabel" class="chartlable"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6 app-colum left-block">
+      <div class="app-box no-bk-color">
+        <div class="box-footer">
+          <span class="title">Application Hotness</span>
+        </div>
+        <div class="box-body echart-height body-nopadding">
+          <div id="terminaltype" class="col-xs-12 myEchart"></div>
+           <div id="terminaltype_pie-Legend" class="panel"></div>
+          <!-- <div id="myLegend" class="panel"></div> -->
+        </div>
+      </div>
+    </div>
+    <div class="col-xs-6 app-colum left-block">
+      <div class="app-box no-bk-color">
+        <div class="box-footer">
+          <span class="title">AP's Associated Clients</span>
+        </div>
+        <div class="box-body echart-height body-nopadding">
+          <div id="apterminal" class="col-xs-12 myEchart"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-row">
+    <div class="col-xs-12 app-colum left-block">
+      <div class="app-box no-height default-bottom"> 
+        <div class="box-footer">
+          <span class="title">Associated Wireless Clients</span>
+        </div>
+        <div class="box-body no-height">
+          <div id="wirelessterminal_slist" class="simple-list"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="page-row">
+    <div class="col-xs-12 app-colum left-block">
+      <div class="app-box no-height default-bottom"> 
+        <div class="box-footer">
+          <div>
+            <span class="title">Unassociated Wireless Clients</span>
+          </div>
+        </div>
+        <div class="box-body no-height">
+          <div id="nwt_slist" class="simple-list"></div>
+        </div>        
+      </div>
+    </div>
+  </div>
+  <div class="hide modal fade" id="tableDlg">
+    <form class="form-horizontal form" id="tableForm">
+        <div class="box-body no-height">
+          <div id="detail-list" class="simple-list"></div>
+        </div>
+    </form>
+  </div>
+
+  <iframe id="exportFile" name="exportFile" style="display: none" ></iframe>
+  <div id="terminal_rc" class="rc-define"
+      TIPS = "Sent, Received"
+      OUTLETFLOW = "WAN1, WAN2, WAN3"
+      WIRELESSTERMINAL = "MAC, IP, Username, SSID, AP, Vendor, Client Type"
+      NWT="MAC, Discovering AP, Discovered at, Channel, Signal strength, Associated BSSID"
+      WIREDTERMINAL="MAC, IP, Port, Online duration"
+      SIGNALSTR="Signal strength"
+      RATE="Rate"
+      detail-list-title="MAC, IP, Username, SSID, AP, Radio, VLAN, Throughput (KB), Online Duration"
+      MODE="802.11b (2.4GHz), 802.11a (5GHz), 802.11g (2.4GHz), 802.11gn (2.4GHz), 802.11an (5GHz), 802.11ac (5GHz)"
+      TITLE_TERINFO="终端设备"
+      SETTING="强制断开"
+      EXPORT_LOG="Export"
+  ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("dashboard.terminalinfo");
+</script>

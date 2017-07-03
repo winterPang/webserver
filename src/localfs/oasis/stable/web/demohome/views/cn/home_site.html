@@ -1,0 +1,122 @@
+<div class="container-fuid home-site-container" rc="首页,上一页,下一页,末页,失败,未知,无设备">
+  <div class="row">
+    <div class="text-center">
+      <div bs-pager="pagination" ng-model="page"></div>
+      <select class="home-page-size" ng-model="pageSize" title="page" style="border-color: #ccc !important;" ng-options="p for p in [2, 4, 8, 16]" ng-show="total"></select>
+    </div>
+  </div>
+ 
+  <div class="network-box home-site home-site-box home-site-list">
+    <!-- new -->
+    <div> 
+      <ul class="cus-dis-box" >
+        <li ng-repeat="v in sites">
+          <div class="row">
+            <div class="col-xs-1">
+              <div class="leftColor">
+                <div class="networkScore">{{v.display.score}}<span>分</span> </div>
+              </div>
+            </div>
+            <div class="col-xs-11">
+              <div ng-show="showDes" class="des">{{v.display.des}}</div>
+              <table> 
+                <option ng-mouseenter="showDes = true" ng-mouseleave="showDes = false" align="top" class="cus-table-title" dataSet="v.display.id">{{v.display.name}}</option>
+                <tr>
+                  <td></td>
+                  <td>在线终端</td>
+                  <td>上行速率</td>
+                  <td>下载速率</td>
+                 
+                  <td>
+                    <!-- <select class="editeChoose"  style="width: 150px;" ng-click=editBtn()> 
+                      <option value="0">管理</option> 
+                      <option value="1">运维</option> 
+                      <option value="2">授权</option> 
+                      <option>复用</option>
+                      <option>规划</option>
+                      <option  value="5">删除</option>
+                    </select>  -->
+                    <div ng-mouseenter="show = true" ng-mouseleave="show = false" id="mouseThing">
+                      <div >操作 <span></span></div>
+                      <ul ng-show="show">
+                        <li ui-sref="demo3.dashboard"><a class="list-link"><i class="fa fa-cog change"></i>运维</a> </li>
+                        <li><a class="list-link"><i class="fa fa-link change"></i>授权</a> </li>
+                        <li><a class="list-link"><i class="fa fa-myedit change"></i>复用</a></li>
+                        <li ui-sref="global.content.programming"><a class="list-link"><i class="fa fa-edit change"></i>规划</a></li>
+                        <li ng-click="delBtn()"><a class="list-link"><i class="fa fa-del change"></i>删除</a></li>
+                      </ul>
+                    </div>
+                    
+                  </td>
+                </tr>
+                <tr>
+                  <td></td>
+                  <td>{{v.display.clientnum}}</td>
+                  <td>{{v.display.up}} Mbps</td>
+                  <td>{{v.display.down}} Mbps</td>
+                  
+                  <td>
+                     
+                  </td>
+                </tr>
+
+              </table>
+            </div>
+            <!-- <div class="col-xs-2">
+              <div class="cus-manage"></div>
+              <a href={{v.display.url}}>
+                管理
+              </a>
+            </div> -->
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- 原来begin -->
+    <!-- <div class="network-box home-site home-site-box home-site-list clearfix">
+      <div class="cus-echarts-box" ng-repeat="v in sites">
+        <div class="cus-echarts-box-title">
+          <span>{{v.display.name}}</span>
+          <a href={{v.display.url}}>
+            <span class="link">管理</span></a>
+        </div>
+        <div class="home-charts"></div>
+      /////<div class="score-icon">分</div> 
+        <div class="cus-echarts-online">
+          <div>
+            <div>
+              <img src="../home/img/line.jpg"></div>
+            <div>
+              <div class="online-title">在线终端</div>
+              <div class="online-number">{{v.display.clientnum}}</div></div>
+          </div>
+        </div>
+        <div class="other-number">
+          <div>
+            <div class="online-title">上行速率</div>
+            <div class="other-number-online">
+              <span>{{v.display.up}}</span>
+              <span>Mbps</span></div>
+          </div>
+          <div>
+            <div class="online-title">下载速率</div>
+            <div class="other-number-online">
+              <span>{{v.display.down}}</span>
+              <span>Mbps</span></div>
+          </div>
+          <div>
+            <div class="online-title">在线AP</div>
+            <div class="other-number-online">
+              <span>{{v.display.online}}</span></div>
+          </div>
+          <div>
+            <div class="online-title">离线AP</div>
+            <div class="other-number-online">
+              <span style="color: #7e878c">{{v.display.offline}}</span></div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+    <!-- 原来end -->
+  </div>
+</div>

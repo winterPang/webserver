@@ -1,0 +1,112 @@
+.navbar.navbar-top {
+  background: #4EC1B2 none;
+  border-color: #3eb0a1;
+  border-radius: 0;
+  margin-bottom: 0;
+  /*margin-top: 60px;*/
+  /*margin-top: 4.28571429rem;*/
+}
+.navbar.navbar-top .navbar-brand {
+  display: none;
+  color: #A6E0D8;
+}
+.navbar.navbar-top .navbar-brand:hover,
+.navbar.navbar-top .navbar-brand:focus {
+  color: #80d3c7;
+  background-color: transparent;
+}
+.navbar.navbar-top .navbar-toggle {
+  border-color: #ddd;
+}
+.navbar.navbar-top .navbar-toggle:hover,
+.navbar.navbar-top .navbar-toggle:focus {
+  background-color: #ddd;
+}
+.navbar.navbar-top .navbar-toggle .icon-bar {
+  background-color: #888;
+}
+.navbar.navbar-top .navbar-collapse {
+  border-color: #3eb0a1;
+}
+.navbar.navbar-top .navbar-collapse .navbar-nav > li {
+  cursor: pointer;
+  font-weight: bold;
+  margin: 0 10px;
+  margin: 0 0.71428571rem;
+}
+.navbar.navbar-top .navbar-collapse .navbar-nav > li > a {
+  color: #A6E0D8;
+}
+.navbar.navbar-top .navbar-collapse .navbar-nav > li > a:hover,
+.navbar.navbar-top .navbar-collapse .navbar-nav > li > a:focus {
+  color: #f2faf9;
+  background-color: transparent;
+}
+.navbar.navbar-top .navbar-collapse .navbar-nav > li.active > a,
+.navbar.navbar-top .navbar-collapse .navbar-nav > li.active > a:hover,
+.navbar.navbar-top .navbar-collapse .navbar-nav > li.active > a:focus {
+  color: #f2faf9;
+  background-color: #3eb0a1;
+}
+.navbar.navbar-top .navbar-collapse .navbar-nav > li.disabled > a,
+.navbar.navbar-top .navbar-collapse .navbar-nav > li.disabled > a:hover,
+.navbar.navbar-top .navbar-collapse .navbar-nav > li.disabled > a:focus {
+  color: #ccc;
+  background-color: transparent;
+}
+.navbar.navbar-top .navbar-nav > .open > a,
+.navbar.navbar-top .navbar-nav > .open > a:hover,
+.navbar.navbar-top .navbar-nav > .open > a:focus {
+  background-color: #3eb0a1;
+  color: #f2faf9;
+}
+@media (max-width: 768px) {
+  .navbar.navbar-top .navbar-nav .open .dropdown-menu > li > a {
+    color: #A6E0D8;
+  }
+  .navbar.navbar-top .navbar-nav .open .dropdown-menu > li > a:hover,
+  .navbar.navbar-top .navbar-nav .open .dropdown-menu > li > a:focus {
+    color: #f2faf9;
+    background-color: transparent;
+  }
+  .navbar.navbar-top .navbar-nav .open .dropdown-menu > .active > a,
+  .navbar.navbar-top .navbar-nav .open .dropdown-menu > .active > a:hover,
+  .navbar.navbar-top .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #f2faf9;
+    background-color: #3eb0a1;
+  }
+  .navbar.navbar-top .navbar-nav .open .dropdown-menu > .disabled > a,
+  .navbar.navbar-top .navbar-nav .open .dropdown-menu > .disabled > a:hover,
+  .navbar.navbar-top .navbar-nav .open .dropdown-menu > .disabled > a:focus {
+    color: #ccc;
+    background-color: transparent;
+  }
+}
+/**
+* 默认显示logo不显示banner，菜单折叠时显示banner不显示logo
+*/
+.logo {
+  background: url(../images/xiaobei.png) no-repeat -42px -1px;
+  background: url(../images/xiaobei.png) no-repeat -3rem -0.07142857rem;
+  width: 157px;
+  width: 11.21428571rem;
+  height: 140px;
+  height: 10rem;
+  top: 0;
+  left: 40px;
+  left: 2.85714286rem;
+  position: fixed;
+  z-index: 1040;
+  cursor: pointer;
+}
+.logo.en_logo {
+  background: url(../../static/image/scenelogo_en.png);
+}
+@media (max-width: 992px) {
+  .logo {
+    display: none !important;
+  }
+  .navbar-brand {
+    display: inline-block !important;
+  }
+}

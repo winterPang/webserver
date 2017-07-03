@@ -1,0 +1,24 @@
+body,
+div.alert,
+p,
+h1 {
+  margin: 0;
+  padding: 0;
+}
+body > div.alert {
+  width: 400px;
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 20px;
+  opacity: 1;
+  z-index: 9999;
+}
+body > div.alert.unfade {
+  opacity: 1;
+  display: block;
+}
+body > div.alert.fade {
+  opacity: 0;
+  transition: all 2s linear;
+}

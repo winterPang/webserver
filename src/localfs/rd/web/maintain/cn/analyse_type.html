@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="dashboard summary-view">
+   <div class="row">
+       <div class="col-xs-6 app-colum right-block">
+           <div class="app-box">
+               <div class="sysinfo-footer">
+                   <span class="title">在线终端频段占比</span>
+               </div>
+               <div class="box-body terminal-statistics-height">
+                  <div class="myEchart" id="band" style="height:180px;"></div>
+               </div>
+           </div>
+       </div>
+       <div class="col-xs-6 app-colum right-block">
+           <div class="app-box">
+               <div class="sysinfo-footer">
+                   <span class="title">在线终端类型占比</span>
+               </div>
+               <div class="box-body terminal-statistics-height">
+                   <div class="myEchart" id="clientType" style="height:180px"></div>
+               </div>
+           </div>
+       </div>
+   </div>
+   <div class="row">
+       <div class="col-xs-6 app-colum right-block">
+           <div class="app-box">
+               <div class="sysinfo-footer">
+                   <span class="title">在线终端操作系统占比</span>
+               </div>
+               <div class="box-body">
+                   <div class="myEchart" id="system" style="height:300px;"></div>
+               </div>
+           </div>
+       </div>
+       <div class="col-xs-6 app-colum right-block">
+           <div class="app-box">
+               <div class="sysinfo-footer">
+                   <span class="title">终端单双流能力</span>
+               </div>
+               <div class="box-body">
+                   <div class="myEchart" id="clientFlow" style="height:300px;"></div>
+               </div>
+           </div>
+       </div>
+   </div>
+   <div class="row">
+       <div class="col-xs-6 app-colum right-block">
+           <div class="app-box">
+               <div class="sysinfo-footer">
+                   <span class="title">终端关联能力（个数）</span>
+               </div>
+               <div class="box-body">
+                   <div class="myEchart" id="clientRelated" style="height:200px;"></div>
+               </div>
+           </div>
+       </div>
+       <div class="col-xs-6 app-colum right-block">
+           <div class="app-box">
+               <div class="sysinfo-footer">
+                   <span class="title">终端关联能力（小时）</span>
+               </div>
+               <div class="box-body">
+                   <div class="myEchart" id="clientTime" style="height:200px;"></div>
+               </div>
+           </div>
+       </div>
+   </div>
+   <!--暂时不需要
+   <div class="row">
+       <div class="col-xs-6 app-colum right-block">
+           <div class="app-box">
+               <div class="sysinfo-footer">
+                   <span class="title">无线信号终端占比</span>
+               </div>
+               <div class="box-body">
+                   <div class="myEchart" id="wirelessClient" style="height:350px;"></div>
+               </div>
+           </div>
+       </div>
+       <div class="col-xs-6 app-colum right-block">
+           <div class="app-box">
+               <div class="sysinfo-footer">
+                   <span class="title">终端信号分布</span>
+               </div>
+               <div class="box-body">
+                   <div class="myEchart" id="clientChannel" style="height:350px;"></div>
+               </div>
+           </div>
+       </div>
+   </div>
+   -->
+</div>
+</body>
+</html>
+<script>
+    Utils.Pages.loadJS("maintain.analyse_type");
+</script>

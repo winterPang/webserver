@@ -1,0 +1,206 @@
+.custom .right {
+    float: right;
+}
+.custom .left {
+    float: left;
+}
+.custom .ml20 {
+    margin-left: 20px;
+}
+.custom .mr20 {
+    margin-right: 20px;
+}
+.custom .pl20 {
+    padding-left: 20px;
+}
+.custom .pr20 {
+    padding-right: 20px;
+}
+.custom .ml25 {
+    margin-left: 25px;
+}
+.custom .mr25 {
+    margin-right: 25px;
+}
+.custom .pl25 {
+    padding-left: 25px;
+}
+.custom .pr25 {
+    padding-right: 25px;
+}
+.custom .em-color {
+    color: #343e4e;
+    font-size: 24px;
+}
+.custom .pointer {
+    cursor: pointer;
+}
+.custom .pointer:hover {
+    color: #4ec1b2;
+}
+.custom .no-display {
+    display: none;
+}
+.custom .menu {
+    background-color: #edf9f7;
+    color: #343e4e;
+    height: 45px;
+    line-height: 45px;
+    border-radius: 0;
+    border: 1px solid #e7e7e9;
+}
+html .app-colum .app-box .box-footer .title, body .app-colum .app-box .box-footer .title {
+    color: #343e4e;
+    font-size: 15px;
+    padding-left: 25px;
+    float: left;
+}
+.custom .text-right {
+    float: right;
+    margin-right: 20px;
+}
+.custom .menu.menu-padding {
+    padding: 0 20px 0 20px;
+}
+.custom .menu-content {
+    display: inline-block;
+}
+.custom .views-border {
+    border: #e7e7e9 solid 1px;
+    margin-bottom: 20px;
+}
+.custom .view-title {
+    color: #343e4e;
+    height: 40px;
+    line-height: 40px;
+}
+.custom .zero-padding {
+    padding: 0 !important;
+}
+.custom .view-height {
+    height: 240px;
+}
+#daterange {
+    width: 165px;    
+}
+.custom .select-time label {
+    margin-left: 10px;
+    cursor: pointer;
+    margin-bottom: 0;
+}
+.custom .select-time label:hover {
+    color: #4ec1b2;
+}
+/*.custom .select-time input:checked+label {
+    color: #4ec1b2;
+    text-decoration: underline;
+}*/
+.menu-content .timeActive {
+    color: #4ec1b2;
+    text-decoration: underline;
+}
+.menu-content .inTimeActive {
+    color: #80878c;
+}
+.otherTimeActive {
+    cursor: auto !important;
+    color: #4ec1b2 !important;
+    text-decoration: underline ;
+}
+.menu-content .inOtherTimeActive {
+    cursor: auto !important;
+    color: #80878c !important;
+}
+.custom .select-time input[type="text"] {
+    height: 25px;
+    width: 190px;
+}
+.custom .detail-icon {
+    background: url(../../frame/images/wips-icon.png) no-repeat; 
+}
+.custom a.detail-icon {
+    background-position: -640px -70px;
+    width: 20px;
+    height: 12px;
+    margin: 13px 0 0 0;
+    cursor: pointer;
+}
+.custom a.detail-icon:hover {
+    background-position: -585px -70px;
+}
+.custom .statistics-table {
+    float: left;
+}
+.custom .statistics-table .table-height {
+    height: 90px;
+}
+.custom .detail-icon.position-one {
+    background-position: -215px -154px;
+    width: 33px;
+    height: 48px;
+}
+.custom .detail-icon.position-two {
+    background-position: -395px -155px;
+    width: 39px;
+    height: 48px;
+}
+.custom .detail-icon.position-three {
+    background-position: -590px -154px;
+    width: 47px;
+    height: 48px;
+}
+.custom .detail-icon.position-four {
+    background-position: -766px -154px;
+    width: 53px;
+    height: 48px;
+}
+.custom .detail-icon.position-five {
+    background-position: -976px -154px;
+    width: 43px;
+    height: 48px;
+}
+.custom .detail-icon.position-six {
+    background-position: -1173px -154px;
+    width: 48px;
+    height: 48px;
+}
+.custom .statistics-table td {
+    text-align: center;
+    padding: 0 !important; 
+}
+.custom .statistics-table span {
+    display: inline-block;
+    vertical-align: middle;
+}
+.custom .statistics-table .statistic-text {
+    display: inline-block;
+    vertical-align: middle;
+    /*width: 118px;*/
+    text-align: center;
+}
+.custom .statistics-table .border-right {
+    border-right: #e7e7e9 solid 1px;
+    /*margin: 0 0 0 14px;*/
+}
+.custom .statistics-table td .last {
+    margin: 0 0 0 16px;
+}
+.modal-normal {
+    margin: auto;
+    width: 800px;
+}
+.modal-body li {
+    color: #000;
+    font-size: 14px;
+}
+.modal-body li span {
+    font-weight: 600;
+}
+.no-overflow {
+    overflow: hidden;
+}
+
+.date_input {
+    line-height: 3px;
+    height: 30px;
+}

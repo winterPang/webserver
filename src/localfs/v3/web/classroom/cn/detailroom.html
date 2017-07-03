@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        #scannerDiv,#scannerSerialDiv{
+            display:none
+        }
+    </style>
+</head>
+<body>
+<div class="btn_h_return" id="return"></div>
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title" id="room_name"></span>
+            </div>
+            <div class="box-body no-height">
+                <div id="room-detail" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hide modal fade" id="AddDlg">
+    <form id="add_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required" id="apType_label">类型</label>
+            <div class="col-sm-9">
+                <select class="singleSelect required" id="apType" name="apType" errid="apType_error" ></select>
+                <label class="info-explain"></label>
+                <label class="error" id="apType_error"></label>
+            </div>
+        </div>
+        <div class="form-group" id="gateApDiv">
+            <label class="col-sm-3 control-label required">AP名称</label>
+            <div class="col-sm-9">
+                <select class="singleSelect required" id="classAP" name="classAP" errid="classAP_error"></select>
+                <label class="info-explain"></label>
+                <label class="error" id="classAP_error"></label>
+            </div>
+        </div>
+        <div class="form-group" id="scannerDiv">
+            <label class="col-sm-3 control-label required ">阅读器名称</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="scanner" name="scanner" errid="scanner_error" maxlength="32"/>
+                <label class="info-explain">(1-32字符)</label>
+                <label class="error" id="scanner_error"></label>
+            </div>
+        </div>
+        <div class="form-group" id="scannerSerialDiv">
+            <label class="col-sm-3 control-label">阅读器序列号</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" id="scannerSerial" name="scannerSerial" errid="scannerSerial_error" maxlength="32"/>
+                <label class="info-explain">(1-32字符)</label>
+                <label class="error" id="scannerSerial_error"></label>
+            </div>
+        </div>
+        <div class="form-group" id="moduleDiv">
+            <label class="col-sm-3 control-label">模块ID</label>
+            <div class="col-sm-9">
+                <select class="singleSelect" id="classModule" name="classModule" errid="classModule_error" ></select>
+                <label class="info-explain"></label>
+                <label class="error" id="classModule_error"></label>
+            </div>
+        </div>
+        <div class="form-group" id="moduleSerialDiv">
+            <label class="col-sm-3 control-label">模块serialId</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" id="serial" name="serial" errid="serial_error" maxlength="32"/>
+                <label class="info-explain">(1-32字符)</label>
+                <label class="error" id="serial_error"></label>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+<div id="room_rc" class="rc-define"
+     ROOM_HEAD="类型,绑定的AP,AP serialId,模块ID,模块serialId"
+     Detail="详情"
+        ></div>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.detailroom");
+</script>

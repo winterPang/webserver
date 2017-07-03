@@ -1,0 +1,308 @@
+<html>
+<head>
+    <!--<link href="../../web/frame/css/h-plugin.css" rel="stylesheet" type="text/css"/>-->
+    <style type="text/css">
+        div.smartschool .xx-link{
+            cursor:pointer;
+        }
+        div.smartschool .xx-link:hover, div.smartschool .xx-link:active, div.smartschool .xx-link:focus {
+             color: #4ec1b2;
+             /*border-bottom: 1px solid #4ec1b2;*/
+        }
+         div.smartschool .heart{
+             width: 150px;
+             height: 120px;
+             margin: 40px auto;
+         }
+         div.smartschool .heart.red{
+            background: url(css/image/smartschool.png) -65px -198px;
+         }
+         div.smartschool .heart.green{
+            background: url(css/image/smartschool.png) -65px -36px;
+         }
+         a.xx-link.active{
+            color: #4ec1b2;
+         }
+          /*div.smartschool .heart:before,*/
+          /*div.smartschool .heart:after{*/
+              /*position: absolute;*/
+              /*content: "";*/
+              /*left: 65px;*/
+              /*top: 36px;*/
+              /*width: 65px;*/
+              /*height: 100px;*/
+              /*background: #f1556b;*/
+              /*-moz-border-radius: 50px 50px 0 0;*/
+              /*border-radius: 50px 50px 0 0;*/
+              /*-webkit-transform: rotate(-45deg);*/
+              /*-moz-transform: rotate(-45deg);*/
+              /*-ms-transform: rotate(-45deg);*/
+              /*-o-transform: rotate(-45deg);*/
+              /*transform: rotate(-45deg);*/
+              /*-webkit-transform-origin: 0 100%;*/
+              /*-moz-transform-origin: 0 100%;*/
+              /*-ms-transform-origin: 0 100%;*/
+              /*-o-transform-origin: 0 100%;*/
+              /*transform-origin: 0 100%;*/
+          /*}*/
+          /*div.smartschool .heart::after{*/
+              /*left: 0;*/
+              /*-webkit-transform: rotate(45deg);*/
+              /*-moz-transform: rotate(45deg);*/
+              /*-ms-transform: rotate(45deg);*/
+              /*-o-transform: rotate(45deg);*/
+              /*transform: rotate(45deg);*/
+              /*-webkit-transform-origin: 100% 100%;*/
+              /*-moz-transform-origin: 100% 100%;*/
+              /*-ms-transform-origin: 100% 100%;*/
+              /*-o-transform-origin: 100% 100%;*/
+              /*transform-origin :100% 100%;*/
+          /*}*/
+          div.smartschool .too {
+                margin: 0px 0px 0px 10px;
+                position: absolute;
+                text-align: center;
+          }
+          div.smartschool .unhealth-count{
+              margin: 25px 0px 0px 0px;
+          }
+          div.smartschool .label-title{
+              color: #343e4e;
+              font-size: 29px;
+              border-bottom: 1px solid;
+          }
+          div.smartschool .app-box .body-box {
+              padding: 5px 37px 0px 0px;
+
+          }
+          div.smartschool .app-box .history-school{
+              padding: 0;
+          }
+          div.smartschool .heart-title {
+                font-size:19px;
+          }
+
+          div.smartschool .text-style {
+              position: relative;
+              width: 72px;
+              top: -98px;
+              text-align: center;
+              margin: 0 auto;
+          }
+
+          div.smartschool .pieStyle {
+              font-size: 22px;
+              display: block;
+              /* float: left; */
+              text-decoration: underline;
+              cursor: pointer;
+              margin: 0 auto;
+          }
+          div.smartschool span.studentStatu{
+              font-size: 19px;
+          }
+
+        div.smartschool .large-height {
+            height:815px;
+            position:relative;
+            width:100%;
+        }
+
+        /*div.smartschool .backmap{
+            background:url(../classroom/image/a.png) no-repeat 0px 0px;
+            position:absolute;
+            height:800px;
+            width:100%;
+        }*/
+
+        div.smartschool .heartheight{
+            height: 154px;
+        }
+
+        span.sTitle{
+            font-size: 15px;
+            color: #272856;
+        }
+    </style>
+</head>
+<body>
+<div class="smartschool dashboard">
+     <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="bg-transparent head-bar  wrap_c" style="background:initial;">
+                <div class="box-footer">
+                    <div class="col-xs-10">
+                        <span class="title">班级内告警消息</span>
+                    </div>
+                </div>
+                <div class="box-body no-height">
+                    <div class="col-xs-12" style="margin-bottom:15px; margin-top:15px">
+                        <div class="col-xs-4">
+                            <div id="serious" style="cursor:pointer;border:#e7e7e9 1px solid;height:70px;width:95%;background: #f9f9f9;margin-left:5px">
+                                <div class="icon-container">
+                                    <i class="syslog-icon emergency-icon"></i>
+                                </div>
+                                <div style="float:right">
+                                    <div style="font-size:12px;margin-right: 20px;margin-top: 10px;">紧急安全告警</div>
+                                    <div style="width: 80%">
+                                        <span id="critical" type="critical" style="color: #f05566;cursor: pointer;font-size:30px;float: right;">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div id="general" style="cursor:pointer;border:#e7e7e9 1px solid;height:70px;width:95%;background: #f9f9f9;margin-left:5px">
+                                <div class="icon-container">
+                                    <i class="syslog-icon critical-icon"></i>
+                                </div>
+                                <div style="float:right">
+                                    <div style="font-size:12px;margin-right: 20px;margin-top: 10px;">重要安全告警</div>
+                                    <div style="width: 80%">
+                                        <span id="emergency" type="emergency" style="color: #f46e7d;cursor: pointer;font-size:30px;float: right;">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div id="normal" style="cursor:pointer;border:#e7e7e9 1px solid;height:70px;width:95%;background: #f9f9f9;margin-left:5px">
+                                <div class="icon-container">
+                                    <i class="syslog-icon warning-icon"></i>
+                                </div>
+                                <div style="float:right">
+                                    <div style="font-size:12px;margin-right: 20px;margin-top: 10px;">安全提示</div>
+                                    <div style="width: 74%">
+                                        <span id="warning" type="warning" style="color: #ffbc53;cursor: pointer;font-size:30px;float: right;">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+     </div>
+     <div class="page-row">
+         <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color wrap_c">
+                 <div class="box-footer">
+                    <div class="col-xs-12">
+                        <span class="title">班内学生出勤统计</span>
+                    </div>
+                </div>
+                <div class="box-body body-box echart-height">
+                    <div class="col-xs-3">
+                        <div class="mid-echart-height">
+                            <div id="allStudent" class="myEchart"></div>
+                        </div>
+                        <div class="text-center">
+                            <span class="studentStatu">在校学生</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-3 ">
+                        <div class="mid-echart-height ">
+                            <div id="leaveupStudent" class="myEchart"></div>
+                        </div>
+                        <div class="text-center">
+                            <span class="studentStatu">请假学生</span>
+                        </div>
+                    </div>
+                    <!--<div class="col-xs-3">-->
+                        <!--<div class="mid-echart-height">-->
+                            <!--<div id="absentStudent" class="myEchart"></div>-->
+                        <!--</div>-->
+                        <!--<div class="text-center">-->
+                            <!--<span class="studentStatu">离校学生</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <div class="col-xs-3">
+                        <div class="mid-echart-height">
+                            <div id="absentStudent" class="myEchart"></div>
+                        </div>
+                        <div class="text-center">
+                            <span class="studentStatu">离校学生</span>
+                        </div>
+                    </div>
+                    <div class="col-xs-3">
+                        <div class="mid-echart-height">
+                            <div id="noArriveStu" class="myEchart"></div>
+                        </div>
+                        <div class="text-center">
+                            <span class="studentStatu">从未到校学生</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+         <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color wrap_c">
+                 <div class="box-footer">
+                     <div class="col-xs-8">
+                         <span class="title">班内课堂举手表现</span>
+                     </div>
+                     <div class="col-cs-4">
+                         <i class="detail-icon icon col-sm-1" title="详细列表" id="detailMore" value="raise" style="cursor:pointer; float: right"></i>
+                     </div>
+                     </div>
+                <div class="box-body history-school echart-height col-xs-12" >
+                    <div id="handRaise" class="myEchart col-xs-6" style="height: 100%"></div>
+                    <div class="col-xs-6" id="application_message" style="padding-top: 9%"></div>
+                </div>
+            </div>
+         </div>
+     </div>
+     <div class="page-row">
+         <div class="col-xs-6 app-colum left-block">
+             <div class="app-box no-bk-color app-box-slist wrap_c">
+                 <div class="box-footer">
+                     <div class="col-xs-12">
+                         <span class="title">班内个人健康数据排名（步数）</span>
+                     </div>
+                 </div>
+                 <div class="echart-height">
+                     <div id="footPrintList" class="simple-list"></div>
+                 </div>
+             </div>
+         </div>
+         <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color wrap_c">
+                <div class="box-footer">
+                    <div class="col-xs-6">
+                        <span class="title">班内考试成绩排名</span>
+                    </div>
+                    <div class="col-xs-6">
+                        <select id="gradeSelect"  allowClear="false" name="gradeSelect" class="singleSelect"
+                                style="float: right"></select>
+                    </div>
+                </div>
+                <div class="echart-height">
+                    <div id="gradePrintList" class="simple-list"></div>
+                </div>
+            </div>
+         </div>
+     </div>
+</div>
+
+<div class="modal fade modal-super" id="RaiseHandDlg">
+    <form id="Detail_form" class="form-horizontal form edit">
+        <div class="body-box">
+            <div id="raiseHandDetail" class="simple-list"></div>
+        </div>
+    </form>
+</div>
+
+
+
+<div id="c_campus_rc" class="rc-define"
+     SLIST_STEP="年级,班号,平均年龄,昨日平均步数"
+     SLIST_GRADE="学号,姓名,性别,年龄,成绩"
+     SLIST_RAISEHAND="学号,姓名,性别,年龄,举手次数"
+     SLIST_HEALTH="学号,姓名,性别,年龄,步数,排名"
+     STUDENT_TYPE="到校学生,请假学生,离校学生,从未到校学生"
+     CONTACT_NAME = "联系家长"
+     STU_IN_SCHOOL = "学生到校率"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.campusdashboard_teacher");
+</script>

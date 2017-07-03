@@ -1,0 +1,653 @@
+<html>
+<head>
+<!--<link href="../../web/frame/css/h-plugin.css" rel="stylesheet" type="text/css"/>-->
+
+<style type="text/css">
+    div.smartschool .xx-link{
+        cursor:pointer;
+    }
+    div.smartschool .xx-link:hover, div.smartschool .xx-link:active, div.smartschool .xx-link:focus {
+         color: #4ec1b2;
+         /*border-bottom: 1px solid #4ec1b2;*/
+    }
+     div.smartschool .heart{
+         width: 150px;
+         height: 120px;
+         margin: 40px auto;
+     }
+     div.smartschool .heart.red{
+        background: url(css/image/smartschool.png) -65px -198px;
+     }
+     div.smartschool .heart.green{
+        background: url(css/image/smartschool.png) -65px -36px;
+     }
+     a.xx-link.active{
+        color: #4ec1b2;
+     }
+      /*div.smartschool .heart:before,*/
+      /*div.smartschool .heart:after{*/
+          /*position: absolute;*/
+          /*content: "";*/
+          /*left: 65px;*/
+          /*top: 36px;*/
+          /*width: 65px;*/
+          /*height: 100px;*/
+          /*background: #f1556b;*/
+          /*-moz-border-radius: 50px 50px 0 0;*/
+          /*border-radius: 50px 50px 0 0;*/
+          /*-webkit-transform: rotate(-45deg);*/
+          /*-moz-transform: rotate(-45deg);*/
+          /*-ms-transform: rotate(-45deg);*/
+          /*-o-transform: rotate(-45deg);*/
+          /*transform: rotate(-45deg);*/
+          /*-webkit-transform-origin: 0 100%;*/
+          /*-moz-transform-origin: 0 100%;*/
+          /*-ms-transform-origin: 0 100%;*/
+          /*-o-transform-origin: 0 100%;*/
+          /*transform-origin: 0 100%;*/
+      /*}*/
+      /*div.smartschool .heart::after{*/
+          /*left: 0;*/
+          /*-webkit-transform: rotate(45deg);*/
+          /*-moz-transform: rotate(45deg);*/
+          /*-ms-transform: rotate(45deg);*/
+          /*-o-transform: rotate(45deg);*/
+          /*transform: rotate(45deg);*/
+          /*-webkit-transform-origin: 100% 100%;*/
+          /*-moz-transform-origin: 100% 100%;*/
+          /*-ms-transform-origin: 100% 100%;*/
+          /*-o-transform-origin: 100% 100%;*/
+          /*transform-origin :100% 100%;*/
+      /*}*/
+      div.smartschool .too {
+            margin: 0px 0px 0px 10px;
+            position: absolute;
+            text-align: center;
+      }
+      div.smartschool .unhealth-count{
+          margin: 25px 0px 0px 0px;
+      }
+      div.smartschool .label-title{
+          color: #343e4e;
+          font-size: 29px;
+          border-bottom: 1px solid;
+      }
+      div.smartschool .app-box .body-box {
+          padding: 5px 37px 0px 0px;
+
+      }
+      div.smartschool .app-box .history-school{
+          padding: 0;
+      }
+      div.smartschool .heart-title {
+            font-size:19px;
+      }
+
+      div.smartschool .text-style {
+          position: relative;
+          width: 72px;
+          top: -98px;
+          text-align: center;
+          margin: 0 auto;
+      }
+
+      div.smartschool .pieStyle {
+          font-size: 22px;
+          display: block;
+          /* float: left; */
+          text-decoration: underline;
+          cursor: pointer;
+          margin: 0 auto;
+      }
+      div.smartschool span.studentStatu{
+          font-size: 19px;
+      }
+
+    div.smartschool .large-height {
+        height:815px;
+        position:relative;
+        width:100%;
+    }
+
+    /*div.smartschool .backmap{
+        background:url(../classroom/image/a.png) no-repeat 0px 0px;
+        position:absolute;
+        height:800px;
+        width:100%;
+    }*/
+
+    div.smartschool .heartheight{
+        height: 154px;
+    }
+
+    .leg-panel .leg-row{
+        font-size:15px;
+        line-height:20px;
+        border: none;
+    }
+
+    .leg-panel .leg-row .leg-icon {
+        height: 30px;
+        width: 50px;
+        color: #4EC1B2;
+        font-weight: bolder;
+        font-style: italic;
+        font-size: 20px;
+        border-radius: 0;
+        padding-top:10px;
+
+    }
+    label.number-title {
+        font-size: 14px;
+    }
+
+    .leg-panel .leg-row .leg-title{
+        text-align:center;
+        padding-top:10px;
+    }
+    .page-row.leg-row.leg-border{
+        border-bottom: 1px solid #D6DCE3;
+    }
+
+    span.sTitle{
+        font-size: 15px;
+        color: #272856;
+    }
+    .icon1-container{
+        display: inline-block;
+        height: 10px;
+        width: 10px;
+        /*float: left;*/
+        margin-top: 9px;
+        margin-right: 10px;
+        border-radius: 5px;
+        
+    }
+   .samecolor{
+        background-color: #4ec1b2;
+        opacity: 0.5;
+    }
+    .title-color{
+        font-size: 24px;
+        color: white;
+    }
+    /*-------------------*/
+    
+        .rel {
+            position: relative;
+        }
+        .abs {
+            position: absolute;
+        }
+        /*.underline {
+            text-decoration: underline;
+        }*/
+        /*.lh1-5{
+            line-height: 1.5;
+        } */
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        /*.echart-center {
+            right: 32%;
+            top: 46%;
+            font-size: 22px;
+            color: #343e4e;
+        }*/
+
+        .iot .health_box .cir {
+            background: #4ec1b2;
+        }
+
+        .iot .health_box .boxname {
+            height: 28px;
+            border-bottom: none;
+        }
+
+        .iot .health_box .boxcont {
+            display: block;
+            height: 115px;
+        }
+
+        .heart{
+            background: url(css/image/smartschool.png) -59px -370px;
+            width: 150px;
+            height: 120px;
+            margin: 10px auto;
+        }
+
+        .foot{
+            background: url(css/image/smartschool.png) -310px -20px;
+            width: 85px;
+            height: 150px;
+            margin: 20px auto;
+        }
+
+        .healthbody{
+            padding: 0 30px 20px 25px!important;
+        }
+
+        .margin_36{
+            margin-top:36px;
+        }
+
+        .margin_20{
+            margin-top:20px;
+        }
+
+        #tooSlowHeart,#tooFastHeart,#history-step,#yesterday-step{
+            color: #343e4e;font-size:45px;
+        }
+        
+        .wrap_c {
+            background: #fff;
+            margin: 20px auto;
+            display: block;
+            /*width: 300px;
+            height: 310px;*/
+            /*padding:20px;*/
+            border-radius: 2px 2px 2px 2px; 
+            -webkit-box-shadow: 0 1px 4px 
+            rgba(0, 0, 0, 0.3), 0 0 40px 
+            rgba(0, 0, 0, 0.1) inset;
+            -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+            box-shadow: 0 1px 4px 
+            rgba(0, 0, 0, 0.3), 0 0 40px 
+            rgba(0, 0, 0, 0.1) inset;
+        }
+        
+        .wrap_b {
+            background: #fff;
+            margin: 20px auto;
+            display: block;
+            /*width: 300px;
+            height: 310px;*/
+            /*padding:20px;*/
+            border-radius: 2px 2px 2px 2px;
+            -webkit-box-shadow: 0 10px 6px -6px #777;
+            -moz-box-shadow: 0 10px 6px -6px #777;
+            box-shadow: 0 10px 6px -6px #777;
+        }
+        
+        .progress{
+                margin-bottom: 10px;
+                overflow: hidden;
+                background-color: #f5f5f5;
+                border-radius: 4px;
+                -webkit-box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+                box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        .echart-height-small{
+            height:180px;
+            /*width:180px;   */
+            width:auto;
+            margin: auto;
+        }
+        
+        .echart-height-half{
+            height:90px;
+            /*width:180px;   */
+            width:auto;
+            margin: auto;
+        }
+        
+        .text1{
+            color: #777!important;
+            margin-top: -30px;
+            text-align: center;
+        }
+</style>
+</head>
+<body>
+<div class="smartschool">
+   <div class="page-row dashboard">
+        <div class="col-xs-12 col-sm-4 app-colum left-block">
+            <div class="app-box no-bk-color wrap_c">    
+                <div class="box-footer">    
+                    <h5 class="title">紧急安全告警</h5>
+                </div>
+
+                <div class="box-body no-height healthbody">    
+                    <div class="col-xs-12">    
+                        <div>
+                            <div id="serious" >
+                                <div class="icon1-container">
+                                    <i class="syslog-icon emergency-icon"></i>
+                                </div>
+                                <div style="float:right">
+                                    <div style="width:0%">
+                                        <span id="critical" type="critical" style="color: #f05566;cursor: pointer;font-size:40px;float: right;margin-top: 10px;">0</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xs-12 col-sm-4 app-colum left-block">    
+            <div class="app-box no-bk-color wrap_c">    
+                <div class="box-footer">    
+                    <h5 class="title">重要安全告警</h5>
+                </div>
+
+                <div class="box-body no-height healthbody">    
+                    <div class="col-xs-12">    
+                        <div id="general" >
+                            <div class="icon1-container">
+                                <i class="syslog-icon critical-icon"></i>
+                            </div>
+                            <div style="float:right">
+                                
+                                <div style="width: 0%">
+                                    <span id="emergency" type="emergency" style="color: #f46e7d;cursor: pointer;font-size:40px;float: right;margin-top: 10px;">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-xs-12 col-sm-4 app-colum left-block">    
+            <div class="app-box no-bk-color wrap_c">
+                <div class="box-footer">    
+                    <h5 class="title">安全提示</h5>
+                </div>
+                <div class="box-body no-height healthbody">    
+                    <div class="col-xs-12">    
+                        <div id="normal" >
+                        <div class="icon1-container">
+                                <i class="syslog-icon warning-icon"></i>
+                            </div>
+                            <div style="float:right">
+                                <div style="width: 0%">
+                                    <span id="warning" type="warning" style="color: #ffbc53;cursor: pointer;font-size:40px;float: right;margin-top: 10px;">0</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   </div> 
+
+    <div class="page-row">
+        <div class="col-xs-12 col-sm-6 app-colum left-block">    
+        <div class="app-box no-bk-color wrap_c">    
+            <div class="box-footer">    
+                <div class="col-xs-4">
+                    <span class="title title-color">出勤统计</span>
+                </div>
+            </div>
+            <div class="box-body echart-height healthbody">    
+                    <div class="col-xs-12">    
+                            <div class="col-xs-3 ">
+                                <div class="mid-echart-height">
+                                <div id="allStudent" class="myEchart"></div>
+                            </div>
+                            <div class="text-center">
+                                <span class="studentStatu">在校学生</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 ">
+                            <div class="mid-echart-height ">
+                                <div id="leaveupStudent" class="myEchart"></div>
+                            </div>
+                            <div class="text-center">
+                                <span class="studentStatu">请假学生</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="mid-echart-height">
+                                <div id="absentStudent" class="myEchart"></div>
+                            </div>
+                            <div class="text-center">
+                                <span class="studentStatu">离校学生</span>
+                            </div>
+                        </div>
+                        <div class="col-xs-3">
+                            <div class="mid-echart-height">
+                                <div id="noArriveStu" class="myEchart"></div>
+                            </div>
+                            <div class="text-center">
+                                <span class="studentStatu">从未到校学生</span>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 app-colum left-block">     
+            <div class="app-box no-bk-color wrap_c">     
+                <div class="box-footer">    
+                    <div class="col-xs-4">
+                    <h5 class="title title-color">历史到校率</h5>
+                </div>
+                <div class="xxb text-right link-container widget-toolbar">
+                    <!--<a id="hour" class="xx-link active">1小时</a>&nbsp;&nbsp;|
+                    <a id="day" class="xx-link">1天</a>&nbsp;&nbsp;|-->
+                    <a id="week" class="xx-link">1周</a>&nbsp;&nbsp;|
+                    <a id="month" class="xx-link">1月</a>
+                    <!--<a id="year" class="xx-link">1年</a>-->
+                </div>
+            </div>
+            <div class="box-body echart-height healthbody">    
+                    <div class="col-xs-12">    
+                    <div id="HistoryCount" class="myEchart col-xs-12 "></div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+    <div class="page-row">
+        <div class="col-xs-12 col-sm-6 app-colum left-block">     
+        <div class="app-box no-bk-color wrap_c">     
+                <div class="box-footer">     
+                    <div class="col-xs-4">
+                    <h5 class="title title-color">心率告警</h5>
+                </div>
+            </div>
+                <div class="box-body echart-height healthbody">     
+                    <div class="col-xs-12">    
+                    <div class="col-xs-4 heartheight">
+                    <div class="heart green"></div>
+                </div>
+                <div class="col-xs-4 heartheight">
+                    <div class="too">
+                        <span class="dashboard-title heart-title">心率过速（> <span id="heartTooQuick">160</span>）</span>
+                        <div class="unhealth-count"><a id="QuickCount" class="xx-link label-title" type="heartQuick">0</a></div>
+                    </div>
+                </div>
+                <div class="col-xs-4 heartheight">
+                    <div class="too">
+                        <span class="dashboard-title heart-title">心率过缓（< <span id="heartRate">40</span>）</span>
+                        <div class="unhealth-count"><a id="SlowCount" class="xx-link label-title" type="heartSlow">0</a></div>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="col-xs-12 col-sm-6 app-colum left-block">     
+        <div class="app-box no-bk-color wrap_c">    
+                <div class="box-footer">    
+                    <div class="col-xs-4">
+                    <h5 class="title title-color">步数排名</h5>
+                </div>
+            </div>
+            <div class="box-body echart-height healthbody">    
+                <div class="col-xs-12">    
+                    <div id="footPrintList" class="simple-list"></div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+    
+<div class="page-row dashboard col-xs-12 classlist xxb widget-container-span">
+        <div class="col-xs-12 col-sm-12 app-colum left-block">    
+            <div class="app-box no-bk-color wrap_c">    
+                <div class="box-footer">     
+                <div class="col-xs-4" >
+                    <h5  class="title title-color">班级活跃度前五名</h5>
+                </div>
+            </div>
+                <div class="box-body midl-height healthbody">    
+                <div class="col-xs-12">     
+                    <div id="terminaltype_pie-Legend" class="panel leg-panel " style="width: 97%; height: 100%;">
+                        <div class="page-row leg-row">
+                            <div class="col-xs-2  text-center">
+                                <span class="leg-icon" style="background:#fff;"></span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title">年级</span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title">班号</span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title">课堂活跃度</span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title">课堂参与度</span>
+                            </div>
+                        </div>
+                        <div class="page-row leg-row leg-border">
+                            <div class="col-xs-2  text-center">
+                                <span class="leg-icon">Top1</span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title" id="Grade0"></span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title" id="Class0"></span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title" id="Live0"></span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title" id="Parti0"></span>
+                            </div>
+                        </div>
+                        <div class="page-row leg-row leg-border">
+                            <div class="col-xs-2  text-center">
+                                <span class="leg-icon">Top2</span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title" id="Grade1"></span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title" id="Class1"></span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title" id="Live1"></span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title" id="Parti1"></span>
+                            </div>
+                        </div>
+                        <div class="page-row leg-row leg-border">
+                            <div class="col-xs-2  text-center">
+                                <span class="leg-icon">Top3</span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title" id="Grade2"></span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title" id="Class2"></span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title" id="Live2"></span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title" id="Parti2"></span>
+                            </div>
+                        </div>
+                        <div class="page-row leg-row leg-border">
+                            <div class="col-xs-2  text-center">
+                                <span class="leg-icon">Top4</span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title" id="Grade3"></span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title" id="Class3"></span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title" id="Live3"></span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title" id="Parti3"></span>
+                            </div>
+                        </div>
+                        <div class="page-row leg-row leg-border">
+                            <div class="col-xs-2  text-center">
+                                <span class="leg-icon">Top5</span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title" id="Grade4"></span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title" id="Class4"></span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title" id="Live4"></span>
+                            </div>
+                            <div class="col-xs-2 text-center">
+                                <span class="leg-title" id="Parti4"></span>
+                            </div>
+                        </div>
+                        <div class="page-row leg-row leg-border">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="page-row">
+        <div class="col-xs-12 col-sm-12 app-colum left-block">    
+            <div class="app-box no-bk-color wrap_c">     
+                <div class="box-footer">    
+                <h4 class="title title-color">校园热图</h4>
+                <div class="text-right widget-toolbar">
+                    <span class="sTitle">选择地图</span>
+                    <select id="MapSelect" class="singleSelect" allowClear="false" name="" style="width: 180px"></select>
+                </div>
+            </div>
+            <div class="box-body no-height healthbody">    
+                <div class="col-xs-12">    
+                    <div id="canvasContain" style="position:relative; margin: 0 auto">
+                        <canvas id="myCanvas" class="app-colum" width="0" height="0" style="border:1px solid #d3d3d3;display:block;">
+                        你的浏览器不支持canvas！
+                    </canvas>
+                    <div class="app-colum myEchart " id="heat-map" style="position:absolute; top: 0;" >
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+</div>    
+    
+<div id="c_campus_rc" class="rc-define"
+     SLIST_STEP="年级,班号,平均年龄,昨日平均步数"
+     STUDENT_TYPE="到校学生,请假学生,离校学生,从未到校学生"
+     CONTACT_NAME = "联系家长"
+     STU_IN_SCHOOL = "学生到校率"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.campusdashboard");
+</script>

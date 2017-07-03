@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .app-box {
+            outline: 1px solid #dedddd;
+        }
+
+        .top {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        .right1 {
+            margin-left: 20px;
+            background:#fff;
+            vertical-align: middle;
+            height:36px;
+            line-height:36px;
+            padding:0 8px;
+            position:relative;
+            width:256px;
+            box-sizing:border-box;
+            display:none;
+        }
+
+        .datetimerange {
+            width: 200px !important;
+            margin: 0 !important;
+        }
+        .clientMac{
+            display:inline-block;
+            width: 150px !important;
+            margin: 0 !important;
+            border:none;
+
+        }
+        .search_icon{
+            display:inline-block;
+            background:url(../position/cocos/res/icon-search.png);
+            width:20px;
+            height:20px;
+            position:relative;
+            right:8px;
+            top:5px;
+        }
+
+        .clickUp{
+            display:inline-block;
+            background:url(../position/cocos/res/icon-clickUp.png);
+            background-size:cover;
+            width:26px;
+            height:20px;
+            position:relative;
+            right:0;
+            top:5px;
+            cursor:pointer;
+        }
+        .clickDown{
+            display:inline-block;
+            background:url(../position/cocos/res/icon-clickDown.png);
+            background-size:cover;
+            width:26px;
+            height:20px;
+            position:relative;
+            right:0;
+            top:5px;
+            cursor:pointer;
+        }
+        .interval {
+            width: 170px !important;
+            margin: 0 !important;
+        }
+        .client_history{
+            width:256px;
+            height:0;
+            overflow:hidden;
+            position:absolute;
+            /*bottom:-210px;*/
+            left:0;
+            background:#fff;
+            box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.2);
+            -webkit-box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.2);
+            border-top:none;
+            z-index:999;
+            padding:0 28px;
+            box-sizing:border-box;
+        }
+        .history_btn{
+            width:200px;
+            height:32px;
+            background: #4ec1b2;
+            color: rgba(255,255,255,0.5);
+            line-height: 32px;
+            padding: 0 10px 0 12px;
+            border-radius: 2px;
+            text-align: center;
+            border: none;
+            margin-top:28px;
+        }
+        #refresh,#back{
+            cursor:pointer;
+        }
+        .daterangepicker table thead tr th{
+            background:#4ec1b2!important;
+        }
+        .daterangepicker td.active, .daterangepicker td.active:hover{
+            background-color:#4ec1b2!important;
+        }
+        #canvas{
+            overflow:hidden;
+        }
+        .options{
+            display:inline-block;
+            float:right;
+            margin-right:20px;
+        }
+        .options_ul{
+            list-style:none;
+            overflow:hidden;
+        }
+        .options_ul li{
+            list-style:none;
+            float:left;
+            width:72px;
+            text-align:center;
+            cursor:pointer;
+            height:36px;
+            box-sizing:border-box;
+            margin-top:7px;
+            line-height:30px;
+        }
+        .options_left{
+            border:solid 3px #4ec1b2;
+        }
+        .options_right{
+            border:solid 3px #4ec1b2
+        }
+        .active_li{
+            background:#4ec1b2;
+            color:#fff;
+        }
+        #err_footer_interval{
+            width:150px;
+            color: #47495d;
+            font-size: 14px;
+            font-weight: normal;
+            display: none;
+            background: #fce6e6;
+            padding: 0px 10px;
+            line-height: 22px;
+            border: 1px solid #df443e;
+            margin-top: 1px;
+            border-radius: 5px;
+            position:absolute;
+            bottom:-25px;
+            left:0;
+        }
+    </style>
+</head>
+<body>
+<div class="page-row">
+    <div class="app-box">
+        <div class="box-footer">
+            <div class="col-xs-12">
+                <div class="top">地图名:<span class="mapName"></span></div>
+                <div class="top"  id="refresh">
+                    <img src="../position/cocos/res/icon-refresh.png"/>
+                    <span>刷新</span>
+                </div>
+                <div class="top" id="back">
+                    <img src="../position/cocos/res/icon-back.png"/>
+                    <span>返回</span>
+                </div>
+                <div class="right1">
+                    <span>MAC：</span>
+                    <span id="clientMac" class="clientMac"></span>
+                    <span class="search_icon"></span>
+                    <span id="slide" class="clickUp"></span>
+                    <div class="client_history">
+                        <div class="history_div">
+                            <div class="col-xs-12">
+                                <span class="search_span">选择日期：</span>
+                                <input type="text" id="datetimerange" class="datetimerange"/>
+                            </div>
+                            <div class="col-xs-12">
+                                <span class="search_span">轨迹间隔：</span>
+                                <input id="footer_interval" class="interval" type="number" min="10" maxlength=5
+                                       clientidmode="Static" placeholder="请输入大于10的数"/>
+                                <span class="search_span" style="margin-left:5px">秒</span>
+                                <label class="input-label" id="err_footer_interval">输入数值应大于10秒</label>
+                            </div>
+                            <div class="col-xs-12">
+                                <button class="history_btn btn">轨迹历史查询</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="options" id="options">
+                    <ul class="options_ul">
+                        <li class="options_left active_li">实时轨迹</li>
+                        <li class="options_right">历史轨迹</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-12" style="width: 100%;padding:0 25px;outline: 1px solid #dedddd;min-height:400px;">
+                <div class="col-xs-12 app-colum" id="canvas">
+                    <canvas id="gameCanvas"></canvas>
+                </div>
+                <!--<div class="col-xs-12" style="height: 120px"></div>-->
+            </div>
+        </div>
+
+    </div>
+</div>
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("position.client_trace");
+</script>

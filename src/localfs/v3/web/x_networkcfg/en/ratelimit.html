@@ -1,0 +1,75 @@
+<html lang="cn">
+
+<head>
+    <meta charset="UTF-8">
+    <link href="libs/css/jquery.slider.min.css" type="text/css" rel="stylesheet" />
+</head>
+
+<body>
+<div class="col-xs-12 app-colum xxb ratelimit" id="ratelimit" debug="GetQoSCfg">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">Guest Rate Limit</span>
+        </div>
+        <div class="box-body no-height padding0">
+            <div class="main-content">
+                <div id="limitswitch" class="content-title limitswitch">
+                    <h2>Rate limit</h2>
+                    <div class="col-sm-2 ctrl-btn openORclose en btn forbid"></div>
+                </div>
+                <div id="switchon">
+                    <div id="bandwidth">
+                        <div class="limit_head float-left">Bandwidth allocation</div>
+                        <div class="bottomline"></div>
+                        <div class="limit-slider" class="col-xs-12">
+                            <div>
+                                <label class="control-label">Total bandwidth</label>
+                                <input type="text" id="totalBand"class="totalBand" maxlength=3 onkeyup="this.value=this.value.replace(/\D/g,'')"/><span >Mbps</span>
+                                <label class="info-explain" for="limit"><span></span></label>
+                            </div>
+                            <div class="limit-sliders">
+                                <div class="slider-before">
+                                    <!--<span>Commercial WLAN</span><br/>
+                                    <span class="span"><span id="bussinessWifi">0.00</span><span>Mbps</span></span>
+                                </div>-->
+                                    <span >Internal WLAN bandwidth ratio</span><br/>
+                                    <span class="span"><span id="manageWifi">0</span><span>Mbps</span></span>
+                                </div>
+                                    <span class="slider">
+                                        <input id="Slider1" type="slider" name="price" value="0"/>
+                                   </span>
+                                <div class="slider-after">
+                                    <!--<span >Internal WLAN</span><br/>
+                                    <span class="span"><span id="manageWifi">0.00</span><span>Mbps</span></span>-->
+                                    <label class="info-explain" for="limit1"><span></span></label>
+                                </div>
+                            </div>
+                            <!--<label class="info-explain" for="limit1"><span></span></label>-->
+                            <label class="info-manageWifi">Configure an internal WLAN bandwidth ratio to ensure a minimum bandwidth for the correct operation of the internal WLAN when the network is busy.</label>
+                        </div>
+                    </div>
+                    <div class="btn_foot">
+                        <button class="btn btn_ok forbid" id="ok">OK</button>
+                        <button class="btn btn_cancel" id="cancel">Cancel</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="x_ratelimit_rc" class="rc-define"
+     CONFIG_QOS="Issuing configuration"
+     CONFIG_SUCCESS="Configuration succeeded"
+     CONFIG_ERROR="Configuration failed"
+     PROMPT_INFO="The total bandwidth cannot be 0.,The internal WLAN bandwidth ratio cannot be 0%.,The internal WLAN bandwidth ratio cannot be 100%."
+     FAIL_INFO ="Cloud has been configured successfully, device configuration failed"
+        ></div>
+</body>
+
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_networkcfg.ratelimit");
+
+</script>
+

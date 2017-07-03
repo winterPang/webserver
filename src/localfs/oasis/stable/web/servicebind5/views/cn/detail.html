@@ -1,0 +1,53 @@
+
+<style type="text/css">
+    .mbutton-location {
+        margin: 11px -57px 10px 32px;
+}
+</style>
+<div class="container-fluid">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height">          
+            <div class="box-footer">
+                <span class="title">服务绑定</span>
+            </div>
+            
+            <!--<div class="col-xs-12" id="device">               
+                <div class="col-xs-2 mbutton-location">
+                    <input type="radio" id="apgroupradio" name="devVer" value="1" checked class="input-element" ng-click="bindApGroup($event)">
+                    <label for="allversion">AP组</label>
+                </div>
+                <div class="col-xs-2 mbutton-location ml0">
+                    <input type="radio" id="apradio" name="devVer" value="2" class="input-element" ng-click="bindApGroup($event)">
+                    <label for="alonversion">AP</label>
+                </div>
+            </div>
+          -->
+            <div class="panel-body">
+             <!--<div ng-show='!tableTest'>
+                <div bs-Table="apGroupOptions"></div>
+            </div>
+            <div class="">-->
+                <div  bs-Table="apOptions"></div>
+            </div>
+            
+        </div>
+        </div>
+    </div>
+   
+   <div bs-modal="apGroupButtons.options">
+       <div bs-Table="bindStaOptions"></div>
+   </div>
+   
+   <div bs-modal="apButtons.options">
+       <div bs-Table="bindApStaOptions"></div>
+   </div>
+</div>
+ 
+<div id="ap_bindservice_rc" class="rc-define"
+        BASE_HEADER_S="AP组名称,AP组描述,无线服务数量,操作"     
+        BASE_HEADER_W="AP名称,无线服务数量,操作"
+        Bind_HEADER="无线服务名称,SSID,描述"
+        APGROUPBIND="AP组名称,SSID,描述"
+        OPERATION="绑定"
+        TiTTLE="操作,已绑定的无线服务"
+    ></div>

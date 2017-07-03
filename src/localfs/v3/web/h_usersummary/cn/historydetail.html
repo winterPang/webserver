@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<style type="text/css">
+		legend {
+			width: 10%;
+			margin-bottom: 0px;
+			display: block;
+			-webkit-padding-start: 2px;
+			-webkit-padding-end: 2px;
+			border-image-source: initial;
+			border-image-slice: initial;
+			border-image-width: initial;
+			border-image-outset: initial;
+			border-image-repeat: initial;
+			border: none;
+		}
+		fieldset {
+			display: block;
+			-webkit-margin-start: 2px;
+			-webkit-margin-end: 2px;
+			-webkit-padding-before: 0.35em;
+			-webkit-padding-start: 0.75em;
+			-webkit-padding-end: 0.75em;
+			-webkit-padding-after: 0.625em;
+			border-image-source: initial;
+			border-image-slice: initial;
+			border-image-width: initial;
+			border-image-outset: initial;
+			border-image-repeat: initial;
+			min-width: -webkit-min-content;
+			border: 2px groove threedface;
+			margin-bottom: 20px;
+		}
+		input.big{
+			width:190px;
+		}
+		.button{
+			min-width: 95px;
+			height: 32px;
+			margin-right: 10px;
+			background: #4ec1b2;
+			color: rgba(255,255,255,0.5);
+			line-height: 32px;
+			padding: 0 10px 0 12px;
+			border-radius: 2px;
+			text-align: center;
+			border-color: #4ec1b2;
+		}
+		.button:hover, .button:focus {
+			background: #31ADB4;
+			color: #FFF;
+			outline: none;
+		}
+		.icon{
+			display: inline-block;
+			margin: 3px 4px 0 0;
+			width: 14px;
+			height: 10px;
+			cursor: pointer;
+			background: url(../../web/frame/css/image/xb-icons.png) no-repeat -508px -130px;
+		}
+		.icon.open{
+			background-position: -485px -130px;
+		}
+		.col-sm-6{
+			display: inline;
+		}
+	</style>
+</head>
+<body>
+	<div class="page-row ">
+
+	    <div class="col-xs-12 app-colum right-block">
+			<div class="app-box">
+				<div class="box-footer">
+					<div class="col-xs-3">
+						<span class="title">历史明细</span>
+					</div>
+				</div>
+				<div class="box-body form-group  no-height">
+					<form class="hide">
+						<fieldset>
+						<legend><span class="icon open" id="change"></span>查询条件</legend>
+							<div class="" id="hideblock">
+								<div class="col-xs-6 app-colum left-block">
+									<label class="col-xs-3 ">手机号</label>
+									<div class="col-xs-9">
+										<input type="text" class="big" />
+									</div>
+									<label class="col-xs-3">终端地址从</label>
+									<div class="col-xs-9">
+										<input type="text" class="big" />
+									</div>
+									<label class="col-xs-3">接入时间从</label>
+									<div class="col-xs-9">
+										<input type="text" class="big" />
+									</div>
+									<label class="col-xs-3">下线时间从</label>
+									<div class="col-xs-9">
+										<input type="text" class="big" />
+									</div>
+									<label class="col-xs-3">接入时长（秒）从</label>
+									<div class="col-xs-9">
+										<input type="text" class="big" />
+									</div>
+									<label class="col-xs-3">终端MAC地址</label>
+									<div class="col-xs-9">
+										<input type="text" class="big" />
+									</div>
+								</div>
+								<div class="col-xs-6 app-colum right-block">
+									<label class="col-xs-3 ">认证方式</label>
+									<div class="col-xs-9">
+										<select id="" class="singleSelect" allowClear="false">
+											<option value=""></option>
+											<option value="0">一键认证</option>
+											<option value="1">短信认证</option>
+											<option value="2">微信公众号认证</option>
+											<option value="3">微信连WIFI</option>
+											<option value="4">绿洲APP</option>
+											<option value="5">固定账号认证</option>
+										</select>
+									</div>
+									<label class="col-xs-3">到</label>
+									<div class="col-xs-9">
+										<input type="text" class="big" />
+									</div>
+									<label class="col-xs-3">到</label>
+									<div class="col-xs-9">
+										<input type="text" class="big" />
+									</div>
+									<label class="col-xs-3">到</label>
+									<div class="col-xs-9">
+										<input type="text" class="big" />
+									</div>
+									<label class="col-xs-3">到</label>
+									<div class="col-xs-9">
+										<input type="text" class="big" />
+									</div>
+								</div>
+							</div>
+							<button class="button" id="search">查询</button>
+							<button class="button" id="reset">重置</button>
+					</fieldset>
+					</form>
+	                <div id="historylist" class="simple-list"></div>
+	            </div>
+			</div>
+		</div>
+
+	</div>
+	<div class="hide modal fade" id="detailinfo">
+		<form class="form-horizontal form" id="view_client_form">
+			<div class="col-xs-6 response-block">
+				<div class="form-group">
+					<label class="col-sm-4 control-label info-explain">接入SSID</label>
+					<span class="col-sm-6 label form-if-setHtml longstr" id="connetType" name="connetType">h3c-lvzhou</span>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label info-explain">终端MAC地址</label>
+					<span class="col-sm-6 label form-if-setHtml longstr" id="InetAddressIPV4" name="InetAddressIPV4">20-82-c0-69-e8-aa</span>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label info-explain">终端操作系统</label>
+					<span class="col-sm-6 label form-if-setHtml longstr" id="InetAddressIPV4" name="InetAddressIPV4">Android</span>
+				</div>
+			</div>
+			<div class="col-xs-6 response-block">
+				<div class="form-group">
+					<label class="col-sm-4 control-label info-explain">接入AP地址</label>
+					<span class="col-sm-6 label form-if-setHtml longstr" id="toggle_ip" name="toggle_ip">221.12.4.177</span>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label info-explain">终端IP地址</label>
+					<span class="col-sm-6 label form-if-setHtml longstr" id="DNS_address" title="" name="DNS_address">192.168.201.118</span>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-4 control-label info-explain">终端厂商名称</label>
+					<span class="col-sm-6 label form-if-setHtml longstr" id="DNS_address" title="" name="DNS_address"></span>
+				</div>
+			</div>
+		</form>
+	</div>
+	<div id="historyinfo_rc" class="rc-define"
+		 HISTORY = "账号名,手机号,认证方式,终端ip地址,接入时间,下线时间,接入时长,详细信息"
+		 AUTNENTICATE="一键认证"
+		 HISTORY_TERINFO="详情"
+			></div>
+
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_usersummary.historydetail");
+</script>

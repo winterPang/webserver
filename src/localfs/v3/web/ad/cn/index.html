@@ -1,0 +1,91 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height default-bottom">
+            <div class="box-footer">
+                <span class="title">概况</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="basic_slist" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-row">
+    <!-- 页面中最顶级元素 类名：page-row-->
+    <!--<div class="col-xs-6 app-colum left-block">-->
+        <!--<div class="app-box no-bk-color">-->
+            <!--<div class="box-footer">-->
+                <!--<span class="title">广告展示</span>-->
+            <!--</div>-->
+            <!--<div class="box-body body-nopadding">-->
+                <!--<div id="adShow" class="col-xs-12 myEchart" style="margin-top:20px;"></div>-->
+                <!--<div id="adLegend" class="col-xs-6 panel"></div>-->
+            <!--</div>-->
+        <!--</div>-->
+    <!--</div>-->
+    <div class="col-xs-12 app-colum">
+        <div class="app-box">
+            <div class="box-footer">
+                <span class="title">广告展示统计</span>
+                <div class="text-right link-container">
+                    <a type="button" class="link-send" id="todayAd">
+                        <span>今天</span>
+                    </a>
+                    |
+                    <a type="button" class="link-receive" id="yesterdayAd">
+                        <span>昨天</span>
+                    </a>
+                </div>
+            </div>
+            <div class="box-body">
+                <div class="form-group col-sm-12">
+                    <div id="adShowCount" class="myEchart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height default-bottom">
+            <div class="box-footer">
+                <span class="title">受访页面</span>
+                <div class="text-right link-container">
+                    <a type="button" class="link-send" id="todayPage">
+                        <span>今天</span>
+                    </a>
+                    |
+                    <a type="button" class="link-receive" id="yesterdayPage">
+                        <span>昨天</span>
+                    </a>
+                </div>
+            </div>
+            <div class="box-body no-height">
+                <div id="detail_slist" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="ad_rc" class="rc-define"
+     BASIC_ITEM = " ,浏览量（PV）,访客数（UV）,IP数,跳出率,平均访问时长,转化次数"
+     DETAIL_ITEM = "页面URL,浏览量（PV）,访客数（UV）,IP数,入口页次数,退出页次数,平均停留时间"
+     TODAY = "今天"
+     YESTERDAY = "昨天"
+     OTHER = "其它"
+     TOTAL = "当页汇总"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("ad.index");
+</script>

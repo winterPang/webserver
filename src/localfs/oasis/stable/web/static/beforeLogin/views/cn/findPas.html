@@ -1,0 +1,126 @@
+<div class="beforeLogin">
+    <div class="banner"></div>
+    <div class="content">
+        <img src="../img/logo-cn.png" class="logo">
+        <div class="go-login">已有账号，请<a href="../../../login.html">登录</a></div>
+        <div class="top-line"></div>
+        <div class="title">
+            <div>重置密码</div>
+            <!--<a class="change" ui-sref="findPasByEmail">邮箱找回</a>-->
+        </div>
+        <div class="line"></div>
+        <div class="step">
+            <div class="first" ng-if="step.firstStep">
+                <div class="first">确认账号</div>
+                <div class="second">重置密码</div>
+                <div class="center"></div>
+            </div>
+            <div class="second" ng-if="step.secondStep">
+                <div class="first">确认账号</div>
+                <div class="second">重置密码</div>
+                <div class="center"></div>
+            </div>
+        </div>
+        <form class="form pb50" name="byPhone" novalidate>
+            <div ng-show="step.firstStep">
+                <div class="form-group">
+                    <label>用户名</label>
+                    <input type="text" placeholder="请输入用户名 / 手机号 / 邮箱" ng-model="findPas.name"
+                           ng-change="clearError('name')" ng-keyup="keySubmitone($event)">
+                    <div class="error" ng-show="checkError.nameError">
+                        <span ng-bind="checkError.nameMessage"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>验证码</label>
+                    <input class="h142" type="text" placeholder="请输入验证码" ng-model="findPas.code"
+                           ng-change="clearError('code')" ng-keyup="keySubmitone($event)">
+                    <div class="code" ng-click="changeCode()">
+                        <img ng-src="{{getCode}}">
+                    </div>
+                    <div class="error" ng-show="checkError.codeError">
+                        <span ng-bind="checkError.codeMessage"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label></label>
+                    <div class="btn mt30" ng-click="step.next()">下一步</div>
+                </div>
+            </div>
+            <div ng-show="step.secondStep">
+                <div class="form-group" ng-show="step.secondStepPhone">
+                    <label>手机验证码</label>
+                    <input type="text" placeholder="请输入手机验证码" ng-model="findPas.checkCode"
+                           ng-change="clearError('check')" ng-keyup="keySubmittwo($event)">
+                    <div class="error" ng-show="checkError.checkCodeError">
+                        <span ng-bind="checkError.checkCodeMessage"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>新密码</label>
+                    <input class="pr37" id="password" type="password" placeholder="请输入8-32位登录密码" required ng-pattern="passwordpat"
+                           name="password" ng-model="findPas.password" ng-hide="showPassword"
+                           ng-blur="change.password=true" ng-focus="change.password=false"
+                           oncopy="return false;" onpaste="return false;" oncut="return false;" ng-keyup="keySubmittwo($event)">
+                    <input class="pr37" type="text" placeholder="请输入8-32位登录密码" ng-model="findPas.password" ng-show="showPassword"
+                           name="password1" ng-blur="change.password=true" ng-focus="change.password=false"
+                           oncopy="return false;" onpaste="return false;" oncut="return false;" ng-keyup="keySubmittwo($event)">
+                    <i class="icon-eye" ng-class="{'open':toggleEye}" ng-click="togglePassword()"></i>
+                    <div class="error"
+                         ng-show="byPhone.password.$invalid&&change.password&&(byPhone.password.$dirty||byPhone.password1.$dirty)"
+                         ng-messages="byPhone.password.$error">
+                        <span ng-message="required">密码不能为空</span>
+                        <span ng-message="pattern">8-32位非空格英文字符</span>
+                    </div>
+                    <div class="success" ng-show="byPhone.password.$valid&&change.password&&(byPhone.password.$dirty||byPhone.password1.$dirty)"></div>
+                    <div class="password-level" ng-show="passwordLevel">
+                        <div class="word">
+                            <div class="word1"><span ng-show="pw.l">弱</span></div>
+                            <div class="word2"><span ng-show="pw.m">中</span></div>
+                            <div class="word3"><span ng-show="pw.h">强</span></div>
+                        </div>
+                        <div class="level">
+                            <div class="level1" ng-show="pw.l"></div>
+                            <div class="level2" ng-show="pw.m"></div>
+                            <div class="level3" ng-show="pw.h"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>确认密码</label>
+                    <input class="pr37" type="password" placeholder="请输入确认密码" name="conpassword" ng-model="conpassword"
+                           ng-hide="showPasswordCon" required pw-check="password" ng-blur="change.conpassword=true"
+                           ng-focus="change.conpassword=false" oncopy="return false;" onpaste="return false;"
+                           oncut="return false;" ng-keyup="keySubmittwo($event)">
+                    <input class="pr37" type="text" placeholder="请输入确认密码" name="conpassword1" ng-model="conpassword"
+                           ng-show="showPasswordCon" ng-blur="change.conpassword=true"
+                           ng-focus="change.conpassword=false" oncopy="return false;" onpaste="return false;"
+                           oncut="return false;" ng-keyup="keySubmittwo($event)">
+                    <i class="icon-eye" ng-class="{'open':toggleEyeCon}" ng-click="togglePasswordCon()"></i>
+                    <div class="error"
+                         ng-show="byPhone.conpassword.$invalid&&change.conpassword&&(byPhone.conpassword.$dirty||byPhone.conpassword1.$dirty)"
+                         ng-messages="byPhone.conpassword.$error">
+                        <span ng-message="required">确认密码不能为空</span>
+                        <span ng-message="pwCheck">密码不一致</span>
+                    </div>
+                    <div class="success"
+                         ng-show="byPhone.conpassword.$valid && change.conpassword&&(byPhone.conpassword.$dirty||byPhone.conpassword1.$dirty)"></div>
+                </div>
+                <div class="form-group">
+                    <label></label>
+                    <div class="btn mt30" ng-click="step.dataSubmit()">立即重置</div>
+                </div>
+            </div>
+            <div class="form-group mt0" ng-show="error.show">
+                <label></label>
+                <div class="backstageError" ng-bind="error.message"></div>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="read_rc" id="findPas_rc"
+     request-error="请求发送失败，请重试"
+     code-error="图片验证码获取失败，请点击重试,请输入验证码,验证码有误,验证码已失效，请更换"
+     user-required="请输入用户名,账户有误"
+     phone-required="请输入手机验证码">
+</div>

@@ -1,0 +1,67 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 30,
+  "rows": [
+    {
+      "mac": "16:88:9E:C3:41:A1",
+      "rel_ap": "ap_ef3b5af8be772",
+      "online": 82,
+      "quality": "中等"
+    },
+    {
+      "mac": "2C:6F:BD:27:02:15",
+      "rel_ap": "ap_b6d27b19fd93b",
+      "online": 54,
+      "quality": "中等"
+    },
+    {
+      "mac": "15:41:47:91:AE:66",
+      "rel_ap": "ap_3df5e596ee5fc",
+      "online": 33,
+      "quality": "良好"
+    },
+    {
+      "mac": "97:86:93:81:A1:44",
+      "rel_ap": "ap_3e91d3fdfaace",
+      "online": 99,
+      "quality": "很差"
+    },
+    {
+      "mac": "DC:DE:28:10:53:D1",
+      "rel_ap": "ap_3612281aecf83",
+      "online": 32,
+      "quality": "良好"
+    },
+    {
+      "mac": "2B:EF:8F:F5:4B:32",
+      "rel_ap": "ap_c8ae85cd24658",
+      "online": 21,
+      "quality": "中等"
+    },
+    {
+      "mac": "AA:FB:8E:D9:FF:CA",
+      "rel_ap": "ap_fc17913a09ae8",
+      "online": 69,
+      "quality": "中等"
+    },
+    {
+      "mac": "54:B1:45:A8:18:40",
+      "rel_ap": "ap_5e71dec051443",
+      "online": 95,
+      "quality": "良好"
+    },
+    {
+      "mac": "92:53:D6:86:29:DD",
+      "rel_ap": "ap_036a21f773d25",
+      "online": 62,
+      "quality": "良好"
+    },
+    {
+      "mac": "56:48:C1:AB:F7:BD",
+      "rel_ap": "ap_c1b3015bba2a3",
+      "online": 1,
+      "quality": "良好"
+    }
+  ]
+}

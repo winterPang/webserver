@@ -1,0 +1,100 @@
+<style>
+	.ml{
+		margin-left: 80px;
+	}
+</style>
+
+<div class="page-row custom">
+    <div class="btn_h_return" ng-click="return()"></div> 
+
+    <div class="col-xs-12 app-colum ">
+        <div class="col-xs-12 app-box">
+            <div class="box-footer">
+                <div class="ml20">
+                	<div class="xb-input xb-radio tp3">
+		                <input type="radio" class="input-element" id="apBranch" name="area" value="apBranch" 
+		                ng-model="info.area" ng-click="apBranch()"/>
+		                <span class="input-icon radio-icon input-icon2" ng-class="{'checked': info.area =='apBranch'}"></span>
+		                <label for="apBranch" class="input-label"></label>
+		            </div>
+		            <label for="apBranch" class="mr5">分支</label>
+
+		            <div class="xb-input xb-radio tp3 ml">
+		                <input type="radio" class="input-element" id="ap" name="area" value="ap" 
+		                ng-model="info.area" ng-click="ap()"/>
+		                <span class="input-icon radio-icon input-icon2" ng-class="{'checked': info.area =='ap'}"></span>
+		                <label for="ap" class="input-label"></label>
+		            </div>
+		            <label for="ap" class="mr5">AP</label>
+                </div>             
+            </div>
+        </div>
+    </div> 
+
+    <div class="col-xs-12 app-box">
+        <div ng-show="apBranchArea">
+            <div class="panel panel-default">                  
+                <div class="panel-heading">
+                    <h3 class="panel-title">已绑定分支</h3>
+                </div>
+                           
+                <div class="panel-body">
+                    <button class="btn btn-cus" ng-click="unbindApBranch()" ng-disabled="unbindApBranchDisabled" 
+                    >解除绑定</button>               
+                    <div bs-Table="bindApBranchTable"></div>
+                </div>
+            </div>
+    
+            <div class="panel panel-default">  
+                <div class="panel-heading">
+                    <h3 class="panel-title">未绑定分支</h3>
+                </div>
+                           
+                <div class="panel-body">
+                    <button class="btn btn-cus" ng-click="bindApBranch()" ng-disabled="bindApBranchDisabled">绑定AP组</button>               
+                    <div bs-Table="unbindApBranchTable"></div>
+                </div>
+            </div>
+        </div>   
+    </div> 
+
+    <div class="col-xs-12 app-box">
+        <div ng-show="apArea">
+           <div class="panel panel-default">                  
+               <div class="panel-heading">
+                   <h3 class="panel-title">已绑定AP</h3>
+               </div>
+                          
+               <div class="panel-body">
+                   <button class="btn btn-cus" ng-click="unBindAp()" ng-disabled="unbindApDisabled">解除绑定</button>               
+                   <div bs-Table="bindApTable"></div>
+               </div>
+           </div>
+           
+           <div class="panel panel-default">  
+               <div class="panel-heading">
+                   <h3 class="panel-title">未绑定AP</h3>
+               </div>
+                          
+               <div class="panel-body">
+                   <button class="btn btn-cus" ng-click="bindAp()" ng-disabled="bindApDisabled">绑定AP</button>               
+                   <div bs-Table="unbindApTable"></div>
+               </div>
+           </div>
+        </div>
+    </div>
+</div>
+                   
+<div id="bindPage_rc" class="rc-define"
+      APBranch_HEADER="AP分支名称,AP数量"	
+      AP_HEADER="AP名称,所属分支"	
+      BIND_SUC="绑定成功"
+      BIND_SUC_RE="绑定成功,请手动刷新页面"
+      REBIND_SUC="解绑成功"
+      REBIND_SUC_RE="解绑成功,请手动刷新页面"
+      BIND_FAIL="绑定失败"
+      REBIND_FAIL="解绑失败"
+      APBranch="AP分支"
+      NOTICE="下Model数量为0,无法绑定无线服务"
+      MAIN="主链接断开导致操作失败,请检查设备"
+></div>

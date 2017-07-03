@@ -1,0 +1,24 @@
+.system_site2 .control-label {
+    margin-right: 10px;
+    text-align: right;
+    line-height: 15px;
+}
+
+.system_site2 .irf-field {
+    line-height: 32px;
+}
+
+.system_site2 .ng-error {
+    padding-left: 10px;
+}
+
+.system_site2 [bs-modal="detailModal"] div {
+    line-height: 30px;
+}
+
+.system_site2 .nav-tabs * {
+    user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    -webkit-user-select: none !important;
+}

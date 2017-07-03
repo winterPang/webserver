@@ -1,0 +1,10 @@
+{
+  "WebUI":
+[
+  {
+    "SessionAgingTime":"100"
+    ,"HTTP":{"Port":"80","AclNumber":"2034","State":"disable"}
+    ,"HTTPS":{"Port":"456","AclNumber":"0","State":"enable"}
+  }
+]
+}

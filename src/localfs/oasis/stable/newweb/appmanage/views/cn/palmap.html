@@ -1,0 +1,71 @@
+<div class="global-appstore">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">图聚</h3>
+        </div>
+        <div class="panel-body">
+
+            <ul class="nav nav-tabs" role="tablist">
+                <li ng-click="changeTab(0)" ng-class="{active:activeTab==0}"><a>绘图管理</a></li>
+                <li ng-click="changeTab(1)" ng-class="{active:activeTab==1}"><a>License管理</a></li>
+                <li ng-click="changeTab(2)" ng-class="{active:activeTab==2}"><a>矢量图制作</a></li>
+            </ul>
+            <div style="margin: 10px 0" ng-if="activeTab==0">
+                <table bs-table="bitmapTable"></table>
+            </div>
+            <div style="margin: 10px 0" ng-if="activeTab==1">
+                <a class="btn btn-cus" ng-href="{{btnUrl}}" target="_blank">购买</a>
+                <table bs-table="licenseTable"></table>
+            </div>
+            <div style="margin: 10px 0" ng-if="activeTab==2">
+                <div class="form-group zeromargin">
+                    <button class="btn btn-cus" ui-sref="global.content.application.mapmanage_add({appId:drawAppId})">新增地图原型</button>
+                </div>
+                <div>
+                    <table bs-table="original.table"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="palmapRc"
+         get-buy-link-failed="获取购买链接失败"
+         draw-manage-table-header="地图名,绘图状态,应用场所,到期时间,剩余时间(天)"
+         draw-status="使用中,绘制中,请修改图片,已失效"
+         table-opt-charge="续费"
+         table-opt-edit="修改图片"
+         modify-bitmap-title="修改地图原型"
+         modify-success="图片修改成功"
+         choice-picture="请选择图片"
+         picture-format="图片限于bmp,png,gif,jpeg,jpg,dwg格式"
+         picture-size="上传的文件大小不能超过2M！"
+         license-table-header="期限,购买日期,是否使用,剩余天数,到期时间"
+         license-table-used="未使用,已使用,使用中,已失效"
+         vectorgraph-table-header="地图名称,描述,比例尺,地址,应用场所,绑定License"
+         choice-license="选择license"
+         bind-success="绑定成功"
+         bind-fail="绑定失败"
+         choice-license-tip="请选择License"
+         choice-license-table-header="期限,购买日期,是否使用,剩余天数,到期时间">
+    </div>
+</div>
+<div bs-modal="license.modal">
+    <a class="btn btn-cus" ng-href="{{btnUrl}}" target="_blank" style="margin-bottom: 15px">购买</a>
+    <table bs-table="license.table"></table>
+</div>
+<div bs-modal="modifyBitmap.modal">
+    <div class="row mb15">
+        <label for="file" class="col-sm-2 control-label">上传图片</label>
+        <div class="col-sm-7">
+            <input type="text" class="form-control" ng-model="modifyBitmap.fileName" readonly>
+            <input id="file" type="file" required name="file" style="display: none">
+            <div style="min-height: 150px;border: 1px solid #e1e1e1;border-radius: 5px;margin-top: 15px">
+                <div ng-if="!modifyBitmap.data.path" style="height: 150px;line-height: 150px;font-size: 24px;text-align: center">图片预览</div>
+                <img ng-src="{{modifyBitmap.data.path}}" width="100%"/>
+            </div>
+        </div>
+        <div class="col-sm-1">
+            <button id="btnUpload" class="btn btn-cus">上传图片</button>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,97 @@
+<div class="global-appstore" style="position: relative;">
+    <div class="pictureSlider poster-main" data-setting='{"width":"1140","scale":0.8,"autoPlay":true,"delay":5000,"speed":300}'>
+        <div class="poster-btn poster-prev-btn"></div>
+        <ul class="poster-list">
+            <li class="poster-item" ng-repeat="carousel in carousels"><a ng-href="{{carousel.detailUrl}}" target="_blank"><img ng-src="{{carousel.carouselUrl}}" width="100%"></a></li>
+        </ul>
+        <div class="circleP">
+            <ul class="circle clearfix">
+                <li ng-repeat="carousel in carousels" ng-class="{'active':$index == 0}" ng-click="slideTo($event)" data-slide-to="{{$index-1}}"></li>
+            </ul>
+        </div>
+        <div class="poster-btn poster-next-btn"></div>
+    </div>
+
+    <div style="height: 112px; clear:both;">
+        <div class="all_border ">
+            <div class=" title_font" >全部应用</div>
+            <div class=" line_title"></div>
+        </div>
+    </div>
+    <div>
+        <div class="clear app_nav" >
+            <span class="" style="">
+                <span class="page_title" ng-click="clickOne('hot')" ng-class="color == 'hot'?'page_sel':'page_un_sel'">热门推荐</span>
+                <span class="page_title" ng-click="clickOne('new')" ng-class="color == 'new'?'page_sel':'page_un_sel'">新应用推荐</span>
+                <span ng-repeat="t in typeData">
+                    <span class="page_title" ng-click="clickOne(t.id)" ng-class="color == t.id ? 'page_sel':'page_un_sel'">{{t.name}}</span>
+                </span>
+                <span class="page_title" ng-click="clickOne('all')" ng-class="color == 'all'?'page_sel':'page_un_sel'">全部应用</span>
+                <span class="sort_con">
+                    <input placeholder="请输入搜索应用" class="text" id="search_app" ng-model="mySearch" ng-change="searchApp()"><span class="sort_icon" >
+                    </span>
+                </span>
+            </span>
+        </div>
+    </div>
+    <div style="width: 100%">
+        <div class="app_show">
+
+            <div class="app_contain clear" >
+                <div ng-if="datashow == true" style="margin:0 auto;">没有与“{{mySearch}}”相关的应用</div>
+                <div class="app_repeat" ng-repeat="a in show_data " >
+                    <a ng-href="{{a.detailUrl}}" target="_blank">
+                        <div class="left ad_log" ng-style="{backgroundImage: 'url('+a.logo+')',backgroudSize:img(a.logo)}"
+                             ng-class="{true:'log_width',false:'log_height'}[imageSize]"></div>
+                        <div class="right right_ad" >
+                            <div>
+                                <div class="ad_name left " ng-bind-html="a.name"></div>
+                                <div class="right free" ng-class="a.isFree == 0 ?'free':'unfree'"></div>
+                            </div>
+                            <div class="ad_brief" ng-bind-html="a.description"></div>
+                            <div class="right ad_page">{{a.appName}}</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="page_bar clear" >
+        <div style=" cursor:pointer;width:100%">
+            <div class="left">
+                <div>共计{{count}}条记录，当前第{{currentPage}}页，共{{pageCount}}页。</div>
+            </div>
+            <div class="right">
+                <div class="change_page" ng-click="paging('previous')">
+                    <b> &lt; </b>上一页 </div>
+
+                <div class="left" ng-repeat="x in pageNumData track by $index" >
+                    <div class="change_page" ng-class="{change_color: x == $parent.currentPage}"
+                    ng-click="paging(x)" ng-model="clickPage">{{x}}</div>
+                </div>
+
+                <div class="change_page"  style="margin-right: 10px;" ng-click="paging('next')">
+                    下一页 <b> &gt;</b></div>
+                <div class="right">
+                    <div class="right">
+                        <select class="singleSelect" style="width: 50px;height:30px;" ng-model="pageNum"
+                                ng-options="page for page in pageArr" ng-change = "selectPage()">
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+<div id="appstore_rc" class="rc-define"
+     first_page = "本页已经是第一页。"
+     last_page = "本页已经是最后一页。"
+     apps-error = "应用类型信息查询失败"
+     hots-error = "热门推荐信息查询失败"
+     new-error = "新应用推荐信息查询失败"
+     all-error = "全部应用信息查询失败"
+>
+</div>

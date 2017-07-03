@@ -1,0 +1,170 @@
+.title_ {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+#select_devsn_step_two #adManageModule {
+  clear: both;
+}
+#select_devsn_step_two #adManageModule ul {
+  padding-left: 0;
+  margin-bottom: 0;
+}
+#select_devsn_step_two #adManageModule ul > li {
+  float: left;
+  list-style: none;
+}
+#select_devsn_step_two #adManageModule .arrow-nav {
+  width: 98%;
+  height: 38px;
+  border: 1px solid #e7e7e9;
+  background-color: #f5f5f5;
+}
+#select_devsn_step_two #adManageModule .arrow-nav > li {
+  position: relative;
+  padding-left: 30px;
+  width: 25%;
+  height: 36px;
+  font: 14px "Microsoft Yahei";
+  color: #80878c;
+  line-height: 36px;
+}
+#select_devsn_step_two #adManageModule .arrow-nav > li:first-child {
+  padding-left: 20px;
+}
+#select_devsn_step_two #adManageModule .arrow-nav > li:before {
+  content: "";
+  z-index: 1;
+  position: absolute;
+  top: -1px;
+  right: -10px;
+  width: 0;
+  height: 0;
+  border-top: 19px solid transparent;
+  border-bottom: 19px solid transparent;
+  border-right: none;
+  border-left: 10px solid #f5f5f5;
+}
+#select_devsn_step_two #adManageModule .arrow-nav > li:after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: -11px;
+  width: 0;
+  height: 0;
+  border-top: 19px solid transparent;
+  border-bottom: 19px solid transparent;
+  border-right: none;
+  border-left: 10px solid #e7e7e9;
+}
+#select_devsn_step_two #adManageModule .arrow-nav > li:last-child:before {
+  content: none;
+}
+#select_devsn_step_two #adManageModule .arrow-nav > li:last-child:after {
+  content: none;
+}
+#select_devsn_step_two #adManageModule .arrow-nav > li.active {
+  background-color: #80878c;
+  color: #fff;
+}
+#select_devsn_step_two #adManageModule .arrow-nav > li.active:before {
+  border-left-color: #80878c;
+}
+#select_devsn_step_two #adManageModule .arrow-body {
+  width: 98%;
+  height: 338px;
+  border: 1px solid #e7e7e9;
+  border-top: none;
+}
+#select_devsn_step_two #adManageModule .arrow-body > li {
+  padding-top: 10px;
+  width: 25%;
+  height: 338px;
+  overflow: auto;
+  border-right: 1px solid #e7e7e9;
+}
+#select_devsn_step_two #adManageModule .arrow-body > li:last-child {
+  border-right: none;
+}
+#select_devsn_step_two #adManageModule .arrow-body > li:not(:last-child) div {
+  height: 30px;
+  margin-top: 4px;
+}
+#select_devsn_step_two #adManageModule .arrow-body > li:not(:last-child) div div {
+  font: 14px "Microsoft Yahei";
+  color: #343e4e;
+  height: 30px;
+  line-height: 30px;
+  padding-left: 20px;
+  cursor: pointer;
+}
+#select_devsn_step_two #adManageModule .arrow-body > li:not(:last-child) div label {
+  width: 90%;
+  padding-left: 5px;
+  cursor: pointer;
+  /*&.active {
+              color: #fff;
+              background-color: #78cec3;
+            }*/
+}
+#select_devsn_step_two #adManageModule .arrow-body > li:not(:last-child) div .status {
+  /*color:#c3c5c7;*/
+  font-size: 12px;
+}
+#select_devsn_step_two #adManageModule .arrow-body > li:not(:last-child) div .status_0:after {
+  color: #FE808B;
+  content: "未启用";
+  float: right;
+}
+#select_devsn_step_two #adManageModule .arrow-body > li:not(:last-child) div .status_1:after {
+  color: #78CEC3;
+  content: "已启用";
+  float: right;
+}
+#select_devsn_step_two #adManageModule .arrow-body > li:not(:last-child) div .status_2:after {
+  color: #F2BC98;
+  content: "已暂停";
+  float: right;
+}
+#select_devsn_step_two #adManageModule .arrow-body > li:not(:last-child) div.active,
+#select_devsn_step_two #adManageModule .arrow-body > li:not(:last-child) div:hover {
+  color: #fff;
+  background-color: #78cec3;
+}
+#select_devsn_step_two #adManageModule .arrow-body > li:not(:last-child) div.active .status,
+#select_devsn_step_two #adManageModule .arrow-body > li:not(:last-child) div:hover .status {
+  color: #5e9192;
+}
+#select_devsn_step_two #adManageModule .arrow-body > li:not(:last-child) div.active .status_0:after,
+#select_devsn_step_two #adManageModule .arrow-body > li:not(:last-child) div:hover .status_0:after {
+  color: #5e9192;
+}
+#select_devsn_step_two #adManageModule .arrow-body > li:not(:last-child) div.active .status_1:after,
+#select_devsn_step_two #adManageModule .arrow-body > li:not(:last-child) div:hover .status_1:after {
+  color: #5e9192;
+}
+#select_devsn_step_two #adManageModule .arrow-body > li:not(:last-child) div.active .status_2:after,
+#select_devsn_step_two #adManageModule .arrow-body > li:not(:last-child) div:hover .status_2:after {
+  color: #5e9192;
+}
+#select_devsn_step_two #adManageModule .arrow-body > li:last-child {
+  width: 25%;
+  margin: 0 auto;
+}
+#select_devsn_step_two #adManageModule .arrow-body > li:last-child button {
+  cursor: pointer;
+  display: block;
+  text-align: center;
+  width: 120px;
+  margin: 0 auto;
+}
+#select_devsn_step_two #adManageModule .arrow-body > li:last-child button.btn-confirm {
+  margin-top: 35px;
+}
+#select_devsn_step_two #adManageModule .arrow-body > li:last-child button.btn-repeat {
+  color: #80878c !important;
+  background-color: #e7e7e9;
+}
+#select_devsn_step_two #adManageModule .arrow-body > li:last-child button.btn-repeat:hover {
+  background-color: #dcdcdc;
+}

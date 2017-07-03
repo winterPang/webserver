@@ -1,0 +1,15 @@
+{"stList":
+    {"stBindTotalCnt":1,"stBindLeftCnt":0,"stBindList":
+        [
+            {"stName":"hexuebin","description":"","ssidName":"bin","status":1,"lvzhouAuthMode":0},
+            {"stName":"hexuebin","description":"","ssidName":"bin","status":1,"lvzhouAuthMode":0},
+            {"stName":"hexuebin","description":"","ssidName":"bin","status":1,"lvzhouAuthMode":0},
+            {"stName":"hexuebin","description":"","ssidName":"bin","status":1,"lvzhouAuthMode":0},
+            {"stName":"hexuebin","description":"","ssidName":"bin","status":1,"lvzhouAuthMode":0}
+        ],"stUnBindTotalCnt":3,"stUnBindLeftCnt":0,"stUnBindList":
+        [
+            {"stName":"fanxiaokun","description":"","ssidName":"xiaokun","status":1,"lvzhouAuthMode":0},
+            {"stName":"libai","description":"","ssidName":"jianlian","status":1,"lvzhouAuthMode":0},
+            {"stName":"baihuzi","description":"","ssidName":"haidao","status":1,"lvzhouAuthMode":0}
+        ]
+    },"apSN":"219801A0CNC13A001584","radioNum":2}

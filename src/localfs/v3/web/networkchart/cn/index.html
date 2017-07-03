@@ -1,0 +1,124 @@
+<html>
+<head>
+</head>
+<style>
+    .link-container{
+        position: absolute;
+        right: 5px;
+    }
+    a{
+        cursor: pointer;
+    }
+    .new-left-right-block{
+        padding-top:10px;
+        padding-bottom:10px;
+        padding-left:10px;
+        padding-right:10px;
+    }
+    #box-body2015{
+        height: auto!important;
+    }
+    .new_app-box{
+        outline: 1px solid #dedddd;
+        margin-bottom: 20px;
+        background: #fff;
+        overflow-y: hidden;
+        border: 0!important;
+    }
+    #Cocos2dGameContainer {
+        border: 1px  solid #EDF9f7;
+        padding: 20px;
+    }
+    .map{
+        width: 100%;
+        padding: 20px;
+        height:550px;
+        position: absolute;
+    }
+    .map1{
+        width: 33%;
+        left :760px;
+        top:70px;
+        position: absolute;
+    }
+    .colordiv{height:20px;width:20px;}
+    td { width: 50%;padding: 10px 20px 15px 17px;}
+</style>
+<body>
+<div class="page-row" >
+    <div class="col-xs-12 app-colum app-box left-block">
+        <div id="map_container1">
+            <div class="app-box" style="height:600px;">
+                <div class="box-footer">
+                    <div class="col-xs-12" >
+                        <div class="col-xs-6"style="width:265px">
+                            <label style="font-size: 16px">&nbsp选择地图&nbsp&nbsp</label>
+                            <select id="MapSelect" class="singleSelect" allowClear="false" name="" style="width: 180px"></select>
+                        </div>
+                        <div class="col-xs-6"style="width:265px">
+                            <label style="font-size: 16px">&nbsp射频类型&nbsp&nbsp</label>
+                            <select id="RadioSelect" class="singleSelect" allowClear="false" name="" style="width: 180px"></select>
+                        </div>
+                        <div class="text-right">
+                            <a type="button" class="refresh"  value = "1" id="refreshMap">
+                                <i class="refresh-icon icon"></i>
+                                <a type="button" class="filter" id="filter_Map">
+                                    <i class="filter-icon icon"></i>
+                                </a>
+                            </a>
+                        </div>
+                        <div class="hide text-right link-container"  id="filter_Mapradio" value="1" style="width: 450px;" >
+                            <div class="filter-container">
+                                <div class="form-horizontal form-bordered form edit">
+                                    <div class="form-group" id = "filter_Url">
+                                        <div class="col-sm-12">
+                                            <label class="col-sm-3 control-label" style="line-height:40px;padding-left:10px;">信道筛选</label>
+                                            <div class="col-sm-9">
+                                                <select id="Channel" class="mselect big" style="width:220px;margin-right: 90px" name="Channel"
+                                                    selectedId="Channel_select">
+                                                </select>
+                                                <div id="Channel_select" class="big" style="margin-left:4px"/>
+                                            </div>
+                                        </div>
+                                        <a id="filter_Remove"  class="form-btn icon-remove" style="float: right;margin-top:20px;margin-right: 1px "></a>
+                                        <a id="filter_ok"  class="form-btn icon-ok" style="float: right;margin-top:20px;margin-right: 20px "></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12" style="height:360px;width:740px;overflow:hidden">
+                        <div id="backmap-img" class="col-xs-8 app-colum map" style="z-index:0">
+                        </div>
+                        <div class="col-xs-8 app-colum  map" id="canvas1" style="z-index:1">
+                        </div>
+                        <div class="col-xs-8 app-colum map" id="canvas2" style="z-index:2">
+                        </div>
+                    </div>
+                    <div class="col-xs-4 app-colum map1" id="canvas3" >
+                        <table id="ChnlColor" style="margin-left: 2%;">
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<div id="natworkchart_rc" class="rc-define"
+	AP_NAME = "AP名称"
+	CHANNEL = "信道"
+	POWER = "功率"
+	NEIGHBOR = "邻居"
+></div>
+</body>
+</html>
+
+
+
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("networkchart.index");
+
+</script>

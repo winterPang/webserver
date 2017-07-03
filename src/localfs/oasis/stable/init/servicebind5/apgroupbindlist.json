@@ -1,0 +1,18 @@
+{"stList":
+    {"bindTotalCnt":0,"bindLeftCnt":0,"stBindList":
+        [
+            {"stName":"name1","ssidName":"ssid1","description":"ho"},
+            {"stName":"name2","ssidName":"ssid2","description":"ho"},
+            {"stName":"name3","ssidName":"ssid3","description":"ho"},
+            {"stName":"name5","ssidName":"ssid5","description":"ho"},
+            {"stName":"name4","ssidName":"ssid1","description":"ho"}
+        ],
+    "unBindTotalCnt":4,"unBindLeftCnt":0,"stUnBindList":
+        [
+            {"stName":"fanxiaokun","description":"","ssidName":"xiaokun","status":1,"lvzhouAuthMode":0},
+            {"stName":"hexuebin","description":"","ssidName":"bin","status":1,"lvzhouAuthMode":0},
+            {"stName":"libai","description":"","ssidName":"jianlian","status":1,"lvzhouAuthMode":0},
+            {"stName":"baihuzi","description":"","ssidName":"haidao","status":1,"lvzhouAuthMode":0}
+        ]
+   },"modelList":[]
+}

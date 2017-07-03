@@ -1,0 +1,224 @@
+<style>
+    .form-horizontal .control-label {
+        text-align: left !important;
+        padding-top: 2px;
+    }
+    .form-group {
+        margin-bottom:0px;
+    }
+    .form-horizontal [class^="col-md-"], 
+    .form-horizontal [class*="col-md-"],
+    .form-horizontal [class^="col-xs-"],
+    .form-horizontal [class*="col-xs-"],
+    .form-horizontal [class^="col-sm-"], 
+    .form-horizontal [class*="col-sm-"] {
+        line-height: 30px;
+    }
+</style>
+<div class="dashboard js-apinfo"> 
+    <div class="page-row"> 
+    <div class="col-xs-12 app-colum left-block" debug="Aps">
+            <div class="bg-bor"> 
+                <div class="head-bar"> 
+                    <div class="box-footer"> 
+                        <div class="col-xs-10"> 
+                            <span class="title_h">AP数量</span>
+                        </div> 
+                    <!--<div class="text-right link-container">
+                        <a type="button" class="link-detail js-aplist" ui-sref="^.apinfo2_detail_ap" title="更多">
+                        <i class="detail-icon icon"></i> </a>
+                    </div> -->
+                </div> 
+                <div class="col-xs-4">
+                    <div class="syslog-info-mine-Total">
+                        <div class="ap-icon_h icon-online"></div>
+                        <div class="right-text-info">      
+                            <span class="counter" id="online" ng-bind="online_ap"></span>
+                            <br />
+                            <span class="number-title">在线AP数</span>
+                        </div>                      
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="syslog-info-mine-Total">
+                        <div class="ap-icon_h icon-offline">
+                            
+                        </div>
+                        <div class="right-text-info">      
+                            <span class="counter" id="offline" ng-bind="offline_ap"></span>
+                            <br />
+                            <span class="number-title">离线AP数</span>
+                        </div>                      
+                    </div>
+                </div>
+                <div class="col-xs-4">
+                    <div class="syslog-info-mine-Total syslog-apinfo-border">
+                        <div class="ap-icon_h icon-unhealth">          
+                        </div>
+                        <div class="right-text-info">      
+                            <span class="counter" id="unhealthy" ng-bind="unhealth_ap"></span>
+                            <br />
+                            <span class="number-title">不健康AP数</span>
+                        </div>                      
+                    </div>
+                </div>
+            </div> 
+        </div> 
+    </div> 
+    <div class="page-row"> 
+        <div class="col-xs-6 app-colum left-block" debug="APModel_bar"> 
+            <!--<div class="app-box no-bk-color custom-height" > 
+                <div class="box-footer"> 
+                    <span class="title">基于AP型号</span>
+                </div> 
+                <div class="sysinfo-body">
+                    <div id="APModel_bar" class="myEchart col-xs-12"  style="width:522px;height:280px;"></div> 
+                </div> 
+            </div> -->
+            <div class="app-box no-bk-color" style="height:265px;" debug="According_client">
+                <div class="box-footer"> 
+                    <span class="title">基于终端数</span>
+                </div> 
+                <div class="sysinfo-body"> 
+                    <div id="According_client" class=" col-xs-12 myEchart" style="width:522px;height:280px;"></div>
+                </div>
+            </div> 
+        </div> 
+        <div class="col-xs-6 app-colum left-block"  debug="ApGroup_list"> 
+            <!--<div class="app-box no-bk-color custom-height"> 
+                <div class="box-footer"> 
+                    <span class="title">基于AP组</span> 
+                </div> 
+                <div class="box-body no-height"> 
+                    <div bs-table="ApGroup_list"> </div>
+                </div> 
+            </div> -->
+            <div class="default-height" debug="ApType_pie"> 
+                <div class="app-box no-bk-color" style="height:265px;"> 
+                    <div class="box-footer"> 
+                    <span class="title">基于AP类型</span> 
+                    </div> 
+                    <div class="sysinfo-body"> 
+                        <div id="ApType_pie" class="myEchart col-xs-12"  style="width:522px;height:280px;"></div> 
+                    </div> 
+                </div> 
+            </div> 
+        </div> 
+    </div> 
+    </div>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-height">
+                <div class="box-footer">
+                    <span class="title">AP列表</span>
+                </div>
+                <div class="box-body no-height">
+                    <div bs-table="tableOptions" ></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--<div bs-modal="apInfoByGroupOption" >
+    <div bs-table="apInfoByGroupList"> </div>
+</div>-->
+
+<div bs-modal="apInfoByClientOption" >
+    <div class="col-xs-12 info-tip">
+        <span style="color: rgb(78, 193, 178);
+        font-size: 15px;
+        margin: 10px 0px 10px 22px;
+        display: inline-block;">终端数 :</span>
+        <a ng-bind="clientNum" class="ap_client_name" time="1" style="color: grey;"></a>
+        &nbsp;&nbsp;
+        <span style="color: rgb(78, 193, 178);
+        font-size: 15px;
+        margin: 10px 0px 10px 22px;
+        display: inline-block;">AP数 :</span>
+        <a ng-bind="apNum" class="ap_client_num" time="1" style="color: grey;"></a>
+    </div>
+    <div bs-table="apInfoByClientList"> </div>
+</div>
+
+<div bs-modal="apInfoByTypeOption" >
+    <div class="col-xs-12 info-tip">
+        <span style="color: rgb(78, 193, 178);
+        font-size: 15px;
+        margin: 10px 0px 10px 22px;
+        display: inline-block;">AP类型 :</span>
+        <a ng-bind="apType" class="ap_type_value" time="1" style="color: grey;"></a>&nbsp;&nbsp;
+        <span style="color: rgb(78, 193, 178);
+        font-size: 15px;
+        margin: 10px 0px 10px 22px;
+        display: inline-block;">AP数量 :</span>
+        <a ng-bind="aptTypeNum" class="ap_type_num" time="1" style="color: grey;"></a>
+    </div>
+    <div bs-table="apInfoByTypeList"> </div>
+</div>
+
+
+<div id="flowdetailDlg" bs-modal='modalOptions'>
+    <form class="form-horizontal form" id="flowdetail_form">
+        <div class="col-sm-12">
+            <div class="form-group">
+                    <label class="col-sm-5 control-label info-explain">AP名称</label>
+                    <span class="label form-if-setHtml" id="apName">{{modalData.apName}}</span>
+            </div>
+
+            <div class="form-group">
+                    <label class="col-sm-5 control-label info-explain">AP型号</label>
+                    <span class="label form-if-setHtml" id="apModel">{{modalData.apModel}}</span>
+            </div>
+            <div class="form-group">
+                    <label class="col-sm-5 control-label info-explain">序列号</label>
+                    <span class="label form-if-setHtml" id="apSN">{{modalData.apSN}}</span>
+            </div>
+            <div class="form-group">
+                    <label class="col-sm-5 control-label info-explain">MAC地址</label>
+                    <span class="label form-if-setHtml" id="macAddr">{{modalData.macAddr}}</span>
+            </div>
+            <div class="form-group">
+                    <label class="col-sm-5 control-label info-explain">AP组名称</label>
+                    <span class="label form-if-setHtml" id="apGroupName">{{modalData.apGroupName}}</span>
+            </div>
+            <div class="form-group">
+                    <label class="col-sm-5 control-label info-explain">射频信息</label>
+                    <span class="label form-if-setHtml" id="radioList1">{{modalData.radioItem}}</span>
+            </div>
+            <div class="form-group">
+                    <label class="col-sm-5 control-label info-explain">AP状态</label>
+                    <span class="label form-if-setHtml" id="status1">{{modalData.apStatus}}</span>
+            </div>
+            <div class="form-group">
+                    <label class="col-sm-5 control-label info-explain">吞吐量(发送/接收，KB)</label>
+                    <span class="label form-if-setHtml" id="transmit_receive_Traffic">{{modalData.transmit_receive_Traffic}}</span>
+            </div>
+            <div class="form-group">
+                    <label class="col-sm-5 control-label info-explain">在线时长(天:时:分:秒)</label>
+                    <span class="label form-if-setHtml" id="onlineTime1">{{modalData.onlineTime}}</span>
+            </div>
+            <div class="form-group">
+                    <label class="col-sm-5 control-label info-explain">客户端数量</label>
+                    <span class="label form-if-setHtml" id="clientCount">{{modalData.clientCount}}</span>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="apinfo_rc" class="rc-define" 
+    group_header="AP组名称,AP数目"
+    ap_info_group="名称,型号,序列号,MAC"
+    ap_info_type="名称,型号,终端数量"
+    ap_info_client="名称,型号"
+    ssid_header="SSID,AP数目（5GHz）,AP数目（2.4GHz）"
+    ap_type="在线的手工AP,自动AP,离线的手工AP,未认证的AP" 
+    ap_diag_header = "AP名称,AP型号,AP类型" 
+    endnum_diag_header = "AP名称,AP型号,终端数" 
+    ALLAP_HEADER3="AP名称,型号,AP序列号,MAC地址" 
+    apType="在线的手工AP,自动AP,离线的手工AP,未认证的AP"
+    apClientType = "0,1~10,11~20,21~40,'',41~60,61~80,81~100,101以上"
+    AP_LIST="AP列表,在线,离线,版本下载,其他,详情"
+    AP_NAME="AP名称,AP型号,序列号,AP组名称,射频信息,在线时长（天:时:分:秒）,客户端数量"
+        >
+</div>

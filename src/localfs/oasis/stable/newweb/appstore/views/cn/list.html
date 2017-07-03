@@ -1,0 +1,100 @@
+<div class="global-appstore">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">应用商城</h3>
+        </div>
+        <div class="panel-body">
+            <!--显示容器-->
+            <div class="app-item-box" ng-show="hotApps.length">
+                <!--显示分类图标-->
+                <div class="app-box-header">热门应用</div>
+                <!--显示应用主体-->
+                <div class="app-box-body clearfix">
+                    <div ng-hide="hotApps.length" class="no-data">无数据</div>
+                    <!--显示单个应用-->
+                    <div class="app-item col-lg-2 col-md-3 col-sm-3 col-xs-6" ng-repeat="app in hotApps">
+                        <!--显示应用LOGO小图标-->
+                        <div class="app-item-icon">
+                            <!--<img ng-click="showDetail(app.id)" src="http://download.easyicon.net/png/1164771/72/" alt="{{app.name}}">-->
+                            <!--<img ng-click="showDetail(app.id)" src="http://172.27.9.118/data/upload/shop/store/goods/6/6_05349390159442003_240.jpg" alt="{{app.name}}">-->
+                            <img ng-click="showDetail(app.id)" ng-src="{{app.logo}}">
+                        </div>
+                        <!--显示应用名称-->
+                        <div class="app-item-name" ng-bind="app.name"></div>
+                    </div>
+                </div>
+            </div>
+            <!--显示容器-->
+            <div class="app-item-box" ng-show="newApps.length">
+                <!--显示分类图标-->
+                <div class="app-box-header">最新应用</div>
+                <!--显示应用主体-->
+                <div class="app-box-body clearfix">
+                    <div ng-hide="newApps.length" class="no-data">无数据</div>
+                    <!--显示单个应用-->
+                    <div class="app-item col-lg-2 col-md-3 col-sm-3 col-xs-6" ng-repeat="app in newApps">
+                        <!--显示应用LOGO小图标-->
+                        <div class="app-item-icon">
+                            <!--<img ng-click="showDetail(app.id)" src="http://download.easyicon.net/png/1164771/72/" alt="{{app.name}}">-->
+                            <!--<img ng-click="showDetail(app.id)" src="http://172.27.9.118/data/upload/shop/store/goods/6/6_05349390159442003_240.jpg" alt="{{app.name}}">-->
+                            <img ng-click="showDetail(app.id)" ng-src="{{app.logo || img}}">
+                        </div>
+                        <!--显示应用名称-->
+                        <div class="app-item-name" ng-bind="app.name"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="app-item-box">
+                <!--显示分类图标-->
+                <div class="app-box-header">所有应用</div>
+                <!--显示应用主体-->
+                <div class="app-box-body clearfix">
+                    <div class="col-xs-6">
+                        <div class="app-all-type">免费</div>
+                        <div ng-hide="freeApps.length" class="no-data">无数据</div>
+                        <!--显示单个应用-->
+                        <div class="app-item col-lg-4 col-md-6 col-sm-6 col-xs-12" ng-repeat="app in freeApps">
+                            <!--显示应用LOGO小图标-->
+                            <div class="app-item-icon">
+                                <!--<img ng-click="showDetail(app.id)" src="http://download.easyicon.net/png/1164771/72/" alt="{{app.name}}">-->
+                                <!--<img ng-click="showDetail(app.id)" src="http://172.27.9.118/data/upload/shop/store/goods/6/6_05349390159442003_240.jpg" alt="{{app.name}}">-->
+                                <img ng-click="showDetail(app.id)" ng-src="{{app.logo || img}}">
+                            </div>
+                            <!--显示应用名称-->
+                            <div class="app-item-name" ng-bind="app.name"></div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6" style="border-left: 1px solid #ddd">
+                        <div class="app-all-type">付费</div>
+                        <div ng-hide="feeApps.length" class="no-data">无数据</div>
+                        <!--显示单个应用-->
+                        <div class="app-item col-lg-4 col-md-6 col-sm-6 col-xs-12" ng-repeat="app in feeApps">
+                            <!--显示应用LOGO小图标-->
+                            <div class="app-item-icon">
+                                <!--<img ng-click="showDetail(app.id)" src="http://download.easyicon.net/png/1164771/72/" alt="{{app.name}}">-->
+                                <!--<img ng-click="showDetail(app.id)" src="http://172.27.9.118/data/upload/shop/store/goods/6/6_05349390159442003_240.jpg" alt="{{app.name}}">-->
+                                <img ng-click="showDetail(app.id)" ng-src="{{app.logo || img}}">
+                            </div>
+                            <!--显示应用名称-->
+                            <div class="app-item-name" ng-bind="app.name"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div bs-modal="detailModal" class="app-detail-modal">
+        <p>应用名称：{{detail.name}}</p>
+        <p>应用简介：{{detail.description}}</p>
+        <p>应用预览：</p>
+        <p>
+            <img width="100%" ng-src="{{detail.logo}}" alt="">
+            <!--<img width="100%" ng-src="//gss0.baidu.com/-4o3dSag_xI4khGko9WTAnF6hhy/zhidao/pic/item/42166d224f4a20a4aa3b45a092529822720ed0b4.jpg" alt="">-->
+        </p>
+    </div>
+    <div id="appstore_list"
+         modal_ok="购买"
+         modal_cancel="取消"
+         modal_title="应用详情"
+    ></div>
+</div>

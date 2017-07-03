@@ -1,0 +1,408 @@
+<html>
+<head>
+</head>
+<style>
+    #ant-cpu-info.ant-block-size{
+        margin: 10px;
+        width: 250px;
+        height: 70px;
+        background-color: #ffffff;
+    }
+
+    #ant-memory-info.ant-block-size{
+        width: 250px;
+        height: 70px;
+        background-color: #ffffff;
+    }
+    #ant-temperature-info.ant-block-size{
+        width: 250px;
+        height: 70px;
+        background-color: #ffffff;
+    }
+    #ant-aponline-info.ant-block-size{
+        width: 250px;
+        height: 70px;
+        background-color: #ffffff;
+    }
+
+
+    .ant-table-left{
+        width: 70px;
+    }
+    .ant-table-right{
+        height: 33.3333333333333%;
+    }
+    .ant-square-small{
+        width: 100%;
+        height: 18px;
+        display: inline-block;
+        display: inline-block;
+        color:white;
+    }
+    .ant-color-danger{
+        background: #F76464;
+    }
+    .ant-color-warning{
+        background: #F5C61B;
+    }
+    .ant-color-normal{
+        background: #52C552;
+    }
+    .ant-color-red{
+        color: #F76464;
+    }
+    .ant-color-yellow{
+        color: #F5C61B;
+    }
+    .ant-color-green{
+        color: #52C552;
+    }
+
+    .ant-table-center{
+        vertical-align: middle;
+        text-align: center;
+    }
+    table tr:first-child{
+        height: 40%;
+    }
+    table tr:first-child td{
+        font-family: cursive;
+    }
+    table tr:nth-child(2){
+        height: 25%;
+    }
+    table tr:nth-child(2) td{
+        font-size: 12px;
+        color: black;
+    }
+    table tr:nth-child(3){
+        height: 15%;
+    }
+    table tr:nth-child(4){
+        height: 20%;
+    }
+
+    table{
+        text-align: center;
+        vertical-align: middle;
+        margin: 10px;
+    }
+
+    .ant-cpu-icon{
+        width: 100%;
+        height: 50px;
+        background:url(css/image/ant-temp.jpg) no-repeat -70px -351px;
+    }
+
+    .ant-memory-icon{
+        width: 100%;
+        height: 50px;
+        background:url(css/image/ant-temp.jpg) no-repeat -861px -350px;
+    }
+
+    .ant-temprature-icon{
+        width: 100%;
+        height: 50px;
+        background:url(css/image/ant-temp.jpg) no-repeat -317px -206px;
+    }
+
+    .ant-online-icon{
+        width: 100%;
+        height: 50px;
+        background:url(css/image/ant-temp.jpg) no-repeat -765px -355px;
+    }
+
+    table{
+        float: left;
+        /*border: #ccc solid 1px;*/
+    }
+
+
+    .ant-cpu-info{
+        text-align: left;
+    }
+    .ant-icon-right span:before{
+        content: '';
+        width: 22px;
+        height: 18px;
+        float: left;
+        background:url(css/image/v7_icon.png) no-repeat -188px -15px;
+        display: inline-block;
+    }
+    .ant-icon-wrong span:before{
+        content: '';
+        width: 22px;
+        height: 18px;
+        float: left;
+        background:url(css/image/v7_icon.png) no-repeat -96px -15px;
+        display: inline-block;
+    }
+    .ant-cpu-info span{
+        font-size: 12px;
+    }
+    .ant-container{
+        box-shadow: 1px 1px 5px 0px;
+        height: 112px;
+        width: 272px;
+        float: left;
+        margin-left: 5px;
+        margin-right: 5px;
+        margin-bottom: 10px;
+    }
+
+    .ant-title{
+        font-size: 18px;
+        font-weight: 600;
+    }
+
+    .ant-container:hover{
+        margin-top: -1px;
+        margin-bottom: 11px;
+        box-shadow: 2px 2px 5px 0px;
+        cursor: pointer;
+    }
+
+
+    .ant-pannel{
+        background: #E9F3F1;
+        height: 35px;
+        padding: 7px 0 0 20px;
+        color: black;
+        font-size: 16px;
+        margin-bottom: 10px;
+    }
+
+    .ant-app-box{
+        margin: 20px 0 0 0;
+    }
+    .ant-default-size{
+        margin: 10px;
+        box-shadow: 1px 1px 5px 0px;
+        width: 350px;
+        float: left;
+    }
+
+    .ant-default-size .ant-icon-wrong,.ant-default-size .ant-icon-right{
+        margin-left: 40px;
+        padding-bottom: 5px;
+    }
+
+
+
+
+
+</style>
+<body>
+
+<div class="page-row" id="wips_monitor">
+    <div id="ant-sys-info" class="col-xs-12 ant-app-box">
+        <div class="ant-pannel">系统信息</div>
+
+        <div class="col-xs-12">
+            <div id="cpu_info" class="ant-container">
+                <table id="ant-cpu-info" class="ant-block-size" border="0">
+                    <tr>
+                        <td rowspan="3" class="ant-table-left">
+                            <div class="ant-cpu-icon"></div>
+                        </td>
+                        <td class="ant-title ant-color-red">1%</td>
+                        <td class="ant-title ant-color-yellow">19%</td>
+                        <td class="ant-title ant-color-green">80%</td>
+                    </tr>
+                    <tr>
+                        <td class="ant-subtitle">1个</td>
+                        <td class="ant-subtitle">19个</td>
+                        <td class="ant-subtitle">80个</td>
+                    </tr>
+                    <tr>
+                        <td class="ant-table-center">
+                            <div class="ant-square-small ant-color-danger">&gt;60%</div>
+                        </td>
+                        <td class="ant-table-center">
+                            <div class="ant-square-small ant-color-warning">30%~60%</div>
+                        </td>
+                        <td class="ant-table-center">
+                            <div class="ant-square-small ant-color-normal">&lt;30%</div>
+                        </td>
+                    </tr>
+                    <tr class="ant-background-normal">
+                        <td>
+                            <span class="ant-title">CPU</span>
+                        </td>
+                        <td class="ant-cpu-info ant-icon-wrong" colspan="3">
+                            <span>存在CPU使用过高的ap</span>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="ant-container">
+                <table id="ant-memory-info" class="ant-block-size" border="0">
+                    <tr>
+                        <td rowspan="3" class="ant-table-left">
+                            <div class="ant-memory-icon"></div>
+                        </td>
+                        <td class="ant-title ant-color-red">5%</td>
+                        <td class="ant-title ant-color-green">95%</td>
+                    </tr>
+                    <tr>
+                        <td class="ant-subtitle">5个</td>
+                        <td class="ant-subtitle">95个</td>
+                    </tr>
+                    <tr>
+                        <td class="ant-table-center">
+                            <div class="ant-square-small ant-color-danger">&gt;70%</div>
+                        </td>
+                        <td class="ant-table-center">
+                            <div class="ant-square-small ant-color-normal">&lt;50%</div>
+                        </td>
+                    </tr>
+                    <tr class="">
+                        <td>
+                            <span class="ant-title">内存</span>
+                        </td>
+                        <td class="ant-cpu-info ant-icon-wrong" colspan="2">
+                            <span>存在内存过高的AP</span>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="ant-container">
+                <table id="ant-temperature-info" class="ant-block-size" border="0">
+                    <tr>
+                        <td rowspan="3" class="ant-table-left">
+                            <div class="ant-temprature-icon"></div>
+                        </td>
+                        <td class="ant-title ant-color-red">3%</td>
+                        <td class="ant-title ant-color-green">97%</td>
+                    </tr>
+                    <tr>
+                        <td class="ant-subtitle">3个</td>
+                        <td class="ant-subtitle">97个</td>
+                    </tr>
+                    <tr>
+                        <td class="ant-table-center">
+                            <div class="ant-square-small ant-color-danger">&gt;68℃</div>
+                        </td>
+                        <td class="ant-table-center">
+                            <div class="ant-square-small ant-color-normal">&lt;55℃</div>
+                        </td>
+                    </tr>
+                    <tr class="">
+                        <td>
+                            <span class="ant-title">温度</span>
+                        </td>
+                        <td class="ant-cpu-info ant-icon-wrong" colspan="2">
+                            <span>存在温度过高的AP</span>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="ant-container">
+                <table id="ant-aponline-info" class="ant-block-size" border="0">
+                    <tr>
+                        <td rowspan="3" class="ant-table-left">
+                            <div class="ant-online-icon"></div>
+                        </td>
+                        <td class="ant-title ant-color-red">98%</td>
+                    </tr>
+                    <tr>
+                        <td class="ant-subtitle">98个</td>
+                    </tr>
+                    <tr>
+                        <td class="ant-table-center">
+                            <div class="ant-square-small ant-color-danger">在线AP</div>
+                        </td>
+                    </tr>
+                    <tr class="">
+                        <td>
+                            <span class="ant-title">在线率</span>
+                        </td>
+                        <td class="ant-cpu-info ant-icon-wrong" colspan="2">
+                            <span>存在未上线的AP</span>
+                        </td>
+                    </tr>
+
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="ant-client-info" class="col-xs-12 ant-app-box">
+        <div class="ant-pannel">客户端信息</div>
+        <div  style="width:720px;" class="ant-default-size">
+            <div id="net-speed" class="myEchart col-xs-12"></div>
+            <div class="ant-icon-wrong" colspan="3">
+                <span>存在大量低速率终端</span>
+            </div>
+        </div>
+        <div class="ant-default-size">
+            <div id="radio-ratio" class="myEchart col-xs-12"></div>
+            <div class="ant-icon-wrong" colspan="3">
+                <span>2.4G客户端占比过高</span>
+            </div>
+        </div>
+        <div class="ant-default-size">
+            <div id="rssi-ratio" class="myEchart col-xs-12"></div>
+            <div class="ant-icon-wrong" colspan="3">
+                <span>弱信号客户端占比大</span>
+            </div>
+        </div>
+        <div class="ant-default-size">
+            <div id="assosciation-rate" class="myEchart col-xs-12"></div>
+            <div class="ant-icon-wrong" colspan="3">
+                <span>关联失败率较高</span>
+            </div>
+        </div>
+        <div class="ant-default-size">
+            <div id="packet-loss-rate" class="myEchart col-xs-12"></div>
+            <div class="ant-icon-wrong" colspan="3">
+                <span>当前网络环境丢包严重</span>
+            </div>
+        </div>
+        
+
+    </div>
+    <div id="ant-ap-info" class="col-xs-12 ant-app-box">
+        <div class="ant-pannel">AP信息</div>
+       <div style="width:720px;"  class="ant-default-size">
+            <div id="qulity-channel" class="myEchart col-xs-12"></div>
+            <div class="ant-icon-right" colspan="3">
+                <span>AP信道质量整体较好</span>
+            </div>
+        </div>        <div class="ant-default-size">
+            <div id="channel-occupancy-rate" class="myEchart col-xs-12"></div>
+            <div class="ant-icon-wrong" colspan="3">
+                <span>存在大量信道占用率过高的AP</span>
+            </div>
+        </div>
+        <div class="ant-default-size">
+            <div id="channel-jamming-rate" class="myEchart col-xs-12"></div>
+            <div class="ant-icon-wrong" colspan="3">
+                <span>存在大量信道被干扰的AP</span>
+            </div>
+        </div>
+ 
+
+    </div>
+</div>
+<div class="hide modal fade" id="ApStationDlg">
+    <form class="form-horizontal form" id="ApStationForm">
+        <div class="simple-list col-xs-12" id="apList"></div>
+    </form>
+</div>
+
+
+
+<div id="chinese_rc" class="rc-define"
+     STATUS_ON_OFF="在线,离线"
+     AP_HEADER="AP名称,CPU使用率,内存使用率,AP温度,在线状态"
+
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("wlanenvironment.summary");
+</script>

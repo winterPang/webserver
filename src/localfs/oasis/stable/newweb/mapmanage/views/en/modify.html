@@ -1,0 +1,129 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Modify Map</h3>
+        </div>
+        <div class="panel-body">
+            <form class="form-horizontal" name="addMap" novalidate onsubmit="return false;">
+                <div class="row mb15">
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Map name</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control " ng-model="map.imageName" name="imageName" required>
+                            </div>
+                            <div class="col-sm-4 ang-error" ng-show="addMap.imageName.$dirty"
+                                 ng-messages="addMap.imageName.$error">
+                                <label ng-message="required" class="error" style="display: inline-block;">This information is required.</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Description</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" ng-model="map.breif" name="breif">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="shop" class="col-sm-2 control-label">Applied site</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" ng-model="map.shopName" name="shopName" id="shop" required readonly ng-click="modal.shopModalOpen()">
+                            </div>
+                            <div class="col-sm-4 ang-error" ng-show="addMap.shopName.$dirty"
+                                 ng-messages="addMap.shopName.$error">
+                                <label ng-message="required" class="error" style="display: inline-block;">This information is required.</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="shop" class="col-sm-2 control-label">Address</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" ng-model="map.address" name="address" required>
+                            </div>
+                            <div class="col-sm-4 ang-error" ng-show="addMap.address.$dirty"
+                                 ng-messages="addMap.address.$error">
+                                <label ng-message="required" class="error" style="display: inline-block;">This information is required.</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="shop" class="col-sm-2 control-label">Longitude/Latitude</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" ng-model="doubleTude" name="doubleTude" required ng-click="modal.open()" readonly>
+                            </div>
+                            <div class="col-sm-4 ang-error" ng-show="addMap.doubleTude.$dirty"
+                                 ng-messages="addMap.doubleTude.$error">
+                                <label ng-message="required" class="error" style="display: inline-block;">This information is required.</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Scale</label>
+                            <div class="col-sm-3" style="position: relative">
+                                <input type="text" class="form-control" ng-model="map.scale" name="scale"
+                                        required style="padding-left: 30px;" maxlength='7'>
+                                <span style="position: absolute;top: 5px;left: 20px;">1:</span>
+                                <span style="position: absolute;top: 5px;right: 20px;">px / m</span>
+                            </div>
+                            <div class="col-sm-4 ang-error" ng-show="addMap.scale.$dirty"
+                                 ng-messages="addMap.scale.$error">
+                                <label ng-message="required" class="error" style="display: inline-block;">This information is required.</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="file" class="col-sm-2 control-label">Upload</label>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" ng-model="fileName" readonly ng-click="uploadMap()" placeholder="Upload Picture">
+                                <input id="file" type="file" required name="file" style="display: none">
+                                <div style="min-height: 150px;border: 1px solid #e1e1e1;border-radius: 5px;margin-top: 15px">
+                                    <div ng-if="!map.path" style="height: 150px;line-height: 150px;font-size: 24px;text-align: center">Preview</div>
+                                    <img ng-src="{{map.path}}" width="100%"/>
+                                </div>
+                            </div>
+                            <div class="col-sm-1">
+                                <button ng-click="uploadMap()" class="btn btn-cus">Upload</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center">
+                    <button class="btn btn-cus" ng-disabled="addMap.$invalid" ng-click="submitModify()">OK</button>
+                    <button class="btn btn-cus" ui-sref="global.content.application.mapmanage_original">Cancel</button>
+                </div>
+            </form>
+
+        </div>
+    </div>
+    <div id="modifyRc"
+         longitude="Longitude:"
+         latitude="Latitude:"
+         picture-format="Valid format:BMP,PNG,GIF,JPEG,JPG,DWG."
+         picture-size="The size of the file to upload cannot exceed 2 M."
+         modify-success="Map modified successfully."
+         please-choice-picture="Please select a picture."
+         choice-address="Select Address"
+         set-current-city="Beijing"
+         longitude-and-latitude="Longitude/Latitude:"
+         choice-shop="Select Site"
+         please-choice-shop="Please select a site."
+         shops-table-header="Site Name,Site Address(Headquarters),Description,Affiliated Area">
+    </div>
+</div>
+<div class="container-fluid" bs-modal="modal.option">
+    <div class="form-group">
+        <label class="col-sm-1 control-label">Address</label>
+        <div class="col-md-3">
+            <input type="text" class="form-control" ng-model="map.address">
+        </div>
+        <div class="col-md-2">
+            <button class="btn bn-cus" ng-click="modal.search()">Search</button>
+        </div>
+        <label class="col-md-1 control-label">Longitude/Latitude</label>
+        <div class="col-md-3">
+            <input type="text" class="form-control" ng-model="doubleTude2">
+        </div>
+    </div>
+    <div class="row">
+        <div id="map" class="col-md-12" style="height: 300px;display: block;margin: 0 auto"></div>
+    </div>
+</div>
+<div class="container-fluid" bs-modal="modal.shopOption">
+        <div bs-table="shops.table"></div>
+</div>
+

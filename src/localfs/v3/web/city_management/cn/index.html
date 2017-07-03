@@ -1,0 +1,317 @@
+<html>
+<head>
+    
+    <link rel="stylesheet" type="text/css" href="../city_management.css">
+</head>
+
+<body>
+    <div class="page-row" >
+		<!----------------------------------------页面上半部标题-------------------------------------------------->
+		<div class="col-xs-12 app-colum">
+        <div class="app-box no-height ">
+            <div style="height:50px;line-height:50px;background:#edf9f7">
+                <span style="color:#343e4e;font-size:17px;padding-left:25px;float:left" >地图配置</span>
+            </div>
+        <!-----------------------------------页面静态地图动态地图转换 radio------------------------------------>   
+            <span style="padding-left:25px;font-size:14px" >地图类型</span><br/>
+            <div style="padding-left: 60px;font-size: 14px">
+                <input type="radio" name="city_type" value="city_type2" id="city2_id" checked/>
+                <label for="city2_id">动态地图（百度地图）&nbsp&nbsp&nbsp</label>
+                <input type="radio" name="city_type" value="city_type1" id="city1_id"/>
+                <label for="city1_id" >静态地图&nbsp&nbsp&nbsp </label>
+                <br/>
+            </div>
+        <!---------------------------------------动态地图部分------------------------------------------->   
+            <div id="dongtai_id" class="hide">
+                <div style="padding-left: 60px">
+                    <label class="col-sm-2 contrrol-label" style="font-size: 14px" >请选择所在城市</label>
+                    <table>
+                        <tr>
+                            <td>
+                                <span>省：</span>
+                            </td>
+                            <td>
+                                <select id="province" size=1  style="width: 100px;font-size: 12px">
+                                 <option value= 0 >请选择省</option>
+                                 <option value= "北京" >北京</option>
+                                 <option value= "上海" >上海</option>
+                                 <option value= "天津">天津</option>
+                                 <option value= "重庆" >重庆</option>
+                                 <option value= "河北" >河北</option>
+                                 <option value= "山西" >山西</option>
+                                 <option value= "内蒙古" >内蒙古</option>
+                                 <option value= "辽宁">辽宁</option>
+                                 <option value= "吉林">吉林</option>
+                                 <option value= "黑龙江" >黑龙江</option>
+                                 <option value= "江苏" >江苏</option>
+                                 <option value= "浙江" >浙江</option>
+                                 <option value= "安徽" >安徽</option>
+                                 <option value= "福建" >福建</option>
+                                 <option value= "江西" >江西</option>
+                                 <option value= "山东" >山东</option>
+                                 <option value= "河南" >河南</option>
+                                 <option value= "湖北" >湖北</option>
+                                 <option value= "湖南" >湖南</option>
+                                 <option value= "广东" >广东</option>
+                                 <option value= "广西" >广西</option>
+                                 <option value= "海南" >海南</option>
+                                 <option value= "四川" >四川</option>
+                                 <option value= "贵州" >贵州</option>
+                                 <option value= "云南" >云南</option>
+                                 <option value= "西藏" >西藏</option>
+                                 <option value= "陕西" >陕西</option>
+                                 <option value= "甘肃" >甘肃</option>
+                                 <option value= "宁夏" >宁夏</option>
+                                 <option value= "青海" >青海</option>
+                                 <option value= "新疆" >新疆</option>
+                                 <option value= "香港" >香港</option>
+                                 <option value= "澳门" >澳门</option>
+                                 <option value= "台湾" >台湾</option>
+                             </select>
+							</td>
+							<td>
+								<span>市：</span>
+							</td>
+							<td>
+								<select id="city" size=1 style="width:100px;font-size: 12px"></select>
+							</td>
+						</tr>
+					</table>
+				</div><br/>
+            
+				<span style="font-size: 14px;padding-left: 25px" >AP位置导入</span><br/>
+				<div style="padding-left: 60px;padding-bottom: 40px">
+					
+						<label class="col-sm-2 contrrol-label">AP位置列表</label>
+						<div class="chartContent col-xs-3">
+							<input type="text" readonly="readonly" name="text_dong_AP" id="text_dong_AP_id"/><!--输入框-->
+							<!--<form name="AP_list" id="area_form_id"  action="/v3/fs/uploadAPpositionFile/" method="post" enctype="multipart/form-data" >
+								
+								<input type="file" name="file_dong_AP" id="file_dong_AP_id"  style="display: none" accept=".xlsx">
+							</form>-->
+							<form name="AP_list" id="area_form_id"  action="/v3/fs/uploadCloudapgroupFile/" method="post" enctype="multipart/form-data" >
+								
+								<input type="file" name="file_dong_AP" id="file_dong_AP_id"  style="display: none" accept=".xlsx">
+							</form>
+						</div>
+						<div class="chartContent col-xs-1" >
+							<input type="button"  name="button_dong_AP" id="button_dong_AP_id" value="浏览" /><!--浏览按钮-->
+						</div>
+						<label id="mobanxiazai1" class="col-sm-2 contrrol-label" style="cursor:pointer;color:#4ec1b2">模板下载</label>
+					
+					<iframe id="filerecive" name="filerecive_name" style="display: none"></iframe> <!--接受数据 ifame-->
+				</div>
+				<div class="chartContent col-xs-10" align="right" style="padding-bottom: 20px">
+					<button  class="btn btn-apply hide" name="sure_AP" id="display_AP_id">显示AP位置</button><!--确定按钮-->
+					<button  class="btn btn-apply" name="sure_AP" id="sure_AP_id">确定</button><!--确定按钮-->
+				</div>
+				<div class="chartContent col-xs-2" style="padding-left: 10px;padding-bottom: 20px">
+					<button  class="btn btn-cancel" name="cancel_AP" id="cancel_AP_id">取消</button><!--取消按钮-->
+				</div>
+			</div>
+			<!----------------------------------静态地图部分----------------------------------------------------------->
+			<div id="jingtai_id" class="hide">
+				<label class="info-explain" style="padding-left: 60px">支持格式……</label><br/>
+				<div style="padding-left: 60px;padding-bottom: 40px">
+					<form name="AP_list" action="" method="post" enctype="multipart/form-data" >
+						<label class="col-sm-2 contrrol-label">请选择地图</label>
+						<div class="chartContent col-xs-3">
+							<input type="text" readonly="readonly" name="text_map" id="text_map_id"/><!--输入框-->
+							<input type="file" name="file_map" id="file_map_id" style="display: none" /><!--文件域-->
+						</div>
+						<div class="chartContent col-xs-1" >
+							<input type="button"  name="button_map" id="button_map_id" value="浏览" "/><!--浏览按钮-->
+						</div>
+					</form>
+				</div>
+				<span style="padding-left: 40px" >AP位置导入</span><br/>
+				<div style="padding-left: 60px;padding-bottom: 40px">
+					<form name="AP_list" action="" method="post" enctype="multipart/form-data" >
+						<label class="col-sm-2 contrrol-label">AP位置列表</label>
+						<div class="chartContent col-xs-3">
+							<input type="text" readonly="readonly" name="text_jing_AP" id="text_jing_AP_id"/><!--输入框-->
+							<input type="file" name="file_jing_AP" id="file_jing__AP_id" style="display: none" /><!--文件域-->
+						</div>
+						<div class="chartContent col-xs-1" >
+							<input type="button"  name="button_jing_AP" id="button_jing_AP_id" value="浏览" /><!--浏览按钮-->
+						</div>
+					</form>
+				</div>
+       
+				<div class="chartContent col-xs-10" align="right" style="padding-bottom: 20px">
+					<button  class="btn btn-apply" name="sure_AP2" id="sure_AP_id2">确定</button><!--确定按钮-->
+				</div>
+				<div class="chartContent col-xs-2" style="padding-left: 10px;padding-bottom: 20px" >
+					<button  class="btn btn-cancel" name="cancel_AP2" id="cancel_AP_id2">取消</button><!--取消按钮-->
+				</div>
+			</div>
+		</div>
+		</div>
+	</div>
+		<!---------------------------------------页面的下半部分----------------------------------------------------->
+		<div class="col-xs-12 app-colum">
+			<div class="app-box no-height">
+				<div style="height:50px;line-height:50px;background:#edf9f7">
+					<span style="color:#343e4e;font-size:17px;padding-left:25px;float:left" >区域配置</span><!--页面下半部分标题-->
+				</div>
+				<div class="col-xs-12 app-colum">
+					<div class="box-body no-height">
+						<div id="area_make" class="simple-list"></div><!--SLIST 表格-->
+					</div>
+				</div>
+			</div>
+		</div>
+    
+	
+		<!-----------------------确认删除弹出框------------------------------->
+		<div id="form-test1">
+				<div class="modal hide " id="delDlg">
+					<div class="col-xs-12 app-colum" style="padding: 20px">
+						<p>确定要删除选中的数据吗</p>
+					</div>
+					<form id="del_domal_form" class="form edit">
+						<div id="delList" class="simple-list hide"></div>
+					</form>
+				</div>
+		</div>
+		<!------------------添加按钮弹出框-----添加按钮弹出框------------------>
+		<div id="form-test2">
+			<div class="modal hide " id="addDlg">
+				<div class="modal-header" >
+				</div>
+				<div class="col-xs-12 app-colum" style="padding: 20px">
+					<div class="chartContent col-xs-3">
+						<label style="padding-left: 40px ">区域类别</label>
+					</div>
+					<select style="font-size: 14px" id="add_select_id">
+						<option value="景区">景区</option>
+						<option value="公园、广场">公园、广场 </option>
+						<option value="写字楼">写字楼</option>
+						<option value="体育场馆">体育场馆</option>
+						<option value="各级政府、行政单位">各级政府、行政单位</option>
+						<option value="住宅区">住宅区</option>
+						<option value="医院">医院</option>
+						<option value="火车站">火车站</option>
+						<option value="学校">学校</option>
+						<option value="购物中心、集市">购物中心、集市</option>
+						<option value="展馆、剧院">展馆、剧院</option>
+						<option value="星级酒店">星级酒店</option>
+						<option value="其它">其它</option>
+					</select><br/>
+					<div class="chartContent col-xs-3">
+						<label  style="font-size: 15px;margin-right: 10px;padding-left: 40px">区域名称
+							<span class="ui-outputlabel-rfi" style="color: red">*</span>
+						</label>
+					</div>
+						<input type="text" name="area_name" id="add_name_id">
+						<label class="info-explain" id="area_name_simple">(1~31个字符)</label>
+						<label class="error" id="area_name_error"></label><br/>
+					<div class="chartContent col-xs-3">
+						<label  style="font-size: 15px;padding-left: 40px">绑定AP组</label>
+					</div>	
+					
+						<select id="add_apgroup_id" class="mselect big"  name="add_apgroup" selectedId="add_select">
+						</select>
+					
+						<div style="padding-left:165px">
+						<div id="add_select" class="big" /></div>
+					
+					<div class="col-sm-12">
+						<hr/><br/>   
+						<div class="chartContent col-xs-5" align="right">
+							<button  class="btn btn-apply" name="add_sure" id="add_sure_id">确定</button><!--确定按钮-->
+						</div>
+						<div class="chartContent col-xs-2" align="center" >
+							<button  class="btn btn-cancel" name="add_cancel" id="add_cancel_id">取消</button><!--取消按钮-->
+						</div>
+						<div class="chartContent col-xs-2" style="padding-left: 0px" >
+							<button  class="btn btn-apply" name="add_continue" id="add_continue_id">继续添加</button><!--取消按钮-->
+						</div>
+					</div>
+					<form id="add_domal_form" class="form edit">
+						<div id="healthList" class="simple-list hide"></div>
+					</form>
+				</div>
+			</div>
+		</div>
+		<!--------------------------修改配置区域弹窗---------------------------->
+		<div id="form-test3">
+			<div class="modal hide " id="makeDlg">
+				<div class="modal-header" >
+					
+				</div>
+				<div class="col-xs-12 app-colum" style="padding: 20px">
+					<div class="chartContent col-xs-3">
+						<label style="padding-left: 40px">区域类别</label>
+					</div>
+					<select  style="font-size: 14px" id="make_select_id">
+					 
+					</select><br/>
+					<div class="chartContent col-xs-3">
+					<label  style="font-size: 15px;margin-right: 10px;padding-left: 40px">区域名称
+						<span class="ui-outputlabel-rfi" style="color: red">*</span>
+					</label>
+				</div>
+				<input type="text" name="area_name" id="make_name_id" >
+				<label class="info-explain">(1~31个字符)</label>
+				<label class="error" id="make_name_error"></label><br/>
+				
+				<div class="chartContent col-xs-3">
+					<label  style="font-size: 15px;padding-left: 40px">绑定AP组</label>
+				</div>	
+					<select id="make_apgroup_id1" class="mselect big"  name="make_apgroup_id1" selectedId="Channel_select">
+					</select>
+					<div style="padding-left:165px">
+					<div id="Channel_select" class="big" /></div>
+				
+				<div class="col-sm-12">
+					<hr/><br/>
+					<div class="chartContent col-xs-5" align="right">
+						<button  class="btn btn-apply" name="make_sure" id="make_sure_id">确定</button><!--确定按钮-->
+					</div>
+					<div class="chartContent col-xs-2" align="left" >
+						<button  class="btn btn-cancel" name="make_exit" id="make_exit_id">取消</button><!--取消按钮-->
+					</div>
+				</div>
+				</div>
+					<form id="make_domal_form" class="form edit">
+						<div id="makeList" class="simple-list hide"></div>
+					</form>
+				</div>
+		</div>
+		<!---------------------------详情弹框-------------------------->
+		<div id="form-test4">
+				<div class="modal hide " id="detailsDlg">
+					<div class="col-xs-12 app-colum" style="padding: 20px">
+						<table style="color:#80878c">
+						<tr>
+						<td style="padding:10px;padding-left:40px">区域名称：</td>  <td id="area_name_details"></td>
+						</tr>
+						<tr>
+						<td style="padding:10px;padding-left:40px">区域类型：</td>  <td id="area_type_details"></td>
+						</tr>
+						<tr>
+						<td style="padding:10px;padding-left:40px">绑定AP组：</td>  <td id="area_apgroup_details"></td>
+						</tr>
+						</table>
+					</div>
+					<form id="details_domal_form" class="form edit">
+						<div id="detailsList" class="simple-list hide"></div>
+					</form>
+				</div>
+		</div>
+	</div>
+
+<div id="management_indexConfigure" class="rc-define"
+        MANAGEMENT_HEADER="区域名称,区域类型"
+		ADD="添加"
+        SYN="同步"
+		DEL="删除"
+></div>
+
+</body>
+</html>
+
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("city_management.index");
+</script>

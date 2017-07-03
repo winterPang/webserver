@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+
+<div class="col-xs-12 app-colum calendar cfgrestore" style="padding: 0px 0px 0px 0px;">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">还原点概览</span>
+        </div>
+
+        <div class="col-xs-12 restore_detail">
+            <div class="col-xs-6" id="cfg_restore_left">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">总还原点数</label>
+                    <div class="col-sm-9">
+                        <span class="label" id="totlefileNum"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">自动还原点数</label>
+                    <div class="col-sm-9">
+                        <span class="label" id="autoNum"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">手动还原点数</label>
+                    <div class="col-sm-9">
+                        <span class="label" id="manualNum"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">最近还原点</label>
+                    <div class="col-sm-9">
+                        <span class="label" id="restoretime"></span>
+                        <a class="xb-link" id="fileName" name="fileName"></a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">最近生成原因</label>
+                    <div class="col-sm-9">
+                        <span class="label" id="CreateReason"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6" id="cfg_restore_right">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">还原时间</label>
+                    <div class="col-sm-9">
+                        <span class="label" id="rollbackTime" name="rollbackTime"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">还原原因</label>
+                    <div class="col-sm-9">
+                        <span class="label" id="RestoreReason" name="RestoreReason"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">还原文件</label>
+                    <div class="col-sm-9">
+                        <a class="xb-link"  id="RestoreFile">
+                        </a>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">还原记录</label>
+                    <div class="col-sm-9">
+                        <a class="xb-link" id="restorehistory">历史还原记录
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 restoreline">
+             <hr/>
+        </div>
+        <div class="page-row">
+                <div class="col-xs-6 app-colum left-block">
+                    <div class="form-group">
+                        <div class="fullcalendar" id='calendar'></div>
+                    </div>
+                </div>
+
+                <div class="col-xs-6 app-colum left-block">
+                    <div class="modal-body eventdetail" id="eventdetail">
+                        <!--<div class="box-body no-height">-->
+                            <div id="detail_info_list" class="simple-list"></div>
+                        <!--</div>-->
+                    </div>
+                </div>
+        </div>   
+    </div>
+</div>
+
+
+<form class="form-horizontal form hide" id="historylist">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">历史还原记录</h3>
+    </div>
+    <div class="modal-body">
+        <div id="history_info_list" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+            <i class="icon-remove"></i>
+            关闭
+        </a>
+    </div>
+</form>
+
+    <!---------------------------单个文件详情-------------------->
+<form class="form-horizontal form hide" id="filecontent">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">配置文件详情</h3>
+    </div>
+    <div class="modal-body">
+        <div id="filecontent_info" ></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+            <i class="icon-remove"></i>
+            关闭
+        </a>
+    </div>
+</form>
+    <!-- ----------------------------------------------------------------------- -->
+
+
+    <!---------------------------创建还原点-------------------->
+    <div class="hide modal fade" id="AddRestoreDlg">
+        <div class="modal-body">
+            <form class="form edit" id="AddRestoreForm">
+                <!--<div class="form-group">-->
+                    <!--<div class="col-sm-3">-->
+                        <!--<label class="control-label required">还原点名称</label>-->
+                    <!--</div>-->
+                    <!--<div class="col-sm-9">-->
+                        <!--<input type="text" class="string big required" id="addfileName" name ="addfileName" errid="addfileName_error"/>-->
+                        <!--<label class="error" id="addfileName_error"></label>-->
+                    <!--</div>-->
+                <!--</div>-->
+
+                <div class="form-group">
+                    <div class="col-sm-3">
+                        <label class="control-label">创建原因</label>
+                    </div>
+                    <div class="col-sm-9">
+                        <input type="text" class="string big required" id="reason" name ="reason" errid="reason_error"/>
+                        <!--<label class="info-explain">（1-32字符）</label>-->
+                        <label class="error" id="reason_error"></label>
+                    </div>
+                </div>
+
+            </form>
+            </div>
+        </div>
+    <!-- ----------------------------------------------------------------------- -->
+
+
+<!---------------------------配置还原弹框-------------------->
+<div class="hide modal fade" id="CfgRestoreDlg">
+    <div class="modal-body">
+        <form class="form edit" id="cfgRestoreForm">
+            <div class="form-group">
+                <div class="col-sm-3">
+                    <label class="control-label">配置还原原因</label>
+                </div>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="cfgrestorereason" name ="cfgrestorereason" errid="cfgrestorereason_error"/>
+                    <!--<label class="info-explain">（1-32字符）</label>-->
+                    <label class="error" id="cfgrestorereason_error"></label>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>
+<!-- ----------------------------------------------------------------------- -->
+
+
+
+<!---------------------------比较两个文件-------------------->
+    <form class="form-horizontal form hide" id="filecompare">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">比较文件</h3>
+        </div>
+        <div class="modal-body">
+            <div class="col-xs-12">
+                <div class="col-xs-6">
+                    <div id="firstfile_info" ></div>
+                </div>
+                <div class="col-xs-6">
+                    <div id="secondfile_info" ></div>
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer form-actions">
+            <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+                <i class="icon-remove"></i>
+                关闭
+            </a>
+        </div>
+    </form>
+<!-- ----------------------------------------------------------------------- -->
+
+
+<div id="cfg_restore_rc" class="rc-define"
+     HESTORY_HEADER="文件名,创建时间"
+     EVENTS_HEADER="文件名,创建时间,创建原因,类型"
+     RESTORE="配置还原"
+     ADD_TITLE="新建还原点"
+     OPTYPE="自动,手动"
+     COMPARE="比较"
+     COMPARETO="比较到"
+        ></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("configrestore.index");
+</script>

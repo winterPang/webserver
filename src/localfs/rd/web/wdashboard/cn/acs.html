@@ -1,0 +1,35 @@
+<html>
+<head>
+</head>
+<body>
+<div class="index-group" id="acs_page">
+    <div class="sysinfo-footer">
+        <div class="col-xs-12">
+            <span class="title">AC</span>
+        </div>
+        <div class="text-right link-container">
+            <a type="button" class="refresh" id="refresh_AC">
+                <i class="refresh-icon icon"></i>
+            </a>
+            <a type="button" class="link-detail" id="0" title="更多"><i class="detail-icon icon"></i></a>
+        </div>
+    </div>
+    <div class="row-nohover row-clear padding0">
+        <div class="col-xs-5 row-left">
+            <div id="pie_acs" class="myEchart"></div>
+        </div>
+        <div class="col-xs-7">
+            <div id="acs" class="col-xs-12 myEchart"></div>
+        </div>
+    </div>
+    <div id="summary_ap_rc" class="rc-define"
+         STATUS="在线,离线,不健康"
+         AP_NUMBER="数量"
+         AP_TIME="时间"
+            ></div>
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("wdashboard.acs");
+</script>

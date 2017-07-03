@@ -1,0 +1,71 @@
+[
+  {
+    "name": "文档",
+    "children": [
+      {
+        "name": "zhangsandewen.doc"
+      },
+      {
+        "name": "h3clvzhouapi.doc"
+      },
+      {
+        "name": "acapaaxs.doc"
+      },
+      {
+        "name": "sjdfhkshfdks.doc"
+      },
+      {
+        "name": "dfguierjlkjfoduojl.doc"
+      }
+    ]
+  },
+  {
+    "name": "日志",
+    "children": [
+      {
+        "name": "apache",
+        "children": [
+          {
+            "name": "https.log"
+          },
+          {
+            "name": "access.log"
+          },
+          {
+            "name": "debug.log"
+          },
+          {
+            "name": "error.log"
+          }
+        ]
+      },
+      {
+        "name": "2016110808450017.log"
+      },
+      {
+        "name": "2016110808450033.log"
+      },
+      {
+        "name": "2016110808110087.log"
+      },
+      {
+        "name": "2016110808440099.log"
+      },
+      {
+        "name": "2016110808330021.log"
+      },
+      {
+        "name": "2016110808110044.log"
+      },
+      {
+        "name": "2016110808440076.log"
+      },
+      {
+        "name": "2016110808250198.log"
+      },
+      {
+        "name": "2016110808350345.log"
+      }
+    ]
+  }
+]

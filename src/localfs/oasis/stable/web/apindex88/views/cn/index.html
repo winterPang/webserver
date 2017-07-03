@@ -1,0 +1,168 @@
+<style>
+    /*html .app-colum .app-box.no-bk-color .box-footer, body .app-colum .app-box.no-bk-color .box-footer {
+    height: 30px;
+    line-height: 30px;
+    background: transparent;
+    }*/
+    .ml16{
+        margin-left: 16px;
+    }
+    .ml35{
+        margin-left: 35px;
+    }
+    .ml10{
+        margin-left: 10px;
+    }
+    .control-group {
+        display: inline-block;
+        margin-right:30px;
+        color: #343e4e;
+        position: relative;
+    }
+    .return_btn{
+        color: #4ec1b2;
+        float: right;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+    .input_check {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        visibility: hidden;
+    }
+    .input_check +label{
+        margin-right: 20px;
+    }
+    .input_check + label:before {
+        content:'';
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        background: url(images/icon2.png) no-repeat;
+        background-position: -146px -195px;
+        position: absolute;
+        left: -23px;}
+    .input_check:checked + label:before {
+        content:'';
+        background-position: -108px -195px;
+    }
+    .select2.select2-container .select2-selection--multiple ul {
+        position: initial;
+        padding: 0 5px;
+    }
+    .select2-container{
+        width: 200px!important;
+    }
+    .select2-container--default .select2-selection--multiple .select2-selection__choice {
+        background-color: #e4e4e4 !important;
+        border: 1px solid #aaa !important;
+        border-radius: 4px !important;
+        cursor: default !important;
+        float: left !important;
+        margin-right: 5px !important;
+        margin-top: 5px !important;
+        padding: 0 5px !important;
+    }
+    .select2.select2-container .select2-selection--multiple ul > li > span {
+        float: right;
+        margin-right: 2px;
+        margin-left: 0px;
+    }
+    .select2-container--default .select2-selection--multiple .select2-selection__rendered li {
+        list-style: none;
+        line-height: 25px;
+    }
+    .select-style{
+        margin-top: 18px;
+        width: 240px;
+        border-color: #aaaaaa!important; 
+    }
+    .form-horizontal .range{
+        margin:16px 0px 0px -33px;
+    }
+    .form-horizontal .w200{
+        width: 200px;
+    }
+    .select2-container--default.select2-container--focus .select2-selection--multiple {
+        border: solid #aaa 1px;
+        outline: 0;
+    }
+    .select2-container--default.select2-container--focus .select2-selection--multiple:focus{
+        border: solid #78cec3 1px;
+        outline: 0;
+    }
+</style>
+<div class="page-row">
+    <div class="col-xs-12 app-colum left-block">
+            <div class="app-box">
+                <div class="select-footer">
+                    <span class="float-left ml16">日期</span>
+                    <div class="float-left ml10" style="width:200px;">
+                        <input type="text" name="datefilter" id="daterange_ap" class="daterange time-select range" placeholder="选择日期" ctrl="daterang" style="height:25px;" name ="clientTime" required>
+                    </div>
+                    <span class="float-left ml35">AP</span>
+                    <div class ="float-left ml10" style="width:200px;">
+                        <select  select2= "Options" ng-name="selectDevSn" ng-model="fisrtAp" id="aplist" ng-options="sn for sn in apArrSn">
+                        </select>
+                    </div>
+                    <div class="return_btn" ng-click ="return()">返回</div>
+                </div>
+            </div>
+    </div>
+</div>
+<div class="page-row">
+    <div class="col-xs-12 app-colum left-block">
+        <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <span class="title">信道利用率</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="channel_rate" class="myEchart" style="height:140px;"></div>
+                <div style="position:absolute;top:40px;right:11%;">
+                    <div class="control-group mt20" ng-repeat="item in g_result.aLengend">
+                        <input type="checkbox" class="input_check" name="baseInfo" id="{{item.id}}" ng-checked="isChecked(item.id)" value="{{item.id}}" ng-click="updateSelection($event,item.id)">
+                        <label for="{{item.id}}">{{item.shortName}}</label>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="box-footer">
+                <span class="title">终端在线趋势</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="terminal_rate" class="myEchart" style="height:140px;"></div>
+            </div>
+            <div class="box-footer">
+                <span class="title">速率</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="flow" class="myEchart" style="height:230px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 app-colum left-block">
+        <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <span class="title">CPU使用率</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="cpu_rate" class="myEchart" style="height:180px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 app-colum left-block">
+        <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <span class="title">内存使用率</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="memory_rate" class="myEchart" style="height:180px;"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="user_rc"
+    BTN='确定,取消'
+    ERROR="没有可查看的AP"
+    ></div>

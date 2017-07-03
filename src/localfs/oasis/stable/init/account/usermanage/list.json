@@ -1,0 +1,60 @@
+{
+  "code":0,
+  "message":"o2o.oasis.mng.query.success",
+  "total":18,
+  "rows":[{
+    "name":"super111",
+    "phone":"13888888888",
+    "email":"super@h3c.com",
+    "createDateTime":"2016-07-04 15:27:28",
+    "id":1
+  },{
+    "name":"xuyian252",
+    "phone":"17722556699",
+    "email":"xuyian@h3c.com",
+    "createDateTime":"2016-07-04 15:34:34",
+    "id":2
+  },{
+    "name":"xuyian262",
+    "phone":"13333333332",
+    "email":"xuyian2@h3c.com",
+    "parentName":"xuyian252",
+    "createDateTime":"2016-07-04 15:34:47",
+    "id":3
+  },{
+    "name":"xuyian272",
+    "phone":"13333333334",
+    "email":"xuyian3@h3c.com",
+    "parentName":"xuyian252",
+    "createDateTime":"2016-07-04 15:34:57",
+    "id":4
+  },{
+    "name":"xuyian282",
+    "phone":"13333333335",
+    "email":"xuyian4@h3c.com",
+    "parentName":"xuyian262",
+    "createDateTime":"2016-07-04 15:35:08",
+    "id":5
+  },{
+    "name":"xuyian292",
+    "phone":"13333333336",
+    "email":"xuyian5@h3c.com",
+    "parentName":"xuyian282",
+    "createDateTime":"2016-07-04 15:35:20",
+    "id":6
+  },{
+    "name":"super333",
+    "phone":"13555660000",
+    "email":"super333@h3c.com",
+    "parentName":"super111",
+    "createDateTime":"2016-07-07 16:44:20",
+    "id":7
+  },{
+    "name":"super444",
+    "phone":"13555660001",
+    "email":"super444@h3c.com",
+    "parentName":"super111",
+    "createDateTime":"2016-07-07 16:43:13",
+    "id":8
+  }]
+}

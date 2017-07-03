@@ -1,0 +1,90 @@
+.interview{
+
+}
+.interview .tips{
+    font-size: 17px;
+    margin-bottom: 9px;
+}
+
+.interview strong{
+    color:#fbceb1;
+}
+
+.interview .value-ui{
+	display: inline-block;
+    height: 100px;
+    text-align: center;
+    width: 25%;
+    border: 1px solid #AEAEB7;
+    border-radius: 8px;
+    margin: 10px 5px 0;
+}
+
+.interview .value-ui-font{
+	display: block;
+    font-size: 36px;
+    padding: 16px 0 6px 0;
+    font-weight: bolder
+}
+
+.interview .value-ui-fontSize{
+	display: block;
+    border-top: 1px solid #AEAEB7;
+    width:80%;
+    margin: 0 auto;
+}
+
+.interview .top-title{
+	font-size: 14px;
+    font-weight: bold;
+    color: rgb(94,123,191);
+}
+
+.interview .topUnit{
+    float: right;
+}
+
+.interview .top-progress-block{
+	margin-top:3px;
+    font-size: 10px;
+}
+
+.interview .top-progress{
+	height: 10px;
+    border-radius: 5px;
+    margin-top: 3px;
+    margin-bottom: 10px;
+}
+
+.interview .top-one{
+	background-color: #fbceb1;
+}
+
+.interview .top-two{
+	background-color: #f2bc98;
+}
+
+.interview .top-three{
+	background-color: #4ec1b2;
+}
+
+.interview .top-four{
+	background-color: #78cec3;
+}
+
+.interview .top-five{
+	background-color:#4fc4f6;
+}
+
+.interview .top-six{
+	background-color: rgb(255,156,158);
+}
+
+.interview .top-seven{
+	background-color: rgb(21,194,169);
+}
+
+.interview .link-btn{
+	margin-top: -10px;
+    margin-bottom: 10px;
+}

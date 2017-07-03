@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="/v3/web/h_summary/index.css">
+    <title></title>
+</head>
+<body>
+	<div class="page-row">
+	   
+	    <div class="col-xs-6 app-colum left-block">
+			<div class="app-box no-bk-color">
+				<div class="box-footer">
+					<div class="col-xs-5">
+						<span class="title">在线用户历史信息</span>
+					</div>
+					<div class="index_out_div">
+	                    <a id="hours" href="#" class="xx-link">一小时</a>
+	                    <a id="days" href="#" class="xx-link">一天</a>
+	                    <a id="weeks" href="#" class="xx-link">一周</a>
+	                    <a id="zidingyi" href="#" class="xx-link">自定义</a>
+	                </div>
+	                
+				</div>
+				<div class="box-body echart-height form-group body-nopadding">
+	                <div id="UserTotal_chart" class="col-xs-12 myEchart"></div>
+	            </div>
+			</div>
+		</div>
+
+		<div class="col-xs-6 app-colum left-block">
+			<div class="app-box no-bk-color">
+				<div class="box-footer">
+					<div class="col-xs-5">
+						<span class="title">最近30天每天注册用户数</span>
+					</div>
+				</div>
+				<div class="box-body echart-height form-group body-nopadding">
+	                <div id="UserHis_chart" class="col-xs-12 myEchart"></div>
+	            </div>
+			</div>
+		</div>
+
+	</div>
+
+	<div class="page-row">
+	   
+	    <div class="col-xs-6 app-colum left-block">
+			<div class="app-box no-bk-color">
+				<!-- <div class="box-footer">
+				</div> -->
+				<div class="box-body echart-height form-group body-nopadding">
+	                <div id="UserType_chart" class="col-xs-12 myEchart"></div>
+	            </div>
+			</div>
+		</div>
+
+		<div class="col-xs-6 app-colum left-block">
+			<div class="app-box no-bk-color">
+				<!-- <div class="box-footer">
+				</div> -->
+				<div class="box-body echart-height form-group body-nopadding">
+	                <div id="UserTime_chart" class="col-xs-12 myEchart"></div>
+	            </div>
+			</div>
+		</div>
+
+		<div class="col-xs-6 app-colum left-block">
+			<div class="app-box no-bk-color">
+				<!-- <div class="box-footer">
+				</div> -->
+				<div class="box-body echart-height form-group body-nopadding">
+	                <div id="TerminalType_chart" class="col-xs-12 myEchart"></div>
+	            </div>
+			</div>
+		</div>
+
+	</div>
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_usersummary.index");
+</script>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html  lang="en">
+    <head>
+        <meta charset="UTF-8">
+    </head>
+    <body>
+        <div class="col-xs-12 app-colum xxb" id="relateid" debug="getWechat getShoplist">
+            <div class="app-box no-height">
+                <div class="box-footer">
+                    <span class="title">微信公众号</span>
+                </div>
+                <div class="box-body no-height">
+                    <div class="main-content">
+                        
+                    </div>
+                </div>
+                <div class="hide modal fade" id="DeleteIdDlg">
+                    <form id="delete_id_form" class="form-horizontal form edit deleteDlg">
+                        <div class="form-group">
+                            <span class="col-sm-9 control-label" >确定删除微信公众号账号信息？</span>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="hide modal fade" id="shopDlg">
+                    <form id="shop_form" class="form edit">
+                        <a class="shopEdit forbid" href="http://mp.weixin.qq.com/wiki/16/8f182af4d8dcea02c56506306bdb2f4c.html#.E4.BA.8C.E3.80.81.E5.BC.80.E5.8F.91.E8.80.85.E5.BF.85.E8.AF.BB" >编辑微信门店</a>
+                        <div id="showList" class="simple-list showList"></div>
+                    </form>
+                </div>
+
+                <div id="ws_ssid_rc" class="rc-define"
+                    SSID_HEADER="认证模板,一键登录,短信认证,微信认证,固定账号认证"
+                    AUTH_Status="关闭,开启" Page_HEADER="页面模板,描述"
+                    Chat_HEADER="公众号名称,AppID,AppSECRET,TOKEN"
+                    DELETE_USER="确认提示"
+                    ADDPage_TITLE="增加页面模板"
+                    ADDChat_TITLE="增加微信公众号"
+                    ADD_USER="增加账户"
+                    EDIT_USER="修改用户密码"
+                    InputContentError="参数输入错误。"
+                    Alipay_HEADER="支付宝账号,AppID,AppSECRET,TOKEN"
+                    SHOP_NAME="门店信息"
+                    SHOP_LIST="店铺名称,店铺内设备类型,店铺状态,店铺类别,开业时间,店铺地址,联系方式"
+                    ADD_BTN="添加账号"
+                    TEXT="账号类型：,名称：,点击复制链接,(将此url配置到微信公众号平台)"
+                    TEXT1="编辑,门店信息,删除"
+                    MSG_INFO="获取门店列表失败,该微信公众号已经被绑定，不能删除,删除成功,删除失败,门店列表为空"
+                    MSG_INFO1="请到微信公众平台配置ACCESE TOKEN!,已复制"
+                    AVAILABLE_STATE="系统错误,审核中,审核通过,审核驳回"
+                    ID_TYPE="订阅号,服务号,企业号"
+                    PROTOCOL_TYPE="未添加设备,专业型设备,密码型设备,portal自助型设备,portal改造型设备,N/A"
+                    PENDING="正在获取门店信息"
+                    >
+                </div>
+        </div>
+        </div>
+    </body>
+</html>
+<script src="../x_networkcfg/dist/clipboard.min.js"></script>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_networkcfg.relateid");
+</script>

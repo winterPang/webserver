@@ -1,0 +1,369 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, "Helvetica Neue", Helvetica, "Microsoft YaHei", sans-serif;
+  color: #444444;
+  font-size: 14px;
+}
+html,
+body div {
+  box-sizing: border-box;
+}
+.content_draw {
+  width: 100%;
+  height: 566px;
+  position: relative;
+  top: 71px;
+  left: 1px;
+}
+div.draw_demo {
+  width: 100%;
+  height: inherit;
+  position: relative;
+  background-size: cover;
+  overflow-y: auto;
+}
+button,
+input {
+  outline: none;
+}
+[class^=single_map_area] {
+  padding: 0.14285714rem 0 0;
+  margin-bottom: 0.21428571rem;
+  cursor: pointer;
+}
+[class^=single_map_text] {
+  padding: 0.42857143rem 0.85714286rem 0;
+}
+[class^=single_map_text] {
+  font-size: 12px;
+}
+.logo_area {
+  padding: 0.82142857rem 0.82142857rem 0.57142857rem;
+  cursor: pointer;
+}
+.logo_area .logo_map {
+  display: inline-block;
+  overflow: hidden;
+  width: 3.28571429rem;
+  height: 3.28571429rem;
+  vertical-align: middle;
+  border-radius: 1.64285714rem;
+  -webkit-border-radius: 1.64285714rem;
+  -moz-border-radius: 1.64285714rem;
+  -ms-border-radius: 1.64285714rem;
+  -o-border-radius: 1.64285714rem;
+}
+.logo_area .logo_map_text {
+  display: inline-block;
+  font-size: 12px;
+  margin-left: 0.71428571rem;
+}
+.audio_area {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  position: absolute;
+  top: 0.92857143rem;
+  right: 0.82142857rem;
+  z-index: 666;
+  background-repeat: no-repeat;
+  background-position: -5px -336px;
+}
+.single_map {
+  max-height: 12.5rem;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 0.17857143rem;
+  -webkit-border-radius: 0.17857143rem;
+  -moz-border-radius: 0.17857143rem;
+  -ms-border-radius: 0.17857143rem;
+  -o-border-radius: 0.17857143rem;
+  -webkit-box-shadow: 0.03571429rem 0.03571429rem 0.21428571rem 0.07142857rem rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0.03571429rem 0.03571429rem 0.21428571rem 0.07142857rem rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0.03571429rem 0.03571429rem 0.21428571rem 0.07142857rem rgba(0, 0, 0, 0.3);
+  box-shadow: 0.03571429rem 0.03571429rem 0.21428571rem 0.07142857rem rgba(0, 0, 0, 0.3);
+}
+div.home_btnLogin {
+  width: 100%;
+  position: absolute;
+  top: 25.71428571rem;
+  z-index: 666;
+  padding: 0.92857143rem 0.82142857rem;
+}
+div.home_btnLogin input {
+  color: #ffffff;
+  height: 2.85714286rem;
+  line-height: 2.14285714rem;
+  padding: 0 3.57142857rem;
+  font-size: 15px;
+  background: rgba(255, 255, 255, 0.2);
+  -webkit-text-shadow: 0.30357143rem 0.00678571rem 0.32142857rem rgba(0, 0, 0, 0.5);
+  -moz-text-shadow: 0.30357143rem 0.00678571rem 0.32142857rem rgba(0, 0, 0, 0.5);
+  -o-text-shadow: 0.30357143rem 0.00678571rem 0.32142857rem rgba(0, 0, 0, 0.5);
+  text-shadow: 0.30357143rem 0.00678571rem 0.32142857rem rgba(0, 0, 0, 0.5);
+  border: 0;
+  border-radius: 0.3992381rem;
+  -webkit-border-radius: 0.3992381rem;
+  -moz-border-radius: 0.3992381rem;
+  -ms-border-radius: 0.3992381rem;
+  -o-border-radius: 0.3992381rem;
+  -webkit-box-shadow: 0 0.03571429rem 0.71428571rem 0.03571429rem rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0.03571429rem 0.71428571rem 0.03571429rem rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 0.03571429rem 0.71428571rem 0.03571429rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.03571429rem 0.71428571rem 0.03571429rem rgba(0, 0, 0, 0.2);
+}
+[class*=double_maps_area] {
+  padding: 0.14285714rem 0.35714286rem 0.28571429rem;
+  margin-bottom: 0.57142857rem;
+}
+[class*=double_maps_area] [class*=double_left_area],
+[class*=double_maps_area] [class*=double_right_area] {
+  width: 48.3%;
+  height: 9.28571429rem;
+  display: inline-block;
+  overflow: hidden;
+  border-radius: 0.09980952rem;
+  -webkit-border-radius: 0.09980952rem;
+  -moz-border-radius: 0.09980952rem;
+  -ms-border-radius: 0.09980952rem;
+  -o-border-radius: 0.09980952rem;
+  -webkit-box-shadow: 0.03571429rem 0.03571429rem 0.21428571rem 0.07142857rem rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0.03571429rem 0.03571429rem 0.21428571rem 0.07142857rem rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0.03571429rem 0.03571429rem 0.21428571rem 0.07142857rem rgba(0, 0, 0, 0.3);
+  box-shadow: 0.03571429rem 0.03571429rem 0.21428571rem 0.07142857rem rgba(0, 0, 0, 0.3);
+}
+[class*=double_maps_area] > [class*=double_left_area] {
+  margin-right: 0.82142857rem;
+}
+[class*=video_area] {
+  margin: 0.42857143rem 0.5rem;
+  text-align: center;
+  cursor: pointer;
+}
+[class*=video_area] > video {
+  width: 100%;
+  max-height: 12.64285714rem;
+  margin: 0 auto;
+  border-radius: 0.09980952rem;
+  -webkit-border-radius: 0.09980952rem;
+  -moz-border-radius: 0.09980952rem;
+  -ms-border-radius: 0.09980952rem;
+  -o-border-radius: 0.09980952rem;
+  -webkit-box-shadow: 0.07142857rem 0.07142857rem 0.28571429rem 0.07142857rem rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0.07142857rem 0.07142857rem 0.28571429rem 0.07142857rem rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0.07142857rem 0.07142857rem 0.28571429rem 0.07142857rem rgba(0, 0, 0, 0.3);
+  box-shadow: 0.07142857rem 0.07142857rem 0.28571429rem 0.07142857rem rgba(0, 0, 0, 0.3);
+}
+.form-box {
+  width: 100%;
+  cursor: pointer;
+  padding: 0.64285714rem 0.82142857rem;
+}
+.form-box .form-tabs {
+  background: #fff;
+  border-radius: 0.09980952rem;
+  -webkit-border-radius: 0.09980952rem;
+  -moz-border-radius: 0.09980952rem;
+  -ms-border-radius: 0.09980952rem;
+  -o-border-radius: 0.09980952rem;
+  -webkit-box-shadow: 0.03571429rem 0 0.71428571rem 0.03571429rem rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0.03571429rem 0 0.71428571rem 0.03571429rem rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0.03571429rem 0 0.71428571rem 0.03571429rem rgba(0, 0, 0, 0.2);
+  box-shadow: 0.03571429rem 0 0.71428571rem 0.03571429rem rgba(0, 0, 0, 0.2);
+}
+.form-box .form-tabs .form-tab {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  height: 1.42857143rem;
+}
+.form-box .form-tabs .form-tab li {
+  height: 3.78571429rem;
+  line-height: 3.78571429rem;
+  float: left;
+  cursor: pointer;
+  text-align: center;
+  font-size: 13px;
+  border-radius: 5px 5px 0 0;
+  border: 1px solid #eee;
+  padding: 0;
+  display: none;
+}
+.form-box .form-tabs .form-tab li.active {
+  border-radius: 0;
+  border-color: transparent;
+}
+.form-box .form-tabs .form-tab-items {
+  padding: 1.14285714rem 0.71428571rem 2.14285714rem;
+}
+.form-box .form-tabs .form-tab-items > div {
+  display: none;
+}
+.form-box .form-tabs .form-tab-items > div.active {
+  display: block;
+}
+.form-box .form-tabs .btn-cus {
+  font-family: "Microsoft YaHei", serif;
+  width: 73%;
+  background: #4ec2b2;
+  font-size: 15px;
+  color: #fff;
+  border-radius: 0.3992381rem;
+  -webkit-border-radius: 0.3992381rem;
+  -moz-border-radius: 0.3992381rem;
+  -ms-border-radius: 0.3992381rem;
+  -o-border-radius: 0.3992381rem;
+  height: 2.85714286rem;
+  line-height: 2.85714286rem;
+  -webkit-box-shadow: 0.03571429rem 0.17857143rem rgba(0, 0, 0, 0.6);
+  -moz-box-shadow: 0.03571429rem 0.17857143rem rgba(0, 0, 0, 0.6);
+  -o-box-shadow: 0.03571429rem 0.17857143rem rgba(0, 0, 0, 0.6);
+  box-shadow: 0.03571429rem 0.17857143rem rgba(0, 0, 0, 0.6);
+  bottom: 288.75rem;
+  cursor: pointer;
+  margin: 0 auto;
+  text-align: center;
+  text-decoration: none;
+}
+.form-box .form-title {
+  font-size: 15px;
+  margin: 52.5rem 0;
+}
+.form-box .form-tabs .form-tab-items .btn {
+  background: #4ec2b2;
+  color: #FFF;
+  font-size: 15px;
+  border-radius: 13.125rem;
+  height: 105rem;
+  width: 656.25rem;
+  line-height: 105rem;
+  box-shadow: 0 3.9375rem rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+.form-box .form-tabs .form-tab-items .input-group {
+  height: 85px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+}
+.form-box .form-tabs .form-tab-items .input-group > div {
+  height: 40px;
+  margin: 0 10px;
+  padding: 0;
+}
+.form-box .form-tabs .form-tab-items .input-group > div:first-child {
+  border-bottom: 1px solid #eeeeee;
+}
+.form-box .form-tabs .form-tab-items .input-group .input-icon {
+  width: 20px;
+  height: 30px;
+  margin: 5px 15px 5px 0;
+  display: block;
+  float: left;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.form-box .form-tabs .form-tab-items .input-group input {
+  border: none;
+  outline: none;
+  font-size: 12px;
+  margin: 3px 0;
+  height: 35px;
+}
+.form-box .form-tabs .form-tab-items .wechat,
+.form-box .form-tabs .form-tab-items .wxwifi,
+.form-box .form-tabs .form-tab-items .wxcount {
+  padding-top: 75px;
+  background-repeat: no-repeat;
+  background-position: 0 28px;
+  background-size: cover !important;
+}
+.form-box .form-tabs .form-tab-items .wechat > div i {
+  display: block;
+  float: left;
+  margin: 5px 8px 5px 15px;
+  height: 30px;
+  width: 30px;
+  background-size: contain !important;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.form-box .form-tabs .form-tab-items .wechat .btn-wifi {
+  margin-bottom: 42px;
+}
+.form-box .form-tabs .form-tab-items .wxwifi .btn-wifi i {
+  display: block;
+  float: left;
+  margin: 5px 25px 5px 15px;
+  height: 30px;
+  width: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.form-box .form-tabs .form-tab-items .wxcount .btn-wechat i {
+  display: block;
+  float: left;
+  margin: 5px 25px 5px 15px;
+  height: 30px;
+  width: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.form-box .form-tabs .form-tab-items .phone {
+  margin-top: 22px;
+}
+.form-box .form-tabs .form-tab-items .phone .btn-login {
+  text-align: center;
+}
+.form-box .form-tabs .form-tab-items .phone .input-phone input {
+  width: 174px;
+}
+.form-box .form-tabs .form-tab-items .phone .input-code input {
+  width: 104px;
+}
+.form-box .form-tabs .form-tab-items .phone .input-code .btn-getcode {
+  width: 85px;
+  color: #4ec1b2;
+  font-size: 10px;
+  padding: 12px 0;
+  cursor: pointer;
+}
+.form-box .form-tabs .form-tab-items .user {
+  margin-top: 22px;
+}
+.form-box .form-tabs .form-tab-items .user .btn-login {
+  text-align: center;
+}
+.form-box .form-tabs .form-tab-items .user .input-name input {
+  width: 174px;
+}
+.form-box .form-tabs .form-tab-items .user .input-pwd input {
+  width: 174px;
+}
+#count {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  font-size: 12px;
+  padding: 2px 10px;
+  line-height: 20px;
+  box-sizing: border-box;
+  border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#count_timer {
+  color: #ff5d28;
+  padding-right: 5px;
+}
+#count_txt {
+  color: #fff;
+  letter-spacing: 2px;
+}
+.ui-sortable-handle {
+  -ms-touch-action: none;
+  touch-action: none;
+}

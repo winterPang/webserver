@@ -1,0 +1,110 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>/*后续加到 private.css 文件中*/
+       .app-box .no-top-padding{padding-top: 0;}
+    </style>
+</head>
+<body>
+
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box">
+
+            <div class="box-footer">
+                <span class="title">服务绑定</span>
+            </div>
+
+            <div class="box-body no-height">
+                <div class="col-xs-12" id="list_RadioGroup">
+                   <div class="col-xs-2">
+                        <input class="input-element" id="branch_Radio" name="list_Radio" type="radio" checked>
+                        <label for="branch_Radio">基于分支批量下发</label>
+                    </div>              
+                    <div class="col-xs-1">
+                        <input class="input-element" id="APGroup_Radio" name="list_Radio" type="radio">
+                        <label for="APGroup_Radio">AP组</label>
+                    </div>
+                    <div class="col-xs-1">
+                        <input class="input-element" id="AP_Radio" name="list_Radio" type="radio">
+                        <label for="AP_Radio">AP</label>
+                    </div> 
+                </div>
+            </div>
+
+            <div class="box-body no-height no-top-padding" id="STBind_Lists">
+                <div class="simple-list" id="branch_List"></div>
+                <div class="simple-list hide" id="APGroup_List"></div>
+                <div class="simple-list hide" id="AP_List"></div>
+            </div>
+
+            
+        </div>
+    </div>
+</div>
+
+<!--弹出框-->
+<div class="hide" id="APGroupByBranch_Dlg"><!--基于分支的apGroup列表-->
+    <div class="modal-header">
+        <button class="close" type="button" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">AP组列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="APGroupByBranch_List" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" id="closeDlgBtn">关闭</a>
+    </div>
+</div>
+
+<div class="hide" id="WLSerByAPGroup_Dlg"><!--基于apGroup的无线服务列表-->
+    <div class="modal-header">
+        <button class="close" type="button" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">无线服务列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="WLSerByAPGroup_List" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" id="closeDlgBtn">关闭</a>
+    </div>
+</div>
+
+<div class="hide" id="WLSerByAP_Dlg"><!--基于ap的无线服务列表-->
+    <div class="modal-header">
+        <button class="close" type="button" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">无线服务列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="WLSerByAP_List" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" id="closeDlgBtn">关闭</a>
+    </div>
+</div>
+
+<div id="stBind_rc" class="rc-define"
+
+OPERATION = "操作"
+MSG_INFO_ERROR = "数据获取失败!!!"
+BRANCH_TYPE = "本地无AC,本地有AC,本地有AC且有独立无线服务"
+ENABLE_DISABLE = "使能状态,开启,关闭"
+
+BRANCH_LIST_HEADER = "分支名称,分支描述,AP组,操作"
+APGROUP_LIST_HEADER = "AP组名称,AP组描述,无线服务数量,操作"
+AP_LIST_HEADER = "AP名称,无线服务数量,操作"
+
+APGROUP_BYBRANCH_LIST_HEADER = "AP组名称,AP组描述,AP"
+WLSER_LIST_HEADER = "无线服务名称,SSID,服务类型,认证方式,服务状态"
+
+WL_ST_TYPE = "内部Wi-Fi,商业Wi-Fi"
+WL_AUTH_TYPE = "不认证,一键认证,账号认证"
+WL_ST_STATUS = "开启, 关闭"
+
+></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("hq_wlanconfig.index_stbind");
+</script>

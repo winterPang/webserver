@@ -1,0 +1,76 @@
+{
+  "redisConnParas" : {
+    "port" :  6389,
+    "host" :  "172.16.4.147"
+  },
+  "mongoConnParas": "mongodb://admin:admin@172.16.4.147:27017/webserver",
+  "mongoConnParasErrorRecord": "mongodb://admin:admin@172.16.4.147:27017/webserver",
+  "MQHostnames": ["172.16.4.147"],
+  //"httpPort"  : 80,
+  //"httpsPort" : 443,
+  "hdfsConnOption" : {
+    "user" : "root",
+    "host" : "172.16.4.147",
+    "port" : 50070,
+    "path" : "/webhdfs/v1/home/hdfs/"
+  },
+  "cas_url" : "https://oasis-rd.h3c.com/cas",
+  "service_url" : "https://oasisrd.h3c.com",
+  "login_url" : "https://oasisrd.h3c.com/oasis/stable/web/login.html",
+  "allow_origin" : "https://lvzhou.h3c.com",
+  "cookieTmpAge" : 3600000,
+  "cookieSuccessAge" : 2592000000,
+  "messageHost":"h3crd-wlan9",
+  "log4jsConfig" : {
+    "appenders": [
+      {
+        "type": "console"
+      },
+      {
+        "category": [ "https","console" ],
+        "type": "dateFile",
+        "filename": "../logs/",
+        "alwaysIncludePattern": true,
+        "pattern": "webserver-yyyyMMddhh.log"
+      },
+      {
+        "category": [ "conn" ],
+        "type": "dateFile",
+        "filename": "../logs/",
+        "alwaysIncludePattern": true,
+        "pattern": "conn-yyyyMMddhh.log"
+      }
+    ],
+    "replaceConsole": true,
+    "levels":
+    {
+      "console":"ALL",
+      "https":"ERROR",
+      "conn":"ALL"
+    }
+  },
+  "log4jsConnect" : {
+    "level": "auto",
+    "format": ":remote-addr - - \":method :url HTTP/:http-version\" :status :content-length \":referrer\" \":user-agent\" :response-timems"
+  },
+  "memoryConfig" : {
+    "heapdump" : false,
+    "memwatch" : false
+  },
+  "hoturlConfig" : {
+    "enable" : true,
+    "vaildfile" : "../hoturl.json",
+    "time" : [
+      {
+        "h": [0],
+        "m": [10]
+      }
+    ]
+  },
+  "trustIpArray" : ["::ffff:127.0.0.1", "::1", "::ffff:172.16.4.49"],
+  "wlocmongoConnParas":"mongodb://wloc:wloc@172.16.4.147:27017/wloc",
+  "fastdfsTrackerServer" : "172.16.4.98:22122",
+  "fastdfsTracker" : "172.16.4.98",
+  "fastdfsTrackerDomain" : "oasisauth.h3c.com",
+  "devlogserver" : "oasis-rsyslog.chinanorth.cloudapp.chinacloudapi.cn"
+}

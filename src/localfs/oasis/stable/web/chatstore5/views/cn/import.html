@@ -1,0 +1,19 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading clearfix">
+            <h3 class="panel-title">导入已申请的门店
+                <span class="pull-right">
+                <small>选择微信公众号：</small>
+                <select ng-model="appId" title="" select2="appselect" ng-options="s.appId as s.name for s in appList"></select>
+            </span>
+            </h3>
+        </div>
+        <div class="panel-body">
+            <div class="lead">
+                <a class="btn btn-cus" ui-sref="scene.content.netdeploy.chatstore5">返回</a>
+            </div>
+            <table bs-table="options"></table>
+        </div>
+    </div>
+</div>
+<div class="read_rc" id="model_rc" table-title="门店名称,关联SSID,当前状态,导入微信门店成功！,微信门店已经存在！,微信门店导入失败！,公众号信息异常"></div>

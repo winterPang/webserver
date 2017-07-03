@@ -1,0 +1,163 @@
+<style>
+    .fa.fa-style, .btn:hover i{
+        color: #FFFFFF;
+        font-size: 16px;
+    }
+    html .app-colum .app-box .box-body.pt-clear,
+    body .app-colum .app-box .box-body.pt-clear{
+        padding-top: 0;
+    }
+    .title-fontStyle{
+        color:#000;
+    }
+
+</style>
+
+<div class="page-row">
+    <div class="col-xs-12 app-colum left-block">
+        <div class="app-box">
+            <div class="box-footer">
+                <span class="title">安全防御</span>
+            </div>
+            <div class="col-xs-12">
+                <div class="col-xs-2 ml20">
+                    <label>
+                        <input class="input-element"
+                           type="radio"
+                           ng-checked="isChecked.APG"
+                           ng-click="clickRadio('APG')">
+                        AP组
+                    </label>
+                </div>
+                <div class="col-xs-2">
+                    <label>
+                        <input class="input-element"
+                            type="radio" 
+                            ng-checked="!isChecked.APG"
+                            ng-click="clickRadio('AP')">
+                        AP
+                    </label>
+                </div>
+            </div>
+            <div class="box-body no-height pt-clear">
+                <div ng-show="isChecked.APG">
+                    <div class="btn-group" id="APGBtnGroup"  ng-if="permission.write" ng-show="isChecked.APG">
+                        <button class="btn btn-cus"
+                             ng-disabled="modBtnDisable"
+                             ng-click="click.ModifyWIPSBtn()">
+                            <i class="btn-icon icon-add"></i>修改安全参数
+                        </button>
+                    </div>
+                    <div class="simple-list" bs-table="APGListOpts"></div>
+                </div>
+                <div ng-hide="isChecked.APG">
+                    <div class="btn-group" id="APBtnGroup" ng-if="permission.write" ng-hide="isChecked.APG">
+                        <button class="btn btn-cus"
+                             ng-disabled="modBtnDisable"
+                             ng-click="click.ModifyWIPSBtn()">
+                            <i class="btn-icon icon-add"></i>修改安全参数
+                        </button>
+                    </div>
+                    <div class="simple-list" bs-table="APListOpts"></div>
+                </div>                           
+            </div>
+        </div>
+    </div>
+</div>
+
+<div bs-modal="WIPSStatusModalOpts">
+    <form class="form-horizontal form">
+        <div class="form-group">
+            <div class="col-sm-4 ml20 title-fontStyle"
+                ng-bind="isChecked.APG?'AP组名称':'AP名称'"></div>
+            <div class="col-sm-4"
+                ng-bind="WIPSStatus.name"></div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-4 ml20 title-fontStyle">射频</div>
+            <div class="col-sm-4" ng-bind="WIPSStatus.radio"></div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-4 ml20 title-fontStyle">检测钓鱼行为</div>
+            <div class="col-sm-4" ng-bind="WIPSStatus.phishStatus"></div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-4 ml20 title-fontStyle">反制钓鱼行为</div>
+            <div class="col-sm-4" ng-bind="WIPSStatus.ctmPhishStatus"></div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-4 ml20 title-fontStyle">检测泛洪攻击</div>
+            <div class="col-sm-4" ng-bind="WIPSStatus.floodStatus"></div>
+        </div>
+    </form>
+</div>
+
+<div bs-modal="modifyWIPSModalOpts">
+    <form class="form-horizontal form">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">检测私接代理</label>
+            <div class="col-sm-10">
+                <div class="xb-input xb-checkbox">
+                    <input class="switch input-element"
+                           id="natDetectStatus"
+                           type="checkbox"
+                           ng-model="modifyModal.natDetectStatus"/>
+                    <span class="input-icon checkbox-icon switch"
+                          ng-class="{checked: modifyModal.natDetectStatus}"></span>
+                    <label class="input-label" for="natDetectStatus"></label>
+                </div>
+                <br/>
+                <label class="info-explain">说明：修改指定AP下的所有radio的私接代理检测功能状态</label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-2 control-label">无线探针</label>
+            <div class="col-sm-10">
+                <div class="xb-input xb-checkbox">
+                    <input class="switch input-element"
+                           id="probeStatus"
+                           type="checkbox"
+                           ng-model="modifyModal.probeStatus"/>
+                    <span class="input-icon checkbox-icon switch"
+                          ng-class="{checked: modifyModal.probeStatus}"></span>
+                    <label class="input-label" for="probeStatus"></label>
+                </div>
+                <br/>
+                <label class="info-explain">说明：检测未接入本网络的周边无线终端</label>
+            </div>
+        </div>
+        <div class="form-group" id="bb_block">
+            <label class="col-sm-2 control-label">无线攻击防御</label>
+            <div class="col-sm-10">
+                <div>
+                    <div class="WipsBlock">
+                        <input type="checkbox" id="phish" name="phish" ng-model="modifyModal.phishStatus"/>
+                        <label for="phish">检测钓鱼行为</label><br/>
+                        <label class="info-explain">说明：检测发布与本网络或知名热点相似的无线服务、伪造网络设备MAC地址、伪造网络设备beacon帧</label>
+                    </div>
+                    <div class="WipsBlock">
+                        <input type="checkbox" id="ctmPhish" name="ctmPhish" ng-model="modifyModal.ctmPhishStatus"/>
+                        <label for="ctmPhish">反制钓鱼行为</label><br/>
+                        <label class="info-explain">说明：可以使攻击者无法正常工作，需谨慎使用</label>
+                    </div>
+                    <div class="WipsBlock">
+                        <input type="checkbox" id="flood" name="flood" ng-model="modifyModal.floodStatus"/>
+                        <label for="flood">检测泛洪攻击</label><br/>
+                        <label class="info-explain">说明：检测攻击者短时间内发送大量同类型的报文，导致目标系统无法正常提供服务</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<div id="RC"
+     OFF_ON = "关闭,开启"
+     APG_LIST_HEADER = "AP组名称,射频,私接代理检测,无线安全,无线探针"
+     AP_LIST_HEADER = "AP名称,射频,私接代理检测,无线安全,无线探针"
+     MODAL_HEADER = "无线攻击防御"
+     MSG_INFO = "配置成功！,配置失败！">
+</div>

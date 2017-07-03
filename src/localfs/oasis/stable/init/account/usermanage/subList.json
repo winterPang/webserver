@@ -1,0 +1,18 @@
+{
+  "code":0,
+  "message":"o2o.oasis.mng.query.success",
+  "total":2,
+  "rows":[{
+    "name":"test",
+    "phone":"13888888888",
+    "email":"super@h3c.com",
+    "createDateTime":"2016-07-04 15:27:28",
+    "id":1
+  },{
+    "name":"test",
+    "phone":"17722556699",
+    "email":"xuyian@h3c.com",
+    "createDateTime":"2016-07-04 15:34:34",
+    "id":2
+  }]
+}

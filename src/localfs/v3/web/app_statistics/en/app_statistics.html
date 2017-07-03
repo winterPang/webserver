@@ -1,0 +1,331 @@
+<html>
+<head>
+</head>
+<style>
+    @import url("./libs/jquerynav/jquery-accordion-menu.css");
+    .probe-choice input{
+        width: 200px;
+        height: 33px;
+        padding-right: 40px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        z-index: 9999;
+    }
+    .probe-choice.input-height{
+        height: 34px;
+    }
+    .probe-choice input.probe-input{
+        z-index: 9999;
+    }
+    #probe_time{
+        display: inline-block;
+    }
+    .probe-choice .choice-show{
+        width: 200px;
+        height: 0px;
+        overflow: hidden;
+        position: relative;
+        background-color: #fff;
+        -webkit-box-shadow: 0 0 1px 1px #ccc;
+        -moz-box-shadow: 0 0 1px 1px;
+        box-shadow: 0 0 6px 0px;
+        z-index: 9999;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        -webkit-transition: height 0.3s;
+        -moz-transition: height 0.3s;
+        -ms-transition: height 0.3s;
+        -o-transition: height 0.3s;
+        transition: height 0.3s;
+    }
+    .probe-choice .choice-show li{
+        background: #fff;
+        line-height: 35px;
+        font-size: 14px;
+        padding: 0px 0 0px 30px;
+        list-style-type: none;
+        -webkit-transition: background 0.3s;
+        -moz-transition: background 0.3s;
+        -ms-transition: background 0.3s;
+        -o-transition: background 0.3s;
+        transition: background 0.3s;
+    }
+    .probe-choice .choice-show li:not(:first-child) {
+        border-top: rgba(204, 204, 204, 0.36) dashed 1px;
+    }
+    .probe-choice .choice-show li:first-child{
+        border-top: rgba(204, 204, 204, 0.36) solid 1px;
+    }
+    .probe-choice .choice-show li:hover{
+        background: #ccc;
+        cursor: pointer;
+    }
+    .probe-choice .choice-show.height-change{
+        height: auto;
+    }
+    .probe-choice input.probe-input{
+        width: 183px;
+        margin: 10px;
+    }
+    .cover-body{
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        z-index: 9998;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+    /*向下箭头*/
+    .arrow-down{
+        background: url(css/image/dashboard-icon.png) no-repeat -376px -94px;
+    }
+    .choice-head{
+        width: 200px;
+        height: 33px;
+        padding-right: 0px;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        border: #ccc solid 1px;
+    }
+    .choice-head:hover{
+        border-color: #4ec1b2;
+        cursor: pointer;
+    }
+    .choice-head span:first-child{
+        margin-left: 15px;
+        line-height: 33px;
+    }
+    .choice-head span:last-child{
+        height: 33px;
+        width: 30px;
+        float: right;
+    }
+    /*<!-- daterange 调整-->*/
+    .daterange button{
+        width: 100px;
+        background-color: #69C4C5;
+        padding: 0;
+    }
+    .daterangepicker table thead tr th {
+        background: #69C4C5;
+        color: #fff;
+    }
+    .daterangepicker td.active, .daterangepicker td.active:hover {
+        color: #fff;
+        background-color: #69C4C5;
+    }
+    .daterangepicker .ranges .range_inputs .btn-success,.daterangepicker .ranges .range_inputs .btn-success:hover{
+        margin: 10px;
+        color: #fff;
+        background-color: #69C4C5;
+        border-color: #fff;
+        min-width: 40px;
+    }
+    /*周期选择*/
+    .time-zone{
+        display: inline-block;
+    }
+    .radio-name{
+        display: inline-block;
+        margin: 0 20px 0 0;
+    }
+    /*slist 调整*/
+    .slist-body .slist-center .slist-row,.slist-body .slist-head{
+        border-bottom: 0px;
+    }
+    .slist-body .slist-head,.slist-body .slist-center .slist-row.even{
+        background-color: #EDF0F2;
+        transition:background 0.5s;
+        -moz-transition:background 0.5s; /* Firefox 4 */
+        -webkit-transition:background 0.5s; /* Safari and Chrome */
+        -o-transition:background 0.5s; /* Opera */
+    }
+    .slist-body .slist-center .slist-row.odd{
+        background-color: #ffffff;
+        transition:background 0.5s;
+        -moz-transition:background 0.5s; /* Firefox 4 */
+        -webkit-transition:background 0.5s; /* Safari and Chrome */
+        -o-transition:background 0.5s; /* Opera */
+    }
+    .simple-list .slist-body {
+        border-style: solid;
+        border-color: #dedddd;
+        border-width: 0 1px 0 1px;
+    }
+    .slist-body .slist-center .slist-row:hover{
+        background: #4ec1b2;
+        color: #F5F5F5;
+    }
+    .slist-body .slist-center .slist-row.active{
+        background: rgba(0 0 0 0);
+    }
+    /*缩小slist表上面间距*/
+    .simple-list .slist-body.with-button {
+        margin-top: 0px;
+    }
+    /*sList隐藏其前面的选择图标*/
+    .check-column .check-icon {
+        /* display: block; */
+        background: url(image/xb-icons.png) no-repeat;
+        background-position: -854px -125px;
+        width: 16px;
+        height: 16px;
+        cursor: pointer;
+    }
+    /*改变弹出框按钮样式*/
+    .modal-footer .btn+.btn {
+        margin: 10px 0 20px 10px;
+        color: rgba(255,255,255,0.5);
+        background: #4ec1b2;
+    }
+    .btn.btn-cancel:hover {
+        color: #f5f5f5;
+    }
+    .modal-footer .btn {
+        margin: 10px 0 20px 10px;
+    }
+    /*弹出框的头部样式*/
+    .modal-header{
+        padding: 10px 15px;
+        background: #4ec1b2;
+        color: white;
+        border-bottom: 1px solid #4ec1b2;
+        border-radius: 6px 6px 0 0;
+        height: 50px;
+    }
+    /*弹出框的宽度及左距离*/
+    .modal-super {
+        width: 1160px;
+        margin-left: -480px;
+    }
+    #on_remove{
+        width: 700px;
+        margin-left: -360px;
+        height: 177px;
+    }
+    .antmenu{
+        margin-left: -15px;
+        height: 614px;
+        background: #2E3B48; 
+    }
+        
+</style>
+<body>
+<div id="body_over" class="cover-body hide"></div>
+<div class="page-row">
+    <div class="col-xs-12 ">
+        <div class="col-xs-10 app-colum left-block">
+            <!-- 微服务饼图 -->
+            <div class="col-xs-12 app-box">
+                <div class="col-xs-12">
+                    <div class="col-xs-3" style="margin: 0.5% auto auto 0.5%">
+                        <div id="select_time" class="input-height probe-choice">
+                        <div id="Time_choice" class="choice-head" value="4" style="background: #fff; width: 205px">
+                            <span class="current-state" id="InputselecTime" style="margin-left: 12px;">Today</span>
+                            <span id="img-down1" class="arrow-down"></span>
+                        </div>
+                        <div class="choice-show" style="width: 205px">
+                            <div class="time-zone" id="timezone">
+                                <input id="daterange" class="daterange" placeholder="Select a date"
+                                       style="color: #80878C; width: 190px;
+                            margin-left: 4px;margin-bottom: 5px;margin-top: 5px;
+                            border-top-width: 1px;border-left-width: 1px;
+                            border-bottom-width: 1px; border-bottom-color: #A7A2A2;
+                            border-right-width: 1px;border-right-color: #A7A2A2;
+                            padding-right: 0px;padding-left: 15px;">
+                            </div>
+                            <div>
+                                <li value="0" style="padding-left: 18px;">Today</li>
+                                <li value="1" style="padding-left: 18px;">Seven days</li>
+                                <li value="2" style="padding-left: 18px;">One month</li>
+                                <li value="3" style="padding-left: 18px;">One year</li>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 " style="height:280px" id="draw_pie">
+                    <div id="app_pie" class="myEchart"></div>
+                    <div id="app_message" class="panel leg-panel"></div>
+                </div>  
+            </div>
+            <!-- 微服务表格 -->
+            <div class="col-xs-12" style="margin-top: -1%">
+                <div class="col-xs-12" id="all_list">
+                    <div class="simple-list" id="app_table"></div>
+                </div>
+                <div class="col-xs-12 hide" id="detail_list">
+                    <div class="simple-list" id="app_detail_table"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <!-- 菜单列表 -->
+            <div class="antmenu"></div>          
+        </div>   
+    </div>
+
+    <!---------------------------单个表的详情-------------------->
+    <form class="form-horizontal form hide" id="filecontent">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">File Details</h3>
+        </div>
+        <div class="modal-body">
+            <div id="filecontent_info" ></div>
+        </div>
+        <div class="modal-footer form-actions">
+            <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+                <i class="icon-remove"></i>
+                Close
+            </a>
+        </div>
+    </form>
+    <!-- ----------------------------------------------------------------------- -->
+
+    <!-- ----------------------------用于下载文件导出-------------------------------- -->
+    <iframe id="exportFile" name="exportFile" style="display: none"></iframe>
+    <!-- ----------------------------------------------------------------------- -->
+
+    <!---------------------------删除 -------------------->
+    <div class="hide modal fade" id="on_remove">
+        <div class="modal-body">
+            <form class="form edit" id="remove_form">
+                <div class="form-group">
+                    <div class="col-sm-12" style="margin-left:10px">
+                        <label class="control-label">Delete the data. Continue?</label>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <!-- ----------------------------------------------------------------------- -->
+
+    <!--APP_ONE_HEADER="数据表,记录数量"-->
+    <div id="app_statistics_rc" class="rc-define"
+        APP_ALL_HEADER="Application Name, Table Count, Records"
+        APP_ONE_HEADER="Table Name, Records, Operation"
+        DOWNLOAD="Download"
+        REMOVE_TITLE="Delete"
+        LIMIT_DETAIL_COUNT="First 100 records"
+        APP-NAME="Application analysis, Probing, WIPS, Log management, NAT-configured client"
+        TEMP-NO-DATA="No data"
+        DELTE-OPERATION="Data deleted successfully. Data deleting failed."
+        ALL="All"
+        APP_MANAGMENT="App Management"
+        PROBER="Prober"
+        NAT_CONFIGURED_CLIENT="NAT-Configured Client"
+        LOG_MANAGEMENT="Log Management"
+        WIPS="WIPS"
+            ></div>
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("app_statistics.app_statistics");
+</script>

@@ -1,0 +1,65 @@
+
+    <div class="page-row">
+        <div class="col-xs-7 app-colum left-block">
+            <div class="app-box">
+                <div class="box-footer" id="CupidBtn">
+                    <span class="title">无线定位</span>
+                    <div class="form-actions top" style="display: block;" ng-show="drsOperateBtnDisp" ng-hide="!drsOperateBtnDisp">
+                        <a href="javascript:void(0)" class="form-btn icon-ok" ng-click="drsSetdata()"></a>
+                        <a href="javascript:void(0)" class="form-btn icon-remove" ng-click="drsValueBACK()"></a>
+                    </div>
+                </div>
+                <div class="box-body no-height">
+                    <form class="form-horizontal form" id="CupidForm">
+                        <div class="form-group" >
+                            <label class="col-sm-3 control-label">无线定位</label>
+                            <div class="col-sm-9">
+                                <div class="xb-input">
+                                    <div class="input-icon checkbox-icon switch" ng-class="{'checked':drsValueIsEnable}" ng-click="drsValueChange()"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <!--yuzhiqiang 应用分析的配置开关-->
+        <div class="col-xs-7 app-colum left-block">
+            <div class="app-box">
+                <div class="box-footer" id="DrsBtn">
+                    <span class="title">应用分析</span>
+                    <div class="form-actions top" style="display: block;" ng-show="appOperateBtnDisp" ng-hide="!appsOperateBtnDisp">
+                        <a href="javascript:void(0)" class="form-btn icon-ok" ng-click="appSetdata()"></a>
+                        <a href="javascript:void(0)" class="form-btn icon-remove" ng-click="appValueBACK()"></a>
+                    </div>
+                </div>
+                <div class="box-body no-height">
+                    <form class="form-horizontal form" id="DrsidForm">
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">应用分析</label>
+                            <div class="col-sm-9">
+                                <div class="xb-input">
+                                    <div class="input-icon checkbox-icon switch" ng-class="{'checked':appValueIsEnable}" ng-click="appValueChange()"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="RC" class="rc-define"
+        DRS_GET="获取应用分析状态失败" 
+        APP_GET="获取无线定位状态失败" 
+
+        DRS_Cancel="已取消" 
+
+        DRS_OPEN="开启无线定位功能成功,开启无线定位功能失败"     
+        DRS_CLOSE="关闭无线定位功能成功,关闭无线定位功能失败"
+
+        APP_OPEN="开启应用分析功能成功,开启应用分析功能失败"     
+        APP_CLOSE="关闭应用分析功能成功,关闭应用分析功能失败" 
+
+        Notice_Title = "提示"
+    >
+    </div>

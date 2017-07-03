@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="col-xs-12 app-colum xxb" id="addWechat" debug="getWeChatDetail">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title" id="Title">编辑微信公众号</span>
+        </div>
+        <div class="box-body no-height wechat-content">
+            <form id="adduser_form" class="form edit adduser_form">
+                <span class="info-tip">请务必保证以下配置与微信平台上的配置保持一致！</span>
+                <!--<form id="adduser_form" class="form edit">-->
+                    <div class="form-group margin_bot">
+                        <div class="label-title">
+                            <label class="control-label float-left">公众号类型</label>
+                        </div>
+                        <div class="control-content edit-content radio-group">
+                            <div class="col-sm-1">
+                                <input type="radio" id="publicNumber1" name="type" value="1" checked />
+                                <label for="publicNumber1">订阅号</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <input type="radio" id="publicNumber2" name="type" value="2" />
+                                <label for="publicNumber2">服务号</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <input type="radio" id="publicNumber3" name="type" value="3" />
+                                <label for="publicNumber3">企业号</label>
+                            </div>
+                        </div>
+                    </div>
+                <div class="form-group margin_bot">
+                    <div class="label-title">
+                        <label class="control-label float-left required" name="name">名称</label>
+                    </div>
+                    <div class="control-content edit-content">
+                        <input type="text" class="string bigger required float-left" id="chatname" maxlength="30" name="name" error_id="chatname_error"/>
+                        <label class="info-explain float-left" name="name">（名称长度为3-30个字符，不能含有特殊字符及“微信”等保留字）</label>
+                        <label class="error float-left" id="chatname_error"></label>
+                    </div>
+                </div>
+                    <div class="form-group">
+                        <div class="label-title">
+                            <label class="control-label float-left required" name="name">微信号</label>
+                            <!--<div class="float-left star-required" name="name"></div>-->
+                        </div>
+                        <div class="control-content edit-content">
+                            <input type="text" class="string bigger required float-left" id="chat" maxlength="20" name="name" error_id="chat_error"/>
+                            <label class="info-explain float-left" name="name">（微信号必须是以6-20个字母、数字、下划线或减号组成）</label>
+                            <label class="error float-left" id="chat_error"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="label-title">
+                            <label class=" control-label float-left required">APPID</label>
+                        </div>
+                        <div class="control-content edit-content">
+                            <input type="text" class="string bigger required" maxlength="64" id="appId" spellcheck="false" name="appId" error_id="appId_error"/>
+                            <label class="error" id="appId_error"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="label-title">
+                            <label class="control-label float-left required">TOKEN</label>
+                        </div>
+                        <div class="control-content edit-content">
+                            <input type="text" class="string bigger required" id="token" spellcheck="false" minlength="3" maxlength="32" name="token" error_id="token_error"/>
+                            <label class="error" id="token_error"></label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="label-title">
+                            <label class=" control-label float-left required">APP SECRET</label>
+                        </div>
+                        <div class="control-content edit-content">
+                            <input type="text" class="string bigger required" spellcheck="false" maxlength="64" id="appSecret" name="appSecret" error_id="appSecret_error"/>
+                            <label class="error" id="appSecret_error"></label>
+                        </div>
+                    </div>
+                    <div class="form-group detail-content" id="senior">
+                        <div class="advan_content">
+                            <div id="advanceBtn">
+                                <div class="float-left">
+                                    <div class="advan_set advan_set1 float-left"></div>
+                                    <a class="float-left ad-button" id="ad-button">
+                                        <span class="text">高级设置</span>
+                                    </a>
+                                    <div class="advan_set advan_set2 float-left" id="AdvanceClose"></div>
+                                </div>
+                                <div class="bottomline float-left"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="WeChat_Toggle" class="hide">
+                        <div class="space-8"></div>
+                        <div class="form-group margin_jiami">
+                            <div class="label-title">
+                                <label class="control-label float-left">加解密类型</label>
+                            </div>
+                            <div class="radio-group">
+                                <div class="col-sm-1" id="encryption1">
+                                    <input type="radio" id="encryptionType1" name="cipherMode" value="1" checked />
+                                    <label for="encryptionType1">明文</label>
+                                </div>
+                                <div class="col-sm-1" id="encryption2">
+                                    <input type="radio" id="encryptionType2" name="cipherMode" value="2" />
+                                    <label for="encryptionType2">兼容</label>
+                                </div>
+                                <div class="col-sm-1" id="encryption3">
+                                    <input type="radio" id="encryptionType3" name="cipherMode" value="3" />
+                                    <label for="encryptionType3">安全</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" id="advanceDetail">
+                            <div class="label-title">
+                                <label class="control-label float-left">加密密钥</label>
+                            </div>
+                            <div class="control-content edit-content">
+                                <input type="text" class="string bigger" spellcheck="false" minlength="43" maxlength="43" id="encodingAesKey" name="encodingAesKey" error_id="key_error"/>
+                                <label class="info-explain">（加密密钥必须为43位且与微信公众平台配置一致）</label>
+                                <!--<button class="btn btn-primary" id="rand">随机生成</button>-->
+                                <label class="error" id="key_error"></label>
+                            </div>
+                        </div>
+                    </div>
+                <!--</form>-->
+            </form>
+        </div>
+        <div class="btn_foot detail-content">
+            <!--<button class="btn btn_ok" id="checkId" style="display: none;">验证信息</button>-->
+            <button class="btn btn_ok" id="applyInfo">确定</button>
+            <button class="btn btn_cancel" id="cancelInfo">返回</button>
+        </div>
+    </div>
+</div>
+    <div id="x_addWeChat_rc" class="rc-define"
+           NAME_CHECKMSG="微信号不能小于6个字符,微信号必须是字母、数字、下划线或减号的组合,微信号必须以字母开头"
+           APPID_CHECKMSG="APPID不能大于64个字符,APPID不能空,APPID只能包含字母或数字"
+           TOKEN_CHECKMSG="Token必须是3-32个英文或数字"
+           KEY_CHECKMSG="encodingAesKey必须是英文或数字"
+           APP_CHECKMSG="APP SECRET不能有空格,APP SECRET不能空"
+           SUBMIT_CHECKMSG="提交数据格式错误,配置成功,网络服务异常,提交数据异常,公众号已存在请请重新设置,您添加的公众号中已存在该APPID,微信服务器没有返回值,公众号下的微信号名称错误,appid校验失败,appsecret校验失败,无效的appId、appScrect"
+           TITLE_TEXT="新增微信公众号,编辑微信公众号"
+           GETDATA_ERROR="查询数据异常"
+           WEIXIN = "微信"
+           BIZ_CHECKMSG ="名称不能小于3个字符，名称不能大于30个字符，名称不能包含“微信”等保留字，名称不能包含特殊字符"
+    </div>
+</body>
+</html>
+<div id="we_chat_rc" class="rc-define" USER_LIST_HEADER="门店名称,所属公众号,SSID,当前状态,门店设置" CHECK_SHOP="查看门店">
+</div>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_networkcfg.addwechat");
+</script>

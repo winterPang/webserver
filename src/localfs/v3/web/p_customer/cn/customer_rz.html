@@ -1,0 +1,196 @@
+<html>
+<head>
+</head>
+<body>
+<div class="page-row">
+    <div class="col-xs-12 app-colum left-block">
+        <div class="app-box">
+            <div class="select-footer">
+                <div class="col-xs-3 ml20">
+                    <div class="form-group">
+                        <div class="col-xs-6">
+                            <input type="radio" name="terminal" id="allterminal" value="1">
+                            <label for="allterminal">关联终端</label>
+                        </div>
+                        <div class="col-xs-6">
+                            <input type="radio" name="terminal" id="terminal" value="2" checked="checked">
+                            <label for="terminal">认证终端</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="dashboard portal_clients">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block" debug="clients NumRZ">
+            <div class="bg-bor">
+                <div class="head-bar">
+                    <div class="box-footer">
+                        <div class="col-xs-10">
+                            <span class="title sysinfo-footer-title">客户端数量</span>
+                        </div>
+                        <div class="text-right link-container">
+                            <a type="button" class="
+                            link-detail" id="submit_scan" href="p_customer.clients_rz" title="更多">
+                                <i class="detail-icon icon"></i>
+                            </a>
+                        </div>
+                        <div class="text-rightandlink-container">
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="syslog-info-mine-Total">
+                            <div class="left-icon Total-icon">
+                            </div>
+                            <div class="right-text">
+                                <span class="number-count" id="portalTotal"></span>
+                                <br />
+                                <span class="number-title">总计</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="syslog-info-mine-Num2G">
+                            <div class="left-icon Num2G-icon">
+                            </div>
+                            <div class="right-text">
+                                <span class="number-count" id="portalNum2G"></span>
+                                <br />
+                                <span class="number-title">2.4GHz</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="syslog-info-mine-Num5G" style="border:0px;">
+                            <div class="left-icon Num5G-icon">
+                            </div>
+                            <div class="right-text">
+                                <span class="number-count" id="portalNum5G"></span>
+                                <br />
+                                <span class="number-title">5GHz</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-6 app-colum left-block">
+            <div class="page-row xxb" id="userflow">
+                <div class="col-xs-12 app-colum " debug="getnewuser">
+                    <div class="app-box no-bk-color">
+                        <div class="box-footer">
+                            <div class="col-xs-3">
+                                <span class="title">宾客统计</span>
+                            </div>
+                            <div class="time-change" id="portalClient">
+                                <a id="portalDays" class="time-link active" value='1'>一天</a>
+                                <a id="portalWeeks" class="time-link" value='2'>一周</a>
+                                <a id="portalMounth" class="time-link" value='3'>一月</a>
+                            </div>
+                        </div>
+                        <div class="box-body userflow-height form-group body-nopadding">
+                            <div id="portalUser" class="col-xs-10 myEchart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum left-block">
+            <div class="page-row xxb">
+                <div class="col-xs-12 app-colum " debug="getAccessTime getOnlineTime">
+                    <div class="app-box no-bk-color">
+                        <div class="box-footer">
+                            <div class="col-xs-3">
+                                <span class="title">客流统计</span>
+                            </div>
+                            <div class="time-change" id="pDetail">
+                                <a id="onlineCustomer" class="time-link">在线宾客</a>
+                                <a id="historyCustomer" class="time-link">历史明细</a>
+                            </div>
+                        </div>
+                        <div class="box-body userflow-height form-group body-nopadding">
+                            <div class="col-xs-6 pietop">
+                                <div class="row-clear padding0">
+                                    <div id="ViewPie" class=" col-xs-12 myEchart "></div>
+                                </div>
+                            </div>
+                            <div class="col-xs-6 pietop">
+                                <div class="row-clear padding0">
+                                    <div id="onlinePie" class=" col-xs-12 myEchart"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color" style="height:255px;">
+                <div class="col-sm-12 col-xs-12 app-colum">
+                    <div class="box-footer">
+                        <span class="title">终端类型</span>
+                    </div>
+                    <div class="box-body echart-height form-group" style="padding-top:0px;">
+                        <div id="pTerminal" class="col-xs-12 myEchart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color"  style="height:255px;">
+                <div class="col-sm-12 col-xs-12">
+                    <div class="box-footer">
+                        <span class="title">终端厂商</span>
+                    </div>
+                    <div class="box-body echart-height form-group" style="padding-top:0px;">
+                        <div id="pTermianlFirm" class="col-xs-12 myEchart"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box" debug="byApList ap">
+                <div class="box-footer">
+                    <span class="title">基于AP组分类</span>
+                </div>
+                <div class="box-body no-height">
+                    <div id="byApList" class="simple-list"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box" debug="bySsidList ssid">
+                <div class="box-footer">
+                    <span class="title">基于SSID分类</span>
+                </div>
+                <div class="box-body no-height">
+                    <div id="bySsidList" class="simple-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="maoxian">
+    </div>
+</div>
+<div id="customer_rz_rc" class="rc-define"
+     USER_COUNT="人数"
+     USER_TYPE="一次,两次,三次,四次以上"
+     USER_TYPE1111="来访次数,驻留时长,终端厂商"
+     USER_TYPE_TIME="半小时以内,一小时内,两小时内,两小时以上"
+     AP_HEADER="AP组名称,5GHz客户端数量,2.4GHz客户端数量"
+     SSID_HEADER="SSID,5GHz客户端数量,2.4GHz客户端数量"
+     VIEW_TITLE="未知">
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("p_customer.customer_rz");
+</script>

@@ -1,0 +1,29 @@
+@import "$variable";
+div.alert, p, h1 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  > div.alert {
+    width: 400px;
+    width: @base-size*400rem;
+    position: fixed;
+    top: 10px;
+    top: @base-size*10rem;
+    right: 10px;
+    right: @base-size*10rem;
+    padding: 20px;
+    padding: @base-size*20rem;
+    opacity: 1;
+    z-index: 9999;
+    &.unfade {
+      opacity: 1;
+      display: block;
+    }
+    &.fade {
+      opacity: 0;
+      transition: all 2s linear;
+    }
+  }
+}

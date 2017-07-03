@@ -1,0 +1,266 @@
+/**
+ * Created by liuyanping on 2016/10/24
+ */
+@import "$v3";
+
+body {
+  background: @body-color;
+  font-family: @font-normal;
+  overflow: hidden;
+}
+
+ul, ul li {
+  list-style: none;
+}
+
+.l-header {
+  height: 50px;
+  background-color: #1f262d;
+  width: 100%;
+  .l-header-img {
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    padding-left: 20px;
+  }
+  .l-home{
+    color: #ffffff;
+    display: inline-block;
+    height: 50px;
+    line-height: 50px;
+    margin-right: 30px;
+    cursor: pointer;
+    float: right
+  }
+}
+
+.l-second-header {
+  margin-left: @menu-width;
+  padding: 0 30px;
+  height: 38px;
+  line-height: 38px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  .l-header-time{
+    height: 38px;
+    line-height: 38px;
+    display: inline-block;
+    float: right;
+    >input{
+      height: 25px;
+      line-height: 25px;
+      padding-left: 5px;
+    }
+  }
+}
+
+.l-left {
+  position: fixed;
+  top: 50px;
+  z-index: 1;
+  height: 100%;
+  width: @menu-width;
+  background-color: @menu-back-color;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.l-right {
+  margin-top: 2px;
+  padding: 20px 0 30px 0;
+  overflow: auto;
+  margin-left: @menu-width;
+  background: @body-color;
+  height: 100%;
+}
+
+.l-first {
+  font-size: @menu-second-font;
+  color: #939da8;
+  padding: 0;
+  > li {
+    border-top: 1px solid #37414b;
+    border-bottom: 1px solid #1f262d;
+  }
+  > li > div {
+    height: 36px;
+    padding: 8px 0 8px 15px;
+    cursor: pointer;
+    i {
+      display: inline-block;
+      opacity: .5;
+      width: 1.25em;
+      height: 12px;
+      margin-right: 10px;
+      background: url("../images/sprite.png") no-repeat;
+      &.l-dashboard {
+        background-position: 0 0;
+      }
+      &.l-tijian {
+        background-position: -22px 0;
+      }
+      &.l-hotmap {
+        background-position: -44px 0;
+      }
+      &.l-wiresecurit {
+        background-position: -66px 0;
+      }
+      &.l-warning {
+        background-position: -88px 0;
+      }
+    }
+    .l-number {
+      display: inline-block;
+      background-color: #2E8B57;
+      margin: 0 22px 0 0;
+      float: right;
+      padding: 2px 8px 3px;
+      font-size: 12px;
+      color: #ffffff;
+      font-weight: bold;
+    }
+    /*i:last-child{
+      &.l-open{
+        display: inline-block;
+        height: 8px;
+        width: 8px;
+        background: url("../images/icon-jian.png");
+        float: right;
+        margin-right: 12px;
+        margin-top: 15px;
+      }
+      &.l-close{
+        display: inline-block;
+        height: 8px;
+        width: 8px;
+        background: url("../images/icon-jia.png");
+        float: right;
+        margin-right: 12px;
+        margin-top: 15px;
+      }
+    }*/
+
+    &:hover, &.active {
+      background-color: #2E8B57;
+      color: #eeeeee;
+    }
+    /*&:hover,&.active{
+      color: @menu-hover-active-color;
+      border-right: 4px solid @menu-hover-active-color;
+      .l-dashboard{
+        background-position: 0 -22px;
+      }
+      .l-tijian{
+        background-position: -22px -22px;
+      }
+      .l-hotmap{
+        background-position: -44px -22px;
+      }
+      .l-wiresecurit{
+        background-position: -66px -22px;
+      }
+      .l-warning{
+        background-position: -88px -22px;
+      }
+    }*/
+  }
+}
+
+.l-second {
+  background-color: #1e242b;
+  font-size: 13px;
+  color: #939da8;
+  padding: 0;
+  > li {
+    height: 36px;
+    line-height: 36px;
+    padding-left: 44px;
+    cursor: pointer;
+    /*> i{
+      display: inline-block;
+      height: 8px;
+      width: 7px;
+      margin-right: 10px;
+    }*/
+    &.active {
+      background-color: #eeeeee;
+      color: #777777;
+      /*i{
+        background: url("../images/icon-choose.png");
+      }*/
+    }
+    &:hover {
+      background-color: #2E8B57;
+      color: #eeeeee;
+    }
+  }
+}
+
+.app-colum .app-box {
+  border: 1px solid #e7e7e9;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3);
+  border-radius: 3px;
+}
+
+@media (max-width: @screen-sm) {
+  .l-left {
+    display: none;
+  }
+
+  .l-right {
+    margin-left: 0;
+  }
+
+  .l-second-header {
+    margin-left: 0;
+  }
+
+}
+
+/*滚动条美化css 适合WebKit引擎的浏览器如chrome、oprea、Safari等*/
+::-webkit-scrollbar {
+  width: 16px;
+}
+
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  border: 5px solid transparent;
+}
+
+::-webkit-scrollbar-track {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, .2) inset;
+}
+
+::-webkit-scrollbar-thumb {
+  min-height: 20px;
+  background-clip: content-box;
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, .2) inset;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+//zhangfuqiang  start
+.l-area-box {
+  position: fixed;
+  top: 88px;
+  left: 220px;
+  /*width: 300px;*/
+  z-index: 999;
+  background: #fff;
+  border: 1px solid #c9c9cb;
+  border-top: none;
+  /*overflow: auto;*/
+  .l-area-ztree {
+    overflow: auto;
+    height: 100%;
+  }
+  .l-area-ztree-footer {
+    background: #eee;
+    padding: 10px;
+  }
+}
+
+//zhangfuqiang  end

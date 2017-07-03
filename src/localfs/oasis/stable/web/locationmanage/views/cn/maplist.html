@@ -1,0 +1,21 @@
+<div class="container-fluid col-md-12 col-lg-12" id="shopListContainer" style="width:100%">
+    <div id="mapListDiv">
+        <div class="headerBtn">
+            <img src="../locationmanage/img/icon-back.png" id="backShopList" ng-click="return()"><span>返回</span>
+            <img src="../locationmanage/img/icon-refresh.png" id="refeshLocatonList" ng-click="refreshLocationList()"><span>刷新</span>
+            <img src="../locationmanage/img/icon-addMap.png" id="addLocation" ng-click="mapManage()">地图管理
+        </div>
+        <div id="mapListTitle">
+            <p><a ui-sref="global.content.application.locationmanage({mode: mode})">{{modeName}}</a> > 地图列表</p>
+        </div>
+        <div class="pagination" id="pagination"></div>
+    </div>
+    <div style="border:1px solid #ccc; margin-top:0px;position:relative;">
+        <div style="margin:20px auto;">
+            <div id="marsonryDiv">
+                <div id="masonry" class="container-fluid">未绑定地图，请至<span class="link" ng-click="mapManage()">地图管理</span>中操作。</div>
+            </div>
+        </div>
+    </div>
+</div>
+

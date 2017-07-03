@@ -1,0 +1,24 @@
+.box-center{
+	margin-top: 2%;
+	margin-left: 2%;
+	margin-right:2%;
+	margin-bottom:2%;
+	height:120px;
+	border-bottom: 1px solid #e7e7e9;
+}
+.cooperate_word{
+	color: #343e4e;
+    font-size: 17px;
+    text-align: center;
+}
+.cooperate_logo{
+	height:120px;
+	background: url(image/logo1.png) no-repeat;
+    margin-left: 4%;
+    float: left;
+}
+.cooperate_name{
+	margin-top: 10px;
+	font-size: 15px;
+	margin-bottom: 10px;
+}

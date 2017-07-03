@@ -1,0 +1,56 @@
+<style>
+    .fa.fa-style, .btn:hover i{
+        color: #FFFFFF;
+        font-size: 16px;
+    }
+    .title-fontStyle{
+        color:#000;
+    }
+</style>
+
+<div class="page-row">
+    <div class="col-xs-12 app-colum left-block">
+        <div class="app-box">
+            <div class="box-footer"><!-- title -->
+                <span class="title">安全策略</span>
+            </div>
+            <div class="box-body no-height pt-clear"><!-- body -->
+                <div class="btn-group col-xs-12" id="APListToolbar" ng-if="permission.write"><!-- button -->
+                    <button class="btn btn-cus" ng-disabled="modBtnDisable" ng-click="clickModifyBtn()">
+                        <i class="btn-icon icon-add"></i>修改安全参数
+                    </button>
+                </div>
+                <div class="col-xs-12"><!-- table -->
+                    <div class="simple-list" bs-table="APListOpts"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- detail pop -->
+<div bs-modal="detailModalOpts">
+    <div detail-pop="detailPopData"></div>
+</div>
+
+<!-- modify pop -->
+<div bs-modal="modifyModalOpts">
+    <div modify-pop="modifyPopData"></div>
+</div>
+
+<!--
+
+
+
+<div bs-modal="modifyWIPSModalOpts">
+
+</div>-->
+
+<div id="security_rc"
+     off_on = "关闭,开启"
+     ap_list_header = "AP名称,射频,私接代理检测,无线安全,无线探针"
+     model_header = "无线攻击防御"
+     msg_info="配置成功！,配置失败！"></div>
+    <!--
+     MSG_INFO = "配置成功！,配置失败！"-->
+

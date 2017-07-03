@@ -1,0 +1,286 @@
+<html>
+<head>
+</head>
+<body>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div class="app-box no-height default-bottom">
+                <div class="box-footer">
+                    <span class="title">Wireless Service Configuration</span>
+                </div>
+                <div class="box-body no-height">
+                    <div id="onlineuser_list" class="simple-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="hide modal fade" id="AddSt">
+        <div class="modal-body">
+            <form class="form edit" id="AddStForm">
+              <div class="form-group">
+                  <label class="col-sm-3 control-label required" for="stName">Wireless Service Name</label>
+                  <div class="col-sm-9 ">   
+                  <input  type="text"  class="string big required" id="stName" maxlength='63' name ="stName"  errid="restByte_error"/>
+                  <label class="info-explain">(1 to 63 characters. One Chinese character occupies three characters.)</label>
+                  <label class="error" id="restByte_error"></label>
+                  <label class="error hide" id="kongstName_error" style="display: inline-block;">Spaces are not allowed.</label>
+                  </div> 
+               </div>
+               <div class="form-group">
+                     <label class="col-sm-3 control-label required" for="ssidName">SSID</label>
+                     <div class="col-sm-9">
+                     <input name = "ssidName"  id="ssidName" class="string big required"   maxlength="32"  type="text" errid="apModel_error"/>
+                     <label class="info-explain">(1 to 32 characters. One Chinese character occupies three characters.)</label>
+                     <label class="error" id="apModel_error" ></label>
+                     <label class="error hide" id="kongSSID_error" style="display: inline-block;">Spaces are not allowed.</label>
+                     </div> 
+               </div>
+              
+               <div class="form-group">
+                     <label class="col-sm-3" for="status">Status</label>
+                      <div class="col-sm-9 ">
+                      <input type="radio" id="status_e"  name = "status" checked value="1"/>
+                       <label class=" control-label " for="apGroupName">Enabled</label>&nbsp;&nbsp;&nbsp;
+                       &nbsp;&nbsp;
+                      <input type="radio" id="status_d"  name = "status" value="2"/>
+                       <label class=" control-label " for="apGroupName_go">Disabled</label>
+                     </div> 
+               </div>
+                <div class="form-group hide" id="cipherSuite">
+                     <label class="col-sm-3 "for="cipherSuite " id="cipherSuite_right">Whether to Encrypt</label>
+                     <div class="col-sm-9 ">
+                     <input type="radio" id="cipherSuite_false" checked  name = "cipherSuite" value="cipherSuite_false"/>
+                      <label class=" control-label" for="cipherSuite_false">No</label> 
+                      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      <input type="radio" id="cipherSuite_true"  name = "cipherSuite" value="cipherSuite_true"/>
+                      <label class=" control-label " for="cipherSuite_true">Yes</label>
+                     </div> 
+                </div>
+                <div class="form-group hide" id="cipherKey_out">
+                    <label class="col-sm-3 control-label required">Key</label>
+                    <div class="col-md-9">
+                        <input type="text" class="string big required" id="restByte" name ="IDLE_CUT_FLOW" error_id="restByte_error" />
+                        <label class="error" id="restByte_error" >This parameter is required.</label>
+                    </div>
+                </div>
+
+                <!-- <div class="form-group modal-footer form-actions" id="button_next">
+                    <a class="btn btn-apply" id="ensure">Next</a>
+                    <a  class="btn btn-cancel" id="cancel">Cancel</a>
+                </div> -->
+            </form>
+        </div>
+    </div>
+
+    <div class="hide modal fade" id="BindSt_choice">
+        <div class="modal-body">
+            <form class="form edit" id="BindStForm_choice">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Select binding mode</label>
+                    <div class="col-sm-9">
+                        <div class="col-sm-3">
+                            <input type="radio" value="2" id="BindAPG" name="BindType" />
+                            <label for="BindAPG">Bound AP Groups</label>
+                        </div>
+                        <div class="col-sm-5">
+                            <input type="radio" value="1" id="BindAPs" name="BindType" />
+                            <label for="BindAPs">Bound APs</label>
+                        </div>
+                    </div>
+               </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="hide modal fade" id="BindAP_Group">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="close_BAPGroup"></button>
+            <h3 class="modal-title">Bind to AP Groups</h3>
+        </div>
+        <div class="modal-body">
+            <div id="apgroup_list" class="simple-list"></div>
+        </div>
+    </div>
+
+    <div class="hide modal fade" id="BindAP">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true" id="close_BAPs"></button>
+            <h3 class="modal-title">Bind to APs</h3>
+        </div>
+        <div class="modal-body">
+            <div id="ap_list" class="simple-list"></div>
+        </div>
+    </div>
+
+    <div class="hide modal fade" id="AuthCfgDlg">
+        <div class="modal-body">
+            <form class="form edit" id="AuthCfgForm">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">Authentication Method</label>
+                    <div class="col-sm-9">
+                        <!-- <div class="row"> -->
+                        <div class="col-sm-11">
+                            <input type="radio" value="AT1" id="AT1" name="AuthenType" ctrlBlock=".ath-type" content="" />
+                            <label for="AT1">No authentication</label>
+                        </div>
+                        <div class="col-sm-11">
+                            <input type="radio" value="AT2" id="AT2" name="AuthenType" ctrlBlock=".ath-type" content="" />
+                            <label for="AT2">One-key authentication</label>
+                        </div>
+                        <div class="col-sm-11 st-type" id="MailBlock">
+                            <input type="radio" value="AT3" id="AT3" name="AuthenType" ctrlBlock=".ath-type" content="#LoginWays" />
+                            <label for="AT3">Account login</label>
+                            <div id="LoginWays" class="ath-type hide">
+                                <div class="col-sm-2">
+                                            <input type="checkbox" value="1" id="Message" name="LoginWays" />
+                                    <label for="Message">Short Message</label>
+                                </div>
+                                <div class="col-sm-3 account_style">
+                                            <input type="checkbox" value="2" id="WeChart" name="LoginWays" />
+                                    <label for="WeChart">WeChat Official Account</label>
+                                </div>
+                                <div class="col-sm-3 account_style">
+                                            <input type="checkbox" value="3" id="FixAccount" name="LoginWays" />
+                                    <label for="FixAccount">Fixed Account</label>
+                                </div>
+                                <div class="col-sm-3 account_style">
+                                            <input type="checkbox" value="4" id="isWeChatWifi" name="LoginWays" />
+                                    <label for="isWeChatWifi">WeChat Wi-Fi </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-11 st-type" id="WeixinBlock">
+                            <input type="radio" value="AT4" id="AT4" name="AuthenType" ctrlBlock=".ath-type" content="#ModelSelect" />
+                            <label for="AT4">Select Authentication Template</label>
+                            <div class="ath-type hide" id="ModelSelect">
+                                <select class="singleSelect" allowClear="true" id="AuthCfgList" name="AuthCfgList">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" id="denglu">
+                    <label class="col-sm-3 control-label">Login Page</label>
+                    <div class="col-sm-9">
+                        <div class="col-sm-11">
+                            <div class="col-sm-3">
+                                <input type="radio" id="LP1" value="LP1" name="LoginPage" value="1" ctrlBlock=".lg-page" checked/>
+                                <label for="LP1">Simple</label>
+                            </div>
+                        </div>
+                        <div class="col-sm-11">
+                            <input type="radio" id="LP4" value="LP4" name="LoginPage" ctrlBlock=".lg-page" content="#LoginPageSelect">
+                            <label for="LP4">Select Page Template</label>
+                            <div class="lg-page hide" id="LoginPageSelect">
+                                <select class="singleSelect" id="LoginPageList" name="LoginPageList">
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" id="weixinPub">
+                    <label class="col-sm-3 control-label">WeChat Official Account</label>
+                    <div class="col-sm-9" id="WeChartSelect">
+                        <div class="col-sm-11">
+                            <select class="singleSelect " id="WeChartList" name="WeChartList">
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group" id ="freeCertification">
+                    <label class="col-sm-3 control-label">Authentication Free for Reconnection</label>
+                    <div class="col-sm-9">
+                        <div class="col-sm-11">
+                            <input type="checkbox" class="switch" id="auto_study_enable" name="auth_study_group"  ctrlBlock=".Learn-MAC"/>
+                            <div class="Learn-MAC hide">
+                                <div class="Learn-Time">
+                                    <input type="text" class="string big" id="impose_auth_time" value="7" />
+                                    <label class="info-explain">(1 to 30) days</label>
+                                </div>
+                                <label class="info-explain">Note: Authenticated offline users can come online without reauthentication during the free authentication period.</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="hide modal fade" id="bindApGroups">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">Bind to AP Groups</h3>
+        </div>
+        <div class="modal-body">
+            <div id="apgroups_bindunbind_list" class="simple-list"></div>
+        </div>
+    </div>
+    <div class="hide modal fade" id="bindAps">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title">Bind to APs</h3>
+        </div>
+        <div class="modal-body">
+            <div id="aps_bindunbind_list" class="simple-list"></div>
+        </div>
+    </div>
+
+
+<div id="h_wireless_indexConfigure" class="rc-define"
+        ALLAP_HEADER2="Wireless Service Name, SSID, Authentication Method, Status, Bound AP Groups"
+        ALLAP_HEADER3="Wireless Service Name, SSID, Authentication Method, Status, Bound APs, Bound AP Groups"
+        BIND_AP_GROUP="AP Group Name, Binding Status"
+        BIND_AP="AP Name, Serial Number, Binding Status"
+        STATUS=",Enabled, Disabled"
+        TERINFO="AP List"
+        TITLE_TERINFO="AP Details"
+        APGROUP="AP Group"
+        AUTHEN_TYPE=" No Authentication, One-Key Authentication, Account Authentication"
+        FRESH="Refresh"
+        DEL_SUCCESS = "Deletion succeeded."
+        LINK_delete="Deletion failed because the main connection is disconnected.",
+        SSID_HEADER = "SSID, Authentication Method"
+        ADD_TITLE = "Add Service"
+        AUTH_CFG = "No Authentication, WeChat Authentication, One-Key Authentication, Select Page Template"
+        DEL_AUTH_FAIL = "Failed to delete the published template."
+        DEL_PUB_SUCC = "Publishing cancelled successfully."
+        PUB_SUCC = "Publishing succeeded."
+        ADD_SUCCESS = "Wireless service added successfully."
+        ADD_FAIL = "Failed to add a wireless service."
+        ADD_NULL_SSID = "SSID cannot be null."
+        DEL_FAIL = "Failed to delete the wireless service."
+        LINK="Failed to add a wireless service because the main connection is broken down."
+        ADD_Limit="Failed to add a wireless service because the maximum number of wireless services is already reached."
+        SYN="Synchronize"
+        NEXT="Next"
+        AUTHCFG="Authentication Configuration"
+        UNBIND="Unbound"
+        UBIND="Unbind"
+        BIND="Bind"
+        QUIT="Cancel"
+        BIND_APGroup="Bound AP Groups"
+        SYN_FAILED="Synchronization failed."
+        SYN_SUCCESS="Synchronization succeeded."
+        DEL_SUCCESS_SYN="Deletion succeeded. Please synchronize to view the most recent configuration."
+        GET_DATA_FAILED="Failed to retrieve data."
+        GET_DATA_ERROR="Error occurred for data retrieval."
+        DEVICE_DEL_FAILED="The deletion operation is not supported in the current software version. Please upgrade the software." 
+        DEVICE_ADD_FAILED="The adding operation is not supported in the current software version. Please upgrade the software."
+        CONFIGURATION_SUC="Configuration succeeded."
+        CONFIGURATION_FAILED="Configuration failed."
+        DEVICE_NOT_SUPPORT="The operation of binding to APs is not supported in the current software version."
+        CONFIGURATION_SUC_HEAD="Configuration succeeded. Please synchronize to view the most recent wireless service configuration."
+        SECONDS="Seconds"
+
+        SELECT="Please select at least one authentication method."
+
+        AUTHType_Errorcode1112="at least have one authType."
+        AUTHName_Errorcode1001"="authCfgName can not be null."
+        THEMEName_Errorcode1001"="themeName can not be null."        
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_wireless1.index_wireless");
+</script>

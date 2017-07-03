@@ -1,0 +1,25 @@
+<html>
+<head>
+</head>
+<body>
+
+<form class="form-horizontal form-bordered form edit" id="ChangeApInfo">
+    <div class="" id="changename_block">
+        <label class="form-group col-sm-3  control-label ">AP名称</label>
+        <div class="col-sm-9">
+            <input type="text" class="string big" id="OldApName" name="OldApName">
+            <label class="error" id="OldAPName_error"></label>
+        </div>
+        <label class="form-group col-sm-3  control-label ">新名称</label>
+        <div class="col-sm-9">
+            <input type="text" class="string big" id="ApName" name="ApName">
+            <label class="error" id="APName_error"></label>
+        </div>
+    </div>
+</form>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("dashboard.changename");
+</script>

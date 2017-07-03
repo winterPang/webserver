@@ -1,0 +1,102 @@
+<html>
+<head>
+	<!-- <link rel="stylesheet" type="text/css" href="/v3/web/h_stamgrclients/m_clients.css"> -->
+</head>
+<body>
+<!-- <dl class="headline wlan-headline">
+    <span class="headbutton">
+        <div class="btn-group shortcut">
+            <a class="btn btn-default" href="#M_WIPS?np=wips.help" title="Help"><i class="icon-book"> </i></a>
+        </div>
+    </span>
+</dl> -->
+<div class="dashboard">
+    
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block" debug="clients NumRZ">
+            <div class="bg-bor">
+                <div class="head-bar">
+                    <div class="box-footer">
+                        <div class="col-xs-10">
+                           <span class="title sysinfo-footer-title">分支概览</span>
+                        </div>  
+                      
+                    
+
+                   </div>
+                    <div class="col-xs-4">
+                        <div class="syslog-info-mine-Total">
+                            <div class="branch-left-icon branch-icon">
+                                
+                            </div>
+                            <div class="right-text">      
+                                <span class="number-count" id="br_total">0</span>
+                                <br />
+                                <span class="number-title">分支总数</span>
+                            </div>                      
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <div class="syslog-info-mine-Total">
+                            <div class="branch-left-icon branch-LocalAC-icon">
+                                
+                            </div>
+                            <div class="right-text">      
+                                <span class="number-count" id="local_total">0</span>
+                                <br />
+                                <span class="number-title">本地AC分支</span>
+                            </div>          
+                        </div>
+                    </div>
+
+                    <div class="col-xs-4">
+                        <div class="syslog-info-mine-Total">
+                            <div class="branch-left-icon branch-LocalManage-icon">
+                                
+                            </div>
+                            <div class="right-text">      
+                                <span class="number-count" id="manage_total">0</span>
+                                <br />
+                                <span class="number-title">本地管理分支</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block"> 
+            <div class="app-box" debug="byApList ap"> 
+                <div class="box-footer"> 
+                    <span class="title">分支列表</span> 
+                </div> 
+                <div class="box-body"> 
+                    <div id="byApList" class="simple-list"></div> 
+                </div> 
+            </div>           
+        </div>    
+    </div>  
+</div>
+<div id="maoxian"></div>
+
+
+
+
+        
+<div id="summary_rc" class="rc-define"
+AP_HEADER="分支名称,本地AC,AP组,AP,客户端"
+LOCALAC_HEADER="AC名称,序列号,型号,IP地址,关联时长,Boot 版本号,软件版本号,归属地"
+TITLE_FLOWINFO="AP详情"
+TITLE_FLOWINFO01="AC详情"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("hq_branchesinfor.branchesinfor");
+</script>
+

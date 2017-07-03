@@ -1,0 +1,131 @@
+<div class="system_site2">
+    <div>
+        <div class="panel panel-default">
+            <div class="panel-heading"><h3 class="panel-title">
+                <a href="#/global/content/system/site" style="color:#2fa4e7;">Site Management</a> > Devices</h3>
+            </div>
+            <div class="panel-body">
+                <div class="form-group zeromargin">
+                    <div class="btn btn-cus" ng-click="adddev()" ng-if="showHide.devWrite">Add</div>
+                    <div class="btn btn-cus" ng-click="refresh()">Refresh</div>
+                </div>
+
+                <ul class="nav nav-tabs" role="tablist" ng-show="isFatAp==0">
+                    <li ng-click="showIrf=false" ng-class="{active:!showIrf}"><a>Standalone Devices</a></li>
+                    <li ng-click="showIrf=true" ng-class="{active:showIrf}"><a>IRF Devices</a></li>
+                </ul>
+                <div style="margin: 10px 0" ng-hide="showIrf">
+                    <table bs-table="options"></table>
+                </div>
+                <div style="margin: 10px 0" ng-show="showIrf">
+                    <table bs-table="irfOptions"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div bs-modal="completeInfo">Your information is not complete.Complete it now?</div>
+    <form bs-modal="modify_dev_alias_model" name="modAlias" class="form-horizontal">
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Alias <span class="label-require">*</span></label>
+            <div class="col-xs-4">
+                <input name="aliasName" placeholder="Please enter a string of 0 to 30 characters." class="form-control"
+                       type="text"
+                       ng-model="dev.devAlias" required ng-maxlength="30">
+            </div>
+            <div class="col-xs-4 ng-error" ng-show="modAlias.aliasName.$dirty" ng-messages="modAlias.aliasName.$error">
+                <div ng-message="required">Please enter the Device Alias.</div>
+                <div ng-message="maxlength">Up to 30 characters.</div>
+            </div>
+        </div>
+    </form>
+    <form bs-modal="add_dev_model" class="form-horizontal" name="devAddForm">
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Alias <span class="label-require">*</span></label>
+            <div class="col-xs-4">
+                <input class="form-control" placeholder="1 to 30 characters" name="devAlias" type="text"
+                       ng-model="addDev.devAlias"
+                       required ng-maxlength="30">
+            </div>
+            <div class="col-xs-4 ng-error" ng-show="devAddForm.devAlias.$dirty"
+                 ng-messages="devAddForm.devAlias.$error">
+                <div ng-message="required">Please enter the Device Alias.</div>
+                <div ng-message="maxlength">Up to 30 characters.</div>
+            </div>
+        </div>
+        <div class="form-group" ng-show="isFatAp==0">
+            <label class="col-xs-3 control-label">Type <span class="label-require">*</span></label>
+            <div class="col-xs-2">
+                <select class="form-control" name="dev_model" ng-model="addDev.devType"
+                        ng-options="type.value as type.name for type in devtype" required>
+                </select>
+            </div>
+            <div class="col-xs-2 text-right irf-field">
+                <span><input type="checkbox" ng-model="addDev.isIRF"></span>
+                <span> IRF Device</span>
+            </div>
+            <div class="col-xs-4 ng-error" ng-show="devAddForm.dev_model.$dirty"
+                 ng-messages="devAddForm.dev_model.$error">
+                <div ng-message="required">Please select device type！</div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-xs-3 control-label">SN <span class="label-require">*</span></label>
+            <div class="col-xs-4">
+                <input class="form-control" name="devSn" type="text" ng-model="addDev.devSn"
+                       required ng-pattern="/^[0-9a-zA-Z]{9,64}$/" ajax-valid="validDevSn">
+            </div>
+            <div class="col-xs-4 ng-error" ng-show="devAddForm.devSn.$dirty" ng-messages="devAddForm.devSn.$error">
+                <div ng-message="required">Please enter the SN.</div>
+                <div ng-message="pattern">Please enter a correct serial number.</div>
+                <div ng-message="ajaxValid-1">The SN already exists.</div>
+            </div>
+        </div>
+
+        <div class="form-group" ng-show="addDev.isIRF">
+            <label class="col-xs-3 control-label">IRF fabric <span class="label-require">*</span></label>
+            <div class="col-xs-4">
+                <select ng-model="addDev.groupId" class="form-control">
+                    <option value="-1">New</option>
+                    <option ng-repeat="g in addDev.groupTypeList" value="{{g.id}}">{{g.name}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group" ng-show="addDev.isIRF && addDev.groupId==-1">
+            <label class="col-xs-3 control-label">New IRF fabric <span class="label-require">*</span></label>
+            <div class="col-xs-4">
+                <input class="form-control" name="groupName" type="text" ng-model="addDev.groupName">
+            </div>
+        </div>
+    </form>
+</div>
+<div bs-modal="detailModal">
+    <div>Software version: {{detail.softVer}}</div>
+    <div>Hardware version: {{detail.hardVer}}</div>
+    <div>Device type: {{detail.devTypeStr || 'Null'}}</div>
+    <div>Added at: {{detail.addTime || 'Null'}}</div>
+</div>
+<div class="read_rc" id="dev_show_rc"
+     w-device="Physical device"
+     x-device="Virtual device"
+     error="Request error"
+     online="Online"
+     offline="Offline"
+     table-title="IRF Fabric,Alias,SN,Management,Model,Status"
+     modify-alias="Modify Device Alias"
+     modify="Modify"
+     delete="Delete"
+     sure-delete="Are you sure you want to delete the selected device?"
+     delete-device="Delete"
+     success="Successfully"
+     reset-alias="Modify Device Alias"
+     alias-success="Device alias modified successfully."
+     add-device="Add Device"
+     add-success="Device added successfully."
+     dev-exist="Device sn exist,please retry."
+     dev-detail="Details"
+     close-text="Close"
+     man-text="Manage"
+     maintenance-text="Maintenance"
+     tip="Prompt"
+>
+</div>

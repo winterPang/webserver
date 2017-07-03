@@ -1,0 +1,50 @@
+/*==============================应用列表==============================*/
+@media (max-width: 768px) {
+  .global-appstore .col-sm-3 {
+    width: 50%;
+  }
+}
+.global-appstore .app-item-box {
+  min-height: 50px;
+}
+.global-appstore .app-item-box .app-box-header {
+  line-height: 24px;
+  height: 24px;
+  z-index: 99;
+}
+.global-appstore .app-item-box .app-box-body {
+  margin: -12px 0 0 70px;
+  border-top: 1px solid #ccc;
+}
+.global-appstore .app-item-box .app-box-body .app-all-type {
+  padding: 5px 0 0 10px;
+}
+.global-appstore .app-item-box .app-box-body .app-item {
+  text-align: center;
+}
+.global-appstore .app-item-box .app-box-body .app-item .app-item-name {
+  height: 50px;
+}
+.global-appstore .app-item-box .app-box-body .app-item .app-item-icon {
+  margin: 30px 0 10px 0;
+}
+.global-appstore .app-item-box .app-box-body .app-item .app-item-icon img {
+  cursor: pointer;
+  width: 80px;
+  height: 80px;
+  border: 1px solid #999999;
+  border-radius: 50%;
+}
+.global-appstore .app-detail-modal p {
+  line-height: 30px;
+}
+.global-appstore .no-select {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.global-appstore .no-data {
+  line-height: 40px;
+  margin-left: 10px;
+}

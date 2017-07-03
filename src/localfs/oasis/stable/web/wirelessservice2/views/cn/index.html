@@ -1,0 +1,98 @@
+<style>
+    .form-horizontal .control-label {
+        text-align: left !important;
+        padding-top: 2px;
+    }
+    .form-group {
+        margin-bottom:0px;
+    }
+    .form-horizontal [class^="col-md-"], 
+    .form-horizontal [class*="col-md-"],
+    .form-horizontal [class^="col-xs-"],
+    .form-horizontal [class*="col-xs-"],
+    .form-horizontal [class^="col-sm-"], 
+    .form-horizontal [class*="col-sm-"] {
+        line-height: 30px;
+    }
+</style>
+<div class="col-xs-12 app-colum">
+        <div id='listView' class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">无线服务</span>
+            </div>
+            <div class="panel-body">
+                <div class="btn btn-cus" ng-click="refresh()">刷新</div>
+                <div class="box-body no-height">
+                    <div bs-table="option"></div>
+                </div>
+            </div>
+        </div>
+</div>
+<form class="form-horizontal form" bs-modal="ssid.options" id="view_client_form">
+    <div class="col-sm-12">
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">无线服务名称</label>
+                <span class="label form-if-setHtml" id="stName">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">SSID</label>
+                <span class="label form-if-setHtml" id="ssidName">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">状态</label>
+                <span class="label form-if-setHtml" id="status">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">安全IE类型</label>
+                <span class="label form-if-setHtml" id="securityIE">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">加密套件</label>
+                <span class="label form-if-setHtml"  id="cipherSuite">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">认证位置</label>
+                <span class="label form-if-setHtml" id="authLocation">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">客户端数量</label>
+                <span class="label form-if-setHtml" id="clinetCount">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">身份认证与秘钥管理模式</label>
+                <span class="label form-if-setHtml" id="akmMode">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">隐藏SSID</label>
+                <span class="label form-if-setHtml" id="hideSSID">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">最大上线终端个数</label>
+                <span class="label form-if-setHtml" id="maxClients">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">最大接收速率（Kbps）</label>
+                <span class="label form-if-setHtml" id="maxReceiveRatio">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">最大发送速率（Kbps）</label>
+                <span class="label form-if-setHtml" id="maxSendRatio">--</span>
+        </div>
+        <div class="form-group">
+                <label class="col-sm-7 control-label info-explain">VLANID</label>
+                <span class="label form-if-setHtml" id="vlanId">--</span>
+        </div>
+    </div>
+</form>
+<div id="user_rc" class="rc-define"
+    HEADER = "无线服务名称,SSID,状态,安全IE,加密套件,认证位置,客户端数量"
+    AUTHLOCATION=",Central-AC,AC,,AP,,,,Other"
+    CIPHERSUITE="未配置,WEP40,TKIP,CCMP,TKIP/CCMP,WEP104,WEP128"
+    SECURITYIE="未配置,WPA,RSN,OSEN"
+    STATUS = ",使能,去使能"
+    HIDE_SSID = "不隐藏,隐藏"
+    FWDLOCATION=",MAC,NAC,,AP,,,,Other"
+    AKMMODE="未配置,DOT1X,PSK,FT-OVER-DOT1X,FT—USING-PSK,DOT1X-256,PSK-256, PRIVATE-PSK,DOT1X-WFA"
+    DETAIL="详情"
+        >
+</div>

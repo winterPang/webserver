@@ -1,0 +1,121 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!--<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />-->
+
+    <style type="text/css">
+       /* #map{
+            background-image: url(../soon/image/sc.svg);
+        }
+        html{height:100%}
+        body{height:100%;margin:0px;padding:0px;font-family:"微软雅黑";}
+*/
+       #crumbs ul {
+           list-style: none;
+           display: inline-table;
+           margin:0;
+           padding:0
+       }
+
+       #crumbs ul li {
+           display: inline;
+       }
+
+       #crumbs ul li a {
+           display: block;
+           float: left;
+           height: 24px;
+           background: #4ec1b2;   /*蓝色*/
+           text-align: center;
+           padding: 4px 5px 0 14px;    /*上 右 下 左 内边距*/
+           position: relative;
+           margin: 0 3px 0 0;           /*上 右 下 左 外边距   两个面包屑之间的小空间*/
+           font-size: 8px;           /*内部字体大小*/
+           text-decoration: none;
+           color: #fff;                 /*白色*/
+       }
+       #crumbs ul li a:after {
+           content: "";
+           border-top: 12px solid transparent;
+           border-bottom: 12px solid transparent;
+           border-left: 12px solid #4ec1b2;        /*蓝色3498db  d4f2ff淡蓝色   绿洲绿4ec1b2*/
+           position: absolute;
+           right: -12px;
+           top: 0;
+           z-index: 1;
+       }
+
+       #crumbs ul li a:before {
+           content: "";    /*内容为空，只是为了用border画三角形*/
+           border-top: 12px solid transparent;   /*把上面的变透明，下面的元素就能显示*/
+           border-bottom: 12px solid transparent;
+           border-left: 12px solid #fff;
+           position: absolute;
+           left: 0;
+           top: 0;
+       }
+
+       #crumbs ul li:first-child a {
+           border-top-left-radius: 10px; /*把第一个元素的左边变得圆滑*/
+           border-bottom-left-radius: 10px;
+       }
+       #crumbs ul li:first-child a:before {
+           display: none;
+       }
+       #crumbs ul li a:hover {
+           background: #fa5ba5;    /* 粉红色 */
+       }
+
+       #crumbs ul li a:hover:after {
+           border-left-color: #fa5ba5;
+       }
+       #container{
+           z-index: 4;
+           display: inline;
+       }
+       #regetmap{
+           z-index: 3;
+           display: none;
+       }
+       #regetcity{
+           z-index: 2;
+           display: none;
+       }
+       #regetarea{
+           z-index: 1;
+           display: none;
+       }
+    </style>
+</head>
+<body>
+
+<div class="col-xs-12">
+    <div>
+        <div id="crumbs">
+            <ul id="crumbs_ul">
+                <li><a id="country">全国</a></li>
+                <li><a id="province" style="display: none">省</a></li>
+                <li><a id="city" style="display: none">市</a></li>
+                <li><a id="area" style="display: none">区/县</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="col-xs-12" style="position: relative;">
+    <div class ="app-box " id="container" style="position:absolute;width:800px;height:600px;border:1px solid #e7e7e9;"></div>
+    <div class ="app-box " id="regetmap" style="position:absolute;width:800px;height:600px;border:1px solid #e7e7e9;"></div>
+    <div class ="app-box " id="regetcity" style="position:absolute;width:800px;height:600px;border:1px solid #e7e7e9;"></div>
+    <div class ="app-box " id="regetarea" style="position:absolute;width:800px;height:600px;border:1px solid #e7e7e9;"></div>
+</div>
+
+<div  style="position: relative;float: left;margin-left: -350px">
+    <div class ="simple-list" id="list" style="width:350px;height:600px;border:1px solid #e7e7e9;">
+    </div>
+</div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("a_dataanalysis.customermove");
+</script>

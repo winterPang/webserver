@@ -1,0 +1,98 @@
+<html>
+<head>
+    <style>
+        .warn-style{
+            color: #ef2311;
+            margin-left: 30px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="app-colum">
+    <div class="col-xs-7 app-colum left-block">
+        <div class="app-box">
+            <div class="box-footer" id="DrsBtn">
+                <span class="title">Application Analysis</span>
+            </div>
+            <div class="box-body no-height">
+                <form class="form-horizontal form" id="DrsidForm">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Application analysis</label>
+                        <div class="col-sm-9">
+                            <div class="xb-input xb-checkbox" style="top: 0px;">
+                                <input type="checkbox" class="switch input-element forbid" id="Drsid" name="Drsid"  checked/>
+                                <!--<span class="input-icon checkbox-icon switch checked"></span>-->
+                                <label class="input-label forbid" for="Drsid"></label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-7 app-colum left-block">
+        <div class="app-box">
+            <div class="box-footer" id="ProbeBtn">
+                <span class="title">Wireless Probing</span>
+            </div>
+            <div class="box-body no-height">
+                <form class="form-horizontal form" id="ProbeForm">
+                    <div class="form-group">
+                        <label class="col-sm-3 control-label">Wireless probing</label>
+                        <div class="col-sm-9">
+                            <div class="xb-input xb-checkbox" style="top: 0px;">
+                                <input type="checkbox" class="switch input-element forbid" id="Probeid" name="Probeid"  checked/>
+                                <br/>
+                                <label class="info-explain">Wireless probing is used to detect wireless clients that are not associated with the WLAN.</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!--<div class="col-xs-12 app-colum left-block">
+        <div class="app-box">
+            <div class="box-footer">
+                <span class="title">Application Configuration</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="WipsList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<div class="hide modal fade" id="WipsSetDlg">
+    <form class="form-horizontal form" id="WipsSetForm">
+        <div class="form-group" id="cb_block">
+            <label class="col-sm-2 control-label">Wireless probing</label>
+            <div class="col-sm-10">
+                <input type="checkbox" class="switch" id="WT2" name="probe"/>
+                <br/>
+                <label class="info-explain">Wireless probing is used to detect wireless clients that are not associated with the WLAN.</label>
+            </div>
+        </div>
+    </form>
+</div>-->
+
+    <div id="ws_ssid_rc" class="rc-define"
+         LIST_TITLE = "AP Name,Radio,Wireless Probing"
+         EDIT_TITLE = "Change configuration"
+         WIPS_WAIT="Please wait…"
+         WIPS_TITLE = "WIPS"
+         ON_OFF = "Disabled,Enabled"
+         WIPS_TYPE = "No,Wireless probing,Wireless Intrusion Prevention"
+         PROBE_SATUS_MSG="Configuration succeeded.,Main connection failed.,Errors occurred on the server.,Configuration failed."
+         TIP_MSG="Application analysis is enabled,Application analysis is disabled"
+         MSG_INFO="unsuccessfully,successfully,Cancelled,Data request failed"
+            ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_networkcfg.appconfig");
+</script>

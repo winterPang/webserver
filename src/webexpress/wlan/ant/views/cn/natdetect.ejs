@@ -1,0 +1,20 @@
+<html>
+<head>
+</head>
+<body>
+<div class="dashboard summary-view" id="Probe_Monitor">
+    <div class="mlist" id="natdetect_mlist">
+        </div>
+</div>
+    <div id="client_rc" class="rc-define"
+         DATA=<%=statistics%>
+        LIST_HEADER="客户端MAC,第一次检测时间,最后检测时间,检测次数,操作系统版本"
+
+                >
+    </div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("natdetect.natdetect");
+</script>
+

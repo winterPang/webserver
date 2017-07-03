@@ -1,0 +1,253 @@
+<div class="col-xs-12 app-colum">
+    <div id='listView' class="app-box no-height" ng-show="permission.read">
+        <div class="box-footer">
+            <span class="title">固定账号</span>
+        </div>
+        <div class="panel-body">
+            <div class="btn btn-cus" ng-show="permission.write" ng-click="addAccount()">
+                <i class="btn-icon icon-add"></i>添加
+            </div>
+            <div class="btn btn-cus" ng-show="permission.execute" ng-click="exportAccounts()">导出</div>
+            <div class="btn btn-cus" ng-show="permission.write" ng-click="importAccounts()">导入</div>
+            <div class="box-body no-height">
+                <div bs-table="userOption" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form name="myForm" novalidate bs-modal="accountAdd.options">
+    <div class="form-group">
+        <label class="col-sm-3 control-label required">账号名</label>
+        <div class="col-md-9">
+            <input ng-model="add.userName" type="text" class="string big " id="userName" name="userName"
+                   ng-maxlength="128" required ng-pattern="/^[^\s]+$/">
+            <label class="info-explain">（1-128位非空格字符）</label>
+            <label ng-show="myForm.userName.$dirty" ng-messages="myForm.userName.$error" style="display:inline-block;">
+                <label ng-message="required" class="error" style="display: inline-block;">该参数必须配置</label>
+                <label ng-message="maxlength" class="error" style="display: inline-block;">请输入1-128位非空格字符</label>
+                <label ng-message="pattern" class="error" style="display: inline-block;">请输入1-128位非空格字符</label>
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label required">密码</label>
+        <div ng-init="showPwd=true" class="col-md-9">
+            <input type="password" ng-model="add.password" id="password" ng-show='showPwd' class="string big" required
+                   name="userPassword" ng-minlength="6" ng-maxlength="32" ng-pattern="/^[^\u4E00-\u9FA5\s]+$/">
+            <input type="text" ng-model="add.password" ng-hide='showPwd' id="text" class="string big" required
+                   name="userPassword2" ng-minlength="6" ng-maxlength="32" ng-pattern="/^[^\u4E00-\u9FA5\s]+$/">
+            <span class="icon_eye" ng-class="{show_word:!showPwd}" ng-click="showPwd=!showPwd"></span>
+            <label class="info-explain">（6-32位非空格英文字符）</label>
+            <div ng-show="myForm.userPassword.$dirty" ng-messages="myForm.userPassword.$error"
+                 style="display:inline-block;">
+                <label ng-message="pattern" class="error" style="display:inline-block;">请输入6-32位非空格的英文字符</label>
+                <label ng-message="required" class="error" style="display: inline-block;">该参数必须配置</label>
+                <label ng-message='minlength' class="error" style="display:inline-block;">请输入6-32位非空格的英文字符</label>
+                <label ng-message='maxlength' class="error" style="display:inline-block;">请输入6-32位非空格的英文字符</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label required">确认密码</label>
+        <div ng-init="showConPwd=true" class="col-md-9">
+            <input pw-check="password" type="password" ng-model="add.passwordConf" ng-show="showConPwd"
+                   class="string big"
+                   required name="passwordConform" ng-minlength=6 ng-maxlength="32"/>
+
+            <input pw-check="password" type="text" ng-model="add.passwordConf" ng-hide="showConPwd" class="string big"
+                   required name="passwordConform2" ng-minlength=6 ng-maxlength="32"/>
+
+            <span class="icon_eye" ng-class="{show_word:!showConPwd}" ng-click="showConPwd=!showConPwd"></span>
+            <div ng-show="myForm.passwordConform.$dirty||myForm.passwordConform2.$dirty"
+                 ng-messages="myForm.passwordConform.$error" style="display:inline-block;">
+                <label ng-message="pwCheck" class="error" style="display: inline-block;">密码不一致</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">配置信息</label>
+        <div class="col-md-9">
+            <div class="col-md-5">
+                <div class="xb-input xb-radio">
+                    <input type="radio" id="section1" name="section" class="input-element" value="1"
+                           ng-model="add.no_choose">
+                    <span class="input-icon radio-icon" ng-class="{'checked':add.no_choose == 1}"></span>
+                    <label for="section1" class="input-label"></label>
+                </div>
+                <label for="section1">绑定MAC地址</label>
+            </div>
+            <div class="col-md-5">
+                <div class="xb-input xb-radio">
+                    <input type="radio" id="section2" name="section2" class="input-element" value="0"
+                           ng-model="add.no_choose">
+                    <span class="input-icon radio-icon" ng-class="{'checked':add.no_choose == 0}"></span>
+                    <label for="section2" class="input-label"></label>
+                </div>
+                <label for="section2">限制人数</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-sm-offset-3 col-md-9">
+        <div class="col-md-12 Learn-MAC" ng-if="add.no_choose == 1">
+            <label>请按如下格式输入并以英文逗号分隔</label>
+            <br>
+            <div class="Learn-Time">
+                <textarea cols="4" rows="1" id="getmac" class="digits big" name="bindMAC" ng-model="add.bindMAC"
+                          style="min-width:200px;height:142px;" placeholder="AA-BB-CC-DD-EE-FF">
+                </textarea>
+            </div>
+        </div>
+        <div class="col-md-12 Learn-MAC" ng-if="add.no_choose == 0">
+            <label>请输入允许的上网人数(1-255)</label>
+            <br>
+            <div class="Learn-Time">
+                <input type="text" class="string digits big" id="Account" ng-model="add.onlineAccount"
+                       name="onlineAccount" ng-pattern="
+/(^[1-9][0-9]?$)|(^[1][0-9][0-9]$)|(^[2][0-4][0-9]$)|(^[2][0-4][0-9]$)|(^[2][0-4][0-9]$)|(^[2][0-4][0-9]$)|(^[2][5][0-5]$)/">
+                <label class="info-explain">(1-255)</label>
+            </div>
+            <label ng-show="myForm.onlineAccount.$dirty&&myForm.onlineAccount.$error.pattern"
+                   style="display:inline-block;">
+                <label class="error" style="display: inline-block;">请输入1-255的正整数</label>
+            </label>
+        </div>
+    </div>
+</form>
+
+
+<form bs-modal="accountModify.options" name="editForm" novalidate>
+    <div class="form-group">
+        <label class="col-sm-3 control-label required">账号名</label>
+        <div class="col-md-9">
+            <input ng-model="edit.username" type="text" class="string big required" readonly="readonly"
+                   name="userName"/>
+            <label class="info-explain">（1-128字符）</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label required">密码</label>
+        <div ng-init="showeditPwd=true" class="col-md-9">
+            <input type="password" ng-model="edit.password" ng-show='showeditPwd' class="string big" required
+                   id="userPassword_1" name="editUserPassword" ng-minlength="6" ng-maxlength="32"
+                   ng-pattern="/^[^\u4E00-\u9FA5\s]+$/">
+            <input type="text" ng-model="edit.password" id="text_1" ng-hide='showeditPwd' class="string big" required
+                   name="editUserPassword2" ng-minlength="6" ng-maxlength="32" ng-pattern="/^[^\u4E00-\u9FA5\s]+$/">
+            <span class="icon_eye" id="switch_1" ng-class="{show_word:!showeditPwd}"
+                  ng-click="showeditPwd=!showeditPwd"></span>
+            <label class="info-explain">（6-32非空格英文字符）</label>
+            <div ng-show="editForm.editUserPassword.$dirty" ng-messages="editForm.editUserPassword.$error"
+                 style="display:inline-block;">
+                <label ng-message="pattern" class="error" style="display: inline-block;">请输入6-32位非空格的英文字符</label>
+                <label ng-message="required" class="error" style="display: inline-block;">该参数必须配置</label>
+                <label ng-message='minlength' class="error" style="display:inline-block;">请输入6-32位非空格的英文字符</label>
+                <label ng-message='maxlength' class="error" style="display:inline-block;">请输入6-32位非空格的英文字符</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label required">确认密码</label>
+        <div ng-init="showConPwd1=true" class="col-md-9">
+            <input type="password" ng-model="edit.passwordConf" ng-show="showConPwd1" class="string big" required
+                   id="passwordConform_1" name="editPasswordConform" ng-minlength=6 ng-maxlength="32"/>
+            <input type="text" ng-model="edit.passwordConf" ng-hide="showConPwd1" id="text2_1" class="string big"
+                   required name="editPasswordConform2" ng-minlength="6" ng-maxlength="32"/>
+            <span class="icon_eye" id="switch2_1" ng-class="{show_word:!showConPwd1}"
+                  ng-click="showConPwd1=!showConPwd1"></span>
+            <div ng-show="editForm.editPasswordConform.$dirty || editForm.editPasswordConform2.$dirty "
+                 ng-messages="editForm.editPasswordConform.$error" style="display:inline-block;">
+                <lable ng-message="pwCheck" class="error" style="display:inline-block;">密码不一致</lable>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-3 control-label">配置信息</label>
+        <div class="col-md-9">
+            <div class="col-md-5">
+                <div class="xb-input xb-radio">
+                    <input type="radio" id="section3" name="section3" class="input-element" value="1"
+                           ng-model="edit.no_edit">
+                    <span class="input-icon radio-icon" ng-class="{'checked':edit.no_edit == 1}"></span>
+                    <label for="section3" class="input-label"></label>
+                </div>
+                <label for="section3">绑定MAC地址</label>
+            </div>
+            <div class="col-md-5">
+                <div class="xb-input xb-radio">
+                    <input type="radio" id="section4" name="section4" class="input-element" value="0"
+                           ng-model="edit.no_edit">
+                    <span class="input-icon radio-icon" ng-class="{'checked':edit.no_edit == 0}"></span>
+                    <label for="section4" class="input-label"></label>
+                </div>
+                <label for="section4">限制人数</label>
+            </div>
+        </div>
+    </div>
+    <div class="form-group col-sm-offset-3 col-md-9">
+        <div class="col-md-12 Learn-MAC" ng-if="edit.no_edit == 1">
+            <label>请按如下格式输入并以英文逗号分隔</label>
+            <br>
+            <div class="Learn-Time">
+                <textarea cols="4" rows="1" id="editmac" class="digits big" name="bindMAC" ng-model="edit.bindMAC"
+                          style="min-width:200px;height:142px;" placeholder="AA-BB-CC-DD-EE-FF">
+                </textarea>
+            </div>
+        </div>
+        <div class="col-md-12 Learn-MAC" ng-if="edit.no_edit == 0">
+            <label>请输入允许的上网人数（1-255）</label>
+            <br>
+            <div class="Learn-Time">
+                <input type="text" class="string digits big" id="editAccount" ng-model="edit.onlineAccount"
+                       name="onlineAccount" ng-pattern="
+/(^[1-9][0-9]?$)|(^[1][0-9][0-9]$)|(^[2][0-4][0-9]$)|(^[2][0-4][0-9]$)|(^[2][0-4][0-9]$)|(^[2][0-4][0-9]$)|(^[2][5][0-5]$)/">
+                <label class="info-explain">(1-255)</label>
+            </div>
+            <label ng-show="editForm.onlineAccount.$dirty&&editForm.onlineAccount.$error.pattern"
+                   ng-messages="editForm.onlineAccount.$error" style="display:inline-block;">
+                <label class="error" style="display: inline-block;">请输入1-255的正整数</label>
+            </label>
+        </div>
+    </div>
+</form>
+<div bs-modal="macAddress.options">
+    <div bs-table="macOption" class="simple-list"></div>
+</div>
+<form bs-modal="import.options" name="importForm" novalidate>
+    <div class="form-group">
+        <label class="col-sm-9 control-label">请先下载模板文件，并按模板文件要求的格式填写</label>
+        <div class="col-md-3">
+            <button ng-click="download()">下载模板</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-4 control-label">请上传编辑好的模板文件</label>
+        <div class="col-md-8">
+            <input type="file">
+        </div>
+    </div>
+</form>
+<div id="add_user_Dlag" class="hide modal fade"></div>
+<iframe id="exportFile" name="exportFile" style="display: none"></iframe>
+<div id="user_rc" class="rc-define"
+     USER_LIST_HEADER="账号名,注册时间,累计在线时长,限制人数,最后一次上线时间,绑定MAC,操作"
+     OPERATE="编辑,删除"
+     ADD_USER="增加固定账号"
+     EDIT_USER="修改固定账号信息,MAC地址列表,批量导入固定账号"
+     REMOVE_BLACK_LIST="解除黑名单"
+     DERIVE="导出"
+     GET_STORE_FAILED="获取场所失败。"
+     CONFIGURE_SUCCESS="删除成功"
+     ADD_SUCCESS="添加账户成功"
+     ADD_FAIL="已存在相同的固定账号,已经存在"
+     EDIT_SUCCESS="修改成功,导入成功"
+     DATA_ERROR="数据查询异常"
+     DEL_CONFIRM="确认提示"
+     DEL_FAIL="该账户不存在,认证方式不能为空"
+     CON_DEL="确认删除吗？"
+     MAC_ERROR="MAC地址格式不正确！MAC地址格式为AA-BB-CC-DD-EE-FF,无效的MAC地址"
+     BIND_ERROR="绑定不成功,一个账号最多只能绑定255条MAC地址"
+     PASSWORD_ERROR="导入不成功,密码格式应为6-32位非空格英文字符"
+     EXPORT_ERROR="导入失败,模板中的固定账号数目不能超过1000"
+     NUM_ERROR="导入失败,模板中存在错误的最大连接数"
+>
+</div>

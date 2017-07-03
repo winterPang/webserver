@@ -1,0 +1,32 @@
+{"devList":[
+	{"mapName":"map01",
+	 "breif":"this is map 001",
+ 	 "scale":10,
+ 	 "address":"北京海淀区中关村",
+ 	 "shopName":"5"
+ 	},
+ 	{"mapName":"map02",
+	 "breif":"this is map 002",
+ 	 "scale":10,
+ 	 "address":"北京海淀区中关村2",
+ 	 "shopName":"5"
+ 	},
+ 	{"mapName":"map03",
+	 "breif":"this is map 003",
+ 	 "scale":10,
+ 	 "address":"北京海淀区中关村3",
+ 	 "shopName":"5"
+ 	},
+ 	{"mapName":"map04",
+	 "breif":"this is map 004",
+ 	 "scale":10,
+ 	 "address":"北京海淀区中关村4",
+ 	 "shopName":"5"
+ 	},
+ 	{"mapName":"map05",
+	 "breif":"this is map 005",
+ 	 "scale":10,
+ 	 "address":"北京海淀区中关村5",
+ 	 "shopName":"5"
+ 	}],"devTotalCnt":5,"code":0
+}

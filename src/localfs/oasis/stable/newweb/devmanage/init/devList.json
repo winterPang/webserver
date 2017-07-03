@@ -1,0 +1,58 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 3,
+  "rows": [
+    {
+      "id": 10,
+      "name": "设备别名1",
+      "sn": "210235A1JMC16B000048",
+      "status": "在线",
+      "type": "无线控制器",
+      "model": "WX5004",
+      "group": "场所1",
+      "conf":"无",
+      "ver": "3.2.1",
+      "confStatus":"正常",
+      "confTime":"2017-05-16 00:00:00",
+      "vernew":"3.2.7",
+      "upstatus":"无",
+      "uptime":"2017-05-16 00:00:00",
+      "upresult":"正常"
+    },
+    {
+      "id": 11,
+      "name": "设备别名2",
+      "sn": "210235A1JMC16B000003",
+      "status": "在线",
+      "type": "交换机",
+      "model": "WX5004",
+      "group": "分组2",
+      "conf":"无",
+      "ver": "3.2.0",
+      "confStatus":"正常",
+      "confTime":"2017-05-17 00:00:00",
+      "vernew":"3.2.7",
+      "upstatus":"无",
+      "uptime":"2017-05-16 00:00:00",
+      "upresult":"正常"
+    },
+    {
+      "id": 12,
+      "name": "设备别名3",
+      "sn": "210235A1JMC16B000005",
+      "status": "离线",
+      "type": "路由器",
+      "model": "WX5004",
+      "group": "无",
+      "conf":"无",
+      "ver": "3.2.7",
+      "confStatus":"BUG",
+      "confTime":"2017-05-18 00:00:00",
+      "vernew":"3.2.7",
+      "upstatus":"无",
+      "uptime":"2017-05-16 00:00:00",
+      "upresult":"正常"
+    }
+  ]
+}

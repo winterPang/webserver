@@ -1,0 +1,249 @@
+<html>
+<head> 
+</head>
+<body>
+<div class="page-row">
+  <div class="col-xs-12 app-colum left-block">
+		<div class="app-box"> 
+			<div class="box-footer">
+				<span class="title">无线服务</span>
+			</div>
+			<div class="box-body no-height">
+				<div id="wirelessService" class="simple-list"></div>
+			</div>
+		</div>
+  </div>
+</div>
+
+<div class="page-row">
+  <div class="col-xs-6 app-colum left-block">
+    <div class="app-box">
+      <div class="box-footer">
+        <span class="title big">AC信息</span>
+      </div>
+      <div class="box-body echart-height" id="version_block">
+        <div class="form-group">
+          <label class="col-sm-3 control-label">设备型号</label>
+          <div class="col-sm-9">
+            <span class="label" id="DeviceType" name="DeviceType"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">序列号</label>
+          <div class="col-sm-9">
+            <span class="label" id="SerialNumber" name="seriNUm"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Boot版本</label>
+          <div class="col-sm-9">
+            <span class="label" id="FirmwareRev" name="boot_version"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">软件版本</label>
+          <div class="col-sm-9">
+            <span class="label" id="HardwareRev" name="hardware_version"></span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">基线版本</label>
+          <div class="col-sm-9">
+            <span class="label" id="SoftwareRev" name="software_version"></span>
+            <!--<a class="xb-link" id="version">查看版本列表-->
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-6 app-colum left-block">
+    <div class="app-box">
+      <div class="box-footer">
+        <span class="title">云服务</span>
+      </div>
+      <div class="box-body echart-height">
+        <!--<div class="form-group">
+          <label class="col-sm-5 control-label">状态</label>
+          <div class="col-sm-7">
+            <span class="label" id="CloudConnectionState" name="CloudConnectionState"></span>
+          </div>
+        </div>-->
+          <div class="form-group">
+              <label class="col-sm-5 control-label">设备连接状态</label>
+              <div class="col-sm-7">
+                  <span class="label" id="v3CloudConnectionState" name="v3CloudConnectionState"></span>
+              </div>
+          </div>
+
+          <div class="form-group">
+              <label class="col-sm-5 control-label hide" id="v3DisconnectReason_Label">上次断开原因</label>
+              <div class="col-sm-7">
+                  <span class="label" id="v3DisconnectReason" name="v3DisconnectReason"></span>
+              </div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<div class="hide" id="toggle_wireless">
+    <div class="form-group">
+      <div class="col-sm-4">
+        <label class="col-sm-6 control-label info-explain">状态</label>
+        <div class="col-sm-6">
+          <span class="label form-if-setHtml" id="toggle_status" name="toggle_status">开启</span>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <label class="col-sm-6 control-label info-explain">接入密码</label>
+        <div class="col-sm-6">
+          <span class="label form-if-setHtml" id="toggle_access_pwd" name="toggle_access_pwd">已配置</span>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <label class="col-sm-6 control-label info-explain">认证方式</label>
+        <div class="col-sm-6">
+          <span class="label form-if-setHtmlg" id="toggle_auth" name="toggle_auth">微信认证</span>
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-4">
+        <label class="col-sm-6 control-label info-explain">关联5GHz用户</label>
+        <div class="col-sm-6">
+          <span class="label form-if-setHtml" id="ClientNumber5G" name="ClientNumber5G">30</span>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <label class="col-sm-6 control-label info-explain">关联2.4GHz用户</label>
+        <div class="col-sm-6">
+          <span class="label form-if-setHtml" id="ClientNumber2G" name="ClientNumber2G">50</span>
+        </div>
+      </div>
+      <div class="col-sm-4">
+        <label class="col-sm-6 control-label info-explain">关联用户总数</label>
+        <div class="col-sm-6">
+          <span class="label form-if-setHtml" id="total" name="total">80</span>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="hide modal fade" id="ApNameDlg">
+  <form class="form-horizontal form edit hide" id="changename">
+      <div class="form-group">
+          <label class="col-sm-3 control-label">AP名称</label>
+          <label class="col-sm-9 control-label" id="OldName" name="OldName"></label>
+      </div>
+
+      <div class="form-group">
+          <label class="col-sm-3 control-label required">新名称</label>
+          <div class="col-sm-9">
+              <input type="text" class="string required" id="NewName" name="NewName" maxlength="64"/>
+              <label class="info-explain">（1-64字符）</label>
+              <label class="error" id="NewName_error"></label>
+          </div>
+      </div>
+  </form>
+</div>
+<div class="hide modal fade" id="StatusDlg">
+  <form class="form-horizontal form" id="StatusForm">
+    <div class="form-group">
+          <label class="col-sm-3 control-label">AP名称</label>
+          <label class="col-sm-9 control-label" id="ApName" name="ApName"></label>
+    </div>
+    <div class="form-group">
+          <label class="col-sm-3 control-label">射频单元</label>
+          <label class="col-sm-9 control-label" id="RadioName" name="RadioName"></label>
+    </div>
+
+    <div class="form-group">
+          <label class="col-sm-3 control-label">状态</label>
+          <div class="col-sm-9">
+              <input type="checkbox" class="switch" id="Status" name="Status"/>
+          </div>
+    </div>
+  </form>
+</div>
+
+<form class="form-horizontal form hide" id="verlist">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">版本信息列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="version_info_list" class="simple-list"></div>
+    </div>
+  <div class="modal-footer form-actions">
+      <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+        <i class="icon-remove"></i>
+        关闭
+      </a>
+    </div>
+</form>
+
+<form class="form-horizontal form hide" id="mapInfo" action="/v3/wloc/upload" enctype="multipart/form-data" method="post"
+      onsubmit="return false">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title" name="mapName" id="mapName">&nbsp</h3>
+
+    </div>
+    <div class="modal-body">
+
+        <label style="margin-left: 577px">&nbsp选择地图&nbsp&nbsp</label>
+        <select id="MapSelect" class="singleSelect" allowClear="false" name="" style="width: 180px"></select>
+        <div class="col-xs-12 app-colum" id="canvas">
+            <canvas id="gameCanvas" width="800" height="450"></canvas>
+        </div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal" id="formCloseBtn">
+            <i class="icon-remove"></i> 关闭
+        </a>
+    </div>
+</form>
+
+<div class="page-row">
+    <div class="col-xs-12 app-colum left-block">
+        <div class="app-box">
+            <div class="box-footer">
+                <div class="col-xs-11">
+                    <span class="title">AP信息</span>
+                </div>
+                <div class="col-xs-1" style="cursor: pointer;">
+                    <span id="mapDialog" class="r-title map_mess" >地图</span>
+                </div>
+            </div>
+            <div class="box-body no-height" id="AP-Info">
+                <div id="ap_info_list" class="simple-list"></div>
+                <div id="Opendlg"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="device_infor_rc" class="rc-define"
+  AP_LABELS="AP名称,MAC地址,IP地址,5GHz,2.4GHz,在线时长,AP状态"
+     Version_HEADER="存放地址,大小（Mb）,类型,版本号,描述"
+	W_DEVICE="服务名称,SSID,状态"
+	 Wireless_Status = ",使能,去使能"
+     Connect_Sta="已连接,连接中断"
+     Connect_Stav3="已连接,连接中断"
+  PASSWORD_STATUS = "静态密码,802.1x,使用密码,不使用密码,密码"
+  AP_STATUS = "在线,离线,版本下载"
+  ENABLE = "关闭,开启"
+  HISTORY_HINT = "点击查看"
+  RENAME_TITLE="修改AP名称"
+  STATUS_TITLE="状态"
+     DOWNLOAD="版本下载"
+     VERSION_TYPE=",正式版本,开发版本,安全补丁版本"
+     DOWNLOAD_ERROR="升级成功,升级失败,只能选择一个版本"
+     TIME="天,小时,分"
+     V3Dis_Reason = "设备重启或进程重启,socket链接异常,云管理配置变化,收到云端发的websocket-close报文,保活超时主-连接才有,
+                     处理报文失败,主连接断开-子连接才有,云端重置连接,该版本不支持显示断开原因"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+Utils.Pages.loadJS("dashboard.Device_info");
+</script>

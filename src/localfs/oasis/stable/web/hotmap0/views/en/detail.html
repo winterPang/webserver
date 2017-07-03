@@ -1,0 +1,119 @@
+<html>
+<head>
+</head> 
+<style>
+    .link-container { 
+        position: absolute;
+        right: 5px;
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+    .new_app-box {
+        outline: 1px solid #dedddd;
+        margin-bottom: 20px;
+        background: #fff;
+        overflow-y: hidden;
+        border: 0 !important;
+    }
+
+    .period {
+        padding-left: 2px;
+    }
+
+    .container {
+        width: 100%;
+        padding: 0 25px;
+        min-height: 400px;
+        box-sizing: border-box;
+    }
+
+    .canvas {
+        display: block;
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    .bgCanvas, .myEchart {
+        display: block;
+        position: relative;
+        z-index: 2
+    }
+
+    .myEchart {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 3;
+    }
+
+    .rail {
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 4;
+    }
+
+    .with-button.with-page {
+        margin-top: 0 !important;
+    }
+
+</style>
+
+<body>
+<div class="page-row">
+    <!--onresize='size()'-->
+    <!--onload="onresize='size()'"-->
+    <!--<div class="col-xs-12 app-colum app-box left-block">-->
+    <div class="app-colum app-box left-block" style="width:1100px;">
+        <div id="detect_container1" style="width:100%">
+            <!--<div class="app-box" style="width:1100px">-->
+            <!--<div class="box-footer" style="width:1098px">-->
+            <!--<div class="col-xs-12" style="width:1080px">-->
+            <div class="app-box" style="width:100%">
+                <div class="col-xs-12" style="width:100%;height:50px;line-height:50px;background:#EDF9F7">
+                    <label style="font-size: 16px">&nbsp&nbspMAP&nbsp&nbsp</label>
+                    <select id="MapSelect123" class="singleSelect" allowClear="false" name="MapSelect"
+                            ng-model="mapName1" ng-options="x for x in mapNameList1" ng-change="selectChange()"
+                            style="width: 180px">
+                    </select>
+                </div>
+                <div class="container" id="clickThings">
+                    <div class="canvas" id="canvas" style="width:1000px;margin:0 auto">
+                        <!--<div class="canvas" id="canvas" style="width:1035px">-->
+                        <canvas id="bgCanvas" class="bgCanvas"></canvas>
+                        <div id="eChart" class="myEchart">
+                        </div>
+                        <canvas class="rail" id="rail" ng-click="addClick()"></canvas>
+                    </div>
+                </div>
+                <!--</div>-->
+
+            </div>
+        </div>
+
+        <!----------------------此处为模态框修改部分------------------------>
+        <!--AP adds the group-->
+        <div bs-modal="addUserInfo">                 <!----模态框为div中的bs-modal生效--->
+            <div bs-table="macInfo"></div>
+            <div class="modal-footer form-actions">
+
+                <div align="center">
+                    <button class="btn btn-cus" ng-click="close()">Close</button>
+                </div>
+                <!--</a>-->
+            </div>
+        </div>
+
+        <div id="wloc_rc" class="rc-define" CLIENT_INFO="Endpoint MAC,X coordinate,Y coordinate"
+             NAME="Digital Fence"
+             FAILED="Failed to obtain data"
+             FALIEDD="Failed to obtain map information."
+             FALIEDD1="No maps exist."
+             FALIEDD2="Failed to obtain endpoints in the region."></div>
+
+</body>
+</html>

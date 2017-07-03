@@ -1,0 +1,258 @@
+<style>
+    .fl{
+        margin-left:67px !important;
+    }
+    .fl2{
+        margin-left:81px !important;
+    }
+    .hd{
+        overflow: hidden !important;
+    }
+    .mp{
+        margin-top: 5px !important;
+    }
+    .lh{
+        line-height: 32px;
+    }
+    .tp3{
+        top: 3px !important;
+    }
+</style>
+
+
+<div>
+    <div class="panel panel-default">          
+        <div class="panel-heading">
+            <h3 class="panel-title">服务配置</h3>
+        </div>
+                   
+        <div class="panel-body">
+            <div class="btn btn-cus" ng-click="addTemplate()">
+                <i class="btn-icon icon-add"></i>添加
+            </div>          
+            <div bs-Table="serverTable"></div>
+        </div>                      
+        
+    </div>
+</div>
+
+<!-- 增加服务模板modal -->
+<form novalidate role="form" name="serviceForm" class="hd"  bs-modal="template.options">          
+    <div class="form-group row">
+        <label class="col-sm-3 control-label required lh">服务模板名称</label>
+        <div>
+            <input type="text" id="stName" name="stName" class="string big form-control " required 
+            ng-model="info.stName" ng-minlength="1" ng-maxlength="63" ng-pattern='/^[a-zA-Z0-9]+$/'>
+            <label class="info-explain">(1-63数字或英文字符)</label>
+
+            <label ng-if="serviceForm.server.$error.required && serviceForm.server.$touched"  style="color:red">该参数必须配置</label>
+            <label ng-if="serviceForm.server.$error.pattern && serviceForm.server.$dirty"  style="color:red">参数必须为数字或英文字符</label> 
+            <label ng-if="serviceForm.server.$error.maxlength && serviceForm.server.$dirty"  style="color:red">参数长度超出限制</label>       
+        </div>
+    </div>
+            
+    <div class="form-group row">
+        <label class="col-sm-3 control-label required lh">SSID</label>
+        <div>
+            <input type="text" name="SSID" class="string big form-control" required 
+            ng-model="info.SSID" ng-minlength="1" ng-maxlength="32" ng-pattern='/^[^&=\\?%]+$/' >
+            <label class="info-explain">(1-32字符)</label>
+
+            <label ng-if="serviceForm.SSID.$error.required && serviceForm.SSID.$touched"  style="color:red">该参数必须配置</label>
+            <label ng-if="serviceForm.SSID.$error.maxlength && serviceForm.SSID.$dirty"  style="color:red">参数长度超出限制</label>
+            <label ng-if="serviceForm.SSID.$error.pattern && serviceForm.SSID.$dirty"   style="color:red">参数不允许包含&=\?%特殊字符</label>
+        </div>
+    </div>
+
+   
+
+    <div class="form-group row">
+        <label class="col-sm-3 control-label">加密服务</label>  
+        <div>                                            
+            <div class="xb-input xb-radio tp3">
+                <input type="radio" class="input-element" id="pwdOn" name="pwdState" value="pwdOn" 
+                ng-model="info.pwdState" ng-click="pwdOn()"/>
+                <span class="input-icon radio-icon input-icon2" ng-class="{'checked': info.pwdState == 
+                'pwdOn'}"></span>
+                <label for="pwdOn" class="input-label"></label>
+            </div>
+            <label for="pwdOn" class="mr5">开启</label>
+
+            <div class="xb-input xb-radio tp3 fl">
+                <input type="radio" class="input-element" id="pwdOff" name="pwdState"  
+                ng-model="info.pwdOff" ng-click="pwdOff()"/>
+                <span class="input-icon radio-icon input-icon2" ng-class="{'checked': info.pwdState == 
+                'pwdOff'}"></span>
+                <label for="pwdOff" class="input-label"></label>
+            </div>
+            <label for="pwdOff" class="mr5">关闭</label>               
+                          
+            <div ng-if="pwd" ng-init="showPwd1=true" class="col-sm-offset-3">    
+                <input type="password" name="password" class="string big" required
+                ng-model="info.pwd" ng-show="showPwd1" ng-pattern='/^[a-zA-Z0-9]{8,63}$/'
+                ng-minlength="" ng-maxlength="32">
+
+                <input type="text" name="text" class="string big" required
+                ng-model="info.pwd" ng-hide="showPwd1" ng-pattern='/^[a-zA-Z0-9]{8,63}$/'
+                >
+
+                <span class="icon_eye" ng-class="{show_word: !showPwd1}"  
+                ng-click="showPwd1=!showPwd1"></span>                    
+                
+                <label ng-if="(serviceForm.password.$error.required && serviceForm.text.$error.required)&&(serviceForm.password.$touched|| serviceForm.text.$touched)"  style="color:red">该参数必须配置</label>
+                
+                <label ng-if="(serviceForm.password.$error.pattern && serviceForm.password.$dirty) ||(serviceForm.text.$error.pattern&&serviceForm.text.$dirty)"  style="color:red">密码长度或格式不符</label>
+            
+                <div>
+                   <label class="info-explain">(说明：密码应由8～63位数字和（或）字母组成)</label>  
+                </div>    
+            </div>        
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-3 control-label">无线服务</label>  
+        <div>                                
+            <div class="xb-input xb-radio tp3">
+                <input type="radio" class="input-element" id="wirelessOpen" name="wirelessServer"  ng-model="info.wirelessServer" ng-click="wirelessOpen()"/>
+                <span class="input-icon radio-icon input-icon2" ng-class="{'checked': info.wirelessServer == 'wirelessOpen'}"></span>
+                <label for="pwdOn" class="input-label"></label>
+            </div>
+            <label for="wirelessOpen" class="mr5">开启</label>
+
+            <div class="xb-input xb-radio tp3 fl">
+                <input type="radio" class="input-element" id="wirelessClosed" name="wirelessServer"  
+                ng-model="info.wirelessServer" ng-click="wirelessClosed()"/>
+                <span class="input-icon radio-icon input-icon2" ng-class="{'checked': info.wirelessServer =='wirelessClosed'}"></span>
+                <label for="wirelessClosed" class="input-label"></label>
+            </div>
+            <label for="wirelessClosed" class="mr5">关闭</label>                         
+        </div>
+    </div> 
+
+   
+    <!-- <div class="form-group row">
+        <label class="col-sm-3 control-label required lh">服务模板描述</label>
+        <div>
+            <input type="text" name="SSID" class="string big form-control" required>
+        </div>
+    </div>
+    
+    <div class="form-group row">
+        <label class="col-sm-3 control-label">SSID隐藏状态</label>  
+        <div>                   
+            <input id="auth_on" name="authType" type="radio" value="auth_on" 
+            ng-model="authInfo.authType" ng-click="auth_on()">
+            <label for="auth_on">开启</label>
+    
+            <input id="auth_off" class="fl" name="authType" type="radio" value="auth_off" 
+            ng-model="authInfo.authType" ng-click="auth_off()">  
+            <label for="auth_off">关闭</label>                           
+        </div>
+    </div> 
+    
+    <div class="form-group row">
+        <label class="col-sm-3 control-label">最大发送速率</label>  
+        <div>                   
+            <input type="text" name="SSID" class="string big form-control" required>
+        </div>
+    </div> 
+    
+    <div class="form-group row">
+        <label class="col-sm-3 control-label">最大接受速率</label>  
+        <div>                   
+            <input type="text" name="SSID" class="string big form-control" required>
+        </div>
+    </div>  
+     -->
+
+    <div class="form-group row">
+        <label class="col-sm-3 control-label mt">认证方式</label>  
+        <div> 
+            <div class="xb-input xb-radio tp3">
+                <input type="radio" class="input-element" id="auth_on" name="authType"  ng-model="info.authType" ng-click="auth_on()"/>
+                <span class="input-icon radio-icon input-icon2" ng-class="{'checked': info.authType == 'auth_on'}"></span>
+                <label for="auth_on" class="input-label"></label>
+            </div>
+            <label for="auth_on" class="mr5">认证</label>
+
+            <div class="xb-input xb-radio tp3 fl">
+                <input type="radio" class="input-element" id="auth_off" name="authType"  
+                ng-model="info.authType" ng-click="auth_off()"/>
+                <span class="input-icon radio-icon input-icon2" ng-class="{'checked': info.authType =='auth_off'}"></span>
+                <label for="auth_off" class="input-label"></label>
+            </div>
+            <label for="auth_off" class="mr5">不认证</label>                         
+        </div>
+    </div> 
+
+    <div ng-show="auth">
+        <div class="form-group row">
+            <label class="col-sm-3 control-label lh">选择认证模板</label> 
+            <select class="big"  ng-model="editInfo.authSelect" 
+            ng-options="act for act in authCfgTemplates"></select>
+        </div>
+
+        <div class="form-group row">
+            <label class="col-sm-3 control-label lh">选择页面模板</label> 
+            <select class="big" ng-model="editInfo.pageSelect" 
+            ng-options="act for act  in themeNames"></select>                                                
+        </div>               
+    </div>
+
+
+    <div class="form-group row">
+        <label class="col-sm-3 control-label">是否绑定无线服务</label>
+        <div>    
+            <div class="xb-input xb-radio tp3">
+                <input type="radio" class="input-element" id="bindOn" name="bind"  ng-model="info.bind" ng-click="bindOn()"/>
+                <span class="input-icon radio-icon input-icon2" ng-class="{'checked': info.bind == 'bindOn'}"></span>
+                <label for="pwdOn" class="input-label"></label>
+            </div>
+            <label for="bindOn" class="mr5">是</label>
+
+            <div class="xb-input xb-radio tp3 fl2">
+                <input type="radio" class="input-element" id="bindOff" name="bind"  ng-model="info.bind" ng-click="bindOff()"/>
+                <span class="input-icon radio-icon input-icon2" ng-class="{'checked': info.bind == 'bindOff'}"></span>
+                <label for="pwdOn" class="input-label"></label>
+            </div>
+            <label for="bindOff" class="mr5">否</label>               
+        </div>  
+    </div>
+
+
+
+    <div class="form-group row">          
+        <label class="col-sm-6 control-label" style="margin-left:15px;color:red">说明：创建成功后，请在设备侧进行相关配置，否则该无线服务无法生效</label>                 
+    </div>
+
+    <div align = "center">
+        <button class="btn btn-cus" ng-disabled="serviceForm.$invalid" 
+        ng-click="submit()">确定</button>
+    </div>
+</form> 
+
+<div id="serverConfig_rc" class="rc-define"
+        CONFIG_HEADER="服务模板名称,SSID,认证方式,状态,"  
+        BIND_APGROUP_HEADER="AP组名称,描述,Model数量"
+        BIND_AP_HEADER="AP名称,AP序列号,Model型号,radio个数,所属AP组名称"     
+        STATUS="开启,关闭" 
+        MODAL_TITLE="创建服务模板,无线服务认证配置" 
+        OPERAT="操作"
+        AUTH_TYPE="不认证,一键登录,账号登录"
+        SYN_SUC="同步成功"
+        SYN_FAIL="同步失败，请稍后再试"
+        tem_repet="服务模板“,”已存在，无法重复创建"  
+        DEL_CON="确认删除该无线服务吗？"
+        DEL_SUC="删除成功"
+        DEL_FAIL="删除失败，请稍后再试"
+        ADD_SUC="创建成功"
+        ADD_FAIL="创建失败，请稍后再试"
+        PUBLISH_FAIL="无线服务创建成功但认证失败，请手动修改认证"
+        EDIT="编辑"
+        BIND="绑定"
+        REMOVE="删除"
+        BIND_APGROUP_TITLE="已绑定AP组列表"
+        BIND_AP_TITLE="已绑定AP列表"
+        MAIN="主链接断开导致操作失败,请检查设备"
+></div>

@@ -1,0 +1,68 @@
+
+#apbranchTree li.level0 span.button.level0.root_open, .ztree li.level0 span.button.level0.roots_open {
+    background: url(../../apBranchMng/images/icon-hc.png) no-repeat !important;
+}
+#apbranchTree li.level0 span.button.level0.root_close, .ztree li.level0 span.button.level0.roots_close {
+    background: url(../../apBranchMng/images/icon-hn.png) no-repeat !important;
+}
+
+#apbranchTree li.level1 span.level1.button.center_open {
+    background: url(../../apBranchMng/images/icon-dc.png) no-repeat !important;
+}
+#apbranchTree li.level1 span.level1.button.center_close {
+    background: url(../../apBranchMng/images/icon-dn.png) no-repeat;
+}
+
+#apbranchTree li span.button.center_open, .ztree li span.button.bottom_open {
+    background: url(../../apBranchMng/images/btn-down.png) no-repeat;
+}
+#apbranchTree li span.button.center_close, .ztree li span.button.bottom_close {
+    background: url(../../apBranchMng/images/icon-zkn.png) no-repeat;
+}
+
+
+
+
+
+
+
+
+
+.addBox.active{
+    border:1px solid #e7e7e9;clear:both
+}
+.addBox{
+    clear:both
+}
+
+
+
+.guideModal .clearfix {
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #bdbdbd;
+}
+
+ul.text-center {
+    list-style: none;
+    font-size: 14px;
+}
+
+ul.text-center li span {
+    margin-right: 8px;
+}
+
+
+.deviceBox{
+    border:1px solid #e7e7e9;border-radius:3px;
+    text-align:center;
+    max-height:300px;
+}
+.deviceBoxTitle{
+    background-color:#4ec1b2;color:#fff;padding:5px;
+}
+
+.operateBtn{
+    position: absolute;
+    top: 50%;
+}

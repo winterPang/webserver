@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <style type="text/css">
+            .smart-pic{
+                background: url(css/image/smartschool.png) -327px -208px;
+                width: 30px;
+                height: 27px;
+                margin: 0 0 0 35px;
+            }
+
+        </style>
+    </head>
+    <body>
+    <div class="btn_h_return" id="return"></div>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div class="app-box no-height">
+                <div class="box-footer">
+                    <span class="title">健康详情</span>
+                </div>
+                <div class="box-body no-height">
+                    <div id="health-detail" class="simple-list"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hide modal fade" id="StuDlg">
+        <form id="Stu_form" class="form-horizontal form edit">
+            <div class="form-group">
+                <div class="col-xs-2"></div>
+                <div class="col-xs-2">学生姓名</div>
+                <div class="col-xs-7 stuType" id="studentName"></div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-2"></div>
+                <label class="col-xs-1 control-label">身高</label>
+                <div class="col-xs-7">
+                    <input type="text" class="string big" id="Height" errid="Height_error"/><span>cm</span>
+                    <label class="error" id="Height_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-xs-2"></div>
+                <label class="col-xs-1 control-label">体重</label>
+                <div class="col-xs-7">
+                    <input type="text" class="string big" id="Weight" errid="Weight_error"/><span>kg</span>
+                    <label class="error" id="Weight_error"></label>
+                </div>
+            </div>
+        </form>
+    </div>
+
+    <form class="modal fade modal-super dashboard in hide" id="echartDlg">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3 class="modal-title" id="pie-title"></h3>
+        </div>
+        <div class="modal-body xxb">
+            <div class="col-xs-10 echart-height myEchart" style="display:block;" id="echart1"></div>
+            <div class="col-xs-10 echart-height myEchart" style="display:none;" id="echart2"></div>
+            <div class="col-xs-10 echart-height myEchart" style="display:none;" id="echart3"></div>
+            <div class="col-xs-10 echart-height myEchart" style="display:none;" id="echart4"></div>
+            <div class="col-xs-10 echart-height myEchart" style="display:none;" id="echart5"></div>
+        </div>
+    </form>
+
+    <div class="hide modal fade" id="upload">
+        <form id="upload_form" class="form-horizontal form edit">
+            <div class="form-group">
+                <label class="col-sm-2 control-label" id="year_label">导出模板</label>
+                <a class="btn model-btn">导出</a>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-2 control-label" id="year_label">导入报告</label>
+                <input id="lefile" type="file" style="display:none">
+                <div class="input-append col-sm-9">
+                    <input id="photoCover" class="input-large" type="text" style="height:30px;">
+                    <a class="btn" style="width:28px" onclick="$('input[id=lefile]').click();">导入</a>
+                </div>
+                <!--<div class="col-sm-9">-->
+                    <!--<input type="file" class="required" id="upload_file" name="report" errid="upload_file_error"></input>-->
+                    <!--&lt;!&ndash;<a class="btn" onclick="$('input[id=upload_file]').click();">&ndash;&gt;-->
+                    <!--<label class="info-explain">(文件类型建议:*.excel)</label>-->
+                    <!--<label class="error" id="upload_file_error"></label>-->
+
+
+                <!--</div>-->
+            </div>
+        </form>
+    </div>
+ </body>
+</html>
+<div id="health_rc" class="rc-define"
+     EDIT_TITLE="编辑学生健康信息"
+
+        ></div>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.ajaxfileupload");
+    Utils.Pages.loadJS("classroom.healthdetail");
+</script>

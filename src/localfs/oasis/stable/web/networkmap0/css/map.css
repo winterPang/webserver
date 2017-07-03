@@ -1,0 +1,415 @@
+body{
+    -moz-user-select: none; /*火狐*/
+    -webkit-user-select: none; /*webkit浏览器*/
+    -ms-user-select: none; /*IE10*/
+    -khtml-user-select: none; /*早期浏览器*/
+    user-select: none;
+}
+.a1,.a2,.a3{
+    float:left;
+    margin-right:10px;
+    margin-left:10px;
+}
+.link-container {
+    position: absolute;
+    right: 5px;
+}
+
+a {
+    cursor: pointer;
+}
+
+#box-body2015 {
+    height: auto!important;
+}
+
+#Cocos2dGameContainer {
+    border: 1px solid grey;
+    position:relative;
+}
+
+.simple-list .slist-body {
+    border: 1px solid #dedddd;
+    overflow: hidden;
+}
+
+.app-box .box-body {
+    padding: 15px;
+    height: 688px;
+}
+
+.add_icon {
+    background: url(../img/xiaoxiaobei1.png) no-repeat -435px -476px;
+    display: block;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto;
+    cursor:pointer;
+}
+
+#canvas {
+    margin-top: 10px;
+}
+
+.slist-center{
+    width:514px;
+    height:257px;
+    overflow-y: hidden!important;
+    margin:0 auto;
+}
+
+.slist-center{
+    width:514px;
+    height:257px;
+    overflow-y: hidden!important;
+    margin:0 auto;
+}
+
+.add-ap-btn {
+    /*background: url(../position/cocos/res/icon.png) no-repeat -382px -225px;*/
+    background: url(../position/cocos/res/icon.png) no-repeat -382px -299px;
+    width: 31px;
+    height: 31px;
+    position: absolute;
+    top: 11px;
+    left: 557px;
+    z-index: 100;
+}
+
+.add-ap-btn:hover {
+    background: url(../position/cocos/res/icon.png) no-repeat -382px -224px;
+}
+
+.add-wall-btn {
+    /*background: url(../position/cocos/res/icon.png) no-repeat -431px -225px;*/
+    background: url(../position/cocos/res/icon.png) no-repeat -431px -299px;
+    width: 31px;
+    height: 31px;
+    position: absolute;
+    top: 11px;
+    left: 596px;
+    z-index: 100;
+}
+
+.add-wall-close-btn {
+    /*background: url(../position/cocos/res/icon.png) no-repeat -431px -141px;*/
+    background: url(../position/cocos/res/icon.png) no-repeat -431px -224px;
+    width: 31px;
+    height: 31px;
+    position: absolute;
+    top: 11px;
+    left: 596px;
+    z-index: 100;
+}
+
+.scale-big-btn {
+    background: url(../position/cocos/res/icon.png) no-repeat -480px -299px;
+    width: 31px;
+    height: 31px;
+    position: absolute;
+    top: 11px;
+    left: 637px;
+    z-index: 100;
+}
+
+.scale-big-btn:hover {
+    background: url(../position/cocos/res/icon.png) no-repeat -480px -224px;
+
+}
+
+.scale-small-btn {
+    background: url(../position/cocos/res/icon.png) no-repeat -529px -299px;
+    width: 31px;
+    height: 31px;
+    position: absolute;
+    top: 11px;
+    left: 681px;
+    z-index: 100;
+}
+
+.scale-small-btn:hover {
+    background: url(../position/cocos/res/icon.png) no-repeat -529px -224px;
+}
+
+.set-scale-btn {
+    background: url(../position/cocos/res/icon.png) no-repeat -581px -299px;
+    width: 31px;
+    height: 31px;
+    position: absolute;
+    top: 11px;
+    left: 723px;
+    z-index: 100;
+}
+
+.set-scale-btn:hover {
+    background: url(../position/cocos/res/icon.png) no-repeat -581px -222px;
+}
+
+.add-ap-btn .add-wall-btn .set-scale-btn .scale-big-btn .scale-small-btn {
+    cursor:pointer;
+}
+
+.delete,.delete_Wall{
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #fff;
+    display :none;
+    border: solid 1px grey;
+    text-align: center;
+}
+.delete a,.delete_Wall a{
+    text-decoration: underline;
+    font-size:13px;
+    text-align: center;
+}
+.delete_Wall{
+    width: 65px;
+}
+.top{
+    text-align:center;
+}
+.top img{
+    vertical-align: middle;
+    margin-top:-3px;
+}
+.top span{
+    /*display:inline-block;*/
+    height:20px;
+    box-sizing: border-box;
+    padding:0 2px;
+}
+#picture{
+    width: 535px;
+    height: 400px;
+    margin: 0 auto;
+    border: solid 1px grey;
+    box-sizing: border-box;
+    margin-top:10px;
+    display:block;
+}
+#picture img{
+    width: 535px;
+    height: 400px;
+}
+#mapName{
+    /*width:237px;*/
+    width:300px;
+}
+#scaleValue{
+    /*width:187px;*/
+    width:250px;
+}
+/*.pagination{*/
+/*position: absolute;*/
+/*top: -13px;*/
+/*right: 30px;*/
+/*}*/
+#detect_container7{
+    height:700px;
+    position:relative;
+}
+.page{
+    width:100%;
+    position:absolute;
+    bottom:0px;
+    left:0;
+    overflow:hidden;
+}
+#upload_file{
+    width: 95px;
+    height: 32px;
+    position:absolute;
+    left:0;
+    top:0;
+    display:block;
+    opacity:0;
+    cursor:pointer;
+}
+#refresh,#addMapBtn{
+    cursor:pointer;
+}
+.slist-body .slist-head {
+    width: 100%;
+    background: #EDF0F2;
+    color: #131a2d;
+    position: relative;
+    height: 40px;
+    line-height: 40px;
+    font-size: 14px;
+    border-bottom: 1px solid #dedddd;
+}
+.app-box .box-body1 {
+    padding: 15px;
+    /*height: 688px;*/
+    /*overflow: hidden;*/
+}
+.slist-body .slist-center.scroll-able {
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+a{
+    color: #272856;
+}
+body{
+    -moz-user-select: none; /*火狐*/
+    -webkit-user-select: none; /*webkit浏览器*/
+    -ms-user-select: none; /*IE10*/
+    -khtml-user-select: none; /*早期浏览器*/
+    user-select: none;
+}
+.link-container {
+    position: absolute;
+    right: 5px;
+}
+
+a {
+    cursor: pointer;
+}
+
+#box-body2015 {
+    height: auto!important;
+}
+
+
+.simple-list .slist-body {
+    border: 1px solid #dedddd;
+}
+
+.app-box .box-body {
+    padding: 0;
+    height: 600px;
+}
+
+.delete,.delete_Wall{
+    width: 50px;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background: #fff;
+    display :none;
+    border: solid 1px grey;
+    text-align: center;
+}
+.delete a,.delete_Wall a{
+    text-decoration: underline;
+    font-size:13px;
+    text-align: center;
+}
+.top{
+    display: inline-block;
+    margin-right:20px;
+}
+.mapName,.mapScale{
+    text-align:center;
+}
+#imgContainer{
+    /* min-height: 600px;*/
+    position:relative;
+    width:100%;
+}
+.canvasContain{
+    position:relative;
+    height:600px;
+    margin: 0 auto;
+    overflow:hidden;
+    width:100%;
+}
+.editMap{
+    margin-left: 15px;
+}
+#back,#save,#big,#small{
+    cursor:pointer;
+}
+.contextmenu{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #fff;
+    z-index: 999;
+    display: none;
+}
+.contextmenu ul{
+    list-style: none;
+    border: solid 1px grey;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+}
+.contextmenu ul li{
+    border-bottom: solid 1px grey;
+    list-style: none;
+    padding:3px 10px;
+}
+.contextmenu ul .last_li{
+    border-bottom: none;
+}
+#bgCanvas{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+#picture1{
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    border: solid 1px grey;
+    box-sizing: border-box;
+    margin-top:10px;
+    display:block;
+}
+/*#picture img{*/
+/*width: 400px;*/
+/*height: 400px;*/
+/*}*/
+#mapScale{
+    font-style:normal;
+}
+#big {
+    width: 19px;
+    height: 19px;
+}
+#small {
+    width: 19px;
+    height: 19px;
+}
+#vertices,#areaName,#areaType{
+    width:237px;
+}
+#areaName_error,#vertices_error{
+    vertical-align: middle;
+    color: #47495d;
+    font-size: 14px;
+    font-weight: normal;
+    display: none;
+    background: #fce6e6;
+    padding: 0px 10px;
+    line-height: 22px;
+    border: 1px solid #df443e;
+    margin-top: 1px;
+    border-radius: 5px;
+}
+#upload_file{
+    width: 95px;
+    height: 32px;
+    position:absolute;
+    left:0;
+    top:0;
+    display:block;
+    opacity:0;
+    cursor:pointer;
+}
+/*.ap_info{*/
+/*line-height:35px;*/
+/*}*/
+.mapnamestyle{
+    margin-left:20px;
+    overflow:hidden;
+    width:72%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+

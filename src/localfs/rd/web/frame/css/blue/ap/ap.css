@@ -1,0 +1,51 @@
+
+/********* add by luoxq 2014.1.17 **********/
+.ap
+{
+	padding:0;
+	margin: 0px 5px;
+	height: 16px;
+	width: 16px;
+	display:inline-block;
+}
+
+.access-blue
+{
+	background-image: url(image/ap_icon_access_blue.png);
+}
+.access-gray
+{
+	background-image: url(image/ap_icon_access_gray.png);
+}
+.location-blue
+{
+	background-image: url(image/ap_icon_location_blue.png);
+}
+.location-gray
+{
+	background-image: url(image/ap_icon_location_gray.png);
+}
+.mesh-blue
+{
+	background-image: url(image/ap_icon_mesh_blue.png);
+}
+.mesh-gray
+{
+	background-image: url(image/ap_icon_mesh_gray.png);
+}
+.radio-disable
+{
+	background-image: url(image/ap_icon_radio_disable.png);
+}
+.radio-enable
+{
+	background-image: url(image/ap_icon_radio_enable.png);
+}
+.wipssensor-blue
+{
+	background-image: url(image/ap_icon_wipssensor_blue.png);
+}
+.wipssensor-gray
+{
+	background-image: url(image/ap_icon_wipssensor_gray.png);
+}

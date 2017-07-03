@@ -1,0 +1,59 @@
+<html>
+<head>
+</head>
+<body>
+
+    
+<div>
+<div class="modal-body">
+
+    <form class="form-horizontal form-bordered form edit" id="AddLacForm_v">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required" style="height:48px; line-height:48px">型号</label>
+            <!--<div class="col-sm-9">
+                <input type="text" class="string big required" id="Lac_Type_v" name ="Lac_Type" errid="type_name_error" maxlength=64 />
+                <label class="error" id="type_name_error"></label>
+            </div>-->
+            <div class="col-sm-9">
+                <select class="singleSelect" id="modeSelect" allowClear="false">
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">名称</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="Lac_Name_v" name ="Lac_Name" errid="lac_name_error" maxlength=64 />
+                <label class="info-explain">（1-64字符）</label>
+                <label class="error" id="lac_name_error"></label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">序列号</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="Lac_SN_v" name ="Lac_SN" errid="sn_name_error" maxlength=63 />
+                <label class="info-explain">（1-63字符）</label>
+                <label class="error" id="sn_name_error"></label>
+            </div>
+        </div>
+<!--
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">AP关联地址</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="Lac_Type_v" name ="Lac_Type" errid="ap_name_error" maxlength=64 />
+            </div>
+        </div>-->
+    </form>
+
+</div>
+</div>
+
+<div id="ws_ssid_rc" class="rc-define"
+     ADDLAC_TITLE = "创建"
+        ></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("hq_branchesmanage.view_localac");
+</script>

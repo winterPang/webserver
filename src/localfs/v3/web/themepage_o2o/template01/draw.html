@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>绘制</title>
+	<meta charset="utf-8">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link href="../resources/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" ></link>
+
+    <link  href="../resources/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" ></link>
+    <link  href="../resources/jqueryui-bootstrap/jquery-ui-1.9.2.custom.css" type="text/css" rel="stylesheet" ></link>
+    <link  href="../resources/jqueryui-bootstrap/bootstrap.custom.css" type="text/css" rel="stylesheet" ></link>
+    <link  href="../resources/css/custom.css" type="text/css" rel="stylesheet" ></link>
+    <link  href="../resources/css/jquery.bootstrap.custom.css" type="text/css" rel="stylesheet" ></link>
+
+    <script type="text/javascript"  src="../resources/angular.js"></script>
+    <script type="text/javascript"  src="../resources/angular-resource.js"></script>
+    <script type="text/javascript"  src="../resources/jqueryui-bootstrap/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript"  src="../resources/jqueryui-bootstrap/jquery-ui-1.9.2.custom.min.js"></script>
+    <script type="text/javascript"  src="../resources/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript"  src="../resources/jquery-ui-timepicker-zh-CN.js"></script>
+    <script type="text/javascript"  src="../resources/ueditor.config.js"></script>
+    <script type="text/javascript"  src="../resources/ueditor.all.min.js"></script>
+     <script type="text/javascript"  src="../resources/jquery.custom.js"></script>
+     <script type="text/javascript"  src="../resources/base64.js"></script>
+    <script type="text/javascript"  src="../resources/draw.js"></script>
+
+    <script>
+      var jq = jQuery.noConflict();
+      jq(function () {
+          // Tabs
+          jq('#tabs').tabs();
+      });
+      var jq = jQuery.noConflict();
+      var indexCtrl;
+    </script>
+    <script type="text/javascript">
+    // menu
+	jq(document).ready(function(){
+	   // 更多新闻
+	   function ml_close_demo() {
+	      jq('.float-news').animate({
+	         left: '-450px'
+	       }, 300, function(){
+	         jq('.float-open').delay(50).animate({
+	             left: '-2px'
+	         }, 300);
+	       });
+	   }
+	   function ml_open_demo() {
+	      jq('.float-open').animate({
+	         left: '-70px'
+	       }, 100, function(){
+	         jq('.float-news').delay(50).animate({
+	             left: '0px'
+	         }, 300);
+	       });
+	   }
+
+	   jq('.float-close').click(function(){
+	       ml_close_demo();
+	       return false;
+	   });
+	   jq('.open-btn').hover(function(){
+	       ml_open_demo();
+	       return false;
+	   });
+
+	   setTimeout(function(){ml_close_demo()},1000);
+
+	});
+	</script>
+      <style>
+          .label-info{
+              padding: 10px 0 0 10px;
+              color: #4ec1b2;
+              background-color: transparent;
+          }
+          .page-content #tabs ul li:hover{
+              background: transparent;
+              border-bottom: 1px solid transparent;
+              padding-bottom: 0;
+              color: #4ec1b2;
+          }
+      </style>
+
+  </head>
+  <body style="min-width:1080px;min-height:560px;background: url(../resources/images/bg.jpg) 50% 50% no-repeat fixed;background-repeat:repeat;" ng-app="mainApp">
+
+    <div id="create-o2oThemeTemplate"  class="page-content" ng-controller="o2oThemeTemplateController">
+        <div id="tabs">
+          <ul>
+              <li ng-class="type==1?'ui-tabs-active ui-state-active':''"><a href="#tabs-a" ng-click="changeValue(1);" >首页</a></li>
+              <li ng-class="type==2?'ui-tabs-active ui-state-active':''"><a href="#tabs-a" ng-click="changeValue(2);">登录</a></li>
+              <li ng-class="type==3?'ui-tabs-active ui-state-active':''"><a href="#tabs-a" ng-click="changeValue(3);">登录成功</a></li>
+              <li ng-class="type==4?'ui-tabs-active ui-state-active':''"><a href="#tabs-a" ng-click="changeValue(4);">主页</a></li>
+              <li><label class="label-info">说明：不是所有的认证方式，都完整包含“首页、登录、登录成功、主页”这4个页面，视实际采用的认证方式而定。</label></li>
+          </ul>
+
+          <div id="tabs-a">
+              <div class="setting-container">
+                  <a class="btn btn-info" role="button" href="#" ng-click="publishData()"><i class="fa fa-list-ul fa-1x green"></i>发布</a>
+              </div>
+              <div class="float-open" id="float-open" style="left:-2px;"><a class="open-btn" href="javascript:void(0);">&gt;</a></div>
+	          <div class="float-news" id="float-news" style="left:-450px;">
+	                <a class="float-close">X</a>
+	                <div class="newslist">
+	                   <h3>组件</h3>
+	                   <div id="menus" class="canvas-menus " style="text-align: center;" ></div>
+	                </div>
+	          </div>
+
+              <div id="widgets" class="canvas-widgets">
+                 <div id="indexContent" class="widget-content"></div>
+              </div>
+              <div id="tools" class="canvas-tools"></div>
+          </div>
+
+         </div>
+    </div>
+  </body>
+</html>

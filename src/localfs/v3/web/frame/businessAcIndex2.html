@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+	<title></title>
+	<link id="favicon_link" rel="icon" href="../static/image/h3clogo.png">
+	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+		<link href="../../web/frame/libs/css/all-min1.css" rel="stylesheet" type="text/css"/>
+		<link href="../../web/frame/css/all-min2.css" rel="stylesheet" type="text/css"/>
+		<link href="../../web/frame/css/h-plugin.css" rel="stylesheet" type="text/css"/>
+		<link href="../../web/frame/css/all-min3.css" rel="stylesheet" type="text/css"/>
+		<link href="../../web/frame/libs/css/font.css" rel="stylesheet" type="text/css"/>
+		<link href="../beibei/css/beibei.css" rel="stylesheet" type="text/css"/>
+		<link href="../../web/frame/css/businessac.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript">
+	var FrameInfo = {};
+	</script>
+	<!--[if IE 8]>
+	<link rel="stylesheet" href="../../web/frame/libs/css/font-awesome-ie7.min.css">
+	<script type="text/javascript" src="../../web/frame/utils/respond.js"></script>
+	<![endif]-->
+
+</head>
+<body>
+<div id="xiaobeiai">
+	<textarea id= "aiQuertionInput" style="display:none"></textarea>
+	<div id="msgContent">
+		<div id="message" tabindex="50000"></div>
+	</div>
+	<div id="beibei" tabindex="50001"></div>
+	<div id="beibeibackgroud"></div>
+	<div id="xiaobeiai_close"></div>
+</div>
+
+<!-- manually attach allowOverflow method to pane -->
+<div class="head">
+	<div class="user-bar pull-right">
+			<a id="user_menu">
+				<i class="droplist-icon " id="drop"></i>
+	            <i class="user_name" id="username"></i>
+	            <!--<i class="user-icon pull-right"></i>-->
+				<img src="css/image/touxiang.jpg" id="headerimg">
+			</a>
+		    <span class="message_icon" id="chat_html"></span>
+		    <br/>
+			<ul id="drop_list" class=" hide">
+				<li index="5">
+					<span id="online_service"></span>
+				</li>
+				<li index="0">
+					<span id="password_label"></span>
+				</li>
+				<li index="3">
+					<span id="system_manage"></span>
+				</li>
+				<li index="1">
+					<span id="back_home"></span>
+				</li>
+				<li index="4">
+					<span id="lvzhou_forum"></span>
+				</li>
+				<li index="2">
+					<span id="lougout_label"></span>
+				</li>	
+			</ul>
+	</div>
+	<form class="toppannel station">
+		<label for="Country">场所切换：</label>
+		<!-- <select id="station">
+		</select> -->
+		<div id="station" class="content">
+		 	
+		</div>
+	</form>
+	<div class="xb-layout-north logo"></div>
+</div>
+<div class="xb-layout-north logo-panel">
+    <ul>
+        <li><a href="#" data-value="operation">运营维护</a></li>        
+        <!-- <li><a href="#" data-value="manage">应用管理</a></li>--> <!--   /*0316 fujiajia zhushidiao*/      -->
+        <li><a href="#" data-value="network">网络部署</a></li> <!--   /*0329 fujiajia zhushidiao*/      -->
+        <li><a href="#" data-value="summary">网络监控</a></li>
+    </ul>
+</div>
+<div class="xb-layout-west menu-panel">
+	<div class="direction" id ="dirText">网络监控</div>
+	<div id="side_menu" class="page-sidebar"></div>
+</div>
+
+<!-- <div class="xb-layout-south status-panel hide">
+	<div id="copyright" class="copyright hide">Copy right</div>
+</div> -->
+
+<div id="layout_center" class="xb-layout-center content-panel">
+	<div id="frame_nav" class="xb-nav-panel path">
+		<ul id="frame_tablist" tab-content="tabContent" class="nav nav-tabs"></ul>
+		<!-- <ul id="global_btns"></ul> -->
+	</div>
+	<div class="xb-center-panel page-container">
+		<div id="tabContent" class="tab-content row-fluid sub-page portlet"></div>
+	</div>
+</div>
+
+	<!-- END CONTAINER -->
+	<!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+	<!-- BEGIN CORE PLUGINS -->
+	<script src="../../web/frame/js/busiacall-min.js" type="text/javascript"></script>
+	<!--[if lt IE 9]>
+	<script src="../../web/frame/libs/js/excanvas.min.js"></script>
+	<script src="../../web/frame/libs/js/respond.min.js"></script>
+	<![endif]-->
+
+	<!--<script src="../../web/frame/libs/js/jquery.js" type="text/javascript"></script>-->
+	<!--<script src="../../web/frame/libs/js/jquery.cookie.js" type="text/javascript"></script>-->
+	<!--<script src="../../web/frame/libs/js/jquery-ui.js" type="text/javascript"></script>-->
+	<!--<script src="../../web/frame/libs/js/bootstrap.min.js" type="text/javascript"></script>-->
+	<!--<script type="text/javascript" src="../../web/frame/libs/js/jquery.event.drag-2.2.js"></script>-->
+	<!--<script src="../../web/chat/js/socket.io.js"></script>-->
+	<!--<script src="../../web/chat/xiaobeichat.js"></script>-->
+
+	<!--&lt;!&ndash;[if lt IE 9]>-->
+	<!--<script src="../../web/frame/libs/js/excanvas.min.js"></script>-->
+	<!--<script src="../../web/frame/libs/js/respond.min.js"></script>-->
+	<!--<![endif]&ndash;&gt;-->
+	<!--&lt;!&ndash; END CORE PLUGINS &ndash;&gt;-->
+
+	<!--&lt;!&ndash; BEGIN bootstrap PLUGINS &ndash;&gt;-->
+	<!--<script type="text/javascript" src="../../web/frame/libs/js/bootstrap-modal.js" ></script>-->
+	<!--<script type="text/javascript" src="../../web/frame/libs/js/bootstrap-modalmanager.js" ></script>-->
+	<!--<script type="text/javascript" src="../../web/frame/libs/js/bootstrap-carousel.js" ></script>-->
+	<!--&lt;!&ndash; END bootstrap PLUGINS &ndash;&gt;-->
+
+<!--&lt;!&ndash; BEGIN PAGE LEVEL SCRIPTS &ndash;&gt;-->
+	<!--<script type="text/javascript" src="../../web/frame/config.js"></script>-->
+	<!--<script type="text/javascript" src="../../web/frame/libs/js/mainframe.js"></script>-->
+	<!--<script type="text/javascript" src="../../web/frame/js/menu.js"></script>-->
+	<!--&lt;!&ndash; <script type="text/javascript" src="../../web/frame/widgets/echart/esl.js"></script>-->
+	<!--<script type="text/javascript" src="../../web/frame/widgets/echart/echarts.js"></script> &ndash;&gt;-->
+	<!--<script type="text/javascript" src="../../web/frame/widgets/debuger.js"></script>-->
+	<!--&lt;!&ndash;<script type="text/javascript" src="../../web/chat/js/socket.io.js"></script>&ndash;&gt;-->
+	<!--&lt;!&ndash;<script src="../../web/frame/cn/local.js"></script>&ndash;&gt;-->
+	<!--<script type="text/javascript" src="../../web/frame/widgets/frame.js"></script>-->
+	<!--<script type="text/javascript" src="../../web/frame/js/mjs.js"></script>-->
+	<!--<script type="text/javascript" src="../../web/frame/widgets/util.js"></script>-->
+	<!--<script type="text/javascript" src="../../web/frame/widgets/dialog.js"></script>-->
+	<!--<script type="text/javascript" src="../../web/frame/widgets/dbm.js"></script>-->
+	<!--<script type="text/javascript" src="../../web/frame/utils/base.js"></script>-->
+	<!--<script src="../beibei/js/beibei.js" type="text/javascript"></script>-->
+
+</body>
+</html>

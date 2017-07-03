@@ -1,0 +1,179 @@
+<html>
+<head>
+</head>
+<body>
+<div class="page-row">
+      <div class="col-xs-12 app-colum left-block">
+        <div class="app-box no-bk-color">
+          <div class="box-footer">
+            <span class="title">Traffic Analysis</span>
+          </div>
+          <div class="box-body no-height">
+            <div class="col-xs-6 response-block">
+              <div id="anaylsis_pie" class="col-xs-12 myEchart"></div>
+              <div id="anaylsis_pie-Legend" class="panel"></div>
+            </div>
+            <div  class="col-xs-6 response-block">
+              <div id="usage" name="usage" class="myEchart">
+            </div>
+        </div>
+      </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-row">
+  <div class="col-xs-6 app-colum left-block">
+    <div class="app-box no-bk-color">
+      <div class="box-footer">
+        <span class="title">Wired Port Rate</span>
+      </div>
+      <div class="box-body echart-height form-group body-nopadding">
+        <div id="line_port_flow" class="myEchart col-xs-12"></div>
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-6 app-colum left-block">
+    <div class="app-box no-bk-color">
+      <div class="box-footer">
+        <span class="title">AP Rate</span>
+      </div> 
+      <div class="box-body echart-height form-group body-nopadding">
+        <div id="ap_flow" class="myEchart col-xs-12"></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="page-row">
+  <div class="col-xs-12 app-colum left-block">
+    <div class="app-box">
+      <div class="box-footer">
+          
+          <span class="title">Wireless Client Traffic</span>
+          
+          <div class="text-right link-container">
+                <a type="button" class="link-detail active" id="btn_send">
+                  <span>Sent</span>
+                </a>
+                |
+                <a type="button" class="link-detail" id="btn_receive">
+                  <span>Received</span>
+                </a>
+          </div> 
+      </div>
+      <div class="box-body no-height form-group">
+        <div id="wireless_list" class="simple-list"></div>  
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="hide modal fade" id="TerminalInfoDlg">
+  <form class="form-horizontal form" id="view_client_form">
+        <div class="form-group">
+            <label class="col-sm-5 control-label info-explain">MAC</label>
+            <span class="label form-if-setHtml" id="clientMAC"></span>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-5 control-label info-explain">IP</label>
+            <span class="label form-if-setHtml" id="clientIP"></span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-5 control-label info-explain">Name</label>
+            <span class="label form-if-setHtml" id="clientName"></span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-5 control-label info-explain">Vendor</label>
+            <span class="label form-if-setHtml" id="clientVendor"></span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-5 control-label info-explain">AP</label>
+            <span class="label form-if-setHtml"  id="ApName"></span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-5 control-label info-explain">SSID</label>
+            <span class="label form-if-setHtml" id="clientSSID"></span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-5 control-label info-explain">Channel</label>
+            <span class="label form-if-setHtml" id="clientChannel"></span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-5 control-label info-explain">Signal strength</label>
+            <span class="label form-if-setHtml" id="signalStrength"></span>
+        </div>
+
+
+       <div class="form-group">
+            <label class="col-sm-5 control-label info-explain">Transmit rate</label>
+            <span class="label form-if-setHtml" id="clientTxRate"></span><span> Kbps</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-5 control-label info-explain">Receiving rate</label>
+            <span class="label form-if-setHtml" id="clientRxRate"></span><span> Kbps</span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-5 control-label info-explain">Sent bytes</label>
+            <span class="label form-if-setHtml" id="clientTxBytes"></span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-5 control-label info-explain">Received bytes</label>
+            <span class="label form-if-setHtml" id="clientRxBytes"></span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-5 control-label info-explain">Radio type</label>
+            <span class="label form-if-setHtml" id="clientRadioMode"></span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-5 control-label info-explain">Sent packets</label>
+            <span class="label form-if-setHtml" id="clientTxPackets"></span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-5 control-label info-explain">Received packets</label>
+            <span class="label form-if-setHtml" id="clientRxPackets"></span>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-5 control-label info-explain">终端模式</label>
+            <span class="label form-if-setHtml" id="clientMode"></span>
+        </div>
+
+    </form>
+</div>
+<div class="hide modal fade" id="flowdetailDlg">
+  <form class="form-horizontal form" id="flowdetail_form">
+      <div class="box-body no-height form-group">
+        <div id="flowdetail_list" class="simple-list"></div>  
+      </div>
+      <div class="modal-footer form-actions">
+      <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+          <i class="icon-close"></i>Close</a>
+    </div>
+  </form>
+</div>
+
+<div id="flow_analysis_rc" class="rc-define"
+      LABELS = "Others"
+      WIRELESSMODE="802.11b, 802.11a, 802.11g, 802.11gn, 802.11an, 802.11ac"
+      WIRELESS_HEADER ="MAC, Radio Type, Bytes, Packets, Rate (Kbps), Traffic Classification"
+      FLOWDETAIL_HEADER="Traffic, Classification, Details"
+      TYPE_FORTEXT="Video, Downloading, Game, Shopping"
+      TYPESXQ_0 = "优酷,搜狐视频,土豆,PPLive,BILIBILI,爱奇艺,BLABLA"
+      TYPESXQ_1 = "BT,电驴,迅雷,BLABLA"
+      TYPESXQ_2 = "腾讯游戏,魔兽世界,BLABLA"
+      TYPESXQ_3 = "淘宝,京东,亚马逊,当当,顺风优选,BLABLA"
+      LEGEND="Received, Sent"
+      UP_DOWN="Uplink, Downlink"
+      Tips="无信息"
+      NAMELINE="Traffic Analysis"
+      TITLE_TERINFO="Basic Client Info"
+      TITLE_FLOWINFO="Detailed Traffic Info"
+      STATUS="LAN1, LAN2, LAN3, LAN4, WAN1"
+      OTHERS = "Others"
+    >
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("dashboard.Flow_analysis");
+</script>

@@ -1,0 +1,169 @@
+<style>
+    .fl{
+        margin-left:67px !important;
+    }
+    .fl2{
+        margin-left:81px !important;
+    }
+    .app-box .box-body form[name='authForm'] .col-xs-12.app-colum {
+        border:1px solid #ddd;
+        padding:20px;
+        margin-bottom:20px;
+    }
+    .app-box .box-body form[name='authForm'] .col-xs-12.app-colum .app-box {
+        border:none;
+    }
+</style>
+<div class="container-fluid">
+    <div class="btn_h_return" ng-click="return()"></div>
+    <div class="col-xs-12 app-colum" debug="getPlaceInfo gethistClients">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">修改模板</span>
+            </div>
+            <div class="box-body no-height">
+                <form novalidate role="form" name="authForm">             
+                    <div class="form-group row">
+                        <label class="col-sm-2 control-label required">模板名称</label>
+                        <div>
+                            <input type="text" id="server" disabled name="server" style="width:500px" class="string big form-control " required 
+                            ng-model="modeInfo.server" ng-minlength="1" ng-maxlength="63"  
+                            >
+                            <label class="info-explain">(1-63字符)</label>
+
+                            <label ng-if="authForm.server.$error.required && authForm.server.$touched"  style="color:red">该参数必须配置</label>
+                        </div>
+                    </div>
+                            
+                    <div class="form-group row">
+                        <label class="col-sm-2 control-label">修改模板描述</label>
+                        <div>
+                            <input type="text" name="MODE" style="width:500px" class="string big form-control" 
+                            ng-model="modeInfo.MODE" ng-minlength="1" ng-maxlength="32">
+                            <label class="info-explain">(1-32字符)</label>
+
+                            <!-- <label ng-if="authForm.MODE.$error.required && authForm.MODE.$touched"  style="color:red">该参数必须配置</label> -->
+                        </div>
+                    </div>
+            
+                    <div class="col-xs-12 app-colum">                   
+                        <div class="form-group row">
+                            <label class="col-sm-12 control-label">无线服务配置</label>
+                        </div>
+                        <div class="app-box no-height">
+                        <div class="box-body no-height">
+                            <div class="btn btn-cus" ng-click="create()">添加</div>    
+
+                            <button class="btn btn-cus" ng-click="delete()" ng-disabled="auth">删除</button>
+                            <div bs-Table = "SSID"></div>
+                        </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group row">
+                        <div  id="total" style="margin-top:190px">
+                            <a id="weeks" style="margin-left:15px; cursor: pointer; border-bottom: 1px solid #2fa4e7 " value='2' ng-click="clickTest()">CLI 命令配置</a>
+                        </div>
+                    </div>                                  
+                     
+                    <div ng-hide = "mouse">
+                        <textarea ng-model="modeInfo.order" ng-blur="keyDownSearch($event)" style="border:1px solid #A7DFD8; height: 300px; width:100%"></textarea>
+                    </div>
+
+                    <div align = "center" style="margin-top:10px">
+                        <button class="btn btn-cus" ng-disabled="authForm.$invalid || adisabled" 
+                        ng-click="modeUpdate()">确定</button>
+                        <!-- <button class="btn btn-cus" ng-disabled="authForm.$invalid" 
+                        ng-click="deleteUpdate()">取消</button> -->
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form novalidate role="form" name="authFormModal" bs-modal="apply">   
+    <div class="form-group row">
+        <label class="col-sm-3 control-label required">无线服务名称</label>
+        <div>
+            <input type="text" id="server" name="server" class="string big form-control " required 
+            ng-model="authInfo.server" ng-minlength="1" ng-maxlength="63" ng-pattern='/^[a-zA-Z1-9]+$/'>
+            <label class="info-explain">(1-63数字或字母)</label>
+
+            <label ng-if="authFormModal.server.$error.required && authFormModal.server.$touched"  style="color:red">该参数必须配置</label>
+            <label ng-if="authFormModal.server.$error.pattern && authFormModal.server.$dirty"  style="color:red">参数必须为数字或英文字符</label> 
+            <label ng-if="authFormModal.server.$error.maxlength && authFormModal.server.$dirty"  style="color:red">参数长度超出限制</label>       
+        </div>
+    </div>
+            
+    <div class="form-group row">
+        <label class="col-sm-3 control-label required">SSID</label>
+        <div>
+            <input type="text" name="SSID" class="string big form-control" required 
+            ng-model="authInfo.SSID" ng-minlength="1" ng-maxlength="32" >
+            <label class="info-explain">(1-32字符)</label>
+
+            <label ng-if="authFormModal.SSID.$error.required && authFormModal.SSID.$touched"  style="color:red">该参数必须配置</label>
+            <label ng-if="authFormModal.SSID.$error.maxlength && authFormModal.SSID.$dirty"  style="color:red">参数长度超出限制</label>
+        </div>
+    </div>
+
+    <div class="form-group row">
+        <label class="col-sm-3 control-label">加密服务</label>  
+        <div>                                              
+            <input id="pwdOn" name="pwdState" type="radio" value="pwdOn" 
+            ng-click="pwdOn()" ng-model="authInfo.pwdState"  >
+            <label for="pwdOn" >开启</label>
+            
+            <input id="pwdOff" class="fl" name="pwdState" type="radio" value="pwdOff"
+            ng-click="pwdOff()" ng-model="authInfo.pwdState">  
+            <label for="pwdOff">关闭</label>             
+                          
+            <div ng-if="pwd" ng-init="showPwd1=true" class="col-sm-offset-3">    
+                <input type="password" name="password" class="string big" required
+                ng-model="authInfo.pwd" ng-show="showPwd1" ng-pattern='/^[a-zA-Z0-9]{8,63}$/'
+                ng-minlength="" ng-maxlength="32">
+
+                <input type="text" name="text" class="string big" required
+                ng-model="authInfo.pwd" ng-hide="showPwd1" ng-pattern='/^[a-zA-Z0-9]{8,63}$/'
+                >
+
+                <span class="icon_eye" ng-class="{show_word: !showPwd1}"  
+                ng-click="showPwd1=!showPwd1"></span>                    
+                <label class="info-explain">说明：密码由8～63位数字和（或）字母组成</label>
+                <label ng-if="(authFormModal.password.$error.required && authFormModal.text.$error.required)&&(authFormModal.password.$touched|| authFormModal.text.$touched)"  style="color:red">该参数必须配置</label>
+                
+                <label ng-if="(authFormModal.password.$error.pattern && authFormModal.password.$dirty) ||(authFormModal.text.$error.pattern&&authFormModal.text.$dirty)"  style="color:red">密码长度或格式不符</label>     
+            </div>        
+        </div>
+    </div>
+
+     <div class="form-group row">
+        <label class="col-sm-3 control-label">无线服务</label>  
+        <div>                   
+            <input id="wireless_open" name="wirelessServer" type="radio" value="wireless_open"
+             ng-model="authInfo.wirelessServer">
+            <label for="wireless_open">开启</label>
+
+            <input id="wireless_closed" class="fl2" name="wirelessServer" type="radio" value="wireless_closed" ng-model="authInfo.wirelessServer">  
+            <label for="wireless_closed">关闭</label>                           
+        </div>
+    </div> 
+
+    <div align = "center">
+        <button class="btn btn-cus" ng-disabled="authFormModal.$invalid" 
+        ng-click="ssidUpdate()">确定</button>
+    </div>
+</form> 
+
+<div id="user_rc" class="rc-define"
+    Visitor_LIST_HEADER = "MAC地址,IP地址,接入时间,接入时长"
+    LIST_HEADER = "无线服务名称,SSID,是否加密,是否使能"
+    SUCCESS_SUC = "修改模板成功"
+    LIST_HEAD = "该无线服务名称已存在"
+    FAILED_FAI = "修改模板失败"
+    yespassword = "是"
+    nopassword = "否"
+    addservers = "添加无线服务"
+    >
+</div>

@@ -1,0 +1,56 @@
+<div class="container-fluid sta_analyse">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color sta_analyse_box">
+                <div class="box-footer ">
+                    <div class="col-xs-3">
+                        <span class="title">上线异常分析</span>
+                    </div>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh list-link">
+                            <i class="fa fa-mydetail" ng-click="show_online_abnormal_info_modal()"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="box-body echart-height">
+                    <div class="col-sm-7" dashboard-echarts="online_abnormal_analyse_option"></div>
+                    <div class="col-sm-5">
+                        <div bs-table="top_online_abnormal_analyse"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color sta_analyse_box">
+                <div class="box-footer ">
+                    <div class="col-xs-3">
+                        <span class="title">下线异常分析</span>
+                    </div>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh list-link">
+                            <i class="fa fa-mydetail" ng-click="show_offline_abnormal_info_modal()"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="box-body echart-height">
+                    <div class="col-sm-7" dashboard-echarts="offline_abnormal_analyse_option"></div>
+                    <div class="col-sm-5">
+                        <div bs-table="top_offline_abnormal_analyse"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div bs-modal="online_abnormal_info_modal" class="form-horizontal">
+    <table bs-table="options"></table>
+</div>
+<div bs-modal="offline_abnormal_info_modal" class="form-horizontal">
+    <table bs-table="offline_options"></table>
+</div>

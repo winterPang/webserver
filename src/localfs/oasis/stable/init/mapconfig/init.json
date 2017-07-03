@@ -1,0 +1,8 @@
+[
+  {"area_name": "区域一", "area_type": "景区"},
+  {"area_name": "区域二", "area_type": "医院"},
+  {"area_name": "区域三", "area_type": "住宅区"},
+  {"area_name": "区域四", "area_type": "写字楼"},
+  {"area_name": "区域五", "area_type": "火车站"},
+  {"area_name": "区域六", "area_type": "精神病院"}
+]

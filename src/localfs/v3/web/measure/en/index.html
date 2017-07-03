@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<link href="../measure/measure.css" rel="stylesheet" type="text/css">
+</head>
+<body>
+	<div class="col-xs-12 app-colum">
+    	<div class="app-box no-height">
+	        <div class="box-footer">
+	            <span class="title">Client Measurement</span>
+	        </div>
+					<div id="measure">
+						<input id="input_mac" maxlength="14" placeholder="Client MAC: xxxx-xxxx-xxxx"></input>
+						<button id="measure_btn">Measure</button>
+						<a class="xb-link" title="选择客户端" id="choose">Select a client</a>
+					</div>
+					<div id="Test11kContent">
+						<div id="Test11kTitleResult"></div>
+						<div>
+							<table>
+								<tbody id="measureResult"></tbody>
+							</table>
+						</div>
+					</div>
+					<div id="rfpingContent">
+						<div>
+							<table>
+								<tbody id="rfpingResult" style="display: none;">
+								  <tr id="rfpingTitle">
+										<th>MCS</th>
+										<th>Rate(Mbps)</th>
+										<th>Tx/Rx</th>
+										<th>RSSI</th>
+										<th>RTT(ms)</th>
+									</tr>
+								</tbody>
+								<tbody>
+								  <tr>
+										<td id="rfpingFailedInfo"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<div id="maintainpingContent">
+						<div>
+							<table>
+								<tbody id="maintainpingResult"  style="display: none;">
+									<tr id="maintainpingTitle">
+										<th>AC-PING-AP(ms)</th>
+										<th>AC-PING-WEB(ms)</th>
+									</tr>
+								</tbody>
+								<tbody id="maintainpingAvgResult"  style="display: none;">
+									<tr id="maintainpingAvgTitle">
+										<th>average(ms)</th>
+										<th>average(ms)</th>
+									</tr>
+								</tbody>
+								<tbody>
+									<tr>
+										<td id="maintainpingFailedInfo"></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+    	</div>
+	</div>
+	<div id="clientShow" class="modal fade modal-super dashboard" tabindex="-1" aria-hidden="true" style="margin-top: -334px; display: none;">
+		<div class="modal-header">
+			<button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+			<h3 class="modal-title">Client</h3>
+		</div>
+		<div class="modal-body">
+			<div id="popChooseList" class="simple-list"></div>
+		</div>
+		<div class="modal-footer form-actions">
+			<a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">Close</a>
+		</div>
+	</div>
+	<div id="measure_rc" class="rc-define"
+		 PLEASEWAIT = "Please wait…"
+		 INVALIDMAC = "Please enter a correct MAC address in the format of xxxx-xxxx-xxxx"
+
+		 UNSUPPORTUNREASSOC = "The device does not support measurement or has not restarted"
+		 GETNONEMEAINFO = "Cannot obtain measurement information"
+		 SWITCHOFF = "Measurement is disabled on the device"
+		 NOTFOUNDCLIENT = "Cannot find the client information"
+		 COLNAMECLIENT = "MAC, IP, SSID, AP, Vendor, Client Type, Measurement Type"
+
+		 FAILEDGETSTAINFO = "AC Ping failed : 获取客户端信息失败."
+			></div>
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("measure.index");
+</script>

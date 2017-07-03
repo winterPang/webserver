@@ -1,0 +1,120 @@
+<div class="container-fluid" style="padding: 36px;">
+    <div class="panel" style="box-shadow: 0 1px 3px rgba(65, 69, 86, 0.2);">
+        <div class="panel-body">
+            <button class="btn btn-cus pull-left" ng-click="addApBranch()" ng-show="addBtnShow">增加
+            </button>
+            <button class="btn btn-cus pull-left" name="cancle" ng-click="cancle()" ng-show="deleteBtnShow">取消
+            </button>
+            <div class="addBox" ng-show="apboxShow" ng-class="{true: 'active', false: ''}[isForm]" style="padding-top: 20px;">
+                <div ng-show="form.form==1">
+                    <form novalidate class="form-horizontal" name="form1">
+                        <div class="form-group">
+                            <label class="col-xs-3 control-label">分组类型<span class="label-require">*</span></label>
+                            <div class="col-xs-offset-1 col-xs-5">
+                                <select id="nasType" class="form-control" name="nas" required ng-model="form.nasType"
+                                        ng-disabled="apReadType">
+                                    <option value="AC+fitAp">AC+fitAp</option>
+                                    <option value="fat-ap">fat-ap</option>
+                                    <option value="wireless-controller">无线控制器</option>
+                                    <option value="wireless-access-point">交换机</option>
+                                    <option value="router">路由器</option>
+                                </select>
+                                <span style="color:red;font-size:12px;" ng-show="form1.nas.$dirty && form1.nas.$valid">请选择场所类型</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-3 control-label">场所<span class="label-require">*</span></label>
+                            <div class="col-xs-offset-1 col-xs-5">
+                                <input class="form-control" name="nas" type="text" placeholder="请选择场所"
+                                       ng-click="apBranchSelect()" ng-model="form.apBranchSelect" ng-readonly="true"
+                                       ng-disabled="apReadType">
+                                <span style="color:red;font-size:12px;" ng-show="form1.nas.$dirty && form1.nas.$valid">请选择场所类型</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-xs-3 control-label">分组名称<span class="label-require">*</span></label>
+                            <div class="col-xs-offset-1 col-xs-5">
+                                <input class="form-control" name="apName" type="text" ng-model="apBranch.name"
+                                       placeholder="请输入分组名称"
+                                       ng-maxlength="30" required>
+                            </div>
+                            <div class="col-xs-3 ng-error" ng-show="form1.apName.$dirty"
+                                 ng-messages="form1.apName.$error">
+                                <div ng-message="required">请输入设备别名！</div>
+                            </div>
+                        </div>
+                    </form>
+                    <div style="text-align:right">
+                        <!-- ng-disabled="form1.$invalid"-->
+                        <button class="btn btn-cus" name="next1" ng-click="nextFn()" ng-disabled="form1.$invalid">下一步
+                        </button>
+                    </div>
+                </div>
+                <div ng-show="form.form==2" style="text-align:center;border:1px solid #e7e7e9;">
+                    <div class="row">
+                        <div class="col-xs-offset-1 col-xs-3">
+                            <div style="text-align: left;margin:10px 0;">
+                                <select select2 >
+                                    <option value="" selected disabled>请选择分组</option>
+                                    <option value="分组1" selected>分组1</option>
+                                    <option value="分组2">分组2</option>
+                                    <option value="分组3">分组3</option>
+                                    <option value="分组4">分组4</option>
+                                </select>
+                            </div>
+                            <div class="deviceBox">
+                                <div class="deviceBoxTitle" style="position:relative">
+                                    <input style="position: absolute;left: 35px;" type="checkbox" ng-model="checkedAllIn" ng-change="checkedAllInEvent()"  >
+                                    该组所有设备
+                                </div>
+                                <div class="checkbox" ng-repeat="deviceIn in deviceInList">
+                                    <label>
+                                        <input type="checkbox" ng-model="deviceIn.check" ng-change="checkInFn()"> &nbsp;&nbsp;&nbsp;{{ deviceIn.name }}&nbsp;&nbsp;&nbsp;{{deviceIn.devSN}}
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-1 col-xs-offset-1">
+                            <div style="margin-top:68px">
+                                <button class="btn btn-cus" ng-disabled="outBtnStatus" ng-click="deviceOutEvt()">移出</button>
+                                <br>
+                                <button class="btn btn-cus" ng-disabled="inBtnStatus" ng-click="deviceInEvt()">移入</button>
+                            </div>
+                        </div>
+                        <div class="col-xs-3 col-xs-offset-1" style="padding-top:51px;">
+                            <div class="deviceBox">
+                                <div class="deviceBoxTitle" style="position:relative">
+                                    <input style="position: absolute;left: 35px;" type="checkbox" ng-model="checkedAllOut" ng-change="checkedAllOutEvent()" id="test" >
+                                    该分组外设备
+                                </div>
+                                <div class="checkbox" ng-repeat="deviceOut in deviceOutList">
+                                    <div class="text-align:left">
+                                        <label>
+                                            <input type="checkbox" ng-model="deviceOut.check" ng-change="checkOutFn()"> &nbsp;&nbsp;&nbsp;{{ deviceOut.name }}&nbsp;&nbsp;&nbsp;{{deviceOut.devSN}}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="margin-top:20px;text-align:right">
+                        <button class="btn btn-cus" name="next1" ng-click="lastFn()">上一步
+                        </button>
+                        <button class="btn btn-cus" name="next1" ng-click="complete()"
+                                ng-disabled="forms.form1.$invalid">完成
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div bs-table="options"></div>
+        </div>
+    </div>
+</div>
+
+
+<div bs-modal="treeOption" id="treeOptionId">
+    <ul id="apbranchTree" class="ztree"></ul>
+</div>
+<div bs-modal="deviceOption">
+    <div bs-table="deviceTbOp"></div>
+</div>

@@ -1,0 +1,27 @@
+<div class="cell auto-size bg-white" id="cell-content">
+	<h4 class="text-light">
+		页面模板
+	</h4>
+	<hr class="thin bg-grayLighter" >
+
+	<a ui-sref="auth.themepage.add" class="button cusbtn-default white"><span class="mif-plus"></span> 增加</a>
+	<a class="button cusbtn-default white" ng-click="refresh()"><span class="mif-loop2"></span> 刷新</a>
+
+    <div class="place-right">
+        <div class="input-control text" style="width: 300px">
+            <input type="text" ng-model="conditionObj" placeholder="模板名称" cusfocus>
+            <button class="button" ng-click="queryData()"><span class="mif-search"></span></button>
+        </div>
+    </div>
+    
+    <div class="dataTables_wrapper no-footer">
+		<cus-Datatable action_url="/web/oasis-auth/restapp/themepage" 
+		               local_url="/auth/themepage"
+		               col_defs="col_defs" condition_obj="query"
+		               default_orderby="themeName" default_asc="false"
+		               show_detail="false" show_draw="true"  show_modify="true" show_delete="true"
+		               draw_opt="drawData(id)" delete_opt="deleteData(id)" delete_over="auth.themepage.list">
+		</cus-Datatable>
+	</div>
+
+</div>

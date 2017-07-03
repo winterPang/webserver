@@ -1,0 +1,28 @@
+<div class="container-fluid">
+    <div class="btn_h_return" ng-click ="return()"></div>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">Member APs</h3></div>
+        <div class="panel-body">
+            <button class="btn btn-cus" ng-click="deleteApFromGroup()" ng-disabled="modLeftBtnDisable">Remove</button>
+            <!--已入组AP列表-->
+           <div bs-table="apInGroup_table"></div>
+        </div>
+    </div>
+    
+    <div class="panel panel-default">
+    <div class="panel-heading"><h3 class="panel-title">Non-Member APs</h3></div>
+    <div class="panel-body">
+        <button class="btn btn-cus" ng-click="addApToGroup()" ng-disabled="modAddBtnDisable">Join</button>
+        <!--未入组AP列表-->
+        <div bs-table="apOutGroup_table"></div>
+    </div>
+</div>
+
+<div class="read_rc" 
+     id="ap_rc"
+     ap-table-title="AP Name,Model,AP SN,MAC Address"
+     ADD-SUCCESS="Joined the AP group successfully,Please refresh the page later."
+     ADD-FAILED="Failed to join the AP group"
+     DEL-SUCCESS="Removed from the AP group successfully,Please refresh the page later."
+     DEL-FAILED="Failed to remove from the AP group">
+</div>

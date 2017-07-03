@@ -1,0 +1,67 @@
+.slick-pager {
+  width: 100%;
+  /*height: 26px;
+  border-bottom: 1px solid gray;
+  border-top: 0;
+  background: url('images/header-columns-bg.gif') repeat-x center bottom;*/
+  text-align: right;
+  vertical-align: middle;
+}
+
+.slick-pager .slick-pager-status {
+  display: inline-block;
+  padding: 3px 6px 0 6px;
+  position: absolute;
+  left: 0;
+}
+
+.slick-pager .ui-icon-container {
+  display: inline-block;
+  margin: 0 2px;
+  border-color: #CCC;
+}
+
+.slick-pager .slick-pager-nav {
+  display: inline-block;
+  padding: 3px 2px 0 2px;
+ 
+}
+
+.slick-pager .slick-pager-nav .ui-state-default,
+.slick-pager .slick-pager-settings .ui-state-default {
+    border: 0px solid #CCC;
+}
+
+.slick-pager .slick-pager-nav .ui-state-hover,
+.slick-pager .slick-pager-settings .ui-state-hover {
+    background-color: transparent;
+}
+
+.slick-pager .slick-pager-settings {
+  display: block;
+  float: right;
+}
+
+.slick-pager .slick-pager-settings * {
+  vertical-align: middle;
+}
+
+.slick-pager .slick-pager-settings a {
+  padding: 2px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.slick-pager .slick-pager-settings a.active {
+  text-decoration: none;
+  cursor: default;
+  color: black;
+}
+
+.sub .slick-pager-settings{
+  display: none;
+}
+
+.pagesize-container{
+  display:inline-block;
+}

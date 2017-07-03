@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	>
+  <head>
+    <f:loadBundle basename="com.h3c.o2o.auth.LocalStrings" var="o2ouammsgs" />
+    <title>#{o2ouammsgs['o2ouam.theme.draw.title']}</title>
+
+    <link href="../resources/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" ></link>
+
+    <link  href="../resources/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" ></link>
+    <link  href="../resources/jqueryui-bootstrap/jquery-ui-1.9.2.custom.css" type="text/css" rel="stylesheet" ></link>
+    <link  href="../resources/jqueryui-bootstrap/bootstrap.custom.css" type="text/css" rel="stylesheet" ></link>
+    <link  href="../resources/css/custom.css" type="text/css" rel="stylesheet" ></link>
+    <link  href="../resources/css/jquery.bootstrap.custom.css" type="text/css" rel="stylesheet" ></link>
+    <link  href="../resources/css/common.css" type="text/css" rel="stylesheet" ></link>
+    <link  href="../resources/css/template_three.css" type="text/css" rel="stylesheet" ></link>
+    
+    <script type="text/javascript"  src="../resources/angular.js"></script>
+    <script type="text/javascript"  src="../resources/angular-resource.js"></script>
+    <script type="text/javascript"  src="../resources/jqueryui-bootstrap/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript"  src="../resources/jqueryui-bootstrap/jquery-ui-1.9.2.custom.min.js"></script>
+    <script type="text/javascript"  src="../resources/jquery-ui-timepicker-addon.js"></script>
+    <script type="text/javascript"  src="../resources/jquery-ui-timepicker-zh-CN.js"></script>
+    <script type="text/javascript"  src="../resources/ueditor.config.js"></script>
+    <script type="text/javascript"  src="../resources/ueditor.all.min.js"></script>
+    <script type="text/javascript"  src="../resources/jquery.custom2.js"></script>
+    <script type="text/javascript"  src="../resources/base64.js"></script>
+    <script type="text/javascript"  src="../resources/draw2.js"></script>
+
+    <script>
+      var jq = jQuery.noConflict();
+      var contextPath = '#{facesContext.externalContext.request.contextPath}';
+      jq(function () {
+          // Tabs
+          jq('#tabs').tabs();
+      });
+      var jq = jQuery.noConflict();
+      var isXXB = #{o2ouamQuickPublishBean.isXiaobeiAc};
+      var indexCtrl;
+      jq(document).ready(function() {
+    	  jq.get("/o2o/uam/func/control")
+			.done(function(data) {
+				if (typeof(data) != 'undefined') {
+			        if(isXXB){
+			        	// 只剩下微信wifi、固定账号认证和短信认证
+						// jq("#login").css("display", "none");
+						jq("#qqDiv").css("display", "none");
+						jq("#weixinDiv").css("display", "none");
+					} else {
+						// 如果没有打开QQ认证功能
+						if (!data.qqAuth) {
+							jq("#qqDiv").css("display", "none");
+						}
+					}
+				}
+			});
+      });
+    </script>
+  </head>
+  <body style="min-width:1080px;min-height:560px;background: url(../resources/images/bg.jpg) 50% 50% no-repeat fixed;background-repeat:repeat;" ng-app="mainApp">
+
+    <div id="create-o2oThemeTemplate"  class="page-content" ng-controller="o2oThemeTemplateController">
+        <div id="tabs">
+          <ul>
+              <li ng-class="type==1?'ui-tabs-active ui-state-active':''"><a href="#tabs-a" ng-click="changeValue(1);" >#{o2ouammsgs['o2ouam.theme.draw.index']}</a></li>
+              <li ng-class="type==2 || type==21 || type==22?'ui-tabs-active ui-state-active':''"><a href="#tabs-a" ng-click="changeValue(2);">#{o2ouammsgs['o2ouam.theme.draw.login']}</a></li>
+              <li ng-class="type==3?'ui-tabs-active ui-state-active':''"><a href="#tabs-a" ng-click="changeValue(3);">#{o2ouammsgs['o2ouam.theme.draw.loginsuccess']}</a></li>
+              <li ng-class="type==4 || type==41 || type==42 || type==43?'ui-tabs-active ui-state-active':''"><a href="#tabs-a" ng-click="changeValue(4);">#{o2ouammsgs['o2ouam.theme.draw.home']}</a></li>
+          </ul>
+
+          <div id="tabs-a">
+              <div class="setting-container">
+                  <a class="btn btn-info" role="button" href="#" ng-click="publishData()"><i class="fa fa-list-ul fa-1x green"></i>#{o2ouammsgs['o2ouam.theme.draw.publish']}</a>
+              </div>
+              <div id="widgets" class="canvas-widgetstemp2">
+                 <div id="indexContent" class="widget-content"></div>
+              </div>
+              <div id="homeItem" class="homeItems" style="display:none;">
+	              <ul>
+	                  <li ng-class="type == 41? 'selectedItem':''">#{o2ouammsgs['o2ouam.theme.draw.home1']}<input value="homeOne" type="radio" name="hometype" ng-click="changeValue(41);"></input></li>
+	                  <li ng-class="type == 42? 'selectedItem':''">#{o2ouammsgs['o2ouam.theme.draw.home2']}<input value="homeTwo" type="radio" name="hometype" ng-click="changeValue(42);"></input></li>
+	                  <li ng-class="type == 43? 'selectedItem':''">#{o2ouammsgs['o2ouam.theme.draw.home3']}<input value="homeThree"  type="radio" name="hometype" ng-click="changeValue(43);"></input></li>
+	              </ul>
+              </div>
+              <div id="loginItem" class="loginItems" style="display:none;">
+	              <ul>
+	                  <li ng-class="type == 21? 'selectedItem':''">#{o2ouammsgs['o2ouam.theme.draw.login1']}<input value="loginOne" type="radio" name="logintype" ng-click="changeValue(21);"></input></li>
+	                  <li ng-class="type == 22? 'selectedItem':''">#{o2ouammsgs['o2ouam.theme.draw.login2']}<input value="loginTwo" type="radio" name="logintype" ng-click="changeValue(22);"></input></li>
+	              </ul>
+              </div>
+              
+              <div id="tools" class="canvas-tools"></div>
+              <div id="texttools" class="canvas-texttools"></div>
+          </div>
+         </div>
+    </div>
+  </body>    
+</html>

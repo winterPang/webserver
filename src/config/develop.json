@@ -1,0 +1,71 @@
+{
+  "redisConnParas" : {
+    "port" :  7000,
+    "host" :  "172.27.8.110"
+  },
+  "mongoConnParas": "mongodb://admin:admin@172.27.8.110:27017/webserver",
+  "mongoConnParasErrorRecord": "mongodb://admin:admin@172.27.8.110:27017/webserver",
+  "MQHostnames": ["172.27.8.110"],
+  //"httpPort"  : 80,
+  //"httpsPort" : 443,
+  "hdfsConnOption" : {
+    "user" : "root",
+    "host" : "172.27.8.110",
+    "port" : 50070,
+    "path" : "/webhdfs/v1/home/hdfs/"
+  },
+  "cas_url" : "https://lvzhou.h3c.com/cas",
+  "service_url" : "https://sttest.h3c.com",
+  "login_url" : "https://sttest.h3c.com",
+  "allow_origin" : "https://lvzhou.h3c.com",
+  "cookieTmpAge" : 3600000,
+  "cookieSuccessAge" : 2592000000,
+  "log4jsConfig" : {
+    "appenders": [
+      {
+        "type": "console"
+      },
+      {
+        "category": [ "https","console" ],
+        "type": "dateFile",
+        "filename": "../logs/",
+        "alwaysIncludePattern": true,
+        "pattern": "webserver-yyyyMMdd.log"
+      },
+      {
+        "category": [ "conn" ],
+        "type": "dateFile",
+        "filename": "../logs/",
+        "alwaysIncludePattern": true,
+        "pattern": "conn-yyyyMMdd.log"
+      }
+    ],
+    "replaceConsole": true,
+    "levels":
+    {
+      "console":"ALL",
+      "https":"WARN",
+      "conn":"ALL"
+    }
+  },
+  "log4jsConnect" : {
+    "level": "auto",
+    "format": ":remote-addr - - \":method :url HTTP/:http-version\" :status :content-length \":referrer\" \":user-agent\" :response-timems"
+  },
+  "memoryConfig" : {
+    "heapdump" : false,
+    "memwatch" : false
+  },
+  "hoturlConfig" : {
+    "enable" : true,
+    "vaildfile" : "../hoturl.json",
+    "time" : [
+      {
+        "h": [0],
+        "m": [10]
+      }
+    ]
+  },
+  "wlocmongoConnParas":"mongodb://wloc:wloc@172.27.8.110:27017/wloc",
+  "devlogserver" : "oasis-rsyslog.chinanorth.cloudapp.chinacloudapi.cn"
+}

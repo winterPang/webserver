@@ -1,0 +1,30 @@
+<html>
+<head>
+</head>
+<body>
+<div class="dashboard" id="ac_container">
+	<div class="row">
+		<div id="aps_box_r1" class="col-xs-12 app-colum">
+			<div class="app-box" id="aplist_page">
+				<div class="sysinfo-footer">
+					<div class="col-xs-12">
+						<span class="title">AC列表</span>
+					</div>
+				</div>
+				<div class="row-nohover sysinfo-body no-height" >
+					<div style="padding-bottom:8px;"></div>
+					<div id="AllAcList" class="mlist"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div id="acs_detail_rc" class="rc-define"
+	 ALLAP_HEADER="场所名称,序列号,AC型号,AP数量,购买时间, CPU,内存,在线时长（秒）,状态,所属用户"
+	 SATUS = "在线,离线,不健康"
+		></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("WDashboard.utilization_detail");
+</script>

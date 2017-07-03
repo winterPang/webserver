@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .tab-content>.tab-pane {
+            display:block;
+            height: 0;
+            /*overflow-y: visible;*/
+            overflow-x: hidden;
+        }
+        .tab-content>.active {
+            height: auto;
+        }
+
+        /*周期选择*/
+        .time-zone{
+            display: inline-block;
+        }
+
+        /*slist 调整*/
+
+        .slist-body .slist-head,.slist-body .slist-center .slist-row.even{
+            background-color: #EDF0F2;
+            transition:background 0.5s;
+            -moz-transition:background 0.5s; /* Firefox 4 */
+            -webkit-transition:background 0.5s; /* Safari and Chrome */
+            -o-transition:background 0.5s; /* Opera */
+        }
+
+        .slist-body .slist-center .slist-row.odd{
+            background-color: #ffffff;
+            transition:background 0.5s;
+            -moz-transition:background 0.5s; /* Firefox 4 */
+            -webkit-transition:background 0.5s; /* Safari and Chrome */
+            -o-transition:background 0.5s; /* Opera */
+        }
+
+        .slist-body .slist-center .slist-row:hover{
+            color:white;
+            background: #4ec1b2;
+        }
+
+        .daterange{
+            width: 200px;
+            height: 33px;
+            padding-left: 20px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+            border: #ccc solid 1px;
+
+        }
+
+        .radio-name{
+            display: inline-block;
+            margin: 0 20px 0 0;
+        }
+
+        .app-box .top-box{
+            border-bottom: #dedddd solid 1px;
+            padding: 10px 0 10px 28px;
+            box-shadow: 1px 1px 3px #dedddd;
+        }
+
+        .cancel-actions {
+            position: static;
+            margin: 8px 15px 0 0;
+            display: inline-block;
+            float: right;
+            background: url(css/image/xb-icons.png) no-repeat;
+            height: 16px;
+            width: 18px;
+        }
+        .cancel-actions.hover-action {
+            background-position: -663px -42px;
+            cursor: pointer;
+        }
+        .cancel-actions.hover-action:hover{
+            background-position: -594px -42px;
+            cursor: pointer;
+        }
+
+        .set-background{
+            background: url(./css/image/calendar.jpg) 10px 10px;
+            background-repeat: no-repeat;
+            padding-top: 2px;
+            margin-top: -2px;
+            color: #343e4e;
+            font-weight: bolder;
+            font-family: monospace;
+            width: 45px;
+            cursor: pointer;
+        }
+
+
+    </style>
+</head>
+<body>
+
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="col-xs-12 box-footer">
+            <div class="col-xs-9">
+                <div class="set-background col-md-1" id="calendar"></div>
+                <div class="col-md-4" id="cycle_date">（今天）</div>
+            </div>
+            <div class="col-xs-3">
+                <div class="col-md-10">
+                    <select id="changshuoselect"  allowClear="false" name="changshuoselect" class="singleSelect" style="width: 85%;margin-left: 20%;"></select>
+                </div>
+                <div class="col-md-2">
+                    <a type="button" class="refresh" style="float: right" id="refresh">
+                        <i class="refresh-icon icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 top-box hide">
+            <div class="time-zone">
+                <span class="radio-name">周期</span>
+                <div class="radio-name">
+                    <input type="radio" id="WT1" name="WipsType" value="today" checked/>
+                    <label for="WT1">今天</label>
+                </div>
+                <div class="radio-name">
+                    <input type="radio" id="WT2" name="WipsType" value="oneWeek"/>
+                    <label for="WT2">七天</label>
+                </div>
+                <div class="radio-name">
+                    <input type="radio" id="WT3" name="WipsType" value="oneMonth"/>
+                    <label for="WT3">一月</label>
+                </div>
+                <div class="radio-name">
+                    <input type="radio" id="WT4" name="WipsType" value="oneYear"/>
+                    <label for="WT4">一年</label>
+                </div>
+                <div class="radio-name">
+                    <input type="radio" id="WT5" name="WipsType" value="custom"/>
+                    <label for="WT5">其他</label>
+                </div>
+            </div>
+            <div class="time-zone hide" id="timezone">
+                <input id="daterange" class="daterange hide" placeholder="选择日期">
+            </div>
+            <!--<div class="cancel-actions hover-action"></div>-->
+        </div>
+
+        <div class="col-xs-12 box-body no-height">
+            <div class="col-xs-12 app-box" style="background: #F7F5F5; height: 140px ">
+                <div class="col-xs-3">
+                    <div class="col-md-12" style="margin-top:35px">
+                        <div class="col-md-3"></div>
+                        <div>
+                            <span class="data-title" id="dangqianzl">实时驻留客流量</span>
+                            <img id="dangqianzl_help" class="help_img" src="../../web/soon/image/help.png" title="指定场所当前一小时内驻留客流人次"/>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-3"></div>
+                        <div>
+                            <span class="view-font" id="currentlingering">0</span>
+                            <span id="unit_currentlingering">人次 &nbsp;&nbsp;</span>
+                            <img id="currentlingering_img" src=""/>
+                            <span id="currentlingering_than">0</span>
+                            <span id="unit_currentlingeringchange">人次</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="col-md-12" style="margin-top:35px">
+                        <div class="col-md-2"></div>
+                        <div>
+                            <span class="data-title"  id="reside_top">驻留客流峰值</span>
+                            <img id="top_help" class="help_img" src="../../web/soon/image/help.png" title="指定场所指定日期某一个小时的时间内驻留客流量的最大值" />
+                            <br/>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-2"></div>
+                        <div>
+                            <span class="view-font" id="reside_top_count">0</span>
+                            <span id="unit_apex">人次 &nbsp;&nbsp;</span>
+                            <img id="reside_top_img" src="" />
+                            <span id="reside_top_than">0</span>
+                            <span id="unit_apexchange">人次</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="col-md-12" style="margin-top:35px">
+                        <div class="col-md-2"></div>
+                        <div>
+                            <span class="data-title" id="dangqiandf">总驻留客流量</span>
+                            <img id="dangqiandf_help" class="help_img" src="../../web/soon/image/help.png" title="指定场所指定日期内驻留顾客人次"/>
+                            <br/>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-2"></div>
+                        <div>
+                            <span class="view-font" id="lingeringtotal">0</span>
+                            <span id="unit_total">人次 &nbsp;&nbsp;</span>
+                            <img id="lingeringtotal_img" src="" />
+                            <span id="lingeringtotal_than">0</span>
+                            <span id="unit_totalchange">人次</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="col-md-12" style="margin-top:35px">
+                        <div class="col-md-3"></div>
+                        <div>
+                            <span class="data-title" id="averge_reside">平均驻留时长</span>
+                            <img id="pingjunzl_help" class="help_img" src="../../web/soon/image/help.png" title="指定场所指定日期内顾客平均驻留时间" />
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="col-md-3"></div>
+                        <div>
+                            <span class="view-font" id="lingeringtime">0</span>
+                            <span id="unit_averge_reside">分钟 &nbsp;&nbsp;</span>
+                            <img id="lingeringtime_img" src=""/>
+                            <span id="lingeringtime_than">0</span>
+                            <span id="unit_averge_reside_than">分钟</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-12 app-colum">
+                <ul class="nav nav-tabs">
+                    <li role="presentation" class="active"><a href="#analysis" data-toggle="tab" ><span class="nav-cont">指标分析</span></a></li>
+                    <li role="presentation"><a href="#detail" data-toggle="tab">详细统计</a></li>
+                </ul>
+                <div class="tab-content tabstyle">
+                    <div class="tab-pane active" id="analysis" style="margin: 0px -40px 0px -40px;border:1px solid #ddd">
+                        <div class="col-xs-12">
+                            <div class="col-xs-3">
+                                <div style="padding-left: 12%;padding-top: 9%;">
+                                    <span>平均驻留时长</span>
+                                    <img class="help_img" src="../../web/soon/image/help.png" title="指定场所指定日期内顾客平均驻留时间" />
+                                    <div>
+                                        <HR width="100%"   style="border-top: 1px solid #E7E7E9;margin: 5px 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+                                    </div>
+                                </div>
+                                <div id="lingeringavgtime" class="myEchart" style="padding-top: 5%"></div>
+                                <div id="legend1" class="panel leg-panel"></div>
+                            </div>
+                            <div class="col-xs-3">
+                                <div class="col-xs-12">
+                                    <div style="padding-left: 12%;padding-top: 9%;">
+                                        <span>平均驻留率</span>
+                                        <img class="help_img" src="../../web/soon/image/help.png" title="指定场所指定日期内驻留顾客人次占到访顾客人次比率" />
+                                        <div>
+                                            <HR width="100%"   style="border-top: 1px solid #E7E7E9;margin: 5px 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+                                        </div>
+                                    </div>
+                                    <div id="lingeringavgratio" class="myEchart" style="padding-top: 5%"></div>
+                                    <div id="legend2" class="panel leg-panel"></div>
+                                </div>
+                                <div class="col-xs-12">
+                                    <div style="padding-left: 12%;padding-top: 7%;">
+                                        <span>驻留时长比率</span>
+                                        <img class="help_img" src="../../web/soon/image/help.png" title="指定场所指定日期内低，中，高驻留人数比率" />
+                                        <div>
+                                            <HR width="100%"   style="border-top: 1px solid #E7E7E9;margin: 5px 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+                                        </div>
+                                    </div>
+                                    <div id="lingeringtimeratio" class="myEchart" style="padding-top: 5%"></div>
+                                    <div id="legend3" class="panel leg-panel"></div>
+                                </div>
+
+                            </div>
+                            <div class="col-xs-6">
+                                <div style="padding-left: 2%;padding-top: 14px;">
+                                    <span>排名：</span>
+                                    <div class="radio-name" style="margin-left: 3%;">
+                                        <input type="radio" id="paiming_qianwu" checked name="paiming" value="0" style="cursor:pointer;">
+                                        <img src="../soon/image/up.png"/>
+                                        <label for="paiming_qianwu">高Top5</label>
+                                        &nbsp;&nbsp;
+                                        <input type="radio" id="paiming_houwu" name="paiming" value="1" style="cursor:pointer;">
+                                        <img src="../soon/image/down.png"/>
+                                        <label for="paiming_houwu">低Top5</label>
+                                    </div>
+                                    <div>
+                                        <HR width="100%"   style="border-top: 1px solid #E7E7E9;margin: 0 8px -13px -1px"  align="center" size="5" color=#C7B9B9 />
+                                    </div>
+                                </div>
+                                <div id="lingeringrank" class="myEchart" style="padding-top: 5%"></div>
+                                <div class="radio-name" style="margin-left: 160px; padding-bottom: -15px">
+                                    <input type="radio" id="lingertime" checked name="Linger" value="0" style="cursor:pointer;">
+                                    <label for="lingertime" style="color: #0087d7">驻留时长</label>
+                                    <img class="help_img" src="../../web/soon/image/help.png" title="驻留时长" />
+                                    &nbsp;&nbsp;
+                                    <input type="radio" id="lingercount" name="Linger" value="1" style="cursor:pointer;">
+                                    <label for="lingercount" style="color: #0087d7">驻留客流</label>
+                                    <img class="help_img" src="../../web/soon/image/help.png" title="驻留客流" />
+                                </div>
+                            </div>
+                        </div>
+                        <div  class="col-xs-12" style="border-bottom: 1px solid #ddd">
+                            <br/>
+                        </div>
+                        <div class="col-xs-12" style="height: 360px;padding-left: 3%;padding-top: 2%;">
+                            <div class="col-xs-3">
+                                <span>顾客趋势</span>
+                                <img class="help_img" src="../../web/soon/image/help.png" title="顾客趋势" />
+                            </div>
+                            <div class="col-sx-9" >
+                                <div class="radio-name" style="margin-left: 12%">
+                                    <input type="radio" id="zlkll" checked name="trend" value="0" style="cursor:pointer;">
+                                    <label for="zlkll" style="color: #0087d7">驻留客流量</label>
+                                    <img class="help_img" src="../../web/soon/image/help.png" title="驻留客流量" />
+                                    &nbsp;&nbsp;
+                                    <input type="radio" id="dfkll" name="trend" value="1" style="cursor:pointer;">
+                                    <label for="dfkll" style="color: #0087d7">到访客流量</label>
+                                    <img class="help_img" src="../../web/soon/image/help.png" title="到访客流量" />
+                                </div>
+                            </div>
+                            <div class="myEchart" id="tendency"></div>
+                            <div id="cycle_than">
+                                <span style="margin-left: 40%">对比：</span>
+                                <input type="checkbox" id="yesterday_than" name="compare" value="0" style="cursor:pointer;">
+                                <label for="yesterday_than">昨天</label>
+                                <input type="checkbox" id="week_same_than" name="compare" value="1" style="cursor:pointer;">
+                                <label for="week_same_than">上周同期</label>
+                                <input type="checkbox" id="month_same_than" name="compare" value="2" style="cursor:pointer;">
+                                <label for="month_same_than">上月同期</label>
+                            </div>
+                        </div>
+                        <HR width="100%" style="opacity:0.1"/>
+                    </div>
+                    <div class="tab-pane" id="detail" style="margin: 0px -40px 0px -40px;">
+                        <div class="col-xs-12">
+                            <div class="simple-list" id="lingeringdetail" style="margin-top: 2%;"></div>
+                            <br/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- ----------------------------------------------------------------------- -->
+<div id="lingering_rc" class="rc-define"     DATE_CYCLE="（今天）,（七天）,（一月）,（一年）">
+</div>
+</body>
+</html>
+<script>
+    Utils.Pages.loadJS("a_dataanalysis.lingering");
+</script>

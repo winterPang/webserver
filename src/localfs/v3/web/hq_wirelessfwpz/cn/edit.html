@@ -1,0 +1,343 @@
+<html>
+
+<head>
+    <style>
+        .heightx{
+            height:35px;
+            line-height:35px;
+        } 
+        .bold{
+        	font-weight:900;
+        	font-size:18px;
+        }        
+    </style>
+</head>
+
+<body>
+	<div class="btn_h_return" id="return"></div>
+
+	 <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div class="app-box no-height default-bottom">
+                <div class="box-footer">
+                    <span class="title">修改无线服务配置</span>
+                </div>         
+
+                <div class="box-body no-height">
+                  	<!-- 修改无线服务开始 -->
+				    <div id="zengjia">  
+						<div class="form-group heightx">
+			                <span class="col-sm-3 bold">基本配置</span>		                
+			            </div>
+
+			            <div class="form-group heightx">
+			                <span class="col-sm-3">服务类型</span>
+			                <div  class="col-sm-9">                   
+			                    <input id="wifi1" name="radio1" type="radio" checked>
+			                    <label for="wifi1" style="padding-right:31px;">内部Wi-Fi</label>
+			                    <input id="wifi2" name="radio1" type="radio">  
+			                    <label for="wifi2">商业Wi-Fi</label>                           
+			                </div>
+			            </div>
+
+			            <div class="form-group heightx">
+			                <span class="col-sm-3">无线服务名称</span>
+			                <div  class="col-sm-9">
+			                    <input type="text" id="server" class="string big" disabled>
+			                </div>
+			            </div>
+
+			            <div class="form-group heightx">
+			                <span class="col-sm-3">SSID</span>
+			                <div  class="col-sm-9">
+			                    <input type="text" id="SSID" class="string big" disabled>
+			                </div>
+			            </div>
+
+			            <div class="form-group heightx">
+			                <span class="col-sm-3">加密服务</span>
+			                <div  class="col-sm-9">                   
+			                    <input id="pwdOn" name="radio2" type="radio" checked>
+			                    <label for="pwdOn" style="padding-right:50px;">开启</label>
+			                    <input id="pwdOff" name="radio2" type="radio">  
+			                    <label for="pwdOff">关闭</label>  
+			                    <div id="pwd">
+			                        <div  class="form-group heightx ">
+				                        <input type="password" class="string big" minlength="8" maxlength="32">
+				                        <span class="letter">说明：密码由8～63位数字和（或）字母组成</span> 
+			                    	</div>  			                    
+			                    </div> 
+			                </div>
+			            </div>
+
+			            <div class="form-group heightx">
+			                <span class="col-sm-3">无线服务</span>
+			                <div  class="col-sm-9">                   
+			                    <input id="wireless_open" name="radio3" type="radio" checked>
+			                    <label for="wireless_open" style="padding-right:50px;">开启</label>
+			                    <input id="wireless_closed" name="radio3" type="radio">  
+			                    <label for="wireless_closed">关闭</label>                           
+			                </div>
+			            </div>
+				    </div><br>
+				    <!-- 修改无线服务结束 -->
+
+				    <!-- 修改配置认证开始 -->
+				    <div id="renzheng">  
+				    	<div class="form-group">
+			                <span class="col-sm-3 bold">认证配置</span>		                
+			            </div>	
+
+		                <div class="form-group heightx">
+		                    <span class="col-sm-3 heightx">认证方式</span>
+
+		                    <div id="buswifi"  class="col-sm-9">                   
+		                        <div class="form-group heightx">
+		                            <input id="btn3" name="radio5" type="radio" checked>  
+		                            <label for="btn3">不认证</label>  
+		                        </div>   
+		                        <div class="form-group heightx">
+		                            <input id="btn4" name="radio5" type="radio">  
+		                            <label for="btn4">一键上网</label>  
+		                        </div>   
+		                        <div class="form-group heightx">
+		                            <input id="btn5" name="radio5" type="radio">  
+		                            <label for="btn5">账号登录</label>  
+		                        </div>    
+		                        <div class="form-group heightx">
+		                            <input id="btn6" name="radio5" type="radio">  
+		                            <label for="btn6">选择认证模板</label>  
+		                        </div>  
+		                        <select id="input1" name="interface" class="singleSelect hide" style="display:none;" ></select>                                     
+		                    </div>
+
+		                    <div id="innerwifi" class="hide col-sm-9">
+		                        <div class="form-group heightx">
+		                            <input id="btn7" name="radio5"  type="radio" checked>  
+		                            <span>账号登录</span>  
+		                        </div>  
+		                    </div>
+		                </div>
+
+		                <div class="form-group" id="radio4">
+		                    <span class="col-sm-3 heightx">登录页面</span>
+		                    <div  class="col-sm-9">                   
+		                        <div class="form-group heightx">
+		                            <input id="btn1" name="radio6" type="radio" checked>  
+		                            <label for="btn1">简约</label>  
+		                        </div>                            
+		                        <div class="form-group heightx">
+		                            <input id="btn2" name="radio6" type="radio">  
+		                            <label for="btn2">选择页面模板</label>  
+		                        </div>   
+		                        <select id="input2" name="interface" class="singleSelect  hide" style="display:none;" ></select>                                  
+		                    </div>
+		                </div>
+
+		                <div class="form-group heightx">
+		                    <span class="col-sm-3" style="line-height: 48px;">微信公众号</span>
+		                    <div  class="col-sm-9">                   
+		                        <select id="input3" name="interface" class="singleSelect span4"></select>              
+		                     </div>
+		                </div> 
+		                
+		                <div class="form-group detail-content" id="senior">
+		                    <div class="advan_content">
+		                        <div id="advanceBtn">
+		                            <div class="float-left xxb">
+		                                <div class="advan_set advan_set1 float-left"></div>
+		                                <a class="float-left ad-button" id="ad-button">
+		                                    <span class="text">高级设置</span>
+		                                </a>
+		                                <div class="advan_set advan_set2 float-left" id="AdvanceClose"></div>
+		                            </div>
+		                            <div class="bottomline float-left"></div>
+		                        </div>
+		                    </div>
+		                </div>
+
+		                <div id="gaojishezhiArea" class="hide">
+
+	                    <div class="form-group heightx">
+	                       <span class="col-sm-3 control-span required">允许上网时长</span>
+	                       <div  class="col-sm-9">
+	                           <input type="text" class="string big" id="onlineTime" name ="ONLINE_MAX_TIME" error_id="onlineTime_error"  placeholder="360">
+	                           <label class="info-explain">分（1-1440）</label>
+	                           <label class="error" id="onlineTime_error"></label>
+	                       </div>
+	                    </div>
+
+	                    <div class="form-group heightx">
+	                       <span class="col-sm-3 control-span">认证成功后跳转</span>
+	                       <div  class="col-sm-9">
+	                           <input type="text" class="string big" maxlength="128" id="url" name ="URL_AFTER_AUTH" error_id="redirectURL_error" placeholder="http:// 或 https://"/>
+	                           <label class="info-explain">说明：默认配置www.h3c.com,可以修改。</label>
+	                           <label class="error" id="redirectURL_error"></label>
+	                       </div>
+	                    </div>
+
+	                    <div class="form-group heightx">
+	                       <span class="col-sm-3 control-span required">闲置切断时长</span>
+	                       <div  class="col-sm-9">
+	                           <input type="text" class="string big" maxlength="128" id="cutTime" name ="IDLE_CUT_TIME" error_id="restTime_error" placeholder="30"/>
+	                           <label class="info-explain">分钟（1-360）</label>
+	                           <label class="info-explain">说明：默认配置30，可以修改。</label>
+	                           <label class="error" id="restTime_error"></label>
+	                       </div>
+	                    </div>
+
+	                    <div class="form-group heightx">
+	                       <span class="col-sm-3 control-span required">闲置切断流量</span>
+	                       <div  class="col-sm-9">
+	                           <input type="text" class="string big" maxlength="128" id="cutFlow" name ="IDLE_CUT_FLOW" error_id="restByte_error" placeholder="10240"/>
+	                           <label class="info-explain">字节（1-1024000）</label>
+	                           <label class="info-explain">说明：默认配置10240，可以修改。</label>
+	                           <label class="error" id="restByte_error"></label>
+	                       </div>
+	                    </div>
+
+	                    <div class="form-group heightx">
+	                       <span class="col-sm-3 control-span">再次连接免认证</span>                     
+	                       <div  class="col-sm-9">                   
+	                            <input type="radio" id="feelauth1" name="feelauth" value="1" checked>
+	                            <label for="feelauth1" style="padding-right:50px;">开启</label>
+	                            <input type="radio" id="feelauth2" name="feelauth" value="0">
+	                            <label for="feelauth2">关闭</label> 
+	                        </div>  
+	                    </div>  
+
+	                    <div id="anthTime" class="form-group heightx">                      
+	                        <span for="impose_auth" class="col-sm-3 control-span">免认证时长</span>
+	                        
+	                        <div class="Learn-Time col-sm-9">
+	                            <input type="text" class="digits big" id="impose_auth_time" name = "unauthtime" maxlength="2" min ="1" max ="30"  placeholder="7" error_id="impose_auth_time_error"/>
+	                            <label class="info-explain">天（1-30）</label>
+	                            <label class="error" id="impose_auth_time_error"></label>
+	                            <label class="info-explain">说明：通过认证的用户在免认证期内上线无需重复认证。默认配置为7(天)，可以修改
+	                            </label>
+	                        </div>
+	                        
+	                    </div>                                             
+	                </div>
+				    </div>
+				    <!-- 修改配置认证结束 -->
+              	</div>     
+            </div>
+        </div>
+    </div>
+    
+ 
+    <!-- 修改无线服务modal开始 -->
+    <div class="hide modal fade" id="xiugai">  
+        <div class="modal-body">
+        <form id="xiugai_form" class="form edit">
+            <div class="form-group heightx">
+                <span class="col-sm-3">服务类型</span>
+                <div  class="col-sm-9">                   
+                    <input id="wifi3" name="radio8" type="radio">
+                    <label for="wifi3" style="padding-right:31px;">内部Wi-Fi</label>
+                    <input id="wifi4" name="radio8" type="radio">  
+                    <label for="wifi4">商业Wi-Fi</label>                           
+                </div>
+            </div>
+
+            <div class="form-group heightx">
+                <span class="col-sm-3">无线服务名称</span>
+                <div  class="col-sm-9">
+                    <input type="text" id="server_edit" class="string big" disabled>                   
+                </div>
+            </div>
+
+            <div class="form-group heightx">
+                <span class="col-sm-3">SSID</span>
+                <div  class="col-sm-9">
+                    <input type="text" id="SSID_edit" disabled>                  
+                </div>
+            </div>
+
+            <div class="form-group heightx">
+                <span class="col-sm-3">加密服务</span>
+                <div  class="col-sm-9">                   
+                    <input id="pwdOn_edit" name="radio9" type="radio" checked>
+                    <label for="pwdOn_edit" style="padding-right:50px;">开启</label>
+                    <input id="pwdOff_edit" name="radio9" type="radio">  
+                    <label for="pwdOff_edit">关闭</label>  
+                    <div id="pwd2">
+                        <div  class="form-group heightx ">
+                        <input type="password">                    
+                    </div>  
+                    <div class="form-group heightx ">
+                        <span class="letter heightx">说明：密码由8～63位数字和（或）字母组成</span>
+                    </div>
+                    </div> 
+                </div>
+            </div>
+
+            <div class="form-group heightx">
+                <span class="col-sm-3">无线服务</span>
+                <div  class="col-sm-9">                   
+                    <input id="wireless_open" name="radio10" type="radio" checked>
+                    <label for="wireless_open" style="padding-right:50px;">开启</label>
+                    <input id="wireless_closed" name="radio10" type="radio">  
+                    <label for="wireless_closed">关闭</label>                           
+                </div>
+            </div>    
+
+            <div class="form-group heightx">   
+                <span class="col-sm-3">是否修改认证配置</span>         
+                <div  class="col-sm-9">    
+                    <div class="form-group heightx">
+                        <input id="pYes_edit" name="radio11" type="radio" checked>
+                        <label for="pYes_edit"> 是，继续去修改认证配置</label> 
+                    </div>  
+                    <div class="form-group heightx">
+                        <input id="pNo_edit" name="radio11" type="radio">  
+                        <label for="pNo_edit">否，完成修改并退出</label> 
+                    </div>                                                          
+                </div>
+            </div>       
+        </form>
+        </div>
+    </div>
+    <!-- 修改无线服务modal结束 -->
+
+    <div id="p_wireless_indexConfigure" class="rc-define"
+            ALLAP_HEADER2="无线服务名称,SSID,认证方式,状态,绑定AP组数,绑定AP数"
+            STATUS=",开启,关闭"
+            TERINFO="AP列表"
+            TITLE_TERINFO="AP详情"
+            APGROUP="AP组"
+            AUTHEN_TYPE="不认证,一键上网,账号认证"
+            ALLAP_HEADER3="AP名称,SN,AP型号,绑定"
+            ALLAP_HEADER4="AP组名称,绑定"
+            FRESH="刷新"
+            DEL_SUCCESS = "删除成功"
+            LINK_delete="主连接已断开,删除失败",
+            SSID_HEADER = "SSID,认证方式"
+            ADD_TITLE = "增加服务"
+            AUTH_CFG = "不认证,微信认证,短信认证,一键上网,选择页面模板"
+            DEL_AUTH_FAIL = "删除发布模板失败"
+            DEL_PUB_SUCC = "取消发布成功"
+            PUB_SUCC = "发布成功"
+            ADD_SUCCESS = "添加成功"
+            ADD_FAIL = "添加失败"
+            ADD_NULL_SSID = "SSID不能为空"
+            DEL_FAIL = "删除失败"
+            LINK="主连接已断开,添加失败"
+            ADD_Limit="服务模版已达到上限，添加失败"
+            SYN="同步"
+            ADD="添加"
+            ADD_SER="添加无线服务"
+            Renzheng="无线服务认证配置"
+            EDIT_SER="修改无线服务"
+            Bind_HEADER="AP名称,AP描述"
+            WIRELESS_SER="已绑定AP组"
+            WIRELESS_SER2="已绑定AP"
+            Bind_HEADER2="AP组名称,AP组描述"
+    ></div>
+</body>
+</html>
+
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("hq_wirelessfwpz.edit");
+</script>

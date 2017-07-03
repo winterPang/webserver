@@ -1,0 +1,454 @@
+<style>
+    .dashboard .ml10{
+        margin-left: 10px;
+    }
+    .xxb .customer-count{
+        color: #343e4e;
+        margin-top: 8px;
+    }
+    .clear-pl{
+        padding-left: 0;
+    }
+    .dashboard .xxb .box-body.devInfo-block{
+        height: 250px;
+        padding-top: 0;
+    }
+
+    .tooltip.top .tooltip-arrow{
+        border-top-color: #4EC1B2;
+        background-color: transparent;
+    }
+    .tooltip-inner{
+        height : 35px;
+        line-height : 25px;
+        background-color : #4EC1B2;
+    }
+    html .app-colum .app-box .box-body.body-nopadding,
+    body .app-colum .app-box .box-body.body-nopadding{
+        padding: 0 30px;
+    }
+    html .app-colum .app-box .box-body,
+    body .app-colum .app-box .box-body{
+        padding-top: 10px;
+    }
+    [class^="icon-"],
+    [class*=" icon-"],
+    [class^="icon-"]:hover,
+    [class*=" icon-"]:hover,
+    [class^="sign-"],
+    [class*="sign-"],
+    [class^="sign-"]:hover,
+    [class*="sign-"]:hover,
+    [class^="fa-"],
+    [class*="fa-"],
+    [class^="fa-"]:hover,
+    [class*="fa-"]:hover {
+        display: inline-block;
+        height: 10px;
+        width: 10px;
+        float: left;
+        margin-top: 9px;
+        margin-right: 10px;
+        border-radius: 5px;
+    }
+    .form-horizontal .form-group,
+    .form-group {
+        margin: 0;
+        padding: 0;
+        clear: both;
+    }
+    .form-horizontal .form-group [class^="col-md-"],
+    .form-horizontal .form-group [class*="col-md-"],
+    .form-horizontal .form-group [class^="col-xs-"],
+    .form-horizontal .form-group [class*="col-xs-"],
+    .form-horizontal .form-group [class^="col-sm-"],
+    .form-horizontal .form-group [class*="col-sm-"],
+    .main-content .form-group [class^="col-md-"],
+    .main-content .form-group [class*="col-md-"],
+    .main-content .form-group [class^="col-xs-"],
+    .main-content .form-group [class*="col-xs-"],
+    .main-content .form-group [class^="col-sm-"],
+    .main-content .form-group [class*="col-sm-"] {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .dashboard label {
+        margin-bottom: 0;
+        font-weight: normal;
+        line-height: 35px;
+        vertical-align: middle;
+    }
+    .dashboard .filter-container {
+        position: absolute;
+        top: 50px;
+    }
+</style>
+
+<div class="dashboard">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <div class="col-xs-10">
+                        <span class="title">日志信息</span>
+                    </div>
+                    <div class="text-right link-container">
+                        <a href="javascript:void(0);"
+                           class="link-detail"
+                           ui-sref="scene.content.monitor.warning">
+                            <i class="detail-icon icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="col-xs-6 col-xs-3">
+                        <div class="syslog-info bg-transparent ml10">
+                            <div class="icon-container">
+                                <i class="syslog-icon emergency-icon"></i>
+                            </div>
+                            <div class="text-right syslog-value">
+                                <div class="log-count number color_emergency"
+                                     ng-bind="logInfo[0]">0</div>
+                                <div class="log-title">紧急</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-xs-3">
+                        <div class="syslog-info bg-transparent ml10">
+                            <div class="icon-container">
+                                <i class="syslog-icon critical-icon"></i>
+                            </div>
+                            <div class="text-right syslog-value">
+                                <div class="log-count number color_critical"
+                                     ng-bind="logInfo[1]">0</div>
+                                <div class="log-title">危险</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-xs-3">
+                        <div class="syslog-info bg-transparent ml10">
+                            <div class="icon-container">
+                                <i class="syslog-icon warning-icon"></i>
+                            </div>
+                            <div class="text-right syslog-value">
+                                <div class="log-count number color_warning"
+                                     ng-bind="logInfo[2]">0</div>
+                                <div class="log-title">警告</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 col-xs-3">
+                        <div class="syslog-info last-child bg-transparent ml10">
+                            <div class="icon-container">
+                                <i class="syslog-icon info-icon"></i>
+                            </div>
+                            <div class="text-right syslog-value">
+                                <div class="log-count number color_info"
+                                     ng-bind="logInfo[3]">0</div>
+                                <div class="log-title">报告</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row xxb">
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-body midl-height">
+                    <div class="index_inner_div index_inner_div_left_top">
+                        <div class="col-xs-6 index_div_wrapper_multiple">
+                            <div class="index_div_lu customer-count"
+                                 ng-bind="customerInfo.return">0</div>
+                            <p class="index_div_lu_desc">当前回头客</p>
+                        </div>
+                        <div class="col-xs-6 returning-customer">
+                            <div class="returning-icon returning-position"></div>
+                        </div>
+                    </div>
+                    <div class="index_inner_div index_inner_div_right_top">
+                        <div class="col-xs-6 index_div_wrapper_multiple">
+                            <div class="index_div_lu customer-count"
+                                 ng-bind="customerInfo.new">0</div>
+                            <p class="index_div_lu_desc">当前新宾客</p>
+                        </div>
+                        <div class="col-xs-6 returning-customer">
+                            <div class="returning-icon new-customer"></div>
+                        </div>
+                    </div>
+                    <div class="index_inner_div index_inner_div_left_bottom">
+                        <div class="col-xs-6 ad_view">
+                            <div class="click-img view"></div>
+                        </div>
+                        <div class="col-xs-6 ad_view ml7">
+                            <div class="click-num"
+                                 ng-bind="adInfo.view">0</div>
+                            <p class="margin-tl">广告浏览量</p>
+                        </div>
+                    </div>
+                    <div class="index_inner_div index_inner_div_right_bottom">
+                        <div class="col-xs-6 ad_view">
+                            <div class="click-img num"></div>
+                        </div>
+                        <div class="col-xs-6 ad_view ml7">
+                            <div class="click-num"
+                                 ng-bind="adInfo.click">0</div>
+                            <p class="margin-tl">广告点击数</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box  no-bk-color">
+                <div class="box-footer">
+                    <span class="title">设备信息</span>
+                </div>
+                <div class="col-xs-12 box-body devInfo-block">
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">设备型号</label>
+                        <div class="col-sm-8">
+                            <span class="label"
+                                  ng-bind="devInfo.mode"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">序列号</label>
+                        <div class="col-sm-8">
+                            <span class="label"
+                                  ng-bind="devInfo.serialNum"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">基线版本</label>
+                        <div class="col-sm-8">
+                            <span class="label"
+                                  ng-bind="devInfo.baselineVer"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">软件版本</label>
+                        <div class="col-sm-8">
+                            <span class="label"
+                                  ng-bind="devInfo.softVer"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">IP地址</label>
+                        <div class="col-sm-8">
+                            <span class="label"
+                                  ng-bind="devInfo.IPAddress"></span>
+                            <a class="list-link"
+                               id="IPLocation"
+                               href="javascript:void(0);">&nbsp;IP归属地
+                            </a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">在线时长</label>
+                        <div class="col-sm-8">
+                            <span class="label"
+                                  ng-bind="devInfo.onlineTime"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-4 control-label">启动时长</label>
+                        <div class="col-sm-8">
+                            <span class="label"
+                                  ng-bind="devInfo.startTime"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <palmap-iframe nasid="sceneInfo.nasid"></palmap-iframe>
+    <div class="page-row">
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <div class="col-xs-4">
+                        <span class="title">在线宾客变化</span>
+                    </div>
+                    <div class="time-change">
+                        <a class="time-link"
+                           ng-class="{active: customerChangeInfo.curTimeRange == 'oneday'}"
+                           ng-click="customerChangeInfo.chooseTime('oneday')">一天</a>
+                        <a class="time-link"
+                           ng-class="{active: customerChangeInfo.curTimeRange == 'oneweek'}"
+                           ng-click="customerChangeInfo.chooseTime('oneweek')">一周</a>
+                        <a class="time-link"
+                           ng-class="{active: customerChangeInfo.curTimeRange == 'onemonth'}"
+                           ng-click="customerChangeInfo.chooseTime('onemonth')">一月</a>
+                    </div>
+                </div>
+                <div class="box-body echart-height form-group body-nopadding">
+                    <div id="customerChangeLine"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color" style="height:302px;">
+                <div class="box-footer">
+                    <span class="title">分支列表</span>
+                </div>
+                <div class="box-body no-height">
+                    <div bs-table="listOpts.branch"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="col-sm-4 col-xs-4">
+                    <div class="box-footer align-center">
+                        <span class="c-title">认证终端</span>
+                    </div>
+                    <div class="box-body echart-height form-group">
+                        <div id="authTerminalPie"></div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-4">
+                    <div class="box-footer align-center">
+                        <span class="c-title">终端类型</span>
+                    </div>
+                    <div class="box-body echart-height form-group" style="padding-top:0px;">
+                        <div id="terminalTypePie" style="height:255px"></div>
+                    </div>
+                </div>
+                <div class="col-sm-4 col-xs-4">
+                    <div class="box-footer align-center">
+                        <span class="c-title">终端厂商</span>
+                    </div>
+                    <div class="box-body echart-height form-group" style="padding-top:0px;">
+                        <div id="terminalFirmPie"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-height no-bk-color">
+                <div class="box-footer ">
+                    <span class="title">无线服务</span>
+                </div>
+                <div class="sysinfo-body box-body no-height">
+                    <div bs-table="listOpts.WLService"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="index-group">
+                    <div class="box-footer">
+                        <div class="col-xs-12">
+                            <span class="title">流量监控</span>
+                            <div class="text-right link-container" ng-show="devMonitor.rightTopShow">
+                                <a class="refresh" type="button" ng-click="devMonitor.clickRefreshBtn()">
+                                    <i class="refresh-icon icon"></i>
+                                </a>
+                                <a class="filter" type="button" ng-click="devMonitor.clickFilterBtn()">
+                                    <i class="filter-icon icon"></i>
+                                </a>
+                                <div class="filter-container" ng-show="devMonitor.filterSelectorShow">
+                                    <label for="upLinkSelector">上行口：</label>
+                                    <select class="big"
+                                            id="upLinkSelector"
+                                            ng-change="devMonitor.chooseFilterSelector()"
+                                            ng-model="devMonitor.curInterfaceName"
+                                            ng-options="interfaceItem.interfaceName for interfaceItem in devMonitor.interfaceList"></select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sysinfo-body" ng-show="devMonitor.echartShow">
+                        <div class="myEchart dashboard-usage" id="usage"></div>
+                    </div>
+                    <div class="dashboard-usage-box" ng-show="devMonitor.selectorShow">
+                        <div class="col-sm-7">
+                            <label class="col-sm-3" for="first_UpLinkSelector">请选择上行口</label>
+                            <div class="col-sm-4">
+                                <select class="big form-control"
+                                        id="first_UpLinkSelector"
+
+                                        ng-model="devMonitor.curInterfaceName"
+                                        ng-options="interfaceItem.interfaceName for interfaceItem in devMonitor.interfaceList">
+                                    <!-- options -->
+                                </select>
+                            </div>
+                            <div class="col-xs-3">
+                                <button class="btn dashboard-button-row" ng-click="devMonitor.clickUpLinkSelector()">
+                                    <i class="glyphicon glyphicon-ok" style="left: -10px"></i>确定
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+<div bs-modal="modalOpts.APByBranch">
+    <div bs-table="listOpts.APByBranch"></div>
+</div>
+
+<div bs-modal="modalOpts.authTerminal">
+    <div bs-table="listOpts.authTerminal"></div>
+</div>
+
+<div bs-modal="modalOpts.terminalType">
+    <div bs-table="listOpts.terminalType"></div>
+</div>
+
+<div bs-modal="modalOpts.terminalFirm">
+    <div bs-table="listOpts.terminalFirm"></div>
+</div>
+
+<div bs-modal="modalOpts.WLSerClient">
+    <div bs-table="listOpts.WLSerClient"></div>
+</div>
+
+<div bs-modal="modalOpts.WLSerAP">
+    <div bs-table="listOpts.WLSerAP"></div>
+</div>
+
+<div bs-modal="modalOpts.WLSerAPG">
+    <div bs-table="listOpts.WLSerAPG"></div>
+</div>
+
+
+<div id="RC"
+     MODAL_BTN_TEXT = "确定,取消"
+     ON_OFF = "开启,关闭"
+     DATE_UNIT = "年,月,天,时,分,秒"
+     CLIENT_COUNT = "终端数"
+     PERSON_UNIT = "人"
+     BRANCH_LIST_HEADER = "分支名称,分支类型,AP数"
+     BRANCH_TYPE = "本地无AC,本地有AC,本地有AC且有独立无线服务"
+     APBYBRANCH_LIST_TITLE = "AP列表详情"
+     APBYBRANCH_LIST_HEADER = "AP名称,序列号,MAC,在线客户端"
+     AUTH_PIE = "认证终端,非认证终端"
+     UNKNOWN = "未知"
+     TERMINAL_LIST_TITLE = "终端列表"
+     TERMINAL_LIST_HEADER = "MAC地址,IP地址,终端厂商,AP,SSID"
+     WLSERVICE_LIST_HEADER = "无线服务名称,SSID,服务状态,服务类型,认证方式,客户端数,AP数,AP组数"
+     WL_SSID_TYPE = "内部Wi-Fi,商业Wi-Fi"
+     WL_AUTH_TYPE = "获取失败,不认证,一键认证,账号认证"
+     CLIENT_LIST_TITLE = "客户端列表"
+     WLSERAP_LIST_TITLE = "AP列表"
+     WLSERAP_LIST_HEADER = "AP名称,所属AP组,所属分支"
+     WLSERAPG_LIST_TITLE = "AP组列表"
+     WLSERAPG_LIST_HEADER = "AP组名称,描述,所属分支"></div>
+

@@ -1,0 +1,51 @@
+<div>
+    <div class="panel panel-default">
+        
+        <div class="panel-heading">
+            <h3 class="panel-title">操作日志</h3>
+        </div>
+        <div class="panel-body">
+            <div class="form-group">
+                <div class="btn btn-cus" ng-click="refresh()">刷新</div>
+                <button class="btn btn-cus" ng-click="delete()" ng-disabled="btnStatus">删除</button>
+            </div>
+            <!--<div class="form-group pull-right">-->
+            <!--<button class="btn btn-cus"><span class="glyphicon glyphicon-search" ng-click="search()"></span>-->
+            <!--</button>-->
+            <!--</div>-->
+            <!--<div class="form-group pull-right input-group">-->
+            <!--<input type="text" ng-model="operatorName" class="form-control" placeholder="操作员">-->
+            <!--</div>-->
+            <!--<div class="form-group has-feedback pull-right " style="margin-right:10px;">-->
+            <!--<input type="text" ng-model="ipAddress" class="form-control" placeholder="IP地址">-->
+            <!--</div>-->
+            <table bs-table="options"></table>
+        </div> 
+        <div bs-modal="option" id="modalDate">
+                <div class="form-group">
+                <label class="col-xs-3 control-label">选择日期 <span class="label-require"> *</span></label>
+                <div class="col-xs-4">
+                    <input id="Bydate" class="daterange time-select" placeholder="选择日期" ctrl="daterang" style="width:280px">
+                </div>
+            </div>
+            
+        </div> 
+    </div>
+    
+    <div class="read_rc" id="operate_rc"
+        table-data="操作员,操作时间,IP地址,模块名称,操作描述,操作结果,失败原因" 
+        DRP_APPLYLABEL = "确定"
+        DRP_CANCELLABEL = "取消"
+        DRP_FROMLABEL = "起始时间"
+        DRP_TOLABEL = "结束时间"
+        DRP_CUSTOMRANGELABEL = "自定义"
+        DRP_DAYSOFWEEK = "日,一,二,三,四,五,六"
+        DRP_MONTHNAMES = "一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月"
+        DRP_Title="删除操作日志"
+        delete-success="删除成功"
+        delete-fail="删除失败"
+
+    >
+    </div>
+    
+</div>

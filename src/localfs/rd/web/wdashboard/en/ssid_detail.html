@@ -1,0 +1,103 @@
+<html>
+<head>
+</head>
+<body>
+<div>
+    <div class="dashboard" id="plot_container">
+        <div class="row">
+            <div id="vlans_box_r1" class="col-xs-12 app-colum">
+                <div class="app-box">
+                    <div class="sysinfo-footer">
+                       <div class="col-xs-12">
+                           <span class="title">Usage</span>
+                       </div>
+                   </div>
+                    <div class="sysinfo-body">
+                        <div id="SSID_usage"  class="myEchart col-xs-12">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="vlans_box_1" class="col-xs-6 app-colum">
+                <div class="app-box">
+                    <div class="sysinfo-footer">
+                       <div class="col-xs-12">
+                           <span class="title">Top 5 By Usage</span>
+                       </div>
+                       <div class="text-right link-container">
+                          <a type="button" id="Top5Out" class="link-detail active top5" val=".rate-top">Throughput</a>
+                          &nbsp;|&nbsp;
+                          <a type="button" id="Top5Client" class="link-detail top5" val=".num-top">Clients</a>
+                      </div>
+                   </div>
+                    <div class="row-nohover sysinfo-body" >
+                        <div class="col-xs-5">
+                            <div id="RxRateList" class="simple-list rate-top top-list"></div>
+                            <div id="G5NumList" class="simple-list num-top top-list hide"></div>
+                        </div>
+                        <div class="col-xs-1">
+                        </div>
+                        <div class="col-xs-5">
+                             <div id="TxRateList" class="simple-list rate-top top-list"></div>
+                             <div id="G2NumList" class="simple-list num-top top-list hide"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="vlans_box_2" class="col-xs-6 app-colum right-block">
+                <div class="app-box">
+                    <div class="sysinfo-footer">
+                      <div class="col-xs-12">
+                          <span class="title">Binding Informations</span>
+                      </div>
+                      <div class="text-right link-container">
+                        <a type="button" class="link-detail active bindMode" val="G5">5GHz</a>
+                        &nbsp;|&nbsp;
+                        <a type="button" class="link-detail bindMode" val="G2">2.4GHz</a>
+                      </div>
+                   </div>
+                    <div class="row-nohover sysinfo-body" >
+                         <div id="bindList" class="simple-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div id="vlans_box_3" class="col-xs-12 app-colum">
+                <div class="app-box">
+                    <div class="sysinfo-footer">
+                       <div class="col-xs-12">
+                           <span class="title">Wireless Services</span>
+                       </div>
+                    </div>
+                    <div class="row-nohover sysinfo-body list-height" >
+                         <div id="ssidList" class="simple-list"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div id="ssid_detail_rc" class="rc-define"
+        RX_HEADER="SSID,Transmit Rate(Mbps)"
+        TX_HEADER="SSID,Recive Rate(Mbps)"
+        G5_HEADER="SSID,5GHz Number"
+        G2_HEADER="SSID,2.4GHz Number"
+        LIST_HEADER="Service Template Name,SSID,Forwading Type,Authentication Location,Authentication Mode,Encryption Algorithm,VLAN,Status"
+        BIND_HEADER="SSID,AP Name,Bound VLAN,Clients Number"
+        CIPHER_SUITE="TKIP,CCMP,WEP 40,WEP 104,WEP 128"
+        FORWARD_TYPE="Central,Local,Policy"
+        SECURITY_TYPE="Bypass,802.1X,Static PSK,MAC"
+        STATUS = "Enable,Disable"
+        LOCATION = "Central AC,Local AC,,AP"
+        ECHART_STRING="Time,Rate(Mbps)"
+            ></div>
+</div>
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+	Utils.Pages.loadJS("WDashboard.ssid_detail");
+</script>

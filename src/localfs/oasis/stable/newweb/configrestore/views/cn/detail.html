@@ -1,0 +1,152 @@
+<div id="configrestore5">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="row">
+                <div class="col-xs-5">
+                    <h3 class="panel-title">还原点概览</h3>
+                </div>
+                <div class="col-xs-7" style="line-height:49px">
+                    <div class="pull-right">
+                        <oasis-select labelwidth="40" placeholder="请选择设备" os-trigger="#toggleSlectDevice" os-data="devicedata" os-model="regionSlect"></oasis-select>
+                        <span id="toggleSlectDevice" class="toggleSlect">
+							<span class="fa fa-exchange"></span>
+						</span>
+                    </div>
+                    <div class="pull-right">
+                        <oasis-select placeholder="请选择分支"  os-trigger="#toggleSlectregion" os-data="regiondata" os-model="regionSlect"></oasis-select>
+                        <span id="toggleSlectregion" class="toggleSlect">
+							<span class="fa fa-exchange"></span>
+						</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <div class="col-sm-3 control-label">总还原点数</div>
+                        <div class="col-sm-9 control-label">
+                            <span class="label" id="totlefileNum" ng-bind="row.totlefileNum"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3 control-label">自动还原点数</div>
+                        <div class="col-sm-9 control-label">
+                            <span class="label" id="autoNum" ng-bind="row.autoNum"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3 control-label">手动还原点数</div>
+                        <div class="col-sm-9 control-label">
+                            <span class="label" id="manualNum" ng-bind="row.manualNum"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3 control-label">最近还原点</div>
+                        <div class="col-sm-9 control-label">
+                            <span class="label" id="restoretime" ng-bind="row.restoretime"></span>
+                            <a class="xb-link label" id="fileName" ng-click="showFileCfg(row.filePath)" ng-bind="row.fileName"></a>
+                            <div bs-modal="showFileDetails.option">
+                                <pre>{{configFile.detail}}</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3 control-label">最近生成原因</div>
+                        <div class="col-sm-9 control-label">
+                            <span class="label" id="CreateReason" ng-bind="row.CreateReason"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <div class="col-sm-3 control-label">还原时间</div>
+                        <div class="col-sm-9 control-label">
+                            <span class="label" id="rollbackTime" ng-bind="row.rollbackTime"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3 control-label">还原原因</div>
+                        <div class="col-sm-9 control-label">
+                            <span class="label" id="RestoreReason" ng-bind="row.RestoreReason"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3 control-label">还原文件</div>
+                        <div class="col-sm-9 control-label">
+                            <a class="xb-link label" ng-bind="row.fileName" ng-click="showFileCfg(row.fileName)"></a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3 control-label">还原记录</div>
+                        <div class="col-sm-9 control-label">
+                            <a class="xb-link label" ng-click="restorehistory()">历史还原记录</a>
+                            <div bs-modal="restoreRecord">
+                                <table bs-table="restoreOptions"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <hr>
+            </div>
+            <div class="row" style="margin-top:20px">
+                <div class="col-xs-5">
+                    <div id='calendar'></div>
+                </div>
+                <div class="col-xs-1"></div>
+                <div class="col-xs-6">
+                    <div>
+                        <button class="btn btn-cus" name="addFile" ng-click="addFile()" ng-if="permission.write">
+                            <span class="glyphicon glyphicon-plus"></span> 添加
+                        </button>
+                        <form novalidate class="form-horizontal" bs-modal="newPoint.option" name="addform">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">创建原因</label>
+                                <div class="col-sm-5">
+                                    <input class="form-control" name="createReason" type="text" ng-model="row.creatReason" required
+                                           ng-pattern="/^[^\s]+$/" ng-maxlength="20" placeholder="请输入20位以内的非空字符">
+                                </div>
+                                <div class="ng-error col-sm-4" ng-show="addform.createReason.$dirty" ng-messages="addform.createReason.$error">
+                                    <div ng-message="required">请输入创建原因！</div>
+                                    <div ng-message="maxlength">最多不能超过20位！</div>
+                                    <div ng-message="pattern">不能输入空字符。</div>
+                                </div>
+                            </div>
+                        </form>
+                        <button class="btn btn-cus" name="configRestore" ng-click="configrestore()" ng-disabled="configRestoreDisabled" ng-if="permission.write">配置还原</button>
+                        <form novalidate class="form-horizontal" name="restoreReason" bs-modal="configreason.option">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">创建还原原因</label>
+                                <div class="col-sm-5">
+                                    <input class="form-control" name="createRestoreReason" type="text" ng-model="row.createRestoreReason" required
+                                           ng-pattern="/^[^\s]+$/" ng-maxlength="20" placeholder="请输入20位以内的非空字符">
+                                </div>
+                                <div class="ng-error col-sm-4" ng-show="restoreReason.createRestoreReason.$dirty" ng-messages="restoreReason.createRestoreReason.$error">
+                                    <div ng-message="required">请输入创建原因！</div>
+                                    <div ng-message="maxlength">最多不能超过20位！</div>
+                                    <div ng-message="pattern">不能输入空字符</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <table bs-table="options"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="read_rc" id="configrestore_rc"
+         undefined="<无>"
+         modal-data="历史还原记录,关闭,配置文件详情,新建还原点,确定,取消,配置还原原因"
+         sure-delete="确定删除吗？"
+         notice-data="删除文件,成功,请求出错啦~"
+         msgDialog-data="失败,成功,正在创建还原点…,配置还原中…"
+         table-data="文件名,创建时间,创建原因,手动,自动,类型,操作"
+         calendar-data="一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月,日,一,二,三,四,五,六"
+    >
+    </div>
+</div>
+

@@ -1,0 +1,51 @@
+<div ng-init="
+    user_count='Client quantity';
+    user_total_count='Associated clients,Authenticated clients';
+    dateRangePicker_week='日,一,二,三,四,五,六';
+    dateRangePicker_month='一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月';">
+    <div class="col-xs-12 app-colum left-block">
+        <div class="page-row xxb">
+            <div class="col-xs-12 app-colum">
+                <div class="app-box no-bk-color">
+                    <div class="box-footer">
+                        <div class="col-xs-3">
+                            <span class="title">Daily Client Quantity Trend</span>
+                        </div>
+                        <div class="text-right link-container">
+							<label style="padding-right: 10px;">
+                                Date <input class="form-control" id="dateRangePicker" type="text" style="width: 120px;height: 25px;">
+                            </label>
+                        </div>
+                    </div>
+					<div class="col-xs-12">
+                        <div id="oneDayUserChart" style="height: 270px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 app-colum left-block">
+        <div class="page-row xxb">
+            <div class="col-xs-12 app-colum">
+                <div class="app-box no-bk-color">
+                    <div class="box-footer">
+                        <div class="col-xs-6">
+                            <span class="title">Client Quantity Trend Over the Past 30 Days</span>
+                        </div>
+                        <div class="text-right link-container">
+                            <a type="button" class="link-detail" title="More"
+                               ui-sref="scene.content.monitor.wirelessterminal2_wireless_jump">
+                                <i class="detail-icon icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xs-12">
+                        <div id="userTotalChart" style="height: 270px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

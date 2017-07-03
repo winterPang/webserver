@@ -1,0 +1,36 @@
+@font-face {
+    font-family: 'HPSimplified';
+    src: url(fonts/hps-euro-w01-regular-eot.eot);
+    src: url(fonts/fonts/hps-euro-w01-regular-eot.eot?#iefix) format('embedded-opentype'),
+    url('fonts/hps-euro-w01-regular-woff.woff') format('woff'),
+    url('fonts/hps-euro-w01-regular-ttf.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal
+}
+@font-face {
+    font-family: 'HPSimplified';
+    src: url(fonts/hps-euro-w01-bold-eot.eot);
+    src: url(fonts/hps-euro-w01-bold-eot.eot?#iefix) format('embedded-opentype'),
+    url('fonts/hps-euro-w01-bold-woff.woff') format('woff'),
+    url('fonts/hps-euro-w01-bold-ttf.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal
+}
+@font-face {
+    font-family: 'HPSimplifiedLight';
+    src: url(fonts/hps-euro-w01-light-eot.eot);
+    src: url(fonts/hps-euro-w01-light-eot.eot?#iefix) format('embedded-opentype'),
+    url('fonts/hps-euro-w01-light-woff.woff') format('woff'),
+    url('fonts/hps-euro-w01-light-ttf.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal
+}
+@font-face {
+    font-family: 'HPSimplifiedLightIt';
+    src: url(fonts/hps-euro-w01-light-italic-eot.eot);
+    src: url(fonts/hps-euro-w01-light-italic-eot.eot?#iefix) format('embedded-opentype'),
+    url('fonts/hps-euro-w01-light-italic-woff.woff') format('woff'),
+    url('fonts/hps-euro-w01-light-italic-ttf.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic
+}

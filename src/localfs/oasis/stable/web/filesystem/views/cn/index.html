@@ -1,0 +1,244 @@
+<style>
+    .title-width {
+        width: 250px;
+    }
+
+    .left {
+        float: left;
+    }
+
+    .right {
+        float: right;
+    }
+
+    .both {
+        clear: both;
+    }
+
+    #fileSystemTable {
+        color: #000;
+        top: 0px;
+        left: 0;
+        width: 100%;
+        position: relative;
+        table-layout: fixed;
+    }
+
+    .fileSys {
+        overflow: auto;
+        height: 450px;
+        margin-top: -1.6em;
+        border: 1px solid #DEDDDD;
+    }
+
+    #fileSystemTable th {
+        width: 20%;
+    }
+
+    #fileSystemTable th:first-child {
+        width: 40%;
+    }
+
+    #fileSystemTable td {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .title {
+        margin-bottom: 0;
+        font-size: 25px;
+        color: #000;
+    }
+
+    #fileSystemTable .bgcolor {
+        height: 450px;
+        background: rgba(0, 0, 0, 0.5);
+        line-height: 100%;
+        text-align: center;
+    }
+
+    #fileSystemTable {
+        border: 0;
+        margin-top: 0;
+    }
+
+    .iconall {
+        width: 24px;
+        height: 24px;
+        display: inline-block;
+        vertical-align: middle;
+        background: url(../filesystem/images/icon.png) no-repeat;
+    }
+
+    .icon1 {
+        background-position: -408px -18px;
+    }
+    .icon2 {
+        background-position: -446px -18px;
+    }
+    .icon3 {
+        background-position: -304px -18px;
+    }
+    .icon4 {
+        background-position: -337px -18px;
+    }
+
+
+    #uploadFileBtn,#downloadFileBtn {
+        background-color: #78cec3;
+    }
+    #uploadFileBtn:hover{
+        background-color: #4ec1b2;
+    }
+
+    #downloadFileBtn:hover {
+        background-color: #4ec1b2;
+    }
+
+    #renameFileBtn {
+        background-color: #e7e7e9;
+        color: #80878c!important;
+    }
+    #renameFileBtn:hover {
+        background-color: #dcdcdc;
+    }
+
+    #deleteFileBtn {
+        background-color: #ff9c9c;
+        min-width: 45px;
+    }
+    #deleteFileBtn:hover {
+        background-color: #FE808B;
+    }
+</style>
+<div>
+    <div>
+        <div>
+            <div>
+                <div class="form-group left title">
+                    <p>文件系统</p>
+                </div>
+                <div class="right">
+                    <button id="uploadFileBtn" class="btn btn-cus" ng-click="upload()" ng-disabled="Disabled">
+                        <i class="iconall icon1"></i><span>发送文件到设备</span>
+                    </button>
+                    <button id="downloadFileBtn" class="btn btn-cus" ng-click="download()" ng-disabled="Disabled">
+                        <i class="iconall icon2"></i><span>从设备提取文件</span>
+                    </button>
+                    <button id="renameFileBtn" class="btn btn-cus" ng-click="rename()" ng-disabled="Disabled">
+                        <i class="iconall icon3"></i><span>重命名</span>
+                    </button>
+                    <button id="deleteFileBtn" class="btn btn-cus" ng-click="delete()" ng-disabled="Disabled">
+                        <i class="iconall icon4"></i>
+                    </button>
+                </div>
+                <div class="both"></div>
+            </div>
+            <div>
+                <table class="treetable">
+                    <thead>
+                    <tr>
+                        <th>文件名称</th>
+                        <th>文件类型</th>
+                        <th>文件大小</th>
+                        <th>修改时间</th>
+                    </tr>
+                    </thead>
+                </table>
+                <div class="fileSys">
+                    <table id="fileSystemTable" class="treetable">
+                        <tbody id="fileSystemTableBdy" ng-hide="Disabled">
+                        </tbody>
+                        <tbody ng-show="SH">
+                        <tr class="bgcolor">
+                            <td colspan="4"><img src="../frame/images/grid-loading{{load}}.gif" alt=""></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-horizontal" bs-modal="renameOptions">
+                <div class="form-group">
+                    <label for="renameFile" class="col-xs-3 control-label">新文件名
+                        <span class="label-require">*</span></label>
+                    <div class="col-xs-6">
+                        <input id="renameFile" type="text" name="fileName" ng-model="filesystem.rename" class="form-control">
+                    </div>
+                </div>
+            </div>
+            <div class="form-horizontal" bs-modal="uploadOptions">
+                <form id="uploadForm" action="/v3/fs/uploadFile/" enctype="multipart/form-data" method="post" onsubmit="return false">
+                    <div class="form-group">
+                        <div class="col-xs-6" class="htmleaf-container" style="margin-left: 32%">
+                            <input id="uploadFile" type="file" required data-min-file-count="1" name="sysFile">
+                            <div>提示：上传过程中不能中止</div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="form-horizontal" bs-modal="progressOptions">
+                <div class="form-group">
+                    <div style="color: #14A89D; font-size: 18px; text-align: center; margin: 6px;">
+                        <span id="sysprogressbar" class="title"></span>
+                    </div>
+                    <div id="systemfilebarrate" style="position: absolute;margin-top: 10px;margin-left: 36px;">
+                        <span>100KB/S</span>
+                    </div>
+                    <div class="progress" style="width: 66%; margin: auto; margin-bottom: 16px; margin-top: 16px">
+                        <div id="systemfilebar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+                            <span class="sr-only">60% Complete</span>
+                        </div>
+                    </div>
+                    <div id="systemfilebarnum" style="position: absolute;margin-top: -35px;margin-left: 49%;">
+                        <span>0%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <iframe id="filerecive" name="filerecive" style="display: none"></iframe>
+</div>
+<div id="fileSystem_rc" class="rc-define"
+     NOTFOUND_LINK="云端没有找到设备的主链接，请确认设备的状态!"
+     NOOPERATE_ACCESS="该用户没有设备的操作权限!"
+     OPERATE_FAILED="操作失败!"
+     UPLOADING_FILE="设备正在下载文件或者上传文件，请稍候!"
+     UPLOAD_SUCCESS="文件上传成功!"
+     NOENOUGH_SPACE="设备空间不足!"
+     EXIST_SAMEFILE="设备上已有相同名字的文件!"
+     DEVICEINIT_FAILED="设备初始化失败!"
+     LOCALFILETO_CLOUD="文件从本地上传到云"
+     LOCALFILETO_DEVICE="文件从本地上传到设备"
+     DEVICEFILETO_CLOUD="文件从设备上传到云"
+     CLOUDFILETO_DEVICE="文件从云上传到设备"
+     MAKESURE_DELETE="你确定要删除该文件么?(不可恢复)"
+     FILE_NOTEXIST="文件不存在!"
+     SYSTEM_IMPORTANTFILE="系统重要文件,不能操作!"
+     DELETE_FAILED="删除失败!"
+     DELETE_FOLDER="不能删除文件夹!"
+     SELECT_FILE="请选择文件!"
+     OPERATEMAY_FAILED="此次操作可能失败!"
+     DOWNLOAD_FOLDER="不能下载文件夹!"
+     FILENAMEL="文件名过长，无法下载，请重新命名(不超过100字符)。"
+     CHINESE_CHATARATERS="文件名不可以是中文或含有空格符!"
+     FILENAME_ERROR="文件名只能由数字、英文、. 、_ 、- 组成且以英文或者数字开始（不超过100字符）。"
+     UPLOAD_EMPTYFILE="请不要上传空文件!"
+     ILLEGAL_FILENAME="文件名不合法!"
+     MODIFY_FILENAME="确定修改该文件名?"
+     MODIFY_FOLDER="不能修改文件夹名!"
+     DOWNLOAD_FOLDER="不能提取文件夹!"
+     REQUEST_TIMEOUT="设备响应超时"
+     ERROR="错误"
+     SUCCESS="成功"
+     PROMPT="提示"
+     MAKESURE_DOWNLOADFILE="提取文件过程中不能被中止,是否继续?"
+     EMPTYFILE="文件名不能为空"
+     UPLOADSUCCESS="文件上传成功"
+     FILEPROGRESS="文件进度条"
+     CLOSEPROGRESS="关闭进度条"
+     RENAME_SUCCESSFULLY="文件改名成功"
+     DELETE_SUCCESSFULLY="文件删除成功"
+     SENDFILE2DEVICE="发送文件到设备"
+     RENAMEFILE="文件重命名">
+</div>

@@ -1,0 +1,67 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 10,
+  "rows": [
+    {
+      "app_name": "音乐",
+      "app_type": "第三方应用",
+      "user_time": 4886,
+      "flow_count": "78GB"
+    },
+    {
+      "app_name": "QQ",
+      "app_type": "第三方应用",
+      "user_time": 5765,
+      "flow_count": "30GB"
+    },
+    {
+      "app_name": "QQ",
+      "app_type": "第三方应用",
+      "user_time": 2241,
+      "flow_count": "70GB"
+    },
+    {
+      "app_name": "百度地图",
+      "app_type": "第三方应用",
+      "user_time": 5152,
+      "flow_count": "84GB"
+    },
+    {
+      "app_name": "支付宝",
+      "app_type": "第三方应用",
+      "user_time": 2659,
+      "flow_count": "99GB"
+    },
+    {
+      "app_name": "QQ",
+      "app_type": "第三方应用",
+      "user_time": 8341,
+      "flow_count": "34GB"
+    },
+    {
+      "app_name": "QQ",
+      "app_type": "第三方应用",
+      "user_time": 3920,
+      "flow_count": "5GB"
+    },
+    {
+      "app_name": "音乐",
+      "app_type": "第三方应用",
+      "user_time": 4783,
+      "flow_count": "82GB"
+    },
+    {
+      "app_name": "音乐",
+      "app_type": "第三方应用",
+      "user_time": 8407,
+      "flow_count": "42GB"
+    },
+    {
+      "app_name": "美团",
+      "app_type": "第三方应用",
+      "user_time": 7729,
+      "flow_count": "30GB"
+    }
+  ]
+}

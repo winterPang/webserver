@@ -1,0 +1,102 @@
+<html>
+<head>
+</head>
+<body>
+<div class="dashboard">
+    <div class="row">
+        <div class="col-xs-12 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">基于手机厂商</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh" id="refresh_client">
+                            <i class="refresh-icon icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body" style="height:300px">
+                    <div id="authen_pie" class="myEchart"></div>
+                </div>
+            </div>
+         </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">基于无线模式分类</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh" id="refresh_wireless">
+                            <i class="refresh-icon icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="sysinfo-body" style="height:300px;">
+                    <div id="wireless_pie" class="myEchart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">基于AP分类</span>
+                </div>
+                <div class="box-body">
+                    <div id="byApList" class="simple-list"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">基于SSID分类</span>
+                </div>
+                <div class="box-body">
+                    <div id="bySsidList" class="simple-list"></div>
+                </div>
+            </div>     
+        </div>
+    </div>
+</div>
+
+<!--该模块没有用到，后续删掉-->
+<div id="client_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">客户端统计</h3>
+    </div>
+    <div class="modal-body">
+        <div id="popList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div> 
+ 
+<div id="wireless_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">客户端统计</h3>
+    </div>
+    <div class="modal-body">
+        <div id="wirelessList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+
+<div id="summary_rc" class="rc-define"
+AP_HEADER="设备序列号,AP名称,5GHz客户端数量（个）,2.4GHz客户端数量（个）"
+SSID_HEADER="AC设备序列号,SSID,5GHz客户端数量（个）,2.4GHz客户端数量（个）"
+POP_HEADER="AC设备序列号,AP名称,终端MAC地址,终端IP地址,手机厂商"
+WIRE_HEADER="AC设备序列号,AP名称,终端MAC地址,终端IP地址,无线模式"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("wdashboard.summary_station");
+</script>
+

@@ -1,0 +1,20 @@
+{
+  "code": 0,
+  "message": "查询成功",
+  "data": [
+    {
+      "id": 467,
+      "devSn": "219801A13HA12C000008",
+      "devType": 0,
+      "devAlias": "dmz-msr830-1",
+      "softVer": "E0602",
+      "hardVer": " 2.0 ",
+      "status": 2,
+      "shopId": 209,
+      "devModel": "H3C MSR830",
+      "scenarioId": null,
+      "statusStr": "不在线",
+      "devTypeStr": "AC"
+    }
+  ]
+}

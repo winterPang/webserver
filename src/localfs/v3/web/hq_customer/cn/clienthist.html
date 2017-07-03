@@ -1,0 +1,39 @@
+<html>
+<head>
+    <style>
+    </style>
+</head>
+<body>
+<div class="btn_h_return" id="iBack"></div>
+<div class="col-xs-12 app-colum" debug="getPlaceInfo gethistClients">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">历史明细</span>
+        </div>
+        <div class="box-body no-height">
+            <!-- 当前筛选条件声明 -->
+            <div id="shengMing_all" style="margin-bottom:25px;">
+                <label>当前筛选条件：</label>
+                <label id="shengMing_branch" >分支（<span id="shengMing_branchValue" style="color:#4EC1B2"></span>）</label>
+                <label id="shengMing_2or1" style="width:20px;text-align:center;">|</label>
+                <label id="shengMing_portal" ><span style="color:#4EC1B2">仅认证终端</span></label>
+            </div>
+
+            <!-- slist列表 -->
+            <div id="HistoryList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+
+
+<div id="user_rc" class="rc-define"
+
+     Visitor_LIST_HEADER = "MAC地址,IP地址,接入时间,接入时长,认证方式,认证账号"
+         
+    >
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("hq_customer.clienthist");
+</script>

@@ -1,0 +1,385 @@
+<style>
+    label{
+        color:#343e4e;
+        vertical-align: -2px;
+    }
+    .mt{
+        margin-top:10px;
+    }
+    .form-horizontal .control-group {
+        display: inline-block;
+        margin-right:30px;
+    }
+    .form-horizontal .control-label {
+        text-align:left;
+        float:left;
+        padding-top:20px;
+        width: 170px;
+    }
+    .form-horizontal .controls {
+        margin-left: 180px;
+    }
+    .pl20{
+        padding-left:15px;
+    }
+    .mt20{
+        margin-top: 20px;
+    }
+    .mt15{
+        margin-top: 15px;
+    }
+    .control-content{
+        float:left;
+        width: 50px;
+        height: 50px;
+        border: 1px solid #dddddd;
+        text-align: center;
+        border-radius: 50%;
+        line-height: 50px;
+        padding: 0px;
+        margin-left: 8px;
+    }
+    a{
+        color:#22878e;
+    }
+    a:hover{
+        color:#4ec1b2;
+    }
+    .select2.select2-container .select2-selection--multiple ul {
+        position: initial;
+        padding: 0 5px;
+    }
+    .select2-container{
+        width: 240px!important;
+    }
+    .select2-container--default .select2-selection--multiple .select2-selection__choice {
+        background-color: #e4e4e4 !important;
+        border: 1px solid #aaa !important;
+        border-radius: 4px !important;
+        cursor: default !important;
+        float: left !important;
+        margin-right: 5px !important;
+        margin-top: 5px !important;
+        padding: 0 5px !important;
+    }
+    .select2.select2-container .select2-selection--multiple ul > li > span {
+        float: right;
+        margin-right: 2px;
+        margin-left: 0px;
+    }
+    .select2-container--default .select2-selection--multiple .select2-selection__rendered li {
+        list-style: none;
+        line-height: 25px;
+    }
+    .select-style{
+        margin-top: 18px;
+        width: 240px;
+        border-color: #aaaaaa!important; 
+    }
+    .form-horizontal .range{
+        margin:16px 0px 0px -33px;
+    }
+    .form-horizontal .w200{
+        width: 200px;
+    }
+    .select2-container--default.select2-container--focus .select2-selection--multiple {
+        border: solid #aaa 1px;
+        outline: 0;
+    }
+    .select2-container--default.select2-container--focus .select2-selection--multiple:focus{
+        border: solid #78cec3 1px;
+        outline: 0;
+    }
+    .select2-search__field{
+        width:240px!important;
+    }
+</style>
+<div class="dashboard container-fluid">
+    <div class="col-xs-12 app-colum left-block">
+        <div id="clientSelect" class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">Client</span>
+            </div>
+            <div class="panel-body">
+                <ul class="nav nav-tabs" role="tbalist" id="clientTab">
+                    <li class="active" tag="baseInfo"><a>Online clients</a></li>
+                    <li tag="offLineInfo"><a>Authenticated clients</a></li>
+                </ul>
+                <div class="clientSection mt" style="display:block;" id="baseInfo">
+                    <form name="baseForm" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Data to export：</label>
+                            <div class="col-md-9">
+                                <div class="control-group mt20" ng-repeat="item in stalistBasicInfo">
+                                    <input type="checkbox" name="baseInfo"  ng-checked="isChecked('clientSelect','baseInfo',item.id)" value="{{item.id}}" ng-click="updateSelection('clientSelect','baseInfo',$event,item.id)">
+                                    <label for="">{{item.shortName}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Site:</label>
+                            <div class="col-md-9">
+                                <select class="select-style" ng-name="selectShop" id="selectShop_baseInfo" placeholder="select a site" ng-model="selectedShopbaseInfo" ng-options="x for (x, y) in oSn" ng-change="getDevSn('baseInfo')">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Devices：</label>
+                            <div class="col-md-9 multi_select2">
+                                <select class="select-style" ng-name="selectDevSn" ng-model="modelDevSnbaseInfo" id="clientSelectbaseInfo" ng-options="sn for sn in baseInfoArrSn">
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-cus" ng-click="exportClient('clientSelect','baseInfo')">Export</button>
+                    </form>
+                </div>
+                <div class="clientSection mt" style="display:none;" id="offLineInfo">
+                    <form name="offLineForm" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Time range：</label>
+                            <div class="col-md-9">
+                                <select class="select-style" ng-name="selectTime" ng-model="modelTime" id="selectTime" ng-options="time for time in arrTime"></select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Site:</label>
+                            <div class="col-md-9">
+                                <select class="select-style" ng-name="selectShop" id="selectShop_offLineInfo" placeholder="select a site" ng-model="selectedShopoffLineInfo" ng-options="x for (x, y) in oSn" ng-change="getDevSn('offLineInfo')">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Devices：</label>
+                            <div class="col-md-9 multi_select2 mt15">
+                                <select class="select-style" select2="dpiOptions" ng-name="selectDevSn" ng-model="modelDevSnoffLineInfo" ng-options="sn for sn in offLineInfoArrSn" id="clientSelectauthInfo">
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-cus" ng-click="exportPortal()">Export</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 app-colum left-block">
+        <div id='apSelect' class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">AP</span>
+            </div>
+            <div class="panel-body">
+                <ul class="nav nav-tabs" role="tablist" id="apreport">
+                    <li class="active" tag="baseInfo"><a>Basic Information</a></li>
+                </ul>
+                <div class="apSection mt" style="display:block" id="baseInfo">
+                    <form name="apBasicForm" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Data to export：</label>
+                            <div class="col-md-9">
+                                <div class="control-group mt20" ng-repeat="item in apBasicInfo">
+                                    <input type="checkbox" name="baseInfo"  ng-checked="isChecked('apSelect','baseInfo',item.id)" value="{{item.id}}" ng-click="updateSelection('apSelect','baseInfo',$event,item.id)">
+                                    <label for="">{{item.shortName}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Site:</label>
+                            <div class="col-md-9">
+                                <select class="select-style" ng-name="selectShop" id="selectShop_apbaseInfo" placeholder="select a site" ng-model="selectedShopapbaseInfo" ng-options="x for (x, y) in oSn" ng-change="getDevSn('apbaseInfo')">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Devices：</label>
+                            <div class="col-md-9 multi_select2">
+                                <select class="select-style" ng-name="selectDevSn" ng-model="modelDevSnapbaseInfo" ng-options="sn for sn in apbaseInfoArrSn" placeholder="选择设备" id="apSelectedSn">
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-cus" ng-click="exportAp('apSelect','baseInfo')">Export</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 app-colum left-block">
+        <div id='dpiSelect' class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">DPI</span>
+            </div>
+            <div class="panel-body">
+                <ul class="nav nav-tabs" role="tablist" id="moduel">
+                    <li class="active" tag="GetApp"><a>Application Statistics</a></li>
+                    <li tag="GetUrl"><a>Website Statistics</a></li>
+                    <li tag="GetInterfaces"><a>User Traffic</a></li>
+                    <li tag="InterfacesStatis"><a>Interface Traffic</a></li>
+                </ul>
+                <div class="tabbox" style="display:block" id="GetApp">
+                    <form name="appForm" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Data to export：</label>
+                            <div class="col-md-9">
+                                <div class="control-group mt20" ng-repeat="item in dpi_GetApp">
+                                    <input type="checkbox" name="GetApp"  ng-checked="isChecked('dpiSelect','GetApp',item.id)" value="{{item.id}}" ng-click="updateSelection('dpiSelect','GetApp',$event,item.id)">
+                                    <label for="">{{item.shortName}}</label>
+                                </div>
+                            </div>
+                         </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 w200 control-label required">Time range：</label>
+                            <div class="col-md-8">
+                                <input type="text" name="datefilter" id="daterange_GetApp" class="daterange time-select range" placeholder="select time" ctrl="daterang" style="width:310px;" name ="clientTime" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Site:</label>
+                            <div class="col-md-9">
+                                <select class="select-style" ng-name="selectShop" id="selectShop_GetApp" placeholder="select a site" ng-model="selectedShopGetApp" ng-options="x for (x, y) in oSn" ng-change="getDevSn('GetApp')">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Devices：</label>
+                            <div class="col-md-9 multi_select2">
+                                <select class="select-style" ng-name="selectDevSn" ng-model="modelDevSnGetApp" ng-options="sn for sn in GetAppArrSn" id="dpiSelectGetApp">
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-cus" ng-click="exportDpi('dpiSelect','GetApp')">Export</button>
+                        <div class="form-group">
+                            <span class="pl20 col-sm-12">Note:You can export only one-day data.</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="tabbox" style="display:none" id="GetUrl">
+                    <form name="urlForm" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Data to export：</label>
+                            <div class="col-md-9">
+                                <div class="control-group mt20" ng-repeat="item in dpi_GetUrl">
+                                    <input type="checkbox" name="GetUrl"  ng-checked="isChecked('dpiSelect','GetUrl',item.id)" value="{{item.id}}" ng-click="updateSelection('dpiSelect','GetUrl',$event,item.id)">
+                                    <label for="">{{item.shortName}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 w200 control-label required">Time range：</label>
+                            <div class="col-md-8">
+                                <input type="text" name="datefilter" id="daterange_GetUrl" class="daterange time-select range" placeholder="select time" ctrl="daterang" style="width:310px;" name ="clientTime" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Site:</label>
+                            <div class="col-md-9">
+                                <select class="select-style" ng-name="selectShop" id="selectShop_GetUrl" placeholder="select a site" ng-model="selectedShopGetUrl" ng-options="x for (x, y) in oSn" ng-change="getDevSn('GetUrl')">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Devices：</label>
+                            <div class="col-md-9 multi_select2">
+                                <select class="select-style" ng-name="selectDevSn" ng-model="modelDevSnGetUrl" ng-options="sn for sn in GetUrlArrSn" id="dpiSelectGetUrl">
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-cus" ng-click="exportDpi('dpiSelect','GetUrl')">Export</button>
+                        <div class="form-group">
+                            <span class="pl20 col-sm-12">Note:You can export only one-day data.</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="tabbox" style="display:none" id="GetInterfaces">
+                    <form name="flowForm" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Data to export：</label>
+                            <div class="col-md-9">
+                                <div class="control-group mt20" ng-repeat="item in dpi_GetInterfaces">
+                                    <input type="checkbox" name="GetInterfaces"  ng-checked="isChecked('dpiSelect','GetInterfaces',item.id)" value="{{item.id}}" ng-click="updateSelection('dpiSelect','GetInterfaces',$event,item.id)">
+                                    <label for="">{{item.shortName}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 w200 control-label required">Time range：</label>
+                            <div class="col-md-8">
+                                <input type="text" name="datefilter" id="daterange_GetInterfaces" class="daterange time-select range" placeholder="select time" ctrl="daterang" style="width:310px;" name ="clientTime" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Site:</label>
+                            <div class="col-md-9">
+                                <select class="select-style" ng-name="selectShop" id="selectShop_GetInterfaces" placeholder="select a site" ng-model="selectedShopGetInterfaces" ng-options="x for (x, y) in oSn" ng-change="getDevSn('GetInterfaces')">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Devices：</label>
+                            <div class="col-md-9 multi_select2">
+                                <select class="select-style" ng-name="selectDevSn" ng-model="modelDevSnGetInterfaces" ng-options="sn for sn in GetInterfacesArrSn" id="dpiSelectGetInterfaces">
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-cus" ng-click="exportDpi('dpiSelect','GetInterfaces')">Export</button>
+                        <div class="form-group">
+                            <span class="pl20 col-sm-12">Note:You can export only one-day data.</span>
+                        </div>
+                    </form>
+                </div>
+                <div class="tabbox" style="display:none" id="InterfacesStatis">
+                    <form name="interForm" class="form-horizontal">
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Data to export：</label>
+                            <div class="col-md-9">
+                                <div class="control-group mt20" ng-repeat="item in dpi_InterfacesStatis">
+                                    <input type="checkbox" name="InterfacesStatis"  ng-checked="isChecked('dpiSelect','InterfacesStatis',item.id)" value="{{item.id}}" ng-click="updateSelection('dpiSelect','InterfacesStatis',$event,item.id)">
+                                    <label for="">{{item.shortName}}</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 w200 control-label required">Time range：</label>
+                            <div class="col-md-8">
+                                <input type="text" name="datefilter" id="daterange_InterfacesStatis" class="daterange time-select range" placeholder="select time" ctrl="daterang" style="width:310px;" name ="clientTime" required>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Site:</label>
+                            <div class="col-md-9">
+                                <select class="select-style" ng-name="selectShop" id="selectShop_InterfacesStatis" placeholder="select a site" ng-model="selectedShopInterfacesStatis" ng-options="x for (x, y) in oSn" ng-change="getDevSn('InterfacesStatis')">
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="pl20 col-sm-3 control-label required">Devices：</label>
+                            <div class="col-md-9 multi_select2">
+                                <select class="select-style" ng-name="selectDevSn" ng-model="modelDevSnInterfacesStatis" ng-options="sn for sn in InterfacesStatisArrSn" id="dpiSelectInterfacesStatis">
+                                </select>
+                            </div>
+                        </div>
+                        <button class="btn btn-cus" ng-click="exportDpi('dpiSelect','InterfacesStatis')">Export</button>
+                        <div class="form-group">
+                            <span class="pl20 col-sm-12">Note:You can export only one-day data.</span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="user_rc" class="rc-define"
+      title ="Data to export"
+      tips="Please select the columns to export,Please select a site,Operation failed.No data exists,Please select devices in this site."
+      time="One day,Seven days,One month"
+      clientSelect = "Basic Information,Authenticated clients"
+      clientSelect_en ="baseInfo,offLineInfo"
+      dpiSelect = "Application Statistics,Website Statistics,User Traffic,Interface Traffic"
+      dpiSelect_en ="GetApp,GetUrl,GetInterfaces,InterfacesStatis"
+      apSelect = "Basic Information"
+      apSelect_en = "baseInfo"
+      sta_info = "MAC Address,IP Address,Vendor,AP,SSID,Radio Type,Client Mode,Radio Channel,Negotiated Rate(Mbps),Tx Rate(Kbps),Rx Rate(Kbps),Username,Authentication Method,Authentication Time,portal Access Time"
+      dpi_info = "Application Name,Application Type,User MAC,Upstream Traffic,Downstream Traffic,Online Duration ,Last Visit Time,Website Name,Website Type,Discarded Traffic,Interface Name,Packets,Traffic,Traffic Percentage"
+      ap_info = "AP Name,Serial Number,AP Model,AP Group Name,MAC Address,IP Address,AP Radio,Channel,Max transmit power,Online Duration,2.4GHz Clients,5GHz Clients"
+      ssid_info = "SSID,Status,Hide SSID,VLANID,Cipher Suite,Security IE"
+      DRP_APPLYLABEL = "OK"
+      DRP_CANCELLABEL = "Cancel"
+>
+</div>

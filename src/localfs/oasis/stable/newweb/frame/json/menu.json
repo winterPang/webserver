@@ -1,0 +1,304 @@
+{
+  "retCode": 0,
+  "data": {
+    "menu": {
+      "default": [
+        {
+          "name": "首页",
+          "id": "home",
+          "sref": "global.home"
+        },
+        {
+          "name": "消息中心",
+          "sref": "global.notification.operate_log",
+          "id": "notification",
+          "tabs": [
+            {
+              "name": "告警消息",
+              "id": "warnmessage",
+              "sref": "global.notification.warnmessage",
+              "tabs": [],
+              "icon": "fa fa-warning",
+              "permission": [
+                "MONITOR_READ",
+                "MONITOR_WRITE",
+                "MONITOR_EXEC"
+              ]
+            },
+            {
+              "name": "系统消息",
+              "id": "warning",
+              "sref": "global.notification.sysMessage",
+              "tabs": [],
+              "icon": "fa fa-bell",
+              "permission": [
+                "MONITOR_READ",
+                "MONITOR_WRITE",
+                "MONITOR_EXEC"
+              ]
+            },
+            {
+              "name": "操作日志",
+              "id": "operate_log",
+              "sref": "global.notification.operate_log",
+              "tabs": [],
+              "icon": "fa fa-envelope",
+              "permission": [
+                "ALL"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "工具",
+          "sref": "global.tool.batchconf",
+          "id": "tool",
+          "tabs": [
+            {
+              "name": "配置中心",
+              "id": "batchconf",
+              "sref": "global.tool.batchconf",
+              "tabs": [],
+              "icon": "glyphicon glyphicon-wrench",
+              "permission": [
+                "ALL"
+              ]
+            },
+            {
+              "name": "批量升级",
+              "id": "batchupgrade",
+              "sref": "global.tool.batchupgrade",
+              "tabs": [],
+              "icon": "glyphicon glyphicon-circle-arrow-up",
+              "permission": [
+                "ALL"
+              ]
+            },
+            {
+              "name": "批量重启",
+              "id": "batchrestart",
+              "sref": "global.tool.batchrestart",
+              "icon": "glyphicon glyphicon-off",
+              "tabs": [],
+              "permission": [
+                "ALL"
+              ]
+            },
+            {
+              "name": "命令助手",
+              "id": "commandline",
+              "sref": "global.tool.commandline",
+              "icon": "glyphicon glyphicon-edit",
+              "tabs": [],
+              "permission": [
+                "ALL"
+              ]
+            },
+            {
+              "name": "文件系统",
+              "id": "filesystem",
+              "sref": "global.tool.filesystem",
+              "icon":"glyphicon glyphicon-folder-open",
+              "tabs": [],
+              "permission": [
+                "ALL"
+              ]
+            },
+            {
+              "name": "配置还原",
+              "id": "configrestore",
+              "sref": "global.tool.configrestore",
+              "icon":"glyphicon glyphicon-repeat",
+              "tabs": [],
+              "permission": [
+                "ALL"
+              ]
+            },
+            {
+              "name": "报表管理",
+              "id": "reportmanage",
+              "sref": "global.tool.reportmanage",
+              "icon":"glyphicon glyphicon-list-alt",
+              "tabs": [],
+              "permission": [
+                "ALL"
+              ]
+            },
+            {
+              "name": "数据下载",
+              "id": "datacenter",
+              "sref": "global.tool.datacenter",
+              "icon":"glyphicon glyphicon-save",
+              "tabs": [],
+              "permission": [
+                "ALL"
+              ]
+            },
+            {
+              "name": "设备日志",
+              "id": "eqWarning",
+              "sref": "global.tool.warning",
+              "icon": "fa fa-sticky-note",
+              "permission": [
+                "ALL"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "应用中心",
+          "id": "application",
+          "sref": "global.application.appstore",
+          "tabs": [
+            {
+              "name": "应用商城",
+              "id": "appstore",
+              "sref": "global.application.appstore",
+              "tabs": [],
+              "icon": "fa fa-shopping-cart",
+              "permission": [
+                "ALL"
+              ]
+            },
+            {
+              "name": "我的应用",
+              "id": "appmanage",
+              "sref": "global.application.appmanage",
+              "tabs": [],
+              "icon": "fa fa-briefcase",
+              "permission": [
+                "ALL"
+              ]
+            },
+            {
+              "name": "地图管理",
+              "id": "mapmanage",
+              "sref": "global.application.mapmanage_original",
+              "tabs": [],
+              "icon": "fa fa-map",
+              "permission": [
+                "ALL"
+              ]
+            },
+            {
+              "name": "位置服务",
+              "id": "location",
+              "sref": "global.application.locationmanage",
+              "tabs": [],
+              "icon": "fa fa-location-arrow",
+              "permission": [
+                "ALL"
+              ]
+            }
+          ]
+        },
+        {
+          "name": "设置",
+          "id": "setup",
+          "sref": "global.setup.message",
+          "tabs": [
+            {
+              "name": "设备",
+              "id": "devmanage",
+              "sref": "global.setup.devmanage",
+              "icon": "fa fa-desktop",
+              "permission": [
+                "ALL"
+              ]
+            },
+            {
+              "name": "场所",
+              "id": "apsiteMng",
+              "sref": "global.setup.apsiteMng",
+              "tabs": [],
+              "icon": "fa fa-archive",
+              "permission": [
+                "ALL"
+              ]
+            },
+            {
+              "name": "短信配置",
+              "id": "message",
+              "sref": "global.setup.message",
+              "tabs": [],
+              "icon": "fa fa-envelope-square",
+              "permission": [
+                "ALL"
+              ]
+            },
+            {
+              "name": "数据设置",
+              "id": "dataset",
+              "sref": "global.setup.dataset",
+              "tabs": [],
+              "icon": "fa fa-database",
+              "permission": [
+                "ALL"
+              ]
+            },
+            {
+              "name": "子账户管理",
+              "id": "account",
+              "sref": "global.setup.account_list",
+              "tabs": [],
+              "icon": "fa fa-user",
+              "permission": [
+                "ALL"
+              ]
+            },
+            {
+              "name": "个人信息",
+              "id": "information",
+              "sref": "global.setup.information",
+              "tabs": [],
+              "icon": "fa fa-user",
+              "permission": [
+                "ALL"
+              ]
+            }
+          ]
+        }
+      ],
+      "home": {
+        "permission": [
+          "SHOP_READ",
+          "SHOP_WRITE",
+          "DEVICE_READ",
+          "DEVICE_WRITE",
+          "REGION_READ",
+          "REGION_WRITE"
+        ]
+      }
+    },
+    "permission": {
+      "MSG_READ": true,
+      "MSG_WRITE": true,
+      "SHOP_READ": true,
+      "SHOP_WRITE": true,
+      "SHOP_EXEC": true,
+      "DEVICE_READ": true,
+      "DEVICE_WRITE": true,
+      "DEVICE_EXEC": true,
+      "SUBTENANT_READ": true,
+      "SUBTENANT_WRITE": true,
+      "REGION_READ": true,
+      "REGION_WRITE": true,
+      "MONITOR_READ": true,
+      "MONITOR_WRITE": true,
+      "MONITOR_EXEC": true,
+      "CONFIG_READ": true,
+      "CONFIG_WRITE": true,
+      "CONFIG_EXEC": true,
+      "OPERATION_READ": true,
+      "OPERATION_WRITE": true,
+      "OPERATION_EXEC": true,
+      "MAINTENANCE_READ": true,
+      "MAINTENANCE_WRITE": true,
+      "MAINTENANCE_EXEC": true,
+      "LOG_READ": true,
+      "LOG_WRITE": true,
+      "LOCATION_READ": true,
+      "LOCATION_WRITE": true
+    }
+  }
+}

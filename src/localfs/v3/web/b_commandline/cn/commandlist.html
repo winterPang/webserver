@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html  lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        .simple-list .slist-body.with-button {
+            margin-top: 0px;
+        }
+    </style>
+</head>
+<body>
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box">
+            <div class="box-footer">
+                <span class="title">设备信息</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="deviceList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="device_rc" class="rc-define"
+     DEVICE_LIST="设备组,设备名"></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("b_commandline.commandlist");
+</script>

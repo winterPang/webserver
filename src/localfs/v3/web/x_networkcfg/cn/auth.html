@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        table{border:1px solid gray}
+        thead>tr>td{border:1px solid gray;text-align:center;font-size:15px;color:#343e4e}
+        tbody>tr>td{border:1px solid gray;text-align:center;font-size:15px;color:#343e4e}
+        .btn.btn-info.gray
+        {
+            opacity:0.4;
+            cursor:not-allowed;
+            pointer-events:none;
+        }
+        #reDevSelect .scenes_panel{
+            top:6px;
+            left:15px;
+            position:absolute !important;
+            background:#EDF9F7 !important;
+            border:none !important;;
+
+        }
+        #reDevSelect #switchScenesBtn{
+            margin:10px 0;
+        }
+        #reDevSelect .scenes_panel_content{
+            margin-bottom:42px;
+            padding:0 !important;
+        }
+        #reDevSelect select{
+            width:100% !important;
+        }
+        #reDevSelect .form-group{
+            line-height:35px !important;
+        }
+    </style>
+</head>
+<body>
+<div class="dashboard">
+    <div class="col-xs-12 app-colum">
+        <div class="page-row xxb" id="reDevSelect">
+            <div class="col-xs-12 app-colum">
+                <div class="app-box">
+                    <div class="box-footer">
+                        <div id="scene-contain" class="change_scenes">
+                            <div class="change_scenes_trigger change_station" style="visibility:hidden;" id="change_scenes_trigger">
+                                <!--<span class="fa fa-sort-down"></span>-->
+                                <span class="glyphicon-transfer glyphicon"></span>
+                                <span class="pos" id="switch-text">设备切换</span>
+                            </div>
+                            <div class="scenes_panel ng-show" id="scenes_panel" name="scenes_panel">
+                                <div class="scenes_panel_content">
+                                    <div class="form-group hide">
+                                        <label class="col-xs-3 control-label hide"><span id="switch-shop"></span>选择设备：</label>
+                                        <div class="col-xs-9">
+                                            <select id="selectedScene" class="select"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="device-contain">
+                                        <label class="col-xs-3 control-label"><span id="switch-device"></span>：</label>
+                                        <div class="col-xs-9">
+                                            <select id="devSn" class="select"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="scenes_panel_footer">
+                                    <button class="btn btn-cus hide" id="switchScenesBtn">确认</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12 app-colum xxb">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">合作商认证</span>
+            </div>
+            <div class="box-body">
+                <div class="row" style="margin-top:25px;">
+                    <div class="col-xs-6">
+                        <div class="col-xs-5" style="font-size:17px;color:#343e4e">
+                            <span style="margin-top:5px;">腾讯认证</span>
+                            <span style="margin-top:5px;color:#fe808b; font-size: 13px;">(认证只对当前设备生效)</span>
+                            <div style="float:right;width:1px;background-color:#CFD2D5;opacity:0.6;height:34px;"></div>
+                        </div>
+                        <div class="col-xs-7">
+                            <div class="col-xs-1"></div>
+                            <div class="ctrl-btn openORclose open status float-left" id="authBtn"></div>
+                            <div class="col-xs-4" style="padding-top:6px;" id="authDescribe"></div>
+                            <div class="col-xs-4" style="color:#fe808b;cursor:pointer;margin-top:5px;"  id="changeRegisterInfo">修改认证信息</div>
+                       </div>
+                   </div>
+                   <div class="col-xs-6">
+                       <!--认证详细信息-->
+                        <div class="auth_TX row hide" id="auth_TX">
+                            <div class="row">
+                                <span style="color:#343e4e;font-size:17px">认证信息：</span>
+                            </div>
+                            <!-- 用户腾讯认证详细信息 -->
+                            <div class="row" style="color:#343e4e;font-size:14px">
+                               <div class="row">
+                                   <div class="col-xs-4">
+                                       <div class="row" style="text-align:center;color:#80878c">商户名称</div>
+                                       <div class="row" style="text-align:center;color:#80878c" id="name"></div>
+                                   </div>
+                                   <div class="col-xs-4">
+                                       <div class="row" style="text-align:center;color:#80878c">商户地址</div>
+                                       <div class="row" style="text-align:center;color:#80878c" id="address"></div>
+                                   </div>
+                                   <div class="col-xs-4">
+                                       <div class="row" style="text-align:center;color:#80878c">商户邮编</div>
+                                       <div class="row" style="text-align:center;color:#80878c" id="postcode"></div>
+                                   </div>
+                               </div>
+                               <div class="row" style="margin-top:10px;">
+                                   <div class="col-xs-4">
+                                       <div class="row" style="text-align:center;color:#80878c"> AP管理员名称</div>
+                                       <div class="row" style="text-align:center;color:#80878c" id="apName"></div>
+                                   </div>
+                                   <div class="col-xs-4">
+                                       <div class="row" style="text-align:center;color:#80878c">AP管理员电话</div>
+                                       <div class="row" style="text-align:center;color:#80878c" id="apPhone"></div>
+                                   </div>
+                                   <div class="col-xs-4">
+                                       <div class="row" style="text-align:center;color:#80878c">AP管理员邮箱</div>
+                                       <div class="row" style="text-align:center;color:#80878c" id="apEmail"></div>
+                                   </div>
+                               </div>
+                               <div class="row" style="margin-top:10px;">
+                                    <div class="col-xs-4">
+                                        <div class="row" style="text-align:center;color:#80878c">设备序列号</div>
+                                        <div class="row" style="text-align:center;color:#80878c" id="devSNS"></div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="row" style="text-align:center;color:#80878c">无线服务名称</div>
+                                        <div class="row" style="text-align:center;color:#80878c" id="ssid"></div>
+                                    </div>
+                                    <div class="col-xs-4">
+                                        <div class="row" style="text-align:center;color:#80878c">认证用户</div>
+                                        <div class="row" style="text-align:center;color:#80878c" id="userName"></div>
+                                    </div>
+                               </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--腾讯认证注册模态框-->
+    <div class="modal fade" id="authDlg">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h4>腾讯认证注册</h4>
+        </div>
+        <div class="modal-body">
+            <form class="form-horizontal form edit" style="width:800px;">
+                <div class="row">
+                    <div class="col-xs-6">
+                        <div class="form-group row">
+                            <label class="required">商户名称：</label>
+                            <input type="text" placeholder="请输入商户名称" id="business_name" name="business_name" />
+                            <label class="hide" style="color:red;" id="business_name_errorMsg">商户名称必须输入</label>
+                        </div>
+                        <div class="form-group row" style="margin-top:20px">
+                            <label class="required">商户地址：</label>
+                            <input type="text" placeholder="请输入商户地址" id="business_address" name="business_address" />
+                            <label class="hide" style="color:red;" id="business_address_errorMsg">商户地址必须输入</label>
+                        </div>
+                        <div class="form-group row" style="margin-top:20px">
+                            <label class="required">商户邮编：</label>
+                            <input type="text" placeholder="请输入商户邮编" id="business_postcode" name="business_postcode" />
+                            <label class="hide" style="color:red;" id="business_postcode_errorMsg"></label>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="form-group row">
+                            <label class="required">AP管理员名称：</label>
+                            <input type="text" placeholder="请输入AP管理员名称" id="ap_manager" name="ap_manager" />
+                            <label class="hide" style="color:red;" id="ap_manager_errorMsg">AP管理员名称必须输入</label>
+                        </div>
+                        <div class="form-group row" style="margin-top:20px">
+                            <label class="required">AP管理员电话：</label>
+                            <input type="text" placeholder="请输入AP管理员电话" id="ap_phone" name="ap_phone" />
+                            <label class="hide" style="color:red;" id="ap_phone_errorMsg"></label>
+                        </div>
+                        <div class="form-group row" style="margin-top:20px">
+                            <label class="required">AP管理员邮箱：</label>
+                            <input type="text" placeholder="请输入AP管理员邮箱" id="ap_email" name="ap_email" />
+                            <label class="hide" style="color:red;" id="ap_email_errorMsg"></label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group row" style="margin-top:50px;text-align:center;">
+                    <button type="button" class="btn btn-info gray"     id="authSubmitBtn">提交</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal" id="authCancleBtn">关闭</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</div>
+<div class="rc-define" id="auth_rc"
+     ACCOUNT_INFO  ="正在获取账户信息。"
+     GETWIFI_ERROR ="获取无线服务名称失败。"
+     NOT_TENCENT_CERTIFIED="（腾讯未认证）"
+     TENCENT_CERTIFIED_CLOSE="（腾讯已认证，未开启）"
+     TENCENT_CERTIFIED_OPEN="（腾讯已认证，已开启）"
+     CLOSE_TENCENT_CERTIFIED="确定关闭腾讯认证？"
+     OPEN_TENCENT_CERTIFIED="确定开启腾讯认证？"
+     NOT_TENCENT_REGISTER="请先完成腾讯认证注册。"
+     TENCENT_REGISTER="腾讯认证注册中。"
+     CLOSEING_TENCENT="正在关闭腾讯认证。"
+     CLOSE_SUCCESS="关闭成功。"
+     CLOSE_ERROR="关闭失败。"
+     OPENING_TENCENT="正在开启腾讯认证。"
+     OPEN_SUCCESS="开启成功。"
+     OPEN_ERROR="开启失败。"
+     TENCENT_FAIL="注册失败。"
+     TENCENT_SUCCESS="注册成功。"
+     PLATFORM="h3c"
+     POSTCODE="商户邮编必须输入"
+     POSTCODE_FORMAT="请输入正确的邮编格式"
+     PHONE="AP管理员电话必须输入"
+     PHONE_FORMAT="请输入正确的电话格式"
+     EMAIL="AP管理员邮箱必须输入"
+     EMAIL_FORMAT="请输入正确的邮箱格式"
+     OPEN_TENCENT="请先开启腾讯认证"
+     switchBtn="切换场所"
+     TIPS="设备版本低不支持此配置，请先升级设备版本"
+></div>
+</body>
+</html>
+<script type="text/javascript">
+    Utils.Pages.loadJS("x_networkcfg.auth");
+</script>

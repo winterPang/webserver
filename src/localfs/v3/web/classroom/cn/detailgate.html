@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        #scannerDiv,#scannerSerialDiv{
+            display:none
+        }
+    </style>
+</head>
+<body>
+<div class="btn_h_return" id="return"></div>
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title" id="gate_name"></span>
+            </div>
+            <div class="box-body no-height">
+                <div id="gate-detail" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hide modal fade" id="EditApDlg">
+    <form id="editAp_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required" id="editLocation_label">位置</label>
+            <div class="col-sm-9">
+                <select class="singleSelect required" id="editLocation" name="editLocation" errid="editLocation_error" ></select>
+                <label class="info-explain"></label>
+                <label class="error" id="editLocation_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required" id="apType_label">类型</label>
+            <div class="col-sm-9">
+                <select class="singleSelect required" id="apType" name="apType" errid="apType_error" ></select>
+                <label class="info-explain"></label>
+                <label class="error" id="apType_error"></label>
+            </div>
+        </div>
+        <div class="form-group" id="gateApDiv">
+            <label class="col-sm-3 control-label required" id="editgateAP_label">AP名称</label>
+            <div class="col-sm-9">
+                <select class="singleSelect required" id="editgateAP" name="editgateAP" errid="editgateAP_error" ></select>
+                <label class="info-explain"></label>
+                <label class="error" id="editgateAP_error"></label>
+            </div>
+        </div>
+        <div class="form-group" id="scannerDiv">
+            <label class="col-sm-3 control-label required ">阅读器名称</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="scanner" name="scanner" errid="scanner_error" maxlength="32"/>
+                <label class="info-explain">(1-32字符)</label>
+                <label class="error" id="scanner_error"></label>
+            </div>
+        </div>
+        <div class="form-group" id="scannerSerialDiv">
+            <label class="col-sm-3 control-label">阅读器序列号</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" id="scannerSerial" name="scannerSerial" errid="scannerSerial_error" maxlength="32"/>
+                <label class="info-explain">(1-32字符)</label>
+                <label class="error" id="scannerSerial_error"></label>
+            </div>
+        </div>
+        <div class="form-group" id="moduleDiv">
+            <label class="col-sm-3 control-label">模块ID</label>
+            <div class="col-sm-9">
+                <select class="singleSelect" id="editgateModule" name="editgateModule" errid="editgateModule_error" ></select>
+                <label class="info-explain"></label>
+                <label class="error" id="editgateModule_error"></label>
+            </div>
+        </div>
+        <div class="form-group" id="moduleSerialDiv">
+            <label class="col-sm-3 control-label">模块serialId</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" id="editgateSerial" name="editgateSerial" errid="editgateSerial_error" maxlength="32"/>
+                <label class="info-explain">(1-32字符)</label>
+                <label class="error" id="editgateSerial_error"></label>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+<div id="gate_rc" class="rc-define"
+     GATE_DETAIL="位置,类型,绑定的AP,AP serialId,模块ID,模块serialId"
+     Detail="详情"
+        ></div>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.detailgate");
+</script>

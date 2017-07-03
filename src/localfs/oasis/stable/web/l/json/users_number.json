@@ -1,0 +1,13 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 30,
+  "rows": [
+    {"name":"AP1","users_number":"1000"},
+    {"name":"AP2","users_number":"800"},
+    {"name":"AP3","users_number":"777"},
+    {"name":"AP4","users_number":"555"},
+    {"name":"AP5","users_number":"262"},
+    {"name":"AP6","users_number":"132"}
+  ]
+}

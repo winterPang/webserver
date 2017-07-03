@@ -1,0 +1,31 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">子账号管理</h3></div>
+        <div class="panel-body">
+            <button class="btn btn-cus" ng-click="addAccount()" ng-if="showHide.write" ng-disabled="tableSuccess">增加</button>
+            <div class="btn btn-cus" ng-click="refresh()" ng-disabled="tableSuccess">刷新</div>
+            <div class="form-group pull-right">
+                <button class="btn btn-cus" ng-click="search()"><span class="glyphicon glyphicon-search"></span>
+                </button>
+            </div>
+            <div class="form-group pull-right input-group">
+                <input type="text" class="form-control" placeholder="子用户名" ng-model="queryCondition" ng-keydown="enterSearch($event)">
+            </div>
+            <table bs-table="options"></table>
+            <ol class="accountList">
+                <li ng-repeat="user in userList"><a ng-click="listClick(user)">{{user.name}}</a></li>
+            </ol>
+        </div>
+    </div>
+    
+</div>
+<div class="read_rc" id="account_list_rc"
+     first-get="请求失败，请刷新重试"
+     table-title="用户名,电话,邮箱,子账户,授权,收回权限,修改,删除,账户类型"
+     delete-message="确定删除吗？"
+     revokeAuth-message="确定收回该子账户的权限吗？,该账户未授权，无需收回权限"
+     fail-message="操作失败"
+    ok="确定"
+     >
+     
+</div>

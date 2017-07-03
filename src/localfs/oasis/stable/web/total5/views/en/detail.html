@@ -1,0 +1,87 @@
+<div class="container-fluid">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div class="app-box">
+                <div class="select-footer">
+                    <span class="float-left ml25">Period：</span>
+                    <div class="time-change ml20" style="float:left;" id="total">
+                        <a id="days" class="time-link active" value="1" ng-click="clickTest($event)">Today</a>
+                        <a id="weeks" class="time-link" value="2" ng-click="clickTest($event)">One week</a>
+                        <a id="mounth" class="time-link" value="3" ng-click="clickTest($event)">One month</a>
+                        <a id="year" class="time-link" value="4" ng-click="clickTest($event)">One year</a>
+                        <span>Custom：</span>
+                        <input id="daterange" class="daterange time-select" placeholder="Select a date" ctrl="daterang">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-row xxb">
+        <div class="col-xs-12 app-colum" debug="getAdvertBySpan">
+            <div class="app-box">
+                <div class="box-footer">
+                    <span class="title">Advertisement Statistics</span>
+                </div>
+                <div class="box-body">
+                    <div class="form-group col-sm-12">
+                        <div class="radio_styles radio-group">
+                            <div class="col-sm-1">
+                                <input type="radio" name="advert-info" id="g_pv" checked ng-click="bindGroup($event)">
+                                <label for="pv">Page Views</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <input type="radio" name="advert-info" id="g_pu" ng-click="bindGroup($event)">
+                                <label for="pu">Visitors</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <input type="radio" name="advert-info" id="g_clickCount" ng-click="bindGroup($event)">
+                                <label for="clickCount">Clicks</label>
+                            </div>
+                            <div class="col-sm-1">
+                                <input type="radio" name="advert-info" id="g_ctr" ng-click="bindGroup($event)">
+                                <label for="ctr">Click Rate</label>
+                            </div>
+                        </div>
+                        <div id="adShowCount" class="col-xs-12" style="height:300px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-row xxb">
+        <div class="col-xs-12 app-colum" debug="getAdMessage">
+            <div class="app-box">
+                <div class="box-footer">
+                    <span class="title">Summary</span>
+                </div>
+                <div class="box-body no-height">
+                    <div bs-table="alloptions"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-row xxb">
+        <div class="col-xs-12 app-colum" debug="getAdMessage">
+            <div class="app-box no-height default-bottom">
+                <div class="box-footer">
+                    <span class="title">Visited Pages</span>
+                </div>
+                <div class="box-body no-height">
+                    <div bs-table="singleoptions"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>  
+<div id="total_rc"     
+     url="URL"
+     stayTimeAver="Average Stay Length"
+     pv="Page Views"
+     pu="Visitors"
+     clickCount="Clicks"
+     visitorTimeAver="Average Stay Length"
+     ctr="Clicks">
+</div>

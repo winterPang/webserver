@@ -1,0 +1,37 @@
+<html>
+<head>
+</head>
+<body>
+<div id="dashboard_detail">
+    <dl class="headline">
+        <dt id="back_to_index"><a class="back" href="#M_Dashboard2"></a><span class="title">Details</span></span></dt>
+    </dl>
+
+    <div id="detail_page">
+        <ul class="nav nav-tabs">
+            <li>
+                <a href="#aps_detail" id="APs_detail" data-toggle="tab">AP(<span class="head-count" id="CountAp">0</span>)</a>
+            </li>
+            <li>
+                <a href="#ssid_detail" id="Wlans_detail" data-toggle="tab">SSID(<span class="head-count" id="CountSSID">0</span>)</a>
+            </li>
+            <li>
+                <a href="#client_detail" id="Client_detail" data-toggle="tab">Client(<span class="head-count" id="CountClient">0</span>)</a>
+            </li>
+            <li>
+                <a href="#utilization_detail" id="System_detail" data-toggle="tab">System Utilization<!-- (<span id="cpu_utilization" class="head-count" id="CountSystem">100%</span>) --></a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content">
+        <div class="tab-pane" id="aps_detail"></div>
+        <div class="tab-pane" id="ssid_detail"></div>
+        <div class="tab-pane" id="client_detail"></div>
+        <div class="tab-pane" id="utilization_detail"></div>
+    </div>
+</div>
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+	Utils.Pages.loadJS("WDashboard.index");
+</script>

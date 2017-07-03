@@ -1,0 +1,32 @@
+<html>
+<head>
+</head>
+<body>
+<div>
+    <div class="dashboard" id="onlineUser_container">
+        <div class="row">
+            <div id="aps_box_r1" class="col-xs-12 app-colum">
+                <div class="app-box" id="aplist_page">
+                    <div class="sysinfo-footer">
+                        <div class="col-xs-12">
+                            <span class="title">用户列表</span>
+                        </div>
+                    </div>
+                    <div class="row-nohover sysinfo-body no-height" >
+                        <div style="padding-bottom:8px;"></div>
+                        <div id="usersList" class="mlist"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="users_detail_rc" class="rc-define"
+         ALLAP_HEADER="用户名,地址,电话,邮箱,公司地址, 购买AC数量,购买AP数量,状态"
+         SATUS = "在线,离线"
+            ></div>
+</div>
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+	Utils.Pages.loadJS("WDashboard.ssid_detail");
+</script>

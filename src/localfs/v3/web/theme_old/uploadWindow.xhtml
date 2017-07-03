@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:t="http://myfaces.apache.org/tomahawk"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:imch="http://www.huawei-3com.com/jsf/html"
+	xmlns:imcf="http://www.huawei-3com.com/jsf/core"
+	xmlns:imcc="http://java.sun.com/jsf/composite/imcc"
+	xmlns:imce="http://www.huawei-3com.com/jsf/ext"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:uam="http://www.h3c.com/uam/core">
+<h:head>
+  <f:loadBundle basename="com.h3c.o2o.auth.LocalStrings" var="o2ouammsgs" />
+    <script type="text/javascript"  src="resources/jqueryui-bootstrap/jquery-1.9.0.min.js"></script>
+    <script>
+      $(function () {
+          //上传路径
+    	  var pathName = getUrlParams('pathName');
+      });
+
+      function getUrlParams(paramName) {
+          var re = new RegExp("(^|\\?|&amp;)"+ paramName + "=([^&amp;]*)(&amp;|$)",'g');
+          re.exec(window.location.href);
+          return RegExp.$2;
+      }
+    </script>
+    <style>
+    .snmpList_div {
+      width:100%;
+      overflow: auto;
+    }
+    
+    .btn-min70{
+	    min-width: 70px !important;
+	}
+    .text-overflow{
+        display:block;
+        width:20em;
+        word-break:keep-all;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
+      }
+    </style>
+  </h:head>
+  <h:body>
+    <imcf:beanMethod beanName="o2ouamThemeTempletBean" methodName="initUploadParam"/>
+    <h:form id="mainForm"  enctype="multipart/form-data">
+        <h:panelGrid cellpadding="2"
+                  cellspacing="2"
+                  width="100%"
+                  columns="3"
+            columnClasses="cmn_wdfixed_10,cmn_wdper_20," styleClass="dg_editTable">
+          <h:outputText value=""></h:outputText>
+          <p:outputLabel value="#{o2ouammsgs['o2ouam.theme.draw.upload.select']}" for="fileUpload" />
+          <p:fileUpload
+                id="fileUpload"
+                required="true"
+                mode="simple"
+                update="messages"
+                value="#{o2ouamThemeTempletBean.uploadFile}"
+                styleClass="text-overflow"/>
+        </h:panelGrid>
+        <h:panelGrid cellpadding="2" id="messageGrid"
+                  cellspacing="2"
+                  width="100%"
+                  columns="2"
+            columnClasses="cmn_wdfixed_10,cmn_wdper_90" styleClass="dg_editTable">
+            <h:outputText value=""></h:outputText>
+            <p:message for="fileUpload" styleClass="cmn_errorMsgFont"/>
+      </h:panelGrid>
+
+      <h:panelGrid columns="2" cellspacing="0" id="button" styleClass="dtl_bottom" align="center">
+         <p:commandButton id="upLoadFile"
+                value="#{o2ouammsgs['button.ok']}"
+                rendered="#{visitorBean.visitorCtrlHidden}"
+                action="#{o2ouamThemeTempletBean.onUpload}"
+                ajax ="false"/>
+           <p:commandButton id="cancel"
+                 value="#{o2ouammsgs['button.cancel']}"
+                 immediate="true"
+                 ajax="false"
+                 onclick="window.close();return false;"
+                  />
+      </h:panelGrid>
+    </h:form>
+  </h:body>
+</html>

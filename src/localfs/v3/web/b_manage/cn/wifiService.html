@@ -1,0 +1,572 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <style>
+        div.main-content {
+            margin: 25px;
+        }
+
+        div.title {
+            border-bottom: 2px solid #e7e7e9;
+            margin-bottom: 20px;
+            padding-bottom: 6px;
+        }
+
+        div.title h2 {
+            font-size: 18px;
+            color: #343e4e;
+            display: inline;
+        }
+
+        div.title span {
+            margin-left: 5px;
+        }
+
+        div.bg-img {
+            background: url(../x_networkcfg/images/icon.png) no-repeat -1268px -33px;
+            position: absolute;
+            width: 78px;
+            height: 75px;
+            background-color: #F9F9F9;
+            background-size:1500px 1490px;
+        }
+
+        div.bg-img.wifi-open {
+            background: url(../x_networkcfg/images/icon-1024.png) no-repeat -1268px -32px;
+            background-color: #F9F9F9;
+        }
+
+        div.bg-img.wifi-close {
+            background: url(../x_networkcfg/images/icon-1024.png) no-repeat -961px -32px;
+            background-color: #F9F9F9;
+        }
+
+        div.ssid-operate {
+            margin-left: 88px;
+            height: 75px;
+            background-color: #F9F9F9;
+            border-radius: 5px;
+        }
+
+        div.ssid-info {
+            color: #343e4e;
+            margin: 12px 0px;
+            font-size: 17px;
+            font-weight: normal;
+            width: 300px;
+            height: 48px;
+            margin-left: 21px;
+        }
+        .ssid-ctl{width: 40%; float:left;margin: 21px 0px;}
+
+        div.dynamic-margin {
+            margin: 21px 0px;
+            height: 30px;
+            background-color: #CFD2D5;
+            min-width: 1px;
+            float: right;
+            width: 1px;
+            border-bottom: 1px solid #CFD2D5;
+        }
+
+        div.openORclose {
+            cursor: pointer;
+            background: url(../x_networkcfg/images/icon.png) no-repeat -1418px -64px;
+            width: 84px;
+            height: 31px;
+            margin: 0px 0px 0px 39px;
+        }
+
+        div.openORclose.close {
+            background: url(../x_networkcfg/images/icon.png) no-repeat -1418px -64px;
+        }
+
+        div.openORclose.open {
+            background: url(../x_networkcfg/images/icon.png) no-repeat -1531px -64px;
+        }
+
+        div.modify {
+            margin: 0px 0px 0px 2%;
+        }
+
+        button.modify {
+            height: 31px;
+            width: 80px;
+            min-width: 80px;
+            border-radius: 5px;
+            margin: 0px 39px;
+        }
+
+        #manage-wifi {
+            margin: 0px 0px 35px 0px;
+        }
+
+        #accreditation {
+            height: 32px;
+            width: 0px;
+            border-radius: 5px;
+            float: right;
+            position: relative;
+            top: -18px;
+            margin-right: 0px;
+            min-width: 95px;
+        }
+
+        div.slide {
+            margin-bottom: 10px;
+        }
+
+        #business-wifi {
+            margin-top: 55px;
+        }
+
+        button.btn.btn-primary.indexbtn {
+            font-size: 14px;
+            color: #fff;
+            /*background-color: #78cec3;*/
+            /*border:1px #78cec3 solid;*/
+            background-color: #78cec3;
+            border:none;
+        }
+
+        button.btn.btn-primary.indexbtn:hover {
+            color: #fff;
+            /*background-color: #4ec1b2;*/
+            background-color: #4ec1b2;
+            /*border-color:#78cec3;*/
+        }
+
+        form.modal {
+            width: 690px;
+        }
+
+        div.auth-width{
+            height: 65px;
+            margin: 20px auto;
+            text-align: center;
+        }
+        #auth-manage {
+            padding: 0px;
+        }
+
+        #auth-manage li {
+            display: inline;
+            margin: 0px 9%;
+        }
+
+        div.form-body {
+            float: left;
+            position: relative;
+            margin: 10px 10px;
+            margin-right:15px;
+            width: 150px;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+        div.form-body:nth-child(3){
+            margin-right:10px;
+        }
+
+        div.form-title {
+            position: absolute;
+            top: -10px;
+            left: 0;
+            margin: 0px auto;
+            right: 0;
+            padding: 0px 5px;
+            color: #343e44;
+            font-size: 14px;
+            background: #fff;
+        }
+
+        div.form-content {
+            border-top: 2px solid #e7e7e9;
+            color: #80878c;
+            font-size: 13px;
+            width: 190px;
+        }
+
+        p.text-modal{
+            clear: both;
+            margin:20px 0;
+            text-align: justify;
+            display: block;
+            width:190px;
+        }
+
+        div.icon {
+            width: 65px;
+            height: 65px;
+            cursor: default;
+        }
+
+        div.wechart-icon {
+            background: url(../x_networkcfg/images/1.png) no-repeat -134px -47px;
+        }
+
+        div.onekey-icon {
+            background: url(../x_networkcfg/images/1.png) no-repeat -274px -47px;
+        }
+
+        div.message-icon {
+            background: url(../x_networkcfg/images/1.png) no-repeat -415px -47px;
+        }
+
+        div.icon-content {
+            margin: 10px 0px;
+        }
+
+        div.button {
+            width: 77px;
+            height: 30px;
+            margin-left: 25px;
+            background: url(../x_networkcfg/images/1.png) no-repeat -135px -153px;
+            cursor: pointer;
+        }
+        div.button.closed {
+            background: url(../x_networkcfg/images/1.png) no-repeat -274px -153px;
+        }
+        button.cancelbtn {
+            font-size: 14px;
+            color: #80878c;
+            background-color: #e7e7e9;
+            border-color: #e7e7e9;
+        }
+        #auth-manage {
+            padding: 0px;
+        }
+
+        #auth-manage li {
+            display: inline;
+            margin: 0px 9%;
+        }
+
+        div.form-body {
+            float: left;
+            position: relative;
+            margin: 10px 10px;
+            margin-right:50px;
+            width: 150px;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+        }
+        div.form-body:nth-child(3){
+            margin-right:10px;
+        }
+
+        div.form-title {
+            position: absolute;
+            top: -10px;
+            left: 0;
+            margin: 0px auto;
+            right: 0;
+            padding: 0px 5px;
+            color: #343e44;
+            font-size: 14px;
+            background: #fff;
+            width:87px;
+        }
+
+        div.form-content {
+            border-top: 2px solid #e7e7e9;
+            color: #80878c;
+            font-size: 13px;
+        }
+
+        div.icon {
+            width: 65px;
+            height: 65px;
+            cursor: default;
+        }
+
+        div.wechart-icon {
+            background: url(../x_networkcfg/images/1.png) no-repeat -134px -47px;
+        }
+
+        div.onekey-icon {
+            background: url(../x_networkcfg/images/1.png) no-repeat -274px -47px;
+        }
+
+        div.message-icon {
+            background: url(../x_networkcfg/images/1.png) no-repeat -415px -47px;
+        }
+
+        div.icon-content {
+            margin: 10px 0px;
+        }
+
+        div.button {
+            width: 77px;
+            height: 30px;
+            margin-left: 25px;
+            background: url(../x_networkcfg/images/1.png) no-repeat -135px -153px;
+            cursor: pointer;
+        }
+        div.button.closed {
+            background: url(../x_networkcfg/images/1.png) no-repeat -274px -153px;
+        }
+        button.cancelbtn {
+            font-size: 14px;
+            color: #80878c;
+            background-color: #e7e7e9;
+            border-color: #e7e7e9;
+        }
+        #set{
+            background-color: #78cec3;
+            color:#fff;
+        }
+        #set:hover{
+            background-color: #4ec1b2;
+        }
+        #close{
+            background-color: #f5f5f5;
+            color:#80878c;
+            margin-right: 0px;
+        }
+        #close:hover{
+            background-color: #e7e7e9;
+        }
+        @media (max-width:1246px){
+            div.ssid-info{
+                width:257px;
+            }
+            div.openORclose{
+                margin: 0px 0px 0px 17px;
+
+            }
+            .col-sm-2.ctrl-btn{
+                float:left;
+
+            }
+            .btn.btn-primary.modify.indexbtn{
+                margin: 1px 39px;
+                margin: 0;
+                margin-left: 40px;
+            }
+            .ssid-ctl {
+                width: 49%;
+            }
+        }
+        @media (max-width:987px){
+            div.ssid-operate{
+                height:117px;
+            }
+            .content div.bg-img{
+                display:none;
+            }
+            .dynamic-margin{
+                display:none;
+            }
+            .ssid-ctl{
+                width:61%;
+                margin: -3px -2px;
+                margin-bottom: 12px;
+
+            }
+            div.openORclose{
+                margin: 0px 0px 0px 17px;
+                float:left;
+            }
+            button.modify{
+                margin: 1px 39px;
+            }
+        }
+        div.form-content > div:nth-child(3) > span {
+            width: 43px;
+        }
+
+        div.form-content > div:nth-child(4) > span {
+            display: inline-block;
+            width: 43px;
+        }
+        div.form-content > div:nth-child(4) > span:first-letter {
+            display: inline-block;
+            margin-right: 13px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="col-xs-12 app-colum" style="min-width:550px;">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">服务绑定</span>
+        </div>
+        <div class="box-body no-height" style="padding: 0px;">
+            <div class="main-content" style="min-width:410px;">
+                <div id="manage-wifi">
+                    <div class="title">
+                        <h2>内部Wi-Fi</h2>
+                            <span>
+                                可以通过内部Wi-Fi访问并管理小小贝。
+                            </span>
+                    </div>
+                    <div>
+                        <div id="XXB-MSR_02" class="slide" spName="sp_manage_00">
+                            <div class="bg-img wifi-open">
+                            </div>
+                            <div class="ssid-operate">
+                                <div style="width:40%;min-width:280px;float:left">
+                                    <div class="ssid-info" style="float:left;">
+                                        Wi-Fi名称: <span class="ssidName">Xiaoxiaobei</span>
+                                        <br> 加密: <span class="securityMode">否</span>
+                                    </div>
+                                    <div class="dynamic-margin" style="background-color: #80878c; opacity: 0.5"></div>
+                                </div>
+                                <div class="ssid-ctl" style="">
+                                    <div class="col-sm-2 ctrl-btn openORclose open status"></div>
+                                    <button class="btn btn-primary modify indexbtn" href="x_networkcfg.addwlan" wifi-type="manage-wifi">修改</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="business-wifi">
+                    <button class="btn btn-primary indexbtn" id="accreditation" style="font-size :14px; color: white">认证方式</button>
+                    <div class="title">
+                        <h2>商业Wi-Fi</h2>
+                            <span>
+                                可以通过商业Wi-Fi向客户端推送您的定制广告。
+                            </span>
+                    </div>
+
+                    <div>
+                        <div id="XXB-ADV_01" class="slide" spName="sp_visitor_01">
+                            <div class="bg-img wifi-close">
+                            </div>
+                            <div class="ssid-operate">
+                                <div style="width:40%;min-width:280px;float:left">
+                                    <div class="ssid-info" style="float:left;">
+                                        Wi-Fi名称: <span class="ssidName">Xiaoxiaobei_Guest_01</span>
+                                        <br> 加密: <span class="securityMode">否</span>
+                                    </div>
+                                    <div class="dynamic-margin" style="background-color: #80878c; opacity: 0.5"></div>
+                                </div>
+                                <div  class="ssid-ctl">
+                                    <div class="col-sm-2 ctrl-btn openORclose status"></div>
+                                    <button class="btn btn-primary modify indexbtn" href="x_networkcfg.addwlan" wifi-type="business-wifi">修改</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="XXB-ADV_02" class="slide" spName="sp_visitor_02">
+                            <div class="bg-img wifi-close">
+                            </div>
+                            <div class="ssid-operate">
+                                <div style="width:40%;min-width:280px;float:left">
+                                    <div class="ssid-info" style="float:left;">
+                                        Wi-Fi名称: <span class="ssidName">Xiaoxiaobei_Guest_02</span>
+                                        <br> 加密: <span class="securityMode">否</span>
+                                    </div>
+                                    <div class="dynamic-margin" style="background-color: #80878c; opacity: 0.5"></div>
+                                </div>
+                                <div  class="ssid-ctl">
+                                    <div class="col-sm-2 ctrl-btn openORclose status"></div>
+                                    <button class="btn btn-primary modify indexbtn" href="x_networkcfg.addwlan" wifi-type="business-wifi">修改</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="XXB-ADV_03" class="slide" spName="sp_visitor_03">
+                            <div class="bg-img wifi-close">
+                            </div>
+                            <div class="ssid-operate">
+                                <div style="width:40%;min-width:280px;float:left">
+                                    <div class="ssid-info" style="float:left;">
+                                        Wi-Fi名称: <span class="ssidName">Xiaoxiaobei_Guest_03</span>
+                                        <br> 加密: <span class="securityMode">否</span>
+                                    </div>
+                                    <div class="dynamic-margin" style="background-color: #80878c; opacity: 0.5"></div>
+                                </div>
+                                <div  class="ssid-ctl">
+                                    <div class="col-sm-2 ctrl-btn openORclose status"></div>
+                                    <button class="btn btn-primary modify indexbtn" href="x_networkcfg.addwlan" wifi-type="business-wifi">修改</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form class="modal fade modal-super dashboard in hide" id="accredDlg" style="width: 710px !important;">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">认证管理</h3>
+    </div>
+    <div class="modal-body">
+        <div class="form-body">
+            <div class="form-title" style="margin-left: 50px;width: 87px;">微信连Wi-Fi</div>
+            <div class="form-content">
+
+                <div class="auth-width">
+                    <div class="icon wechart-icon"></div>
+                </div>
+                <p class="text-modal">
+                    宾客通过使用微信提供的“扫一扫微信连Wi-Fi”方式进行认证。<!--帮助-->
+                </p>
+                <div>
+                    <span>公众号:</span>
+                    <select style="width: 120px;">
+                        <option>公众号</option>
+                        <option>关闭</option>
+                    </select>
+                </div>
+                <div>
+                    <span>门店:</span>
+                    <select style="width: 120px;">
+                        <option>门店</option>
+                        <option>关闭</option>
+                    </select>
+                </div>
+                <!-- <div class="button" authType='wechart' style="margin-top:30px;margin-left:60px;"></div> -->
+            </div>
+        </div>
+        <div class="form-body">
+            <div class="form-title" style="margin-left: 57px;width: 67px;">一键认证</div>
+            <div class="form-content">
+                <div class="auth-width">
+                    <div class="icon onekey-icon"></div>
+                </div>
+                <p class="text-modal">
+                    宾客关联商业Wi-Fi后，通过点击浏览器推送的广告页面上的上网按钮进行认证。
+                </p>
+            </div>
+            <div class="button closed" authType='onekey' style="margin-top:0px;margin-left:60px;"></div>
+        </div>
+        <div class="form-body">
+            <div class="form-title" style="margin-left: 57px;width: 67px;">短信认证</div>
+            <div class="form-content">
+                <div class="auth-width">
+                    <div class="icon message-icon"></div>
+                </div>
+                <p class="text-modal">
+                    通过手机短信验证码的方式进行宾客认证。
+                </p>
+                <div class="button closed" authType='message' style="margin-top:36px;margin-left:60px;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Save" id="set" style="margin-right:15px;min-width:80px;">
+            确定
+        </a>
+        <button class="btn btn-primary cancelbtn" dlgtype="Close" id="close" data-dismiss="modal"style="min-width:80px;" >
+            取消
+        </button>
+    </div>
+</form>
+<div id="index_rc" class="rc-define"
+     SECURITY_MODE="否,是"
+     Alipay_HEADER="支付宝账号,AppID,AppSECRET,TOKEN"
+     SUCCESS="配置成功"
+     PENDING="正在下发配置">
+</div>
+</body>
+
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("b_manage.wifiService");
+</script>

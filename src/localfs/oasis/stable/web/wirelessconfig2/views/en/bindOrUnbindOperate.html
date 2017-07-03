@@ -1,0 +1,138 @@
+<div class="container-fluid" style="position:relative">
+
+
+    <div class="loading" ng-if="loading">
+        <label class="" ng-bind="message"></label>
+        <img src="images/icon_waiting_54x54.gif">
+    </div>
+
+
+    <div class="btn_h_return" ng-click="return()"></div>
+
+
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div class="app-box no-height">
+                <div class="box-footer">
+                    <!-- AP/APGroup radio按钮切换 -->
+                    <div class="form-group col-sm-12" id="btn_Radio_div">
+                        <div class="" style="margin-top:10px;">
+                            <input type="radio" name="btn_Radio" id="APGroup_Radio" checked>
+                            <label for="APGroup_Radio" style="margin-right:30px;">AP groups</label>
+
+                            <input type="radio" name="btn_Radio" id="AP_Radio" >
+                            <label for="AP_Radio" style="margin-right:30px;">APs</label>
+                        </div>
+                    </div>
+                </div>
+
+                    
+                <div class="box-body no-height" style="padding:0px 20px;">
+                    <!-- AP Group部分 -->
+                    <div id="APGroup_div">
+                        <div class="col-xs-12 app-colum left-block"> 
+                            <div class="app-box no-bk-color"> 
+                                <div class="box-footer"> 
+                                    <span class="title">Bound AP Groups</span> 
+                                </div> 
+                                <div class="sysinfo-body app-box-slist"> 
+                                    <!-- 解绑按钮 -->
+                                    <div class="btn btn-cus" ng-click="unbind_APGroup_Event()">Unbind</div>
+                                    <!-- 已绑定列表 -->
+                                    <div bs-table="table_bindAPGroupStatus_stList"></div> 
+                                </div> 
+                            </div>      
+                        </div>
+                                        
+
+                        <div class="col-xs-12 app-colum left-block"> 
+                            <div class="app-box no-bk-color"> 
+                                <div class="box-footer"> 
+                                    <span class="title">Unbound AP Groups</span> 
+                                </div> 
+                                <div class="sysinfo-body app-box-slist"> 
+                                    <!-- 绑定按钮 -->
+                                    <div class="btn btn-cus" ng-click="bind_APGroup_Event()">Bind</div>
+                                    <!-- 未绑定列表 -->
+                                    <div bs-table="table_unbindAPGroupStatus_stList"></div> 
+                                </div> 
+                            </div>      
+                        </div>                                                
+                    </div>
+                    <!-- AP部分 -->
+                    <div id="AP_div">
+                        <div class="col-xs-12 app-colum left-block"> 
+                            <div class="app-box no-bk-color"> 
+                                <div class="box-footer"> 
+                                    <span class="title">Bound APs</span> 
+                                </div> 
+                                <div class="sysinfo-body app-box-slist"> 
+                                    <!-- 解绑按钮 -->
+                                    <div class="btn btn-cus" ng-click="unbind_AP_Event()">Unbind</div>
+                                    <!-- 已绑定列表 -->
+                                    <div bs-table="table_bindAPStatus_stList"></div> 
+                                </div> 
+                            </div>      
+                        </div>
+
+                        <div class="col-xs-12 app-colum left-block"> 
+                            <div class="app-box no-bk-color"> 
+                                <div class="box-footer"> 
+                                    <span class="title">Unbound APs</span> 
+                                </div> 
+                                <div class="sysinfo-body app-box-slist"> 
+                                    <!-- 绑定按钮 -->
+                                    <div class="btn btn-cus" ng-click="bind_AP_Event()">Bind</div>
+                                    <!-- 未绑定列表 -->
+                                    <div bs-table="table_unbindAPStatus_stList"></div> 
+                                </div> 
+                            </div>      
+                        </div>
+                        
+                    </div>                    
+                </div>
+            </div>
+        </div>
+    </div> 
+
+
+</div>
+
+
+    <div id="RC" class="rc-define"
+        stBindOrUnbindAPGroup_Text= "AP Group Name,Description,Models"
+        stBindOrUnbindAP_Text= "AP Name,Serial Number,AP Model,Radios,AP Group Name"
+        getDataFailed= "Failed to obtain binding information for this service template."
+
+        mustChooseAPGroup= "Please select an AP group."
+        mustNeedModelAPGroup= "AP groups without an AP model cannot be unbound. Please select another one."
+        unbindAPGroupOK= 'Unbinding AP Groups succeeded. Please synchronize the configuration later to view the most recent binding information.'
+        unbindAPGroupFail3= "Unbinding AP Groups failed because the connection timed out."
+        unbindAPGroupFail4= "Unbinding AP Groups failed because the main connection was broken down."
+        unbindAPGroupFailOther= 'Unbinding AP Groups failed.'
+
+        mustNeedModelAPGroupBind= "AP groups without an AP model cannot be bound. Please select another one."
+        bindAPGroupOK= 'Binding AP Groups succeeded. Please synchronize the configuration later to view the most recent binding information.'
+        bindAPGroupFailLimit= "Binding AP Groups failed. The maximum number of service templates supported by the radio already reached."
+        bindAPGroupFail3= "Binding AP Groups failed because the connection timed out."
+        bindAPGroupFail4= "Binding AP Groups failed because the main connection was broken down."
+        bindAPGroupFailOther= 'Binding AP Groups failed.'
+
+        mustChooseAP= "Please select an AP."
+        unbindAPFailOK= 'Unbinding APs succeeded. Please synchronize the configuration later to view the most recent binding information.'
+        unbindAPFailNeedApsn= "The device runs on a low version. APs without a serial number cannot be unbound. Please select another one."
+        unbindAPFail3= "Unbinding APs failed because the connection timed out."
+        unbindAPFail4= "Unbinding APs failed because the main connection was broken down."
+        unbindAPFailOther= "Unbinding APs failed."
+
+        bindAPFailOK= 'Binding APs succeeded. Please synchronize the configuration later to view the most recent binding information.'
+        bindAPFailNeedApsn= "The device runs on a low version. APs without a serial number cannot be bound. Please select another one."
+        bindAPFailLimit= "Binding APs failed. The maximum number of service templates supported by the radio already reached."
+        bindAPFail3= "Binding APs failed because the connection timed out."
+        bindAPFail4= "Binding APs failed because the main connection was broken down."
+        bindAPFailOther= "Binding APs failed."
+
+        Processing="Processing"
+        
+    >
+    </div>

@@ -1,0 +1,57 @@
+/**
+ * Created by liuyanping lkf6877 on 2017/6/03.
+ */
+/**
+ * Created by liuyanping lkf6877 on 2017/6/03.
+ */
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  font-family: "Microsoft YaHei", Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  /*color: @oasis-color;*/
+  background-color: #efefef;
+}
+ul,
+ol {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+input {
+  outline: none;
+  padding-left: 10px;
+  height: 30px;
+}
+.mr0 {
+  margin-right: 0;
+}
+.mt15 {
+  margin-top: 15px;
+}
+.mt20 {
+  margin-top: 20px;
+}
+/*滚动条美化css 适合WebKit引擎的浏览器如chrome、oprea、Safari等*/
+::-webkit-scrollbar {
+  width: 16px;
+}
+::-webkit-scrollbar-track,
+::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  border: 5px solid transparent;
+}
+::-webkit-scrollbar-track {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2) inset;
+}
+::-webkit-scrollbar-thumb {
+  min-height: 20px;
+  background-clip: content-box;
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.2) inset;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}

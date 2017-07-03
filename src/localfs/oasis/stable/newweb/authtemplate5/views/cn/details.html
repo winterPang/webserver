@@ -1,0 +1,265 @@
+<div class="form-horizontal toggle-block page authtemplate5">
+    <div class="toggle-body">
+        <form name="toggle_form" class="form edit" autocomplete="off">
+            <div class="toggle-tool-bar" ng-if="permission.write">
+                <span class="del-icon" title="删除" ng-click="del(auth.authCfgTemplateName)"></span>
+            </div>
+            <bs-radio init="radioInit">
+                <bs-item tittle="一键上网" sign="1"></bs-item>
+                <bs-item tittle="帐号认证" sign="2">
+                    <div class="container-fluid" style="position: relative">
+                        <p class="tab-title"><span class="title">帐号配置</span><span class="cut-off"></span></p>
+                            <!--一键上网否显示内容-->
+                            <ul class="login-pane" ng-show="auth.authType == 2" ng-click="switchCfg($event)">
+                                <li class="login-item" ng-class="{checked: currentCfg === 0}">
+                                    <span class="item-img msg"></span>
+                                    <p class="item-title">短信登录</p>
+                                    <span class="cut-off" style="width:120px"></span>
+                                    <p class="item-status">{{auth.isEnableSms ? '已开启' : '关闭'}}</p>
+                                    <p class="item-set">设置</p>
+                                </li>
+                                <li class="login-item" ng-class="{checked: currentCfg === 1}">
+                                    <span class="item-img weacc"></span>
+                                    <p class="item-title">微信公众号认证</p>
+                                    <span class="cut-off" style="width:120px"></span>
+                                    <p class="item-status">{{auth.isEnableWeixin ? '已开启' : '关闭'}}</p>
+                                    <p class="item-set">设置</p>
+                                </li>
+                                <li class="login-item" ng-class="{checked: currentCfg === 2}">
+                                <span class="item-img wechat"></span>
+                                <p class="item-title">微信连WI-FI</p>
+                                <span class="cut-off" style="width:120px"></span>
+                                <p class="item-status">{{auth.isWeixinConnectWifi ? '已开启' : '关闭'}}</p>
+                                <p class="item-set">设置</p>
+                                </li>
+                                <li class="login-item" ng-class="{checked: currentCfg === 3}">
+                                <span class="item-img account"></span>
+                                <p class="item-title">固定帐号登录</p>
+                                <span class="cut-off" style="width:120px"></span>
+                                <p class="item-status">{{auth.isEnableAccount ? '已开启' : '关闭'}}</p>
+                                <p class="item-set">设置</p>
+                                </li>
+                            </ul>
+                            <div class="cfg-pane" ng-hide="currentCfg === -1">
+                                <div class="arrow-def" ng-class="['arrow-msg','arrow-acc','arrow-wechat','arrow-auth'][currentCfg]">
+                                    <b class="top"><i class="top-arrow1"></i><i class="top-arrow2"></i></b>
+                                </div>
+                                <a class="close" style="display: inline" ng-click="paneClose()"><span>×</span></a>
+                                <div class="cfg-body">
+                                    <div ng-show="currentCfg === 0" id="msgCfg" class="form-group">
+                                        <div class="col-sm-12">
+                                            <label class="col-sm-2 control-label">短信认证</label>
+                                            <div class="col-sm-10 is-horizon">
+                                                <div class="xb-input xb-checkbox">
+                                                    <input class="switch input-element ng-valid ng-dirty ng-valid-parse ng-touched ng-empty" id="msgSwitch" type="checkbox" ng-model="auth.isEnableSms">
+                                                    <span class="icon-switch" ng-class="{checked: auth.isEnableSms}"></span>
+                                                    <label class="input-label" for="msgSwitch"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12">
+                                            <label class="col-sm-2 control-label">记住手机号</label>
+                                            <div class="col-sm-2">
+                                                <div class="xb-input xb-checkbox">
+                                                    <input class="switch input-element ng-valid ng-dirty ng-valid-parse ng-touched ng-empty" id="remPhone" type="checkbox"  ng-model="auth.isEnableMacBind">
+                                                    <span class="icon-switch" ng-class="{checked: auth.isEnableMacBind}"></span>
+                                                    <label class="input-label" for="remPhone"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12" ng-show="auth.isEnableMacBind">
+                                            <label class="col-sm-2 control-label">手机号保留时长</label>
+                                            <div class="col-sm-6" >
+                                                <input type="text" class="digits big" placeholder="1-365&nbsp;天" name="bindenabletime" ng-model="auth.BIND_ENABLE_TIME" number-range="1,365">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div ng-show="currentCfg === 1" id="accountCfg" class="form-group">
+                                        <div class="col-sm-12">
+                                            <label class="col-sm-2 control-label">微信公众号认证</label>
+                                            <div class="col-sm-10 is-horizon">
+                                                <div class="xb-input xb-checkbox">
+                                                    <input class="switch input-element ng-valid ng-dirty ng-valid-parse ng-touched ng-empty" id="accSwitch" type="checkbox" ng-model="auth.isEnableWeixin">
+                                                    <span class="icon-switch" ng-class="{checked: auth.isEnableWeixin}"></span>
+                                                    <label class="input-label" for="accSwitch"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12" ng-if="auth.isEnableWeixin == 1">
+                                            <label class="col-sm-2 control-label">请选择公众号</label>
+                                            <div class="col-sm-10 is-horizon">
+                                                <select ng-disabled="!permission.write" class="col-sm-2" name="pubmessage" ng-model="auth.pubmessage"
+                                                        ng-options="pub.name as pub.name for pub in pubmessage">
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div ng-show="currentCfg === 2" id="weChatCfg" class="form-group">
+                                        <div class="col-sm-12">
+                                            <label class="col-sm-2 control-label">微信连Wi-Fi</label>
+                                            <div class="col-sm-10 is-horizon">
+                                                <div class="xb-input xb-checkbox">
+                                                    <input class="switch input-element ng-valid ng-dirty ng-valid-parse ng-touched ng-empty" id="weSwitch" type="checkbox" ng-model="auth.isWeixinConnectWifi">
+                                                    <span class="icon-switch" ng-class="{checked: auth.isWeixinConnectWifi}"></span>
+                                                    <label class="input-label" for="weSwitch"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12" ng-if="auth.isWeixinConnectWifi == 1">
+                                            <label class="col-sm-2 control-label">请选择门店</label>
+                                            <div class="col-sm-10">
+                                                <select ng-disabled="!permission.write" class="col-sm-2" name="store" ng-model="auth.store"
+                                                        ng-options="s.shop_id as s.shop_name for s in storeList">
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-12" ng-if="auth.isWeixinConnectWifi == 1">
+                                            <label class="col-sm-2 control-label"> 强制关注</label>
+                                            <div class="col-sm-10 is-horizon">
+                                                <div class="xb-input xb-checkbox">
+                                                    <input class="switch input-element ng-valid ng-dirty ng-valid-parse ng-touched ng-empty" id="auth_forcedAttention" type="checkbox" ng-model="auth.isForcedAttention">
+                                                    <span class="icon-switch" ng-class="{checked: auth.isForcedAttention}"></span>
+                                                    <label class="input-label" for="auth_forcedAttention"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div ng-show="currentCfg === 3" id="authCfg" class="form-group">
+                                        <div class="col-sm-12">
+                                            <label class="col-sm-2 control-label">固定帐号认证</label>
+                                            <div class="col-sm-10 is-horizon">
+                                                <div class="xb-input xb-checkbox">
+                                                    <input class="switch input-element ng-valid ng-dirty ng-valid-parse ng-touched ng-empty" id="authSwitch" type="checkbox" ng-model="auth.isEnableAccount">
+                                                    <span class="icon-switch" ng-class="{checked: auth.isEnableAccount}"></span>
+                                                    <label class="input-label" for="authSwitch"></label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </bs-item>
+                <!--Common -->
+                <div class="container-fluid common" ng-click="switchCfg($event)">
+                    <p class="tab-title"><span class="title">认证策略</span><span class="cut-off"></span></p>
+                    <div class="col-sm-6 response-block">
+                        <!--认证模板名称-->
+                        <div class="form-group" style="display: none">
+                            <label class="col-sm-3 control-label">认证模板名称</label>
+                            <div class="col-md-8">
+                                <input type="text" class="string big" disabled="disabled" ng-model="auth.authCfgTemplateName" placeholder="1-64字符或者1-21个中文" style="border: none;">
+                                <!--<label class="info-explain">（1-64字符或者1-21个中文）</label>-->
+                            </div>
+                        </div>
+                        <!--允许上网时长 验证：必填-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">允许上网时长</label>
+                            <div class="col-md-9">
+                                <input type="text" class="string big" placeholder="1-1440" ng-model="auth.online_time" name="ONLINE_MAX_TIME" number-range="1,1440" ng-disabled="!permission.write">
+                                <label class="info-explain">（分钟）</label>
+                                <div ng-show="toggle_form.ONLINE_MAX_TIME.$dirty" ng-messages="toggle_form.ONLINE_MAX_TIME.$error">
+                                    <label ng-message="numberRange" class="error" style="display: inline-block;">请输入1-1440之间的数字。</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--闲置切断流量-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">闲置切断流量</label>
+                            <div class="col-md-9">
+                                <input type="text" class="string big" placeholder="1-1024000" ng-model="auth.IDLE_CUT_FLOW" name="IDLE_CUT_FLOW" number-range="1,1024000" ng-disabled="!permission.write">
+                                <label class="info-explain">（字节）</label>
+                                <div ng-show="toggle_form.IDLE_CUT_FLOW.$dirty" ng-messages="toggle_form.IDLE_CUT_FLOW.$error">
+                                    <label ng-message="numberRange" class="error" style="display: inline-block;">请输入1-1024000之间的数字。</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--是否免认证，如果是，显示下面内容，否隐藏-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">再次连接免认证</label>
+                            <div class="col-md-9 is-horizon">
+                                <div class="col-md-3">
+                                    <div class="xb-input xb-radio">
+                                        <input type="radio" id="feelauth1" name="feelauth" class="input-element" value="1" ng-model="auth.no_sensation" ng-disabled="!permission.write">
+                                        <span class="input-icon radio-icon" ng-class="{'checked':auth.no_sensation == 1}" ></span>
+                                        <label class="input-label" for="feelauth1"></label>
+                                    </div>
+                                    <label for="feelauth1">开启</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="xb-input xb-radio">
+                                        <input type="radio" id="feelauth2" name="feelauth" class="input-element" value="0" ng-model="auth.no_sensation" ng-disabled="!permission.write">
+                                        <span ng-class="{'checked':auth.no_sensation == 0}" class="input-icon radio-icon"></span>
+                                        <label class="input-label" for="feelauth2"></label>
+                                    </div>
+                                    <label for="feelauth2">关闭</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-if="auth.no_sensation == 1">
+                            <label class="col-sm-3 control-label">推送广告页</label>
+                            <div class="xb-input xb-checkbox">
+                                <input class="switch input-element ng-valid ng-dirty ng-valid-parse ng-touched ng-empty" id="pushAdSwitch" type="checkbox" ng-model="auth.MAC_TRIGER_PUSH_AD">
+                                <span class="icon-switch" ng-class="{checked: auth.MAC_TRIGER_PUSH_AD}"></span>
+                                <label class="input-label" for="pushAdSwitch"></label>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-show="auth.no_sensation == 1">
+                            <label class="col-sm-3 control-label">免认证时长
+                                <span class="toggle" ng-click="show_auth_time = !show_auth_time">
+                                    <i class="icon-detail"></i>
+                                </span>
+                            </label>
+                            <div class="col-md-9 Learn-MAC" >
+                                <div class="Learn-Time">
+                                    <input type="text" class="digits big" name="unauthtime" placeholder="1-365" ng-model="auth.NO_SENSATION_TIME" number-range="1,365" ng-disabled="!permission.write">
+                                    <label class="info-explain">（天）</label>
+                                </div>
+                                <label class="info-help" style="margin-top: 5px" ng-show="show_auth_time">说明：通过认证的用户在免认证期内上线无需重复认证。</label>
+                                <div ng-show="toggle_form.unauthtime.$dirty" ng-messages="toggle_form.unauthtime.$error">
+                                    <label ng-message="numberRange" class="error" style="display: inline-block;">请输入1-365之间的数字。</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 response-block">
+                        <!--成功后跳转路径 验证：URL maxlength：128-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" style="text-align: left">认证成功后跳转
+                                <span class="toggle" ng-click="show_wifi = !show_wifi">
+                                <i class="icon-detail"></i></span></label>
+                            <div class="col-md-9">
+                                <input type="url" class="string big" placeholder="http:// 或 https://" name="URL_AFTER_AUTH" ng-model="auth.URL_AFTER_AUTH" ng-maxlength="128" ng-disabled="!permission.write">
+                                <div ng-show="toggle_form.URL_AFTER_AUTH.$dirty" ng-messages="toggle_form.URL_AFTER_AUTH.$error">
+                                    <label ng-message="url" class="error" style="display: inline-block;">请输入正确的路径。</label>
+                                    <label ng-message="maxlength" class="error" style="display: inline-block;">不能超过128位。</label>
+                                </div>
+                                <label class="info-help" ng-show="show_wifi" style="margin-top: 5px">默认配置www.h3c.com，可以修改。<br/>该项设置对“微信连Wi-Fi”认证方式不生效。</label>
+                            </div>
+                        </div>
+                        <!--闲置切断时长-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" style="text-align: left">闲置切断时长
+                                <span class="toggle" ng-click="show_warn = !show_warn">
+                                <i class="icon-detail"></i></span>
+                            </label>
+                            <div class="col-md-9">
+                                <input type="text" class="string big" placeholder="30" ng-model="auth.IDLE_CUT_TIME" name="IDLE_CUT_TIME" number-range="0,{{auth.online_time}}" ng-disabled="!permission.write">
+                                <label class="info-explain">（分钟）</label>
+                                <label class="info-help" ng-show="show_warn" style="margin-top: 5px">闲置切断时长不能超过允许上网时长。<br/>配置为0时，闲置切断功能关闭。</label>
+                                <div ng-show="toggle_form.IDLE_CUT_TIME.$dirty" ng-messages="toggle_form.IDLE_CUT_TIME.$error">
+                                    <label ng-message="numberRange" class="error" style="display: inline-block;">请输入小于上网时长的数字。</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </bs-radio>
+            <!--保存或取消修改-->
+            <div class="form-actions bottom" ng-if="permission.write">
+                <button class="btn but but-apy" ng-click="modify()" ng-disabled="toggle_form.$invalid">确定</button>
+                <button class="btn but but-can" ng-click="reset()">重置</button>
+            </div>
+        </form>
+    </div>
+</div>

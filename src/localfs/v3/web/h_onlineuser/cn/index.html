@@ -1,0 +1,36 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height default-bottom">
+            <div class="box-footer">
+                <span class="title">设备管理</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="onlineuser_list" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="onlineuser_rc" class="rc-define"
+     MANAGE_ITEM2 = "账号,手机号,认证方式,终端IP地址,接入时间,接入时长,详细信息"
+     ONLINE = "在线"
+     OFFLINE = "下线"
+     LOCATION = "5分钟29秒"
+     FRESH = "刷新"
+     AUTNENTICATE = "一键认证"
+        ></div>
+
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_onlineuser.index");
+</script>

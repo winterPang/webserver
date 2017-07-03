@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div class="modal-dialog hide" id ="content">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" id="close" class="close" aria-label="Close">
+                    <span aria-hidden="true"></span>
+                </button>
+                <h4 class="modal-title">确认提示</h4>
+            </div>
+            <div class="modal-body" id="rebootMsg">
+                <p>是否立即重启设备sn？未保存的配置将在重启后丢失.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="saveReboot">
+                    <i class="btn-icon fa fa-floppy-o"></i>
+                    保存配置并重启
+                </button>
+                <button type="button" class="btn btn-primary" id="reboot">
+                    <i class="btn-icon fa fa-power-off"></i>
+                    直接重启
+                </button>
+                <button type="button" id="closeBtn" class="btn btn-default" >
+                    <i class="btn-icon fa fa-times"></i>
+                    取消
+                </button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+
+    <div id="reboot_info_rc" class="rc-define"
+         VER_ERROR = "配置已保存正在重启中请耐心等待,保存配置失败,重启失败,其他错误"
+         REBOOT_ERRCODE_0 = "正在重启，请耐心等待"
+         REBOOT_ERRCODE_1 = "保存配置失败"
+         REBOOT_ERRCODE_2 = "重启失败"
+         REBOOT_ERRCODE_3 = "主连接没找到"
+         REBOOT_ERRCODE_4 = "权限不足"
+         REBOOT_ERRCODE_9 = "其他错误"
+    ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("reboot.index");
+</script>

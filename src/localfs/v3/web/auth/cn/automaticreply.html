@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+	<div style="border:1px solid #dedddd;margin:20px 5px 0px 5px;height:40px;">用户在微信号中输入内容匹配的关键字时，自动回复给用户的对应配置的消息。
+	</div>
+	<div class="col-xs-12 app-colum" style="margin-top:12px;">
+    <div class="app-box no-height">
+        <div class="box-body no-height">
+            <div id="automaticreplyList" class="simple-list"></div>
+        </div>
+    </div>
+     <button class="btn btn-primary" id="registBtn1">返回</button>
+</div>
+<div id="auto_rc" class="rc-define"
+    Automaticreply_HEADER = "关键字,匹配方式,消息名称"
+        ></div>
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("auth.automaticreply");
+</script>

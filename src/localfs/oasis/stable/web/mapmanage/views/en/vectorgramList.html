@@ -1,0 +1,21 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">Map Management</h3>
+        </div>
+        <div class="panel-body">
+            <div class="mb15">
+                <input type="radio" name="map" id="original" value="original" ui-sref="global.content.application.mapmanage_original">
+                <label for="original" class="mr25">Original map</label>
+                <input type="radio" name="map" id="bitmap" value="bitmap" ui-sref="global.content.application.mapmanage_bitmap">
+                <label for="bitmap" class="mr25">Bitmap</label>
+                <input type="radio" name="map" id="vectorgram" value="vectorgram" checked>
+                <label for="vectorgram">Vector map</label>
+            </div>
+            <div bs-table="option"></div>
+        </div>
+    </div>
+    <div id="vectorgramListRc"
+         vectorgram-table-header="Name,Description,Applied Site,Address,Remaining Days,Expiration Date">
+    </div>
+</div>

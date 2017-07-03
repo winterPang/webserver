@@ -1,0 +1,97 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.bg {
+    background: url(image/background.jpg);
+    //background-color: #AFBAFF;
+    width: 100%;
+    height: 100%;
+    background-color: #9cf0c8;
+    positon: relative;
+}
+.content-block {
+    display: block;
+    text-align:center;
+    /*background-color: #02a4ef;*/
+    color: #144A08;
+    /*height: 231px;*/
+    height: 491px;
+    width: 400px;
+    margin: auto;
+    position: absolute;
+    top: -20px;
+    left: 0;
+    right: 0;
+}
+.logo{
+    background: url(image/loginlogo.png) -227px 1px;
+    width: 200px;
+    height: 260px;
+    margin: auto;
+    /*padding-top: 5px;*/
+    margin-top: -50px;
+}
+
+.success_info {
+    height: 212px;
+    width: 400px;
+    display: block;
+    font-size: 16px;
+    background-color: rgba(48, 48, 48, 0.12);
+}
+.bind_info {
+    display: block;
+    padding-top: 40px;
+}
+.cloud_info {
+    //margin-top: 15px;
+    padding-top: 15px;
+    display: block;
+}
+.button {
+    width: 240px;
+    height: 40px;
+    background-color: #4ec1b2;
+    color: #fff;
+    font-size: 14px;
+    margin-top: 30px;
+}
+
+.copy_right {
+    margin-top: 5px;
+    height: 14px;
+    font-size: 12px;
+    display: block;
+}
+@media screen and (max-width:800px) {
+    .bg {
+        background: none;
+        background-color: #fff;
+    }
+
+    .content-block {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .success_info {
+        width: 100%;
+        text-align:center;
+        width: 100%;
+        padding-top: 20px;
+    }
+
+    input[type="button"]{
+        width: 100%;
+        background-color: #4ec1b2;
+        color: #000;
+        font-size: 16px;
+        display: block;
+    }
+
+    .copy_right {
+        display: none;
+    }
+}

@@ -1,0 +1,622 @@
+<html>
+<head>
+<style type="text/css">
+.dashboard .counter.no-margin,.no-margin{
+    margin-left:0;
+}
+#StuList {
+    text-align: center;
+    vertical-align: top;
+    border-right: 1px solid #e7e7e9;
+    min-height: 240px;
+}
+#StuList .stu-item{
+    /*display: inline-block;*/
+    /*width:50px;*/
+    /*height:60px;*/
+    /*margin-right: 18px;*/
+    /*margin-bottom: 20px;*/
+    /*position: relative;*/
+    /*vertical-align: top;*/
+    display: inline-block;
+    width: 58px;
+    min-height: 70px;
+    margin-right: 18px;
+    margin-bottom: 20px;
+    position: relative;
+    vertical-align: top;
+}
+#StuList .stu-icon{
+    width: 45px;
+    height:45px;
+    display: block;
+    cursor: pointer;
+    background:url(../frame/css/image/smartschool.png) -318px -430px;
+}
+#StuList .on-site .stu-icon{
+    display:inline-block;
+    background:url(../frame/css/image/smartschool.png) -318px -358px;
+}
+
+/*举手状态*/
+#StuList .stu-hand {
+    position: absolute;
+    top: -14px;
+    right: -5px;
+    width: 29px;
+    height: 32px;
+    display:none;
+}
+
+/*举手状态*/
+#StuList .active .stu-hand {
+    display:block;
+    color: #333e4e;
+    text-align: center;
+    background:url(../frame/css/image/smartschool.png) -398px -408px;
+}
+
+#StuList .stu-name{
+    word-break:break-all;
+    display:inline-block;
+}
+#StuList .count{
+    position: absolute;
+    width: 25px;
+    height: 29px;
+    top: -10px;
+    right: -7px;
+    font-size: 16px;
+    color: #FFF;
+    line-height: 18px;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.app-box .box-body.first{
+    overflow: hidden;
+    height: 515px;
+    padding: 20px 30px;
+}
+
+div.xb-link {
+    color: #2E8BB3;
+    text-decoration: underline;
+    cursor: pointer;
+    line-height: 35px;
+}
+
+a.xb-link.active, a.xb-link:hover {
+    color: #4ec1b2;
+    text-decoration: none;
+}
+
+a.xb-link{
+    color: #2E8BB3;
+    text-decoration: underline;
+    cursor: pointer;
+    line-height: 35px;
+}
+
+#ClassPanel{
+}
+
+#ClassPanel .class-link{
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.classline {
+    margin: 30px 0px 20px 20px;
+    width: 97%;
+}
+.leg-panel .leg-row{
+    font-size:15px;
+    line-height:20px;
+    border: none;
+}
+
+.leg-panel .leg-row .leg-icon {
+    height: 30px;
+    width: 50px;
+    color: #4EC1B2;
+    font-weight: bolder;
+    font-style: italic;
+    font-size: 20px;
+    border-radius: 0;
+    padding-top:10px;
+
+}
+label.number-title {
+    font-size: 14px;
+}
+
+.leg-panel .leg-row .leg-title{
+    text-align:center;
+    padding-top:10px;
+}
+
+.page-row.leg-row.leg-border{
+    border-bottom: 1px solid #D6DCE3;
+}
+
+.text-center{
+    text-align:center;
+}
+
+span.leg-null {
+    height: 30px;
+    width: 50px;
+    color: #4EC1B2;
+    font-weight: bolder;
+    font-style: italic;
+    font-size: 18px;
+    border-radius: 0;
+    padding: 0 10px 0 0;
+}
+
+.xxb .health_box .cir {
+    background: #4ec1b2;
+}
+
+.xxb .health_box .boxname {
+    height: 28px;
+    border-bottom: none;
+}
+
+.xxb .health_box .boxcont {
+    display: block;
+    /*height: 115px;*/
+}
+</style>
+</head>
+<body>
+
+<div class="page-row dashboard">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height no-bk-color wrap_c">
+            <div class="box-footer ">
+                <span class="title">数据汇总</span>
+                <div class="text-right link-container">
+                    <a type="button" class="link-detail" id="Filter">
+                       筛选
+                    </a>
+                    |
+                    <a type="button" class="link-receive" id="data_detail" href="javascript:;">
+                        <span>数据说明</span>
+                    </a>
+                </div>
+            </div>
+            <div class="box-body first no-height">
+                <div class="col-xs-12 classdetail">
+                    <div class="col-xs-4 align-center ">
+                        <label class="number-title">平均课堂举手次数</label>
+                        <br/>
+                        <span class="counter no-margin" id="HandsUp">0</span><span id="TimeUnit" class="c-number-title">次</span>
+                    </div>
+
+                    <div class="col-xs-4 align-center ">
+                        <label class="number-title">平均课堂参与度</label>
+                        <br/>
+                        <span class="counter no-margin" id="Participation">0</span><span id="TimeUnit" class="c-number-title">%</span>
+                    </div>
+
+                    <div class="col-xs-4 align-center ">
+                        <label class="number-title">平均课堂活跃度</label>
+                        <br/>
+                        <span class="counter no-margin" id="Liveness">0</span><span id="TimeUnit" class="c-number-title"></span>
+                    </div>
+                </div>
+                <div class="col-xs-12 classline">
+                    <hr>
+                </div>
+                <div class="page-row dashboard col-xs-12 classlist xxb">
+                    <div class="col-xs-6 app-colum">
+                        <div class="content-title counter " style="border-bottom:none;text-align:center;font-size: 24px;">
+                            <h2 style="font-size: 24px;">班级活跃度前五名</h2>
+                        </div>
+                        <div class="box-body">
+                            <div id="terminaltype_pie-Legend" class="panel leg-panel" style="width: 90%; height: 100%;">
+                                <div class="page-row leg-row">
+                                    <div class="col-xs-2  text-center">
+                                        <span class="leg-icon" style="background:#fff;"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title">年级</span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title">班号</span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title">课堂活跃度</span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title">课堂参与度</span>
+                                    </div>
+                                </div>
+                                <div class="page-row leg-row leg-border">
+                                    <div class="col-xs-2  text-center">
+                                        <span class="leg-icon">Top1</span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Grade0"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Class0"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Live0"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Parti0"></span>
+                                    </div>
+                                </div>
+                                <div class="page-row leg-row leg-border">
+                                    <div class="col-xs-2  text-center">
+                                        <span class="leg-icon">Top2</span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Grade1"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Class1"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Live1"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Parti1"></span>
+                                    </div>
+                                </div>
+                                <div class="page-row leg-row leg-border">
+                                    <div class="col-xs-2  text-center">
+                                        <span class="leg-icon">Top3</span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Grade2"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Class2"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Live2"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Parti2"></span>
+                                    </div>
+                                </div>
+                                <div class="page-row leg-row leg-border">
+                                    <div class="col-xs-2  text-center">
+                                        <span class="leg-icon">Top4</span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Grade3"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Class3"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Live3"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Parti3"></span>
+                                    </div>
+                                </div>
+                                <div class="page-row leg-row leg-border">
+                                    <div class="col-xs-2  text-center">
+                                        <span class="leg-icon">Top5</span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Grade4"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Class4"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Live4"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Parti4"></span>
+                                    </div>
+                                </div>
+                                <div class="page-row leg-row leg-border">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6 app-colum">
+                        <div class="content-title counter "  style="border-bottom:none;text-align:center;">
+                            <h2 style="font-size: 24px;">学生活跃度前五名</h2>
+                        </div>
+                        <div class="box-body">
+                            <!--<div id="StuTopList" class="simple-list"></div>-->
+                            <div id="terminaltype_pie-Legend" class="panel leg-panel" style="width:80%;height:100%;">
+                                <div class="page-row leg-row">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-2  text-center">
+                                        <span class="leg-icon" style="background:#fff;"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title">姓名</span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title">年级</span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title">班号</span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title">日均举手次数</span>
+                                    </div>
+                                </div>
+                                <div class="page-row leg-row leg-border">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-2  text-center">
+                                        <span class="leg-icon">Top1</span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Name0"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title"><span id="SGrade0"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title"><span id="SClass0"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="SHandup0"></span>
+                                    </div>
+                                </div>
+                                <div class="page-row leg-row leg-border">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-2  text-center">
+                                        <span class="leg-icon">Top2</span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Name1"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title"><span id="SGrade1"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title"><span id="SClass1"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="SHandup1"></span>
+                                    </div>
+                                </div>
+                                <div class="page-row leg-row leg-border">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-2  text-center">
+                                        <span class="leg-icon">Top3</span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Name2"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title"><span id="SGrade2"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title"><span id="SClass2"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="SHandup2"></span>
+                                    </div>
+                                </div>
+                                <div class="page-row leg-row leg-border">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-2  text-center">
+                                        <span class="leg-icon">Top4</span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Name3"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title"><span id="SGrade3"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title"><span id="SClass3"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="SHandup3"></span>
+                                    </div>
+                                </div>
+                                <div class="page-row leg-row leg-border">
+                                    <div class="col-xs-1"></div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-icon">Top5</span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="Name4"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title"><span id="SGrade4"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title"><span id="SClass4"></span>
+                                    </div>
+                                    <div class="col-xs-2 text-center">
+                                        <span class="leg-title" id="SHandup4"></span>
+                                    </div>
+                                </div>
+                                <div class="page-row leg-row leg-border">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-row dashboard">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height no-bk-color wrap_c">
+            <div class="box-footer ">
+                <span class="title">课堂统计</span>
+                <div class="text-right link-container">
+                    <a class="link-detail" >
+                        周期
+                    </a>
+                    ：
+                    <a type="button" class="xb-link xb-time" id="hour" style="font-size:15px;">一小时</a>
+                    <a type="button" class="xb-link xb-time" id="day" style="font-size:15px;">一天</a>
+                    <a type="button" class="xb-link xb-time" id="week" style="font-size:15px;">一周</a>
+                    <a type="button" class="xb-link xb-time" id="month" style="font-size:15px;">一月</a>
+                    <a class="link-detail" style="margin-left:5px;">
+                        当前班级
+                    </a>
+                    ：
+                    <div type="button" class="xb-link" id="CurClass" style="font-size:15px;display:inline-block;">
+                        <a id="CurGrade" style="color: inherit;">一年级</a>
+                        <a id="CurClass1" style="color: inherit;">1</a><a style="color: inherit;">班</a>
+                    </div>
+                    &nbsp; &nbsp; &nbsp;
+                    <a type="button" class="xb-link" id="actualClass" style="font-size:15px;">课堂实况</a>
+                </div>
+            </div>
+            <div class="box-body no-height">
+                <div class="col-xs-10">
+                    <div id="StuList"></div>
+                </div>
+                    
+                <div class="col-xs-2">
+                    <div class="align-center">
+                        <label class="number-title">到课人数</label>
+                        <br/>
+                        <span class="counter no-margin" id="StepCount">0</span>
+                    </div>
+
+                    <div class="align-center">
+                        <label class="number-title">当前课堂参与度</label>
+                        <br/>
+                        <span class="counter no-margin" id="Active">0</span>
+                    </div>
+
+                    <div class="align-center">
+                        <label class="number-title">当前课堂活跃度</label>
+                        <br/>
+                        <span class="counter no-margin" id="Participant">0</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<form class="modal fade modal-super dashboard in hide" id="Para_dlg">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">数据说明</h3>
+    </div>
+    <div class="modal-body xxb">
+        <div class="health_box" id="Bandwidth-speed">
+            <span class="boxname"><span class="cir"></span>平均课堂举手次数公式</span>
+            <div class='boxcont'>
+                <div class="form-group">
+                    <span>    平均课堂举手次数 = 总的举手次数 / 班级数</span>
+                </div>
+            </div>
+            <span class="boxname"><span class="cir"></span>平均课堂参与度公式</span>
+            <div class='boxcont'>
+                <div class="form-group">
+                    <span>    平均课堂参与度 = 总的举手人次 / 总人数 </span>
+                </div>
+            </div>
+            <span class="boxname"><span class="cir"></span>平均课堂活跃度公式</span>
+            <div class='boxcont'>
+                <div class="form-group">
+                    <span>    平均课堂活跃度 = 举手次数 / 总人数</span>
+                </div>
+            </div>
+            <span class="boxname"><span class="cir"></span>课堂活跃度公式</span>
+            <div class='boxcont'>
+                <div class="form-group">
+                    <span>    班级课堂活跃度 = 班级举手人次 / 班级总人数</span>
+                </div>
+            </div>
+            <span class="boxname"><span class="cir"></span>课堂参与度公式</span>
+            <div class='boxcont'>
+                <div class="form-group">
+                    <span>    班级课堂活跃度 = 班级举手次数 / 班级总人数</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+
+<div class="hide modal fade" id="Filter_dlg">
+    <form class="form-horizontal form" id="Filter_form">
+        <div class="form-group">
+            <label class="col-sm-2 control-label">年级</label>
+            <div class="col-sm-10">
+                <select id="GradeSelect" class="singleSelect" allowClear="true" name=""></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">班级</label>
+            <div class="col-sm-10">
+                <select id="ClassSelect" class="singleSelect" allowClear="true" name=""></select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-2 control-label">时间</label>
+            <div class="col-sm-10">
+                <div class="col-sm-2">
+                    <input type="radio" id="TR0" name="TimeRange" value="0" checked="checked"/>
+                    <label for="TR0">一小时</label>
+                </div>
+                <div class="col-sm-2">
+                    <input type="radio" id="TR1" name="TimeRange" value="1"/>
+                    <label for="TR0">一天</label>
+                </div>
+                <div class="col-sm-2">
+                    <input type="radio" id="TR2" name="TimeRange" value="2" />
+                    <label for="TR1">一周</label>
+                </div>
+                <div class="col-sm-2">
+                    <input type="radio" id="TR3" name="TimeRange" value="3" />
+                    <label for="TR2">一月</label>
+                </div>
+                <div class="col-sm-2">
+                    <input type="radio" id="TR4" name="TimeRange" value="4" />
+                    <label for="TR2">一年</label>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<div class="hide modal fade" id="ChangeClass_dlg">
+    <form class="form-horizontal form" id="ChangeClass_form">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">年级</label>
+            <div class="col-sm-9">
+                <select class="big singleSelect required" id="grade_name"  errid="grade_name_error"></select>
+                <label class="error" id="grade_name_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">班号</label>
+            <div class="col-sm-9">
+                <select class="big singleSelect required" id="class_name" errid="class_name_error"></select>
+                <label class="error" id="class_name_error"></label>
+            </div>
+        </div>
+    </form>
+</div>
+    
+<div id="c_statistics_rc" class="rc-define"
+    STU_TITLE="姓名,年级,班号,日均举手次数"
+    CLASS_TITLE="年级,班号,课堂活跃度,课堂参与度"
+    Filter_TITLE="筛选"
+    CHANGE_TITLE="切换班级"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.classstatisc");
+</script>

@@ -1,0 +1,431 @@
+<style  type="text/css">
+    .page-row{
+        position: relative;
+    }
+    .app-box{
+        margin-left:3px;
+        margin-right:3px
+    }
+    #pie4{
+        padding-left:20px;
+    }
+    .app-box .box-body{
+        height: 691px;
+        padding: 15px 30px !important;
+    }
+    .forbidden-click{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+    }
+    .forbidden-click.on{
+        z-index:999
+    }
+    .forbidden-click.off{
+        z-index: -999;
+    }
+    input.daterange{
+        border: #ccc solid 1px;
+        width: 165px;
+        height: 30px;
+    }
+    @media screen and (max-width:1023px) {
+        .app-box .box-body{
+            height: 100%;
+            padding: 10px 30px;
+        }
+        #pie1{
+            width: 100%;
+        }
+        #pie2{
+            width: 100%;
+        }
+        #pie3{
+            width: 100%;
+        }
+        #pie4{
+            width: 100%;
+            padding-left: 0;
+        }
+        #probe_Ssid_all{
+            width: 100%;
+        }
+    }
+    @media screen and (max-width:1279px) {
+        .app-box .box-body{
+            height: 100%;
+            padding: 10px 30px;
+        }
+
+        #pie4{
+            width: 100%;
+            padding-left: 0;
+        }
+        #probe_Ssid_all{
+            width: 100%;
+        }
+    }
+    @media screen and (min-width:1400px) {
+        .app-box .box-body{
+            height: 100%;
+            padding: 10px 30px;
+        }
+        #pie4{
+            width: 65%;
+            padding-left: 0;
+        }
+        #probe_Ssid_all{
+            width: 35%;
+        }
+    }
+    
+    /*New style css*/
+    .ml20 {
+        margin-left: 20px;
+    }
+    .mr20 {
+        margin-right: 20px;
+    }
+    .ml7 {
+        margin-left: 0px;
+    }
+    .mb20 {
+        margin-bottom: 20px;
+    }
+    .pb20 {
+        padding-bottom: 20px;
+    }
+    .right {
+        float: right;
+    }
+    .pointer {
+        cursor: pointer;
+        color: #4CBDCE;
+    }
+    #helpcontent .modal-body ul li span {
+        font-weight: 600;
+    }
+    ul p {
+        text-indent: 2em;
+        margin-bottom: 10px;
+    }
+    .modal-super {
+        width: 800px;
+        margin-left: -400px;
+    }
+    .calender_icon {
+        background: url(../frame/images/calender_icon.png) no-repeat -1px -3px;
+        background-repeat: no-repeat;
+        display: inline-block;
+        vertical-align: middle;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        cursor: pointer;
+    }
+    .calender-n {
+        color: #fff;
+        display: block;
+        margin: -11px 0 0 0;
+    }
+    .select-time {
+        vertical-align: middle;
+        height: 40px;
+        line-height: 40px;
+    }
+    .select-time input[type="radio"] {
+        margin-left: 10px;
+        cursor: pointer;
+    }
+    .select-time label {
+        cursor: pointer;
+    }
+    .app-box .top-box{
+        border-bottom: #dedddd solid 1px;
+        padding: 10px 0 10px 0px;
+        box-shadow: 1px 1px 3px #dedddd;
+    }
+    #daterange {
+        margin-left: 2px;
+        padding-left: 2px;
+        height: 25px;
+        width: 165px;
+    }
+    .cancel-actions.hover-action {
+        background-position: -663px -42px;
+        cursor: pointer;
+    }
+    .cancel-actions.hover-action:hover {
+        background-position: -593px -42px;
+        cursor: pointer;
+    }
+    .cancel-actions {
+        position: static;
+        margin: 12px 15px 0 0;
+        display: inline-block;
+        float: right;
+        background: url(../frame/images/xb-icons.png) no-repeat;
+        height: 16px;
+        width: 18px;
+    }
+    .custom-table table td {
+        height: 40px;
+        text-align: center;
+        padding: 5px;
+    }
+    .custom-table table{
+        /*table-layout:fixed;*/
+        /*word-wrap:break-word;*/
+    }
+    .custom-table table td {
+        width: 20%;
+    }
+    .custom-table .borderright {
+        border-right: #e5e8e8 solid 1px
+    }
+    .custom-table .text-cn{
+        font-size: inherit;
+        color: #808080;
+    }
+    .custom-table .text-num{
+        /*font-size: 20px;*/
+        color: #000;
+    }
+    .column5 {
+        width: 10% !important;
+    }
+    .height230 {
+        height: 230px;
+    }
+    .height270 {
+    	height: 270px;
+    }
+    .height280 {
+        height: 280px;
+    }
+	.default-height {
+		height: auto !important;
+	}
+    .hr-line {
+        border-bottom: #e7e7e9 solid 1px;
+    }
+
+    .panel.leg-panel {
+        background: transparent;
+        border: none;
+        padding: 0;
+        position: absolute;
+        z-index: 8;
+    }
+    .panel {
+        position: relative;
+        margin-bottom: 0;
+        margin-top: 0;
+        background-color: transparent;
+        border: 0px solid transparent;
+        border-radius: 0px;
+        -webkit-box-shadow: 0 0px 0px rgba(0, 0, 0, 0.05);
+        box-shadow: 0 0px 0px rgba(0, 0, 0, 0.05);
+        padding: 10px 25px 20px 0px;
+        min-height: 62px;
+    }
+    .leg-panel .leg-row {
+        color: #617085;
+        font-size: 14px;
+        border-bottom: 1px solid #D6DCE3;
+        padding-bottom: 0px;
+        line-height: 18px;
+        margin-bottom: 5px;
+    }
+    .leg-panel .leg-row .leg-icon {
+        display: block;
+        height: 12px;
+        width: 12px;
+        float: left;
+        border-radius: 6px;
+        margin: 4px 10px 0 4px;
+    }
+    .leg-panel .leg-row .leg-title {
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 120px;
+    }
+    .leg-panel .leg-row .leg-percent {
+        float: right;
+        margin-right: 8px;
+        color: #80878c;
+    }
+    .leg-panel.mylegend {
+        width: 46%; 
+        height: 150px; 
+        right: 2%; 
+        top: 10px;
+    }
+    .modal-normal {
+        margin: auto;
+        width: 800px;
+    }
+    .modal-body li {
+        color: #000;
+        font-size: 14px;
+    }
+    .modal-body li span {
+        font-weight: 600;
+    }
+</style>
+
+<div class="page-row" id="Probe_Monitor">
+    <div class="forbidden-click off"></div>
+    <div class="app-colum">
+        <div class="app-box default-height">
+            <div class="box-footer">
+                <div class="calender_icon ml20" ng-click="showSelectTime()">
+                    <span class="calender-n">{{strToday}}</span>
+                </div>
+                <span class="ml7">{{selectTime}}</span>
+                <span class="right pointer mr20" ng-click="openHelpDoc()">Help</span>
+            </div>
+            <div class="col-xs-12 top-box" ng-show="show_cycle">
+                <div class="menu-content select-time">
+                    <span class="ml20">Time range</span>
+                    <input type="radio" name="time" id="aDay" ng-click="initViewsByTime('aDay')" checked />
+                    <label for="aDay">Day</label>
+                    <input type="radio" name="time" id="aWeek" ng-click="initViewsByTime('aWeek')" /> 
+                    <label for="aWeek">Week</label>
+                    <input type="radio" name="time" id="aMonth" ng-click="initViewsByTime('aMonth')" /> 
+                    <label for="aMonth">Month</label>
+                    <input type="radio" name="time" id="aYear" ng-click="initViewsByTime('aYear')" /> 
+                    <label for="aYear">Year</label>
+                    <input type="radio" name="time" id="otherTime" ng-click="showOtherTime('otherTime')"/>
+                    <label for="otherTime">Custom</label>
+                    <input id="daterange" class="daterange time-select" ctrl="daterang" ng-show="show_other">
+                    <span class="cancel-actions hover-action" id="remove" ng-click="showSelectTime()"></span>
+                </div>
+            </div>
+            <div class="box-body default-height">
+                <div class="col-xs-12 hr-line mb20 pb20">
+                    <div id="pie1" class="col-xs-4">
+                        <div class="col-xs-12">
+                            <span class="title">Users</span>
+                        </div>
+                        <div class="col-xs-12" >
+                            <div class="col-xs-6">
+	                            <div class="height230" id="Assco_client"></div>
+                            </div>
+                            <div class="col-xs-6">
+	                            <div class="height230" id="Active_pie"></div>
+                            </div>
+                        </div>
+                        <div class="col-xs-12 custom-table">
+                            <table class="col-xs-12">
+                                <tr>
+                                    <td class="borderright">
+                                        <div>
+                                            <div class="text-cn">Total</div>
+                                            <div class="text-num">{{totalNum}}</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <div class="text-cn">Associated</div>
+                                            <div class="text-num">{{associatedNum}}</div>
+                                        </div>
+                                    </td>
+                                    <td class="borderright">
+                                        <div>
+                                            <div class="text-cn">Disassociated</div>
+                                            <div class="text-num">{{in_associatedNum}}</div>
+                                        </div>
+                                    </td>
+                                    <td>    
+                                        <div>
+                                            <div class="text-cn">Active</div>
+                                            <div class="text-num">{{activeNum}}</div>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <div class="text-cn">Inactive</div>
+                                            <div class="text-num">{{in_activeNum}}</div>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div id="pie2" class="col-xs-4">
+                        <div class="col-xs-12">
+                            <span class="title">Length of stay</span>
+                        </div>
+                        <div class="col-xs-12">
+	                        <div class="height280" id="Rssi_Pie"></div>
+                        </div>
+                    </div>
+                    <div id="pie3" class="col-xs-4">
+                        <div class="col-xs-12">
+                            <span class="title">Vendors</span>
+                        </div>
+                        <div class="col-xs-12">
+	                        <div class="height280" id="Vender_pie"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-md-12 default-height">
+                    <div id="probe_Ssid_all" class="col-xs-5">
+                        <span class="title">SSID statistics</span>
+	                    <div class="height270" id="probe_Ssid_pie"></div>
+                        <div id="probe_Ssid" class="panel leg-panel mylegend"></div>
+                    </div>
+                    <div id="pie4" class="col-xs-7">
+                        <span class="title">Visitor statistics</span>
+	                    <div id="probe_line" class="height270"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 帮助文档 -->
+<div bs-modal="helpDoc.options">  
+    <form role="form" name="authForm" novalidate>
+        <div class="form-group row">
+            <ul>
+                <li>
+                    <span>Associated:</span> Clients that have exchanged wireless packets with an AP.
+                </li>
+                <li>
+                    <span>Disassociated:</span> Clients that have not exchanged wireless packets with any APs.
+                </li>
+                <li>
+                    <span>Active:</span> Clients that have sent wireless packets in the selected period.
+                </li>
+                <li>
+                    <span>Inactive:</span> Clients that did not send wireless packets in the selected period.
+                </li>
+            </ul>
+        </div>
+        <div align = "center">
+            <button class="btn btn-cus" ng-disabled="authForm.$invalid" 
+            ng-click="closeHelpDoc()">Cancel</button>
+        </div>
+    </form>                                               
+</div> 
+
+<div id="probe_rc" 
+     TYPE="Visitors"
+     NAME="Associated,Active"
+     VENDER="Apple,HTC,Meizu,Xiaomi,Samsung,Others"
+     CLIENTTIME="<3min,3~10min,10~30min,30~120min,>2h"
+     AXIS="Visitors,Time"
+     RC-OTHERS="Others"
+     RC-UNKNOWN="Unknown"
+     CYCLE-TIME="（Today）,（One week）,（One month）,（One year）"
+     HELP="Help"
+     APPLY="Apply"
+     CANCEL="Cancel"
+     WEEK="Su,Mo,Tu,We,Th,Fr,Sa"
+     MONTH="Jan,Feb,Mar,Apr,May,Jun,Jul,Aug,Sep,Oct,Nov,Dec"
+     ></div>

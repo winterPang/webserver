@@ -1,0 +1,77 @@
+<html>
+
+<head>
+</head>
+<style>
+    .xxb .app-box .box-body.pie-height{
+        height:280px !important;
+    }
+</style>
+<body>
+<div class="page-row xxb" id="userflow">
+    <div class="col-xs-12 app-colum left-block" debug="getnewuser">
+        <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <div class="col-xs-3">
+                    <span class="title">Guest Statistics</span>
+                </div>
+                <div class="index_out_div" id="total">
+                    <a id="days" class="xx-link active" value='1'>One day</a>
+                    <a id="weeks" class="xx-link" value='2'>One week</a>
+                    <a id="mounth" class="xx-link" value='3'>One month</a>
+                    <!--<a id="years" class="xx-link" value='4'>One year</a>-->
+                </div>
+            </div>
+            <div class="box-body userflow-height form-group body-nopadding">
+                <div id="loginuser" class="col-xs-10 myEchart"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="page-row xxb">
+    <div class="col-xs-12 app-colum left-block" debug="getAccessTime getOnlineTime">
+        <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <div class="col-xs-3">
+                    <span class="title">weekly data statistics</span>
+                </div>
+                <div class="index_out_div" id="detail">
+                    <!--<a id="vDetail" class="xx-link">VIP guests</a>-->
+                    <a id="oDetail" class="xx-link">Online guests</a>
+                    <a id="hDetail" class="xx-link">History details</a>
+                </div>
+            </div>
+            <div class="box-body pie-height form-group body-nopadding">
+                <div class="col-xs-6 pietop">
+                    <!-- <div class="col-xs-4 pietop"> -->
+                    <div class="row-nohover row-clear padding0">
+                        <div id="Channel_utilization" class=" col-xs-12 myEchart newpie-container"></div>
+                    </div>
+                </div>
+                <div class="col-xs-6 pietop">
+                    <!-- <div class="col-xs-4 pietop"> -->
+                    <div class="row-nohover row-clear padding0">
+                        <div id="Channel_utilization1" class=" col-xs-12 myEchart newpie-container"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="x_userflow_rc" class="rc-define"
+     USER_COUNT="Guests"
+     USER_TYPE="Once,Twice,Three times,Over four times"
+     USER_TYPE1111="Visits,Length of stay,Vendor"
+     USER_TYPE_TIME="Within half an hour,Within one hour,Within two hours,Over two hours"
+     USER_TYPE_PHONE="Others,Apple,HW,Meizu"
+     USER_TYPE_MODE="onehour,oneday,oneweek,onemonth"
+     USER_TYPE_MODE_NEW="ofhour,ofday,ofweek,ofmonth,ofyear"
+     XTEXT="min,hour,day,day,month"
+     CLIENT_DATA="New guests,Total"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_summary.userflow");
+
+</script>

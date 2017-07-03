@@ -1,0 +1,34 @@
+<div class="change_scenes"
+     id="change_scenes"
+     online="在线"
+     offline="不在线">
+    <div class="change_scenes_trigger" ng-click="showPanel()">
+        <span class="glyphicon glyphicon-transfer"></span>
+        <span>切换设备</span>
+    </div>
+    <div class="scenes_panel" name="scenes_panel">
+        <div class="scenes_panel_content">
+            <div class="form-group">
+                <label class="col-xs-3 control-label">选择场所：</label>
+                <div class="col-xs-9">
+                    <select ng-model="selectedScene" ng-options="item.id as item.name for item in scenes" class="form-control"></select>
+                </div>
+            </div>
+            <div class="form-group" ng-show="showDevices">
+                <label class="col-xs-3 control-label">选择设备：</label>
+                <div class="col-xs-9">
+                    <select class="form-control" ng-model="devSn" ng-options="dev.devSN as dev.showName for dev in devList"></select>
+                </div>
+            </div>
+            <div class="form-group" ng-show="isBranchAdmin">
+                <label class="col-xs-3 control-label">选择分支：</label>
+                <div class="col-xs-9">
+                    <select class="form-control" ng-model="branch" ng-options="br.groupId as br.alias for br in branchList"></select>
+                </div>
+            </div>
+        </div>
+        <div class="scenes_panel_footer">
+            <button class="btn btn-cus" ng-click="switchScenes()" ng-disabled="!selectedScene || !devSn">确认</button>
+        </div>
+    </div>
+</div>

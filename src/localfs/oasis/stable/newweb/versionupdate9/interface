@@ -1,0 +1,54 @@
+https://oasisrd.h3c.com/v3/ace/oasis/oasis-rest-dev-version/restdev/o2oportal/getModelVersions
+{"models":["WA5530"]}
+POST
+
+5.	批量升级：
+url：“/base/updateDevices”
+type:"post"
+body:
+[{
+        devSN                    : String  //序列号
+        fileSize                 : Number,     //软件大小，单位字节
+        devVersionUrl            : String,      //AC设备软件存放路径
+        saveConfig               : Number，//1：保存配置，0：不保存配置
+        rebootDev                : Number，//1：重启设备，0：不重启设备
+		softwareVersion           :String
+
+		devSN:"219801A0YF9169G00061"
+        fileSize:32355328
+        devVersionUrl:"https://oasisrdauth.h3c.com/group2/M00/00/21/rBUAD1iwDeOES03YAAAAAAAAAAA32..ipe"
+        saveConfig:0
+        rebootDev:1
+        softwareVersion:"WA5530 D021"
+}...
+]
+return:
+{
+    retCode:  0 /-1/ 5  , 如果是 -1--失败，，5--说明参数有问题
+    message：[
+        {devSN:XXXXX, retCode: -1},...   0--成功， 1--没有权限， 2--获取webserver/sessionId失败, 3--- 正在升级,4--device信息处理失败， 5--参数检查失败
+    ]
+}
+
+
+
+6.	批量获取状态：
+url：'/base/getAllUpdateStatus'
+type:"post"
+body:
+{
+        devSN         : [String]  //序列号
+}
+
+return:{
+ retCode : -1/0   //出错/成功
+ message:[
+    {
+        status              :Number   //0--正在升级; 1--升级成功; 2--下载失败; 3—设备空间不足;4--保存配置失败; 5--其他错误
+        devVersionUrl       :String,      //AC设备软件存放路径 (status = 0时携带此字段)
+        percent             :Number    //下载进度百分比
+        eventMessage        :String,  //错误描述(用户不需要感知的错误，比如解压缩失败等)
+    }
+
+    ]
+}

@@ -1,0 +1,44 @@
+<div class="container-fluid">
+    <div class="page-row">
+        <div class="btn_h_return" ng-click="clickReturnBtn()"></div>
+        <div class="col-xs-12 app-colum">
+            <div class="app-box no-height default-bottom">
+                <div class="box-footer">
+                    <span class="title">无线服务列表</span>
+                </div>
+                <div class="box-body no-height">
+                    <div class="col-xs-12">
+                        <label>
+                            <span>当前分支：</span>
+                            <a href="javascript:void(0);"
+                               class="list-link"
+                               ng-bind="curBranchInfo.name"></a>
+                        </label>
+                    </div>
+                    <div class="btn-group" id="bindBtnGroup">
+                        <button class="btn btn-cus"
+                                ng-disabled="bindBtn.disabled"
+                                ng-click="bindBtn.click('bind', curBranchInfo.checkData)">绑定</button>
+                        <button class="btn btn-cus"
+                                ng-disabled="bindBtn.disabled"
+                                ng-click="bindBtn.click('unbind', curBranchInfo.checkData)">解除绑定</button>
+                    </div>
+                    <div bs-table="listOpts.WLSerByBranch"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="RC"
+
+     WL_SSID_TYPE = "内部Wi-Fi,商业Wi-Fi"
+     WL_AUTH_TYPE = "获取失败,不认证,一键认证,账号认证"
+     WL_ST_STATUS = "开启,关闭"
+     BIND_INFO = "绑定成功!,绑定失败!"
+     UNBIND_INFO = "解除绑定成功!,解除绑定失败!"
+
+     WLSER_LIST_HEADER = "无线服务名称,SSID,服务类型,认证方式,服务状态"
+
+></div>

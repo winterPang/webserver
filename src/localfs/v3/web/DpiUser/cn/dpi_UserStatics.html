@@ -1,0 +1,267 @@
+<html>
+<head>
+</head>
+<style> 
+ .valueStyle
+ {
+   width:30px;
+   height: 20px;
+  /* background: #90C258;*/
+ }
+ .NewUser
+ {
+    width:45px;
+   height: 20px;
+  /* background: #90C258;*/
+ }
+ .OldUser
+ {
+    width:45px;
+   height: 20px;
+  /* background: #31D0DB;*/
+ }
+ .dateSelectstyle
+ {
+      margin-left: 10px;
+ }
+ .newcircle 
+ {
+    width: 30px;
+    height: 30px;
+    background: #8BC04F; 
+    border-radius: 50px;
+}
+.oldcircle 
+{
+    width: 30px;
+    height: 30px;
+    background: #38D1DA; 
+    border-radius: 50px;
+}
+</style>
+<body> 
+<div class="page-row"> 
+    <div class="col-xs-12 app-colum">  
+       
+        <div class="app-box">
+          <div class="col-md-2" style="margin-top: 15px;margin-bottom: 15px;">
+            <div class="col-xs-4" style="margin-left: 23px;">
+              <img src='./css/image/pic/totalUser.jpg'  height='80px'/>
+            </div>
+            <div class="col-xs-5">
+              <div style="margin-top: 7px;">
+                <span style="margin-left: 22px;font-size: 20px;">17</span>
+              </div>
+              <div style="margin-top: 10px;">
+                <span style="font-size: 15px;margin-left: 10px;">用户总数<span>
+              </div>
+            </div> 
+            <div class="col-xs-1">
+                <table style="height: 80px;border-color: #E0DEDE;border-left-style: solid; 
+               border-width: 2px;">
+                    <tr><td valign="top"></td></tr>
+               </table>
+            </div> 
+          </div>
+          <div class="col-md-6" style="margin-top: 15px;margin-bottom: 15px;">
+            <div class="col-xs-4">
+              <div class="col-xs-5">
+                <img src='./css/image/pic/nan.jpg'  height='80px'/>
+              </div>
+              <div class="col-xs-7">
+                  <div style="margin-top: 7px;">
+                    <span style="margin-left: 25px;font-size: 20px;">17</span>
+                  </div>
+                  <div style="margin-top: 10px;margin-left: 12px;">
+                    <span style="font-size: 15px;">男用户数<span>
+                  </div>
+              </div>
+            </div>
+            <div class="col-xs-4" style="margin-left: -11px;">
+              <div class="col-xs-5">
+                <img src='./css/image/pic/nv.jpg'  height='80px'/>
+              </div>
+              <div class="col-xs-7">
+                  <div style="margin-top: 7px;">
+                    <span style="margin-left: 25px;font-size: 20px;">17</span>
+                  </div>
+                  <div style="margin-top: 10px;margin-left: 12px;">
+                    <span style="font-size: 15px;">女用户数<span>
+                  </div>
+              </div>
+            </div>
+            <div class="col-xs-4" style="margin-left: -25px;">
+              <div class="col-xs-5">
+                <img src='./css/image/pic/weizhi.jpg'  height='80px'/>
+              </div>
+              <div class="col-xs-5">
+                  <div style="margin-top: 7px;">
+                    <span style="margin-left: 13px;font-size: 20px;">17</span>
+                  </div>
+                  <div style="margin-top: 10px;">
+                    <span style="font-size: 15px;">未知用户数<span>
+                  </div>
+              </div> 
+               <div class="col-xs-1" style="margin-left: 15px">
+                <table style="height: 80px;border-color: #E0DEDE;border-left-style: solid; 
+               border-width: 2px;">
+                    <tr><td valign="top"></td></tr>
+               </table>
+            </div> 
+            </div>  
+          </div> 
+          <div class="col-md-2">
+            <div class="col-xs-5">
+              <img src='./css/image/pic/diannao.jpg'  height='80px'/>
+            </div>
+            <div class="col-xs-5">
+              <div style="margin-top: 20px;margin-left: 16px;">
+                <span style="margin-left: 13px;font-size: 20px;">17</span>
+              </div>
+              <div style="margin-top: 10px;margin-left: 15px;">
+                <span style="font-size: 15px;">上网人数<span>
+              </div> 
+            </div>  
+          </div>
+          <div class="col-md-2">
+            <div class="col-xs-1" style="margin-top: 14px;">
+                <table style="height: 80px;border-color: #E0DEDE;border-left-style: solid; 
+               border-width: 2px;">
+                    <tr><td valign="top"></td></tr>
+               </table> 
+            </div>
+            <div class="col-xs-4" style="margin-top: 7px; margin-left: -15px;">
+               <img src='./css/image/pic/shouji.jpg'  height='80px'/>
+            </div>
+            <div class="col-xs-7">
+              <div style="margin-top: 20px;margin-left: 16px;">
+                <span style="margin-left: 13px;font-size: 20px;">17</span>
+              </div>
+              <div style="margin-top: 10px;">
+                <span style="font-size: 15px; margin-left: 10px;">使用应用人数<span>
+              </div>
+            </div> 
+          </div>  
+        </div>
+        <div class="app-box">
+          <div class="col-md-3" style="margin-left: 50px;margin-top: 10px;">
+            <div class="col-xs-12">
+              <span style="margin-left: -40px;">新老用户比</span>
+              <div style="margin-top: 50px;">
+                  <div class="valueStyle" style="margin-left: 100px;" id="TheValue">
+                    <span>60%</span>
+                  </div>
+                  <!-- 添加头像的div -->
+                  <div class="col-xs-9" id="newUser"></div>
+                  <div class="col-xs-3" style="margin-top: 10px;"> 
+                    <div class="newcircle">
+                      <div style="margin-left: 7px;padding-top: 5px;">
+                          <span>新</span>
+                      </div> 
+                     </div> 
+                  </div>
+                  <div class=" col-xs-12 valueStyle" style="margin-left: 100px;margin-top: 15px;" id="TheoldValue">
+                    <span>60%</span>
+                  </div>
+                  <div class="col-xs-9" id="oldUser"></div>
+                 <!--  <div class="col-xs-9" id="NewAndOldUser"></div> -->
+                  <div class="col-xs-3" style="margin-top: 10px;"> 
+                    <div class="oldcircle">
+                      <div style="margin-left: 7px;padding-top: 5px;">
+                          <span>老</span>
+                      </div> 
+                    </div>
+                  </div>
+                  <!-- 说明新老用户的图例 -->
+                  
+              </div>  
+            </div>
+            
+        </div>
+        
+        <div class="col-md-4" style="margin-top: 10px;">
+          <div class="col-xs-12">
+               <span>来访次数</span>
+               <div class="col-xs-12" id="drawAgebar">
+                    <div id="UserAccessNum_bar" class="myEchart"></div> 
+               </div>
+          </div>
+         
+           
+        </div>
+        <div class="col-md-4" style="margin-top: 10px;">
+          <div class="col-xs-12">
+              <span>WIFI依赖程度</span>
+              <div class="col-xs-12" id="drawEdubar">
+                <div id="UserWIFI_bar" class="myEchart"></div> 
+              </div>
+          </div> 
+        </div>
+        </div>
+        
+        
+    </div> 
+    <div class="col-xs-12 app-colum" style="margin-top: 10px;"> 
+      <div class="col-xs-12 app-box">
+        <div style="background: #F1EFEF;height: 36px;">
+            <div style="padding-top: 6px;    margin-left: 10px;">
+              <span>周期:</span>
+              <a href="javascript:void(0)" id="today">
+                <span class="dateSelectstyle">今天</span>
+              </a>
+              <a href="javascript:void(0)" id="aweek">
+                <span class="dateSelectstyle">七天</span>
+              </a>
+              <a href="javascript:void(0)" id="amonth">
+                <span class="dateSelectstyle">一月</span>
+              </a> 
+              <a href="javascript:void(0)" id="year">
+                <span class="dateSelectstyle">一年</span>
+              </a>
+              <span class="dateSelectstyle" style="color: #000;">自定义</span> 
+              <input id="daterange" class="daterange" style="width:170px" placeholder="选择日期"> 
+            </div>
+        </div> 
+        
+        <div class="col-md-5">
+         
+          <div class="col-xs-11" id="drawUrlpie">
+            <div style="margin-left: 10px;    margin-top: 10px;">
+              <span>应用类型</span>
+            </div>
+            <div id="UserUrlType_pie" class="myEchart"></div> 
+          </div>
+          <div class="col-xs-11" id="drawApppie">
+            <div style="margin-left: 10px;">
+              <span>上网类型</span>
+            </div>
+            <div id="UserAppType_pie" class="myEchart"></div> 
+          </div>  
+        </div>
+        <div class="col-md-7">
+          <div style="margin-left: 10px;    margin-top: 10px;">
+            <span>用户上网数量趋势</span>
+          </div>
+          <div class="col-xs-11">
+            <div id="appAndUrlChange_chart" class="myEchart"></div> 
+          </div> 
+        </div>
+        
+      </div> 
+    </div>
+    <div class="col-xs-12 app-colum">
+       
+      <div class="col-xs-12 app-box">
+        <div style="margin-left: 10px;    margin-top: 10px;">
+              <span>用户轨迹</span>
+          </div>
+          <div id="Usertrail" class="myEchart"></div>
+      </div>  
+    </div>
+</div>
+</div><div id="User_monitor_rc" class="rc-define"></div> 
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("DpiUser.dpi_UserStatics");
+</script>

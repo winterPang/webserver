@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html  lang="en">
+<head>
+    <meta charset="UTF-8">
+</head>
+<body>
+<div class="col-xs-12 app-colum xxb" id="relateid" debug="getWechat getShoplist">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">WeChat Official Account</span>
+        </div>
+        <div class="box-body no-height">
+            <div class="main-content">
+
+            </div>
+        </div>
+        <div class="hide modal fade" id="DeleteIdDlg">
+            <form id="delete_id_form" class="form-horizontal form edit deleteDlg">
+                <div class="form-group">
+                    <span class="col-sm-9 control-label" >Delete the WeChat official account information. Continue?</span>
+                </div>
+            </form>
+        </div>
+
+        <div class="hide modal fade" id="shopDlg">
+            <form id="shop_form" class="form edit">
+                <a class="shopEdit forbid" href="http://mp.weixin.qq.com/wiki/16/8f182af4d8dcea02c56506306bdb2f4c.html#.E4.BA.8C.E3.80.81.E5.BC.80.E5.8F.91.E8.80.85.E5.BF.85.E8.AF.BB" >Edit WeChat store</a>
+                <div id="showList" class="simple-list showList"></div>
+            </form>
+        </div>
+
+        <div id="ws_ssid_rc" class="rc-define"
+             SSID_HEADER="Auth Template,Anonymous Auth,SMS Auth,WeChat Auth,Fixed Account"
+             AUTH_Status="Disabled,Enabled" Page_HEADER="Page Template,Description"
+             Chat_HEADER="Official Account,APP ID,APP SECRET,TOKEN"
+             DELETE_USER="Confirmation"
+             ADDPage_TITLE="Add page template"
+             ADDChat_TITLE="Add WeChat official account"
+             ADD_USER="Add account"
+             EDIT_USER="Change password"
+             InputContentError="Invalid parameter."
+             Alipay_HEADER="Alipay Account,APP ID,APP SECRET,TOKEN"
+             SHOP_NAME="Store Information"
+             SHOP_LIST="Store Name,Store Status,Store Type,Opening Time,Address,Contact"
+             ADD_BTN="Add WeChat Official Account"
+             TEXT="Account type: ,Name: ,Click to copy the link,(Configure this URL on WeChat official account platform)"
+             TEXT1="Edit,Store Info,Delete"
+             MSG_INFO="Failed to obtain the store list.,The WeChat official account has been bound to a published template and cannot be deleted.,Account deleted successfully.,Failed to delete the account."
+             MSG_INFO1="Please configure ACCESS TOKEN on WeChat official account platform.,The TOKEN has been copied to the clipboard."
+             AVAILABLE_STATE="System error,Reviewing,Approved,Rejected"
+             ID_TYPE="Subscription,Service,Enterprise"
+                >
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="../x_networkcfg/dist/clipboard.min.js"></script>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_networkcfg.relateid");
+</script>

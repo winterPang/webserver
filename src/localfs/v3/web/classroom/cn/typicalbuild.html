@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <style type="text/css">
+        div.smartschool .slist-link {
+            color: #4ec1b2;
+            /*margin-left:5px;*/
+            border-bottom: 1px solid #4ec1b2;
+        }
+    </style>
+</head>
+<body>
+<div class="page-row smartschool">
+    <!------------------------教室列表------------------->
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height wrap_c">
+            <div class="box-footer">
+                <span class="title">区块</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="classRoomList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+    <!------------------------校门列表----------------------->
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height wrap_c">
+            <div class="box-footer">
+                <span class="title">大门</span>
+            </div>
+            <div class="box-body no-height ">
+                <div id="gateList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!---------------------------新建/修改房间弹窗-------------------->
+<div class="hide modal fade" id="AddRoomDlg">
+    <form id="add_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">房间名称</label>
+
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="classroom" name="classroom" errid="classroom_error"
+                       maxlength="64"/>
+                <label class="info-explain">(1-64字符)</label>
+                <label class="error" id="classroom_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required" id="crowded_label">拥挤阈值下限</label>
+
+            <div class="col-sm-9">
+                <input type="number" class="required" id="crowdThreshold" name="crowdThreshold"  errid="crowdThreshold_error"/>
+                <label class="info-explain"></label>
+                <label class="error" id="crowdThreshold_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required" id="crowdedMax_label">拥挤阈值上限</label>
+
+            <div class="col-sm-9">
+                <input type="number" id="crowdThresholdMax" class="required" name="crowdThresholdMax"  errid="crowdThresholdMax_error"/>
+                <label class="info-explain"></label>
+                <label class="error" id="crowdThresholdMax_error"></label>
+            </div>
+        </div>
+    </form>
+</div>
+<!----------------------------新建/修改大门弹窗---------------------->
+<div class="hide modal fade" id="AddGateDlg">
+    <form id="addGate_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required" id="doorName_label">校门</label>
+
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="doorName" name="doorName" errid="doorName_error"
+                       maxlength="64"/>
+                <label class="info-explain">(1-64字符)</label>
+                <label class="error" id="doorName_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">校门管理员</label>
+
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="administrators" name="administrators"
+                       errid="administrators_error" maxlength="64"/>
+                <label class="info-explain">(1-64字符)</label>
+                <label class="error" id="administrators_error"></label>
+            </div>
+        </div>
+        <!--<div class="form-group">
+            <label class="col-sm-3 control-label required" id="apNum_label">AP个数</label>
+            <div class="col-sm-9">
+                <input type="number" class="required" id="apNum" name="apNum" min="1" max="12" errid="apNum_error" maxlength="2" ></input>
+                <label class="info-explain"></label>
+                <label class="error" id="apNum_error"></label>
+            </div>
+        </div>-->
+        <div class="form-group">
+            <label class="col-sm-3 control-label required" id="checkUpTime_label">出入门检测下限时间</label>
+
+            <div class="col-sm-9">
+                <input type="number" class="required" placeholder="10" id="checkUpTime" name="checkUpTime" min="0"
+                       errid="checkUpTime_error"/><em>秒</em>
+
+                <label class="info-explain"></label>
+                <label class="error" id="checkUpTime_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required" id="checkUpTimeMax_label">出入门检测上限时间</label>
+
+            <div class="col-sm-9">
+                <input type="number" class="required" id="checkUpTimeMax" placeholder="20" name="checkUpTimeMax" min="0"
+                       errid="checkUpTimeMax_error"/><em>秒</em>
+
+                <label class="info-explain"></label>
+                <label class="error" id="checkUpTimeMax_error"></label>
+            </div>
+        </div>
+    </form>
+</div>
+<!---->
+<div id="c_net_infor_rc" class="rc-define"
+     ROOM_HEAD="房间名称,AP个数,拥挤阈值下限,拥挤阈值上限,摄像头个数,房间温度,传感器个数"
+     GATE_HEAD="大门名称,大门管理员,模块个数,出入门检测下限时间(秒),出入门检测上限时间(秒),摄像头个数"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.typicalbuilding");
+</script>

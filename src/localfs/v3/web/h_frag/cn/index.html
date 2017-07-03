@@ -1,0 +1,67 @@
+<html>
+
+<head>
+</head>
+
+<body>
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height default-bottom">
+            <div class="box-footer">
+                <span class="title">配置片段</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="frag_list" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="frag_rc" class="rc-define"
+     FRAG_ITEM = "下发片段名称,类型,创建者"
+     FRAG_CONTENT = "名称,描述,内容"
+     FRAG = "定时开关radio动作"
+     FRAG1 = "定时开radio策略"
+     FRAG2 = "定义关闭服务模板策略"
+     FRAG3 = "关闭Portal"
+     FRAG4 = "20151202开关服务配置文件"
+     TYPE = "用户自定义"
+     NAME = "定时开关radio动作"
+     FRESH = "刷新"
+        ></div>
+
+<div class="modal fade modal-super" id="flowdetailDlg" tabindex="-1" aria-hidden="true" style="margin-top: -148px; display: none;">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3>片段配置</h3>
+    </div>
+    <form class="form-horizontal form" id="flowdetail_form">
+        <div class="box-body no-height form-group">
+            <div class="page-row">
+                <div class="col-xs-12 app-colum">
+                    <div class="app-box no-height default-bottom">
+                        <div class="box-footer">
+                            <span class="title">配置片段详情</span>
+                        </div>
+                        <div class="box-body no-height">
+                            <div id="flowdetail_list" class="simple-list" style=""></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer form-actions"></div>
+    </form>
+    <div class="editor-alert">
+
+    </div>
+</div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("h_frag.index");
+</script>

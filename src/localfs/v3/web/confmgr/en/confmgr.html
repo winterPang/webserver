@@ -1,0 +1,117 @@
+<html>
+<head>
+<style>
+    .warn-style{
+        color: #ef2311;
+        margin-left: 30px;
+    }
+</style>
+</head>
+<body>
+
+<div class="app-colum">
+    <div class="app-box">
+        <div class="box-footer">
+            <span class="title">Security Policy</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="WipsList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+
+<div class="hide modal fade" id="WipsTypeDlg">
+    <form class="form-horizontal form" id="WipsTypeForm">
+        <div class="form-group">
+            <label class="col-sm-4 control-label">AP Name</label>
+            <label class="col-sm-8 info-explain" id="ApName"></label>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Radio</label>
+            <label class="col-sm-8 info-explain" id="RadioName"></label>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Detect phishing</label>
+            <label class="col-sm-8 info-explain" id="PhishState">Off</label>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Take countermeasures against phishing</label>
+            <label class="col-sm-8 info-explain" id="CtmState">Off</label>
+        </div>
+
+        <div class="form-group">
+            <label class="col-sm-4 control-label">Detect flood attacks</label>
+            <label class="col-sm-8 info-explain" id="FloodState">Off</label>
+        </div>
+    </form>
+</div>
+
+<div class="hide modal fade" id="WipsSetDlg">
+    <form class="form-horizontal form" id="WipsSetForm">
+        <div class="form-group" id="ab_block">
+            <label class="col-sm-2 control-label">NAT-configured clients</label>
+            <div class="col-sm-10">
+                <input type="checkbox" class="switch" id="NatDetect" name="NatDetect"/>
+                <br/>
+                <label class="info-explain">Note: Detect whether a wireless client shares WLAN with rogue clients.</label>
+            </div>
+        </div>
+        <div class="form-group" id="cb_block">
+            <label class="col-sm-2 control-label">Wireless probing</label>
+            <div class="col-sm-10">
+                <input type="checkbox" class="switch" id="WT2" name="probe"/>
+                <br/>
+                <label class="info-explain">Note: Probing APs scan channels and collect wireless device information.</label>
+            </div>
+        </div>
+
+        <div class="form-group" id="bb_block">
+            <label class="col-sm-2 control-label">WIPS</label>
+            <div class="col-sm-10">
+
+                <div>
+                    <!--<input type="checkbox" id="WT3" name="WipsType" value="2"/>-->
+                    <!--<label for="WT3">WIPS<span class="warn-style hide">Tip: Select at least one countermeasure.</span></label>-->
+                    
+                    <div class="WipsBlock">
+                        <input type="checkbox" id="Phish" name="Phish"/>
+                        <label for="Phish">Detect phishing</label><br/>
+                        <label class="info-explain">Note: Detect wireless services similar to this WLAN or a well-known hotspot, MAC address spoofing, and beacon frame spoofing.</label>
+                    </div>
+                    <div class="WipsBlock">
+                        <input type="checkbox" id="CmtPhish" name="CmtPhish"/>
+                        <label for="CmtPhish">Take countermeasures against phishing</label><br/>
+                        <label class="info-explain">Note: This feature disables attackers from operating correctly. Please use it with caution.</label>
+                    </div>
+                    <div class="WipsBlock">
+                        <input type="checkbox" id="Flood" name="Flood"/>
+                        <label for="Flood">Detect flood attacks</label><br/>
+                        <label class="info-explain">Note: Attackers send a large number of packets of the same type in a short period to disable the attacked device from providing services.</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- 有时提示字符串用中文符号,因为那是一句话 -->
+<div id="ws_ssid_rc" class="rc-define"
+     LIST_TITLE = "AP Name, Radio, NAT-Configured Client, WIPS, Wireless Probing"
+     EDIT_TITLE = "Modify Security Settings"
+     WIPS_WAIT="Please wait…"
+     WIPS_TITLE = "Modify Security Settings"
+     ON_OFF = "On, Off"
+     WIPS_TYPE = "None, Wireless Probing, WIPS"
+     RESULT-ERROR="Success, Incorrect message format, Webserver decoding failure, Not authorized to manage security policies, Device response timed out, Failed to find main connection, Incorrect inner webserver logic, Abnormal communication between webserver and device, Service message processing error"
+     SUCCESS-CONFIG="Security policy configured successfully."
+     ERROR-INFO="Failed to request data."
+     OTHER-INFO="WIPS, Wireless probing, NAT-configured client"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("confmgr.confmgr");
+</script>

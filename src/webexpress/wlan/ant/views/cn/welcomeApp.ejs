@@ -1,0 +1,52 @@
+<div class="col-xs-4 app-colum  right-block">
+    <div class="app-box default-height" style="height: 380px">
+        <div id="detect_container">
+            <div class="sysinfo-footer">
+                <span class="title">最受欢迎的应用</span>
+                <div class="text-right link-container">
+                    <div>
+                        <a type="button" class="refresh" value = "3" id="refresh_WecomApp">
+                            <i class="refresh-icon icon"></i>
+                        </a>
+                        <a type="button" class="filter" id="filter_WecomApp">
+                            <i class="filter-icon icon"></i>
+                        </a>
+
+                        <a type="button" class="link-detail" id="WecomApp_detail"  href="drs.wecomappinfo" title="更多">
+                            <i class="icon detail-icon"/>
+                        </a>
+                    </div>
+                    <div class="hide" id="filter_WecomDate" value="1">
+                        <div class="filter-container">
+                            <div class="form-horizontal form-bordered form edit">
+                                <div class="form-group" id = "filter_WecomDate0">
+                                    <label >统计时间 &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                                    <input type="radio" id="WecomAppOneday" checked name="WecomAppDate" value="0">
+                                    <label  id = "AppToday" for="WecomAppOneday">本日&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                                    <input type="radio" id="WecomAppweekCom" name="WecomAppDate" value="1">
+                                    <label id ="AppAweek" for="WecomAppweekCom">本周&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                                </div>
+                                <div class="form-group" id = "filter_WecomDate1">
+                                    <label >统计方式&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                                    <input type="radio" id="WecomAppMan" checked name="WecomAppStatis" value="0">
+                                    <label id = "AppMan" for="WecomAppMan">人次&nbsp&nbsp&nbsp  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                                    <input type="radio" id="WecomAppFlow" name="WecomAppStatis" value="1">
+                                    <label id="AppFlow" for="WecomAppFlow">流量&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp</label>
+                                </div>
+                                <div class="form-group" id = "filter_WecomDate2">
+                                    <input id="filter_WecomDate3" type="checkbox" id="serRadio"  name="AppMacSelect" value="0" brother="macRadio">
+                                    <label for="serRadio">Mac地址：</label>
+                                    <input id="filter_WecomDate4" type="text" class="string big" id="MacSelect" name="MacSelect1" />
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="list-height sysinfo-body">
+            <div id="App_pie" class="myEchart col-xs-12"></div>
+        </div>
+    </div>
+</div>

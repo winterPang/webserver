@@ -1,0 +1,42 @@
+@media (max-width: 979px) {
+	/* ¹«ÓÃclass */ 
+	.header .nav > li:last-child {
+        border-right: 1px solid #012c56;
+	}
+	/* mobile */
+	.mobile .page-sidebar {
+		background: #001929;
+	}
+    .mobile .header {
+		background: #000;
+		border-bottom: 1px solid #000;
+    }
+    .mobile .header .nav .open > a, 
+    .mobile .header .nav .open > a:hover, 
+    .mobile .header .nav .open > a:focus {
+        background-color: #001929;
+    }
+    .mobile .header .nav .dropdown-menu {
+        background: #001929;
+    }
+    .mobile .header .nav > li.open .shortcut .menu-icon, 
+    .mobile .header .nav > li.open:hover .shortcut .menu-icon {
+        background: url(image/mobile-menu-oper.png) no-repeat;
+    }
+    .mobile .dropdown-menu .divider hr {
+        border-top: 2px solid #002037;
+        margin: 0;
+    }
+    .mobile .header .nav > li.open .shortcut span {
+        color: #69a5f0;
+    }
+    .mobile .dropdown .lang-contrainer select {
+        background: #001929;
+        border: 1px solid #3d659c;
+        color: #69a5f0;
+        margin: -6px 0 0 -5px;
+    }
+	ul.page-sidebar-menu > li {
+		border-bottom: 1px solid #002037;
+	}
+}

@@ -1,0 +1,247 @@
+<html>
+<head>
+</head>
+
+<body>
+<div class="page-row xxb">
+    <div class="col-xs-6 app-colum left-block" debug="getClientCount initApTraffic">
+        <div class="app-box no-bk-color">
+            <div class="box-body midl-height">
+                <div class="index_inner_div index_inner_div_left_top">
+                    <div class="col-xs-6 index_div_wrapper_multiple">
+                        <div id="client-count" class="index_div_lu">0</div>
+                        <p class="index_div_lu_desc">Current regular guests</p>
+                    </div>
+                    <div class="col-xs-6 index_div_lu_icon_wrapper">
+                        <div class="index_icon_url index_icon_count"></div>
+                    </div>
+                </div>
+
+                <div class="index_inner_div index_inner_div_right_top">
+                    <div class="col-xs-6 index_div_wrapper_multiple">
+                        <div id="online_new_user" class="index_div_lu">0</div>
+                        <p class="index_div_lu_desc">Current new guests</p>
+                    </div>
+                    <div class="col-xs-6 index_div_lu_icon_wrapper">
+                        <div class="index_icon_url index_icon_count_new"></div>
+                    </div>
+                </div>
+                <div class="index_inner_div index_inner_div_left_bottom">
+                    <div class="col-xs-6 index_div_wrapper_multiple">
+                        <div  class="index_div_lu">
+                            <div id="uploadSpeed-bar" class="myEchart chartStyle"></div>
+                        </div>
+                        <div class="index_div_lu_desc" >Upload rate</div>
+                    </div>
+                    <div class="col-xs-6 index_div_lu_icon_wrapper">
+                        <div id="1-1" class="bottomcont">
+                            <span id="upload-traffic">0</span>
+                            <span class="wrapper_unit">Mbps</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="index_inner_div index_inner_div_right_bottom">
+                    <div class="col-xs-6 index_div_wrapper_multiple" >
+                        <div  class="index_div_lu" >
+                            <div id="downloadSpeed-bar" class="myEchart chartStyle"></div>
+                        </div>
+                        <div  class="index_div_lu_desc">Download rate</div>
+                    </div>
+                    <div class="col-xs-6 index_div_lu_icon_wrapper">
+                        <div id="0-1" class= "bottomcont">
+                            <span id="download-traffic">0</span>
+                            <span class="wrapper_unit">Mbps</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 app-colum left-block" debug="getUserChange">
+        <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <div class="col-xs-4">
+                    <span class="title">Online guests</span>
+                </div>
+                <div class="index_out_div station-change">
+                    <a id="days" class="xx-link active">One day</a>
+                    <a id="weeks" class="xx-link">One week</a>
+                    <a id="mounth" class="xx-link">One month</a>
+                </div>
+            </div>
+            <div class="box-body echart-height form-group body-nopadding">
+
+                <div id="userchange" class="col-xs-12 myEchart"></div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 app-colum left-block" debug="getHealthScore getWanInfo">
+        <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <div class="col-xs-3">
+                    <span class="title">Health</span>
+                </div>
+                <div class="index_out_div">
+                    <a id="report" class="xx-link">Health examination report</a>
+                </div>
+            </div>
+            <div class="box-body echart-height form-group body-nopadding">
+                <div class="col-xs-6 picmaxw1430">
+                    <div class="row-nohover padding0">
+                        <div id="score-pie" class="myEchart chartStyle"></div>
+                    </div>
+                    <div id="terminalMessage" debug='["getHealthScore"]'></div>
+                </div>
+                <div class="col-xs-6 right01">
+                    <div class="row-nohover row-clear padding0">
+                        <!--<div id="apphealth" class="myEchart chartStyle"></div>-->
+                        <div class="right_health">
+                            <div class="health_title modifyhide">
+                                <div>Bandwidth</div>
+                                <div id="raty_score_1" class="health_value hide" ></div>
+                                <a id="reports" class="reports hide"></a>
+                                <a id="device_Internet" class="hide device_Internet" >Set bandwidth</a>
+                            </div>
+                            <div class="health_title">
+                                <div>Memory usage</div>
+                                <div id="raty_score_2" class="health_value"></div>
+                            </div>
+                            <div class="health_title">
+                                <div>Optimal clients</div>
+                                <div id="raty_score_3" class="health_value"></div>
+                            </div>
+                            <div class="health_title">
+                                <div >Interference</div>
+                                <div id="raty_score_4" class="health_value"></div>
+                            </div>
+                            <div class="health_title">
+                                <div >System</div>
+                                <div id="raty_score_5" class="health_value"></div>
+                            </div>
+                            <!--                            <div style="margin-top:8px; height:12%; ">
+                                                                <div>Online devices</div>
+                                                                <div id="raty_score_6" style="margin-left:40%; width:60%; margin-top:-23px;"></div>
+                                                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 app-colum left-block" debug="getFlowInfo">
+        <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <div class="col-xs-3">
+                    <span class="title">Bandwidth</span>
+                </div>
+                <div class="index_out_div flow-change">
+                    <a id="tape_days" class="xx-link active">One day</a>
+                    <!--<a id="tape_weeks" class="xx-link">One week</a>-->
+                    <!--<a id="tape_mounth" class="xx-link">One month</a>-->
+                </div>
+            </div>
+            <div class="box-body echart-height form-group body-nopadding">
+
+                <div id="tape_change" class="col-xs-12 myEchart"></div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<form class="modal fade modal-super dashboard in hide" id="reportdetail">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">Health Report</h3>
+    </div>
+    <div class="modal-body xxb">
+        <!-- Internet带宽 -->
+        <div class="health_box" id="Bandwidth-speed">
+            <span class="boxname"><span class="cir"></span>Bandwidth<span id="a_speed" class="arrow arrow_active"></span></span>
+            <div class='boxcont'>Normal</div>
+        </div>
+        <!-- 设备疲劳度 -->
+        <div class="health_box" id="internal-utilization">
+            <span class="boxname"><span class="cir"></span>Memory usage<span id="a_internal" class="arrow"></span></span>
+            <div class='boxcont'></div>
+        </div>
+        <!-- 优质终端比例 -->
+        <div class="health_box" id="wifi-terminal">
+            <span class="boxname"><span class="cir"></span>Optimal clients<span id="a_terminal" class="arrow"></span></span>
+            <div class='boxcont'></div>
+        </div>
+        <!-- 环境无线干扰  -->
+        <div class="health_box" id="wifi-environment">
+            <span class="boxname"><span class="cir"></span>Interference<span id="a_environment" class="arrow"></span></span>
+            <div class='boxcont'></div>
+        </div>
+        <!-- 系统运行状态 -->
+        <div class="health_box" id="cpu-utilization">
+            <span class="boxname"><span class="cir"></span>System<span id="a_cpu" class="arrow"></span></span>
+            <div class='boxcont'></div>
+        </div>
+        <!-- 设备在线率 -->
+        <!--             <div class="box" id="safety-evaluation">
+                        <span class="boxname"><span class="cir"></span>Online devices<span class="arrow"></span></span>
+                        <div class='boxcont'style="display:none;"></div>
+                    </div> -->
+    </div>
+</form>
+<div class="hide modal fade" id="AddApDlg">
+    <div class="modal-body">
+        <form class="form edit addInternet" id="AddInternetForm">
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">Uplink bandwidth:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="upband_id" name ="ap_name" errid="ap_name_error" maxlength=3 onKeyUp="this.value=this.value.replace(/\D/g,'')"/>
+                    <label class="info-explain">Mbps</label>
+                    <!-- <label class="info-explain"> (1-64 chars)</label> -->
+                    <label class="error" id="ap_name_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">Downlink bandwidth:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="downband_id" name ="ap_SN" errid="ap_SN_error" maxlength=3 onKeyUp="this.value=this.value.replace(/\D/g,'')"/>
+                    <label class="info-explain">Mbps</label>
+                    <label class="error" id="ap_SN_error"></label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!-- 0-2,  2-3,4-5-->
+<div id="x_index_rc" class="rc-define"
+     TX = "Note:"
+     JY = "Suggestion:"
+     WIFI_TERMINAL = "Too many associated clients.,Deploy more WAP422 devices in areas with heavy traffic., Normal."
+     CPU_TILIZATION ="High CPU usage.,Restart the WAP422 and check the software version.,Normal."
+     MEMORY_UTLIZATION = "--,--,Normal."
+     SAFE_VALUATION= "Change to internal WLAN.,Enhanced configuration.,Normal."
+     BANDWIDTH_SPEED= "The bandwidth usage has reached the limit.,Please enable guest rate limit or buy more bandwidth from the service provider.,Normal."
+     WiFi_ENVIROMENT = "Please optimize the WLAN.,-- ,Normal."
+     ADD_TITLE = "Bandwidth Configuration"
+     TIP_PROFIX1 = "You are behind "
+     TIP_PROFIX2 = "You are ahead of "
+     TIP1 = "% users. Frustrating."
+     TIP2 = "% users. The device needs a health examination."
+     TIP3 = "% users. Keep going."
+     TIP4 = "% users. Good job."
+     TIP5 = "% users. Excellent."
+     UNIT=" "
+     CLIENT_ACCOUNT="Number of guests"
+     BAND_WIDTH="Uplink bandwidth,Downlink bandwidth"
+     MSG_INFO="Configuration succeeded.,Configuration failed.,The downlink bandwidth cannot be 0.,Wireless configuration initialization failed."
+     PANGING_INFO = "Issuing configuration"
+     FAIL_INFO ="Cloud has been configured successfully, device configuration failed"
+        ></div>
+</body>
+
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_summary.index");
+
+</script>

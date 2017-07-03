@@ -1,0 +1,77 @@
+#advert_module .app-list-inline {
+  padding-left: 0;
+  margin-bottom: 0;
+  overflow: hidden;
+}
+#advert_module .app-list-inline li {
+  float: left;
+  padding-left: 0;
+  padding-right: 0;
+  list-style: none;
+}
+#advert_module .app-nav {
+  width: 810px;
+  border: 1px solid #e7e7e6;
+}
+#advert_module .app-nav li {
+  position: relative;
+  width: 202px;
+  height: 38px;
+  padding-left: 30px;
+  color: #80878c;
+  font: 14px 'Microsoft Yahei';
+  line-height: 38px;
+  background-color: #f5f5f5;
+}
+#advert_module .app-nav li:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -9px;
+  z-index: 2;
+  border: 19px solid transparent;
+  border-left: 10px solid #f5f5f5;
+  border-right: none;
+}
+#advert_module .app-nav li:after {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: -10px;
+  z-index: 1;
+  border: 19px solid transparent;
+  border-left: 10px solid #e7e7e6;
+  border-right: none;
+}
+#advert_module .app-nav li:first-child {
+  padding-left: 20px;
+}
+#advert_module .app-nav li.active {
+  color: #fff;
+  background-color: #80878c;
+}
+#advert_module .app-nav li.active:before {
+  right: -10px;
+  border-left-color: #80878c;
+}
+#advert_module .app-content {
+  width: 810px;
+  border: 1px solid #e7e7e6;
+  border-top: none;
+}
+#advert_module .app-content li {
+  padding-top: 9px;
+  width: 202px;
+  height: 338px;
+  border-right: 1px solid #e7e7e6;
+  overflow: auto;
+}
+#advert_module .app-content li:last-child {
+  border-right: none;
+}
+#advert_module .app-content li div {
+  padding: 7px 0 7px 20px;
+  margin: 1px 0;
+  color: #343e4e;
+  font: 14px "Microsoft Yahei";
+}

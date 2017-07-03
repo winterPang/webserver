@@ -1,0 +1,43 @@
+<div ng-init="
+    ClientByTimeOption = '终端详情列表';
+    clientByTimeListCols= 'MAC,IP地址,在线时长,厂商,关联AP名称';
+    clientByFlowOption = '终端流量列表';
+    teminalFlowFormatPie = '终端数';
+    teminalFlowPieName = '终端流量';
+    clientByFlowListCols = 'MAC,IP地址,流量,厂商,关联AP名称';
+    NoiseInfo = 'MAC地址,信噪比';
+    rateInfo ='MAC地址,协商速率';
+    ">
+    <div class="page-row">
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="col-sm-12 col-xs-12 app-colum">
+                    <div class="box-footer">
+                        <span class="title">终端信噪比分布  反映AP信号覆盖是否充分</span>
+                    </div>
+                    <div class="box-body echart-height form-group" style="padding: 0;">
+                    <div id="noise_type" class="col-xs-12" style="height:265px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="col-sm-12 col-xs-12">
+                    <div class="box-footer">
+                        <span class="title">协商速率分布  反映无线整体健康状态</span>
+                    </div>
+                    <div class="box-body echart-height form-group" style="padding: 0;">
+                        <div id="negoRate_type" class="col-xs-12" style="height:265px"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <div bs-modal="clientByNoiseOption" >
+        <div bs-table="clientByNoiseTable"></div>
+    </div>
+    <div bs-modal="clientByRateOption" >
+        <div bs-table="clientByRateTable"></div>
+    </div>
+</div>

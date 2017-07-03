@@ -1,0 +1,23 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 30,
+  "rows": [
+    {"AP_name":"AP1","AP_quarter_flow":"360G"},
+    {"AP_name":"AP2","AP_quarter_flow":"300G"},
+    {"AP_name":"AP3","AP_quarter_flow":"298G"},
+    {"AP_name":"AP4","AP_quarter_flow":"288G"},
+    {"AP_name":"AP5","AP_quarter_flow":"266G"},
+    {"AP_name":"AP6","AP_quarter_flow":"264G"},
+    {"AP_name":"AP7","AP_quarter_flow":"258G"},
+    {"AP_name":"AP8","AP_quarter_flow":"246G"},
+    {"AP_name":"AP9","AP_quarter_flow":"238G"},
+    {"AP_name":"AP10","AP_quarter_flow":"226G"},
+    {"AP_name":"AP11","AP_quarter_flow":"208G"},
+    {"AP_name":"AP12","AP_quarter_flow":"198G"},
+    {"AP_name":"AP13","AP_quarter_flow":"188G"},
+    {"AP_name":"AP14","AP_quarter_flow":"178G"},
+    {"AP_name":"AP15","AP_quarter_flow":"169G"},
+    {"AP_name":"AP16","AP_quarter_flow":"156G"}
+  ]
+}

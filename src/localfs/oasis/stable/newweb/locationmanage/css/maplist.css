@@ -1,0 +1,132 @@
+.box {
+    margin: 10px auto;
+    padding: 18px;
+    display: inline-block;
+    box-shadow: 0px 0px 1px 1px rgba(113, 152, 189, 0.3);
+}
+
+.box canvas {
+    cursor: pointer;
+}
+
+.btn-lvzhou:hover, .btn-default:hover {
+    background-color: #2ba4ae !important;
+    color: #fff !important;
+}
+
+.mapTitle {
+    font-size: 14px;
+    line-height: 40px;
+}
+
+.mapButton {
+    background: rgb(247, 247, 247);
+    height: 61px;
+    padding-top: 15px;
+}
+
+#mapListTitle {
+    width: 210px;
+    height: 45px;
+    font-size: 17px;
+}
+
+#mapListTitle>p {
+    line-height:25px;
+    margin-left:30px;
+    font-size: 14px;
+}
+
+#mapListTitle>p>a {
+    color: #69C4C5
+}
+
+#mapListDiv {
+    background: rgb(237, 249, 247);
+    height: 50px;
+    padding-top: 13px;
+    border: 1px solid #ccc;
+    border-bottom: 0;
+}
+
+#marsonryDiv .tip {
+    color: #333;
+    font-size: 14px;
+    padding: 6px 10px;
+    position: absolute;
+    top: 9%;
+    z-index: 5;
+    border: 1px solid #dddddd;
+    background-color: #fff;
+    box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.6);
+    -webkit-box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.2);
+    -moz-box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.2);
+    -ms-box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.2);
+    -o-box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.2);
+}
+
+#masonry .link {
+    color: #69C4C5;
+    cursor: pointer;
+}
+
+.headerBtn {
+    position: absolute;
+    width: 246px;
+    padding: 3px 4px;
+    height: 40px;
+    line-height: 36px;
+    top: 6px;
+    left: 210px;
+}
+
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+.headerBtn img {
+    margin-right: 6px;
+    margin-left: 10px;
+    margin-top: -3px;
+    cursor: pointer;
+}
+
+/*contentBox*/
+.contentBox {
+    width: 360px;
+    height: 450px;
+    margin: 0 auto;
+    padding: 18px;
+    box-shadow: 1px 2px 2px 1px rgba(113, 152, 189, 0.3);
+}
+
+.btnClient {
+    margin-top: -3px;
+}
+
+#pagination {
+    position: absolute;
+    top: -27px;
+    right: 15px;
+}
+
+#marsonryDiv .col-md-6 {
+    text-align: center;
+}
+
+.paginationjs.paginationjs-theme-lvzhou .paginationjs-go-input > input[type=text], .paginationjs.paginationjs-theme-lvzhou .paginationjs-pages li {
+    border-color: #ddd;
+}
+
+.paginationjs.paginationjs-theme-lvzhou .paginationjs-pages li.active > a {
+    background: #6eccc0;
+}
+
+
+.paginationjs-prev a, .paginationjs-next a {
+    font-weight: bolder !important;
+    color: #30ad9d !important;
+    font-size: 20px !important;
+}

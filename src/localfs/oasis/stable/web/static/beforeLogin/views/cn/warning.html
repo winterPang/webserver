@@ -1,0 +1,190 @@
+<div class="provision" style="word-break:break-all">
+    <h1>WannaCry病毒全球爆发，新华三绿洲平台建议您做好安全防范措施</h1>
+    <div class="line"></div>
+    <div class="wordwrap">
+        <h2>一、事件综述</h2>
+        <p>
+            目前，全球各地成千上万台系统，包括美国、英国的众多电脑和服务器遭遇了WannaCry勒索病毒的袭击。在国内，高校和医院则成了重灾区。这种勒索病毒名为WannaCry，从部分学校遭遇的大量感染事件上看，大量论文等重要文件被加密，只有使用比特币支付赎金才能恢复。
+        </p>
+        <p>
+            此病毒的传播手段利用了4月14日黑客组织ShadowBrokers公布的EquationGroup黑客工具，其中ETERNALBLUE模块是SMB 漏洞利用程序，可以攻击开放了 445 端口的 Windows 机器，实现远程命令执行。
+        </p>
+        <p>
+            截至发稿，由该勒索软件导致的攻击事件已经在全国乃至全球造成非常严重的危害，不少企业内网也已经面临此类威胁，目前对该勒索软件加密的文件无法解密，请广大客户注意防范。
+            当系统被该勒索软件入侵后，弹出勒索对话框：
+        </p>
+        <p>
+        <div style="text-align: center">
+            <img src="../img/warning.jpg" alt="弹出勒索对话框图片"  width="60%">
+        </div>
+        </p>
+        <h3>传播原理</h3>
+        <p>
+            该勒索软件迅速感染全球大量主机的原因是利用了基于445端口传播扩散的SMB漏洞MS17-010，微软在今年3月份发布了该漏洞的补丁，请尽快修复。
+        </p>
+        <h3>Wannacry 细节描述</h3>
+        <p>由于以前国内多次爆发利用445端口传播的蠕虫，部分运营商在主干网络上封禁了445端口，但是教育、医疗等网络并没有做此限制，仍然存在大量暴露445端口且存在漏洞的电脑，导致目前蠕虫的泛滥。</p>
+        <h3>病毒细节</h3>
+        <p>
+            1、病毒会加密如下后缀名的文件：
+        </p>
+        <p>
+            .PNG .PGD .PSPIMAGE .TGA .THM .TIF .TIFF .YUV .AI .EPS .PS .SVG .INDD .PCT .PDF .XLR .XLS .XLSX .ACCDB .DB .DBF .MDB .PDB .SQL .APK .APP .BAT .CGI .COM .EXE .GADGET .JAR .PIF .WSF .DEM .GAM .NES .ROM .SAV .CAD .DWG .DXF .GPX .KML .KMZ .ASP .ASPX .CER .CFM .CSR .CSS .HTM .HTML .JS .JSP .PHP .RSS .XHTML .DOC .DOCX .LOG .MSG .ODT .PAGES .RTF .TEX .TXT .WPD .WPS .CSV .DAT .GED .KEY .KEYCHAIN .PPS .PPT .PPTX .INI .PRF .HQX .MIM .UUE .7Z .CBR .DEB .GZ .PKG .RAR .RPM .SITX .TAR .GZ .ZIP .ZIPX .BIN .CUE .DMG .ISO .MDF .TOAST .VCD .TAR .TAX2014 .TAX2015 .VCF .XML .AIF .IFF .M3U .M4A .MID .MP3 .MPA .WAV .WMA .3G2 .3GP .ASF .AVI .FLV .M4V .MOV .MP4 .MPG .RM .SRT .SWF .VOB .WMV .3DM .3DS .MAX .OBJ .BMP .DDS .GIF .JPG .CRX .PLUGIN .FNT .FOX .OTF .TTF .CAB .CPL .CUR .DESKTHEMEPACK .DLL .DMP .DRV .ICNS .ICO .LNK .SYS .CFG
+        </p>
+        <p>
+            2、密系统中的照片、图片、文档、压缩包、音频、视频、可执行程序等几乎所有类型的文件，被加密的文件后缀名被统一修改为“.WNCRY”。
+        </p>
+        <p>
+            3、该勒索软件会将自身复制到每个文件夹下，并重命名为“@WanaDecryptor@.exe”。同时衍生大量语言配置等文件
+        </p>
+
+        <h2>二、无线局域网解决方案</h2>
+        <div style="padding-left: 2em">
+            <p>
+                新华三无线设备用户可以采取以下措施，阻断病毒的传播途径，避免爆发式感染。这些措施任意一项都可以起到阻断病毒传播的效果，采取措施前请慎重选择适合您使用场景的方案。
+            </p>
+
+
+
+            <h3>1 开启用户隔离</h3>
+            <p style="text-indent: 0">
+                通过隔离无线局域网中的终端设备来阻断病毒传播<br/>
+                适用于终端之间没有互相访问需求的场景<br/>
+                适用于H3C Comware V7无线控制器 集中/本地转发模式<br/>
+                适用于H3C Comware V5无线控制器 集中转发模式<br/>
+                <br/>
+                <b>AC配置示例：</b><br/>
+
+                #<br/>
+                wlan service-template <i>H3C</i><br/>
+                &nbsp;&nbsp;ssid <i>H3C-WiFi</i><br/>
+                &nbsp;&nbsp;vlan <i>1000</i><br/>
+                &nbsp;&nbsp;<b>user-isolation enable</b><br/>
+                &nbsp;&nbsp;service-template enable<br/>
+                #<br/>
+
+
+
+            </p>
+            <p>
+            <div style="color:red">注意：</div>
+            <ul style="color:red">
+                <li>部分设备启用改命令行时，需要先关闭无线服务模板，会造成临时业务中断</li>
+                <li>采取此项措施后，无线局域网的用户将不能相互访问，可能带来诸如不能使用FTP服务器等后果</li>
+            </ul>
+            </p>
+            <h3>2 启用ACL封杀病毒报文传播端口</h3>
+            <p style="text-indent: 0">
+                通过封杀病毒传播使用端口来阻断病毒传播<br/>
+                适用于开启无线认证的场景 <br>
+                适用于H3C Comware V7无线控制器 集中/本地转发模式<br/>
+                适用于H3C Comware V5无线控制器 集中/本地转发模式<br/>
+                <br/>
+                <b>AC配置示例：</b><br/>
+
+                #<br>
+                domain <i>cloud</i><br>
+                &nbsp;&nbsp;<b>authorization-attribute acl <i>3333</i></b><br>
+                &nbsp;&nbsp;authentication portal none<br>
+                &nbsp;&nbsp;authorization portal none<br>
+                &nbsp;&nbsp;accounting portal none<br>
+                #<br>
+                <br>
+                #<br>
+                <b>acl advanced <i>3333</i><br>
+                    &nbsp;&nbsp;rule 0 deny tcp destination-port eq 135<br>
+                    &nbsp;&nbsp;rule 1 deny tcp destination-port eq 137<br>
+                    &nbsp;&nbsp;rule 2 deny tcp destination-port eq 445<br>
+                    &nbsp;&nbsp;rule 3 deny tcp destination-port eq 139<br>
+                    &nbsp;&nbsp;rule 4 deny udp destination-port eq 135<br>
+                    &nbsp;&nbsp;rule 5 deny udp destination-port eq netbios-ns<br>
+                    &nbsp;&nbsp;rule 6 deny udp destination-port eq 445<br>
+                    &nbsp;&nbsp;rule 7 deny udp destination-port eq netbios-ssn<br>
+                    &nbsp;&nbsp;rule 8 permit 0<br></b>
+                #<br>
+            </p>
+            <p>
+            <div style="color:red">注意：</div>
+            <ul style="color:red">
+                <li>仅对已经开启了无线认证的场景有效</li>
+                <li>3333为示例ACL编号，用户可根据实际情况编号</li>
+            </ul>
+            </p>
+        </div>
+        <p>
+            您可以通过绿洲<span style="color:#3eb0a1"><b>“管理 - 运营维护 - 命令助手”</b></span>功能来下发配置，也可以通过登录设备控制台来下发这些命令。
+        </p>
+        <p>
+        <div style="text-align: center">
+            <img src="../img/cpu.jpg" alt="命令助手图片" width="100%">
+        </div>
+        </p>
+
+        <h2>三、其他防范措施</h2>
+        <p>
+            1、边界防护
+        </p>
+        <p>
+            强烈建议网络管理员在网络边界设备、防火墙上阻断对135/137/139/445端口的访问；
+        </p>
+        <p>
+            如果边界上有IPS、NGFW等防护设备，请升级设备的IPS、AV规则到最新版本，直到确认网内的电脑已经安装了MS07-010补丁或关闭了Server服务。
+        </p>
+        <p>
+            2、系统加固
+        </p>
+        <p>及时升级操作系统到最新版本；</p>
+        <p>对重要文件进行非本地备份；</p>
+        <p>停止使用Windows XP、Windows 2003等微软已不再提供安全更新的操作系统；</p>
+        <p>通过windows防火墙高级配置，对445端口的访问进行限制。</p>
+        <p>3、根治手段</p>
+        <p>
+            目前微软已发布补丁MS17-010修复了此漏洞，请立即安装。
+        </p>
+        <p>
+            4、虚拟补丁
+        </p>
+        <p>
+            <b>
+                目前新华三IPS 特征库已经可以对MS17-010进行防御，建议将特征库升级到最新版本并开启下列规则进行防护并配置为阻断。新华三安全攻防团队正在对已经捕获的病毒样本进行分析，后续将发布防护病毒规则，以及关于该病毒进一步的分析报告，敬请关注。
+            </b></p>
+        <p>
+            32679   MS17-010_Microsoft_Windows_SMB_Remote_Code_Execution_Vulnerability(Eternalblue)
+        </p>
+        <p>
+            32677    MS17-010_Windows_SMB_Remote_Code_Execution_Vulnerability(Eternalromance)
+        </p>
+        <p>
+            32678    MS17-010_Microsoft_Windows_SMB_Remote_Code_Execution_Vulnerability(Eternalsynergy)
+        </p>
+        <p>
+            32680    CVE-2017-0147_Windows_SMB_Information_Disclosure_Vulnerability(Eternalchampion)
+        </p>
+        <p>
+            151003803     (MS17-010) 微软 WindowsSMB 信息泄露漏洞(Eternalchampion)
+        </p>
+        <p>
+            151003806     (MS17-010) 微软 SMB 远程代码执行漏洞(Eternalsynergy)
+        </p>
+        <p>
+            151003804     (MS17-010) 微软 WindowsSMB 远程代码执行漏洞(Eternalblue)
+        </p>
+        <p>
+            151003805     (MS17-010) 微软 Windows SMB 远程代码执行漏洞(Eternalromance)
+        </p>
+        <h2>四、相关链接 </h2>
+        <p>
+            <a target="_blank" href="https://technet.microsoft.com/zh-cn/library/security/MS17-010">https://technet.microsoft.com/zh-cn/library/security/MS17-010</a>
+        </p>
+        <p>
+            <a target="_blank" href="https://github.com/x0rz/EQGRP_Lost_in_Translation/">https://github.com/x0rz/EQGRP_Lost_in_Translation/</a>
+        </p>
+        <p>
+            <a target="_blank" href="http://mp.weixin.qq.com/s/OPCTnHcRz4JQajN6V_LIAQ">http://mp.weixin.qq.com/s/OPCTnHcRz4JQajN6V_LIAQ</a>
+        </p>
+        <h2>五、声明</h2>
+        <p>
+            本安全公告仅用来描述可能存在的安全问题，新华三集团不为此安全公告提供任何保证或承诺。由于传播、利用此安全公告所提供的信息而造成的任何直接或者间接的后果及损失，均由使用者本人负责，新华三集团以及安全公告作者不为此承担任何责任。新华三集团拥有对此安全公告的修改和解释权。如欲转载或传播此安全公告，必须保证此安全公告的完整性，包括版权声明等全部内容。未经新华三集团允许，不得任意修改或者增减此安全公告内容，不得以任何方式将其用于商业目的。
+        </p>
+    </div>
+</div>

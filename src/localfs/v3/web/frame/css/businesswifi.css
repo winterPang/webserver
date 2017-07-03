@@ -1,0 +1,292 @@
+/*.list-link{
+    float: left;
+}
+*/
+.index_icon_count{
+    background-repeat: no-repeat;
+    margin: 16px 0 0 5px;
+    float: left;
+    cursor: pointer;
+    width: 0px;
+    height: 0px;
+    border:5px solid #A8C51C;
+    border-radius: 50%;
+}
+.index_icon_online{
+    border-color:#4EC1B2;
+}
+
+.index_icon_offline{
+    border-color:#80878C;
+}
+
+div.text-right.link-container{
+    font-size:15px;
+}
+
+div.business-wifi div.low-height{
+    line-height:43px;
+    font-size:17px;
+    color:#343e4e;
+
+}
+
+div.business-wifi div.lowscore {
+    margin: 20px 0 0 55px;
+}
+
+div.business-wifi a.score-detail{
+    color:#80878c;
+    cursor:pointer;
+}
+
+div.business-wifi a:hover,
+div.business-wifi a:active,
+div.business-wifi a:focus{
+    color:#4ec1b2;
+    border-bottom: 1px solid #4ec1b2;
+}
+
+/*div.business-wifi div.label-title {
+    color: #343e4e;
+    font-size:24px;
+    text-align: center;
+}*/
+
+/*div.business-wifi span.dashboard-title{
+    color: #80878c;
+    font-size: 15px;
+}*/
+
+div.business-wifi div.form-height {
+    min-height:120px;
+}
+
+div.business-wifi .relateClient {
+    background: url(../css/image/return.png) no-repeat -73px -63px;
+    width: 55px;
+    height: 80px;
+}
+
+div.business-wifi .authClient{
+    background: url(../css/image/return.png) no-repeat -180px -63px;
+    width: 55px;
+    height: 80px;
+}
+
+div.business-wifi .col-sm-6.form-height.left-padding{
+    padding-left:30px;
+
+}
+
+div.business-wifi .col-sm-6.form-height.label-span {
+    padding: 25px  50px  0  0;
+}
+
+/*div.business-wifi .explain {
+    text-align: center;
+}
+*/
+/*调整frame.css内容*/
+/*div.business-wifi .app-box .echart-height{
+    height:170px;
+}*/
+
+/*div.business-wifi .app-box .box-body{
+    height:260px;
+    padding: 0px;
+}*/
+
+
+div.business-wifi .margin-top-10{
+    margin-top:15px;
+}
+
+div.business-wifi .echart-content{
+    height: 94.7%;
+    width: 93.36%;
+    margin: 0 auto;
+}
+
+div.business-wifi .text-style{
+    position: relative;
+    width: 23px;
+    margin: 0px auto;
+    top: -97px;
+}
+div.business-wifi .pieStyle{
+    font-size:18px;
+    display:block;
+    float:left;
+    text-decoration:underline;
+    cursor:pointer;
+}
+
+div.business-wifi .height-120{
+    height:120px;
+}
+
+/*
+    第四场景设备信息页面样式 device.html
+*/
+.business-wifi-devinfo .simple-list .slist-body.with-button {
+    margin-top: 0px;
+}
+
+.business-wifi-devinfo .app-box .top-box{
+    border-bottom:#dedddd solid 1px;
+    padding: 10px 0 10px 28px;
+    /*box-shadow: 1px 1px 3px #dedddd;*/
+    display: none;
+}
+
+.business-wifi-devinfo .top-box .filter-zone{
+    display: inline-block;
+}
+
+.business-wifi-devinfo .radio-name{
+    /*display:inline-block;*/
+    margin-left: 10px;
+}
+
+.business-wifi-devinfo div.radio-title{
+    margin-top:5px;
+}
+
+.business-wifi-devinfo input.daterange{
+    border:#ccc solid 1px;
+    width: 165px;
+    height: 30px;
+}
+
+.business-wifi-devinfo input.inputArea{
+    display: inline-block;
+    max-width: 80px;
+    height: 18pt;
+}
+.business-wifi-devinfo .selectArea{
+    display: none;
+}
+.business-wifi-devinfo div.time-zone{
+    height:100px;
+}
+.business-wifi-devinfo .app-box .form-actions.top{
+    margin: -12px -5px 0 0;
+}
+.business-wifi-devinfo .app-box .form-actions.bottom {
+    margin: 80px 1px 0 0;
+}
+.business-wifi-devinfo .time-zone .form-actions{
+    display:none;
+}
+
+/*ap信息详情页面 ap_detail.js*/
+
+div.ap-detail .radio-css{
+    float: left;
+    margin-right: 24px;
+}
+div.ap-detail .control-content{
+    height:35px;
+}
+
+/*终端信息页面 summary_station.js*/
+.summary-station .syslog-info-mine-Num5G {
+    border-right: 1px solid #e7e7e9;
+    text-align: center;
+}
+
+/*小小贝的样式*/
+.summary-station  div.index_out_div a.xx-link.active,
+.summary-station  div.index_out_div a:hover {
+    color: #4ec1b2;
+    text-decoration: none;
+}
+
+.summary-station  .index_out_div a:hover{
+    border-bottom: 1px solid #4ec1b2;
+}
+.summary-station  .index_out_div a.active{
+    border-bottom:none;
+}
+.summary-station  .xx-link {
+    cursor: pointer;
+    line-height: 35px;
+    margin-right: 10px;
+}
+
+.summary-station .index_out_div a {
+    color: #343e4e;
+    text-decoration: none;
+    border-bottom: 1px solid #343e4e;
+    padding-bottom: 2px;
+}
+/*以上都是小小贝样式*/
+/*网络管理 应用配置*/
+
+.wireless .account_style{
+    width:25%;
+}
+@media (min-width: 768px){
+    .wireless .account_style {
+        width: 28%;
+    }
+}
+
+/**无线服务 服务配置 summary_wlanser  wlanser_detail**/
+
+.wlanser-detail .btngrp{
+    text-align:center;
+}
+.wlanser-detail .btngrp button{
+    display:inline-block;
+}
+
+/*apconfig_detail*/
+
+.apconfig-detail .column {
+    margin:0 0 10px 12px;
+    height:35px;
+}
+.apconfig-detail .column div{
+    height:100%;
+}
+
+.apconfig-detail div .xb-input{
+    margin:0px;
+}
+.apconfig-detail div.caption{
+    padding-top:8px !important;
+}
+.apconfig-detail .column button{
+    height:80%;
+    line-height: inherit;
+    margin-top:3px 0 0 35px;
+}
+.apconfig-detail div.rou{
+    border:1px;
+}
+.apconfig-detail div.btn-grp{
+    margin-top:20px;
+    text-align:center;
+}
+.apconfig-detail .btn-grp button{
+    background-color:#4ec1b2;
+    display:inline-block;
+
+}
+
+.apconfig-detail input[list="ssid"][name="myBrowser"]{
+    border:1px solid #e7e7e9;
+    font-family:Arial,"Microsoft YaHei",Helvetica,sans-serif;
+    color:#80878c;
+}
+.apconfig-detail datalist option{
+    font-family:Arial,"Microsoft YaHei",Helvetica,sans-serif;
+    color:red;
+}
+
+.bussiness-wifi-ap-config select{
+    margin:-7px 0 0 5px;
+    display:inline-block;
+}

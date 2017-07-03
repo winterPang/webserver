@@ -1,0 +1,56 @@
+.oasis-radio {
+  display: inline-block;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+}
+.oasis-radio label:nth-child(1) {
+  height: 16px;
+  width: 16px;
+  vertical-align: middle;
+  cursor: pointer;
+  margin-right: 5px;
+  background: url("../../../../frame/images/xb-icons.png");
+}
+.oasis-radio label:nth-child(1).checked {
+  background-position: -787px -125px;
+}
+.oasis-radio label:nth-child(1).unchecked {
+  background-position: -755px -125px;
+}
+.oasis-radio label:nth-child(1).disabled {
+  cursor: not-allowed;
+}
+.oasis-radio label:nth-child(2) {
+  font-weight: lighter;
+  vertical-align: middle;
+}
+/*.oasis-checkbox{
+  display: inline-block;
+  label:nth-child(1){
+    height: 16px;
+    width: 16px;
+    vertical-align: middle;
+    cursor: pointer;
+    margin-right: 5px;
+    background:url("../../../../frame/images/xb-icons.png");
+    &.checked{
+      background-position: -820px -125px;
+    }
+    &.unchecked{
+      background-position: -854px -125px;
+    }
+    &.disabled{
+      cursor: not-allowed;
+    }
+  }
+  label:nth-child(2){
+    font-weight: lighter;
+    vertical-align: middle;
+  }
+}*/
+/*copy按钮，不属于form*/
+.copy-btn {
+  float: right;
+  margin-top: -10px;
+  margin-right: -9px;
+}

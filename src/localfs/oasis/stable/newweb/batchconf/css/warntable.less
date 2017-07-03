@@ -1,0 +1,50 @@
+.warn-table {
+  background-color: #fff;
+  padding: 36px;
+  .operates {
+    position: initial;
+    height: 32px;
+    line-height: 32px;
+    color: #4ec1b2;
+    font-size: 18px;
+    margin-bottom: 12px;
+    button {
+      padding: 0 12px;
+      border: none;
+      outline: none;
+      font-size: 14px;
+      background-color: #4ec1b2;
+      border-radius: 4px;
+      color: #fff;
+    }
+    .cut-off-rule {
+      border-left: 1px solid #ddd;
+      margin: 0 20px;
+    }
+  }
+  .fixed-table-body {
+    table {
+      table-layout: fixed;
+      thead {
+        th {
+          &[data-field=warnDetail] {
+            width: 280px;
+          }
+          &[data-field=sn] {
+            width: 170px;
+          }
+          &[data-field=warnTime] {
+            width: 150px;
+          }
+        }
+      }
+      tbody {
+        td {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}

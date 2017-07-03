@@ -1,0 +1,89 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<div id="statusbar_page" class="statusbar">
+			<table>
+                <tr>
+                    <td>
+	                    <div class="bar-title"><span>Access Points</span></div>
+					</td>
+					<td rowspan="2">
+						<div class="br-line"></div>
+					</td>
+                    <td>
+                    	<div class="bar-title"><span>Clients</span></div>
+                    </td>
+                    <td rowspan="2">
+						<div class="br-line"></div>
+					</td>
+                    <td>
+                    	<div class="bar-title"><span>Event Logs</span></div>
+                    </td>
+                </tr>
+                <tr>
+                	<td>
+                		<div id="bar_ap">
+							<div class="bar-child">
+						   		<div title="Online">
+						   			<i class="ap-icon icon-run"></i>
+						   			<span id="bar_online" name="bar_online">55%</span>
+						   		</div>
+							</div>
+							<div class="bar-child">
+								<div title="Offline">
+									<i class="ap-icon icon-load"></i>
+									<span id="bar_offline" name"bar_offline">36%</span>
+								</div>
+							</div>
+							<div class="bar-child">
+								<div title="Unhealthy">
+									<i class="ap-icon icon-idle"></i>
+									<span id="bar_unhealthy" name="bar_unhealthy">9%</span>
+								</div>
+							</div>
+                		</div>
+                	</td>
+                	<td>
+                		<div class="bar-child no-margin">
+                			<div title="Wireless Clients">
+                				<span id="bar_client" name="bar_client">1,024</span>
+                			</div>
+                		</div>
+                	</td>
+                	<td>
+	                	<div id="bar_log">
+							<div class="bar-child no-margin">
+						   		<div title="Emergency, Alert"><!-- 0 1 bg-red-->
+						   			<i class="syslog emergency-icon"></i>
+						   			<span id="bar_emergency" name="bar_emergency">0</span>
+						   		</div>
+							</div>
+							<div class="bar-child">
+								<div title="Critical, Error"><!-- 2 3 bg-yellow-->
+									<i class="syslog critical-icon"></i>
+									<span id="bar_alert" name="bar_alert">0</span>
+								</div>
+							</div>
+							<div class="bar-child">
+								<div title="Warning, Notification"><!-- 4 5 bg-lightyellow-->
+									<i class="syslog warning-icon"></i>
+									<span id="bar_critical" name="bar_critical">0</span>
+								</div>
+							</div>
+							<div class="bar-child">
+								<div title="Informational, Debugging"><!-- 6 7 bg-grey-->
+									<i class="syslog info-icon"></i>
+									<span id="bar_debug" name="bar_debug">0</span>
+								</div>
+							</div>
+						</div>
+					</td>
+                </tr>
+			</table>
+		</div>
+	</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("frame.infors.statusbar");
+</script>

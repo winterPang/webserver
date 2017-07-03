@@ -1,0 +1,56 @@
+<form class="form-horizontal form">
+    <div class="form-group">
+        <label class="col-sm-2 control-label">NAT-configured clients</label>
+        <div class="col-sm-10">
+            <div class="xb-input xb-checkbox">
+                <input class="switch input-element"
+                       id="natDetectStatus"
+                       type="checkbox"
+                       ng-model="data.natDetectStatus"/>
+                    <span class="input-icon checkbox-icon switch"
+                          ng-class="{checked: data.natDetectStatus}"></span>
+                <label class="input-label" for="natDetectStatus"></label>
+            </div>
+            <br/>
+            <label class="info-explain">Note: Detect whether a wireless client shares WLAN with rogue clients.</label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">Wireless probing</label>
+        <div class="col-sm-10">
+            <div class="xb-input xb-checkbox">
+                <input class="switch input-element"
+                       id="probeStatus"
+                       type="checkbox"
+                       ng-model="data.probeStatus"/>
+                    <span class="input-icon checkbox-icon switch"
+                          ng-class="{checked: data.probeStatus}"></span>
+                <label class="input-label" for="probeStatus"></label>
+            </div>
+            <br/>
+            <label class="info-explain">Note: Probing APs scan channels and collect wireless device information.</label>
+        </div>
+    </div>
+    <div class="form-group" id="bb_block">
+        <label class="col-sm-2 control-label">WIPS</label>
+        <div class="col-sm-10">
+            <div>
+                <div class="WipsBlock">
+                    <input type="checkbox" id="phish" name="phish" ng-model="data.phishStatus"/>
+                    <label for="phish">Detect phishing</label><br/>
+                    <label class="info-explain">Note: Detect wireless services similar to this WLAN or a well-known hotspot, MAC address spoofing, and beacon frame spoofing.</label>
+                </div>
+                <div class="WipsBlock">
+                    <input type="checkbox" id="ctmPhish" name="ctmPhish" ng-model="data.ctmPhishStatus"/>
+                    <label for="ctmPhish">Take countermeasures against phishing</label><br/>
+                    <label class="info-explain">Note: This feature disables attackers from operating correctly. Please use it with caution.</label>
+                </div>
+                <div class="WipsBlock">
+                    <input type="checkbox" id="flood" name="flood" ng-model="data.floodStatus"/>
+                    <label for="flood">Detect flood attacks</label><br/>
+                    <label class="info-explain">Note: Attackers send a large number of packets of the same type in a short period to disable the attacked device from providing services.</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</form>

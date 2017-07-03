@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="box-body no-height">
+                <div id="setindex_list" class="simple-list"></div>
+            </div>
+        </div> 
+    </div>
+
+
+    <div class="hide" id="ssidToggle">
+        <form id="toggle_form" class="form edit">
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <label class="col-sm-3">场地名称</label>
+                    <div class="col-sm-9 string big">
+                        <span class="label" id="placeName"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-6">
+                    <label class="col-sm-3">所属场所</label>
+                    <div class="col-sm-9 string big">
+                        <span class="label" id="order"></span>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label class="col-sm-3">所属场所序列号</label>
+                    <div class="col-sm-9 string big">
+                        <span class="label" id="devSN"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-6" id="status">
+                    <label class="col-sm-3">绑定ap列表</label>
+                    <div class="col-sm-9 string big">
+                        <span class="label" id="bindap"></span>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
+
+    <div class="hide modal fade" id="tableDlg">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3>增加</h3>
+        </div>
+        <form class="form-horizontal form" id="tableForm">
+            <div class="col-xs-12 app-colum left-block">
+                <div>
+                    <label class="col-sm-3 control-label required">选择场所：</label>
+                    <select id="changshuoselect"   name="changshuoselect" class="singleSelect" style=" margin-top: 5px;"></select>
+                </div>
+                <div>
+                    <label class="col-sm-3 control-label required">场地名称：</label>
+                    <input class="inputArea" type="text" id="name"><span>（1-64个字符）</span>
+                </div>
+                <div>
+                    <label class="col-sm-3 control-label required">绑定AP：</label>
+                    <input class="inputArea" type="text" id="aplist"><span id="selectap" style="cursor:pointer; color: #4EC1B2">（选择AP）</span>
+                </div>
+            </div>
+        </form>
+        <div class="modal-footer form-actions">
+            <div class="form-group">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="success_add">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="hide modal fade" id="tableDlg_ap">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3>AP列表</h3>
+        </div>
+        <form class="form-horizontal form" id="tableForm_ap">
+            <div class="col-xs-12">
+                <div id="ap_list" class="simple-list" style="width: 858px;"></div>
+            </div>
+        </form>
+        <div class="modal-footer form-actions">
+            <div class="form-group">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="success_aplist">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="hide modal fade" id="e_tableDlg">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+            <h3>修改</h3>
+        </div>
+        <form class="form-horizontal form" id="e_tableForm">
+            <div class="col-xs-12 app-colum left-block">
+                <div>
+                    <label class="col-sm-3 control-label required">场所名称：</label>
+                    <input class="inputArea" type="text" readonly="readonly" id="place_name">
+                </div>
+                <div>
+                    <label class="col-sm-3 control-label required">场地名称：</label>
+                    <input class="inputArea" type="text" id="e_name"><span>（1-64个字符）</span>
+                </div>
+                <div>
+                    <label class="col-sm-3 control-label required">绑定AP组：</label>
+                    <input class="inputArea" type="text" id="e_aplist"><span id="e_selectap" style="cursor:pointer; color: #4EC1B2">（选择AP）</span>
+                </div>
+            </div>
+        </form>
+        <div class="modal-footer form-actions">
+            <div class="form-group">
+                <button type="button" class="btn btn-default" data-dismiss="modal" id="success_edit">确定</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="setindex_infor_rc" class="rc-define"
+     SET_LABELS="场地名称,绑定ap列表,所属场所名称,所属场所序列号"  AP_LIST="AP名,AP序列号,描述"
+    ></div>
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("a_dataanalysis.setindex");
+</script>

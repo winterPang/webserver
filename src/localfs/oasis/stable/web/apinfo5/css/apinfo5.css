@@ -1,0 +1,10 @@
+.apinfo5 .info-tip span {
+    color: rgb(78, 193, 178);
+    font-size: 15px;
+    margin: 10px 0px 10px 22px;
+    display: inline-block;
+}
+
+.apinfo5 .info-tip a {
+    color: grey;
+}

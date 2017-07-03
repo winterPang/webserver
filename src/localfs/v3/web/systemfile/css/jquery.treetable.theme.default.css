@@ -1,0 +1,129 @@
+table.treetable {
+  border: 1px solid #DEDDDD;
+  border-collapse: collapse;
+  font-size: .8em;
+  line-height: 1;
+  margin: .6em 0 1.8em 0;
+  width: 100%;
+}
+
+table.treetable caption {
+  font-size: .9em;
+  font-weight: bold;
+  margin-bottom: .2em;
+}
+
+table.treetable thead {
+  background: #EDF0F2 url(../images/bg-table-thead.png) repeat-x top left;
+  font-size: 1.4em;
+}
+
+table.treetable thead tr th {
+  font-weight: normal;
+  padding: .3em 1em .1em 1em;
+  text-align: left;
+}
+
+table.treetable tbody tr td {
+  cursor: default;
+  padding: .5em 1em;
+}
+
+table.treetable span {
+  background-position: center left;
+  background-repeat: no-repeat;
+  padding: .2em 0 .2em 1.5em;
+}
+
+table.treetable span.file {
+  background-image: url(../images/file.png);
+}
+
+table.treetable span.folder {
+  background-image: url(../images/folder.png);
+}
+
+table.treetable tr.collapsed span.indenter a {
+  background-image: url(../images/expand.png);
+}
+
+table.treetable tr.expanded span.indenter a {
+  background-image: url(../images/collapse.png);
+}
+
+table.treetable tr.selected {
+  background-color: #3875d7;
+  color: #fff;
+}
+
+table.treetable tr.collapsed.selected span.indenter a {
+  background-image: url(../images/expand-light.png);
+}
+
+table.treetable tr.expanded.selected span.indenter a {
+  background-image: url(../images/collapse-light.png);
+}
+
+table.treetable tr.accept {
+  background-color: #a3bce4;
+  color: #fff
+}
+
+table.treetable tr.collapsed.accept td span.indenter a {
+  background-image: url(../images/expand-light.png);
+}
+
+table.treetable tr.expanded.accept td span.indenter a {
+  background-image: url(../images/collapse-light.png);
+}
+
+.sysFileModalHead {
+  height: 40px;
+  background-color: #52B6AB;
+  font-size: 18px;
+  line-height: 40px;
+  padding-left: 20px;
+  color: #fff;
+  border-radius: 6px 6px 0px 0px;
+}
+#sysFileModal{
+  top: 14%;
+  width: 0px;
+  height: 0px;
+  display: none;
+}
+#sysFileProgressBar{
+  top: 36%;
+  width: 0px;
+  height: 0px;
+  display: none;
+}
+#sysFileRenameModal{
+  top: 14%;
+  width: 0px;
+  height: 0px;
+  display: none;
+}
+.sysFileModalBody{
+  max-height: 450px;
+  margin-bottom: 0px;
+  padding-top: 15px;
+  padding-bottom: 0px;
+}
+#sysFileHeadImgToolsContent{
+  position: relative;
+  height: 35px
+}
+#sysFileHeadImgToolsChoise{
+  width: 291px;
+  position: absolute;
+  left: 2px;
+  font-size: 16px;
+  top: -3px;
+}
+#systemFileTable {
+  top: 20px;
+  left: 4%;
+  width: 92%;
+  position: relative
+}

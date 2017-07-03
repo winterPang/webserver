@@ -1,0 +1,105 @@
+<html>
+<head>
+</head>
+<body>
+<div>
+    <div class="dashboard" id="plot_container">
+        <div class="page-row">
+            <div id="vlans_box_r1" class="col-xs-12 app-colum">
+                <div class="app-box">
+                    <div class="box-footer">
+                      <span class="title">客户端信息</span>
+                       <div class="text-right link-container">
+                            <div>
+                                <a type="button" class="filter" id="filter_ssid">
+                                    <i class="filter-icon icon"></i>
+                                </a>
+                            </div>
+                            <div class="hide" id="ssid_block">
+                                <div class="filter-container">
+                                    <label class="col-sm-2  control-label">SSID</label>
+                                    <div class="col-sm-10">
+                                        <select class="mselect" id="SsidSelect" selectedId="SsidSelectItem"></select>
+                                        <div class="text-left maxwidth" maxCount="5" id="SsidSelectItem"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                   </div>
+                    <div class="sysinfo-body">
+                        <div id="SSID_usage"  class="myEchart">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-row">
+            <div id="vlans_box_1" class="col-xs-6 app-colum">
+                <div class="app-box">
+                    <div class="sysinfo-footer">
+                       <div class="col-xs-12">
+                           <span class="title">使用率前五</span>
+                       </div>
+                       <div class="text-right link-container">
+                        <a type="button" id="Top5Out" class="link-detail active top5" val=".rate-top">吞吐量</a>
+                        &nbsp;|&nbsp;
+                        <a type="button" id="Top5Client" class="link-detail top5" val=".num-top">客户端</a>
+                      </div>
+                   </div>
+                    <div class="box-body no-height">
+                        <div class="col-xs-5">
+                            <div id="RxRateList" class="simple-list rate-top"></div>
+                            <div id="G5NumList" class="simple-list num-top hide"></div>
+                        </div>
+                        <div class="col-xs-2">
+                        </div>
+                        <div class="col-xs-5">
+                             <div id="TxRateList" class="simple-list rate-top top-list"></div>
+                             <div id="G2NumList" class="simple-list num-top top-list hide"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="vlans_box_2" class="col-xs-6 app-colum right-block">
+                <div class="app-box">
+                    <div class="sysinfo-footer">
+                      <div class="col-xs-12">
+                           <span class="title">绑定信息</span>
+                      </div>
+                      <div class="text-right link-container">
+                        <a type="button" id="bind5G" class="link-detail active bindMode" val=".G5">5GHz</a>
+                        &nbsp;|&nbsp;
+                        <a type="button" id="bind2G" class="link-detail bindMode" val=".G2">2.4GHz</a>
+                      </div>
+                    </div>
+                    <div class="box-body no-height" >
+                         <div id="bind5GList" class="simple-list G5"></div>
+                         <div id="bind2GList" class="simple-list G2 hide"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+    <div id="ssid_detail_rc" class="rc-define"
+        RX_HEADER="SSID,接收速率（Kbps）"
+        TX_HEADER="SSID,发送速率（Kbps）"
+        G5_HEADER="SSID,5GHz客户端数量"
+        G2_HEADER="SSID,2.4GHz客户端数量"
+        LIST_HEADER="服务模板名称,SSID,转发类型,认证位置,认证模式,加密套件,缺省VLAN,服务模板状态"
+        BIND_HEADER="SSID,AP名称,绑定VLAN,客户端数量"
+        CIPHER_SUITE="TKIP,CCMP,WEP 40,WEP 104,WEP 128"
+        FORWARD_TYPE="集中式转发,本地转发,策略转发"
+        SECURITY_TYPE="不认证,802.1X 认证,静态PSK密钥,静态WEP密钥,MAC地址认证,Portal认证,动态WEP密钥,802.1X 认证（不加密）"
+        STATUS = "开启,关闭"
+        LOCATION = "Central AC,Local AC,,AP"
+        ECHART_STRING="时间,客户端数目,速率(Mbps)"
+            ></div>
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("city_dashboard.ssid_detail");
+</script>

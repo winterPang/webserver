@@ -1,0 +1,276 @@
+{
+  "url": "/read_dpi_app",
+  "rows": [
+    {
+      "_id": "WeChat",
+      "APPName": "微信",
+      "APPNameEn": "WeChat",
+      "APPGroupName": "Communication",
+      "UserMAC": "e4f8-ef8f-cf44",
+      "TotalTime": "00:1:9",
+      "value": 430,
+      "Flow": "222.65"
+    },
+    {
+      "_id": "TengXunWang",
+      "APPName": "腾讯网",
+      "APPNameEn": "TengXunWang",
+      "APPGroupName": "News",
+      "UserMAC": "e4f8-ef8f-cf44",
+      "TotalTime": "00:2:44",
+      "value": 34,
+      "Flow": "3.59"
+    },
+    {
+      "_id": "BaiDuMap",
+      "APPName": "百度地图",
+      "APPNameEn": "BaiDuMap",
+      "APPGroupName": "None",
+      "UserMAC": "64cc-2ebd-6986",
+      "TotalTime": "00:00:5",
+      "value": 6,
+      "Flow": "0.31"
+    },
+    {
+      "_id": "2345DaoHang",
+      "APPName": "2345网址导航",
+      "APPNameEn": "2345DaoHang",
+      "APPGroupName": "None",
+      "UserMAC": "9c99-a0a3-f9da",
+      "TotalTime": "00:2:45",
+      "value": 6,
+      "Flow": "0.55"
+    },
+    {
+      "_id": "JinRiTouTiao",
+      "APPName": "今日头条",
+      "APPNameEn": "JinRiTouTiao",
+      "APPGroupName": "None",
+      "UserMAC": "9c99-a0a3-f9da",
+      "TotalTime": "00:47:42",
+      "value": 5,
+      "Flow": "90.49"
+    },
+    {
+      "_id": "TaoBao",
+      "APPName": "淘宝",
+      "APPNameEn": "TaoBao",
+      "APPGroupName": "None",
+      "UserMAC": "886a-b195-9274",
+      "TotalTime": "00:1:28",
+      "value": 4,
+      "Flow": "0.20"
+    },
+    {
+      "_id": "NeiHanDuanZi",
+      "APPName": "内涵段子",
+      "APPNameEn": "NeiHanDuanZi",
+      "APPGroupName": "None",
+      "UserMAC": "9c99-a0a3-f9da",
+      "TotalTime": "00:41:44",
+      "value": 4,
+      "Flow": "0.45"
+    },
+    {
+      "_id": "TencentVideo",
+      "APPName": "腾讯视频",
+      "APPNameEn": "TencentVideo",
+      "APPGroupName": "None",
+      "UserMAC": "e4f8-ef8f-cf44",
+      "TotalTime": "00:00:5",
+      "value": 4,
+      "Flow": "0.15"
+    },
+    {
+      "_id": "GeneralDownload",
+      "APPName": "通用HTTP下载",
+      "APPNameEn": "GeneralDownload",
+      "APPGroupName": "None",
+      "UserMAC": "9c99-a0a3-f9da",
+      "TotalTime": "00:00:35",
+      "value": 3,
+      "Flow": "6.75"
+    },
+    {
+      "_id": "QQ",
+      "APPName": "",
+      "APPNameEn": "QQ",
+      "APPGroupName": "None",
+      "UserMAC": "886a-b195-9274",
+      "TotalTime": "00:00:5",
+      "value": 3,
+      "Flow": "0.09"
+    },
+    {
+      "_id": "RenMinWang",
+      "APPName": "人民网",
+      "APPNameEn": "RenMinWang",
+      "APPGroupName": "News",
+      "UserMAC": "9c99-a0a3-f9da",
+      "TotalTime": "00:00:5",
+      "value": 3,
+      "Flow": "0.02"
+    },
+    {
+      "_id": "GaoDeMap",
+      "APPName": "高德地图",
+      "APPNameEn": "GaoDeMap",
+      "APPGroupName": "None",
+      "UserMAC": "886a-b195-9274",
+      "TotalTime": "00:00:5",
+      "value": 2,
+      "Flow": "0.01"
+    },
+    {
+      "_id": "BaiduSearch",
+      "APPName": "百度搜索",
+      "APPNameEn": "BaiduSearch",
+      "APPGroupName": "Tool",
+      "UserMAC": "cc2d-8359-5564",
+      "TotalTime": "2:24:11",
+      "value": 2,
+      "Flow": "2.47"
+    },
+    {
+      "_id": "ChinaEconomics",
+      "APPName": "中国经济网",
+      "APPNameEn": "ChinaEconomics",
+      "APPGroupName": "None",
+      "UserMAC": "9c99-a0a3-f9da",
+      "TotalTime": "00:00:5",
+      "value": 2,
+      "Flow": "0.03"
+    },
+    {
+      "_id": "SuNingYiGou",
+      "APPName": "苏宁易购",
+      "APPNameEn": "SuNingYiGou",
+      "APPGroupName": "Life",
+      "UserMAC": "cc2d-8359-5564",
+      "TotalTime": "00:00:5",
+      "value": 2,
+      "Flow": "0.34"
+    },
+    {
+      "_id": "SouHuWang",
+      "APPName": "搜狐网",
+      "APPNameEn": "SouHuWang",
+      "APPGroupName": "News",
+      "UserMAC": "886a-b195-9274",
+      "TotalTime": "00:00:5",
+      "value": 1,
+      "Flow": "0.02"
+    },
+    {
+      "_id": "SoHuVideo",
+      "APPName": "搜狐视频",
+      "APPNameEn": "SoHuVideo",
+      "APPGroupName": "None",
+      "UserMAC": "886a-b195-9274",
+      "TotalTime": "00:00:5",
+      "value": 1,
+      "Flow": "0.01"
+    },
+    {
+      "_id": "YouDaoDict",
+      "APPName": "有道词典",
+      "APPNameEn": "YouDaoDict",
+      "APPGroupName": "None",
+      "UserMAC": "9c99-a0a3-f9da",
+      "TotalTime": "00:00:13",
+      "value": 1,
+      "Flow": "0.13"
+    },
+    {
+      "_id": "TencentResource",
+      "APPName": "腾讯资源下载",
+      "APPNameEn": "TencentResource",
+      "APPGroupName": "None",
+      "UserMAC": "cc2d-8359-5564",
+      "TotalTime": "00:00:5",
+      "value": 1,
+      "Flow": "0.35"
+    },
+    {
+      "_id": "YouKu",
+      "APPName": "优酷",
+      "APPNameEn": "YouKu",
+      "APPGroupName": "None",
+      "UserMAC": "cc2d-8359-5564",
+      "TotalTime": "00:5:33",
+      "value": 1,
+      "Flow": "0.00"
+    },
+    {
+      "_id": "afs3-kaserver",
+      "APPName": "",
+      "APPNameEn": "afs3-kaserver",
+      "APPGroupName": "None",
+      "UserMAC": "9c99-a0a3-f9da",
+      "TotalTime": "00:44:31",
+      "value": 1,
+      "Flow": "0.06"
+    },
+    {
+      "_id": "Hexun",
+      "APPName": "和讯网",
+      "APPNameEn": "Hexun",
+      "APPGroupName": "Finance",
+      "UserMAC": "64cc-2ebd-6986",
+      "TotalTime": "00:00:5",
+      "value": 1,
+      "Flow": "0.02"
+    },
+    {
+      "_id": "163Email",
+      "APPName": "163邮箱",
+      "APPNameEn": "163Email",
+      "APPGroupName": "Office",
+      "UserMAC": "cc2d-8359-5564",
+      "TotalTime": "00:00:5",
+      "value": 1,
+      "Flow": "0.02"
+    },
+    {
+      "_id": "oicq",
+      "APPName": "",
+      "APPNameEn": "oicq",
+      "APPGroupName": "unknown",
+      "UserMAC": "9c99-a0a3-f9da",
+      "TotalTime": "1:11:40",
+      "value": 1,
+      "Flow": "0.06"
+    },
+    {
+      "_id": "SouhuNews",
+      "APPName": "搜狐新闻",
+      "APPNameEn": "SouhuNews",
+      "APPGroupName": "None",
+      "UserMAC": "886a-b195-9274",
+      "TotalTime": "00:00:5",
+      "value": 1,
+      "Flow": "0.00"
+    },
+    {
+      "_id": "1HaoDian",
+      "APPName": "1号店",
+      "APPNameEn": "1HaoDian",
+      "APPGroupName": "None",
+      "UserMAC": "886a-b195-9274",
+      "TotalTime": "00:00:5",
+      "value": 1,
+      "Flow": "0.01"
+    },
+    {
+      "_id": "imaps",
+      "APPName": "",
+      "APPNameEn": "imaps",
+      "APPGroupName": "None",
+      "UserMAC": "cc2d-8359-5564",
+      "TotalTime": "00:00:5",
+      "value": 1,
+      "Flow": "0.06"
+    }
+  ],
+  "retCode": 0
+}

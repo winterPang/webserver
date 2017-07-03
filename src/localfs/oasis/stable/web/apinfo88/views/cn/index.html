@@ -1,0 +1,247 @@
+<div class="apinfo88 js-apinfo">
+    <div class="page-row" style="margin-top:-30px">
+        <div class="col-xs-12 app-colum left-block">
+            <button type="button" ng-click="linkToDetail($event)" class="btn btn-default pull-right link-btn" title="详情">
+                <span class="glyphicon glyphicon-th-list" style="margin-right: 10px;"></span>AP详情
+            </button>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">不在线AP个数趋势</span>
+                    <div class="time-change">
+                        <a class="time-link " ng-class="{true:'active',false:''}[isFlowDayActived]" ng-click="changeFlowPeriod($event,1)">天</a>
+                        <a class="time-link" ng-class="{true:'active',false:''}[isFlowWeekActived]" ng-click="changeFlowPeriod($event,2)">周</a>
+                        <a class="time-link" ng-class="{true:'active',false:''}[isFlowMounthActived]" ng-click="changeFlowPeriod($event,3)">月</a>
+                    </div>
+                </div>
+                <div class="box-body no-height table-padding">
+                    <div id="AP_dropLine_trends" style="height:220px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">AP掉线次数</span>
+                    <div class="time-change">
+                        <a class="time-link " ng-class="{true:'active',false:''}[isDropLineTimeDayActived]" ng-click="changeDropLineTimePeriod($event,1)">天</a>
+                        <a class="time-link" ng-class="{true:'active',false:''}[isDropLineTimeWeekActived]" ng-click="changeDropLineTimePeriod($event,2)">周</a>
+                        <a class="time-link" ng-class="{true:'active',false:''}[isDropLineTimeMonthActived]" ng-click="changeDropLineTimePeriod($event,3)">月</a>
+                    </div>
+                </div>
+                <div class="box-body no-height table-padding">
+                    <div class="col-xs-7">
+                        <div id="AP_dropLine_time" style="width:99%;height:220px;"></div>
+                    </div>
+                    <div class="col-xs-5">
+                        <span class="top-title">AP掉线排行(次数)</span>
+                        <ul>
+                            <li class="top-progress-block" ng-repeat="v in topList_dropline_time">
+                                <span ng-bind="v.apName"></span>
+                                <span class="topUnit" ng-bind="v.apdownNums"></span>
+                                <div class="progress top-progress">
+                                    <div class="progress-bar progress-bar-success" ng-class="v.color" role="progressbar" aria-valuenow="40" aria-valuemin="0"
+                                        aria-valuemax="100" ng-style="{width:v.valuePercent}">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">AP负载</span>
+                </div>
+                <div class="box-body no-height table-padding">
+                    <div class="col-xs-7">
+                        <div id="ap_load" style="width: 99%;height:220px;"></div>
+                    </div>
+                    <div class="col-xs-5">
+                        <span class="top-title">AP负载排行(%)</span>
+                        <div class="top-progress-block" ng-repeat="v in topList_AP_load">
+                            <span ng-bind="v.apName"></span>
+                            <span class="topUnit" ng-bind="(v.loadRate*100).toFixed(2)  + '%'"></span>
+                            <div class="progress top-progress">
+                                <div class="progress-bar progress-bar-success" ng-class="v.color" role="progressbar" aria-valuenow="40" aria-valuemin="0"
+                                    aria-valuemax="100" ng-style="{width:v.valuePercent}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">AP吞吐率</span>
+                </div>
+                <div class="box-body no-height table-padding">
+                    <div class="col-xs-7">
+                        <div id="apHuffPuff" style="width:99%;height:220px;"></div>
+                    </div>
+                    <div class="col-xs-5">
+                        <span class="top-title">AP吞吐率排行(Mbps)</span>
+                        <ul>
+                            <li class="top-progress-block" ng-repeat="v in topList_AP_HUFF_PUFF">
+                                <span ng-bind="v.apName"></span>
+                                <span class="topUnit" ng-bind="v.throughputRate.toFixed(2)"></span>
+                                <div class="progress top-progress">
+                                    <div class="progress-bar progress-bar-success" ng-class="v.color" role="progressbar" aria-valuenow="40" aria-valuemin="0"
+                                        aria-valuemax="100" ng-style="{width:v.valuePercent}">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">AP下线原因</span>
+                </div>
+                <div class="box-body no-height table-padding">
+                    <div class="col-xs-7">
+                        <div  id="apDown_Reason" style="width:99%; height:220px;"></div>
+                    </div>
+                    <div class="col-xs-5">
+                        <span class="top-title">AP下线原因</span>
+                        <div style="margin-top: 15px;">
+                            <div>
+                                <div style="width:20px;height:12px;background-color:#4ec1b1;display:inline-block;border-radius:3px;"></div>
+                                <span>&nbsp;&nbsp;AC间连通性出现问题</span>
+                            </div>
+                            <div style="width:99%;height:15px"></div>
+                            <div>
+                                <div style="width:20px;height:12px;background-color:#78cec3;display:inline-block;border-radius:3px;"></div>
+                                <span>&nbsp;&nbsp;配置修改</span>
+                            </div>
+                            <div style="width:99%;height:15px"></div>
+                            <div>
+                                <div style="width:20px;height:12px;background-color:#f2bc98;display:inline-block;border-radius:3px;"></div>
+                                <span>&nbsp;&nbsp;下载版本失败</span>
+                            </div>
+                            <div style="width:99%;height:15px"></div>
+                            <div>
+                                <div style="width:20px;height:12px;background-color:#fbceb1;display:inline-block;border-radius:3px;"></div>
+                                <span>&nbsp;&nbsp;用户重启AP</span>
+                            </div>
+                            <div style="width:99%;height:15px"></div>
+                            <div>
+                                <div style="width:20px;height:12px;background-color:#fe808b;display:inline-block;border-radius:3px;"></div>
+                                <span>&nbsp;&nbsp;其他</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">AP在线时长</span>
+                </div>
+                <div class="box-body no-height table-padding">
+                    <div class="col-xs-7">
+                        <div id="apOnline_time" style="width: 99%;height:220px;"></div>
+                    </div>
+                    <div class="col-xs-5">
+                        <span class="top-title">AP在线时长排行(天)</span>
+                        <ul>
+                            <li class="top-progress-block" ng-repeat="v in topList_online_duration">
+                                <span ng-bind="v.apName"></span>
+                                <span class="topUnit" ng-bind="(v.onlineTime/86400).toFixed(2)"></span>
+                                <div class="progress top-progress">
+                                    <div class="progress-bar progress-bar-success" ng-class="v.color" role="progressbar" aria-valuenow="40" aria-valuemin="0"
+                                        aria-valuemax="100" ng-style="{width:v.valuePercent}">
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <span class="title">AP信道利用率</span>
+                    <!--<span style="margin-left:20px;font-size:11px;color:#AEAEB7;">请在设备上打开 <span style="color:#fea6ad;font-weight:bolder">rrm</span> 功能</span>-->
+                </div>
+
+                <div class="box-body no-height table-padding">
+                    <!-- 为 ECharts 准备一个具备大小（宽高）的 DOM -->
+                    <div class="col-xs-6 app-colum left-block">
+                        <div style=" width:50px; margin-left: 40px; color:#4ec1b2;text-align:center;border:1px solid #4ec1b2">2.4G</div>
+                        <div id="ap2.4GApply" style="height:240px;"></div>
+                    </div>
+                    <div class="col-xs-6 app-colum left-block">
+                        <div style=" width:50px; margin-left: 40px; color:#4ec1b2;text-align:center;border:1px solid #4ec1b2;">5G</div>
+                        <div id="ap5GApply" style="height:240px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div bs-modal="dropline_time_modal_apInfo">
+        <div bs-table="dropline_time_table_apInfo"></div>
+    </div>
+    <div bs-modal="load_modal_apinfo">
+        <div bs-table="load_table_apInfo"></div>
+    </div>
+    <div bs-modal="huff_puff_modal_apInfo">
+        <div bs-table="huff_puff_table_apInfo"></div>
+    </div>
+    <div bs-modal="dropline_reason_modal_apInfo">
+        <div bs-table="dropline_reason_table_apInfo"></div>
+    </div>
+    <div bs-modal="online_duration_modal_apInfo">
+        <div bs-table="online_duration_table_apInfo"></div>
+    </div>
+    <div bs-modal="modal_2D4G_apInfo">
+        <div bs-table="table_2D4G_apInfo"></div>
+    </div>
+    <div bs-modal="modal_5G_apInfo">
+        <div bs-table="table_5G_apInfo"></div>
+    </div>
+</div>
+
+<div id="apinfo88_rc"
+     apNumUint = '(个)'
+     apDownTableTitle = 'AP掉线信息列表'
+     apDownTable = 'AP名称,序列号,掉线次数'
+     apDownPie = 'AP掉线次数'
+     apDownPieName = '0-5次,6-10次,>10次'
+     apLoadPie = 'AP负载'
+     apLoadPieName = '低,中,高'
+     apLoadTableTitle = 'AP负载信息列表'
+     apLoadTable = 'AP名称,序列号,负载率'
+     apRadioHuffPie = 'AP吞吐率'
+     apRadioHuffPieName = '0-10Mbps,10-50Mbps,>50Mbps'
+     apRadioHuffPieTableTitle = 'AP吞吐率信息列表'
+     apRadioHuffPieTable = 'AP名称,序列号,AP吞吐率(Mbps)'
+     apDownReasonPie = 'AP下线原因'
+     apDownReasonPieName = 'AC间连通性出现问题,配置修改,下载版本失败,用户重启AP,其他'
+     apDownReasonTableTitle = 'AP下线原因信息列表'
+     apDownReasonTable = 'AP名称,序列号,型号,下线原因'
+     apOnlineTimePie = 'AP在线时长'
+     apOnlineTimeName = '<1小时, 1小时-1天,1天-1周,1周-1月,1月-1年,>1年'
+     apOnlineTimeTableTitle = 'AP在线时长信息列表'
+     apOnlineTimeTable = 'AP名称,序列号,在线时长(天)'
+     
+></div>

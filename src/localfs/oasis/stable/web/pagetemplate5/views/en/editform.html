@@ -1,0 +1,114 @@
+<style>
+    .del-icon {
+        display: inline-block;
+        height: 17px;
+        width: 17px;
+        background: url("../../../frame/images/xb-icons.png") no-repeat -456px -126px;
+        cursor: pointer;
+    }
+
+    .del-icon:hover {
+        background-position: -428px -126px;
+    }
+</style>
+<div class="form-horizontal toggle-block page">
+    <div class="toggle-tool-bar" ng-if="permission.write">
+        <!--删除图标-->
+        <span class="del-icon" title="Delete" ng-click="del()"></span>
+        <!--确定与取消图标-->
+        <div class="form-actions top" ng-show="toggle_form.$dirty">
+            <a href="javascript:void(0)" class="form-btn icon-ok" title="OK" ng-click="modify()"></a>
+            <a href="javascript:void(0)" class="form-btn icon-remove" title="Cancel" ng-click="reset()"></a>
+        </div>
+    </div>
+    <div class="toggle-body">
+        <form name="toggle_form" class="form edit" autocomplete="off">
+            <!--左侧-->
+            <div class="col-sm-7 response-block">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label required">Template Name</label>
+                    <div class="col-sm-8">
+                        <input ng-model="edit.themeName" type="text" class="string big" ng-maxlength="32"
+                               disabled="disabled" required/>
+                        <label class="info-explain">(1-32 chars)</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label ">Description</label>
+                    <div class="col-sm-8">
+                        <input ng-model="edit.themeDec" type="text" class="string big " ng-maxlength="128"
+                               name="description" ng-disabled="!permission.write"/>
+                        <label class="info-explain">(1-128 chars)</label>
+                        <label ng-show="toggle_form.description.$dirty" ng-messages="toggle_form.description.$error"
+                               style="display:inline-block;">
+                            <label ng-message="maxlength" class="error" style="display: inline-block;">Please enter a
+                                string of 1 to 128 characters.</label>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <!--右侧-->
+            <div class="col-sm-5 response-block">
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">Template Format</label>
+
+                    <!--以下是王伟芳添加内容，勿删-->
+                    <div class="col-sm-8 is-horizon" ng-show="edit.themeType == 3">
+                        <div class="col-sm-6">
+                            <div class="xb-input xb-radio">
+                                <input type="radio" id="tType3" name="tType" class="input-element" value="3"
+                                       ng-model="edit.themeType">
+                                <span class="input-icon radio-icon" ng-class="{'checked':edit.themeType == 3}"></span>
+                                <label class="input-label" for="tType3"></label>
+                            </div>
+                            <label for="tType3">2017Vigour</label>
+                        </div>
+                        <div class="col-sm-4" ng-if="permission.write">
+                            <a style="color:#0078ff;border-bottom:1px solid #0078ff;font-size:13px;cursor:pointer"
+                               ng-click="draw(edit.drawUrl)">Edit</a>
+                        </div>
+                    </div>
+                    <!--以上是王伟芳添加内容，勿删-->
+
+                    <div class="col-sm-8 is-horizon" ng-show="edit.themeType == 1">
+                        <div class="col-sm-6">
+                            <div class="xb-input xb-radio">
+                                <input type="radio" id="tType1" name="tType" class="input-element" value="1"
+                                       ng-model="edit.themeType">
+                                <span class="input-icon radio-icon" ng-class="{'checked':edit.themeType == 1}"></span>
+                                <label class="input-label" for="tType1"></label>
+                            </div>
+                            <label for="tType1">Simple</label>
+                        </div>
+                        <div class="col-sm-4" ng-if="permission.write">
+                            <a style="color:#0078ff;border-bottom:1px solid #0078ff;font-size:13px;cursor:pointer"
+                               ng-click="draw(edit.drawUrl)">Edit</a>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-8 is-horizon" ng-show="edit.themeType == 2">
+                        <div class="col-sm-6">
+                            <div class="xb-input xb-radio">
+                                <input type="radio" id="tType2" name="tType" class="input-element" value="2"
+                                       ng-model="edit.themeType">
+                                <span class="input-icon radio-icon" ng-class="{'checked':edit.themeType == 2}"></span>
+                                <label class="input-label" for="tType2"></label>
+                            </div>
+                            <label for="tType2">Sky</label>
+                        </div>
+                        <div class="col-sm-4" ng-if="permission.write">
+                            <a style="color:#0078ff;border-bottom:1px solid #0078ff;font-size:13px;cursor:pointer"
+                               ng-click="draw(edit.drawUrl)">Edit</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--保存或取消修改-->
+            <div class="form-actions bottom" ng-show="toggle_form.$dirty" ng-if="permission.write">
+                <button class="btn btn-apply" ng-click="modify()" ng-disabled="toggle_form.$invalid">OK</button>
+                <button class="btn btn-cancel" ng-click="reset()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

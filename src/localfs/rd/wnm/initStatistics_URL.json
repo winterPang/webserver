@@ -1,0 +1,44 @@
+{"aUrlFilter":
+  [
+    {
+      "AddressType": "0", "CategoryName": "Social Networking","EndTime": "2015-08-21T11:08:37",
+      "LastTime": "2015-08-21T11:04:23", "PktDir": "0", "StartTime": "2015-08-21T00:00:00",
+      "Time": "0:0:2","UserId": "14", "UserMac": "01-01-50-11-00-00", "WebSiteName": "www.facebook.com"
+    }
+  ,{
+    "AddressType": "0", "CategoryName": "News","EndTime": "2015-08-21T11:08:37",
+    "LastTime": "2015-08-21T11:05:01","PktDir": "0","StartTime": "2015-08-21T00:00:00",
+    "Time": "0:0:41","UserId": "18", "UserMac": "01-01-5E-0F-00-00", "WebSiteName": "issuu.com"
+  }
+  ,{
+    "AddressType": "0", "CategoryName": "None", "EndTime": "2015-08-21T11:08:37",
+    "LastTime": "2015-08-21T11:04:59","PktDir": "0", "StartTime": "2015-08-21T00:00:00",
+    "Time": "0:0:38", "UserId": "18", "UserMac": "01-01-5E-0F-00-00", "WebSiteName": "monex.co.jp"
+  }
+  ,{
+    "AddressType": "0","CategoryName": "None","EndTime": "2015-08-21T11:08:37",
+    "LastTime": "2015-08-21T11:05:00", "PktDir": "0", "StartTime": "2015-08-21T00:00:00",
+    "Time": "0:0:38", "UserId": "28", "UserMac": "01-01-7F-59-00-00", "WebSiteName": "server-102b609.example.int"
+  }
+  ,{
+    "AddressType": "0", "CategoryName": "None", "EndTime": "2015-08-21T11:08:37",
+    "LastTime": "2015-08-21T11:05:00", "PktDir": "0", "StartTime": "2015-08-21T00:00:00",
+    "Time": "0:0:38", "UserId": "29", "UserMac": "01-01-3E-B4-00-00","WebSiteName": "server-102f60c.example.int"
+  }
+  ,{
+    "AddressType": "0", "CategoryName": "Social Networking", "EndTime": "2015-08-21T11:08:37",
+    "LastTime": "2015-08-21T11:05:00", "PktDir": "0", "StartTime": "2015-08-21T00:00:00",
+    "Time": "0:0:27", "UserId": "33", "UserMac": "01-01-90-55-00-00","WebSiteName": "www.facebook.com"
+  }
+  ,{
+    "AddressType": "0", "CategoryName": "Social Networking","EndTime": "2015-08-21T11:08:37",
+    "LastTime": "2015-08-21T11:05:00","PktDir": "0","StartTime": "2015-08-21T00:00:00",
+    "Time": "0:0:27","UserId": "42", "UserMac": "01-01-20-77-00-00","WebSiteName": "www.facebook.com"
+  }
+  ,{
+    "AddressType": "0","CategoryName": "None","EndTime": "2015-08-21T11:08:37",
+    "LastTime": "2015-08-21T11:05:00","PktDir": "0","StartTime": "2015-08-21T00:00:00",
+    "Time": "0:0:27","UserId": "43","UserMac": "01-01-72-55-00-00","WebSiteName": "server-102c215.example.int"
+  }
+  ]
+}

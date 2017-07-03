@@ -1,0 +1,61 @@
+{
+  "aArpTable":[]
+  ,"aInterfaces":
+  [
+    {
+      "AbbreviatedName": "TenGE2/0/1", "ActualDuplex": "1", "ActualSpeed": "10000", "ConfigDuplex": "3",
+      "ConfigSpeed": "10000", "Description": "Ten-GigabitEthernet2/0/1 Interface", "IfIndex": "262", "InetAddressIPV4": "10.153.17.20", "InetAddressIPV4Mask": "255.255.255.0", "Name": "Ten-GigabitEthernet2/0/1",
+      "OperStatus": "1", "PhyState": "0", "PhysicalIndex": "1", "PortIndex": "0", "PortLayer": "2",
+      "Shutdown": "0", "ifTypeExt": "22"
+    }
+    ,{
+    "AbbreviatedName": "TenGE2/0/2", "ActualDuplex": "1", "ActualSpeed": "10000", "ConfigDuplex": "3", "ConfigSpeed": "10000",
+    "Description": "Ten-GigabitEthernet2/0/2 Interface", "IfIndex": "263", "LinkType": "1", "Name": "Ten-GigabitEthernet2/0/2", "OperStatus": "2",
+    "PhyState": "1", "PhysicalIndex": "84071", "PortIndex": "1", "PortLayer": "1", "Shutdown": "0", "ifTypeExt": "23"
+  }
+    ,{
+    "AbbreviatedName": "TenGE2/0/3", "ActualDuplex": "1", "ActualSpeed": "10000", "ConfigDuplex": "3",
+    "ConfigSpeed": "10000", "Description": "Ten-GigabitEthernet2/0/3 Interface", "IfIndex": "264",
+    "LinkType": "2", "Name": "Ten-GigabitEthernet2/0/3", "OperStatus": "2", "PhyState": "0", "PhysicalIndex": "84072",
+    "PortIndex": "2", "PortLayer": "1", "Shutdown": "0", "ifTypeExt": "66"
+    }
+    ,{
+    "AbbreviatedName": "TenGE2/0/4", "ActualDuplex": "1", "ActualSpeed": "10000", "ConfigDuplex": "3", "ConfigSpeed": "10000",
+    "Description": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaggggggggggggggggeeeee", "IfIndex": "265", "InetAddressIPV4": "127.0.0.1",
+    "LinkType": "3", "Name": "Ten-GigabitEthernet2/0/4", "OperStatus": "2","PhyState": "0", "PhysicalIndex": "84073",
+    "PortIndex": "3", "PortLayer": "1", "Shutdown": "0", "ifTypeExt": "66"
+  }
+  ]
+  ,"aManualAP":
+  [
+    {"Name":"ap1","Status":"1","GroupName":"Group-1","LocationName":"default-location","Model":"WA2620","CfgSerialID":"219801A0CNC11A000000","CfgMacAddress":"00-d0-1e-00-00-00","RadioNum":"1","RegionCode":"5","RegionLock":"1","Priority":"2","Preempt":"false","EchoInterval":"70","EchoCount":"7","RetransInterval":"9","RetransCount":"9","TunnelEncryption":"50","StatisInterval":"388","FirmwareUpgrade":"Enable","BackupACIPv4":"153.242.106.220","BackupACIPv6":"240:231::27:203"},
+    {"Name":"ap2","Status":"1","GroupName":"Group-1","LocationName":"default-location","Model":"WA2620i-AGN","CfgSerialID":"219801A0CNC11A000001","CfgMacAddress":"00-01-e3-00-00-00","RadioNum":"2","RegionCode":"3","Priority":"3","Preempt":"false","EchoInterval":"47","EchoCount":"12","RetransInterval":"19","RetransCount":"4","TunnelEncryption":"1078","StatisInterval":"362","FirmwareUpgrade":"Enable","BackupACIPv4":"90.195.199.45","BackupACIPv6":"22:112::72:90"},
+    {"Name":"ap3","Status":"2","GroupName":"Group-1","LocationName":"default-location","Model":"WA2620i-AGN","CfgSerialID":"219801A0CNC11A000002","CfgMacAddress":"00-01-e3-00-00-00","RadioNum":"3","RegionCode":"8","Priority":"6","Preempt":"true","EchoInterval":"12","EchoCount":"19","RetransInterval":"13","RetransCount":"11","TunnelEncryption":"1009","StatisInterval":"592","FirmwareUpgrade":"Enable","BackupACIPv4":"48.253.161.133","BackupACIPv6":"60:105::14:160"},
+    {"Name":"ap4","Status":"3","GroupName":"Group-2","LocationName":"default-location","Model":"WA2620i-AGN","CfgSerialID":"219801A0CNC11A000003","CfgMacAddress":"00-04-0d-00-00-00","RadioNum":"1","RegionCode":"1","Priority":"4","Preempt":"true","EchoInterval":"54","EchoCount":"12","RetransInterval":"19","RetransCount":"15","TunnelEncryption":"781","StatisInterval":"323","FirmwareUpgrade":"Disable","BackupACIPv4":"179.215.215.27","BackupACIPv6":"238:112::32:226"}
+  ]
+  ,"aStations":
+  [
+    {"MacAddress":"11-11-11-11-11-12","UserName":"username1","WirelessMode":"1", "Aid":"aid1", "ApName":"AP1", "RadioId":"1", "Ssid":"ssid1", "Bssid":"bssid1", "VLAN":"1","PowerSaveMode":"0","ListenInterval":"listen1","RxRate":"1589","TxRate":"4816","UpTime":"897","QoSMode":"0","DeviceType":"Nokia","Ipv4Address":"1.1.1.1","Ipv6Address":"1:1::1:1"}
+  ,{"MacAddress":"11-11-11-11-11-13","UserName":"username2","WirelessMode":"64", "Aid":"aid2", "ApName":"AP2", "RadioId":"2", "Ssid":"ssid2", "Bssid":"bssid2", "VLAN":"2","PowerSaveMode":"1","ListenInterval":"listen2","UpTime":"58621476","QoSMode":"1","Ipv4Address":"1.1.1.1","Ipv6Address":"1:1::1:1","RxRate":"156489","TxRate":"564816"}
+  ,{"MacAddress":"11-11-11-11-11-14","UserName":"username2","WirelessMode":"2", "Aid":"aid2", "ApName":"AP2", "RadioId":"2", "Ssid":"ssid2", "Bssid":"bssid2", "VLAN":"2","PowerSaveMode":"0","ListenInterval":"listen2","UpTime":"58621476","QoSMode":"3","Ipv4Address":"1.1.1.1","Ipv6Address":"1:1::1:1","RxRate":"15649","TxRate":"5816"}
+  ,{"MacAddress":"aa-11-11-11-11-12","UserName":"username1","WirelessMode":"1", "Aid":"aid1", "ApName":"AP1", "RadioId":"1", "Ssid":"ssid1", "Bssid":"bssid1", "VLAN":"1","PowerSaveMode":"0","ListenInterval":"listen1","RxRate":"156489","TxRate":"564816","UpTime":"12376","QoSMode":"0","DeviceType":"Nokia","Ipv4Address":"1.1.1.1","Ipv6Address":"1:1::1:1"}
+  ,{"MacAddress":"bb-11-11-11-11-13","UserName":"username2","WirelessMode":"64", "Aid":"aid2", "ApName":"AP2", "RadioId":"2", "Ssid":"ssid2", "Bssid":"bssid2", "VLAN":"2","PowerSaveMode":"1","ListenInterval":"listen2","UpTime":"58621476","QoSMode":"1","Ipv4Address":"1.1.1.1","Ipv6Address":"1:1::1:1","RxRate":"1489","TxRate":"5816"}
+  ,{"MacAddress":"cc-11-11-11-11-14","UserName":"username2","WirelessMode":"2", "Aid":"aid2", "ApName":"AP2", "RadioId":"2", "Ssid":"ssid2", "Bssid":"bssid2", "VLAN":"2","PowerSaveMode":"0","ListenInterval":"listen2","UpTime":"58621476","QoSMode":"3","Ipv4Address":"1.1.1.1","Ipv6Address":"1:1::1:1","RxRate":"6489","TxRate":"816"}
+  ]
+  ,"aTemplate":
+  [
+    {"MacAddress":"11-11-11-11-11-12","UserName":"username1","WirelessMode":"1", "Aid":"aid1", "ApName":"AP1", "RadioId":"1", "Ssid":"ssid1", "Bssid":"bssid1", "VLAN":"1","PowerSaveMode":"0","ListenInterval":"listen1","RxRate":"1589","TxRate":"4816","UpTime":"897","QoSMode":"0","DeviceType":"Nokia","Ipv4Address":"1.1.1.1","Ipv6Address":"1:1::1:1"}
+  ,{"MacAddress":"11-11-11-11-11-13","UserName":"username2","WirelessMode":"64", "Aid":"aid2", "ApName":"AP2", "RadioId":"2", "Ssid":"ssid2", "Bssid":"bssid2", "VLAN":"2","PowerSaveMode":"1","ListenInterval":"listen2","UpTime":"58621476","QoSMode":"1","Ipv4Address":"1.1.1.1","Ipv6Address":"1:1::1:1","RxRate":"156489","TxRate":"564816"}
+  ,{"MacAddress":"11-11-11-11-11-14","UserName":"username2","WirelessMode":"2", "Aid":"aid2", "ApName":"AP2", "RadioId":"2", "Ssid":"ssid2", "Bssid":"bssid2", "VLAN":"2","PowerSaveMode":"0","ListenInterval":"listen2","UpTime":"58621476","QoSMode":"3","Ipv4Address":"1.1.1.1","Ipv6Address":"1:1::1:1","RxRate":"15649","TxRate":"5816"}
+  ,{"MacAddress":"aa-11-11-11-11-12","UserName":"username1","WirelessMode":"1", "Aid":"aid1", "ApName":"AP1", "RadioId":"1", "Ssid":"ssid1", "Bssid":"bssid1", "VLAN":"1","PowerSaveMode":"0","ListenInterval":"listen1","RxRate":"156489","TxRate":"564816","UpTime":"12376","QoSMode":"0","DeviceType":"Nokia","Ipv4Address":"1.1.1.1","Ipv6Address":"1:1::1:1"}
+  ,{"MacAddress":"bb-11-11-11-11-13","UserName":"username2","WirelessMode":"64", "Aid":"aid2", "ApName":"AP2", "RadioId":"2", "Ssid":"ssid2", "Bssid":"bssid2", "VLAN":"2","PowerSaveMode":"1","ListenInterval":"listen2","UpTime":"58621476","QoSMode":"1","Ipv4Address":"1.1.1.1","Ipv6Address":"1:1::1:1","RxRate":"1489","TxRate":"5816"}
+  ,{"MacAddress":"cc-11-11-11-11-14","UserName":"username2","WirelessMode":"2", "Aid":"aid2", "ApName":"AP2", "RadioId":"2", "Ssid":"ssid2", "Bssid":"bssid2", "VLAN":"2","PowerSaveMode":"0","ListenInterval":"listen2","UpTime":"58621476","QoSMode":"3","Ipv4Address":"1.1.1.1","Ipv6Address":"1:1::1:1","RxRate":"6489","TxRate":"816"}
+  ]
+  ,"aClientProbes":
+  []
+  ,"oAllData":
+  {"UpData":[],"DownData":[]
+  }
+  ,"aUserMac":
+  []
+}

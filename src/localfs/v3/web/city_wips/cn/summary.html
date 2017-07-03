@@ -1,0 +1,487 @@
+<html>
+<head>
+</head>
+<style>
+
+
+    .daterange:focus{
+        border: #4ec1b2 solid 1px;
+        outline: none;
+    }
+    .ant-time-zone{
+        position: absolute;
+        display: table;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        padding-left: 10px;
+    }
+    .ant-time-zone .daterange{
+        width: 180px;
+    }
+
+    .page-row .hide{
+        display: none!important;
+    }
+    
+
+    .page-row #help_detail{
+        position: absolute;
+        right: 20px;
+    }
+     .page-row #help_detail:hover{
+
+        cursor: pointer;
+        color: #4ec1b2;
+    }
+    /*帮助中的字体*/
+    #helpdetail .form-horizontal ul li span{
+        font-weight: 600;
+    }
+
+    .ant-padding-left{
+        padding-left:10px;
+    }
+
+
+
+
+
+
+    .ant-radio{
+        margin:0 8px 0px 8px;
+        min-width: 30px;
+        min-height: 23px;
+        position: relative;
+        display: inline-block;
+        line-height: 23px;
+        color: #343E4E;
+    }
+    .ant-radio-label{
+        min-height: 23px;
+        position: relative;
+        display: inline-block;
+        line-height: 23px;
+        color: #343E4E;
+        margin:0 0px 0px 16px;
+
+    }
+
+    .ant-radio label{
+        width: 100%;
+        height: 100%;
+        line-height: inherit;
+        text-align: center;
+    }
+    .ant-radio input:hover+label,.ant-radio label:hover:not(:last-child){
+        color: #4ec1b2;
+        cursor: pointer;
+    }
+    .ant-radio input:hover:not(:last-child){
+        cursor: pointer;
+    }
+
+    .ant-radio input{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        filter:alpha(opacity=0);  
+        -moz-opacity:0;  
+        -khtml-opacity: 0;  
+        opacity: 0; 
+        z-index: -1;
+
+    }
+    .ant-radio input:checked+label{
+        color: #4ec1b2;
+        text-decoration: underline;
+    }
+    .ant-head-pannel{
+        height: 42px;
+    }
+    .ant-head-pannel.ant-color{
+        background-color: #edf9f7;
+    }
+
+    .ant-head-pannel .ant-pannel-v-center{
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        display: table;
+    }
+
+
+    .ant-border{
+        border:#e7e7e9 solid 1px;
+    }
+    .ant-size-input-height{
+        height: 26px;
+    }
+    .ant-subtitle{
+        color: #80878c;
+        font-size: 14px;
+    }
+    .ant-title{
+        color: #343e4e;
+        font-size: 24px;
+    }
+    .ant-sm-title
+    {
+        color: #343e4e;
+        font-size: 14px;    
+    }
+    .ant-alone{
+        position: absolute;
+        z-index: 999;
+    }
+
+    table{
+        text-align: center;
+        vertical-align: middle;
+        margin: 10px;
+    }
+    .ant-tipicon-client{
+
+    }
+    .ant-pannel-element {
+        padding: 5px;
+    }
+    .ant-pannel-element:not(:last-child) .ant-pannel-box{
+        border-right: #e7e7e9 solid 1px;
+        width: 100%;
+    }
+    .ant-gap-top{
+        margin-top: 20px;
+    }
+    .ant-table-position{
+        position: absolute;
+        bottom: 30px;
+    }
+    .ant-table-position table{
+        margin: auto;
+    }
+    .default-height{
+        min-height: 270px;
+    }
+    .ant-padding-top{
+        padding-top: 20px;
+    }
+    .ant-title-left-gap{
+        padding-left: 20px;
+    }
+
+    /*图标*/
+    .ant-vertical-center{
+        position: absolute;
+        display: table;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        padding-left: 10px;
+    }
+    .ant-wips-icon-detail{
+        right: 20px;
+        width: 25px;
+        height: 20px;
+        background:url(./css/image/ant-wips-icon.png) no-repeat -640px -70px;
+    }
+    .ant-wips-icon-detail:hover{
+        right: 20px;
+        width: 25px;
+        height: 20px;
+        background:url(./css/image/ant-wips-icon.png) no-repeat -585px -70px;
+    }    
+    .ant-wips-icon-client{
+        width: 60px;
+        height: 60px;
+        background:url(./css/image/ant-wips-icon.png) no-repeat -190px -150px;
+    }
+    .ant-wips-icon-unauthored-client{
+        width: 60px;
+        height: 60px;
+        background:url(./css/image/ant-wips-icon.png) no-repeat -385px -150px;
+    }
+    .ant-wips-icon-ap{
+        width: 80px;
+        height: 60px;
+        background:url(./css/image/ant-wips-icon.png) no-repeat -565px -150px;
+    }
+    .ant-wips-icon-rouge-ap{
+        width: 60px;
+        height: 60px;
+        background:url(./css/image/ant-wips-icon.png) no-repeat -760px -150px;
+    }
+    .ant-wips-icon-attack{
+        width: 70px;
+        height: 60px;
+        background:url(./css/image/ant-wips-icon.png) no-repeat -960px -150px;
+    }
+    .ant-wips-icon-reflect{
+        width: 60px;
+        height: 60px;
+        background:url(./css/image/ant-wips-icon.png) no-repeat -1165px -150px;
+    }
+    .ant-area {
+        margin-bottom: 20px;
+    }
+    .ant-area-style {
+        width: 170px;
+        display: inline-block;
+    }
+    .ant-area-span01 {
+        line-height: 42px;
+        color: #343E4E;
+        margin: 0px 0px 0px 25px;
+    }
+    .ant-cur-area {
+        color: #4ec1b2;
+        margin-left:5px;
+    }
+    .ant-lable-style {
+        line-height: 42px;
+        color: #343E4E;
+        margin-bottom: 5px;
+    }
+    .ant-select-style {
+        width: 180px;
+        margin-top:5px;
+    }
+    .page-row .text-right{
+        text-align: right;
+        padding-right: 20px;
+    }
+    .page-row .myEchart{
+        min-height: 200px;
+    }
+
+</style>
+<body>
+<div class="page-row" id="wips_monitor">
+    <div class="ant-head-pannel col-xs-12 ant-border ant-color ant-area">
+        <div class="col-xs-6 ant-area-style">
+            <span class="ant-area-span01">当前区域：</span>
+            <span id ="cur_area"class=" ant-cur-area">北京</span>
+        </div>
+        <div class="col-xs-6"style="width:265px ">
+            <label class="ant-lable-style">&nbsp区域选择&nbsp&nbsp</label>
+            <select id="AreaSelect" class="singleSelect ant-select-style" allowClear="false" name=""></select>
+        </div>
+        <a type="button" class="ant-wips-icon-detail ant-vertical-center" id="client_details01" href="city_wips.detail"></a>
+    </div>
+    <div class="ant-head-pannel col-xs-12 ant-border ant-color">
+            <div class="ant-time-zone">
+                <span class="ant-radio-label">周期：</span>
+                <div class="ant-radio">
+                    <input type="radio" id="WT1" name="WipsType" value="0" checked/>
+                    <label for="WT1">今天</label>
+                </div>
+                <div class="ant-radio">
+                    <input type="radio" id="WT2" name="WipsType" value="1"/>
+                    <label for="WT2">七天</label>
+                </div>
+                <div class="ant-radio">
+                    <input type="radio" id="WT3" name="WipsType" value="2"/>
+                    <label for="WT3">一月</label>
+                </div>
+                <div class="ant-radio">
+                    <input type="radio" id="WT4" name="WipsType" value="3"/>
+                    <label for="WT4">一年</label>
+                </div>
+                <div class="ant-radio">
+                    <input type="radio" id="WT5" name="WipsType" value="4" disabled/>
+                    <label for="WT5">自定义</label>
+                </div>
+                    <input id="daterange" class="daterange ant-border ant-size-input-height" placeholder="选择日期">
+            </div>
+            <a type="button" class="ant-wips-icon-detail ant-vertical-center" id="client_details" href="wips.detail"></a>
+    </div>
+
+    <div class="col-xs-12 ant-border ant-gap-top">
+        <div class="ant-pannel-element col-md-2 col-sm-4">
+            <table class="ant-pannel-box" border="0">
+                <tr>
+                    <td rowspan="3" class="ant-tipicon-client ant-wips-icon-client"></td>
+                    <td id="Title_top1" class="ant-title">0</td>
+                </tr>
+                <tr>
+                    <td class="ant-subtitle">客户端总数</td>
+                </tr>                
+            </table>
+        </div>
+        <div class="ant-pannel-element col-md-2 col-sm-4">
+            <table class="ant-pannel-box" border="0">
+                <tr>
+                    <td rowspan="3" class="ant-tipicon-client ant-wips-icon-unauthored-client"></td>
+                    <td id="Title_top2" class="ant-title">0</td>
+                </tr>
+                <tr>
+                    <td class="ant-subtitle">未授权客户端总数</td>
+                </tr>                
+            </table>
+        </div>
+        <div class="ant-pannel-element col-md-2 col-sm-4">
+            <table class="ant-pannel-box" border="0">
+                <tr>
+                    <td rowspan="3" class="ant-tipicon-client ant-wips-icon-ap"></td>
+                    <td id="Title_top3" class="ant-title">0</td>
+                </tr>
+                <tr>
+                    <td class="ant-subtitle">AP总数</td>
+                </tr>                
+            </table>
+        </div>
+        <div class="ant-pannel-element col-md-2 col-sm-4">
+            <table class="ant-pannel-box" border="0">
+                <tr>
+                    <td rowspan="3" class="ant-tipicon-client ant-wips-icon-rouge-ap"></td>
+                    <td id="Title_top4" class="ant-title">0</td>
+                </tr>
+                <tr>
+                    <td class="ant-subtitle">Rouge AP数</td>
+                </tr>                
+            </table>
+        </div>
+        <div class="ant-pannel-element col-md-2 col-sm-4">
+            <table class="ant-pannel-box" border="0">
+                <tr>
+                    <td rowspan="3" class="ant-tipicon-client ant-wips-icon-attack"></td>
+                    <td id="Title_top5" class="ant-title">0</td>
+                </tr>
+                <tr>
+                    <td class="ant-subtitle">攻击次数</td>
+                </tr>                
+            </table>
+        </div>
+        <div class="ant-pannel-element col-md-2 col-sm-4">
+            <table class="ant-pannel-box" border="0">
+                <tr>
+                    <td rowspan="3" class="ant-tipicon-client ant-wips-icon-reflect"></td>
+                    <td id="Title_top6" class="ant-title">0</td>
+                </tr>
+                <tr>
+                    <td class="ant-subtitle">反制次数</td>
+                </tr>                
+            </table>
+        </div> 
+    </div>
+
+
+    <div class="col-xs-12 ant-border ant-gap-top ant-padding-top">
+            <div class="col-md-3 default-height">
+                <div class="ant-title-left-gap ant-sm-title"><span>攻击信息</span></div>
+                <div id="attackType_pie" class="myEchart"></div>
+            </div>
+            <div class="col-md-3 default-height ant-padding-left">
+                <div class="box-subfooter">
+                    <div class="col-xs-8">
+                        <span class="ant-sm-title">严重攻击</span>
+                    </div>
+                    <div class="text-right">
+                        <span id="other_num">0</span>
+                    </div>
+                </div>
+                <div id="other_attack" class="myEchart"></div>
+            </div>
+            <div class="col-md-3 default-height ant-padding-left">
+                <div class="box-subfooter">
+                    <div class="col-xs-8">
+                        <span class="ant-sm-title">泛洪攻击</span>
+                    </div>
+
+                    <div class="text-right">
+                        <span id="Flood_num">0</span>
+                    </div>
+                </div>
+                <div id="flood_attack" class="myEchart"></div>
+            </div>
+
+            <div class="col-md-3 default-height ant-padding-left">
+                <div class="box-subfooter">
+                    <div class="col-xs-8">
+                        <span class="ant-sm-title">畸形报文</span>
+                    </div>
+                    <div class="text-right">
+                        <span id="Malformed_num">0</span>
+                    </div>
+                </div>
+                <div id="malf_attack" class="myEchart"></div>    
+            </div>
+    </div>
+    
+    <div class="col-xs-12 ant-border ant-gap-top  default-height">
+        <div class="ant-head-pannel col-xs-12 ant-sm-title ant-alone">
+            <span class="ant-pannel-v-center ant-title-left-gap">设备信息</span>
+            <span id="help_detail" class="ant-pannel-v-center">帮助</span>
+        </div>
+        <div class="col-md-3 col-sm-12">
+            <div class="col-xs-12 myEchart" id="Device_block"></div>
+            <div class="col-xs-12 ant-table-position">
+                <table border="0">
+                    <tr>
+                        <td>AP：</td>
+                        <td id="Total_ap"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <div id="device_pie" class="myEchart col-xs-12"></div>
+        </div>
+        <div class="col-md-3 col-sm-12">
+            <div class="col-xs-12 myEchart" id="Device_block2"></div>
+            <div class="col-xs-12 ant-table-position">
+                <table border="0">
+                    <tr>
+                        <td>客户端：</td>
+                        <td id="Total_client"></td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="hide modal fade" id="helpdetail">
+    <form class="form-horizontal form" id="helpform">
+        <ul>
+            <li><span>授权AP(Authorized AP):</span>允许在无线网络中使用的AP。包括已经关联到AC上且并不在禁止列表中的AP和手动指定的授权AP。</li>
+            <li><span>非法AP(Rogue AP):</span>不允许在无线网络中使用的AP。包括禁止列表中的AP、不在OUI配置文件中的AP和手动指定的非法AP。</li>
+            <li><span>配置错误的AP(Misconfigured AP):</span>无线服务配置错误，但是允许在无线网络中使用的AP.</li>
+            <li><span>外部AP(External AP):</span>其他无线网络中的AP，WIPS可能会检测到邻近网络中的AP。</li>
+            <li><span>Ad hoc:</span>运行在Ad hoc模式下的AP,WIPS通过检测Beacon帧将其分类为Ad hoc。</li>
+            <li><span>潜在授权的AP(Potential-authoried AP):</span>无法确定但可能是授权的AP。如果AP既不在信任设备或信任OUI列表中也不再禁用设备列表中，那么该AP很可能是授权的AP。</li>
+            <li><span>潜在非法的AP(Potential-rogue AP):</span>无法确定但可能是非法的AP。如果AP既不在信任设备或信任OUI列表中也不再禁用设备列表中,而且它的无线服务配置也不正确，那么检测到它的有线端口可能连接到网络中，则认为其为潜在非法AP。</li>
+            <li><span>潜在外部的AP(Potential-external AP):</span>无法确定但可能是外部的AP。如果AP既不在信任设备或信任OUI列表中也不再禁用设备列表中,而且它的无线服务配置也不正确，同时也没有检测到它的有线端口连接到网络中，则该AP很可能是外部的AP。</li>
+            <li><span>未分类的AP(Uncategorized AP):</span>无法确定归属类别的AP。</li>
+            <li><span>授权客户端(Authorized Client):</span>允许使用的客户端，如关联到授权AP商的受信任的客户端或通过加密认证方式关联到授权AP上的客户端都是授权的客户端。</li>
+            <li><span>未授权客户端(Unauthorized Client):</span>不允许使用的客户端。如在禁用设备列表中的客户端、连接到Rogue AP上的客户端已经不再OUI配置文件中的客户端都是未授权客户端。
+            </li>
+            <li><span>错误关联客户端(Misassociation Client):</span>信任设备雷彪中的客户端关联到非授权AP上，错误关联的客户端可能会对网络信息安全带来隐患。
+            </li>
+            <li><span>未分类客户端(Uncategorized Client):</span>无法确定归属类别的客户端</li>
+        </ul>
+    </form>
+</div>
+
+
+<div id="wips_summary_rc" class="rc-define"
+     DEVICE_TYPE="授权AP,配置错误的AP,非法AP,外部AP,Ad hoc,Mesh AP,潜在授权的AP,潜在非法的AP,潜在外部的AP,未分类的AP,授权客户端,错误关联客户端,未授权客户端,未分类客户端"
+     COUNTER_TYPE="配置错误的AP,非法AP,外部AP,潜在授权的AP,潜在非法的AP,潜在外部的AP,未分类的AP,未授权客户端,错误关联客户端,未分类客户端,反制攻击者,手动反制,反制ap引起的station反制"
+     AP_CLIENT="AP,客户端"
+     ATTACK_TYPE_LAN="泛洪攻击,畸形报文,严重攻击"
+     FLOOD_LAN="Association-request帧,Authentication帧,Beacon帧,Block ACK帧,CTS帧,Deauthentication帧,Disassociation帧,EAPOL-Start帧,Null-data帧,Probe-request帧,Reassociation-request帧,RTS帧"
+     MALF_LAN="IE重复的畸形报文,Fata-Jack畸形报文,IBSS和ESS置位异常的畸形报文,源地址为广播或者组播的认证和关联畸形报文,畸形Association-request报文,畸形Authentication报文,含有无效原因值的解除认证畸形报文,含有无效原因值的解除关联畸形报文,畸形HT IE报文,IE长度非法的畸形报文,报文长度非法的畸形报文,Duration字段超大的畸形报文,无效探查响应报文,key长度超长的EAPOL报文,SSID长度超长的畸形报文,多余IE畸形报文"
+     OTHERS_LAN="AP仿冒AP,AP仿冒客户端,AP仿冒Adhoc,Adhoc仿冒AP,客户端仿冒AP,WeakIV检测,AP学习速率,客户端学习速率"
+     LIST_HEADER="时间,探测器名称,攻击源MAC,攻击目的MAC,类型,数量"
+     STATION_HEAD="Mac地址,设备类型,时间"
+     DATE_CYCLE="(今天),(七天),(一月),(一年)"
+
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("city_wips.summary");
+</script>

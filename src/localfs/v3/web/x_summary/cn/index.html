@@ -1,0 +1,311 @@
+<html>
+
+<head>
+</head>
+<style>
+    #reDevSelect .scenes_panel{
+        top:6px;
+        left:15px;
+        position:absolute !important;
+        background:#EDF9F7 !important;
+        border:none !important;;
+
+    }
+    #reDevSelect #switchScenesBtn{
+        margin:10px 0;
+    }
+    #reDevSelect .scenes_panel_content{
+        margin-bottom:42px;
+        padding:0 !important;
+    }
+    #reDevSelect select{
+        width:100% !important;
+    }
+    #reDevSelect .form-group{
+        line-height:35px !important;
+    }
+</style>
+<body>
+<div class="page-row xxb">
+
+    <div class="col-xs-12 app-colum">
+        <div class="page-row xxb" id="reDevSelect">
+            <div class="col-xs-12 app-colum left-block">
+                <div class="app-box">
+                    <div class="box-footer">
+                        <div id="scene-contain" class="change_scenes">
+                            <div class="change_scenes_trigger change_station" style="visibility:hidden;" id="change_scenes_trigger">
+                                <!--<span class="fa fa-sort-down"></span>-->
+                                <span class="glyphicon-transfer glyphicon"></span>
+                                <span class="pos" id="switch-text">设备切换</span>
+                            </div>
+                            <div class="scenes_panel ng-show" id="scenes_panel" name="scenes_panel">
+                                <div class="scenes_panel_content">
+                                    <div class="form-group hide">
+                                        <label class="col-xs-3 control-label hide"><span id="switch-shop"></span>选择设备：</label>
+                                        <div class="col-xs-9">
+                                            <select id="selectedScene" class="select"></select>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="device-contain">
+                                        <label class="col-xs-3 control-label"><span id="switch-device"></span>：</label>
+                                        <div class="col-xs-9">
+                                            <select id="devSn" class="select"></select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="scenes_panel_footer">
+                                    <button class="btn btn-cus hide" id="switchScenesBtn">确认</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <div class="col-xs-6 app-colum left-block" debug="getClientCount initApTraffic">
+        <div class="app-box no-bk-color">
+            <div class="box-body midl-height">
+                <div class="index_inner_div index_inner_div_left_top">
+                    <div class="col-xs-6 index_div_wrapper_multiple">
+                        <div id="client-count" class="index_div_lu">0</div>
+                        <p class="index_div_lu_desc">当前回头客</p>
+                    </div>
+                    <div class="col-xs-6 index_div_lu_icon_wrapper">
+                        <div class="index_icon_url index_icon_count"></div>
+                    </div>
+                </div>
+
+                <div class="index_inner_div index_inner_div_right_top">
+                    <div class="col-xs-6 index_div_wrapper_multiple">
+                        <div id="online_new_user" class="index_div_lu">0</div>
+                        <p class="index_div_lu_desc">当前新宾客</p>
+                    </div>
+                    <div class="col-xs-6 index_div_lu_icon_wrapper">
+                        <div class="index_icon_url index_icon_count_new"></div>
+                    </div>
+                </div>
+                <div class="index_inner_div index_inner_div_left_bottom">
+                    <div class="col-xs-6 index_div_wrapper_multiple">
+                        <div  class="index_div_lu">
+                            <div id="uploadSpeed-bar" class="myEchart chartStyle"></div>
+                        </div>
+                        <div class="index_div_lu_desc" >上传速率</div>
+                    </div>
+                    <div class="col-xs-6 index_div_lu_icon_wrapper">
+                        <div id="1-1" class="bottomcont">
+                            <span id="upload-traffic">0</span>
+                            <span class="wrapper_unit">Mbps</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="index_inner_div index_inner_div_right_bottom">
+                    <div class="col-xs-6 index_div_wrapper_multiple" >
+                        <div  class="index_div_lu" >
+                            <div id="downloadSpeed-bar" class="myEchart chartStyle"></div>
+                        </div>
+                        <div  class="index_div_lu_desc">下载速率</div>
+                    </div>
+                    <div class="col-xs-6 index_div_lu_icon_wrapper">
+                        <div id="0-1" class= "bottomcont">
+                            <span id="download-traffic">0</span>
+                            <span class="wrapper_unit">Mbps</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 app-colum left-block" debug="getUserChange">
+        <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <div class="col-xs-4">
+                    <span class="title">宾客历史</span>
+                </div>
+                <div class="index_out_div station-change">
+                    <a id="days" class="xx-link active">今天</a>
+                    <a id="weeks" class="xx-link">一周</a>
+                    <a id="mounth" class="xx-link">一月</a>
+                </div>
+            </div>
+            <div class="box-body echart-height form-group body-nopadding">
+
+                <div id="userchange" class="col-xs-12 myEchart"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-6 app-colum left-block" debug="getHealthScore getWanInfo">
+        <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <div class="col-xs-3">
+                    <span class="title">综合健康度</span>
+                </div>
+                <!-- <div class="index_out_div">
+                    <a id="report" class="xx-link">体检报告</a>
+                </div> -->
+            </div>
+            <div class="box-body echart-height form-group body-nopadding">
+                <div class="col-xs-6 picmaxw1430">
+                    <div class="row-nohover padding0">
+                        <div id="score-pie" class="myEchart chartStyle"></div>
+                    </div>
+                    <div id="terminalMessage" debug='["getHealthScore"]'></div>
+                </div>
+                <div class="col-xs-6 right01">
+                    <div class="row-nohover row-clear padding0">
+                        <!--<div id="apphealth" class="myEchart chartStyle"></div>-->
+                        <div class="right_health">
+                            <div class="health_title">
+                                <div>Internet带宽</div>
+                                <div id="raty_score_1" class="health_value" ></div>
+                                <!--<a id="reports" class="reports hide"></a>-->
+                                <!--<a id="device_Internet" class="hide device_Internet" >请先设置Internet带宽</a>-->
+                            </div>
+                            <div class="health_title">
+                                <div>设备疲劳度</div>
+                                <div id="raty_score_2" class="health_value"></div>
+                            </div>
+                            <div class="health_title">
+                                <div>优质终端比例</div>
+                                <div id="raty_score_3" class="health_value"></div>
+                            </div>
+                            <!--<div class="health_title">-->
+                                <!--<div >环境无线干扰</div>-->
+                                <!--<div id="raty_score_4" class="health_value"></div>-->
+                            <!--</div>-->
+                            <div class="health_title">
+                                <div >系统运行状态</div>
+                                <div id="raty_score_5" class="health_value"></div>
+                            </div>
+                            <!--                            <div style="margin-top:8px; height:12%; ">
+                                                                <div>设备在线率</div>
+                                                                <div id="raty_score_6" style="margin-left:40%; width:60%; margin-top:-23px;"></div>
+                                                            </div> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-6 app-colum left-block" debug="getFlowInfo">
+        <div class="app-box no-bk-color">
+            <div class="box-footer">
+                <div class="col-xs-3">
+                    <span class="title">带宽变化</span>
+                </div>
+                <div class="index_out_div flow-change">
+                    <a id="tape_days" class="xx-link active">今天</a>
+                    <!--<a id="tape_weeks" class="xx-link">一周</a>-->
+                    <!--<a id="tape_mounth" class="xx-link">一月</a>-->
+                </div>
+            </div>
+            <div class="box-body echart-height form-group body-nopadding">
+                <div id="tape_change" class="col-xs-12 myEchart"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<form class="modal fade modal-super dashboard in hide" id="reportdetail">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">综合健康度报告</h3>
+    </div>
+    <div class="modal-body xxb">
+        <!-- Internet带宽 -->
+        <div class="health_box" id="Bandwidth-speed">
+            <span class="boxname"><span class="cir"></span>Internet带宽<span id="a_speed" class="arrow arrow_active"></span></span>
+            <div class='boxcont'>Internet带宽无问题</div>
+        </div>
+        <!-- 设备疲劳度 -->
+        <div class="health_box" id="internal-utilization">
+            <span class="boxname"><span class="cir"></span>设备疲劳度<span id="a_internal" class="arrow"></span></span>
+            <div class='boxcont'></div>
+        </div>
+        <!-- 优质终端比例 -->
+        <div class="health_box" id="wifi-terminal">
+            <span class="boxname"><span class="cir"></span>优质终端比例<span id="a_terminal" class="arrow"></span></span>
+            <div class='boxcont'></div>
+        </div>
+        <!-- 环境无线干扰  -->
+        <!--<div class="health_box" id="wifi-environment">-->
+            <!--<span class="boxname"><span class="cir"></span>环境无线干扰<span id="a_environment" class="arrow"></span></span>-->
+            <!--<div class='boxcont'></div>-->
+        <!--</div>-->
+        <!-- 系统运行状态 -->
+        <div class="health_box" id="cpu-utilization">
+            <span class="boxname"><span class="cir"></span>系统运行状态<span id="a_cpu" class="arrow"></span></span>
+            <div class='boxcont'></div>
+        </div>
+        <!-- 设备在线率 -->
+        <!--             <div class="box" id="safety-evaluation">
+                        <span class="boxname"><span class="cir"></span>设备在线率<span class="arrow"></span></span>
+                        <div class='boxcont'style="display:none;"></div>
+                    </div> -->
+    </div>
+</form>
+<div class="hide modal fade" id="AddApDlg">
+    <div class="modal-body">
+        <form class="form edit addInternet" id="AddInternetForm">
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">上行带宽:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="upband_id" name ="ap_name" errid="ap_name_error" maxlength=3 onKeyUp="this.value=this.value.replace(/\D/g,'')"/>
+                    <label class="info-explain">Mbps</label>
+                    <!-- <label class="info-explain">（1-64字符）</label> -->
+                    <label class="error" id="ap_name_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">下行带宽:</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="downband_id" name ="ap_SN" errid="ap_SN_error" maxlength=3 onKeyUp="this.value=this.value.replace(/\D/g,'')"/>
+                    <label class="info-explain">Mbps</label>
+                    <label class="error" id="ap_SN_error"></label>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<!-- 0-2,  2-3,4-5-->
+<div id="x_index_rc" class="rc-define"
+     TX = "提醒："
+     JY = "建议："
+     WIFI_TERMINAL = "您的小贝路由关联较多的终端,为客流较大的区域增加小贝路由，以提供足够的网络服务,优质终端比例无问题"
+     CPU_TILIZATION ="您的小贝路由CPU占用率较高,请尝试重启设备，并检查是否有软件版本可升级,系统运行状态无问题"
+     MEMORY_UTLIZATION = "--,--,设备疲劳度无问题"
+     SAFE_VALUATION= "改为内部Wi-Fi,配置加高,设备在线率无问题"
+     BANDWIDTH_SPEED= "您的宽带使用已达极限,开启宾客限速功能或运营商购买更多带宽,Internet带宽无问题"
+     WiFi_ENVIROMENT = "请执行无线环境优化,-- ,环境无线干扰无问题"
+     ADD_TITLE = "Internet带宽设置"
+     TIP_PROFIX1 = "被"
+     TIP_PROFIX2 = "打败了"
+     TIP0 = "%的小贝路由用户打败，好伤心... ..."
+     TIP1 = "%的小贝路由用户打败，累觉不爱... ..."
+     TIP2 = "%的小贝路由用户，小贝路由需要体验啦~~~"
+     TIP3 = "%的小贝路由用户，还可以更棒呦"
+     TIP4 = "%的小贝路由用户，觉着自己萌萌哒~"
+     TIP5 = "%的小贝路由用户，简直~太~赞~啦！"
+     UNIT="个"
+     CLIENT_ACCOUNT="宾客数"
+     BAND_WIDTH="上行带宽,下行带宽"
+     MSG_INFO="配置成功,配置失败,下行带宽不能为0,无线配置初始化失败"
+     PANGING_INFO = "正在下发配置"
+     FAIL_INFO ="设备端配置失败请重新配置"
+     ONE_WEEK="周日,周一,周二,周三,周四,周五,周六"
+     switchBtn="切换场所"
+        ></div>
+</body>
+
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_summary.index");
+
+</script>

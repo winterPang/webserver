@@ -1,0 +1,40 @@
+<html>
+<head>
+    <style>
+    </style>
+</head>
+<body>
+<div class="btn_h_return" id="hBack"></div>
+<div class="col-xs-12 app-colum" debug="getPlaceInfo gethistClients">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">历史明细</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="HistoryList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+
+
+<div id="user_rc" class="rc-define"
+     USER_LIST_HEADER = "账号名,场所名称,认证方式,注册时间"
+     USER_TYPE="未认证,一键认证,短信认证,微信客户端认证,支付宝认证,QQ认证,微信公众号认证,微信连Wi-Fi,固定账号认证"
+     ADD_USER="增加固定账户"
+     EDIT_USER="修改用户密码"
+     ADD_BLACK_LIST="加入黑名单"
+     REMOVE_BLACK_LIST="解除黑名单"
+     Visitor_LIST_HEADER = "MAC地址,IP地址,接入时间,接入时长,认证方式,认证账号"
+     KICK_OUT = "强制下线"
+     InputContentError = "参数输入错误。"
+     HISTORY_TITLE = "历史明细"
+     TIME="天,小时,分"
+     AUTH_ACCOUNT="未认证"
+     switchBtn="切换场所"
+        >
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("x_summary.clienthist");
+</script>

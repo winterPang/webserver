@@ -1,0 +1,512 @@
+<!--<div class="storeGroup">
+    <h4 class="pull-left">门店分组</h4>
+    <div class="pull-right" style="margin-top:20px;">
+        <img class="echratsImg" src="../home/images/icon-dtc.png" ng-click="echratsView($event)" style="cursor:pointer">
+        <img class="tableImg" src="../home/images/icon-lbn.png" style="margin-right:15px;" ng-click="tableView($event)">
+        &lt;!&ndash;<img src="../home/images/icon-mn.png">&ndash;&gt;
+    </div>
+    &lt;!&ndash;<hr class="clearfix">&ndash;&gt;
+    <div class="pull-left" id="divInput">
+        <form class="form-inline" role="form">
+            <div class="form-group has-feedback">
+                <input type="text" class="form-control" id="search" ng-model="searchText" autocomplete="false">
+                <span class="glyphicon glyphicon-search form-control-feedback" id="btnSearch"></span>
+            </div>
+        </form>
+    </div>
+    <div class="ztree-container pull-left">
+
+    </div>
+    <button type="button" ng-click="expand=!expand" class="btn btn-default" id="right" ng-init="expand=true">
+        <span class="glyphicon  glyphicon-chevron-left" ng-class="{true:'glyphicon-chevron-left',false:'glyphicon-chevron-right'}[expand]"></span>
+    </button>
+</div>-->
+<div class="leftBranch">
+    <div class="up">
+        <div class="title">我的分支</div>
+        <div class="search">
+            <input type="text" placeholder="请输入分支名称">
+            <span class="glyphicon glyphicon-search"></span>
+        </div>
+    </div>
+    <ul id="treeDemo" class="ztree"></ul>
+</div>
+
+<div ng-hide="true" class="newdesign-right">
+    <div class="equipment-info">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="info">
+                    <div class="up">AC</div>
+                    <div class="down clearfix">
+                        <div>
+                            20台
+                        </div>
+                        <div>
+                            3台
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="info">
+                    <div class="up">AP</div>
+                    <div class="down clearfix">
+                        <div>
+                            50台
+                        </div>
+                        <div>
+                            10980台
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="info">
+                    <div class="up">交换机</div>
+                    <div class="down clearfix">
+                        <div>
+                            2台
+                        </div>
+                        <div>
+                            15台
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="info">
+                    <div class="up">路由器</div>
+                    <div class="down clearfix">
+                        <div>
+                            0台
+                        </div>
+                        <div>
+                            7台
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="equipment-warning">
+        <div class="dashboard container-fluid" ng-init="
+        RC_TITLE_LOG_INFO='日志信息';
+        RC_TITLE_DETAIL = '详情';
+        RC_TITLE_LOG_LVEVL1 ='紧急';
+        RC_TITLE_LOG_LVEVL2 ='危险';
+        RC_TITLE_LOG_LVEVL3 ='警告';
+        RC_TITLE_LOG_LVEVL4 ='报告';
+
+        logLevels=[
+            {
+                title:RC_TITLE_LOG_LVEVL1,
+                icon :'syslog-icon emergency-icon',
+                color:'log-count number color_emergency',
+                data:0
+            },
+            {
+                title:RC_TITLE_LOG_LVEVL2,
+                icon :'syslog-icon critical-icon',
+                color:'log-count number color_critical',
+                data:0
+            },
+            {
+                title:RC_TITLE_LOG_LVEVL3,
+                icon :'syslog-icon warning-icon',
+                color:'log-count number color_warning',
+                data:0
+            },
+            {
+                title:RC_TITLE_LOG_LVEVL4,
+                icon :'syslog-icon info-icon',
+                color:'log-count number color_info',
+                data:0
+            }
+        ];
+    ">
+            <div class="row">
+                <div class="col-xs-12  app-colum left-block">
+                    <div class="app-box no-bk-color">
+                        <div class="box-footer">
+                            <div class="col-xs-10">
+                                <span class="title">日志</span>
+                            </div>
+                           <!-- <div class="text-right link-container">
+                                <a type="button" class="link-detail" id="submit_scan" ui-sref="scene.content.monitor.warning" title="{{RC_TITLE_DETAIL}}">
+                                    <span class="glyphicon glyphicon-th-list"></span>
+                                </a>
+                            </div>-->
+                        </div>
+                        <div class="middle-cell">
+                            <div ng-repeat="logLevel in logLevels" class="col-xs-6 col-md-6 col-lg-3" >
+                                <div class="syslog-info bg-transparent" style="margin-left:10px;">
+                                    <div class="icon-container">
+                                        <i class="{{logLevel.icon}}"></i>
+                                    </div>
+                                    <div class="text-right syslog-value">
+                                        <div class="{{logLevel.color}}">{{logLevel.data}}</div>
+                                        <div class="log-title">{{logLevel.title}}</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="other-info">
+        <div class="table">
+            <ul class="nav nav-tabs" role="tablist">
+                <li ng-click="changeTab(1)" ng-class="{active:activeTab==1}"><a href="javascript:void(0)">设备信息</a></li>
+                <li ng-click="changeTab(2)" ng-class="{active:activeTab==2}"><a href="javascript:void(0)">分组信息</a></li>
+                <li ng-click="changeTab(3)" ng-class="{active:activeTab==3}"><a href="javascript:void(0)">场所信息</a></li>
+            </ul>
+            <div style="margin: 10px 0" ng-show="activeTab==1">
+                <a class="btn btn-cus">管理</a>
+                <table bs-table="equipmentTable"></table>
+            </div>
+            <div style="margin: 10px 0" ng-show="activeTab==2">
+                <a class="btn btn-cus">管理</a>
+                <table bs-table="groupTable"></table>
+            </div>
+            <div style="margin: 10px 0" ng-show="activeTab==3">
+                <a class="btn btn-cus">管理</a>
+                <table bs-table="shopTable"></table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="newdesign-right" ng-hide="true">
+    <div class="newuser">
+        <div class="option">
+            <div class="title">快捷操作键</div>
+            <div class="often">
+                <button class="btn btn-cus">完善个人信息</button><button class="btn btn-cus">修改密码</button>
+                <button class="btn btn-cus">添加场所</button><button class="btn btn-cus">添加设备</button>
+                <button class="btn btn-cus">添加分组</button><button class="btn btn-cus">添加子账户</button>
+                <button class="btn btn-cus">设备管理</button><button class="btn btn-cus">分组管理</button>
+                <button class="btn btn-cus">场所管理</button><button class="btn btn-cus">下载模板</button>
+                <button class="btn btn-cus">配置模板</button><button class="btn btn-cus">短信配置</button>
+                <button class="btn btn-cus">应用商城</button><button class="btn btn-cus">我的应用</button>
+            </div>
+        </div>
+        <div class="other">
+            <div class="title">说明</div>
+            <div class="explain">
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="../newdesign/newhome/img/first.png">
+                    </div>
+                    <div class="col-md-3">
+                        <div class="title">首先要做</div>
+                        <div class="word">
+                            先完善信息才能进行其他操作哦！完善信息能够帮助我们更好的完善绿洲云管理平台，完善信息后，还会有一些便捷小操作，以后您会发现的~
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <img src="../newdesign/newhome/img/second.png">
+                    </div>
+                    <div class="col-md-3">
+                        <div class="title">等等要做</div>
+                        <div class="word">
+                            完善我的场所中需要的信息，就可以给这个场所添加设备进行管理了哦，一个分支和场所不够用？左侧树进入编辑状态，可以添加很多分支和场所哦，添加完场所不要忘记去完善场所信息就好啦~
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <img src="../newdesign/newhome/img/third.png">
+                    </div>
+                    <div class="col-md-9">
+                        <div class="title clearfix">
+                            <div class="col-md-4">以后可以做</div>
+                        </div>
+                        <div class="word">
+                            绿洲云管理平台还有很多功能等着您去使用呢，场所下设备太多不好管理？我们支持为设备分组哦，还有更为灵活的标签等待您的挖掘。一个人管理不过来？通过子账户管理可以将您的某个分支授权给其他人帮您管理，偷偷告诉您，还可为子账户设置不同权限呢。更多功能就不一一介绍了，慢慢的您都会了解的，我们一直都在努力的完善绿洲云管理平台，为了您使用的更加随心，也为了我们网站更加完美，欢迎使用留言板功能，任何意见都可以提，欢迎吐槽~
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="newdesign-right" ng-hide="false">
+    <div class="home" style="padding-bottom: 100px">
+        <div class="title">总网概览</div>
+        <div class="row">
+            <!--<div class="col-md-12">
+                <div class="info mr0">
+                    &lt;!&ndash;<div class="up">总部</div>&ndash;&gt;
+                    <div class="down clearfix">
+                        <div class="four">
+                            <div>场所</div>
+                            <div>2350个</div>
+                        </div>
+                        <div class="four">
+                            <div>分组</div>
+                            <div>130个</div>
+                        </div>
+                        <div class="four">
+                            <div>设备</div>
+                            <div>23000台</div>
+                        </div>
+                        <div class="four">
+                            <div>告警</div>
+                            <div>562个</div>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <div class="col-md-3 all">
+                <div style="margin-right: 15px;background-color: #FFFFFF;height: 66px">
+                    <div style="font-size: 18px;text-align: center;display: inline-block;height: 66px;line-height: 66px;width:80px;background-color: #3a4f66;vertical-align: middle;color: #f7f7f7;">场所</div>
+                    <div style="font-size: 24px;text-align: center;display: inline-block;color: #3a4f66;vertical-align: middle;height: 66px;line-height: 66px;margin-left: 30px">2350</div>
+                    <div style="font-size: 14px;float: right;color: #999999;    height: 66px;
+    line-height: 66px;
+    margin-right: 20px;">个</div>
+                </div>
+            </div>
+            <div class="col-md-3 all">
+                <div style="margin-right: 15px;background-color: #FFFFFF;height: 66px">
+                    <div style="font-size: 18px;text-align: center;display: inline-block;height: 66px;line-height: 66px;width:80px;background-color: #139e83;vertical-align: middle;color: #f7f7f7;">分组</div>
+                    <div style="font-size: 24px;text-align: center;display: inline-block;color: #139e83;vertical-align: middle;height: 66px;line-height: 66px;margin-left: 30px">130</div>
+                    <div style="font-size: 14px;float: right;color: #999999;    height: 66px;
+    line-height: 66px;
+    margin-right: 20px;">组</div>
+                </div>
+            </div>
+            <!--<div class="col-md-3 all">
+                <div style="margin-right: 15px;color: #ffffff;background-color: #139e83;padding: 16px">
+                    <div style="font-size: 16px;text-align: center;border-bottom: 1px solid rgba(255,255,255,0.2);padding-bottom: 10px">分组</div>
+                    <div style="font-size: 24px;text-align: center;padding-top: 16px">130个</div>
+                </div>
+
+            </div>-->
+            <div class="col-md-3 all">
+                <div style="margin-right: 15px;background-color: #FFFFFF;height: 66px">
+                    <div style="font-size: 18px;text-align: center;display: inline-block;height: 66px;line-height: 66px;width:80px;background-color: #4188ce;vertical-align: middle;color: #f7f7f7;">设备</div>
+                    <div style="font-size: 24px;text-align: center;display: inline-block;color: #4188ce;vertical-align: middle;height: 66px;line-height: 66px;margin-left: 30px">13500</div>
+                    <div style="font-size: 14px;float: right;color: #999999;    height: 66px;
+    line-height: 66px;
+    margin-right: 20px;">台</div>
+                </div>
+            </div>
+            <!--<div class="col-md-3 all">
+                <div style="margin-right: 15px;color: #ffffff;background-color: #4188ce;padding: 16px">
+                    <div style="font-size: 16px;text-align: center;border-bottom: 1px solid rgba(255,255,255,0.2);padding-bottom: 10px">设备</div>
+                    <div style="font-size: 24px;text-align: center;padding-top: 16px">23000台</div>
+                </div>
+
+            </div>-->
+            <div class="col-md-3 all">
+                <div style="background-color: #FFFFFF;height: 66px">
+                    <div style="font-size: 18px;text-align: center;display: inline-block;height: 66px;line-height: 66px;width:80px;background-color: #e1554c;vertical-align: middle;color: #f7f7f7;">告警</div>
+                    <div style="font-size: 24px;text-align: center;display: inline-block;color: #e1554c;vertical-align: middle;height: 66px;line-height: 66px;margin-left: 30px">23</div>
+                    <div style="font-size: 14px;float: right;color: #999999;    height: 66px;
+    line-height: 66px;
+    margin-right: 20px;">条</div>
+                </div>
+            </div>
+            <!--<div class="col-md-3 all mr0">
+                <div style="background: #e1554c;color: #ffffff;padding: 16px">
+                    <div style="font-size: 16px;text-align: center;border-bottom: 1px solid rgba(255,255,255,0.2);padding-bottom: 10px">告警</div>
+                    <div style="font-size: 24px;text-align: center;padding-top: 16px">562个</div>
+                </div>
+
+            </div>-->
+        </div>
+        <div class="row" style="margin-top: 22px">
+            <div class="col-md-4">
+                <div class="pie">
+                    <div class="dot"><span></span><span></span><span></span></div>
+                    <div>区域场所数</div>
+                    <div id="pie1" style="height: 250px"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="pie">
+                    <div class="dot"><span></span><span></span><span></span></div>
+                    <div>设备类型</div>
+                    <div id="pie2" style="height: 250px"></div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="pie mr0">
+                    <div class="dot"><span></span><span></span><span></span></div>
+                    <div>告警数TOP5场所</div>
+                    <div id="pie3" style="height: 250px"></div>
+                </div>
+            </div>
+            <!--<div class="col-md-3">
+                <div id="pie3" style="height: 250px"></div>
+            </div>
+            <div class="col-md-3">
+                <div id="pie4" style="height: 250px"></div>
+            </div>-->
+        </div>
+        <div class="title" style="margin-top: 30px">分支概览   -   {{region.name}}</div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="info" style="background-color: #139e83;color: #ffffff">
+                    <div class="up" style="color: #ffffff">{{region.name}}</div>
+                    <div class="down clearfix">
+                        <div>
+                            <div style="font-size: 16px">场所</div>
+                            <div>{{first.shop}}个</div>
+                        </div>
+                        <div>
+                            <div style="font-size: 16px">分组</div>
+                            <div>{{first.group}}个</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info" style="background-color: #4188ce;color: #ffffff">
+                    <div class="up" style="color: #ffffff;border-bottom: #5f97d2 1px solid;">设备：223台</div>
+                    <div class="down clearfix">
+                        <div class="four">
+                            <div style="font-size: 16px">AC</div>
+                            <div>{{second.first}}台</div>
+                            <div class="right-line"></div>
+                        </div>
+                        <div class="four">
+                            <div style="font-size: 16px">AP</div>
+                            <div>{{second.second}}台</div>
+                            <div class="right-line"></div>
+                        </div>
+                        <div class="four">
+                            <div style="font-size: 16px">交换机</div>
+                            <div>{{second.third}}台</div>
+                            <div class="right-line"></div>
+                        </div>
+                        <div class="four">
+                            <div style="font-size: 16px">路由器</div>
+                            <div>{{second.fourth}}台</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="info mr0" style="background-color: #e1554c;color: #ffffff">
+                    <div class="up" style="color: #ffffff">告警：209个</div>
+                    <div class="down clearfix">
+                        <div class="four">
+                            <div style="font-size: 16px">严重</div>
+                            <div>{{third.first}}个</div>
+                        </div>
+                        <div class="four">
+                            <div style="font-size: 16px">错误</div>
+                            <div>{{third.second}}个</div>
+                        </div>
+                        <div class="four">
+                            <div style="font-size: 16px">警告</div>
+                            <div>{{third.third}}个</div>
+                        </div>
+                        <div class="four">
+                            <div style="font-size: 16px">提示</div>
+                            <div>{{third.fourth}}个</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt15">
+            <div class="col-md-6">
+                <div class="pie">
+                    <div>场所告警数</div>
+                    <div id="pie5" style="height: 250px"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="pie mr0">
+                    <div>场所设备数</div>
+                    <div id="pie6" style="height: 250px"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt15">
+            <div class="col-md-6">
+                <div class="pie">
+                    <div>分组告警数</div>
+                    <div id="pie7" style="height: 250px"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="pie mr0">
+                    <div>分组设备数</div>
+                    <div id="pie8" style="height: 250px"></div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt15">
+            <div class="col-md-6">
+                <div class="pie">
+                    <div>设备在线率</div>
+                    <div id="line1" style="height: 250px"></div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="pie mr0">
+                    <div>设备类型</div>
+                    <div id="pie9" style="height: 250px"></div>
+                </div>
+            </div>
+        </div>
+        <div class="other-info mt15">
+            <div class="table">
+                <ul class="nav nav-tabs" role="tablist">
+                    <li ng-click="changeTab(1)" ng-class="{active:activeTab==1}"><a href="javascript:void(0)">设备信息</a></li>
+                    <li ng-click="changeTab(2)" ng-class="{active:activeTab==2}"><a href="javascript:void(0)">分组信息</a></li>
+                    <li ng-click="changeTab(3)" ng-class="{active:activeTab==3}"><a href="javascript:void(0)">场所信息</a></li>
+                </ul>
+                <div style="margin: 10px 0" ng-show="activeTab==1">
+                    <a class="btn btn-cus" ui-sref="newdesign.content.equipment.devmanage">管理</a>
+                    <table bs-table="equipmentTable"></table>
+                </div>
+                <div style="margin: 10px 0" ng-show="activeTab==2">
+                    <a class="btn btn-cus" ui-sref="newdesign.content.equipment.apBranchMng_demo">管理</a>
+                    <table bs-table="groupTable"></table>
+                </div>
+                <div style="margin: 10px 0" ng-show="activeTab==3">
+                    <a class="btn btn-cus" ui-sref="newdesign.content.equipment.apsiteMng_demo">管理</a>
+                    <table bs-table="shopTable"></table>
+                </div>
+            </div>
+        </div>
+        <!--<div id="levelPie" style="height: 300px;width: 100%;"></div>-->
+    </div>
+    <div class="operates">
+        <div class="operate">
+            <div class="icon" ng-click="clickOperate = !clickOperate">
+                <span>快捷<br/>操作</span>
+            </div>
+            <div class="link" ng-show="clickOperate">
+                <img src="../newdesign/newhome/images/yunwei.png">
+                <img src="../newdesign/newhome/images/dingwei.png">
+            </div>
+        </div>
+    </div>
+</div>
+<form name="add_area" class="form clearfix" bs-modal="addArea_modal">
+    <div class="form-group">
+        <label for="name" class="col-md-2 control-label" style="line-height: 32px">分支名称 <span style="color: red;">*</span></label>
+        <div class="col-md-5">
+            <input type="text" class="form-control " ng-model="add.name" name="name" id="name"
+                   placeholder="请输入分支名称" required>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="type" class="col-md-2 control-label" style="line-height: 32px">分支类型 <span style="color: red;">*</span></label>
+        <div class="col-md-5">
+            <select type="text" class="form-control " ng-model="add.name" name="name" id="type" required>
+                <option value="" selected disabled>请选择分支类型</option>
+                <option value="local">区域</option>
+                <option value="shop">场所</option>
+                <option value="equipment">分组</option>
+            </select>
+        </div>
+    </div>
+</form>

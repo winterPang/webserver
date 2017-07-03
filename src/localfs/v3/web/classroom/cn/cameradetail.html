@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        #capture{
+            min-width:55px;
+            color:#fff;
+        }
+    </style>
+</head>
+<body>
+<div class="btn_h_return" id="return"></div>
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title" id="build_name"></span>
+            </div>
+            <div class="box-body no-height">
+                <div id="camera_detail" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="hide modal fade" id="AddDlg">
+    <form id="add_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">摄像头名称</label>
+            <div class="col-sm-9">
+                <select class="singleSelect required" id="cameraName" name="cameraName" errid="cameraName_error"></select>
+                <label class="info-explain"></label>
+                <label class="error" id="cameraName_error"></label>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="hide modal fade" id="AddGateDlg">
+    <form id="addGate_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">位置</label>
+            <div class="col-sm-9">
+                <select class="singleSelect required" id="placeName" name="placeName" errid="placeName_error"></select>
+                <label class="info-explain"></label>
+                <label class="error" id="placeName_error"></label>
+            </div>
+            <label class="col-sm-3 control-label required">摄像头名称</label>
+            <div class="col-sm-9">
+                <select class="singleSelect required" id="gateCameraName" name="gateCameraName" errid="gateCameraName_error"></select>
+                <label class="info-explain"></label>
+                <label class="error" id="gateCameraName_error"></label>
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
+<div id="build_rc" class="rc-define"
+     BUILD_HEAD="摄像头名称,摄像头IP地址,摄像头端口号,摄像头用户名,摄像头密码"
+     BUILDGATE_HEAD="位置,摄像头名称,摄像头IP地址,摄像头端口号,摄像头用户名,摄像头密码"
+     Detail="详情"
+        ></div>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.cameradetail");
+</script>

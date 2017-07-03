@@ -1,0 +1,130 @@
+<style>
+    html .app-colum .app-box .box-body, body .app-colum .app-box .box-body{
+        padding-top: 0;
+        height:auto;
+    }
+    a{
+        cursor: pointer;
+    }
+</style>
+<div class="container-fluid">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer ">
+                    <span class="title">查询条件</span>
+                </div>
+                <div class="box-body echart-height form-group">
+                    <div class="col-md-4">
+                        <label>AP名称</label>
+                        <select select2 style="width: 100px" ng-model="ap.model">
+                            <option>AP1</option>
+                            <option>AP2</option>
+                            <option>AP3</option>
+                            <option>AP4</option>
+                            <option>AP11</option>
+                            <option>AP12</option>
+                            <option>AP34</option>
+                        </select>
+                        <div class="btn" ng-click="ap.click()" style="margin-left: 15px;">查询</div>
+                    </div>
+                    <div class="col-md-8" style="line-height: 30px" ng-show="ap.info">
+                        <div class="col-md-6">
+                            <div>AP名称：AP1</div>
+                            <div>连接状态：在线</div>
+                            <div>MAC地址：00-25-64-76-BD-40</div>
+                            <div>IP地址：172.27.12.109</div>
+                        </div>
+                        <div class="col-md-6">
+                            <div>AP型号：AP-AP</div>
+                            <div>AP组名称：AP-group1</div>
+                            <div>AP在线时长：13天23时33分</div>
+                            <div>底噪：60</div>
+                        </div>
+                    </div>
+                    <div style="margin-top: 50px;font-size: 16px;color: #000000">
+                        当前指标
+                    </div>
+                    <br/>
+                    <div bs-table="ap_info"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color" >
+                <div class="box-footer ">
+                    <span class="title">流量与终端</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh list-link">
+                            <i class="fa fa-mydetail" ng-click="ap_client_detail.showModal()"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body  form-group">
+                    <div style="text-align: right">
+                        <input type="radio" name="name1"><label>2.4G</label>
+                        <input type="radio" name="name1"><label>5G</label>
+                    </div>
+                    <div dashboard-echarts="ap_client_option" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color" >
+                <div class="box-footer ">
+                    <span class="title">空口质量与丢包率</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh list-link">
+                            <i class="fa fa-mydetail" ng-click="busy_lost_detail.showModal()"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body form-group">
+                    <div style="text-align: right">
+                        <input type="radio" name="name2"><label>2.4G</label>
+                        <input type="radio" name="name2"><label>5G</label>
+                    </div>
+                    <div dashboard-echarts="busy_lost_option"  style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color" >
+                <div class="box-footer ">
+                    <span class="title">信道占用率</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh list-link">
+                            <i class="fa fa-mydetail" ng-click="ap_xin_detail.showModal()"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body form-group">
+                    <div style="text-align: right">
+                        <input type="radio" name="name3"><label>2.4G</label>
+                        <input type="radio" name="name3"><label>5G</label>
+                    </div>
+                    <div dashboard-echarts="AP_xin_option" style="height: 400px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div bs-modal="client.modal">
+        <div bs-table="client.table"></div>
+    </div>
+    <div bs-modal="ap_client_detail.modal">
+        <div bs-table="ap_client_detail.table"></div>
+    </div>
+    <div bs-modal="busy_lost_detail.modal">
+        <div bs-table="busy_lost_detail.table"></div>
+    </div>
+    <div bs-modal="ap_xin_detail.modal">
+        <div bs-table="ap_xin_detail.table"></div>
+    </div>
+</div>

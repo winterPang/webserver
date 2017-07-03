@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        .changeDate{
+            float:right;
+        }
+        .selectTime{
+            cursor:pointer;
+            font-size:15px;
+        }
+        .selectTime.change{
+            text-decoration:underline;
+            color:#4ec1b2;
+        }
+        .selectTime:hover{
+            color:#4ec1b2;
+        }
+    </style>
+</head>
+<body>
+<div class="dashboard">
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">认证分布</span>
+                </div>
+                <div class="box-body" style="height:350px;">
+                    <div class="myEchart" id="authDistribution" style="height:350px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">Portal认证</span>
+                </div>
+                <div class="box-body" style="height:350px;">
+                    <div class="myEchart" id="authPortal" style="height:350px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer col-xs-12">
+                    <span class="title col-xs-9">认证失败</span>
+                    <div class="changeDate">
+                        <span class="selectTime change" id="week">最近一周</span>
+                        <span>|</span>
+                        <span class="selectTime" id="month">最近一月</span>
+                        <span>|</span>
+                        <span class="selectTime" id="year">最近一年</span>
+                    </div>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div class="myEchart" id="authFail" style="height:300px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">认证耗时</span>
+                </div>
+                <div class="box-body" style="height:300px">
+                    <div class="myEchart" id="authTime" style="height:280px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script>
+    Utils.Pages.loadJS("maintain.analyse_auth");
+</script>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../../web/operaterecord/operaterecord.css" rel="stylesheet" type="text/css"/>
+</head>
+<body>
+    <div class="col-xs-12 app-colum">
+
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">设备操作</span>
+            </div>
+
+            <div class="box-body no-height" id="container_cy" >
+                <div class=" " id="main_cy">
+                    <div class="form-group col-xs-12" id="Save" >
+                        <div class="col-xs-2" >
+                            <div id="bgImgSave" >
+                            </div>
+                        </div>
+                        <div class="col-xs-10" >
+                            <div class="col-xs-5" >
+                                <div id="description_cy">
+                                    <h5 >保存配置并重启</h5>
+                                    <p >保存配置并重启设备</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-1" id="middleLine">
+                                <span ></span>
+                            </div>
+                            <div class="col-xs-6" id="btnSave">
+                                <button id="b_btnSave" class="btn btnSave " value="btnSave">
+                                    保存配置并重启
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-group col-xs-12" id="Reboot">
+                        <div class="col-xs-2" >
+                            <div id="bgImgReboot"></div>
+                        </div>
+                        <div class="col-xs-10" >
+                            <div class="col-xs-5" >
+                                <div id="description_cy">
+                                    <h5 >直接重启</h5>
+                                    <p >直接重启设备</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-1" id="middleLine">
+                                <span></span>
+                            </div>
+                            <div class="col-xs-6" id="btnReboot">
+                                <button id="b_btnReboot" class="btn  btnReboot" value="btnReboot">
+                                    直接重启
+                                </button>
+                            </div>
+                        </div>
+                        
+                    </div>
+
+                    <div class="form-group col-xs-12" id="Disconnect">
+                        <div class="col-xs-2" >
+                            <div id="bgImgDisconnect"></div>
+                        </div>
+                        <div class="col-xs-10" >
+                            <div class="col-xs-5" >
+                                <div id="description_cy">
+                                    <h5 >主链接重连</h5>
+                                    <p >强制断开并重新连接主链接</p>
+                                </div>
+                            </div>
+                            <div class="col-xs-1" id="middleLine">
+                                <span></span>
+                            </div>
+                            <div class="col-xs-6" id="btnDisconnect">
+                                <button id="b_btnDisconnect" class="btn  btnDisconnect" value="btnDisconnect">
+                                    主链接重连
+                                </button>
+                            </div>
+                        </div>                        
+                    </div>
+
+                </div> 
+            </div>
+        </div>
+    </div>
+
+    <div id="ws_ssid_rc" class="rc-define"
+     rebootSave = "正在保存配置并重启设备。。。"
+     reboot="正在重启设备。。。"
+     reboot_fail = "重启失败。"
+     rebootSave_fail = "重启失败。"
+     success = "正在断开主链接。。。"
+     fali = "断开主链接失败。"
+     save_fali = "保存配置失败。"
+     main_unfind="主连接没找到。"
+     deficiecy= "极限不足。"
+        ></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("operaterecord.index");
+</script>

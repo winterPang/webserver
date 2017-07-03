@@ -1,0 +1,126 @@
+<html>
+<head>
+    <style>
+       /* .add-self{
+            float: right;
+            padding-right: 150px;
+            padding-bottom: 10px;
+        }*/
+       .form-button2{
+           text-align:center;
+           padding-top: 30px;
+
+       }
+       .yes,.no{
+           height:30px;
+           line-height:30px;
+           margin-top:3px;
+       }
+        .notifyBox{
+            overflow:hidden;
+            text-align:center;
+        }
+        .subBox{
+            overflow:hidden;
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-justify-content: center;
+            -moz-justify-content: center;
+            -ms-justify-content: center;
+            -o-justify-content: center;
+            justify-content: center;
+            margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height wrap_c">
+        <div class="box-footer">
+            <span class="title">手环管理</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="NetInforList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+<div class="hide modal fade" id="EditDlg">
+    <form id="addMac_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">MAC</label>
+            <div class="col-sm-9">
+                <input type="text" class="mac big required" id="add_mac" name="add_mac" errid="stu_num_error" maxlength="20">
+                <label class="info-explain">(格式为XX-XX-XX-XX-XX-XX)</label>
+                <label class="error" id="stu_num_error"></label>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="hide modal fade" id="DeleteDlg">
+    <form id="del_form" class="form-horizontal form edit">
+        <div class="notifyBox">
+            <label class="col-xs-12">是否取消发布？</label>
+            <div class="subBox col-xs-12" style="text-align:center">
+                    <div class="trace-radio col-xs-1">
+                        <div class="xb-input xb-radio" id = "cancel">
+                            <input type="radio" id="cancelNotify" name="Type" value="1" class="input-element">
+                            <!--<span class="input-icon radio-icon"></span>-->
+                            <label class="input-label" for="cancelNotify"></label>
+                        </div>
+                        <label class="yes" for="cancelNotify">Yes</label>
+                    </div>
+                    <div class="trace-radio col-xs-1">
+                        <div class="xb-input xb-radio" id = "notCancel">
+                            <input type="radio" id="notCancelNotify" name="Type" value="0"  class="input-element">
+                            <!--<span class="input-icon radio-icon"></span>-->
+                            <label class="input-label" for="notCancelNotify"></label>
+                        </div>
+                        <label class="no" for="notCancelNotify">No</label>
+                    </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="hide modal fade" id="Upload">
+    <form id="URL_form" class="form-horizontal form edit">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">应用地址</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="url">
+                <label class="error" id="url_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">绿洲用户名</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big" id="user_name">
+                <label class="error" id="user_name_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label">绿洲密码</label>
+            <div class="col-sm-9">
+                <input type="password" class="string big" id="password">
+                <label class="error" id="password_error"></label>
+            </div>
+        </div>
+        <!--<div class="form-button2">
+            <button style=" background-color: #09a291;color: white" id="form-button2" >推送手环列表</button>
+        </div>-->
+    </form>
+</div>
+
+<div id="c_net_infor_rc" class="rc-define"
+    INFOR_HEAD="手环编号,MAC,发布状态"
+    EDIT_TITLE="新增,删除,手环发布"
+    STATUS="已发布,未发布"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.netinfor");
+</script>

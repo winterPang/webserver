@@ -1,0 +1,56 @@
+<html>
+<head>
+</head>
+<body>
+<div class="dashboard summary-view">
+    <div class="row">
+        <%-include flow.ejs%>
+        <%-include welcomeWeb.ejs%>
+        <%-include welcomeApp.ejs%>
+    </div>
+    <%-include numberStatistics.ejs%>
+    <%-include interfaceFlow.ejs%>
+    <%-include userFlow.ejs%>
+    <%-include webStatistics.ejs%>
+    <%-include appStatistics.ejs%>
+</div>
+</div>
+
+
+
+
+<div id="dpi_monitor_rc" class="rc-define"
+     UPNAME="上行流量"
+     DOWNNAME="下行流量"
+     DROPFLOW="总丢弃流量"
+     USAGENUM="使用人次"
+     REN="人"
+     SHOWTIME="时"
+     Traffic  = "流量（KB）"
+     FLOW_HEAD="用户Mac地址,报文数目,流量（KB）,占总流量百分比"
+     SPI_HEAD="接口名称,报文数目,流量（KB）,占总流量百分比"
+     USER_SPI="用户Mac地址,接口名称,报文数目,流量（KB）"
+     USER="用户ID,MAC,用户IP"
+     SHOWINFO="总流量,上行流量,下行流量,丢弃流量"
+     URLSTATISTICS="用户Mac地址,网站名称,网站类型,在线时长（时：分：秒）"
+     APP_HEAD="用户Mac地址,应用名称,报文数目,流量（KB）"
+     URL_TITLE="网站类型统计"
+     APP_TITLE="最受欢迎的应用"
+     URLCHANGE="上网人数"
+     APPCHANGE="最受欢迎的应用"
+     USERCHANGE="用户数量"
+     FLOWPIE="使用流量"
+     APPTYPE="应用类别流量"
+     FEN="分"
+     MIAO="秒"
+     XIAOSHI="小时"
+     INT_FLOW=<%=JSON.stringify(Flow)%>
+     WELCOMWEB=<%=JSON.stringify(WelcomeUrl)%>
+     WELCOMAPP=<%=JSON.stringify(WelcomeApp)%>
+        ></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS ("drs.dpi_ipv4");
+</script>

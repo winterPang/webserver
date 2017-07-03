@@ -1,0 +1,106 @@
+<html>
+
+<head>
+</head>
+<body>
+
+<div class="page-row">
+    <div class="col-xs-12 app-colum">
+            <div class="app-box">
+                <div class="select-footer">
+                    <span class="float-left ml25">周期：</span>
+                    <div class="time-change ml20" style="float:left;" id="total">
+                        <a id="days" class="time-link active" value="1">一天</a>
+                        <a id="weeks" class="time-link" value="2">七天</a>
+                        <a id="mounth" class="time-link" value="3">一月</a>
+                        <a id="year" class="time-link" value="4">一年</a>
+                        <span>自定义：</span>
+                        <input id="daterange" class="daterange time-select" placeholder="选择日期" ctrl="daterang">
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
+
+<div class="page-row xxb">
+    <div class="col-xs-12 app-colum" debug="getAdvertBySpan">
+        <div class="app-box">
+            <div class="box-footer">
+                <span class="title">广告展示统计</span>
+            </div>
+            <div class="box-body">
+                <div class="form-group col-sm-12">
+                    <div class="radio_styles radio-group">
+                        <div class="col-sm-1">
+                            <input type="radio" name="advert-info" id="pv" checked>
+                            <label for="pv">浏览量</label>
+                        </div>
+                        <div class="col-sm-1">
+                            <input type="radio" name="advert-info" id="pu">
+                            <label for="pu">访客数</label>
+                        </div>
+                        <div class="col-sm-1">
+                            <input type="radio" name="advert-info" id="clickCount">
+                            <label for="clickCount">点击数</label>
+                        </div>
+                        <div class="col-sm-1">
+                            <input type="radio" name="advert-info" id="ctr">
+                            <label for="ctr">点击率</label>
+                        </div>
+                    </div>
+                    <div id="adShowCount" class="myEchart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-row xxb">
+    <div class="col-xs-12 app-colum" debug="getAdMessage">
+        <div class="app-box">
+            <div class="box-footer">
+                <span class="title">概况</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="basic_slist" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="page-row xxb">
+    <div class="col-xs-12 app-colum" debug="getAdMessage">
+        <div class="app-box no-height default-bottom">
+            <div class="box-footer">
+                <span class="title">受访页面</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="detail_slist" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="x_adAnalysisi_rc" class="rc-define"
+     BASIC_ITEM="浏览量,访客数,点击数,点击率,平均访问时长"
+     HISTORY_ITEM=" 日期,浏览量,访客数,点击数,点击率,平均访问时长"
+     DETAIL_ITEM="页面URL,浏览量,访客数,点击数,点击率,平均停留时间"
+     USER_TYPE_MODE_NEW="ofhour,ofday,ofweek,ofmonth,ofyear"
+     TODAY="今天"
+     YESTERDAY="昨天"
+     TIME='今天,昨天'
+     HISTORYAVG="历史平均"
+     OTHER="其它"
+     TOTAL="当页汇总"
+     EXPORT="导出"
+     EXPORT1="导入"
+     pv="浏览量"
+     pu="访客数"
+     clickCount="点击数"
+     ctr="点击率"></div>
+</body>
+
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("p_ad.index");
+</script>

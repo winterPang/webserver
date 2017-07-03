@@ -1,0 +1,55 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 30,
+  "rows": [
+    {
+      "MAC": "9492-bcac-6108",
+      "AP_relevance": "我是AP1",
+      "begin_online": "08:02",
+      "flow_total": 801
+    },
+    {
+      "MAC": "0456-043b-d611",
+      "AP_relevance": "我是AP2",
+      "begin_online": "08:04",
+      "flow_total": 801
+    },
+    {
+      "MAC": "daa1-1959-2c96",
+      "AP_relevance": "我是AP3",
+      "begin_online": "08:10",
+      "flow_total": 1006
+    },
+    {
+      "MAC": "fc64-ba6b-1f09",
+      "AP_relevance": "我是AP4",
+      "begin_online": "08:15",
+      "flow_total": 954
+    },
+    {
+      "MAC": "bc3a-ea17-5029",
+      "AP_relevance": "我是AP5",
+      "begin_online": "08:54",
+      "flow_total": 930
+    },
+    {
+      "MAC": "9492-bcd7-5841",
+      "AP_relevance": "我是AP6",
+      "begin_online": "09:04",
+      "flow_total": 904
+    },
+    {
+      "MAC": "0456-0405-8e6c",
+      "AP_relevance": "我是AP7",
+      "begin_online": "09:10",
+      "flow_total": 804
+    },
+    {
+      "MAC": "dcee-0664-e913",
+      "AP_relevance": "我是AP8",
+      "begin_online": "10:10",
+      "flow_total": 801
+    }
+  ]
+}

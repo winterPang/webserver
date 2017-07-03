@@ -1,0 +1,59 @@
+<html>
+<head>
+    <meta charset="utf-8">
+</head>
+<body>
+<div class="modal-header">
+    <button type="button" data-dismiss="modal" air-hidden="true" class="close"></button>
+    <div class="title">体检报告</div>
+</div>
+<form class="form-horizontal form edit" style="height:1000px;">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div class="app-box">
+                <div class="box-footer">
+                    <div class="title">空口质量报告</div>
+                </div>
+                <div class="box-body no-height form-group" style="width:850px;padding:8px 0px 8px 10px;">
+                    <div class="simple-list" id="qualityReport_slist"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row">
+        <div class="col-xs-12 app-colum">
+            <div class="app-box">
+                <div class="box-footer">
+                    <div class="title">干扰设备报告</div>
+                </div>
+                <div class="box-body no-height" style="width:850px;padding:8px 0px 8px 10px;">
+                    <div class="simple-list" id="interfereReport_slist"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <a type="button" class="btn btn-primary" data-dismiss="modal" dlgtype="Close" style="margin-left:350px;margin-top:50px;">关闭</a>
+    </div>
+</form>
+</body>
+<div class="define_rc" id="depcheckreport_rc"
+     qualityReportTitle="ApName,RadioType,工作信道,平均质量,调整原因,调整建议,信道"
+     interfereReportTitle="干扰设备类型,信号强度,干扰信道,ApName,RadioType,"
+     chl="信道调整为"
+     por="功率调整为"
+     reason0="其他"
+     reason="802.11干扰"
+     reason1="丢包"
+     reason2="重传"
+     reason3="雷达"
+     reason4="功率调整"
+     reason5="其他"
+     ReasBitMap="无"
+     suggest="无需调整"
+        >
+</div>
+</html>
+<script>
+    Utils.Pages.loadJS("health.depcheckreport");
+</script>

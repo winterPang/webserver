@@ -1,0 +1,323 @@
+<html>
+<head>
+</head>
+<style>
+    @import url("./libs/jquerynav/jquery-accordion-menu.css");
+    .page-row{
+            -moz-user-select: -moz-text!important;
+            -moz-user-select: text!important;
+            -o-user-select:text!important;
+            -khtml-user-select:text!important;
+            -webkit-user-select:text!important;
+            -ms-user-select:text!important;
+            user-select:text!important;
+        }
+    .page-row #command_line input{
+        border:0;
+        outline: none;
+        width:60%;
+    }
+    .page-row #command_line{
+        background-color:black;
+        height:600px;
+    }
+    .page-row .backgroud-color{
+        background-color:black!important;
+        color: white!important;
+        font-size:18px;
+        font-weight: normal;
+        font-family: "Courier New";
+    }
+    .page-row .display-block-span{
+        display: block;
+    }
+    .page-row .backgroud-color-red{
+        position: absolute;
+        top: 14px;
+        width:100%;
+        color: #A30500;
+        font-size:18px;
+        font-weight: bold;
+        font-family: "Courier New";
+        text-align: center;
+    }
+    .page-row #window_command{
+        overflow:auto;
+        background-color: black;
+    }
+    .page-row .test_box {
+        width: 400px;
+        min-height: 120px;
+        max-height: 100000px;
+        _height: 120px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 3px;
+        outline: 0;
+        border: 1px solid #a0b3d6;
+        font-size: 12px;
+        word-wrap: break-word;
+        overflow-x: hidden;
+        overflow-y: auto;
+        _overflow-y: visible;
+    }
+    /*.page-row .box-body-new{*/
+        /*padding: 4px 4px 4px 4px;*/
+    /*}*/
+    .page-row #button_right{
+        float: right;
+        margin-right: 20px;
+    }
+    .modal #large_textarea{
+        width: 100%!important;
+        height: 300px!important;
+        font-size:18px!important;
+        font-weight: normal!important;
+    }
+    .page-row .new-panel-footer{
+        padding: 10px 15px;
+        background-color: rgba(255,204,94,1);
+        border-top: 1px solid #FFCA5F;
+        border-bottom-right-radius: 3px;
+        border-bottom-left-radius: 3px;
+    }
+    .page-row .footer-cmd
+    {
+        padding: 10px 15px;
+        background-color: rgba(255,204,94,1);
+        border-top-right-radius: 5px;
+        border-top-left-radius: 5px;
+
+    }
+    .page-row .body-cmd
+    {
+        padding: 10px 15px;
+        background-color: #F7F7F7;
+        border-bottom-right-radius: 5px;
+        border-bottom-left-radius: 5px;
+        height: 200px;
+
+    }
+    .page-row .title-cmd{
+        position: absolute;
+        width: 500px;
+        top:-300px;
+    }
+    .page-row label{
+        line-height: 18px!important;
+    }
+    .page-row input{
+        margin:0 0 0 0!important;
+        padding: 0 0 0 4px !important;
+        line-height: 18px!important;
+        height:20px!important;
+    }
+    .page-row #button_largeset,#button_help{
+        cursor: pointer;
+    }
+    .page-row .warning-panel{
+        position: absolute;
+        height: 45px;
+        width: 100%;
+        /* border-radius: 5px; */
+        background: orange;
+        text-align: center;
+        padding: 13px 12px 0 0;
+        top: 0;
+        color: #ffffff;
+        z-index: 100;
+        font-size: 17px;
+    }
+    .page-row .head-title-center{
+        text-align: center;
+    }
+    .page-row .title-style{
+        color: #343e4e;
+        font-size: 14pt;
+    }
+    .page-row .message_help{
+        position: absolute;
+        right: 0;
+        top: 0px;
+        width: 220px;
+        height: 600px;
+        background: #2a3542;
+        overflow: hidden;
+        -webkit-transition: width 0.3s;
+        -moz-transition: width  0.3s;
+        -ms-transition: width  0.3s;
+        -o-transition: width  0.3s;
+        transition: width  0.3s;
+    }
+
+    .page-row .message_help .nav-item>span:hover,.page-row .li-normalstyle:hover{
+        color: #ffffff!important;
+        background-color: #ad3f3f !important;
+        cursor: pointer;
+    }
+
+
+    .message_help .nav-items .nav-item span,.message_help .li-normalstyle{
+        background-color: #813B3B;
+        display: block;
+        height: 42px;
+        padding: 9px 0 0 20px;
+        font-size: 16px;
+        color: #8b9199;
+    }
+    .page-row .li-normalstyle{
+        position: absolute;
+        bottom: 0;
+        width:100%;
+        text-align: center;
+        padding: 7px 0 0 0!important;
+        color: #fcfcfc !important;
+        background: #813B3B;
+    }
+
+    .page-row .sub-list{
+        overflow: hidden;
+        height: auto;
+        font-size: 13px;
+        color: #8b9199;
+        padding: 0 0 0 0;
+        background: #2a3542;
+        display: none;
+    }
+
+    .page-row .help-head{
+        display: block;
+        height: 45px;
+        padding: 12px 0 0 0;
+        font-size: 17px;
+        color: #F5F5F5;
+        background: #11796C;
+        overflow: hidden;
+        text-align: center;
+    }
+    .page-row .help-containor{
+        font-family: 'Open Sans',sans-serif;
+    }
+    .page-row .tip-icon{
+        height: 45px;
+        width: 33px;
+        position: absolute;
+        top: 48%;
+        right: 8px;
+        cursor: pointer;
+    }
+    .page-row .tip-icon.on{
+        background: url(./css/image/login-icon.png) no-repeat -47px -243px;
+    }
+    .page-row .tip-icon.off{
+        background: url(./css/image/login-icon.png) no-repeat -101px -243px;
+    }
+    .page-row .box-body-new.new-padding{
+        padding-right: 221px;
+    }
+    .page-row #command_line span{
+        background-color: black!important;
+        color: white!important;
+        font-size: 18px;
+        font-weight: normal;
+        font-family: "Courier New";
+    }
+    
+
+    .page-row .antmenu {
+        height: 512px;
+        overflow-y: auto;
+    }
+
+</style>
+<body>
+    <div class="page-row col-xs-12" id="Probe_Monitor" unselectable="off">
+        <div class="box-body-new col-xs-12 new-padding" >
+            <div class="col-xs-12 ">
+                <div id="window_command">
+                    <div id="command_line" class="col-xs-12">
+                        <div class="col-xs-12">
+                            <label class="backgroud-color">[Connecting to device]</label>
+                            <input type="text" class="backgroud-color" disabled="disabled">
+                        </div>
+                    </div>
+
+                </div>
+                <div class="warning-panel">
+                    <button type="button" class="close"></button>
+                    Warning: Please use this function under the guidance of professionals.
+                </div>
+            </div>
+
+            <div class="help-containor">
+                <div id="help_message" class="message_help">
+                    <span class="help-head">Common commands</span>
+                    <!-- <ul class="nav-items">
+                         <li class="nav-item">
+                             <span>Basic information</span>
+                             <ul class="sub-list">
+                                 <li command="display version">Version</li>
+                                 <li command="display device">Device</li>
+                                 <li command="display clock">System time</li>
+                                 <li command="display current-configuration">Configuration</li>
+                                 <li command="display interface brief">Interface</li>
+                                 <li command="save">Save current configuration</li>
+                             </ul>
+                         </li>
+                         <li class="nav-item">
+                             <span>Network information</span>
+                             <ul class="sub-list">
+                                 <li command="display cloud state">Lvzhou cloud status</li>
+                                 <li command="display ip routing-table">Routing</li>
+                                 <li command="display wlan ap all">AP</li>
+                                 <li command="display wlan statistics ap all connect-history">AP statistics</li>
+                                 <li command="display wlan client">Wireless client</li>
+                                 <li command="display wlan statistics client">Wireless client statistics</li>
+                                 <li command="display wlan service-template">Wireless service template</li>
+                                 <li command="display dhcp server ip-in-use">DHCP status</li>
+                             </ul>
+                         </li>
+                         <li class="nav-item">
+                             <span>Monitoring information</span>
+                             <ul class="sub-list">
+                                 <li command="display cpu-usage">CPU usage</li>
+                                 <li command="display memory">Memory</li>
+                             </ul>
+                         </li>
+                         <li class="nav-item">
+                             <span id="button_largeset">批量下发</span>
+                         </li>
+                     </ul>-->
+                    <div class="antmenu"></div>
+                    <li class="li-normalstyle li-last" command="reset csm command proxy channel">Failure Recovery</li>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="hide modal fade" id="largeCmdSetDlg">
+            <form class="form-horizontal form" id="largeCmdSetForm">
+                <textarea id="large_textarea" type="text"></textarea>
+            </form>
+        </div>
+
+    </div>
+
+<div id="wips_rc" class="rc-define"
+	 MOUDEL_NAME="Command assistant"
+     OVER_TIME="Request timed out"
+	 WARN_NORMAL="Normal"
+     BASIC_CFG="Version, File, License, Memory, CPU usage, Alert, Reboot, System time, Configuration, Interface"
+     NET_CFG="Routing, AP, Wireless client, DNS"
+     CFG="Basic information, Network information, Monitoring information, Device management"
+     COMMAND-LINE-BATCH-ISSUED="Batch command issuing"
+     ERROR-TEXT="Waiting for the response to the last command. Click Failure Recovery to cancel waiting."
+     BASIC-INFO="Basic information, Version, Device, System time, Configuration, Interface, Network environment analysis, Save current configuration"
+     NETWORK-INFO="Network information, Lvzhou cloud status, Routing, AP, AP statistics, Wireless client, Wireless client statistics, Wireless service template, DHCP status"
+     MONITOR-INFO="Monitoring information, CPU usage, Memory"
+    ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("commandline.commandline");
+</script>

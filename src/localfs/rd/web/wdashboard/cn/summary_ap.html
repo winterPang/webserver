@@ -1,0 +1,287 @@
+<html>
+<head>
+</head>
+<body>
+<div class="dashboard">
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">基于型号</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh" id="refresh_Model">
+                            <i class="refresh-icon icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div id="According_Model" class="myEchart"></div>
+                </div>
+            </div> 
+        </div>
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">基于版本</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh" id="refresh_APver">
+                            <i class="refresh-icon icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div id="According_Apver" class="myEchart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">基于上行流量</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh" id="refresh_upflow">
+                            <i class="refresh-icon icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div id="According_upflow" class="myEchart"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">基于下行流量</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh" id="refresh_downflow">
+                            <i class="refresh-icon icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div id="According_downflow" class="myEchart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+             <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">基于在线时长</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh" id="refresh_ontime">
+                            <i class="refresh-icon icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div id="According_ontime" class="myEchart"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">基于终端数</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh" id="refresh_client">
+                            <i class="refresh-icon icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div id="According_client" class="myEchart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">基于CPU利用率</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh" id="refresh_cpuratio">
+                            <i class="refresh-icon icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div id="According_cpuratio" class="myEchart"></div>
+                </div>
+            </div> 
+        </div>
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">基于内存利用率</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh" id="refresh_memratio">
+                            <i class="refresh-icon icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div id="According_memratio" class="myEchart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-6 app-colum right-block">
+            <div class="app-box">
+                <div class="sysinfo-footer">
+                    <span class="title">基于丢包率</span>
+                    <div class="text-right link-container">
+                        <a type="button" class="refresh" id="refresh_packlostratio">
+                            <i class="refresh-icon icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="box-body" style="height:300px;">
+                    <div id="According_packlostratio" class="myEchart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--暂时不需要，后续要删掉-->
+<div id="ApModelPop_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">AP列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="ApModelPopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+
+<div id="OnPop_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">AP列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="OnPopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+
+<div id="VerPop_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">AP列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="VerPopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+
+<div id="FlowPop_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">AP列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="FlowPopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+
+<div id="DownPop_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">AP列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="DownPopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+
+<div id="packRatioPop_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">AP列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="packRatioPopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+
+<div id="cpuRatioPop_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">AP列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="cpuRatioPopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+
+<div id="memRatioPop_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">AP列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="memRatioPopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+
+<div id="clientPop_diag" class="modal fade modal-super dashboard in hide">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+        <h3 class="modal-title">AP列表</h3>
+    </div>
+    <div class="modal-body">
+        <div id="clientPopList" class="simple-list"></div>
+    </div>
+    <div class="modal-footer form-actions">
+        <a class="btn btn-primary" dlgtype="Close" data-dismiss="modal"><i class="icon-close"></i>关闭</a>
+    </div>
+</div>
+
+<div id="summary_rc" class="rc-define"
+    STATUS="在线,离线,Downloading version"
+    AP_DETAIL="AC序列号,AP序列号,AP名字,AP型号,AP在线状态"
+    AP_OnDETAIL="AC序列号,AP序列号,AP名字,AP在线时间（s）,AP在线状态"
+    AP_VerDETAIL="AC序列号,AP序列号,AP名字,AP内部版本,AP在线状态"
+    AP_UpDETAIL="AC序列号,AP序列号,AP名字,AP上行流量（kb）,AP在线状态"
+    AP_DownDETAIL="AC序列号,AP序列号,AP名字,AP下行流量（kb）,AP在线状态"
+    AP_packRatioDETAIL="AC序列号,AP序列号,AP名字,AP丢包率,AP在线状态"
+    AP_cpuRatioDETAIL="AC序列号,AP序列号,AP名字,CPU利用率（%）,AP在线状态"
+    AP_memRatioDETAIL="AC序列号,AP序列号,AP名字,内存利用率（%）,AP在线状态"
+    AP_clientDETAIL="AP序列号,终端数"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("wdashboard.summary_ap");
+</script>

@@ -1,0 +1,206 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+<div class="page-row">
+    <!-- <div class="btn_h_return" id="return"></div> -->
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height default-bottom">
+            <div class="box-footer">
+                <span class="title">AP组管理</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="onlineuser_list" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="hide" id="pageToggle">
+    <form id="pagetoggle_form" class="form edit">
+        <div class="col-sm-6 response-block hide">
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">AP组名称</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="themeName" name = "themeName"  maxlength="32" error_id="themeName_error"/>
+                    <label class="info-explain">（1-32字符）</label>
+                    <label class="error" id="themeName_error"></label>
+                    <label class="error custom">只支持数字、字母、"_"、"-"、"["、"]"、"/"</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">AP组描述</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big" id="description" name="description" maxlength="128" error_id="description_error"/>
+                    <label class="info-explain">（1-128字符）</label>
+                    <label class="error" id="description_error"></label>
+                </div>
+            </div>
+            
+
+            <div class="form-group" id="weixin">
+                <label class="col-sm-3 control-label">AP型号</label>
+                <div class="col-sm-9" id="WeChartSelect">
+                    <select class="mselect big" id="ModelName" name="ModelName" selectedId="Model_selected"></select>
+                    <div id="Model_selected" class="big">
+                      <!-- <label class="error custom">该参数必须配置。</label> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-row hide">
+            <!-- <div class="btn_h_return" id="return"></div> -->
+            <div class="col-xs-12 app-colum">
+                  <div class="app-box no-height default-bottom">
+                      <!-- <div class="box-footer">
+                          <span class="title">已入组AP列表</span>
+                      </div> -->
+                      <div class="box-body no-height">
+                      <div class="info-tip">以下AP为经apModel筛选的未入组AP！</div>
+                          <div id="onlineuser_list7" class="simple-list" style = "width:850px"></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>
+        
+    </form>
+</div>
+<div class="hide modal fade" id="AddPageTempDlg">
+  
+</div>
+
+
+
+
+
+<!-- <div class="hide modal fade" id="tableDlg">
+  <form class="form-horizontal form" id="tableForm">
+      <div class="box-body no-height">
+        <div id="detail-list" class="simple-list"></div>
+      </div>
+  </form>
+</div> -->
+<!-- <div class="hide modal fade" id="TerminalInfoDlg">
+    <form class="form-horizontal form" id="view_client_form">
+        <div class="col-sm-12">
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">AP名称</label>
+                  <span class="label form-if-setHtml" id="apName">--</span>
+            </div>
+
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">AP型号</label>
+                  <span class="label form-if-setHtml" id="apModel">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">序列号</label>
+                  <span class="label form-if-setHtml" id="apSN">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">MAC地址</label>
+                  <span class="label form-if-setHtml" id="macAddr">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">AP组名称</label>
+                  <span class="label form-if-setHtml"  id="apGroupName">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">射频信息</label>
+                  <span class="label form-if-setHtml" id="radioList1">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">AP状态</label>
+                  <span class="label form-if-setHtml" id="status1">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">吞吐量(发送/接收，KB)</label>
+                  <span class="label form-if-setHtml" id="transmit_receive_Traffic">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">在线时长(天:时:分:秒)</label>
+                  <span class="label form-if-setHtml" id="onlineTime1">--</span>
+            </div>
+            <div class="form-group">
+                  <label class="col-sm-5 control-label info-explain">客户端数量</label>
+                  <span class="label form-if-setHtml" id="clientCount">--</span>
+            </div>
+        </div>
+    </form>
+</div>  -->
+
+<!-- <div class="modal fade modal-super" id="TerminalInfoDlgAP" tabindex="-1" aria-hidden="true">
+       <!--  下面的表单是用来弹窗的,弹出的窗是具体的信息 -->
+    <!-- <form class="form-horizontal form" id="view_client_form">
+        <div class="box-body no-height form-group">
+            <div class="page-row">
+                <div class="col-xs-12 app-colum">
+                    <div class="app-box no-height default-bottom">
+                        <div class="box-body no-height" id="frameList">
+                     
+                            <div id="flowdetail_listAP" class="simple-list"></div>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer form-actions"></div>
+    </form>
+    <div class="editor-alert">
+    </div> -->
+    
+
+</div>
+
+<div id="apinfo_aplist_rc" class="rc-define"
+    	TX_HEADER="AP名称,发送速率（Kbps）"
+        RX_HEADER="AP名称,接收速率（Kbps）"
+        G5_HEADER="AP名称,5GHz客户端数量"
+        G2_HEADER="AP名称,2.4GHz客户端数量"
+        GROUP_HEADER="AP名称,AP型号,状态,序列号,IP地址"
+        MODE=",802.11b,802.11a,802.11g,802.11n(2.4GHz),802.11n(5GHz),802.11ac(2.4GHz),802.11ac(5GHz)"
+        ALLAP_HEADER1="AP名称,序列号,MAC地址,IP地址,射频信息,AP状态,在线时长（天:时:分:秒）"
+        ALLAP_HEADER="AP名称,AP型号,序列号,MAC地址,AP组名称,射频信息,AP状态,吞吐量(发送/接收，KB),在线时长(天:时:分:秒),客户端数量"
+        ALLAP_HEADER2="AP组名称,描述,AP列表"
+        DISCONNECT="断开连接"
+        STATUS=",在线,离线,正在下载版本"
+        TERINFO="AP列表"
+        TITLE_TERINFO="AP详情"
+        SYN="同步"
+        DELBTN = "删除"
+        ALLAP_HEADER3="名称,序列号,MAC地址,IP地址,所属AP组"
+        ADDGROUP_FAIL = "入组失败"
+        DEL_FAIL="删除失败"
+        DELAP_FAIL="组下有AP该组不能删"
+        SYN_FAIL="同步失败"
+        CREATEGROUP_FAIL = "添加组失败"
+        ADDGROUPDESCRIPTION_FAIL = "添加描述失败"
+        ADDGROUPMODEL_FAIL = "添加型号失败"
+        ADDGROUP_BTN = "加入组"
+        ADDPAGE_TITLE = "增加AP组"
+        ALLAP_HEADER7="AP名称,型号,AP序列号,MAC地址"
+        ALOAD ="正在下载版本"
+        SELECT = "请选择..."
+        SUCCESS = "配置成功"
+        SURE_BTN = "确定"
+        NEXT_BTN = "下一步"
+        DELETEOFSUC = "删除成功"
+        ADDGROUPOFSUC = "添加成功"
+        SYNOFSUC = "同步成功"
+        ADDBTN = "添加"
+></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+	Utils.Pages.loadJS("p_apgroup.index");
+</script>

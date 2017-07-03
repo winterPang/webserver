@@ -1,0 +1,186 @@
+
+<!--修改页面-->
+<style>
+    .col-sm-2,.col-sm-9,.col-sm-12,.col-sm-10,.col-sm-8
+    {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+    .btn_h_return
+    {
+        margin-top: -32px;
+        right: 47px;
+    }
+    .panel
+    {
+        width: 1080px;
+    }
+    select
+    {
+        color: #444;
+        line-height: 28px;
+        display: block;
+        padding-left: 8px;
+        padding-right: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        box-sizing: border-box;
+        text-align: left !important;
+    }
+</style>
+
+<div class="btn_h_return" ng-click="return()"></div>
+
+<div class="panel panel-default" >
+    <div class="panel-heading">
+        <h3 class="panel-title">修改配置</h3>
+    </div>
+
+    <div class="panel-body">
+        <form id="toggle_form" class="form edit" autocomplete="off" style="padding-left: 26px;" name="modifyForm">
+            <div class="response-block">
+
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label required">SSID</label>
+                    <div class="col-sm-10" >
+                        <input type="text" class="string big required" id="ssid_name" name ="ssid_name" maxlength=32 readonly
+                        value="ssid_name" ng-model="template.ssid_name"/>
+                        <label class="error" id="ssid_name_error"></label>
+                    </div>
+                </div>
+
+                <div class="form-group row" >
+                    <label class="col-sm-2 control-label required">Password</label>
+                    <div class="col-sm-10">
+                        <div style="display: inline-block">
+                            <div class="xb-input xb-radio" >
+                                <input type="radio" class="input-element" id="addPwdOn"  name="addPwd" value="1"
+                                       ng-model="template.addPwd" ng-click="addPwdOn()"/>
+                                <span class="input-icon radio-icon " ng-class="{'checked': template.addPwd == 1}"></span>
+                                <label for="addPwdOn" class="input-label"></label>
+                            </div>
+                            <label for="addPwdOn">Use password</label>
+                        </div >
+                        <div style="display: inline-block;padding-left: 43px;" >
+                            <div class="xb-input xb-radio">
+                                <input type="radio" class="input-element" id="addPwdOff"  name="addPwd" value="2"
+                                       ng-model="template.addPwd" ng-click="addPwdOff()"/>
+                                <span class="input-icon radio-icon" ng-class="{'checked': template.addPwd == 2}" ></span>
+                                <label for="addPwdOff" class="input-label"></label>
+                            </div>
+                            <label for="addPwdOff">No password</label>
+                        </div>
+                        <br/>
+                        <div ng-if="pwd" ng-init="showPwd1=true">
+                            <input type="password" class="string big" id="addPwdValue" name="addPwdValue" ng-minlength="8" ng-maxlength="63"
+                                   ng-model="template.addPwdValue" ng-show="showPwd1" ng-pattern='/^[a-zA-Z0-9]+$/' required
+                                   error_id="addPwdValue_error" placeholder="********"/>
+                            <input type="text" class="string big" id="PwdValue" name="PwdValue" ng-minlength="8" ng-maxlength="63"
+                                   ng-model="template.addPwdValue" ng-hide="showPwd1" ng-pattern='/^[a-zA-Z0-9]+$/' required
+                                   error_id="PwdValue_error" placeholder="********"/>
+                            <span class="icon_eye" ng-class="{show_word: !showPwd1}" id="switch" ng-click="showPwd1=!showPwd1"></span>
+                            <span ng-show="modifyForm.addPwdValue.$dirty" ng-messages="modifyForm.addPwdValue.$error" ng-messages-multiple >
+                                <span ng-message="required" class="error" style="display: inline-block">This information is required.</span>
+                                <span ng-message="minlength" class="error"  style="display: inline-block">Valid range is 8 to 63 characters.</span>
+                                <span ng-message="pattern" class="error" style="display: inline-block">Valid characters include digits and letters only.</span>
+                            </span>
+                            <br/>
+                            <label class="info-explain">Note:The password is a string of 8 to 63 characters that can contain digits and letters.</label>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="form-group row" >
+                    <label class="col-sm-2 control-label required">Hide SSID</label>
+                    <div class="col-sm-10">
+                        <div style="display: inline-block">
+                            <div class="xb-input xb-radio" >
+                                <input type="radio" class="input-element" id="hideSsid"  name="hideSsid" value=1
+                                       ng-model="template.isHideSsid" ng-click="hideSsid()"/>
+                                <span class="input-icon radio-icon " ng-class="{'checked': template.isHideSsid == 1}"></span>
+                                <label for="hideSsid" class="input-label"></label>
+                            </div>
+                            <label for="hideSsid">Yes</label>
+
+                        </div >
+                        <div style="display: inline-block;padding-left: 82px;" >
+                            <div class="xb-input xb-radio">
+                                <input type="radio" class="input-element" id="showSsid"  name="showSsid" value=0
+                                       ng-model="template.isHideSsid" ng-click="showSsid()"/>
+                                <span class="input-icon radio-icon" ng-class="{'checked': template.isHideSsid == 0}" ></span>
+                                <label for="showSsid" class="input-label"></label>
+                            </div>
+                            <label for="showSsid">No</label>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <div class=" response-block">
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label">Authentication method</label>
+                    <div class="col-sm-9">
+                        <div class="col-sm-12" style="margin-bottom: 15px;">
+                            <div class="xb-input xb-radio">
+                                <input type="radio" class="input-element" value="AT1" id="addAT1" name="addAuthenType" ng-model="addAuthCfg.addAuthenType"/>
+                                <span class="input-icon radio-icon " ng-class="{'checked':addAuthCfg.addAuthenType=='AT1'}"></span>
+                                <label for="addAT1" class="input-label"></label>
+                            </div>
+                            <label for="addAT1">No authentication</label>
+                        </div>
+
+                        <div class="col-sm-12" >
+                            <div class="xb-input xb-radio">
+                                <input type="radio" class="input-element" value="AT2" id="addAT2" name="addAuthenType" ng-model="addAuthCfg.addAuthenType"/>
+                                <span class="input-icon radio-icon " ng-class="{'checked':addAuthCfg.addAuthenType =='AT2'}"></span>
+                                <label for="addAT2" class="input-label"></label>
+                            </div>
+                            <label for="addAT2" >authentication</label>
+
+
+                        </div>
+                        <div ng-if="addAuthCfg.addAuthenType=='AT2'" style="padding-left: 16px;">
+                            <div style="margin-bottom: 10px;">
+                                <label class="col-sm-4 control-label">Select authentication template</label>
+                                <div class="ath-type" id="addModelSelect">
+                                    <select class="singleSelect" style="width: 200px;" ng-model="addAuthCfg.addAuthCfgList"
+                                            ng-options="AuthCfg for AuthCfg in authTemplates">
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="col-sm-4 control-label">Select page template</label>
+                                <div class="lg-page" id="addLoginPageSelect">
+                                    <select class="singleSelect"  style="width: 200px;" ng-model="addAuthCfg.addLoginPageList"
+                                            ng-options="LoginPage for LoginPage in pageTemplates">
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+    <div align = "center" style="margin-bottom: 20px;">
+        <button class="btn btn-cus btn-sm " ng-disabled="modifyForm.$pristine" ng-click="updateSsidOne()" >
+            OK
+        </button>
+    </div>
+</div>
+
+<div id="ws_ssid_rc" class="rc-define"
+     LINK = "Failed to modify configuration because the main connection was broken down.",
+     ADD_Limit = "Failed to modify configuration because the number of service templates has reached the upper limit."
+     shared_key_ziduan="The device runs on a low version.The default password will be restored because the password is not changed."
+     LoseConfig="The modification might overwrite other wireless service setting corresponding to the SSID because the device runs on alow version.Are you sure you want to continue?"
+     modify_fail="Failed to modify the configuration."
+     modify_success="Configuration modified successfully."
+></div>

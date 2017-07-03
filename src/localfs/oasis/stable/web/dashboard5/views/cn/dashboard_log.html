@@ -1,0 +1,65 @@
+<div class="dashboard container-fluid" ng-init="
+        RC_TITLE_LOG_INFO='日志信息';
+        RC_TITLE_DETAIL = '详情';
+        RC_TITLE_LOG_LVEVL1 ='紧急';
+        RC_TITLE_LOG_LVEVL2 ='危险';
+        RC_TITLE_LOG_LVEVL3 ='警告';
+        RC_TITLE_LOG_LVEVL4 ='报告';
+
+        logLevels=[
+            {
+                title:RC_TITLE_LOG_LVEVL1,
+                icon :'syslog-icon emergency-icon',
+                color:'log-count number color_emergency',
+                data:0
+            },
+            {
+                title:RC_TITLE_LOG_LVEVL2,
+                icon :'syslog-icon critical-icon',
+                color:'log-count number color_critical',
+                data:0
+            },
+            {
+                title:RC_TITLE_LOG_LVEVL3,
+                icon :'syslog-icon warning-icon',
+                color:'log-count number color_warning',
+                data:0
+            },
+            {
+                title:RC_TITLE_LOG_LVEVL4,
+                icon :'syslog-icon info-icon',
+                color:'log-count number color_info',
+                data:0
+            }
+        ];
+    ">
+    <div class="page-row">
+        <div class="col-xs-12  app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer">
+                    <div class="col-xs-10">
+                        <span class="title">{{RC_TITLE_LOG_INFO}}</span>
+                    </div>
+                    <div class="text-right link-container">
+                        <a type="button" class="link-detail" id="submit_scan" ui-sref="scene.content.monitor.alertlogs" title="{{RC_TITLE_DETAIL}}">
+                            <span class="glyphicon glyphicon-th-list"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="middle-cell">
+                    <div ng-repeat="logLevel in logLevels" class="col-xs-6 col-md-6 col-lg-3" >
+                        <div class="syslog-info bg-transparent" style="margin-left:10px;">
+                            <div class="icon-container">
+                                <i class="{{logLevel.icon}}"></i>
+                            </div>
+                            <div class="text-right syslog-value">
+                                <div class="{{logLevel.color}}">{{logLevel.data}}</div>
+                                <div class="log-title">{{logLevel.title}}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

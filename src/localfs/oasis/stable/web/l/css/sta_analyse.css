@@ -1,0 +1,60 @@
+.sta_analyse .progress {
+  height: 10px;
+  margin-bottom: 10px;
+}
+.sta_analyse .page-row > .app-colum.left-block {
+  padding-right: 0;
+}
+.sta_analyse .page-row > .app-colum.left-block.split-left {
+  padding-right: 10px;
+}
+.sta_analyse .page-row > .app-colum.left-block.split-right {
+  padding-left: 10px;
+}
+.sta_analyse .page-row > .app-colum.left-block > .app-box.sta_analyse_box {
+  height: 450px;
+}
+.sta_analyse .page-row > .app-colum.left-block > .app-box > .box-footer {
+  border-bottom: 1px solid #eeeeee !important;
+}
+.sta_analyse .page-row > .app-colum.left-block > .app-box > .box-body {
+  height: 400px;
+  padding-top: 10px;
+}
+.sta_analyse .page-row > .app-colum.left-block > .app-box > .box-body.auto_height {
+  height: auto;
+}
+.sta_analyse .page-row > .app-colum.left-block > .app-box > .box-body > div {
+  height: 100%;
+}
+.sta_analyse .page-row > .app-colum.left-block > .app-box > .box-body > div.padding_0 {
+  padding: 0;
+}
+.sta_analyse .page-row > .app-colum.left-block > .app-box > .box-body .statistical_data {
+  text-align: center;
+}
+.sta_analyse .page-row > .app-colum.left-block > .app-box > .box-body .statistical_data .size_of_statistical {
+  height: 110px;
+  display: inline-block;
+  width: 100px;
+  margin-left: 7px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  text-align: center;
+  border: 1px solid #eeeeee !important;
+  border-radius: 10px;
+}
+.sta_analyse .page-row > .app-colum.left-block > .app-box > .box-body .statistical_data .size_of_statistical.sm_statistical {
+  width: 93px;
+}
+.sta_analyse .page-row > .app-colum.left-block > .app-box > .box-body .statistical_data a {
+  color: #80878c;
+}
+.sta_analyse .page-row > .app-colum.left-block > .app-box > .box-body .statistical_data span,
+.sta_analyse .page-row > .app-colum.left-block > .app-box > .box-body .statistical_data dt {
+  font-size: 40px;
+  font-weight: bold;
+  padding-bottom: 10px;
+  margin: 0 14px 5px;
+  border-bottom: 1px solid #eeeeee !important;
+}

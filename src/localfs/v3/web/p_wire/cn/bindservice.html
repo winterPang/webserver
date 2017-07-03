@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="cn">
+<head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+        .mbutton-location {
+            margin: 11px -57px 10px 32px;
+        }
+    </style>
+</head>
+<body>
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height">          
+            <div class="box-footer">
+                <span class="title">服务绑定</span>
+            </div>
+            
+            <div class="col-xs-12" id="device">               
+                <div class="col-xs-2 mbutton-location">
+                    <input type="radio" id="alldevice" name="devVer" value="1" checked class="input-element">
+                    <label for="allversion">AP组</label>
+                </div>
+                <div class="col-xs-2 mbutton-location ml0">
+                    <input type="radio" id="singledevice" name="devVer" value="2" class="input-element" >
+                    <label for="alonversion">AP</label>
+                </div>
+            </div>
+          
+            <div class="box-body no-height">
+            <div id="apGroup" class="simple-list"></div>
+            <div id="ap" class="simple-list"></div>
+        </div>
+        </div>
+    </div>
+
+    <!-- APGroup详情modal开始 -->
+    <div class="modal fade" id="APGroup">  
+        <div class="modal-body">
+        <form id="APGroup_form" class="form edit">     
+            <div id="APGruopList2" class="simple-list"></div>      
+        </form>
+        </div>
+    </div> 
+    <!-- APGroup详情modal结束 -   ->
+    
+     <!-- AP详情modal开始 -->
+    <div class="modal fade" id="AP">  
+        <div class="modal-body">
+        <form id="AP_form" class="form edit">     
+            <div id="APList" class="simple-list"></div>      
+        </form>
+        </div>
+    </div> 
+    <!-- APGroup详情modal结束 -->
+
+
+    <div id="ap_bindservice_rc" class="rc-define"
+         BASE_HEADER_S="AP组名称,AP组描述,无线服务数量,操作"     
+         BASE_HEADER_W="AP名称,无线服务数量,操作"
+         Bind_HEADER="无线服务名称,SSID,描述"
+         APGROUPBIND="AP组名称,SSID,描述"
+         OPERATION="绑定"
+         WIRELESS_SER="已绑定无线服务"
+     ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("p_wire.bindservice");
+</script>

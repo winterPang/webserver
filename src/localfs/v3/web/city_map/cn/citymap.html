@@ -1,0 +1,64 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+    <style type="text/css">
+        html{height:100%}
+        body{height:100%;margin:0px;padding:0px;font-family:"微软雅黑";}
+    </style>
+</head>
+<body>
+<div class="dashboard " id="dev_location">
+    <div class="page-row">
+        <div class=" col-xs-9 col-sm-9 app-colum city_right_block">
+            <div class ="app-box " id="container" style="height:600px;">
+            </div>
+        </div>
+        <div class="col-xs-3  col-sm-3 app-colum city_left_block">
+            <div class="app-box" style="height:600px;">
+                <span class="online_state">在线情况</span>
+                <div id = "ap_location" class="ap_station">
+                    <div class="city_dev_online" >
+                        <div class="ont_img inline_img" ></div>
+                        <span class="city_dev_status">在线AP</span>
+                        <span class="city_dev_number" id="onlinedevice">3</span>
+                    </div>
+                    <div class="city_dev_online" style="margin-left:10%;">
+                        <div class="ont_img outline_img"></div>
+                        <span class="city_dev_status">离线AP</span>
+                        <span class="city_dev_number"  id="outlinedevice">5</span>
+                    </div>
+                </div>
+                <div class=" station_position" >
+                    <div class="city_station_online " >
+                        <div class="left-icon Total-icon city_total_style"></div>
+                        <span class="city_dev_status" >用户总数</span>
+                        <span class="city_dev_number" style="margin-left:22%;" id="Total">9999</span>
+                    </div>
+                    <div class="city_station_online" style="margin-left:14%;">
+                        <div class="city_relation"></div>
+                        <span class="city_dev_status"style="margin-left:0%;">关联人数</span>
+                        <span class="city_dev_number" id="NumRZ">9999</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="hide modal fade" id="showDetailDlg">
+            <form id="device_form" class="form edit">
+                <div id="deviceList" class="simple-list" style="margin:0 10px;"></div>
+            </form>
+        </div>
+
+        <div id="location_rc" class="rc-define"
+             ON_LINE="查看在线设备"
+             OUT_LINE="查看离线设备"
+             DEVICE_LIST="设备名,位置,SN,设备组,在线时长,评分">
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("city_map.citymap");
+</script>

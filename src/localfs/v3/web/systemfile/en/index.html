@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+	<link href="../systemfile/css/jquery.treetable.css" rel="stylesheet" type="text/css">
+	<link href="../systemfile/css/jquery.treetable.theme.default.css" rel="stylesheet" type="text/css">
+	<link href="../systemfile/css/screen.css" rel="stylesheet" type="text/css">
+	<!--<script src="../js/jquery-1.11.3.min.js" language="javascript" type="text/javascript"></script>-->
+	<!--<script src="../js/jquery.treetable.js" language="javascript" type="text/javascript"></script>-->
+	<!--<script src="../js/jquery.treetable.test.js" language="javascript" type="text/javascript"></script>-->
+	<!--<script src="../js/jquery-ui.js" language="javascript" type="text/javascript"></script>-->
+	<style>
+		*, *::before, *::after{
+			box-sizing: content-box;
+		}
+	</style>
+</head>
+<body>
+<!-- START设置模态框（Modal） -->
+<!--<div class="modal fade" id="sysFileModal"  aria-hidden="true">-->
+	<!--<div class="modal-dialog">-->
+		<!--<div class="modal-content">-->
+			<!--<div id="sysFileSend" class="sysFileModalHead">-->
+				<!--文件上传-->
+			<!--</div>-->
+			<!--<div class="modal-body sysFileModalBody" id="sysFileModalBody">-->
+				<!--<form class="" id="verlist" action="/v3/fs/uploadFile/" enctype="multipart/form-data" method="post"-->
+					  <!--onsubmit="return false">-->
+					<!--&lt;!&ndash;<div id="sysFileHeadImgToolsContent" class="htmleaf-container" style="margin-left: 32%">-->
+						<!--<input id="sysFileHeadImgToolsChoise" type="file" required data-min-file-count="1" name="sysFile">-->
+					<!--</div>&ndash;&gt;-->
+				<!--</form>-->
+			<!--</div>-->
+			<!--<div class="modal-footer" id="chatSettingFooter">-->
+				<!--<button id="chatSettingBtnCancel" type="button" class="btn btn-primary"-->
+						<!--data-dismiss="modal">Cancel-->
+				<!--</button>-->
+				<!--<button id="chatSettingBtnOk" type="button" class="btn btn-primary disabled"-->
+						<!--data-dismiss="modal">OK-->
+				<!--</button>-->
+			<!--</div>-->
+		<!--</div>-->
+	<!--</div>-->
+<!--</div>-->
+<div class="modal fade" id="sysFileRenameModal"  aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div id="sysFileRename" class="sysFileModalHead">
+				Rename File
+			</div>
+			<div class="modal-body sysFileModalBody" id="sysFileModalRenameBody">
+				<form class="" id="sysFileRenameForm" action="/v3/fs/renameFile" method="post">
+					<div id="sysFileRenameContent" class="htmleaf-container" style="margin-left: 32%">
+						<input id="sysFileRenameChoise" type="text" name="sysFileNewName">
+						<input style='display:none' />
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer" id="sysFileRenameid">
+				<button id="fileSettingBtnCancel" type="button" class="btn btn-default"
+						data-dismiss="modal">Cancel
+				</button>
+				<button id="fileSettingBtnOk" type="button" class="btn btn-primary disabled"
+						data-dismiss="modal">OK
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="modal fade" id="sysFileProgressBar"  aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div id="sysFileBar" class="sysFileModalHead">
+				Progress
+			</div>
+			<div style="color: #14A89D; font-size: 18px; text-align: center; margin: 6px;">
+				<span id="sysprogressbar" class="title"></span>
+			</div>
+			<div id="systemfilebarrate" style="position: absolute;margin-top: 10px;margin-left: 36px;">
+				<span>100KB/S</span>
+			</div>
+			<div class="progress" style="width: 66%; margin: auto; margin-bottom: 16px; margin-top: 16px">
+				<div id="systemfilebar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
+					<span class="sr-only">60% Complete</span>
+				</div>
+			</div>
+			<div id="systemfilebarnum" style="position: absolute;margin-top: -35px;margin-left: 49%;">
+				<span>0%</span>
+			</div>
+			<div class="modal-footer" id="sysFileProgressBarId">
+				<button id="sysfileSettingBtnCancel" type="button" class="btn btn-default"
+						data-dismiss="modal">Close
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="col-xs-12 app-colum">
+	<div class="app-box no-height">
+		<div class="box-footer">
+			<span class="title">File System</span>
+		</div>
+		<div style="max-height: 450px; overflow: auto; height: 450px;">
+			<table id="systemFileTable" style="color: #000">
+				<thead>
+				<tr>
+					<th>File name</th>
+					<th>Type</th>
+					<th>Size</th>
+					<th>Modified at</th>
+				</tr>
+				</thead>
+
+			</table>
+		</div>
+		<div class="col-xs-12" style="margin-top: 40px; margin-bottom: 40px; text-align: center">
+			<a href="" data-toggle="modal" class="btn btn-primary disabled" id="systemFilesend">Send File to Device</a>
+
+			<button class="btn btn-primary disabled" id="systemFilerecv">Obtain File from Device</button>
+
+			<a href="#sysFileRenameModal" data-toggle="modal" class="btn btn-primary disabled" id="systemFileRename">Rename File</a>
+
+			<button class="btn_delete disabled" id="systemFiledelete">Delete File/button>
+		</div>
+	</div>
+	<iframe id="filerecive" name="filerecive" style="display: none"></iframe>
+</div>
+
+
+<div class="hide modal fade" id="AddSsidDlg">
+	<div class="modal-body">
+		<form class="form" id="verlist" action="/v3/fs/uploadFile/" enctype="multipart/form-data" method="post"
+				  onsubmit="return false">
+			<div class="form-group">
+				<div id="sysFileHeadImgToolsContent" class="htmleaf-container" style="margin-left: 32%">
+					<input id="sysFileHeadImgToolsChoise" type="file" required data-min-file-count="1" name="sysFile">
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+<div id="systemfile_rc" class="rc-define"
+	 NOTFOUND_LINK = "Cannot find the connection to the device. Please check the connection between the device and the lvzhou platform."
+	 NOOPERATE_ACCESS = "You are not authorized to manage devices."
+	 OPERATE_FAILED = "Operation failed."
+	 UPLOADING_FILE = "The device is downloading or uploading files. Please wait…"
+	 UPLOAD_SUCCESS = "File uploaded successfully."
+	 NOENOUGH_SPACE = "The device does not have sufficient space."
+	 EXIST_SAMEFILE = "The file already exists on the device."
+	 DEVICEINIT_FAILED = "Device initialization failed."
+	 LOCALFILETO_CLOUD = "Upload local file to cloud"
+	 DEVICEFILETO_CLOUD = "Upload device file to cloud"
+	 CLOUDFILETO_DEVICE = "Download cloud file to device"
+	 MAKESURE_DELETE = "The deleted file cannot be restored. Continue?"
+	 FILE_NOTEXIST = "The file doesn't exist."
+	 SYSTEM_IMPORTANTFILE = "Cannot manage important system files."
+	 DELETE_FAILED = "File deleting failed."
+	 DELETE_FOLDER = "Cannot delete a file folder."
+	 SELECT_FILE = "Please select a file."
+	 OPERATEMAY_FAILED = "The operation might fail."
+	 DOWNLOAD_FOLDER = "Cannot download a folder."
+	 CHINESE_CHATARATERS = "A file name cannot contain Chinese characters or spaces."
+	 UPLOAD_EMPTYFILE = "Do not upload empty files."
+	 ILLEGAL_FILENAME = "Invalid file name."
+	 MODIFY_FILENAME = "Change the file name?"
+	 MODIFY_FOLDER = "Cannot change the name of a folder."
+	 REQUEST_TIMEOUT = "Device response timed out."
+		></div>
+
+
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("systemfile.index");
+</script>

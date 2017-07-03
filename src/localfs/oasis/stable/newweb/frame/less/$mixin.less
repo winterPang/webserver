@@ -1,0 +1,36 @@
+//less所有的方法
+.border-radius(@radius:5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+.box-shadow(@shadow:none) {
+  -webkit-box-shadow: @shadow;
+  -moz-box-shadow: @shadow;
+  -o-box-shadow: @shadow;
+  box-shadow: @shadow;
+}
+
+.no-select(@select:none) {
+  user-select: @select !important;
+  -moz-user-select: @select !important;
+  -ms-user-select: @select !important;
+  -webkit-user-select: @select !important;
+}
+
+.transform(@transform:none) {
+  -webkit-transform: @transform;
+  -ms-transform: @transform;
+  -moz-transition: @transform;
+  -o-transform: @transform;
+  transform: @transform;
+}
+
+.transition(@transition) {
+  transition: @transition;
+  -webkit-transition: @transition;
+  -moz-transition: @transition;
+  -ms-transition: @transition;
+  -o-transition: @transition;
+}

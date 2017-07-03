@@ -1,0 +1,156 @@
+<html>
+<head>
+	<!-- <link rel="stylesheet" type="text/css" href="/v3/web/h_stamgrclients/m_clients.css"> -->
+</head>
+<style>
+    .daterange:focus{
+        border: #4ec1b2 solid 1px;
+        outline: none;
+    }
+    .ant-time-zone{
+        position: absolute;
+        display: table;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+        padding-left: 10px;
+    }
+    .ant-time-zone .daterange{
+        width: 180px;
+    }
+    .ant-radio{
+        margin:0 8px 0px 8px;
+        min-width: 30px;
+        min-height: 23px;
+        position: relative;
+        display: inline-block;
+        line-height: 23px;
+        color: #343E4E;
+    }
+    .ant-radio-label{
+        min-height: 23px;
+        position: relative;
+        display: inline-block;
+        line-height: 23px;
+        color: #343E4E;
+        margin:0 0px 0px 16px;
+
+    }
+
+    .ant-radio label{
+        width: 100%;
+        height: 100%;
+        line-height: inherit;
+        text-align: center;
+    }
+    .ant-radio input:hover+label,.ant-radio label:hover:not(:last-child){
+        color: #4ec1b2;
+        cursor: pointer;
+    }
+    .ant-radio input:hover:not(:last-child){
+        cursor: pointer;
+    }
+
+    .ant-radio input{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        filter:alpha(opacity=0);
+        -moz-opacity:0;
+        -khtml-opacity: 0;
+        opacity: 0;
+        z-index: -1;
+
+    }
+    .ant-radio input:checked+label{
+        color: #4ec1b2;
+        text-decoration: underline;
+    }
+    .city-label{
+        height: 42px;
+        background-color: #edf9f7;
+        border:#e7e7e9 solid 1px;
+    }
+
+    .ant-head-pannel .ant-pannel-v-center{
+        position: absolute;
+        margin: auto;
+        top: 0;
+        bottom: 0;
+        display: table;
+    }
+    .ant-size-input-height{
+        height: 26px;
+    }
+</style>
+<body>
+
+<div class="dashboard" id = "city_wips">
+    <div style="margin-top:-40px"><select id="areaSelect" class="singleSelect"  allowClear="false"></select></div>
+    <div class="btn_h_return" id="city_return"></div>
+
+    <div class="page-row">
+        <div class="col-xs-12 app-colum  city-label">
+            <div class="ant-time-zone">
+                <span class="ant-radio-label">周期：</span>
+                <div class="ant-radio">
+                    <input type="radio" id="WT1" name="WipsType" value="0" checked/>
+                    <label for="WT1">今天</label>
+                </div>
+                <div class="ant-radio">
+                    <input type="radio" id="WT2" name="WipsType" value="1"/>
+                    <label for="WT2">七天</label>
+                </div>
+                <div class="ant-radio">
+                    <input type="radio" id="WT3" name="WipsType" value="2"/>
+                    <label for="WT3">一月</label>
+                </div>
+                <div class="ant-radio">
+                    <input type="radio" id="WT4" name="WipsType" value="3"/>
+                    <label for="WT4">一年</label>
+                </div>
+                <!--
+                <div class="ant-radio">
+                    <input type="radio" id="WT5" name="WipsType" value="4" disabled/>
+                    <label for="WT5">自定义</label>
+                </div>
+                <input id="daterange" class="daterange ant-border ant-size-input-height" placeholder="选择日期">
+                -->
+            </div>
+            <a type="button" class="ant-wips-icon-detail ant-vertical-center" id="client_details" href="city_wips.info"></a>
+        </div>
+        <div class="col-xs-12 app-colum ">
+            <div style="margin-top: 10px;" class="app-box no-bk-color">
+                <div class="box-footer"><span class="title">检测到的攻击情况</span></div>
+                <div style="height:300px" id="attack_line" class="myEchart col-xs-12"></div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum left-block">
+            <div class="app-box no-bk-color custom-height" >
+                <div class="box-footer">
+                    <span class="title">累计攻击信息排序</span>
+                </div>
+                <div id="attackinfo_bar" class="myEchart col-xs-12"></div>
+            </div>
+        </div>
+        <div class="col-xs-6 app-colum ">
+            <div class="app-box no-bk-color custom-height" >
+                <div class="box-footer">
+                    <span class="title">累计设备信息排序</span>
+                </div>
+                <div id="deviceinfo_bar" class="myEchart col-xs-12"></div>
+            </div>
+        </div>
+</div>
+
+
+        
+<div id="wips_rc" class="rc-define"></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("city_wips.detail");
+</script>
+

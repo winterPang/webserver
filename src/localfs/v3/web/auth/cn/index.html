@@ -1,0 +1,195 @@
+<html>
+<head>
+    <style>
+
+    </style>
+</head>
+<body>
+
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">认证模板</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="authList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+
+<div class="hide" id="authToggle">
+    <form id="toggle_form" class="form edit" autocomplete="off">
+        <div class="col-sm-6 response-block">
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">认证模板</label>
+                <div class="col-md-9">
+                    <input type="text" class="string big required" maxlength="64" id="authname" name ="authCfgTemplateName" error_id="authname_error"/>
+                    <label class="info-explain">（1-64字符）</label>
+                    <label class="error" id="authname_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">允许上网时长</label>
+                <div class="col-md-9">
+                    <input type="text" class="string big required" id="onlineTime" name ="ONLINE_MAX_TIME" error_id="onlineTime_error"  placeholder="360" />
+                    <label class="info-explain">分钟（1-1440）</label>
+                    <label class="info-explain">说明：默认配置360，可以修改。</label>
+                    <label class="error" id="onlineTime_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label ">认证成功后跳转<!--URL--></label>
+                <div class="col-md-9">
+                    <input type="text" class="string big " maxlength="128" id="redirectURL" name ="URL_AFTER_AUTH" error_id="redirectURL_error" placeholder="http:// 或 https://"/>
+                    <label class="info-explain">说明：默认配置www.h3c.com,可以修改。</label>
+                    <label class="error" id="redirectURL_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">闲置切断时长
+                        <span class="toggle" contents="#IdleCutFlow">
+                        <i class="icon-question-sign"></i></span>
+                </label>
+                <div class="col-md-9">
+                    <input type="text" class="string big required" id="restTime" name ="IDLE_CUT_TIME" error_id="restTimeL_error" placeholder="30"/>
+                    <label class="info-explain">（分钟）</label>
+                    <label class="error" id="restTime_error"></label>
+                    <label class="info-explain">说明：闲置切断时长（分钟）不得超过上网时长（分钟）且为纯数字。默认30(分钟)，可修改。</label>
+                    <label class="info-help hide" id="IdleCutFlow">
+                        配置为0时，闲置切断功能关闭
+                    </label>
+                </div>
+            </div>
+            <div class="form-group" id="idle_flow_cut">
+                <label class="col-sm-3 control-label required">闲置切断流量</label>
+                <div class="col-md-9">
+                    <input type="text" class="string big required" id="restByte" name ="IDLE_CUT_FLOW" error_id="restByte_error" placeholder="10240"/>
+                    <label class="info-explain">字节（1-1024000）</label>
+                    <label class="info-explain">说明：默认配置10240，可以修改。</label>
+                    <label class="error" id="restByte_error"></label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">再次连接免认证</label>
+                <div class="col-md-9">
+                    <div class="col-md-5">
+                        <input type="radio" id="feelauth1" name="feelauth" value="1" />
+                        <label for="feelauth1">开启</label>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="radio" id="feelauth2" name="feelauth" value="0" checked="checked"/>
+                        <label for="feelauth2" >关闭</label>
+                    </div>
+                    <DIV id = "anthTime" CLASS="hide col-md-12 Learn-MAC">
+                        <!--<input type="checkbox" id="impose_auth" checked ctrlBlock=".Learn-Time"/>-->
+                        <label for="impose_auth">免认证时长</label>
+                        <br>
+                        <div class="Learn-Time">
+                            <input type="text" class="digits big text-error required" id="impose_auth_time" name = "unauthtime" maxlength="2" value="1" min ="1" max = "30" placeholder="7" error_id="impose_auth_time_error"/>
+                            <label class="info-explain">天（1-30）</label>
+                            <label class="error" id="impose_auth_time_error"></label>
+                        </div>
+                        <label class="info-explain">说明：通过认证的用户在免认证期内上线无需重复认证。默认配置为7(天)，可以修改</label>
+                    </DIV>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 response-block">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">定位功能</label>
+                <div class="col-md-9">
+                    <div class="col-md-5">
+                        <input type="radio" id="location_on" name="location" value="1" />
+                        <label for="location_on">开启</label>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="radio" id="location_off" name="location" value="0" checked="checked"/>
+                        <label for="location_off" >关闭</label>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3 control-label">一键上网</label>
+                <div class="col-md-9">
+                    <div class="col-md-5">
+                        <input type="radio" id="authType1" name="authType" value="1" checked="checked"/>
+                        <label for="authType1">开启</label>
+                    </div>
+                    <div class="col-md-5">
+                        <input type="radio" id="authType2" name="authType" value="2" />
+                        <label for="authType2" >关闭</label>
+                    </div>
+                </div>
+            </div>
+            <div class="hide" id="other_auth">
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">短信认证</label>
+                    <div class="col-sm-9">
+                        <div class="col-sm-5">
+                            <input type="radio" id="isEnableSms1" name="isEnableSms" value="1" />
+                            <label for="isEnableSms1">开启</label>
+                        </div>
+                        <div class="col-sm-5">
+                            <input type="radio" id="isEnableSms2" name="isEnableSms" value="0" />
+                            <label for="isEnableSms2" >关闭</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">微信公众号认证</label>
+                    <div class="col-sm-9">
+                        <div class="col-sm-5">
+                            <input type="radio" id="chatauth1" name="isEnableWeixin" value="1"  />
+                            <label for="chatauth1">开启</label>
+                        </div>
+                        <div class="col-sm-5">
+                            <input type="radio" id="chatauth2" name="isEnableWeixin" value="0"/>
+                            <label for="chatauth2" >关闭</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">微信认证连WIFI</label>
+                    <div class="col-sm-9">
+                        <div class="col-sm-5">
+                            <input type="radio" id="ifwifi1" name="isWeixinConnectWifi" value="1"  />
+                            <label for="chatauth1">开启</label>
+                        </div>
+                        <div class="col-sm-5">
+                            <input type="radio" id="ifwifi12" name="isWeixinConnectWifi" value="0"/>
+                            <label for="chatauth2" >关闭</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-3 control-label">固定账号认证</label>
+                    <div class="col-sm-9">
+                        <div class="col-sm-5">
+                            <input type="radio" id="isEnableAccount1" name="isEnableAccount" value="1"  />
+                            <label for="isEnableAccount1">开启</label>
+                        </div>
+                        <div class="col-sm-5">
+                            <input type="radio" id="isEnableAccount2" name="isEnableAccount" value="0" />
+                            <label for="isEnableAccount2" >关闭</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </form>
+</div>
+
+<div class="hide modal fade" id="AddAuthTempDlg"></div>
+
+<div id="ws_ssid_rc" class="rc-define"
+     SSID_HEADER = "认证模板,一键登录,短信认证,微信认证,微信连wifi,固定账号认证"
+     AUTH_Status ="关闭,开启"
+     ADD_TITLE = "增加认证模板"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("auth.index");
+</script>

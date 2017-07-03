@@ -1,0 +1,303 @@
+/* 首页 */
+
+.index-body{
+	height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+
+.index-logo {
+    width: 115px;
+    margin: 180px auto 0 auto;
+    position: absolute;
+    bottom: 60%;
+    width: 250px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.index-logo img {
+    width: 115px;
+}
+
+.btn-cus {
+    font-family: "Microsoft YaHei", serif;
+    background: #4ec2b2;
+    color: #FFF;
+    font-size: 15px;
+    border-radius: 5px;
+    height: 40px;
+    line-height: 40px;
+    box-shadow: 0 2px rgba(0, 0, 0, 0.6);
+    /* position: absolute; */
+    bottom: 110px;
+    width: 250px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    text-align: center;
+    text-decoration: none;
+}
+
+<!-- 登录 -->
+
+.login-box .login-header {
+  min-height: 125px;
+  margin-bottom: 10px;
+}
+.login-box .login-header img {
+  width: 100%;
+}
+.login-box .form-box {
+  width: 300px;
+  margin: 0 auto;
+}
+.login-box .form-box .form-title {
+  font-size: 15px;
+  margin: 20px 0;
+}
+.login-box .form-box .form-tabs {
+  overflow: hidden;
+  height: 290px;
+  border-radius: 5px;
+  box-shadow: 0 0 13px 1.5px rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0 13px 1.5px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 0 0 13px 1.5px rgba(0, 0, 0, 0.2);
+  -o-box-shadow: 0 0 13px 1.5px rgba(0, 0, 0, 0.2);
+}
+.login-box .form-box .form-tabs .form-tab {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  height: 40px;
+}
+.login-box .form-box .form-tabs .form-tab li {
+  height: 40px;
+  line-height: 40px;
+  float: left;
+  cursor: pointer;
+  width: 99px;
+  text-align: center;
+  font-size: 12px;
+  border-radius: 5px 5px 0 0;
+  border: 1px solid #eee;
+  margin-left: -1px;
+  display: none;
+}
+.login-box .form-box .form-tabs .form-tab li.active {
+  border-radius: 0;
+  border-color: transparent;
+}
+.login-box .form-box .form-tabs .form-tab-items {
+  padding: 0 25px 20px 25px;
+}
+.login-box .form-box .form-tabs .form-tab-items > div {
+  display: none;
+  height: 248px;
+}
+.login-box .form-box .form-tabs .form-tab-items > div.active {
+  display: block;
+}
+.login-box .form-box .form-tabs .form-tab-items .btn {
+  background: #4ec2b2;
+  color: #FFF;
+  font-size: 15px;
+  border-radius: 5px;
+  height: 40px;
+  width: 250px;
+  line-height: 40px;
+  box-shadow: 0 1.5px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+.login-box .form-box .form-tabs .form-tab-items .input-group {
+  height: 85px;
+  border-radius: 5px;
+  border: 1px solid #eee;
+  margin-bottom: 35px;
+}
+.login-box .form-box .form-tabs .form-tab-items .input-group > div {
+  height: 40px;
+  margin: 0 10px;
+}
+.login-box .form-box .form-tabs .form-tab-items .input-group > div:first-child {
+  border-bottom: 1px solid #eeeeee;
+}
+.login-box .form-box .form-tabs .form-tab-items .input-group .input-icon {
+  width: 20px;
+  height: 30px;
+  margin: 5px 15px 5px 0;
+  display: block;
+  float: left;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.login-box .form-box .form-tabs .form-tab-items .input-group input {
+  border: none;
+  outline: none;
+  font-size: 10px;
+  margin: 3px 0;
+  height: 35px;
+}
+.login-box .form-box .form-tabs .form-tab-items .wechat {
+  padding-top: 75px;
+  background: url("../images/bg-chahua.png") no-repeat 0 15px;
+  background-size: contain;
+}
+.login-box .form-box .form-tabs .form-tab-items .wxwifi {
+  padding-top: 75px;
+  background: url("../images/bg-chahua.png") no-repeat 0 15px;
+  background-size: contain;
+}
+.login-box .form-box .form-tabs .form-tab-items .wxcount {
+  padding-top: 75px;
+  background: url("../images/bg-chahua.png") no-repeat 0 15px;
+  background-size: contain;
+}
+
+.login-box .form-box .form-tabs .form-tab-items .wechat > div i {
+  display: block;
+  float: left;
+  margin: 5px 25px 5px 15px;
+  height: 30px;
+  width: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.login-box .form-box .form-tabs .form-tab-items .wechat .btn-wifi {
+  margin-bottom: 65px;
+}
+.login-box .form-box .form-tabs .form-tab-items .wechat .btn-wifi i {
+  background-image: url("../images/icon-wifi.png");
+}
+.login-box .form-box .form-tabs .form-tab-items .wxwifi .btn-wifi i {
+  background-image: url("../images/icon-wifi.png");
+  display: block;
+  float: left;
+  margin: 5px 25px 5px 15px;
+  height: 30px;
+  width: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.login-box .form-box .form-tabs .form-tab-items .wechat .btn-wechat i {
+  background-image: url("../images/icon-wechat.png");
+}
+.login-box .form-box .form-tabs .form-tab-items .wxcount .btn-wechat i {
+  background-image: url("../images/icon-wechat.png");
+  display: block;
+  float: left;
+  margin: 5px 25px 5px 15px;
+  height: 30px;
+  width: 30px;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.login-box .form-box .form-tabs .form-tab-items .phone {
+  margin-top: 35px;
+}
+.login-box .form-box .form-tabs .form-tab-items .phone .btn-login {
+  text-align: center;
+}
+.login-box .form-box .form-tabs .form-tab-items .phone .input-phone input {
+  width: 190px;
+}
+.login-box .form-box .form-tabs .form-tab-items .phone .input-phone .input-icon {
+  background-image: url("../images/icon-phone.png");
+}
+.login-box .form-box .form-tabs .form-tab-items .phone .input-code input {
+  width: 120px;
+}
+.login-box .form-box .form-tabs .form-tab-items .phone .input-code .input-icon {
+  background-image: url("../images/icon-yzm.png");
+}
+.login-box .form-box .form-tabs .form-tab-items .phone .input-code .btn-getcode {
+  width: 85px;
+  color: #4ec1b2;
+  font-size: 10px;
+  padding: 15px 0;
+  cursor: pointer;
+}
+.login-box .form-box .form-tabs .form-tab-items .user {
+  margin-top: 35px;
+}
+.login-box .form-box .form-tabs .form-tab-items .user .btn-login {
+  text-align: center;
+}
+.login-box .form-box .form-tabs .form-tab-items .user .input-name input {
+  width: 190px;
+}
+.login-box .form-box .form-tabs .form-tab-items .user .input-name .input-icon {
+  background-image: url("../images/icon-name.png");
+}
+.login-box .form-box .form-tabs .form-tab-items .user .input-pwd input {
+  width: 190px;
+}
+.login-box .form-box .form-tabs .form-tab-items .user .input-pwd .input-icon {
+  background-image: url("../images/icon-key.png");
+}
+.login-box .copyright {
+  font-size: 15px;
+  text-align: center;
+  color: #5c99c9;
+  margin: 30px 0;
+  text-decoration: underline;
+}
+/* 登录成功页 */
+
+.success-body {
+    margin: 0;
+    padding: 0;
+    width: 100% !important;
+    height: 100% !important;
+    font-size: 10px;
+    font-family: 'microsoft yahei', serif !important;
+    color: #333333;
+    position: relative;
+    background-size:100% 100%;
+    background-repeat: no-repeat;
+}
+.closePage {
+    width: 55px;
+    height: 20px;
+    padding: 0 8px 0 13px;
+    line-height: 20px;
+    box-sizing: border-box;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    border: 1px solid #666;
+    border-radius: 25px;
+    background: url('../images/icon-closed.png') no-repeat 39px;
+    background-size: 15%;
+}
+
+.loginSucc-title {
+    font-size: 17px;
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 215px;
+}
+/* 主页 */
+
+
+div.banner {
+    height: 197px;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+div.container {
+    margin-top: 80px;
+    text-align: center;
+}

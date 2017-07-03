@@ -1,0 +1,151 @@
+<style>
+    .form-horizontal .control-label {
+        text-align: left !important;
+        padding-top: 2px;
+        margin-right: 200px;
+    }
+
+    .form-horizontal [class^="col-md-"],
+    .form-horizontal [class*="col-md-"],
+    .form-horizontal [class^="col-xs-"],
+    .form-horizontal [class*="col-xs-"],
+    .form-horizontal [class^="col-sm-"],
+    .form-horizontal [class*="col-sm-"] {
+        line-height: 30px;
+    }
+</style>
+<div class="container-fluid">
+    <div class="btn_h_return" ng-click="return()"></div>
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">客户端统计</span>
+            </div>
+            <div class="box-body no-height" style="padding:0 20px 20px;">
+                <div class="form-group col-sm-12" id="anniumen">
+                    <div class="radioAnNiu" style="margin-top:10px;">
+                        <input id="jiben" type="radio" name="sanzhong-info" checked ng-click="clickRadio('basicInfo')">
+                        <label for="jiben" style="margin-right:30px;">基本信息</label>
+                        <input id="shepin" type="radio" name="sanzhong-info" ng-click="clickRadio('RadioInfo')">
+                        <label for="shepin" style="margin-right:30px;">射频信息</label>
+                        <input id="tongji" type="radio" name="sanzhong-info" ng-click="clickRadio('StatisticsInfo')">
+                        <label for="tongji" style="margin-right:30px;">统计信息</label>
+                        <input id="yonghu" type="radio" name="sanzhong-info" ng-click="clickRadio('UserInfo')">
+                        <label for="yonghu" style="margin-right:30px;">认证信息</label>
+                    </div>
+                </div>
+
+                <div class="btn btn-cus" ng-click="fresh()">刷新</div>
+                <!--<div class="btn btn-cus" ng-click="export()" ng-if="permission.execute">导出</div>-->
+                <button class="btn btn-cus" ng-click="cancellation()" ng-disabled="modBtnDisable"
+                        ng-if="permission.execute">注销绿洲用户
+                </button>
+                <div class="btn btn-cus" ng-click="cancellationall()" ng-if="permission.execute">注销绿洲所有用户</div>
+                <div class="box-body no-height">
+                    <div bs-Table="tablesOption"></div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <form class="form-horizontal form" id="flowdetail_form" bs-modal="aiyaoption">
+        <div class="col-sm-12">
+            <div class="form-group detail-even">
+                <label class="col-sm-3  control-label"><strong>MAC地址</strong></label>
+                <span id="clientMAC"></span>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3  control-label "><strong>IP地址</strong></label>
+                <span id="clientIP"></span>
+            </div>
+            <div class="form-group detail-even">
+                <label class="col-sm-3  control-label "><strong>终端厂商</strong></label>
+                <span id="clientVendor"></span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3  control-label "><strong>AP</strong></label>
+                <span id="ApName"></span>
+            </div>
+            <div class="form-group detail-even">
+                <label class="col-sm-3  control-label "><strong>SSID</strong></label>
+                <span id="clientSSID"></span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3  control-label "><strong>终端信号强度</strong></label>
+                <span id="signalStrength"></span>
+                <span> db</span>
+            </div>
+            <div class="form-group detail-even">
+                <label class="col-sm-3  control-label "><strong>终端发送速率</strong></label>
+                <span id="clientTxRate"></span>
+                <span> Kbps</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3  control-label "><strong>终端接收速率</strong></label>
+                <span id="clientRxRate"></span>
+                <span> Kbps</span>
+            </div>
+            <div class="form-group detail-even">
+                <label class="col-sm-3  control-label "><strong>终端关联的Radio类型</strong></label>
+                <span id="clientRadioMode"></span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3  control-label "><strong>终端模式</strong></label>
+                <span id="clientMode"></span>
+            </div>
+            <div class="form-group detail-even">
+                <label class="col-sm-3  control-label "><strong>终端关联的Radio信道</strong></label>
+                <span id="clientChannel"></span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3  control-label "><strong>用户名</strong></label>
+                <span id="portalUserName"></span>
+            </div>
+            <div class="form-group detail-even">
+                <label class="col-sm-3  control-label "><strong>认证方式</strong></label>
+                <span id="portalAuthType"></span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3  control-label "><strong>portal 上线时间</strong></label>
+                <span id="portalOnlineTime"></span>
+            </div>
+
+            <div class="form-group detail-even">
+                <label class="col-sm-3  control-label "><strong>终端发送报文字节数</strong></label>
+                <span id="clientTxBytes">无</span><span> B</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3  control-label "><strong>终端接收报文字节数</strong></label>
+                <span id="clientRxBytes">无</span>
+                <span> B</span>
+            </div>
+            <div class="form-group detail-even">
+                <label class="col-sm-3  control-label "><strong>终端发送报文数</strong></label>
+                <span id="clientTxPackets">无</span>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-3  control-label "><strong>终端接收报文数</strong></label>
+                <span id="clientRxPackets">无</span>
+            </div>
+            <div class="form-group detail-even">
+                <label class="col-sm-3  control-label "><strong>协商速率</strong></label>
+                <span id="NegoMaxRate"></span><span> Mbps</span>
+            </div>
+        </div>
+    </form>
+</div>
+<iframe id="exportFile" name="exportFile" style="display: none"></iframe>
+<div id="clients_rc" class="rc-define"
+     TABLE_HEADERS="MAC地址,IP地址,终端厂商,AP,SSID,关联的Radio类型,终端模式,关联的Radio信道,协商速率(Mbps),发送速率(Kbps),接收速率(Kbps),用户名,认证方式,认证时间"
+     LIST_QOSMODE="批量注销用户，成功！请稍后刷新页面"
+     LIST_QSMODE="批量注销用户，失败！请重新注销用户"
+     SEC_TYPE="注销全部用户，成功！请稍后刷新页面"
+     SEC_TYPEFAIL="注销全部用户，失败！请重新注销用户"
+     SAC_WLEEOP="导出失败"
+     SEC_FAIL="客户端统计"
+     SEC_TYPEFL="关闭"
+     LIST_QOS="其他"
+     LIST_QOSML="未知"
+>
+</div>

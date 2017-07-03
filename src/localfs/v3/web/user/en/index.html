@@ -1,0 +1,91 @@
+<html>
+<head>
+    <style>
+
+    </style>
+</head>
+<body>
+    <div class="col-xs-12 app-colum hide" id="onlinevisitor">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">Online Visitors</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="OnlineVisitorList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">Visitor List</span>
+            </div>
+            <div class="box-body no-height">
+                <div id="RegisterUserList" class="simple-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hide" id="pageToggle">
+        <form id="adduser_form" class="form edit">
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">Account Name</label>
+            <div class="col-sm-9">
+                <input type="text" class="string big required" id="userName" name = "userName" maxlength="128" error_id="userName_error" autocomplete='off' />
+                <label class="info-explain" style="margin-left:21px">(1 to 128 characters)</label>
+                <span class="error" id="userName_error" hidden>The username cannot contain spaces</span>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">Password</label>
+            <div class="col-sm-9">
+                <input type="password" class="string big required" id="userPassword" name="userPassword" min=6 maxlength="32"  error_id="userPassword_error"/>
+                <input type="text" id="text" style="display:none" class="string big required"  name="text"  min=6 maxlength="32"  error_id="text_error" />
+                <span class="icon_eye" id="switch"></span>
+                <label class="info-explain">(6 to 32 characters)</label>
+                <label class="error" id="userPassword_error"></label>
+                <label class="error" id="text_error"></label>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-sm-3 control-label required">Confirm password</label>
+            <div class="col-sm-9">
+                <input type="password" class="string big required" id="passwordConform" name="passwordConform" min=6 maxlength="32"  error_id="passwordConform_error"/>
+                <input type="text" id="text2" style="display:none" class="string big required" name="text2" min=6 maxlength="32"  error_id="text2_error" />
+                <span class="icon_eye" id="switch2"></span>
+                <label class="info-explain">(6 to 32 characters)</label>
+                <label class="error" id="passwordConform_error"></label>
+                <label class="error" id="text2_error"></label>
+            </div>
+        </div>
+        </form>
+    </div>
+
+    <div id="add_user_Dlag" class="hide modal fade"></div>
+    <iframe id="exportFile" name="exportFile" style="display: none" ></iframe>
+    <div id="user_rc" class="rc-define"
+         USER_LIST_HEADER = "Account Name, Authentication Method, Register Time"
+         USER_TYPE="One-key authentication, Short message authentication, WeChat authentication, Alipay authentication, QQ authentication, WeChat official account authentication, WeChat Wi-Fi, Application authentication, Fixed account authentication"
+         ADD_USER="Add Fixed Account"
+         EDIT_USER="Change Password"
+         ADD_BLACK_LIST="Add to Blacklist"
+         REMOVE_BLACK_LIST="Remove from Blacklist"
+         DERIVE="Export"
+         Visitor_LIST_HEADER = "Account Name, User IP, Access Time, Access Duration, Authentication Method"
+         KICK_OUT = "Log Off"
+         InputContentError = "Invalid parameter"
+         goon = "Add one more fixed account?"
+         GET_SHOP_FAILED = "Failed to obtain site information"
+         PASSWORD_DIFFERENT = "Inconsistent passwords"
+         CONFIG_SUCCESS = "Fixed account added successfully"
+         SUCCESS_FOR_REFRESH = "Operation issued successfully. Please refresh the page later"
+         TIME = "min, h, d"
+         FIND_DATA_ERR = "Error occurred during data querying"
+    >
+    </div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("user.index");
+</script>

@@ -1,0 +1,141 @@
+<div class="dashboard js-apinfo">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box">
+                <div class="select-footer">
+                    <div class="col-xs-1 ml20">
+                        <input id="globalRadio" value="global" name="radioGrp" type="radio"
+                               ng-model="info.curChoose"
+                               ng-click="info.clickRadio()"/>
+                        <label for="globalRadio">全局</label>
+                    </div>
+                    <div class="col-xs-1">
+                        <input id="branchRadio" value="branch" name="radioGrp" type="radio"
+                               ng-model="info.curChoose"
+                               ng-click="info.clickRadio()"/>
+                        <label for="branchRadio">指定分支</label>
+                    </div>
+                    <label class="col-xs-4" ng-show="info.curChoose === 'branch'">
+                        <select class="big" select2="opts.branchSelector"
+                                ng-options="branch for branch in info.branchList"
+                                ng-model="info.curBranch"
+                                ng-change="info.selectBranch()"></select>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 app-colum left-block" debug="Aps">
+            <div class="bg-bor">
+                <div class="head-bar">
+                    <div class="box-footer">
+                        <div class="col-xs-10">
+                            <span class="title">AP数量</span>
+                        </div>
+                        <div class="text-right link-container">
+                            <a type="button" title="更多"
+                               class="link-detail js-aplist"
+                               ng-click="goMore()">
+                                <i class="detail-icon icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="syslog-info-mine-Total">
+                            <div class="ap-icon_h icon-online"></div>
+                            <div class="right-text-info">
+                                <span class="counter" ng-bind="info.apCnt.online"></span>
+                                <br />
+                                <span class="number-title">在线AP数</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="syslog-info-mine-Total">
+                            <div class="ap-icon_h icon-offline">
+
+                            </div>
+                            <div class="right-text-info">
+                                <span class="counter" ng-bind="info.apCnt.offline"></span>
+                                <br />
+                                <span class="number-title">离线AP数</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-4">
+                        <div class="syslog-info-mine-Total syslog-apinfo-border">
+                            <div class="ap-icon_h icon-unhealth">
+                            </div>
+                            <div class="right-text-info">
+                                <span class="counter" ng-bind="info.apCnt.other"></span>
+                                <br />
+                                <span class="number-title">不健康AP数</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="page-row">
+            <div class="col-xs-6 app-colum left-block" debug="APModel_bar">
+                <div class="app-box no-bk-color custom-height" >
+                    <div class="box-footer">
+                        <span class="title">基于AP型号</span>
+                    </div>
+                    <div class="sysinfo-body">
+                        <div id="APModel_bar" class="myEchart col-xs-12"  style="width:522px;height:280px;"></div>
+                    </div>
+                </div>
+                <div class="app-box no-bk-color" style="height:265px;" debug="According_client">
+                    <div class="box-footer">
+                        <span class="title">基于终端数</span>
+                    </div>
+                    <div class="sysinfo-body">
+                        <div id="According_client" class=" col-xs-12 myEchart" style="width:522px;height:280px;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xs-6 app-colum left-block"  debug="ApGroup_list">
+                <div class="app-box no-bk-color custom-height">
+                    <div class="box-footer">
+                        <span class="title">基于分支名称</span>
+                    </div>
+                    <div class="box-body no-height">
+                        <div bs-table="opts.branchList"> </div>
+                    </div>
+                </div>
+                <div class="default-height" debug="ApType_pie">
+                    <div class="app-box no-bk-color" style="height:265px;">
+                        <div class="box-footer">
+                            <span class="title">基于AP类型</span>
+                        </div>
+                        <div class="sysinfo-body">
+                            <div id="ApType_pie" class="myEchart col-xs-12"  style="width:522px;height:280px;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div bs-modal="opts.APByClientModal" >
+    <div bs-table="opts.APByClientList"></div>
+</div>
+
+<div bs-modal="opts.APByBranchModal" >
+    <div bs-table="opts.APByBranchList"></div>
+</div>
+
+<div bs-modal="opts.APByTypeModal" >
+    <div bs-table="opts.APByTypeList"></div>
+</div>
+
+<div id="apinfo_rc"
+     client_type = '0,1~10,11~20,21~40,,41~60,61~80,81~100,101以上'
+     notap = "暂无AP Model"
+     apbyclient_title = "AP统计"
+     apbyclient_header = "MAC地址,IPv4地址,IPv6地址,AP名称,AP类型"
+     aptype = "手工,自动"
+     ap_type = "在线的手工AP,自动AP,离线的手工AP,未认证的AP"
+     branch_header = "分支名称,分支中AP数目"
+     apbybranch_header="AP名称,MAC地址,IPv4地址,IPv6地址"></div>

@@ -1,0 +1,120 @@
+<style>
+    #clientTab {
+        overflow: hidden;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    #clientTab li {
+        float: left;
+        margin: 0 .5em 0 0;
+        border: 1px solid #ddd;
+        border-bottom: 0px;
+        border-radius: 5px 6px 0px 0px;
+    }
+    #clientTab a {
+        position: relative;
+        background: #edf9f7;
+        padding: 0.6em 2.0em;
+        float: left;
+        text-decoration: none;
+        color: #444;
+        text-shadow: 0 1px 0 rgba(255, 255, 255, .8);
+        -webkit-border-radius: 5px 0 0 0;
+        -moz-border-radius: 5px 0 0 0;
+        border-radius: 5px 0 0 0;
+    }
+    #clientTab a:hover, #clientTab a:hover::after, #clientTab a:focus, #clientTab a:focus::after {
+        background: #fff;
+    }
+    #clientTab a:focus {
+        outline: 0;
+    }
+    #clientTab a::after {
+     content:'';
+     position:absolute;
+     z-index: 1;
+     top: 0;
+     right: -.5em;
+     bottom: 0;
+     width: 1em;
+     background: #edf9f7;
+    -moz-box-shadow: 1px 0px 0px #ddd;
+    -webkit-box-shadow: 1px 0px 0px #ddd;
+    -webkit-box-shadow: 1px 0px 0px #ddd;
+     -webkit-transform: skew(10deg);
+     -moz-transform: skew(20deg);
+     -ms-transform: skew(20deg);
+     -o-transform: skew(20deg);
+     transform: skew(20deg);
+     -webkit-border-radius: 0 4px 0 0;
+     -moz-border-radius: 0 4px 0 0;
+     border-radius: 0 4px 0 0;
+    }
+    #clientTab .active a, #clientTab .active a::after {
+        background: #fff;
+        z-index: 3;
+        color: #4ec1b2;
+    }
+    .date_change{
+        position: absolute;
+        top: -34px;
+        right: 72px;
+        width: 200px;
+        height: 30px;
+        line-height: 30px;
+    }
+</style>
+<div class="liveness js-apinfo">
+    <ul id="clientTab">
+        <li tag="onlineInfo" class="active"><a>在线终端信息</a></li>
+        <li tag="historyInfo"><a>历史终端信息</a></li>
+    </ul>
+    <div class="page-row clientSection" id="onlineInfo" style="display: block;">
+    	<div class="btn_h_return" ng-click="onReturn();"></div>
+    	<div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <!-- <div class="box-footer">
+                    <span class="title">终端详细信息</span>
+                     <div class="col-xs-2 pull-right">  
+                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i> 
+                        <input id="daterange" class="daterange time-select date_input" style="width: 135px" /> 
+                    </div>
+                </div> -->
+                <div class="box-body no-height table-padding">
+                    <div bs-table="onlineClientList"></div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="page-row clientSection" id="historyInfo" style="display: none;position: relative;">
+         <div class="date_change">
+            <span>日期</span>
+             <input id="daterange" class="daterange time-select date_input" style="width: 100px" /> 
+        </div>
+        <div class="btn_h_return" ng-click="onReturn();"></div>
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <!-- <div class="box-footer">
+                    <span class="title">终端详细信息</span>
+                     <div class="col-xs-2 pull-right">  
+                        <i class="glyphicon glyphicon-calendar fa fa-calendar"></i> 
+                        <input id="daterange" class="daterange time-select date_input" style="width: 135px" /> 
+                    </div>
+                </div> -->
+                <div class="box-body no-height table-padding">
+                    <div bs-table="clientList"></div> 
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="read_rc" id="liveness88_detail"
+        APPLY="应用"
+        CANCEL="取消"
+        WEEK="日,一,二,三, 四, 五,六"
+        MONTH="一月,二月,三月,四月,五月,六月,七月,八月,九月,十月,十一月,十二月"
+        clientDetailListCols = "MAC,IP地址,下行流量,上行流量,厂商,关联AP名称,在线时长,协商速率(Mbps),RSSI(db),Radio类型,上线时间"
+    >       
+    </div>
+</div>

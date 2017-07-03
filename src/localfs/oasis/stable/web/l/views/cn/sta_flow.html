@@ -1,0 +1,224 @@
+<div class="sta_analyse dashboard container-fluid">
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer ">
+                    <div class="col-xs-3">
+                        <span class="title">全网流量走势</span>
+                    </div>
+                </div>
+
+                <div class="box-body echart-height">
+                    <div class="col-sm-4">
+                        <div style="height:18%;">
+                            <div class="flow_trend pull-left" style="height:100%;width:110px;"
+                                 dashboard-echarts="flow_week_trend_option"></div>
+                            <div class="flow_trend pull-left" style="height:100%;width:110px;"
+                                 dashboard-echarts="flow_month_trend_option"></div>
+                            <div class="flow_trend pull-left" style="height:100%;width:110px;"
+                                 dashboard-echarts="flow_year_trend_option"></div>
+                        </div>
+                        <div class="statistical_data">
+                            <div>上行流量</div>
+                            <dl class="size_of_statistical maxData"><dt>100</dt><dd>最大值</dd></dl>
+                            <dl class="size_of_statistical minData"><dt>1</dt><dd>最小值</dd></dl>
+                            <dl class="size_of_statistical averageData"><dt>80</dt><dd>平均值</dd></dl>
+                        </div>
+                        <div class="statistical_data">
+                            <div>下行流量</div>
+                            <dl class="size_of_statistical maxData"><dt>100</dt><dd>最大值</dd></dl>
+                            <dl class="size_of_statistical minData"><dt>1</dt><dd>最小值</dd></dl>
+                            <dl class="size_of_statistical averageData"><dt>80</dt><dd>平均值</dd></dl>
+                        </div>
+                    </div>
+                    <div class="col-sm-8" dashboard-echarts="data_flow_option"></div>
+                </div>
+                <div class="box-body auto_height echart-height">
+                    <div bs-table="all_flow_trend_table"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color sta_analyse_box">
+                <div class="box-footer ">
+                    <div class="col-xs-3">
+                        <span class="title">应用访问人次 / 流量</span>
+                    </div>
+                    <div class="text-right link-container">
+                        <a ng-click="show_app_user_flow_modal()" type="button" class="refresh list-link">
+                            <i class="fa fa-mydetail"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="box-body echart-height">
+                    <div class="col-xs-6">
+                        <div class="col-sm-8 padding_0">
+                            <h5>访问人次</h5>
+                            <div style="height:200px;" dashboard-echarts="app_person_time_option"></div>
+                            <div class="statistical_data">
+                                <dl class="size_of_statistical maxData sm_statistical"><dt>100</dt><dd>最大值</dd></dl>
+                                <dl class="size_of_statistical minData sm_statistical"><dt>1</dt><dd>最小值</dd></dl>
+                                <dl class="size_of_statistical averageData sm_statistical"><dt>80</dt><dd>平均值</dd></dl>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 panel-inner-right padding_0">
+                            <h5 class="subtitle">访问人次最多的应用</h5>
+                            <div class="sublabel"><span name="name">QQ</span> <span name="value">(1036)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 20.63%;background:#1CAF9A;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">微信</span> <span name="value">(963)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 16.33%;background:#5BC0DE;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">支付宝</span> <span name="value">(954)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 10.61%;background:#F0AD4E;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">淘宝</span> <span name="value">(953)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 10.20%;background:#D9534F;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">迅雷</span> <span name="value">(933)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 7.80%;background:#428BCA;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">360安全卫士</span> <span name="value">(1036)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 20.63%;background:#1CAF9A;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">京东</span> <span name="value">(963)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 16.33%;background:#5BC0DE;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">高德地图</span> <span name="value">(954)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 10.61%;background:#F0AD4E;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-6">
+                        <div class="col-sm-8 padding_0">
+                            <h5>访问流量</h5>
+                            <div style="height:200px;" dashboard-echarts="app_flow_option"></div>
+                            <div class="statistical_data">
+                                <dl class="size_of_statistical maxData sm_statistical"><dt>100</dt><dd>最大值</dd></dl>
+                                <dl class="size_of_statistical minData sm_statistical"><dt>1</dt><dd>最小值</dd></dl>
+                                <dl class="size_of_statistical averageData sm_statistical"><dt>80</dt><dd>平均值</dd></dl>
+                            </div>
+                        </div>
+                        <div class="col-sm-4 panel-inner-right padding_0">
+                            <h5 class="subtitle">访问流量最多的应用</h5>
+                            <div class="sublabel"><span name="name">QQ</span> <span name="value">(1036)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 20.63%;background:#1CAF9A;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">微信</span> <span name="value">(963)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 16.33%;background:#5BC0DE;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">支付宝</span> <span name="value">(954)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 10.61%;background:#F0AD4E;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">淘宝</span> <span name="value">(953)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 10.20%;background:#D9534F;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">迅雷</span> <span name="value">(933)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 7.80%;background:#428BCA;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">360安全卫士</span> <span name="value">(1036)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 20.63%;background:#1CAF9A;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">京东</span> <span name="value">(963)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 16.33%;background:#5BC0DE;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                            <div class="sublabel"><span name="name">高德地图</span> <span name="value">(954)</span></div>
+                            <div class="progress progress-sm">
+                                <div name="progressbar" style="width: 10.61%;background:#F0AD4E;" aria-valuemax="100"
+                                     aria-valuemin="0" role="progressbar" class="progress-bar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer ">
+                    <div class="col-xs-3">
+                        <span class="title">流量TOP10的终端</span>
+                    </div>
+                    <div class="text-right link-container">
+                        <a ng-click="show_top_flow_user_modal()" type="button" class="refresh list-link">
+                            <i class="fa fa-mydetail"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="box-body auto_height echart-height">
+                    <div bs-table="top_flow_user"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-row">
+        <div class="col-xs-12 app-colum left-block">
+            <div class="app-box no-bk-color">
+                <div class="box-footer ">
+                    <div class="col-xs-3">
+                        <span class="title">流量TOP10的应用</span>
+                    </div>
+                    <div class="text-right link-container">
+                        <a ng-click="show_top_flow_app_modal()" type="button" class="refresh list-link">
+                            <i class="fa fa-mydetail"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="box-body auto_height echart-height">
+                    <div bs-table="top_flow_app"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div bs-modal="app_user_flow_modal" class="form-horizontal">
+    <table bs-table="app_user_flow_options"></table>
+</div>
+
+<div bs-modal="top_flow_user_modal" class="form-horizontal">
+    <table bs-table="top_flow_user_options"></table>
+</div>
+
+<div bs-modal="top_flow_app_modal" class="form-horizontal">
+    <table bs-table="top_flow_app_options"></table>
+</div>

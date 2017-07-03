@@ -1,0 +1,176 @@
+<div class="btn_h_return" ng-click="onReturn();"></div>
+
+	<div class="col-xs-12 app-colum">
+
+		<div class="app-box no-height">
+			<div class="box-footer">
+				<span class="title">AP List</span>
+			</div>
+			<div class="box-body no-height" style="padding:0px 20px;">
+				<div class="form-group col-sm-12" id="anniumen">
+					<div class="radioAnNiu" style="margin-top:10px;">
+						<input type="radio" name="sanzhong-info" id="base" checked
+							   ng-click="bindCheck($event)">
+						<label for="base" style="margin-right:30px;">Basic Information </label>
+						
+						<input type="radio" name="sanzhong-info" id="radio"
+							   ng-click="bindCheck($event)">
+						<label for="radio" style="margin-right:30px;">Radio Information </label>
+					   
+						<input type="radio" name="sanzhong-info" id="link"
+							   ng-click="bindCheck($event)">
+						<label for="link" style="margin-right:30px;">Connection information</label>
+
+						<!--<input type="radio" name="sanzhong-info" id="client"-->
+							   <!--ng-click="bindCheck($event)">-->
+						<!--<label for="client" style="margin-right:30px;">Client information</label>-->
+
+					</div>
+				</div>
+				<div class="btn btn-cus" ng-click="refresh()">Refresh</div>
+				<!--<div class="btn btn-cus" ng-show="exportBtn" ng-click="export()">Export</div>-->
+				<div bs-table="clients_list_jb" ></div>
+			</div>
+		</div>
+	</div>
+
+	<!-- 弹出框 -->
+	<div class="hide modal fade" id="flowdetailDlg">
+	  <form class="form-horizontal form" id="flowdetail_form">
+			
+			<!-- 弹出框的数据显示 -->
+			<div class="col-sm-12">
+				<div class="form-group detail-even">
+					<label class="col-sm-3  control-label"><strong>MAC Address</strong></label>
+					<span id="clientMAC"></span>
+				</div>
+
+				<div class="form-group">
+					<label class="col-sm-3  control-label "><strong>IP Address</strong></label>
+					<span id="clientIP"></span>
+				</div>
+				<!-- <div class="form-group">
+					<label class="col-sm-2  control-label "><strong>终端名称</strong></label>
+					<span id="clientName"></span>
+				</div> -->
+				<div class="form-group detail-even">
+					<label class="col-sm-3  control-label "><strong>Vendors</strong></label>
+					<span id="clientVendor"></span>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3  control-label "><strong>AP</strong></label>
+					<span id="ApName"></span>
+				</div>
+				<div class="form-group detail-even">
+					<label class="col-sm-3  control-label "><strong>SSID</strong></label>
+					<span id="clientSSID"></span>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3  control-label "><strong>Client signal strength</strong></label>
+					<span id="signalStrength"></span>
+					<span> db</span>
+				</div>
+				<div class="form-group detail-even">
+					<label class="col-sm-3  control-label "><strong>Client tx rate</strong></label>
+					<span id="clientTxRate"></span>
+					<span> Kbps</span>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3  control-label "><strong>Client rx rate</strong></label>
+					<span id="clientRxRate"></span>
+					<span> Kbps</span>
+				</div>
+				<div class="form-group detail-even">
+					<label class="col-sm-3  control-label "><strong>Associated radio type</strong></label>
+					<span id="clientRadioMode"></span>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3  control-label "><strong>Client Mode</strong></label>
+					<span id="clientMode"></span>
+				</div>
+				<div class="form-group detail-even">
+					<label class="col-sm-3  control-label "><strong>Associated radio channel</strong></label>
+					<span id="clientChannel"></span>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3  control-label "><strong>Username</strong></label>
+					<span id="portalUserName"></span>
+				</div>     
+				<div class="form-group detail-even">
+					<label class="col-sm-3  control-label "><strong>Authentication Method</strong></label>
+					<span id="portalAuthType"></span>
+				</div>  
+				<div class="form-group">
+					<label class="col-sm-3  control-label "><strong>portal Access Time</strong></label>
+					<span id="portalOnlineTime"></span>
+				</div> 
+			
+				<div class="form-group detail-even">
+					<label class="col-sm-3  control-label "><strong>Client sent bytes</strong></label>
+					<span id="clientTxBytes">N/A</span><span> B</span>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3  control-label "><strong>Client received bytes</strong></label>
+					<span id="clientRxBytes">N/A</span>
+					<span> B</span>
+				</div>
+				<div class="form-group detail-even">
+					<label class="col-sm-3  control-label "><strong>Client sent packets</strong></label>
+					<span id="clientTxPackets">N/A</span>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-3  control-label "><strong>Client received packets</strong></label>
+					<span id="clientRxPackets">N/A</span>
+				</div>
+				<div class="form-group detail-even">
+					<label class="col-sm-3  control-label "><strong>Negotiated Rate</strong></label>
+					<span id="NegoMaxRate"></span><span> Mbps</span>
+				</div>                
+			</div>
+	  </form>
+
+		<!-- 弹出框的Back按钮 -->
+	   <!--  <div class="modal-footer form-actions">
+			<a class="btn btn-primary" dlgtype="Close" data-dismiss="modal">
+				关闭
+			</a>
+		</div> -->
+
+	</div>   
+
+
+	<!-- 弹出框：认证 -->
+
+<iframe id="exportFile" name="exportFile" style="display: none" ng-src="{{exportUrl}}"></iframe>
+<div id="clients_rc" class="rc-define"
+	 BUTTON_CANCEL="Back"
+	 EXPORT_LOG="Export"
+
+	 KICKOUT_renzheng="Log Out Lvzhou User"
+	 KICKOUT_ALL="Log Out All Lvzhou Users"
+	 
+	 KICKOUT_lixian="Clear Online Status"
+	 
+	 LIST_HEADER="AP Name,AP Model,Serial Number,Branch Name,AP Status,AP Group Name,MAC Address,IP Address"
+	 LIST_HEADER_SP="AP Name,AP Model,Serial Number,Branch Name,AP Status,AP Radio,Channel,Power"
+	 LIST_HEADER_TJ="AP Name,AP Model,Serial Number,Branch Name,AP Status,Online Duration,MAC Address,IP Address"
+	 LIST_HEADER_YH="AP Name,AP Model,Serial Number,Branch Name,AP Status,5 GHz Clients,2.4 GHz Clients"
+	 LIST_HEADER_LX="MAC Address,IP Address,Username,Authentication Method,portal 上线时间"
+
+	 USER_TYPE="One-Key Authentication, SMS Authentication, WeChat Client Authentication, Ali Pay Authentication, QQ Authentication, WeChat Official Account Authentication, Fixed Account Authentication"
+
+	 LIST_HEADER_BF="mac,ip,名称,厂商,接入点名称,关联的ssid名,信号强度(db),发送速率(Kbps),接收速率(Kbps),关联,模式,Associated radio channel,协商速率(Mbps),发送报文字节(KB),接收报文字节(KB),发送报文数,接收报文数"
+	 LIST_POWERSAVEMODE="Activate, Sleep"
+	 LIST_QOSMODE="N/A,WMM,11e,WMM and 11e"
+	 SEC_TYPE="No Authentication, 802.1X, Static PSK, Statis WEP, MAC, Portal, Dynamic WEP, 802.1X (non-encryption)"
+
+
+	TITLE_FLOWINFO="Client Details"
+	TITLE_RenZhengINFO="Authenticated Client Details"
+	FRESH="Refresh"
+	STATUS=",Online, Offline, Downloading image file"
+
+	 ap_status="Online,Offline"
+	 ></div>
+
+

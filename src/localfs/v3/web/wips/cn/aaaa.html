@@ -1,0 +1,381 @@
+<html>
+<head>
+</head>
+<style>
+    .position-top{
+        /*position: absolute;*/
+        /*top:70px;*/
+    }
+    .position-bottom1{
+        /*position: absolute;*/
+        /*bottom: 0px;*/
+        overflow: hidden;
+    }
+
+    .link-container{
+        position:absolute;
+        right:2px;
+    }
+
+    .client_percent_number{
+        text-align: center;
+        position: relative;
+        top: -100px;
+    }
+
+    .app-box.left-move{
+        margin-left: 2px;
+    }
+    .app-box.right-move{
+        margin-right: 2px;
+    }
+    .double-h{
+        height: 564px;
+    }
+    .margin-up{
+        margin-top:-30px;
+    }
+
+    .sysinfo-footer{
+        line-height: 32px;
+        height: 32px;
+        margin-bottom: 4px;
+    }
+    .info-blue{
+        background: #69C4C5!important;
+    }
+    .count-container{
+        text-align: center;
+        line-height: 30px;
+        padding-top: 12px;
+    }
+    .syslog-info.count{
+        font-size: 20px;
+        color: #fff;
+    }
+    .count{
+        background-color: #69C4C5;
+    }
+    .percent{
+        font-size:12px;
+        color: #fff;
+    }
+    .catlog-title{
+        color:#fff;
+        font-size: 12px;
+        margin-top:-10px;
+        text-align: center;
+    }
+    .syslog-info{
+        height: 66px;
+        line-height: 30px;
+        vertical-align: middle;
+        background: #fff;
+        border: 0;
+        margin: 0 15px 0 0;
+        text-align: center;
+        width: auto;
+        cursor: pointer;
+    }
+    .title{
+        font-size: 20px;
+        margin-left: 15px;
+        line-height: 30px;
+        display:block;
+        margin-left: 8px;
+        font-weight: normal;
+        color: #47495d;
+    }
+    .syslog-info.info-blue.no-pointor:first-of-type{
+    }
+    .syslog-info.info-blue.no-pointor:last-of-type{
+
+    }
+
+    .page-row .height-full{
+        height: 100%;
+    }
+
+
+    .app-box .top-box{
+        border-bottom: #dedddd solid 1px;
+        padding: 10px 0 10px 28px;
+        box-shadow: 1px 1px 3px #dedddd;
+    }
+    .top-box .time-zone{
+        display: inline-block;
+    }
+    .radio-name{
+        display: inline-block;
+        margin: 0 20px 0 0;
+    }
+    .radio-name .datewidget input{
+        width: 121px;
+        height: 30px;
+    }
+    .radio-name .datewidget span{
+        left: 95px;
+        padding:0 0 0 0;
+    }
+    .title-img{
+        display: inline-block;
+        cursor: pointer;
+        float: left;
+    }
+    .title-img + div{
+        display: inline-block;
+        float: right;
+    }
+
+
+
+</style>
+<body>
+<dl class="headline">
+    <dt id="back_to_index"><a class="back" href="#M_WipsDashboard"></a><span></span></dt>
+</dl>
+<!--<div class="page-row" id="countermeasure">-->
+<!--<div class="bg-gray">-->
+<!--<div class="head-bar " id="level">-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+
+<div class="page-row" id="wips_monitor">
+
+    <!--
+        <div class="box-footer">
+            <div class="col-xs-12">
+                <span class="title">攻击统计信息</span>
+            </div>
+            <div class="text-right link-container" >
+                <div>
+                    <a type="button" class="link-detail" id="device_detail" href="wips.deviceinfor">
+                        <i class="detail-icon icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="box-footer">
+            <div class="col-xs-12">
+                <span class="title">设备信息</span>
+            </div>
+            <div class="text-right link-container">
+                <div>
+                    <a type="button" class="link-detail" id="device_detail1" href="wips.deviceinfor">
+                        <i class="detail-icon icon"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    -->
+
+
+    <div class="col-xs-12 app-colum">
+        <div class="app-box double-h">
+            <div class="box-footer" >
+                <div class="col-xs-12">
+                    <div class="title-img">
+                        <img src="./css/image/title_clientprobe.jpg" height="50px">
+                        <span class="" id="cycle_date">(今天)</span>
+                    </div>
+                    <div class="text-right link-container">
+                        <div>
+                            <!--<span class="margin-left-little">-->
+                            <!--<span id="hotmap_btn">热图</span>-->
+                            <!--<span>|</span>-->
+                            <!--<span id="map_btn">地图</span>-->
+                            <!--</span>-->
+
+                            <a type="button" class="refresh" id="refresh_all">
+                                <i class="refresh-icon icon"></i>
+                            </a>
+                            <a type="button" class="link-detail" id="client_details" title="更多" href="clientprobe.clientsummary">
+                                <i class="detail-icon icon"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="top-box hide">
+                <div class="time-zone">
+                    <span class="radio-name">周期</span>
+                    <div class="radio-name">
+                        <input type="radio" id="WT1" name="WipsType" value="0" checked/>
+                        <label for="WT1">今天</label>
+                    </div>
+                    <div class="radio-name">
+                        <input type="radio" id="WT2" name="WipsType" value="1"/>
+                        <label for="WT2">七天</label>
+                    </div>
+                    <div class="radio-name">
+                        <input type="radio" id="WT3" name="WipsType" value="2"/>
+                        <label for="WT3">一月</label>
+                    </div>
+                    <div class="radio-name">
+                        <input type="radio" id="WT4" name="WipsType" value="3"/>
+                        <label for="WT4">一年</label>
+                    </div>
+                    <div class="radio-name">
+                        <input type="radio" id="WT5" name="WipsType" value="4"/>
+                        <label for="WT4">其他</label>
+                    </div>
+                </div>
+                <div class="time-zone hide" id="timezone">
+                    <input id="daterange" class="daterange" placeholder="选择日期">
+                </div>
+
+                <div class="cancel-actions hover-action">
+                </div>
+            </div>
+            <div class="">
+                <div class="col-xs-7">
+                    <div class="col-xs-12">
+                        <div class="col-xs-6">
+                            <div id="attackType_pie" class="myEchart"></div>
+                            <div class="box-footer" style="background:white">
+                                <div class="col-xs-8">
+                                    <span class="title">其他攻击检测</span>
+                                </div>
+                                <div class="text-right">
+                                    <span id="other_num">0</span>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div id="other_attack" class="myEchart"></div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="box-footer" style="background:white">
+                                <div class="col-xs-8">
+                                    <span class="title">泛洪攻击检测</span>
+                                </div>
+
+                                <div class="text-right">
+                                    <span id="Flood_num">0</span>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div id="flood_attack" class="myEchart"></div>
+                            <div class="box-footer" style="background:white">
+                                <div class="col-xs-8">
+                                    <span class="title">畸形报文检测</span>
+                                </div>
+                                <div class="text-right">
+                                    <span id="Malformed_num">0</span>
+                                </div>
+                            </div>
+                            <hr/>
+                            <div id="malf_attack" class="myEchart"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-5">
+                    <div class="col-xs-12">
+                        <div class="col-xs-4 padding0 myEchart" id="Device_block"></div>
+                        <div class="col-xs-4 padding0 myEchart" id="Device_block2"></div>
+                        <div class="col-xs-4">
+                            <div class="app-content Top-margin">
+                                <div class="row odd">
+                                    <label class="col-xs-1"></label>
+                                    <div class="col-xs-6">
+                                        <span class="form-label">AP：</span>
+                                    </div>
+                                    <div class="col-xs-5 text-left">
+                                        <span id="Total_ap"></span>
+                                    </div>
+                                </div>
+                                <div class="row odd">
+                                    <label class="col-xs-1"></label>
+                                    <div class="col-xs-6">
+                                        <span class="form-label">客户端：</span>
+                                    </div>
+                                    <div class="col-xs-5 text-left">
+                                        <span id="Total_client"></span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 padding0 position-bottom1">
+                        <div id="device_pie" class="myEchart"></div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div class="col-xs-2">
+            <div class="syslog-info info-blue no-pointor">
+                <div class="count-container">
+                    <span class="count" id="Top1">客户端总数</span><span class="percent" id="Percent_top1"></span>
+                </div>
+                <div class="catlog-title" id="Title_top1">0
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="syslog-info info-blue no-pointor">
+                <div class="count-container">
+                    <span class="count" id="Top2">未授权客户端数</span><span class="percent" id="Percent_top2"></span>
+                </div>
+                <div class="catlog-title" id="Title_top2">0
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="syslog-info info-blue no-pointor">
+                <div class="count-container">
+                    <span class="count" id="Top3">AP总数</span><span class="percent" id="Percent_top3"></span>
+                </div>
+                <div class="catlog-title" id="Title_top3">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="syslog-info info-blue no-pointor">
+                <div class="count-container">
+                    <span class="count" id="Top4">Rouge AP数</span><span class="percent" id="Percent_top4"></span>
+                </div>
+                <div class="catlog-title" id="Title_top4">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="syslog-info info-blue no-pointor">
+                <div class="count-container">
+                    <span class="count" id="Top5">攻击次数</span><span class="percent" id="Percent_top5"></span>
+                </div>
+                <div class="catlog-title" id="Title_top5">
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-2">
+            <div class="syslog-info info-blue no-pointor">
+                <div class="count-container">
+                    <span class="count" id="Top6">反制次数</span><span class="percent" id="Percent_top6"></span>
+                </div>
+                <div class="catlog-title" id="Title_top6">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div id="wips_summary_rc" class="rc-define"
+     DEVICE_TYPE="授权AP,配置错误的AP,非法AP,外部AP,Ad hoc,Mesh AP,潜在授权的AP,潜在非法的AP,潜在外部的AP,未分类的AP,授权客户端,错误关联客户端,未授权客户端,未分类客户端"
+     COUNTER_TYPE="配置错误的AP,非法AP,外部AP,潜在授权的AP,潜在非法的AP,潜在外部的AP,未分类的AP,未授权客户端,错误关联客户端,未分类客户端,反制攻击者,手动反制,反制ap引起的station反制"
+     AP_CLIENT="AP,客户端"
+     ATTACK_TYPE_LAN="泛洪攻击检测,畸形报文检测,其他攻击检测"
+     FLOOD_LAN="Association-request帧,Authentication帧,Beacon帧,Block ACK帧,CTS帧,Deauthentication帧,Disassociation帧,EAPOL-Start帧,Null-data帧,Probe-request帧,Reassociation-request帧,RTS帧"
+     MALF_LAN="IE重复的畸形报文,Fata-Jack畸形报文,IBSS和ESS置位异常的畸形报文,源地址为广播或者组播的认证和关联畸形报文,畸形Association-request报文,畸形Authentication报文,含有无效原因值的解除认证畸形报文,含有无效原因值的解除关联畸形报文,畸形HT IE报文,IE长度非法的畸形报文,报文长度非法的畸形报文,Duration字段超大的畸形报文,无效探查响应报文,key长度超长的EAPOL报文,SSID长度超长的畸形报文,多余IE畸形报文"
+     OTHERS_LAN="AP仿冒AP,AP仿冒客户端,AP仿冒Adhoc,Adhoc仿冒AP,客户端仿冒AP,WeakIV检测,AP学习速率,客户端学习速率"
+        ></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("wips.summary");
+</script>

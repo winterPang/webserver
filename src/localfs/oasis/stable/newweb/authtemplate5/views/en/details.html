@@ -1,0 +1,261 @@
+<div class="form-horizontal toggle-block page authtemplate5">
+    <div class="toggle-body">
+        <form name="toggle_form" class="form edit" autocomplete="off">
+            <div class="toggle-tool-bar" ng-if="permission.write">
+                <span class="del-icon" title="Delete" ng-click="del(auth.authCfgTemplateName)"></span>
+            </div>
+            <bs-radio init="radioInit">
+                <bs-item tittle="Anonymous auth" sign="1"></bs-item>
+                <bs-item tittle="Account auth" sign="2">
+                    <div class="container-fluid" style="position: relative">
+                        <p class="tab-title"><span class="title">Account Configuration</span><span class="cut-off"></span></p>
+                        <!--一键上网否显示内容-->
+                        <ul class="login-pane" ng-show="auth.authType == 2" ng-click="switchCfg($event)">
+                            <li class="login-item" ng-class="{checked: currentCfg === 0}">
+                                <span class="item-img msg"></span>
+                                <p class="item-title">SMS auth</p>
+                                <span class="cut-off" style="width:120px"></span>
+                                <p class="item-status">{{auth.isEnableSms ? 'Enable' : 'Disable'}}</p>
+                                <p class="item-set">Set</p>
+                            </li>
+                            <li class="login-item" ng-class="{checked: currentCfg === 1}">
+                                <span class="item-img weacc"></span>
+                                <p class="item-title">WeChat auth</p>
+                                <span class="cut-off" style="width:120px"></span>
+                                <p class="item-status">{{auth.isEnableWeixin ? 'Enable' : 'Disable'}}</p>
+                                <p class="item-set">Set</p>
+                            </li>
+                            <li class="login-item" ng-class="{checked: currentCfg === 2}">
+                                <span class="item-img wechat"></span>
+                                <p class="item-title">WeChat Wi-Fi</p>
+                                <span class="cut-off" style="width:120px"></span>
+                                <p class="item-status">{{auth.isWeixinConnectWifi ? 'Enable' : 'Disable'}}</p>
+                                <p class="item-set">Set</p>
+                            </li>
+                            <li class="login-item" ng-class="{checked: currentCfg === 3}">
+                                <span class="item-img account"></span>
+                                <p class="item-title">Fixed account auth</p>
+                                <span class="cut-off" style="width:120px"></span>
+                                <p class="item-status">{{auth.isEnableAccount ? 'Enable' : 'Disable'}}</p>
+                                <p class="item-set">Set</p>
+                            </li>
+                        </ul>
+                        <div class="cfg-pane" ng-hide="currentCfg === -1">
+                            <div class="arrow-def" ng-class="['arrow-msg','arrow-acc','arrow-wechat','arrow-auth'][currentCfg]">
+                                <b class="top"><i class="top-arrow1"></i><i class="top-arrow2"></i></b>
+                            </div>
+                            <a class="close" style="display: inline" ng-click="paneClose()"><span>×</span></a>
+                            <div class="cfg-body">
+                                <div ng-show="currentCfg === 0" id="msgCfg" class="form-group">
+                                    <div class="col-sm-12">
+                                        <label class="col-sm-2 control-label">SMS auth</label>
+                                        <div class="col-sm-10 is-horizon">
+                                            <div class="xb-input xb-checkbox">
+                                                <input class="switch input-element ng-valid ng-dirty ng-valid-parse ng-touched ng-empty" id="msgSwitch" type="checkbox" ng-model="auth.isEnableSms">
+                                                <span class="icon-switch" ng-class="{checked: auth.isEnableSms}"></span>
+                                                <label class="input-label" for="msgSwitch"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <label class="col-sm-2 control-label">Remember phone number</label>
+                                        <div class="col-sm-2">
+                                            <div class="xb-input xb-checkbox">
+                                                <input class="switch input-element ng-valid ng-dirty ng-valid-parse ng-touched ng-empty" id="remPhone" type="checkbox"  ng-model="auth.isEnableMacBind">
+                                                <span class="icon-switch" ng-class="{checked: auth.isEnableMacBind}"></span>
+                                                <label class="input-label" for="remPhone"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12" ng-show="auth.isEnableMacBind">
+                                        <label class="col-sm-2 control-label">Timeout</label>
+                                        <div class="col-sm-6" >
+                                            <input type="text" class="digits big" placeholder="1-365&nbsp;天" name="bindenabletime" ng-model="auth.BIND_ENABLE_TIME" number-range="1,365">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-show="currentCfg === 1" id="accountCfg" class="form-group">
+                                    <div class="col-sm-12">
+                                        <label class="col-sm-2 control-label">WeChat auth</label>
+                                        <div class="col-sm-10 is-horizon">
+                                            <div class="xb-input xb-checkbox">
+                                                <input class="switch input-element ng-valid ng-dirty ng-valid-parse ng-touched ng-empty" id="accSwitch" type="checkbox" ng-model="auth.isEnableWeixin">
+                                                <span class="icon-switch" ng-class="{checked: auth.isEnableWeixin}"></span>
+                                                <label class="input-label" for="accSwitch"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12" ng-if="auth.isEnableWeixin == 1">
+                                        <label class="col-sm-2 control-label">Select Official account</label>
+                                        <div class="col-sm-10 is-horizon">
+                                            <select ng-disabled="!permission.write" class="col-sm-2" name="pubmessage" ng-model="auth.pubmessage"
+                                                    ng-options="pub.name as pub.name for pub in pubmessage">
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-show="currentCfg === 2" id="weChatCfg" class="form-group">
+                                    <div class="col-sm-12">
+                                        <label class="col-sm-2 control-label">WeChat Wi-Fi</label>
+                                        <div class="col-sm-10 is-horizon">
+                                            <div class="xb-input xb-checkbox">
+                                                <input class="switch input-element ng-valid ng-dirty ng-valid-parse ng-touched ng-empty" id="weSwitch" type="checkbox" ng-model="auth.isWeixinConnectWifi">
+                                                <span class="icon-switch" ng-class="{checked: auth.isWeixinConnectWifi}"></span>
+                                                <label class="input-label" for="weSwitch"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12" ng-if="auth.isWeixinConnectWifi == 1">
+                                        <label class="col-sm-2 control-label">Select WeChat store</label>
+                                        <div class="col-sm-10">
+                                            <select ng-disabled="!permission.write" class="col-sm-2" name="store" ng-model="auth.store"
+                                                    ng-options="s.shop_id as s.shop_name for s in storeList">
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12" ng-if="auth.isWeixinConnectWifi == 1">
+                                        <label class="col-sm-2 control-label"> Follow</label>
+                                        <div class="col-sm-10 is-horizon">
+                                            <div class="xb-input xb-checkbox">
+                                                <input class="switch input-element ng-valid ng-dirty ng-valid-parse ng-touched ng-empty" id="auth_forcedAttention" type="checkbox" ng-model="auth.isForcedAttention">
+                                                <span class="icon-switch" ng-class="{checked: auth.isForcedAttention}"></span>
+                                                <label class="input-label" for="auth_forcedAttention"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div ng-show="currentCfg === 3" id="authCfg" class="form-group">
+                                    <div class="col-sm-12">
+                                        <label class="col-sm-2 control-label">Fixed account auth</label>
+                                        <div class="col-sm-10 is-horizon">
+                                            <div class="xb-input xb-checkbox">
+                                                <input class="switch input-element ng-valid ng-dirty ng-valid-parse ng-touched ng-empty" id="authSwitch" type="checkbox" ng-model="auth.isEnableAccount">
+                                                <span class="icon-switch" ng-class="{checked: auth.isEnableAccount}"></span>
+                                                <label class="input-label" for="authSwitch"></label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </bs-item>
+                <!--Common-->
+                <div class="container-fluid common" ng-click="switchCfg($event)">
+                    <p class="tab-title"><span class="title">Auth </span><span class="cut-off"></span></p>
+                    <div class="col-sm-6 response-block">
+                        <!--认证模板名称-->
+                        <div class="form-group" style="display: none">
+                            <label class="col-sm-3 control-label">Template name</label>
+                            <div class="col-md-8">
+                                <input type="text" class="string big" disabled="disabled" ng-model="auth.authCfgTemplateName" placeholder="1-64 chars or 1-21 Chinese chars">
+                                <!--<label class="info-explain">(1-64 chars or 1-21 Chinese chars)</label>-->
+                            </div>
+                        </div>
+                        <!--允许上网时长 验证：必填-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Session timeout</label>
+                            <div class="col-md-9">
+                                <input type="text" class="string big" placeholder="1-1440" ng-model="auth.online_time" name="ONLINE_MAX_TIME" number-range="1,1440" ng-disabled="!permission.write">
+                                <label class="info-explain"> (min)</label>
+                                <div ng-show="toggle_form.ONLINE_MAX_TIME.$dirty" ng-messages="toggle_form.ONLINE_MAX_TIME.$error">
+                                    <label ng-message="numberRange" class="error" style="display: inline-block;">Please enter a digit in the range of 1 to 1440.</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--闲置切断流量-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Client idle threshold</label>
+                            <div class="col-md-9">
+                                <input type="text" class="string big" placeholder="1-1024000" ng-model="auth.IDLE_CUT_FLOW" name="IDLE_CUT_FLOW" number-range="1,1024000" ng-disabled="!permission.write">
+                                <label class="info-explain">(bytes)</label>
+                                <div ng-show="toggle_form.IDLE_CUT_FLOW.$dirty" ng-messages="toggle_form.IDLE_CUT_FLOW.$error">
+                                    <label ng-message="numberRange" class="error" style="display: inline-block;">Please enter a digit in the range of 1 to 1024000.</label>
+                                </div>
+                            </div>
+                        </div>
+                        <!--是否免认证，如果是，显示下面内容，否隐藏-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Auth free for reconnect</label>
+                            <div class="col-md-9 is-horizon">
+                                <div class="col-md-3">
+                                    <div class="xb-input xb-radio">
+                                        <input type="radio" id="feelauth1" name="feelauth" class="input-element" value="1" ng-model="auth.no_sensation" ng-disabled="!permission.write">
+                                        <span class="input-icon radio-icon" ng-class="{'checked':auth.no_sensation == 1}" ></span>
+                                        <label class="input-label" for="feelauth1"></label>
+                                    </div>
+                                    <label for="feelauth1">Enable</label>
+                                </div>
+                                <div class="col-md-3">
+                                    <div class="xb-input xb-radio">
+                                        <input type="radio" id="feelauth2" name="feelauth" class="input-element" value="0" ng-model="auth.no_sensation" ng-disabled="!permission.write">
+                                        <span ng-class="{'checked':auth.no_sensation == 0}" class="input-icon radio-icon"></span>
+                                        <label class="input-label" for="feelauth2"></label>
+                                    </div>
+                                    <label for="feelauth2">Disable</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-if="auth.no_sensation == 1">
+                            <label class="col-sm-3 control-label">Show ad page</label>
+                            <div class="xb-input xb-checkbox">
+                                <input class="switch input-element ng-valid ng-dirty ng-valid-parse ng-touched ng-empty" id="pushAdSwitch" type="checkbox" ng-model="auth.MAC_TRIGER_PUSH_AD">
+                                <span class="icon-switch" ng-class="{checked: auth.MAC_TRIGER_PUSH_AD}"></span>
+                                <label class="input-label" for="pushAdSwitch"></label>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-show="auth.no_sensation == 1">
+                            <label class="col-sm-3 control-label">Free auth period</label>
+                            <div class="col-md-9 Learn-MAC" >
+                                <div class="Learn-Time">
+                                    <input type="text" class="digits big" name="unauthtime" placeholder="1-365" ng-model="auth.NO_SENSATION_TIME" number-range="1,365" ng-disabled="!permission.write">
+                                    <label class="info-explain">（days）</label>
+                                </div>
+                                <label class="info-help">Note: Clients that passed authentication are not reauthenticated when coming online again within the period.</label>
+                                <div ng-show="toggle_form.unauthtime.$dirty" ng-messages="toggle_form.unauthtime.$error">
+                                    <label ng-message="numberRange" class="error" style="display: inline-block;">Please enter a digit in the range of 1 to 365.</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 response-block">
+                        <!--成功后跳转路径 验证：URL maxlength：128-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" style="text-align: left">Redirect to after auth success
+                                <span class="toggle" ng-click="show_wifi = !show_wifi">
+                                <i class="icon-detail"></i></span></label>
+                            <div class="col-md-9">
+                                <input type="url" class="string big" placeholder="http:// or https://" name="URL_AFTER_AUTH" ng-model="auth.URL_AFTER_AUTH" ng-maxlength="128" ng-disabled="!permission.write">
+                                <div ng-show="toggle_form.URL_AFTER_AUTH.$dirty" ng-messages="toggle_form.URL_AFTER_AUTH.$error">
+                                    <label ng-message="url" class="error" style="display: inline-block;">Please enter a valid URL.</label>
+                                    <label ng-message="maxlength" class="error" style="display: inline-block;">Cannot exceed 128 characters.</label>
+                                </div>
+                                <label class="info-help" ng-show="show_wifi" style="margin-top: 5px">www.h3c.com by default.<br/>This setting does not take effect if you select the WeChat Wi-Fi authentication method.</label>
+                            </div>
+                        </div>
+                        <!--闲置切断时长-->
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label" style="text-align: left">Client idle timeout
+                                <span class="toggle" ng-click="show_warn = !show_warn">
+                                <i class="icon-detail"></i></span>
+                            </label>
+                            <div class="col-md-9">
+                                <input type="text" class="string big" placeholder="30" ng-model="auth.IDLE_CUT_TIME" name="IDLE_CUT_TIME" number-range="0,{{auth.online_time}}" ng-disabled="!permission.write">
+                                <label class="info-explain">（min）</label>
+                                <label class="info-help" ng-show="show_warn" style="margin-top: 5px">The idle timeout cannot be larger than the session timeout.<br/>The system does not log off idle clients if the idle timeout is set to 0.</label>
+                                <div ng-show="toggle_form.IDLE_CUT_TIME.$dirty" ng-messages="toggle_form.IDLE_CUT_TIME.$error">
+                                    <label ng-message="numberRange" class="error" style="display: inline-block;">Please enter a digit smaller than the session timeout.</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </bs-radio>
+            <!--保存或取消修改-->
+            <div class="form-actions bottom" ng-if="permission.write">
+                <button class="btn but but-apy" ng-click="modify()" ng-disabled="toggle_form.$invalid">OK</button>
+                <button class="btn but but-can" ng-click="reset()">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

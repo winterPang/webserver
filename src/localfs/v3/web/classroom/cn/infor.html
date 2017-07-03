@@ -1,0 +1,104 @@
+<html>
+<head>
+</head>
+<body>
+
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">手环管理</span>
+        </div>
+        <div class="box-body no-height">
+            <div id="BraceList" class="simple-list"></div>
+        </div>
+    </div>
+</div>
+
+<div class="hide modal fade" id="AddBraceDlg">
+     <form id="Brace_form" class="form edit">
+        <div class="col-sm-6 response-block">
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">MAC地址</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="WristbandMac" errid="WristbandMac_error" maxlength=32  />
+                    <label class="error" id="BraceName_error"></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label required">学生姓名</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big required" id="UserName" errid="UserName_error" maxlength=32  />
+                    <label class="error" id="StuName_error"></label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-sm-3 control-label">手环名称</label>
+                <div class="col-sm-9">
+                    <input type="text" class="string big" id="BraceName" errid="BraceName_error" maxlength=32  />
+                    <label class="error" id="BraceName_error"></label>
+                </div>
+            </div>
+
+            <div class="form-group"  id="VlanBlock">
+                <label class="col-sm-3 control-label">学生年龄</label>
+                <div class="col-sm-9">
+                    <input type="text" class="digits big" errid="Age_error" id="Age" min="1" max="999" maxlength="3">
+                    <label class="error" id="Age"></label>
+                </div>
+            </div>
+
+            <div class="form-group"  id="VlanBlock">
+                <label class="col-sm-3 control-label">学生年级</label>
+                <div class="col-sm-9">
+                    <input type="text" class="digits big" errid="Grade_error" id="Grade" min="1" max="9" maxlength="1">
+                    <label class="error" id="Grade_error"></label>
+                </div>
+            </div>
+
+            <div class="form-group" >
+                <label class="col-sm-3 control-label">学生性别</label>
+                <div class="col-sm-9">
+                    <div class="col-sm-3">
+                        <input type="radio" id="Sex1" name="Sex" value="0" checked/>
+                        <label for="Sex1">男</label> 
+                    </div>
+                    <div class="col-sm-3">
+                        <input type="radio" id="Sex2" name="Sex" value="1"/>
+                        <label for="Sex2">女</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-sm-6 response-block">
+            <div class="form-group">
+                <label class="col-sm-3 control-label">修改头像</label>
+                <div class="col-sm-9">
+                    <input type="file" />
+                </div>
+            </div>
+            <div class="form-group" id="head_block">
+                <label class="col-sm-3 control-label">当前头像</label>
+                <div class="col-sm-9">
+                    <img id="HeadIcon" src="" style="width: 130px;border:2px solid #EDF9F7;border-radius: 65px;">
+                </div>
+                
+            </div>
+        </div>
+    </form>
+</div>
+    
+<div id="c_bracelet_rc" class="rc-define"
+    BRACE_HEADER="MAC,手环名称,学生姓名,头像,学生年龄,学生性别,学生年级"
+    ADD_TITLE="添加手环"
+    STU_SEX="男,女"
+    OPERATION="编辑信息"
+></div>
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+    Utils.Pages.loadJS("classroom.infor");
+</script>
+

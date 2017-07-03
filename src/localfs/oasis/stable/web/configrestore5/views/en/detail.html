@@ -1,0 +1,130 @@
+<div id="configrestore5">
+    <div class="panel panel-default">
+        <div class="panel-heading"><h3 class="panel-title">Restore Points</h3></div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <div class="col-sm-3 control-label">Total</div>
+                        <div class="col-sm-9 control-label">
+                            <span class="label" id="totlefileNum" ng-bind="row.totlefileNum"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3 control-label">Automated</div>
+                        <div class="col-sm-9 control-label">
+                            <span class="label" id="autoNum" ng-bind="row.autoNum"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3 control-label">Manual</div>
+                        <div class="col-sm-9 control-label">
+                            <span class="label" id="manualNum" ng-bind="row.manualNum"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3 control-label">Recent</div>
+                        <div class="col-sm-9 control-label">
+                            <span class="label" id="restoretime" ng-bind="row.restoretime"></span>
+                            <a class="xb-link label" id="fileName" ng-click="showFileCfg(row.filePath)" ng-bind="row.fileName"></a>
+                            <div bs-modal="showFileDetails.option">
+                                <pre>{{configFile.detail}}</pre>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3 control-label">Creation reason</div>
+                        <div class="col-sm-9 control-label">
+                            <span class="label" id="CreateReason" ng-bind="row.CreateReason"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        <div class="col-sm-3 control-label">Restore at</div>
+                        <div class="col-sm-9 control-label">
+                            <span class="label" id="rollbackTime" ng-bind="row.rollbackTime"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3 control-label">Restore reason</div>
+                        <div class="col-sm-9 control-label">
+                            <span class="label" id="RestoreReason" ng-bind="row.RestoreReason"></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3 control-label">Restore file</div>
+                        <div class="col-sm-9 control-label">
+                            <a class="xb-link label" ng-bind="row.fileName" ng-click="showFileCfg(row.fileName)"></a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-3 control-label">Restore record</div>
+                        <div class="col-sm-9 control-label">
+                            <a class="xb-link label" ng-click="restorehistory()">Restore history</a>
+                            <div bs-modal="restoreRecord">
+                                <table bs-table="restoreOptions"></table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <hr>
+            </div>
+            <div class="row" style="margin-top:20px">
+                <div class="col-xs-5">
+                    <div id='calendar'></div>
+                </div>
+                <div class="col-xs-1"></div>
+                <div class="col-xs-6">
+                    <div>
+                        <button class="btn btn-cus" name="addFile" ng-click="addFile()" ng-if="permission.write">
+                            <span class="glyphicon glyphicon-plus"></span> Add
+                        </button>
+                        <form novalidate class="form-horizontal" bs-modal="newPoint.option" name="addform">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Creation reason</label>
+                                <div class="col-sm-5">
+                                    <input class="form-control" name="createReason" type="text" ng-model="row.creatReason" required
+                                           ng-pattern="/^[^\s]+$/" ng-maxlength="20" placeholder="Please enter a non empty character within 20 bits.">
+                                </div>
+                                <div class="ng-error col-sm-4" ng-show="addform.createReason.$dirty" ng-messages="addform.createReason.$error">
+                                    <div ng-message="required">This field is required.</div>
+                                    <div ng-message="maxlength">This can not be more than 20!</div>
+                                    <div ng-message="pattern">This can't enter a null character.</div>
+                                </div>
+                            </div>
+                        </form>
+                        <button class="btn btn-cus" name="configRestore" ng-click="configrestore()" ng-disabled="configRestoreDisabled" ng-if="permission.write">Restore</button>
+                        <form novalidate class="form-horizontal" name="restoreReason" bs-modal="configreason.option">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Restore reason</label>
+                                <div class="col-sm-5">
+                                    <input class="form-control" name="createRestoreReason" type="text" ng-model="row.createRestoreReason" required
+                                           ng-pattern="/^[^\s]+$/" ng-maxlength="20" placeholder="Please enter a non empty character within 20 bits.">
+                                </div>
+                                <div class="ng-error col-sm-4" ng-show="restoreReason.createRestoreReason.$dirty" ng-messages="restoreReason.createRestoreReason.$error">
+                                    <div ng-message="required">This field is required.</div>
+                                    <div ng-message="maxlength">This can not be more than 20!</div>
+                                    <div ng-message="pattern">This can't enter a null character.</div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <table bs-table="options"></table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="read_rc" id="configrestore_rc"
+         undefined="N/A"
+         modal-data="Restore history record,Cancel,Configuration File Details,Create Restore Point,OK,Cancel,Restore Configuration"
+         sure-delete="Delete the selected data. Continue?"
+         notice-data="Delete file,Success,Request error ~"
+         msgDialog-data="Fail,Success,Creating restore point...,Configuration restore..."
+         table-data="File Name,Created At,Reason,Manual,Auto,Type,Operation"
+         calendar-data="Jan,Feb,Mar,Apr,May,June,July,Aug,Sept,Oct,Nov,Dec,Sun,Mon,Tues,Wed,Thur,Fri,Sat"
+    >
+    </div>
+</div>

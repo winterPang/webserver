@@ -1,0 +1,97 @@
+{
+  "code": 0,
+  "message": "o2o.oasis.mng.query.success",
+  "total": 10,
+  "rows": [
+    {
+      "AP_name": "ap_c315dfe269de3",
+      "user_count": 715,
+      "flow": "3974MB",
+      "user_delay_num": 80,
+      "delay_time": "664356ms",
+      "loss_num": 100,
+      "loss_rate": "2.8%"
+    },
+    {
+      "AP_name": "ap_a2de3dc7d7b0c",
+      "user_count": 72,
+      "flow": "4345MB",
+      "user_delay_num": 35,
+      "delay_time": "456815ms",
+      "loss_num": 9,
+      "loss_rate": "5.10%"
+    },
+    {
+      "AP_name": "ap_a56f1168081cb",
+      "user_count": 430,
+      "flow": "6895MB",
+      "user_delay_num": 39,
+      "delay_time": "396018ms",
+      "loss_num": 18,
+      "loss_rate": "7.10%"
+    },
+    {
+      "AP_name": "ap_0824b6f2e4dd8",
+      "user_count": 612,
+      "flow": "1582MB",
+      "user_delay_num": 91,
+      "delay_time": "763863ms",
+      "loss_num": 77,
+      "loss_rate": "2.8%"
+    },
+    {
+      "AP_name": "ap_dfacdb2328c8c",
+      "user_count": 709,
+      "flow": "6720MB",
+      "user_delay_num": 80,
+      "delay_time": "647484ms",
+      "loss_num": 62,
+      "loss_rate": "4.1%"
+    },
+    {
+      "AP_name": "ap_56048c41696b6",
+      "user_count": 84,
+      "flow": "4661MB",
+      "user_delay_num": 20,
+      "delay_time": "294766ms",
+      "loss_num": 4,
+      "loss_rate": "5.3%"
+    },
+    {
+      "AP_name": "ap_da48e21498bda",
+      "user_count": 812,
+      "flow": "744MB",
+      "user_delay_num": 62,
+      "delay_time": "372981ms",
+      "loss_num": 85,
+      "loss_rate": "5.10%"
+    },
+    {
+      "AP_name": "ap_6c0eb3ff88ca2",
+      "user_count": 440,
+      "flow": "9400MB",
+      "user_delay_num": 75,
+      "delay_time": "749835ms",
+      "loss_num": 29,
+      "loss_rate": "6.7%"
+    },
+    {
+      "AP_name": "ap_ab00f6e1bf88a",
+      "user_count": 909,
+      "flow": "802MB",
+      "user_delay_num": 28,
+      "delay_time": "123947ms",
+      "loss_num": 60,
+      "loss_rate": "2.2%"
+    },
+    {
+      "AP_name": "ap_df8697469834c",
+      "user_count": 739,
+      "flow": "7227MB",
+      "user_delay_num": 95,
+      "delay_time": "677306ms",
+      "loss_num": 7,
+      "loss_rate": "4.10%"
+    }
+  ]
+}

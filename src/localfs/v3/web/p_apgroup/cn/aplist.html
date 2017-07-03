@@ -1,0 +1,66 @@
+<html>
+
+<head>
+</head>
+
+<body>
+
+<div class="page-row">
+    <div class="btn_h_return" id="return"></div>
+    <div class="col-xs-12 app-colum">
+          <div class="app-box no-height default-bottom">
+              <div class="box-footer">
+                  <span class="title">已入组AP列表</span>
+              </div>
+              <div class="box-body no-height">
+                  <div id="onlineuser_list" class="simple-list"></div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+
+  <div class="col-xs-12 app-colum">
+          <div class="app-box no-height default-bottom">
+              <div class="box-footer">
+                  <span class="title">未入组AP列表</span>
+              </div>
+              <div class="box-body no-height">
+                  <div id="onlineuser_list1" class="simple-list"></div>
+              </div>
+          </div>
+      </div>
+  </div>
+
+</div>
+
+<div id="apinfo_aplist_rc" class="rc-define"
+    	TX_HEADER="AP名称,发送速率（Kbps）"
+        RX_HEADER="AP名称,接收速率（Kbps）"
+        G5_HEADER="AP名称,5GHz客户端数量"
+        G2_HEADER="AP名称,2.4GHz客户端数量"
+        GROUP_HEADER="AP名称,AP型号,状态,序列号,IP地址"
+        MODE=",802.11b,802.11a,802.11g,802.11n(2.4GHz),802.11n(5GHz),802.11ac(2.4GHz),802.11ac(5GHz)"
+        ALLAP_HEADER1="AP名称,序列号,MAC地址,IP地址,射频信息,AP状态,在线时长（天:时:分:秒）"
+        ALLAP_HEADER="AP名称,AP型号,序列号,MAC地址,AP组名称,射频信息,AP状态,吞吐量(发送/接收，KB),在线时长(天:时:分:秒),客户端数量"
+        ALLAP_HEADER2="名称,描述,AP列表"
+        DISCONNECT="断开连接"
+        STATUS=",在线,离线,正在下载版本"
+        TERINFO="AP列表"
+        TITLE_TERINFO="AP列表"
+        SYN="同步"
+        ADDGROUP_BTN = "加入组"
+        LEAVEGROUP_BTN = "离开组"
+        ALLAP_HEADER3="AP名称,型号,AP序列号,MAC地址"
+        DEL_FAIL="离组失败"
+        ADD_FAIL="入组失败"
+        ALOAD ="正在下载版本"
+        LEAVEGROUPOFSUC = "离组成功"
+        ADDGROUPOFSUC = "添加成功"
+></div>
+
+</body>
+</html>
+<script language="javascript" type="text/javascript">
+	Utils.Pages.loadJS("p_apgroup.aplist");
+</script>

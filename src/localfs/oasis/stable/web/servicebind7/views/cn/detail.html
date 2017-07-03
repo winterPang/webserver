@@ -1,0 +1,87 @@
+<div class="container-fluid">
+    <div class="col-xs-12 app-colum">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">服务绑定</span>
+            </div>
+            <div class="box-body no-height">
+                <div class="col-xs-12">
+                    <div class="col-xs-2">
+                        <label>
+                            <input class="input-element"
+                                   type="radio"
+                                   ng-checked="radioGrp.branch"
+                                   ng-click="radioGrp.click('branch')">
+                            基于分支批量下发
+                        </label>
+                    </div>
+                    <div class="col-xs-1">
+                        <label>
+                            <input class="input-element"
+                                   type="radio"
+                                   ng-checked="radioGrp.APG"
+                                   ng-click="radioGrp.click('APG')">
+                            AP组
+                        </label>
+                    </div>
+                    <div class="col-xs-1">
+                        <label>
+                            <input class="input-element"
+                                   type="radio"
+                                   ng-checked="radioGrp.AP"
+                                   ng-click="radioGrp.click('AP')">
+                            AP
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="box-body no-height no-top-padding">
+                <div ng-show="radioGrp.branch">
+                    <div bs-Table="listOpts.branch">分支</div>
+                </div>
+                <div ng-show="radioGrp.APG">
+                    <div bs-Table="listOpts.APG">APG</div>
+                </div>
+                <div ng-show="radioGrp.AP">
+                    <div bs-Table="listOpts.AP">AP</div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<div bs-modal="modalOpts.APGByBranch">
+    <div bs-table="listOpts.APGByBranch"></div>
+</div>
+
+<div bs-modal="modalOpts.WLSerByAPG">
+    <div bs-table="listOpts.WLSerByAPG"></div>
+</div>
+
+<div bs-modal="modalOpts.WLSerByAP">
+    <div bs-table="listOpts.WLSerByAP"></div>
+</div>
+
+<div id="RC"
+
+     MODAL_BTN_TEXT = "确定,取消"
+     BRANCH_TYPE = "本地无AC,本地有AC,本地有AC且有独立无线服务"
+     WL_SSID_TYPE = "内部Wi-Fi,商业Wi-Fi"
+     WL_AUTH_TYPE = "获取失败,不认证,一键认证,账号认证"
+     WL_ST_STATUS = "开启,关闭"
+
+     BRANCH_LIST_HEADER = "分支名称,分支描述,AP组,操作"
+     APGBYBRANCH_LIST_TITLE = "AP组列表"
+     APGBYBRANCH_LIST_HEADER = "AP组名称,AP组描述,AP"
+
+     APG_LIST_HEADER = "AP组名称,AP组描述,无线服务数量,操作"
+     WLSER_LIST_TITLE = "无线服务列表"
+     WLSER_LIST_HEADER = "无线服务名称,SSID,服务类型,认证方式,服务状态"
+
+     AP_LIST_HEADER = "AP名称,无线服务数量,操作"
+
+></div>
+
+
+

@@ -1,0 +1,37 @@
+<style>
+    .black {
+        background: url("images/black.png") no-repeat;
+        padding-left: 20px;
+    }
+</style>
+
+<div class="col-xs-12 app-colum">
+    <div class="app-box no-height">
+        <div class="box-footer">
+            <span class="title">黑名单</span>
+        </div>
+        <div class="panel-body">
+            <div class="btn-group" id="blacklistBtnGrp" ng-if="permission.write">
+                <button class="btn btn-cus"
+                     ng-disabled="blacklistBtn.addDisabled"
+                     ng-click="blacklistBtn.click('add')">加入黑名单</button>
+                <button class="btn btn-cus"
+                     ng-disabled="blacklistBtn.removeDisabled"
+                     ng-click="blacklistBtn.click('remove')">解除黑名单</button>
+            </div>
+            <div class="box-body no-height">
+                <div bs-table="blacklistOpts"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="RC"
+
+     BLACK_LIST_HEADER = "账号名,认证方式"
+     USER_TYPE = "一键认证,短信认证,微信客户端认证,支付宝认证,QQ认证,微信公众号认证,微信连Wi-Fi,APP认证,固定账号认证"
+
+     CONFIGURE_SUCCESS = "配置成功"
+     CONFIGURE_ERROR = "配置失败"
+
+></div>

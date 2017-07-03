@@ -1,0 +1,187 @@
+<div class="page-row custom">
+    <div class="col-xs-12 app-colum left-block">
+        <div class="col-xs-12 app-box">
+            <div class="box-footer">
+                 <div class="menu-content select-time col-xs-9">
+                    <span class="ml20">周期：</span>
+                    <input type="radio" name="time" class="no-display" id="aDay" ng-click="initViewsByTime('aDay')" checked />
+                    <label for="aDay" ng-class="{true:'timeActive',false:'inTimeActive'}[isDay]">今天</label>
+                    <input type="radio" name="time" class="no-display" id="aWeek" ng-click="initViewsByTime('aWeek')" /> 
+                    <label for="aWeek" ng-class="{true:'timeActive',false:'inTimeActive'}[isWeek]">一周</label>
+                    <input type="radio" name="time" class="no-display" id="aMonth" ng-click="initViewsByTime('aMonth')"/>
+                    <label for="aMonth" ng-class="{true:'timeActive',false:'inTimeActive'}[isMonth]">一月</label>
+                    <input type="radio" name="time" class="no-display" id="aYear" ng-click="initViewsByTime('aYear')" /> 
+                    <label for="aYear" ng-class="{true:'timeActive',false:'inTimeActive'}[isYear]">一年</label>
+                    <input type="radio" name="time" class="no-display" id="otherTime" disabled />
+                    <label for="otherTime" ng-class="{true:'otherTimeActive',false:'inOtherTimeActive'}[isOther]">自定义</label>
+                    <input id="daterange" class="daterange time-select" ctrl="daterang">
+                </div>
+                <div class="text-right link-container">
+                    <a type="button" class="link-detail" ui-sref="^.wiresecurit_rz15" title="详情">
+                        <span class="glyphicon glyphicon-th-list"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 app-box">
+            <div class="statistics-table col-xs-12">
+                <table class="col-xs-12 table-height">
+                    <tr>
+                        <td class="col-xs-2">
+                            <div class="border-right">
+                                <span class="detail-icon position-one"></span>
+                                <div class="statistic-text">
+                                    <div class="em-color">{{clientNum}}</div>
+                                    <div>客户端</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-xs-2">
+                            <div class="border-right">
+                                <span class="detail-icon position-two"></span>
+                                <div class="statistic-text">
+                                    <div class="em-color">{{unauthorClientNum}}</div>
+                                    <div>未授权客户端</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-xs-2">
+                            <div class="border-right">
+                                <span class="detail-icon position-three"></span>
+                                <div class="statistic-text">
+                                    <div class="em-color">{{APNum}}</div>
+                                    <div>AP</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-xs-2">
+                            <div class="border-right">
+                                <span class="detail-icon position-four"></span>
+                                <div class="statistic-text">
+                                    <div class="em-color">{{rougeAPNum}}</div>
+                                    <div>Rouge AP</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-xs-2">
+                            <div class="border-right">
+                                <span class="detail-icon position-five"></span>
+                                <div class="statistic-text">
+                                    <div class="em-color">{{attackTimes}}</div>
+                                    <div>攻击次数</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td class="col-xs-2">
+                            <div class="last">
+                                <span class="detail-icon position-six"></span>
+                                <div class="statistic-text">
+                                    <div class="em-color">{{ctmTimes}}</div>
+                                    <div>反制次数</div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div class="col-xs-12 app-box no-bk-color no-overflow">
+            <div class="box-footer col-xs-12">
+                <div class="col-xs-3">
+                    <span class="title">攻击信息</span>
+                </div>
+                <div class="col-xs-3">
+                    <span class="title">严重攻击</span>
+                    <span class="text-right">{{countSeriousAttackTimes+"（次）"}}</span>
+                </div>
+                <div class="col-xs-3">
+                    <span class="title">泛洪攻击</span>
+                    <span class="text-right">{{countFloodAttackTimes + "（次）"}}</span>
+                </div>
+                <div class="col-xs-3">
+                    <span class="title">畸形报文</span>
+                    <span class="text-right">{{countAbnormalPacketTimes + "（次）"}}</span>
+                </div>
+            </div>
+            <div class="col-xs-12">
+                <div class="col-xs-3">
+                    <div class="view-height" id="AttackInfoPie"></div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="view-height" id="SeriousAttackChart"></div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="view-height" id="FloodAttack"></div>
+                </div>
+                <div class="col-xs-3">
+                    <div class="view-height" id="AbnormalPacketChart"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xs-12 app-box no-bk-color no-overflow">
+            <div class="box-footer col-xs-12">
+                <span class="title">设备信息</span>
+                <span class="text-right pointer" ng-click="openHelpDoc()">帮助</span>
+            </div>
+            <div class="col-xs-12">
+                <div class="col-xs-4 view-height">
+                    <div style="height:220px" id="StatisticsAPPie"></div>
+                </div>
+                <div class="col-xs-4 view-height">
+                    <div style="height:220px" id="StatisticsDevicePie"></div>
+                </div>
+                <div class="col-xs-4 view-height">
+                    <div style="height:220px" id="StatisticsClientPie"></div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- 帮助文档 -->
+<div bs-modal="helpDoc.options">  
+    <form role="form" name="authForm" novalidate>
+        <div class="form-group row">
+            <ul>
+                <li><span>授权AP：</span>允许在无线网络中使用的AP。包括已经关联到AC上且并不在禁止列表中的AP和手动指定的授权AP。</li>
+                <li><span>非法AP：</span>不允许在无线网络中使用的AP。包括禁止列表中的AP、不在OUI配置文件中的AP和手动指定的非法AP。</li>
+                <li><span>配置错误的AP：</span>无线服务配置错误，但是允许在无线网络中使用的AP.</li>
+                <li><span>外部AP：</span>其他无线网络中的AP，WIPS可能会检测到邻近网络中的AP。</li>
+                <li><span>Ad hoc:</span>运行在Ad hoc模式下的AP,WIPS通过检测Beacon帧将其分类为Ad hoc。</li>
+                <li><span>潜在授权的AP：</span>无法确定但可能是授权的AP。如果AP既不在信任设备或信任OUI列表中也不再禁用设备列表中，那么该AP很可能是授权的AP。</li>
+                <li><span>潜在非法的AP：</span>无法确定但可能是非法的AP。如果AP既不在信任设备或信任OUI列表中也不再禁用设备列表中,而且它的无线服务配置也不正确，那么检测到它的有线端口可能连接到网络中，则认为其为潜在非法AP。</li>
+                <li><span>潜在外部的AP：</span>无法确定但可能是外部的AP。如果AP既不在信任设备或信任OUI列表中也不再禁用设备列表中,而且它的无线服务配置也不正确，同时也没有检测到它的有线端口连接到网络中，则该AP很可能是外部的AP。</li>
+                <li><span>未分类的AP：</span>无法确定归属类别的AP。</li>
+                <li><span>授权客户端：</span>允许使用的客户端，如关联到授权AP商的受信任的客户端或通过加密认证方式关联到授权AP上的客户端都是授权的客户端。</li>
+                <li><span>未授权客户端：</span>不允许使用的客户端。如在禁用设备列表中的客户端、连接到Rogue AP上的客户端已经不再OUI配置文件中的客户端都是未授权客户端。
+                </li>
+                <li><span>错误关联客户端：</span>信任设备列表中的客户端关联到非授权AP上，错误关联的客户端可能会对网络信息安全带来隐患。
+                </li>
+                <li><span>未分类客户端：</span>无法确定归属类别的客户端</li>
+            </ul>
+        </div>
+        <div align = "center">
+            <button class="btn btn-cus" ng-disabled="authForm.$invalid" 
+            ng-click="closeHelpDoc()">确定</button>
+        </div>
+    </form>                                               
+</div> 
+
+<div id="wiresecurit_rc"    
+     DEVICE-TYPE=",授权AP,配置错误的AP,非法AP,外部AP,Ad hoc,Mesh AP,潜在授权的AP,潜在非法的AP,潜在外部的AP,未分类的AP,授权客户端,错误关联客户端,未授权客户端,未分类客户端"
+     ATTACK-NAME-ONE=",AP仿冒攻击,,,Client仿冒攻击,,Weak IV攻击,Windows网桥攻击,客户端开启了禁用802.11n 40MHz模式攻击,软AP攻击,客户端节电攻击,Omerta攻击,解关联攻击,解认证攻击,非法信道攻击,AP扮演者攻击,未加密授权AP攻击,未加密的信任客户端,热点攻击,绿野模式攻击,关联/重关联DoS攻击,蜜罐AP攻击,中间人攻击,无线网桥攻击,AP泛洪攻击,AP信道变化攻击," 
+     ATTACK-NAME-TWO="Association-request帧,Authentication帧,Beacon帧,Block ACK帧,CTS帧,Deauthentication帧,Disassociation帧,EAPOL-Start帧,Null-data帧,Probe-request帧,Reassociation-request帧,RTS帧,EAPOL-Logoff帧,EAP Fail帧,EAP Success帧" 
+     ATTACK-NAME-THREE="IE重复的畸形报文,Fata-Jack畸形报文,IBSS和ESS置位异常的畸形报文,源地址为广播或者组播的认证和关联畸形报文,畸形Association-request报文,畸形Authentication报文,含有无效原因值的解除认证畸形报文,含有无效原因值的解除关联畸形报文,畸形HT IE报文,IE长度非法的畸形报文,报文长度非法的畸形报文,Duration字段超大的畸形报文,无效探查响应报文,key长度超长的EAPOL报文,SSID长度超长的畸形报文,多余IE畸形报文"
+     ATTACK-TYPE-LAN="泛洪攻击,畸形报文,严重攻击"
+     REMAID-INFO="AP,客户端,AP和客户端"
+     HELP="帮助"
+     APPLY="应用"
+     CANCEL="取消"
+     WEEK="日, 一, 二, 三, 四, 五, 六"
+     MONTH="一月, 二月, 三月, 四月, 五月, 六月, 七月, 八月, 九月, 十月, 十一月, 十二月"
+
+></div>

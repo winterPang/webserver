@@ -1,0 +1,9 @@
+{
+  "retCode":"0",
+  "dataList":
+  {
+      "terminal":"456",
+      "flow_up":"6781",
+      "flow_down":"4567"
+   }
+}

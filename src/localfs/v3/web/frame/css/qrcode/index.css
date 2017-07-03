@@ -1,0 +1,219 @@
+.toolbar {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  margin-left: -26px;
+  z-index: 1;
+  transition: all 1s ease-in-out; }
+
+.toolbar-close {
+  display: block;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  background-color: #d0d6d9;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  margin: 0 auto; }
+  .toolbar-close:hover {
+    background-color: #4EC1B2;
+    color: white; }
+  .toolbar-close:focus {
+    color: #fff; }
+  .toolbar-close i {
+    margin: 0px;
+    float: none;
+    width: 5px;
+    position: absolute;
+    line-height: 20px; }
+    .toolbar-close i:hover {
+      margin: 0px;
+      float: none;
+      width: 5px;
+      position: absolute;
+      line-height: 20px; }
+  .toolbar-close i:first-of-type {
+    left: 5.5px; }
+  .toolbar-close i:last-of-type {
+    left: 9px; }
+
+.toolbar-item {
+  position: relative;
+  display: block;
+  width: 52px;
+  height: 52px;
+  margin-top: 4px;
+  transition: height 0.4s ease-in-out; }
+  .toolbar-item:hover .toolbar-icon {
+    top: -52px;
+    width: 52px;
+    height: 52px; }
+  .toolbar-item:hover .toolbar-text {
+    top: 0;
+    width: 52px;
+    height: 52px; }
+  .toolbar-item:hover .toolbar-layer {
+    width: 200px;
+    height: 200px;
+    background-size: 200px 200px;
+    opacity: 1;
+    filter: alpha(opacify=100);
+    -webkit-transform-origin: 95% 95%;
+    -moz-transform-origin: 95% 95%;
+    -ms-transform-origin: 95% 95%;
+    -o-transform-origin: 95% 95%;
+    transform-origin: 95% 95%;
+    -webkit-transform: scale(1);
+    -moz-transform: scale(1);
+    -ms-transform: scale(1);
+    -o-transform: scale(1);
+    transform: scale(1); }
+
+.toolbar-btn {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 52px;
+  height: 52px;
+  overflow: hidden; }
+
+.toolbar-icon {
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  width: 52px;
+  height: 52px;
+  background-color: #d0d6d9;
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+  line-height: 52px;
+  -webkit-transition: top 1s;
+  -moz-transition: top 1s;
+  -ms-transition: top 1s;
+  -o-transition: top 1s;
+  transition: top 1s;
+  margin: 0; }
+  .toolbar-icon:hover.fa {
+    width: 52px;
+    height: 52px;
+    margin: 0; }
+
+.toolbar-text {
+  position: absolute;
+  left: 0px;
+  top: 52px;
+  width: 52px;
+  height: 52px;
+  background-color: #4EC1B2;
+  padding-top: 12px;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  line-height: 1.2;
+  -webkit-transition: top 1s;
+  -moz-transition: top 1s;
+  -ms-transition: top 1s;
+  -o-transition: top 1s;
+  transition: top 1s;
+  border-radius: 5px; }
+
+.toolbar-layer {
+  position: absolute;
+  right: 54px;
+  bottom: 0;
+  width: 0px;
+  height: 0px;
+  background-repeat: no-repeat;
+  background-size: 200px 200px;
+  background-position: 0 0;
+  border: 1px solid #d0d6d9;
+  opacity: 0;
+  filter: alpha(opacify=0);
+  -webkit-transform-origin: 95% 95%;
+  -moz-transform-origin: 95% 95%;
+  -ms-transform-origin: 95% 95%;
+  -o-transform-origin: 95% 95%;
+  transform-origin: 95% 95%;
+  -webkit-transform: scale(0.01);
+  -moz-transform: scale(0.01);
+  -ms-transform: scale(0.01);
+  -o-transform: scale(0.01);
+  transform: scale(0.01);
+  -webkit-transition: all 1s;
+  -moz-transition: all 1s;
+  -ms-transition: all 1s;
+  -o-transition: all 1s;
+  transition: all 1s; }
+
+.toolbar-layer-weixin {
+  background-image: url(./img/weixin.jpg); }
+
+.toolbar-layer-app {
+  background-image: url(./img/app.png); }
+
+.toolbar-close {
+  display: block;
+  position: relative;
+  height: 20px;
+  width: 20px;
+  background-color: #d0d6d9;
+  border-radius: 50%;
+  text-align: center;
+  color: white;
+  margin: 0 auto; }
+  .toolbar-close:hover {
+    background-color: #4EC1B2;
+    color: white; }
+  .toolbar-close:focus {
+    color: #fff; }
+  .toolbar-close i {
+    margin: 0px;
+    float: none;
+    width: 5px;
+    position: absolute;
+    line-height: 20px; }
+    .toolbar-close i:hover {
+      margin: 0px;
+      float: none;
+      width: 5px;
+      position: absolute;
+      line-height: 20px; }
+  .toolbar-close i:first-of-type {
+    left: 5.5px; }
+  .toolbar-close i:last-of-type {
+    left: 9px; }
+
+.toolbar-item:nth-of-type(1) {
+  height: 20px;
+  overflow: hidden;
+  transition: none; }
+
+.sweep {
+  background: url(img/sweep.png) no-repeat 5px 2px #d0d6d9;
+  display: block;
+  width: 52px;
+  height: 52px;
+  border-radius: 5px;
+  background-color: #d0d6d9;
+  position: relative;
+  display: none; }
+
+.toolbar-hide .toolbar-item {
+  height: 0;
+  overflow: hidden;
+  transition: height 0.4s ease-in-out; }
+.toolbar-hide .toolbar-item:nth-of-type(1) {
+  height: 52px;
+  transition: none; }
+.toolbar-hide .toolbar-close {
+  top: -20px; }
+.toolbar-hide .toolbar-close {
+  display: none; }
+.toolbar-hide .sweep {
+  display: block; }
+  .toolbar-hide .sweep:hover {
+    background-color: #4EC1B2; }
+
+/*# sourceMappingURL=index.css.map */

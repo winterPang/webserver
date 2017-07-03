@@ -1,0 +1,100 @@
+<style>
+    .box-footer label{
+        font-size: 15px;
+        margin-bottom: 0;
+    }
+    .select-width{
+        width: 180px;
+    }
+    .filter-pop{
+        position: absolute;
+        top: 50px;
+        right: 20px;
+        width: 420px;
+        border: 1px solid #ccc;
+        background-color: #fff;
+        z-index: 1050;
+    }
+    .filter-container label{
+        font-size: 12px;
+    }
+    .fa-check,.fa-remove{
+        color: #272856;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    canvas.layer{
+        position: absolute;
+    }
+</style>
+
+<div class="page-row">
+    <div class="col-xs-12 app-colum app-box left-block">
+        <div class="app-box" style="height: 600px;">
+            <div class="box-footer">
+                <div class="col-xs-11 ml20">
+                    <label>
+                        选择地图
+                        <select class="select-width"
+                                ng-model="mapSlt.item"
+                                ng-options="item.mapName for item in mapSlt.items"
+                                ng-change="mapSlt.onChange()"></select>
+                    </label>
+                    <label>&nbsp;</label>
+                    <label>
+                        射频类型
+                        <select class="select-width"
+                                ng-model="radioSlt.item"
+                                ng-options="item for item in radioSlt.items"
+                                ng-change="radioSlt.onChange()">
+                        </select>
+                    </label>
+                </div>
+                <div class="text-right">
+                    <a class="refresh" type="button" ng-click="refresh()">
+                        <i class="refresh-icon icon"></i>
+                    </a>
+                    <a class="filter" type="button" ng-click="filter.isOpen = !filter.isOpen">
+                        <i class="filter-icon icon"></i>
+                    </a>
+                </div>
+                <div class="filter-pop text-left" ng-show="filter.isOpen">
+                    <div class="ml20 col-xs-11">
+                        <label>
+                            信道筛选
+                            <select class="select-width" select2></select>
+                        </label>
+                    </div>
+                    <div class="col-xs-offset-10 col-xs-2">
+                        <div class="col-xs-6">
+                            <a class="fa fa-check" ng-click="filter.onCheck()"></a>
+                        </div>
+                        <div class="col-xs6">
+                            <a class="fa fa-remove" ng-click="filter.onClose()"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="box-body">
+                <canvas class="layer" width="1117" height="550" legend-layer="legendList"></canvas>
+                <canvas class="layer" width="1117" height="550" bg-layer="bgOpts"></canvas>
+                <div class="layer" ap-layer="apList"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

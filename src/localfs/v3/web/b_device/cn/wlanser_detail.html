@@ -1,0 +1,75 @@
+<html>
+<head>
+</head>
+<body>
+    <div class="col-xs-12 app-colum wlanser-detail">
+        <div class="app-box no-height">
+            <div class="box-footer">
+                <span class="title">无线服务配置</span>
+            </div>
+            <div class="box-body no-height">
+                <div class="col-sm-12 response-block">
+                    <div class="form-group">
+                        <label class="col-sm-1 control-label required">SSID</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="string big required" id="SSID" errid="SSID_error" maxlength=32  />
+                            <label class="info-explain">（1-32字符）</label><br/>
+                            <label class="info-explain">说明：因编码限制，中文字符最多配置10个。</label>
+                            <label class="error" id="SSID_error"></label>
+                        </div>
+                    </div>
+                    <div class="form-group" >
+                        <label class="col-sm-1 control-label required">接入密码</label>
+                        <div class="col-sm-9">
+                            <input type="radio" id="APS3" name="AccPwdStaff" value="2"  checked ctrlBlock=".pwd-block" content="#PwdBlock2"/>
+                            <label for="APS3">使用密码</label> 
+                            &nbsp;&nbsp;
+                            <input type="radio" id="APS4" name="AccPwdStaff" value="1"  ctrlBlock=".pwd-block"/>
+                            <label for="APS4">不使用密码</label>
+                            <div class="pwd-block" id="PwdBlock2">
+                                <input type="password" class="anumber big required" id="PskPassPhraseKey" min=8 maxlength=63/>
+                                <label class="error" id="PskPassPhraseKey_error"></label>
+                                <br/>
+                                <label class="info-explain">说明：密码由8～63位数字和（或）字母组成</label>
+                                <label class="info-explain hide">说明：可能存在安全隐患，请谨慎选择</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-1  control-label">应用设备组</label>
+                        <div  class="col-sm-9">
+                            <input type="radio" id="Enable5" name="devicegroup" value="2" checked ctrlBlock=".devgrp" >
+                            <label for="Enable5">全局应用</label>
+                            &nbsp;&nbsp;
+                            <input type="radio" id="Enable6" name="devicegroup" value="1" ctrlBlock=".devgrp" content="#devGrpSel">
+                            <label for="Enable6">部分应用</label>
+                            <div class="devgrp hide" id="devGrpSel">
+                                <div class="edittable" id="OSUFriendlyName_edittable">
+                                </div>
+                                <div class="error" id="OSUFriendlyName_error">
+                                </div>
+                            </div>
+                        </div>    
+                    </div>
+                </div>
+                <div class="col-sm-12 btngrp">
+                    <button type="button" id="sure" class="btn btn-apply">确定</button>
+                    <button type="button" id="cancel" class="btn btn-cancel">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+<div id="wlanser_detail_rc" class="rc-define"
+     title="无线配置"
+     message="两次输入的密码不一致."
+></div>
+
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+	Utils.Pages.loadJS("b_device.wlanser_detail");
+</script>
+
+
+
+<div class="form-horizontal toggle-block hide page" style="overflow: hidden; display: block;"></div>

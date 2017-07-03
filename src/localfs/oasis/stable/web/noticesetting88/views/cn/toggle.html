@@ -1,0 +1,137 @@
+<style>
+	.mr5{
+		margin-right: 5%;
+	}
+    .l32{
+        line-height: 32px;
+    }
+</style>
+
+<div class="form-horizontal toggle-block page">
+    <div class="toggle-body">
+    	<form novalidate  name="modifyForm" style="width:90%;margin:0 auto">  
+    		
+			<div class="form-group">
+                <label class="col-sm-2" style="line-height:28px">指定通知时间</label>
+
+                <div class="heightX col-sm-8">
+                   <div class="xb-input xb-checkbox">
+                        <input type="checkbox" class="input-element" id="modifyWorkday" name="modifyWorkday"  ng-model="info.modifyWorkday"/>
+                        <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.modifyWorkday == true}"></span>
+                        <label for="modifyWorkday" class="input-label"></label>
+                    </div>
+                    <label for="modifyWorkday" class="mr5">周一至周五</label> 
+
+                    <div class="xb-input xb-checkbox">
+                        <input type="checkbox" class="input-element" id="modifySaturday" name="modifySaturday"  ng-model="info.modifySaturday"/>
+                        <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.modifySaturday == true}"></span>
+                        <label for="modifySaturday" class="input-label"></label>
+                    </div>
+                    <label for="modifySaturday" class="mr5">周六</label> 
+
+                    <div class="xb-input xb-checkbox">
+                        <input type="checkbox" class="input-element" id="modifySunday" name="modifySunday"  ng-model="info.modifySunday"/>
+                        <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.modifySunday == true}"></span>
+                        <label for="modifySunday" class="input-label"></label>
+                    </div>
+                    <label for="modifySunday" class="mr5">周日</label> 
+                </div>
+				                     
+                
+                <div class="col-sm-8 col-sm-offset-2"> 
+
+                    <div class="form-group col-sm-3">                     
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input id="modifyWechatStart" type='text' class="form-control h32" value="12:00 PM"  />
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-time"></span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <label class="col-xs-1 alignChart">至</label>
+
+                    <div class="form-group col-sm-3">
+                        <div class='input-group date' id='datetimepicker2'>
+                            <input id="modifyWechatEnd" type='text' class="form-control h32" value="12:00 PM"/>
+                            <span class="input-group-addon">
+                                <span class="glyphicon glyphicon-time"></span>
+                            </span>
+                        </div>
+                    </div>  
+
+                </div> 
+                  
+            </div>  
+
+            <div class="form-group">
+                <label class="col-sm-2" style="line-height:32px">单日最大条数</label>
+
+                <div class="col-sm-2">
+                    <input  type="number" name="maxTimes"  placeholder="10" 
+                    ng-model="info.modifyWechatMax" ng-pattern='/^[1-9]$|^[1-9]\d$|^[1-9]\d{2}$/'>
+                </div> 
+
+                <label class="info-explain l32">(1~999)</label>
+
+                <label  ng-if="modifyForm.maxTimes.$error.pattern && modifyForm.maxTimes.$dirty"  style="color:red;">单日短信条数应该1~999之间</label> 
+            </div> 
+		
+    		    		
+    		<div class="form-group">
+    			<label class="col-sm-2">通知类型</label>
+
+                <div class="col-sm-10">
+                    <div class="xb-input xb-checkbox">
+                        <input type="checkbox" class="input-element" id="modifyAp" name="modifyAp"  ng-model="info.modifyAp"/>
+                        <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.modifyAp == true}"></span>
+                        <label for="modifyAp" class="input-label"></label>
+                    </div>
+                    <label for="modifyAp" class="mr5">AP上线</label>
+
+                     <div class="xb-input xb-checkbox">
+                        <input type="checkbox" class="input-element" id="modifyApOffline" name="modifyApOffline"  ng-model="info.modifyApOffline"/>
+                        <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.modifyApOffline == true}"></span>
+                        <label for="modifyApOffline" class="input-label"></label>
+                    </div>
+                    <label for="modifyApOffline" class="mr5">AP下线</label>
+                               
+                    <div class="xb-input xb-checkbox">
+                        <input type="checkbox" class="input-element" id="modifyEquipment" name="modifyEquipment"  ng-model="info.modifyEquipment"/>
+                        <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.modifyEquipment == true}"></span>
+                        <label for="modifyEquipment" class="input-label"></label>
+                    </div>
+                    <label for="modifyEquipment" class="mr5">设备状态</label>
+
+                    
+              		<div class="xb-input xb-checkbox">
+                        <input type="checkbox" class="input-element" id="modifyMemory" name="modifyMemory"  ng-model="info.modifyMemory"/>
+                        <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.modifyMemory == true}"></span>
+                        <label for="modifyMemory" class="input-label"></label>
+                    </div>
+                	<label for="modifyMemory" class="mr5">内存告警</label>
+
+                	<div class="xb-input xb-checkbox">
+                        <input type="checkbox" class="input-element" id="modifyCPU" name="modifyCPU"  ng-model="info.modifyCPU"/>
+                        <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.modifyCPU == true}"></span>
+                        <label for="modifyCPU" class="input-label"></label>
+                    </div>
+                	<label for="modifyCPU" class="mr5">CPU告警</label>
+
+                	<div class="xb-input xb-checkbox">
+                        <input type="checkbox" class="input-element" id="modifySoftware" name="modifySoftware"  ng-model="info.modifySoftware"/>
+                        <span class="input-icon checkbox-icon input-icon2" ng-class="{'checked': info.modifySoftware == true}"></span>
+                        <label for="modifySoftware" class="input-label"></label>
+                    </div>
+                	<label for="modifySoftware" class="mr5">软件升级</label>
+                                    
+                </div>
+    		</div>    
+
+            <div align = "center">
+                <button id="modifySubmit" class="btn btn-cus"   ng-disabled="modifyForm.$invalid"
+                 ng-click="modifySubmit()" >确定</button> 
+            </div>				    		    
+    	</form>   
+    </div>
+</div>

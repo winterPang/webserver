@@ -1,0 +1,32 @@
+<html>
+<head>
+</head>
+<body>
+<div>
+    <div class="dashboard" id="ap_container">
+        <div class="row">
+            <div id="aps_box_r1" class="col-xs-12 app-colum">
+            	<div class="app-box" id="aplist_page">
+			        <div class="sysinfo-footer">
+			            <div class="col-xs-12">
+			                <span class="title">AP列表</span>
+			            </div>
+			        </div>
+				    <div class="row-nohover sysinfo-body no-height" >				    	
+				    	<div style="padding-bottom:8px;"></div>
+		                <div id="AllApList" class="mlist"></div>
+				    </div>
+			    </div>
+            </div>
+        </div>
+    </div>
+    <div id="aps_detail_rc" class="rc-define"
+        ALLAP_HEADER="AP名称,MAC,AP型号,IP地址,序列号, 射频模式,客户端数量,在线时长（秒）,状态"
+		 SATUS = "在线,离线,不健康"
+    ></div>
+</div>
+</body>
+</html>
+<script	language="javascript" type="text/javascript">
+	Utils.Pages.loadJS("WDashboard.APs_Detail");
+</script>
